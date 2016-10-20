@@ -23,8 +23,28 @@ RSpec.describe CostDeterminer do
       context "when dispute is about late return/payment" do
         let(:appeal_attrs) { super().merge(dispute_about: :late_return_or_payment) }
 
-        it "has £50 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(5000)
+        context "when the penalty/surcharge amounts is £100" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 10000) }
+
+          it "has £20 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(2000)
+          end
+        end
+
+        context "when the penalty/surcharge amounts is £200" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 20000) }
+
+          it "has £50 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(5000)
+          end
+        end
+
+        context "when the penalty/surcharge amounts is £20001" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 2000100) }
+
+          it "has £200 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(20000)
+          end
         end
       end
 
@@ -93,6 +113,34 @@ RSpec.describe CostDeterminer do
 
         it "has £50 lodgement fee" do
           expect(subject.run.lodgement_fee).to eq(5000)
+        end
+      end
+
+      context "when dispute is about late return/payment" do
+        let(:appeal_attrs) { super().merge(dispute_about: :late_return_or_payment) }
+
+        context "when the penalty/surcharge amounts is £100" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 10000) }
+
+          it "has £20 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(2000)
+          end
+        end
+
+        context "when the penalty/surcharge amounts is £200" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 20000) }
+
+          it "has £50 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(5000)
+          end
+        end
+
+        context "when the penalty/surcharge amounts is £20001" do
+          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 2000100) }
+
+          it "has £200 lodgement fee" do
+            expect(subject.run.lodgement_fee).to eq(20000)
+          end
         end
       end
     end

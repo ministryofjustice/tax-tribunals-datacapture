@@ -29,7 +29,7 @@ class CostDeterminer
     when :amount_of_tax_owed
       AppealCost.new(lodgement_fee: 20000)
     when :late_return_or_payment
-      AppealCost.new(lodgement_fee: 5000)
+      penalty_amount_appeal_cost
     else
       raise "Unable to determine cost of VAT appeal"
     end
@@ -41,8 +41,21 @@ class CostDeterminer
       AppealCost.new(lodgement_fee: 5000)
     when :amount_of_tax_owed
       AppealCost.new(lodgement_fee: 20000)
+    when :late_return_or_payment
+      penalty_amount_appeal_cost
     else
       raise "Unable to determine cost of income tax appeal"
+    end
+  end
+
+  def penalty_amount_appeal_cost
+    case appeal.penalty_or_surcharge_amount
+    when 0..10000
+      AppealCost.new(lodgement_fee: 2000)
+    when 10001..2000000
+      AppealCost.new(lodgement_fee: 5000)
+    else
+      AppealCost.new(lodgement_fee: 20000)
     end
   end
 end
