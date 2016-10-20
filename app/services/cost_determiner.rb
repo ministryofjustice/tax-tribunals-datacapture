@@ -16,7 +16,7 @@ class CostDeterminer
     when :vat
       vat_appeal_cost
     when :apn_penalty, :closure_notice, :information_notice, :request_permission_for_review, :other
-      AppealCost.new(lodgement_fee: 5000)
+      AppealCost.medium
     when :inaccurate_return
       inaccurate_return_cost
     else
@@ -29,7 +29,7 @@ class CostDeterminer
   def vat_appeal_cost
     case appeal.dispute_about
     when :amount_of_tax_owed
-      AppealCost.new(lodgement_fee: 20000)
+      AppealCost.large
     when :late_return_or_payment
       penalty_amount_appeal_cost
     else
@@ -40,9 +40,9 @@ class CostDeterminer
   def income_tax_appeal_cost
     case appeal.dispute_about
     when :paye_coding_notice
-      AppealCost.new(lodgement_fee: 5000)
+      AppealCost.medium
     when :amount_of_tax_owed
-      AppealCost.new(lodgement_fee: 20000)
+      AppealCost.large
     when :late_return_or_payment
       penalty_amount_appeal_cost
     else
@@ -53,20 +53,20 @@ class CostDeterminer
   def penalty_amount_appeal_cost
     case appeal.penalty_or_surcharge_amount
     when 0..10000
-      AppealCost.new(lodgement_fee: 2000)
+      AppealCost.small
     when 10001..2000000
-      AppealCost.new(lodgement_fee: 5000)
+      AppealCost.medium
     else
-      AppealCost.new(lodgement_fee: 20000)
+      AppealCost.large
     end
   end
 
   def inaccurate_return_cost
     case appeal.inaccurate_return_type
     when :careless
-      AppealCost.new(lodgement_fee: 5000)
+      AppealCost.medium
     when :deliberate
-      AppealCost.new(lodgement_fee: 20000)
+      AppealCost.large
     else
       raise "Unable to determine cost of inaccurate return appeal"
     end
