@@ -13,6 +13,8 @@ class CostDeterminer
     case appeal.appeal_about
     when :income_tax
       income_tax_appeal_cost
+    when :vat
+      vat_appeal_cost
     when :apn_penalty, :closure_notice, :information_notice, :request_permission_for_review, :other
       AppealCost.new(lodgement_fee: 5000)
     else
@@ -21,6 +23,17 @@ class CostDeterminer
   end
 
   private
+
+  def vat_appeal_cost
+    case appeal.dispute_about
+    when :amount_of_tax_owed
+      AppealCost.new(lodgement_fee: 20000)
+    when :late_return_or_payment
+      AppealCost.new(lodgement_fee: 5000)
+    else
+      raise "Unable to determine cost of VAT appeal"
+    end
+  end
 
   def income_tax_appeal_cost
     case appeal.dispute_about
