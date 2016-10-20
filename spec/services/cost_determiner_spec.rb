@@ -17,6 +17,26 @@ RSpec.describe CostDeterminer do
   context "when hmrc challenged is true" do
     let(:appeal_attrs) { super().merge(hmrc_challenged: true) }
 
+    context "when appeal is about an inaccurate return" do
+      let(:appeal_attrs) { super().merge(appeal_about: :inaccurate_return) }
+
+      context "when it's careless" do
+        let(:appeal_attrs) { super().merge(inaccurate_return_type: :careless) }
+
+        it "has £50 lodgement fee" do
+          expect(subject.run.lodgement_fee).to eq(5000)
+        end
+      end
+
+      context "when it's deliberate" do
+        let(:appeal_attrs) { super().merge(inaccurate_return_type: :deliberate) }
+
+        it "has £200 lodgement fee" do
+          expect(subject.run.lodgement_fee).to eq(20000)
+        end
+      end
+    end
+
     context "when appeal is about VAT" do
       let(:appeal_attrs) { super().merge(appeal_about: :vat) }
 
