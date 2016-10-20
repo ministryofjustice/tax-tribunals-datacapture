@@ -18,5 +18,6 @@
 /coverage/*
 tags
 
-# Ignore user's .env
+# Ignore user's individual .env files
 .env
+.env.test
