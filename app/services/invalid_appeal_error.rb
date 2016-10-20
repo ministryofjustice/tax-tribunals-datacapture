@@ -1,0 +1,1 @@
+class InvalidAppealError < RuntimeError; end

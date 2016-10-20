@@ -1,24 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe CostDeterminer do
-  let(:appeal_attrs) { {} }
+  let(:appeal_attrs) { { valid?: true } }
   let(:appeal) { double(appeal_attrs) }
 
   subject { described_class.new(appeal) }
 
-  # TODO: Move this context to the appeal model specs, when we have some
-  context "when hmrc challenged is false" do
-    let(:appeal_attrs) { super().merge(hmrc_challenged: false) }
+  context "when appeal is invalid" do
+    let(:appeal_attrs) { super().merge(valid?: false) }
 
-    # TODO: Enable these specs
-    context "when appeal is about income tax" do
-      let(:appeal_attrs) { super().merge(appeal_about: :income_tax) }
-
-      xspecify { expect(appeal).not_to be_valid }
-
-      xit "says you must challenge hmrc" do
-        expect(appeal.errors.challenge_hmrc).to be_truthy
-      end
+    it "raises bad appeal error" do
+      expect{ subject.run }.to raise_error(InvalidAppealError)
     end
   end
 

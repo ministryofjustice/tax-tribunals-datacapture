@@ -8,6 +8,8 @@ class CostDeterminer
   end
 
   def run
+    raise InvalidAppealError unless appeal.valid?
+
     case appeal.appeal_about
     when :income_tax
       income_tax_appeal_cost
