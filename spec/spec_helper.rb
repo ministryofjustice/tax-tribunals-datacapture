@@ -1,7 +1,11 @@
 require 'simplecov'
 SimpleCov.minimum_coverage 100
 # SimpleCov conflicts with mutant. This lets us turn it off, when necessary.
-SimpleCov.start unless ENV['NOCOVERAGE']
+unless ENV['NOCOVERAGE']
+  SimpleCov.start do
+    add_filter '.bundle'
+  end
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
