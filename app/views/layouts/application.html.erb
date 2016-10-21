@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>TaxTribunalsDatacapture</title>
-    <%= csrf_meta_tags %>
+<% content_for(:homepage_url) { "/" } %>
+<% content_for(:page_title) { "GOV.UK - Appeal to the tax tribunal" } %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+<% content_for(:head) do %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+<% end %>
 
-  <body>
+<% content_for(:inside_header) do %>
+  <div class="header-proposition">
+    <div class="content">
+      <a href="/" id="proposition-name">Appeal to the tax tribunal</a>
+    </div>
+  </div>
+<% end %>
+
+<% content_for(:content) do %>
+  <main id="content" role="main">
+    <div class="phase-banner-alpha">
+      <p>
+        <strong class="phase-tag">BETA</strong>
+        <span>This is a trial service &ndash; your feedback will help us to improve it.</span>
+      </p>
+    </div>
+
+    <% if flash[:alert] %>
+      <div class="error-summary">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <%= yield %>
-  </body>
-</html>
+  </main>
+<% end %>
+
+<%= render template: "layouts/govuk_template" %>

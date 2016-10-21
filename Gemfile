@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'coffee-rails', '~> 4.2'
+gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
