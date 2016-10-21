@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe CostDeterminer do
-  let(:appeal_attrs) { { valid?: true } }
+  let(:appeal_attrs) { { valid_for_costing?: true } }
   let(:appeal) { double(appeal_attrs) }
 
   subject { described_class.new(appeal) }
 
   context "when appeal is invalid" do
-    let(:appeal_attrs) { super().merge(valid?: false) }
+    let(:appeal_attrs) { super().merge(valid_for_costing?: false) }
 
     it "raises bad appeal error" do
       expect{ subject.run }.to raise_error(InvalidAppealError)
