@@ -6,6 +6,12 @@ RSpec.describe CostDeterminer do
 
   subject { described_class.new(appeal) }
 
+  context "when appeal is about an unhandled value" do
+    let(:appeal_attrs) { super().merge(appeal_about: :unhandled) }
+
+    specify { expect{ subject.run }.to raise_error("Unable to determine cost of appeal") }
+  end
+
   context "when appeal is invalid" do
     let(:appeal_attrs) { super().merge(valid_for_costing?: false) }
 
@@ -35,10 +41,23 @@ RSpec.describe CostDeterminer do
           expect(subject.run.lodgement_fee).to eq(20000)
         end
       end
+
+      context "when it's an unhandled value" do
+        let(:appeal_attrs) { super().merge(inaccurate_return_type: :whatever) }
+
+        specify { expect{ subject.run }.to raise_error("Unable to determine cost of inaccurate return appeal") }
+      end
+
     end
 
     context "when appeal is about VAT" do
       let(:appeal_attrs) { super().merge(appeal_about: :vat) }
+
+      context "when dispute is about an unhandled value" do
+        let(:appeal_attrs) { super().merge(dispute_about: :something) }
+
+        specify { expect{ subject.run }.to raise_error("Unable to determine cost of VAT appeal") }
+      end
 
       context "when dispute is about late return/payment" do
         let(:appeal_attrs) { super().merge(dispute_about: :late_return_or_payment) }
@@ -119,6 +138,12 @@ RSpec.describe CostDeterminer do
 
     context "when appeal is about income tax" do
       let(:appeal_attrs) { super().merge(appeal_about: :income_tax) }
+
+      context "when dispute is about an unhandled value" do
+        let(:appeal_attrs) { super().merge(dispute_about: :something) }
+
+        specify { expect{ subject.run }.to raise_error("Unable to determine cost of income tax appeal") }
+      end
 
       context "when dispute is about amount of tax owed" do
         let(:appeal_attrs) { super().merge(dispute_about: :amount_of_tax_owed) }
