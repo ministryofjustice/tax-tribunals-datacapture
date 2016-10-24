@@ -1,9 +1,14 @@
+STEPS = [
+  :did_challenge_hmrc
+]
+
 Rails.application.routes.draw do
   namespace :steps do
-    [
-      :did_challenge_hmrc
-    ].each do |ctrlr|
-      resources ctrlr, only: [:edit, :update]
+    STEPS.each do |step_resource|
+      resource step_resource,
+        only:       [:edit, :update],
+        controller: step_resource,
+        path_names: { edit: '' }
     end
   end
 end
