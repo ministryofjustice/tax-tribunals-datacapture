@@ -9,8 +9,7 @@ RSpec.describe ApplicationHelper do
         controller: "application",
         action: :update
       },
-      method: :put,
-      as: :form_object
+      method: :put
     } }
     let(:form_block) { Proc.new {} }
 
