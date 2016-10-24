@@ -1,4 +1,4 @@
-class Steps::HmrcChallengeController < StepController
+class Steps::DidChallengeHmrcController < StepController
   def edit
     super
     @form_object = DidChallengeHmrcForm.new

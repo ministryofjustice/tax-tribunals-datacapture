@@ -19,6 +19,7 @@ gem 'virtus'
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'i18n-debug'
 end
 
 group :development, :test do

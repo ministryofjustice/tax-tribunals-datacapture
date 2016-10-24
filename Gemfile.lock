@@ -119,6 +119,8 @@ GEM
       rails (>= 3.1)
     high_voltage (3.0.0)
     i18n (0.7.0)
+    i18n-debug (1.1.0)
+      i18n (< 1)
     ice_nine (0.11.2)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -337,6 +339,7 @@ DEPENDENCIES
   govuk_frontend_toolkit
   govuk_template
   high_voltage
+  i18n-debug
   jbuilder (~> 2.5)
   jquery-rails
   launchy

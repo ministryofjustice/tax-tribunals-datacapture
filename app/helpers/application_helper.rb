@@ -3,8 +3,7 @@ module ApplicationHelper
   def step_form(record, options = {}, &block)
     opts = {
       url: { controller: controller.controller_path, action: :update },
-      method: :put,
-      as: :form_object
+      method: :put
     }.merge(options)
 
     form_for record, opts, &block
