@@ -1,0 +1,19 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :did_challenge_hmrc, inline: true %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+
+    <details>
+      <summary><%=t '.help_panel.heading' %></summary>
+      <div class="panel">
+        <%=t '.help_panel.content_html' %>
+      </div>
+    </details>
+  </div>
+</div>

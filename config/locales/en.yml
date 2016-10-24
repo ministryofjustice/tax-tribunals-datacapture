@@ -1,3 +1,30 @@
-
 en:
-  hello: "Hello world"
+  steps:
+    did_challenge_hmrc:
+      edit:
+        heading: Did you challenge the decision with HMRC first?
+        lead_text: If you’ve written to HM Revenue & Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.
+        help_panel:
+          heading: Help with challenging HMRC directly
+          content_html: >
+            <p>HMRC will tell you on the original decision  letter sent to you how you can query or challenge a tax decision.</p>
+            <p>You usually have 30 days to write to them saying why you think their decision is wrong.</p>
+            <p>It is free to ask HMRC to look into your tax issue again. You will usually only have to pay your own costs, for example towards postage, printing or any professional advice.</p>
+            <p><strong>You can still appeal to the tax tribunal after challenging HMRC</strong>
+            <p>HMRC will send you a letter telling you their view on your tax dispute and whether they've changed their mind.</p>
+            <p>If you disagree with HMRC’s response, you can:
+            <ul class="list list-bullet">
+              <li>ask HMRC for a review by an officer who wasn’t involved in the original decision. You can still appeal to the tax tribunal afterwards if you do not accept the review conclusion</li>
+              <li>consider alternative dispute resolution (ADR)</li>
+              <li>appeal to an independent tax tribunal within 30 days</li>
+            </ul>
+            <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
+  helpers:
+    fieldset:
+      did_challenge_hmrc_form:
+        did_challenge_hmrc: Did you challenge the decision with HMRC first?
+    submit:
+      # These are defaults applicable to most steps, override them for
+      # forms that should have different nomenclature.
+      create: Continue
+      update: Continue
