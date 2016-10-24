@@ -1,31 +1,13 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <p><a class="link-back js-link-back" href="start.html">Back</a> &nbsp; Step X of Y</p>
     <h1 class="heading-large">Did you challenge the decision with HMRC first?</h1>
 
     <p class="lede">If you’ve written to HM Revenue &amp; Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.</p>
 
-    <form class="js_route" action="type_of_tax">
-      <fieldset>
-        <div class="form-group">
-          <label class="block-label">
-            <input name="hmrc_challenge" type="radio" value="yes" data-store="hmrc_challenge=yes" />
-            Yes
-          </label>
-
-          <label class="block-label">
-            <input name="hmrc_challenge" type="radio" value="no" data-store="hmrc_challenge=no" />
-            No
-          </label>
-
-        </div>
-      </fieldset>
-
-      <p>
-        <input class="button" type="submit" value="Continue">
-      </p>
-
-    </form>
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :did_challenge_hmrc, inline: true %>
+      <%= f.submit class: 'button' %>
+    <% end %>
 
     <details>
       <summary>Help with challenging HMRC  directly</summary>
