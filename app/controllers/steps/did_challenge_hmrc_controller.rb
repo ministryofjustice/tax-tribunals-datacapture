@@ -8,7 +8,7 @@ class Steps::DidChallengeHmrcController < StepController
   end
 
   def update
-    update_and_advance(:did_challenge_hmrc, DidChallengeHmrcForm)
+    update_and_advance(DidChallengeHmrcForm)
   end
 
   private
