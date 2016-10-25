@@ -11,4 +11,6 @@ Rails.application.routes.draw do
         path_names: { edit: '' }
     end
   end
+
+  root to: 'start#index'
 end
