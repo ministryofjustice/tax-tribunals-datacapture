@@ -2,10 +2,15 @@ class BaseForm
   include Virtus.model
   include ActiveModel::Validations
 
-  attr_reader :tribunal_case
+  attr_accessor :tribunal_case
 
-  def initialize(tribunal_case)
-    @tribunal_case = tribunal_case
+  def save
+    if valid?
+      persist!
+      true
+    else
+      false
+    end
   end
 
   def to_key
@@ -17,4 +22,12 @@ class BaseForm
   def persisted?
     false
   end
+
+  private
+
+  # :nocov:
+  def persist!
+    raise 'Subclasses of BaseForm need to implement #persist!'
+  end
+  # :nocov:
 end

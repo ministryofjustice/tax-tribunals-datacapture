@@ -41,6 +41,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'fuubar'
+  gem 'rails-controller-testing'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'shoulda'
