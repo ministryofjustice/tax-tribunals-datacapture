@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :decisions, only: [:show]
+  resource :session, only: [:destroy]
   root to: 'start#index'
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Steps::DidChallengeHmrcController, type: :controller do
-  describe 'GET /edit' do
+  describe '#edit' do
     context 'when no case exists in the session yet' do
       it 'creates a new case' do
         expect { get :edit }.to change { TribunalCase.count }.by(1)
@@ -39,7 +39,7 @@ RSpec.describe Steps::DidChallengeHmrcController, type: :controller do
     end
   end
 
-  describe 'PUT /update' do
+  describe '#update' do
     let(:did_challenge_hmrc_form) { instance_double(DidChallengeHmrcForm) }
 
     before do
@@ -51,9 +51,12 @@ RSpec.describe Steps::DidChallengeHmrcController, type: :controller do
         expect(did_challenge_hmrc_form).to receive(:save).and_return(true)
       end
 
-      it 'redirects to the start page' do
+      let(:decision_tree) { instance_double(DecisionTree, destination: '/expected_destination') }
+
+      it 'asks the decision tree for the next destination and redirects there' do
+        expect(DecisionTree).to receive(:new).and_return(decision_tree)
         put :update
-        expect(subject).to redirect_to(root_path)
+        expect(subject).to redirect_to('/expected_destination')
       end
     end
 
