@@ -10,7 +10,12 @@ Rails.application.routes.draw do
         controller: step_resource,
         path_names: { edit: '' }
     end
+
+    resource :determine_cost,
+      only: [:show],
+      controller: :determine_cost
   end
 
+  resource :session, only: [:destroy]
   root to: 'start#index'
 end
