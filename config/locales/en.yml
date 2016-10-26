@@ -167,6 +167,18 @@ en:
               <li>appeal to an independent tax tribunal within 30 days</li>
             </ul>
             <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
+
+  errors:
+    # WARNING: This means every possible error message must be a full
+    #  English sentence because the attribute name won't be prepended!
+    format: "%{message}"
+  activemodel:
+    errors:
+      models:
+        did_challenge_hmrc_form:
+          attributes:
+            did_challenge_hmrc:
+              inclusion: Select whether you have challenged the decision with HMRC first
   helpers:
     fieldset:
       did_challenge_hmrc_form:
