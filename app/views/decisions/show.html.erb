@@ -1,0 +1,7 @@
+<h1 class="heading-large">Your Decision</h1>
+<p class="lede">
+  Your decision is <em><%= @decision %></em>.
+</p>
+<p>
+  <%= link_to "Start again", session_path, method: :delete, class: 'link-back' %>
+</p>
