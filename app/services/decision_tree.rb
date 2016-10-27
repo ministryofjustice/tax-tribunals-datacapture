@@ -15,6 +15,8 @@ class DecisionTree
       after_did_challenge_hmrc_step
     when :what_is_appeal_about_challenged
       after_what_is_appeal_about_challenged_step
+    when :what_is_appeal_about_unchallenged
+      after_what_is_appeal_about_unchallenged_step
     else
       raise "Invalid step '#{step}'"
     end
@@ -29,11 +31,15 @@ class DecisionTree
     when a.fetch(:yes)
       { controller: :what_is_appeal_about_challenged, action: :edit }
     when a.fetch(:no)
-      { controller: :determine_cost, action: :show }
+      { controller: :what_is_appeal_about_unchallenged, action: :edit }
     end
   end
 
   def after_what_is_appeal_about_challenged_step
+    { controller: :determine_cost, action: :show }
+  end
+
+  def after_what_is_appeal_about_unchallenged_step
     { controller: :determine_cost, action: :show }
   end
 

@@ -1,4 +1,4 @@
-class WhatIsAppealAboutChallengedForm < BaseForm
+class WhatIsAppealAboutForm < BaseForm
   attribute :what_is_appeal_about, Boolean
 
   def self.choices

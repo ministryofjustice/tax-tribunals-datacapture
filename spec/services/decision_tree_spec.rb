@@ -31,8 +31,19 @@ RSpec.describe DecisionTree do
       end
     end
 
-    context 'when the step is `did_challenge_hmrc`' do
+    context 'when the step is `what_is_appeal_about_challenged`' do
       let(:step) { { what_is_appeal_about_challenged: 'anything_for_now' } }
+
+      it 'sends the user to the endpoint' do
+        expect(subject.destination).to eq({
+          controller: :determine_cost,
+          action:     :show
+        })
+      end
+    end
+
+    context 'when the step is `what_is_appeal_about_unchallenged`' do
+      let(:step) { { what_is_appeal_about_unchallenged: 'anything_for_now' } }
 
       it 'sends the user to the endpoint' do
         expect(subject.destination).to eq({

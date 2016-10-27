@@ -1,4 +1,4 @@
-class Steps::WhatIsAppealAboutChallengedController < StepController
+class Steps::WhatIsAppealAboutUnchallengedController < StepController
   def edit
     super
     @form_object = WhatIsAppealAboutForm.new(
@@ -8,6 +8,6 @@ class Steps::WhatIsAppealAboutChallengedController < StepController
   end
 
   def update
-    update_and_advance(:what_is_appeal_about, WhatIsAppealAboutForm, as: :what_is_appeal_about_challenged)
+    update_and_advance(:what_is_appeal_about, WhatIsAppealAboutForm, as: :what_is_appeal_about_unchallenged)
   end
 end

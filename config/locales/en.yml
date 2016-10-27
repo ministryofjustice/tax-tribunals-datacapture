@@ -172,6 +172,11 @@ en:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
         description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+    what_is_appeal_about_unchallenged:
+      edit:
+        heading: What is your appeal about?
+        lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
+        description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
   errors:
     # WARNING: This means every possible error message must be a full
     #  English sentence because the attribute name won't be prepended!
@@ -183,7 +188,7 @@ en:
           attributes:
             did_challenge_hmrc:
               inclusion: Select whether you have challenged the decision with HMRC first
-        what_is_appeal_about_challenged_form:
+        what_is_appeal_about_form:
           attributes:
             what_is_appeal_about:
               inclusion: Select what your appeal is about
@@ -191,10 +196,10 @@ en:
     fieldset:
       did_challenge_hmrc_form:
         did_challenge_hmrc: Did you challenge the decision with HMRC first?
-      what_is_appeal_about_challenged_form:
+      what_is_appeal_about_form:
         what_is_appeal_about: What is your appeal about?
     label:
-      what_is_appeal_about_challenged_form:
+      what_is_appeal_about_form:
         what_is_appeal_about:
           income_tax: Income Tax
           vat: Value Added Tax (VAT)
