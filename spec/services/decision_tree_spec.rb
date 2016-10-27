@@ -11,10 +11,10 @@ RSpec.describe DecisionTree do
       context 'and the answer is yes' do
         let(:step) { { did_challenge_hmrc: 'yes' } }
 
-        it 'sends the user to the endpoint' do
+        it 'sends the user to the what_is_appeal_about_challenged step' do
           expect(subject.destination).to eq({
-            controller: :determine_cost,
-            action:     :show
+            controller: :what_is_appeal_about_challenged,
+            action:     :edit
           })
         end
       end
@@ -28,6 +28,17 @@ RSpec.describe DecisionTree do
             action:     :show
           })
         end
+      end
+    end
+
+    context 'when the step is `did_challenge_hmrc`' do
+      let(:step) { { what_is_appeal_about_challenged: 'anything_for_now' } }
+
+      it 'sends the user to the endpoint' do
+        expect(subject.destination).to eq({
+          controller: :determine_cost,
+          action:     :show
+        })
       end
     end
 

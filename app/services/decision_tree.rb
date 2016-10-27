@@ -13,6 +13,8 @@ class DecisionTree
     case step.to_sym
     when :did_challenge_hmrc
       after_did_challenge_hmrc_step
+    when :what_is_appeal_about_challenged
+      after_what_is_appeal_about_challenged_step
     else
       raise "Invalid step '#{step}'"
     end
@@ -25,10 +27,14 @@ class DecisionTree
 
     case answer
     when a.fetch(:yes)
-      { controller: :determine_cost, action: :show }
+      { controller: :what_is_appeal_about_challenged, action: :edit }
     when a.fetch(:no)
       { controller: :determine_cost, action: :show }
     end
+  end
+
+  def after_what_is_appeal_about_challenged_step
+    { controller: :determine_cost, action: :show }
   end
 
   def step
