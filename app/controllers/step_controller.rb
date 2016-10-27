@@ -9,10 +9,22 @@ class StepController < ApplicationController
     @current_tribunal_case ||= TribunalCase.find_by_id(session[:tribunal_case_id])
   end
 
-  def update_and_advance(form_class, opts={})
+  def update_and_advance(attr, form_class, opts={})
     hash = params.fetch(form_class.name.underscore, {})
-    @form_object = form_class.new(hash.merge(tribunal_case: current_tribunal_case))
-    @next_step = params[:next_step].blank? ? nil : params[:next_step]
+
+    @next_step   = params[:next_step].presence
+    @form_object = form_class.new(
+      hash.merge(tribunal_case: current_tribunal_case)
+    )
+
+    if opts[:as]
+      # Allow renaming of the attribute if the attribute name in the
+      # form does not match the step name in the decision tree.
+      #   e.g. We might have an attribute `what_is_appeal_about` in
+      #   a form `what_is_appeal_about_challenged` - in which case
+      #   we need to rename the key in the params hash.
+      hash = { opts[:as] => hash[attr] }
+    end
 
     if @form_object.save
       destination = DecisionTree.new(

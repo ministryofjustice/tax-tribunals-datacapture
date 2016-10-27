@@ -1,6 +1,7 @@
-STEPS = [
-  :did_challenge_hmrc
-]
+STEPS = %i(
+  did_challenge_hmrc
+  what_is_appeal_about_challenged
+)
 
 Rails.application.routes.draw do
   namespace :steps do
