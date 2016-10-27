@@ -11,16 +11,22 @@ class StepController < ApplicationController
 
   def update_and_advance(attr, form_class, opts={})
     hash = params.fetch(form_class.name.underscore, {})
-    @form_object = form_class.new(hash.merge(tribunal_case: current_tribunal_case))
-    @next_step = params[:next_step].blank? ? nil : params[:next_step]
+
+    @next_step   = params[:next_step].presence
+    @form_object = form_class.new(
+      hash.merge(tribunal_case: current_tribunal_case)
+    )
+
+    if opts[:as]
+      # Allow renaming of the attribute if the attribute name in the
+      # form does not match the step name in the decision tree.
+      #   e.g. We might have an attribute `what_is_appeal_about` in
+      #   a form `what_is_appeal_about_challenged` - in which case
+      #   we need to rename the key in the params hash.
+      hash = { opts[:as] => hash[attr] }
+    end
 
     if @form_object.save
-      # if we are reusing a step (e.g. income, income2, income3)
-      # we need to rename the 'income' attribute to 'income2' (or whatever) for the
-      # DecisionTree#destination call
-      # i.e. { income: "high" } -> { income2: "high" }
-      hash = opts[:as] ? { opts[:as] => hash[attr] } : hash
-
       destination = DecisionTree.new(
         object:    current_tribunal_case,
         step:      hash,
