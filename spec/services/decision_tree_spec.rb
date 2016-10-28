@@ -24,8 +24,8 @@ RSpec.describe DecisionTree do
 
         it 'sends the user to the endpoint' do
           expect(subject.destination).to eq({
-            controller: :determine_cost,
-            action:     :show
+            controller: :what_is_appeal_about_unchallenged,
+            action:     :edit
           })
         end
       end
