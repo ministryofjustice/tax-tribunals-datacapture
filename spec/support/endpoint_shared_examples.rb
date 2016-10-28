@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples 'an endpoint controller' do
+RSpec.shared_examples 'an end point step controller' do
   describe '#show' do
     context 'when no case exists in the session' do
       it 'raises an error' do

@@ -35,7 +35,7 @@ RSpec.shared_examples 'a generic step controller' do |form_class|
   end
 end
 
-RSpec.shared_examples 'an entrypoint step controller' do |form_class|
+RSpec.shared_examples 'a start point step controller' do |form_class|
   include_examples 'a generic step controller', form_class
 
   describe '#edit' do
@@ -77,7 +77,7 @@ RSpec.shared_examples 'an entrypoint step controller' do |form_class|
   end
 end
 
-RSpec.shared_examples 'a non-entrypoint step controller' do |form_class|
+RSpec.shared_examples 'an intermediate step controller' do |form_class|
   include_examples 'a generic step controller', form_class
 
   describe '#edit' do
