@@ -4,6 +4,11 @@ STEPS = %i(
   what_is_appeal_about_unchallenged
 )
 
+ENDPOINTS = %i(
+  determine_cost
+  must_challenge_hmrc
+)
+
 Rails.application.routes.draw do
   namespace :steps do
     STEPS.each do |step_resource|
@@ -13,9 +18,11 @@ Rails.application.routes.draw do
         path_names: { edit: '' }
     end
 
-    resource :determine_cost,
-      only: [:show],
-      controller: :determine_cost
+    ENDPOINTS.each do |endpoint_resource|
+      resource endpoint_resource,
+        only:       [:show],
+        controller: endpoint_resource
+    end
   end
 
   resource :session, only: [:destroy]
