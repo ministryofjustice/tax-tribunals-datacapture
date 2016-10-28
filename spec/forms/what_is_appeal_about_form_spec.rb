@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe WhatIsAppealAboutChallengedForm do
+RSpec.describe WhatIsAppealAboutForm do
   let(:arguments) { {
     tribunal_case:        tribunal_case,
     what_is_appeal_about: what_is_appeal_about

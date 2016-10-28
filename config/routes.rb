@@ -1,6 +1,7 @@
 STEPS = %i(
   did_challenge_hmrc
   what_is_appeal_about_challenged
+  what_is_appeal_about_unchallenged
 )
 
 Rails.application.routes.draw do

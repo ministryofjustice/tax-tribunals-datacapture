@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Steps::WhatIsAppealAboutChallengedController, type: :controller do
+RSpec.describe Steps::WhatIsAppealAboutUnchallengedController, type: :controller do
   describe '#edit' do
     context 'when no case exists in the session yet' do
       it 'raises an exception' do
