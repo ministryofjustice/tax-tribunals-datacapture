@@ -177,6 +177,20 @@ en:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
         description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+    determine_cost:
+      show:
+        heading: Your Appeal
+        lead_text: This page will tell you how much your appeal will cost.
+        start_again: Start again
+    must_challenge_hmrc:
+      show:
+        heading: You must challenge HMRC before you can appeal
+        lead_text: For your type of tax dispute you must challenge the decision with HMRC first.
+        free_to_challenge_hmrc_heading: It is free to challenge HMRC
+        free_to_challenge_hmrc_description_html: You must contact HMRC within the deadline shown on the original notice letter from HMRC. This is usually <strong>30 days</strong>, although you can still write to them after this if you have good reasons for being late.
+        free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
+        contact_hmrc_button: Contact HMRC
+        start_again: Start again
   errors:
     # WARNING: This means every possible error message must be a full
     #  English sentence because the attribute name won't be prepended!

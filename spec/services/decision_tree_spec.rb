@@ -22,7 +22,7 @@ RSpec.describe DecisionTree do
       context 'and the answer is no' do
         let(:step) { { did_challenge_hmrc: 'no' } }
 
-        it 'sends the user to the endpoint' do
+        it 'sends the user to the what_is_appeal_about_unchallenged step' do
           expect(subject.destination).to eq({
             controller: :what_is_appeal_about_unchallenged,
             action:     :edit
@@ -43,13 +43,37 @@ RSpec.describe DecisionTree do
     end
 
     context 'when the step is `what_is_appeal_about_unchallenged`' do
-      let(:step) { { what_is_appeal_about_unchallenged: 'anything_for_now' } }
 
-      it 'sends the user to the endpoint' do
-        expect(subject.destination).to eq({
-          controller: :determine_cost,
-          action:     :show
-        })
+      context "and the answer is 'income_tax'" do
+        let(:step) { { what_is_appeal_about_unchallenged: 'income_tax' } }
+
+        it "sends the user to the 'must_challenge_hmrc' endpoint" do
+          expect(subject.destination).to eq({
+            controller: :must_challenge_hmrc,
+            action:     :show
+          })
+        end
+      end
+
+      %w(
+        vat
+        apn_penalty
+        inaccurate_return
+        closure_notice
+        information_notice
+        request_permission_for_review
+        other
+      ).each do |tax_type|
+        context "and the answer is '#{tax_type}'" do
+          let(:step) { { what_is_appeal_about_unchallenged: tax_type } }
+
+          it "sends the user to the 'determine_cost' endpoint" do
+            expect(subject.destination).to eq({
+              controller: :determine_cost,
+              action:     :show
+            })
+          end
+        end
       end
     end
 

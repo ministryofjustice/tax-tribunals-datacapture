@@ -25,12 +25,10 @@ class DecisionTree
   private
 
   def after_did_challenge_hmrc_step
-    a = ANSWERS.fetch(:did_challenge_hmrc)
-
     case answer
-    when a.fetch(:yes)
+    when :yes
       { controller: :what_is_appeal_about_challenged, action: :edit }
-    when a.fetch(:no)
+    when :no
       { controller: :what_is_appeal_about_unchallenged, action: :edit }
     end
   end
@@ -40,7 +38,12 @@ class DecisionTree
   end
 
   def after_what_is_appeal_about_unchallenged_step
-    { controller: :determine_cost, action: :show }
+    case answer
+    when :income_tax
+      { controller: :must_challenge_hmrc, action: :show }
+    else
+      { controller: :determine_cost, action: :show }
+    end
   end
 
   def step
@@ -48,6 +51,6 @@ class DecisionTree
   end
 
   def answer
-    @step.values.first
+    @step.values.first.to_sym
   end
 end
