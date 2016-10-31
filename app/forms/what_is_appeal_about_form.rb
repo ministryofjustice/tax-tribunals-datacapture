@@ -1,5 +1,5 @@
 class WhatIsAppealAboutForm < BaseForm
-  attribute :what_is_appeal_about, Boolean
+  attribute :what_is_appeal_about, String
 
   def self.choices
     TribunalCase.what_is_appeal_about_values
