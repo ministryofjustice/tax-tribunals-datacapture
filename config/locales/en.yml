@@ -180,7 +180,7 @@ en:
     determine_cost:
       show:
         heading: Your Appeal
-        lead_text: This page will tell you how much your appeal will cost.
+        lead_text: To submit an appeal you will have to pay
         start_again: Start again
     must_challenge_hmrc:
       show:
