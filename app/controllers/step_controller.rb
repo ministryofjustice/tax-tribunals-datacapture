@@ -10,7 +10,7 @@ class StepController < ApplicationController
   end
 
   def update_and_advance(attr, form_class, opts={})
-    hash = params.fetch(form_class.name.underscore, {})
+    hash = permitted_params(form_class).to_h
 
     @next_step   = params[:next_step].presence
     @form_object = form_class.new(
@@ -37,5 +37,11 @@ class StepController < ApplicationController
     else
       render opts.fetch(:render, :edit)
     end
+  end
+
+  def permitted_params(form_class)
+    params
+      .require(form_class.name.underscore)
+      .permit(form_class.new.attributes.keys)
   end
 end
