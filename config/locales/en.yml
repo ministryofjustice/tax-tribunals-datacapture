@@ -228,18 +228,18 @@ en:
     label:
       what_is_appeal_about_form:
         what_is_appeal_about:
-          income_tax: Income Tax
-          vat: Value Added Tax (VAT)
-          apn_penalty: Advance Payment Notice (APN) penalty
-          inaccurate_return: Inaccurate return
-          closure_notice: Closure notice
-          information_notice: Information notices (Schedule 36)
-          request_permission_for_review: Request permission for a review
-          other: Other
+          income_tax_html: <strong>Income Tax</strong><br>for example, Pay As You Earn (PAYE), self-assessment
+          vat_html: <strong>Value Added Tax (VAT)</strong>
+          apn_penalty_html: <strong>Advance Payment Notice (APN) penalty</strong><br>for example, non-compliance with Disclosure Of Tax Avoidance Schemes (DOTAS)
+          inaccurate_return_html: <strong>Inaccurate return</strong><br>penalty for an inaccurate return or document
+          closure_notice_html: <strong>Closure notice</strong><br>request HMRC close an ongoing enquiry into your tax returns
+          information_notice_html: <strong>Information notices (Schedule 36)</strong><br>including penalties for non-compliance with information notices
+          request_permission_for_review_html: <strong>Request permission for a review</strong><br>apply to get a late review accepted by HMRC, UK Border Force (UKBF) or National Crime Authority (NCA)
+          other_html: <strong>Other</strong>
       what_is_dispute_about_vat_form:
         what_is_dispute_about:
-          late_return_or_payment: Late return or payment
-          amount_of_tax_owed: Amount of tax owed
+          late_return_or_payment_html: <strong>Late return or payment</strong><br>penalty or surcharge for late filing of returns and documents or late payment of duties
+          amount_of_tax_owed_html: <strong>Amount of tax owed</strong>
       what_is_late_penalty_or_surcharge_form:
         what_is_penalty_or_surcharge_amount:
           100_or_less: £100 or less
