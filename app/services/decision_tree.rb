@@ -17,6 +17,10 @@ class DecisionTree
       after_what_is_appeal_about_challenged_step
     when :what_is_appeal_about_unchallenged
       after_what_is_appeal_about_unchallenged_step
+    when :what_is_dispute_about_vat
+      after_what_is_dispute_about_vat_step
+    when :what_is_late_penalty_or_surcharge
+      after_what_is_late_penalty_or_surcharge_step
     else
       raise "Invalid step '#{step}'"
     end
@@ -34,16 +38,36 @@ class DecisionTree
   end
 
   def after_what_is_appeal_about_challenged_step
-    { controller: :determine_cost, action: :show }
+    case answer
+    when :vat
+      { controller: :what_is_dispute_about_vat, action: :edit }
+    else
+      { controller: :determine_cost, action: :show }
+    end
   end
 
   def after_what_is_appeal_about_unchallenged_step
     case answer
     when :income_tax
       { controller: :must_challenge_hmrc, action: :show }
+    when :vat
+      { controller: :what_is_dispute_about_vat, action: :edit }
     else
       { controller: :determine_cost, action: :show }
     end
+  end
+
+  def after_what_is_dispute_about_vat_step
+    case answer
+    when :late_return_or_payment
+      { controller: :what_is_late_penalty_or_surcharge, action: :edit }
+    when :amount_of_tax_owed
+      { controller: :determine_cost, action: :show }
+    end
+  end
+
+  def after_what_is_late_penalty_or_surcharge_step
+    { controller: :determine_cost, action: :show }
   end
 
   def step

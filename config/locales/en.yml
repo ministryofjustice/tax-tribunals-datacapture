@@ -177,6 +177,15 @@ en:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
         description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+    what_is_dispute_about_vat:
+      edit:
+        heading: What is your dispute about?
+        lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
+        description_text: You can't combine separate disputes on separate letters into one appeal.
+    what_is_late_penalty_or_surcharge:
+      edit:
+        heading: What is the penalty or surcharge amount?
+        lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
     determine_cost:
       show:
         heading: Your Appeal
@@ -212,6 +221,10 @@ en:
         did_challenge_hmrc: Did you challenge the decision with HMRC first?
       what_is_appeal_about_form:
         what_is_appeal_about: What is your appeal about?
+      what_is_dispute_about_vat_form:
+        what_is_dispute_about: What is your dispute about?
+      what_is_late_penalty_or_surcharge_form:
+        what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
     label:
       what_is_appeal_about_form:
         what_is_appeal_about:
@@ -223,6 +236,15 @@ en:
           information_notice: Information notices (Schedule 36)
           request_permission_for_review: Request permission for a review
           other: Other
+      what_is_dispute_about_vat_form:
+        what_is_dispute_about:
+          late_return_or_payment: Late return or payment
+          amount_of_tax_owed: Amount of tax owed
+      what_is_late_penalty_or_surcharge_form:
+        what_is_penalty_or_surcharge_amount:
+          100_or_less: £100 or less
+          101_to_20000: £101 – £20,000
+          20001_or_more: £20,001 or more
     submit:
       # These are defaults applicable to most steps, override them for
       # forms that should have different nomenclature.

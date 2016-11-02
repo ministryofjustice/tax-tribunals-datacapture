@@ -41,7 +41,7 @@ class StepController < ApplicationController
 
   def permitted_params(form_class)
     params
-      .require(form_class.name.underscore)
+      .fetch(form_class.name.underscore, {})
       .permit(form_class.new.attributes.keys)
   end
 end

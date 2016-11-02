@@ -10,12 +10,6 @@ RSpec.shared_examples 'a generic step controller' do |form_class|
       allow(form_class).to receive(:new).and_return(form_object)
     end
 
-    context 'when the required form parameters are missing' do
-      it 'raises an error' do
-        expect { put :update }.to raise_error(ActionController::ParameterMissing)
-      end
-    end
-
     context 'when the form saves successfully' do
       before do
         expect(form_object).to receive(:save).and_return(true)
