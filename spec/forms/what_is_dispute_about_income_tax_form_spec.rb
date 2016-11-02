@@ -48,7 +48,10 @@ RSpec.describe WhatIsDisputeAboutIncomeTaxForm do
       let(:what_is_dispute_about) { 'paye_coding_notice' }
 
       it 'saves the record' do
-        expect(tribunal_case).to receive(:update).with( what_is_dispute_about: 'paye_coding_notice')
+        expect(tribunal_case).to receive(:update).with(
+          what_is_dispute_about: 'paye_coding_notice',
+          what_is_penalty_or_surcharge_amount: nil
+        )
         expect(subject.save).to be(true)
       end
     end

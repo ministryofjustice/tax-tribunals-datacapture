@@ -48,7 +48,11 @@ RSpec.describe WhatIsAppealAboutForm do
       let(:what_is_appeal_about) { 'income_tax' }
 
       it 'saves the record' do
-        expect(tribunal_case).to receive(:update).with( what_is_appeal_about: 'income_tax')
+        expect(tribunal_case).to receive(:update).with(
+          what_is_appeal_about: 'income_tax',
+          what_is_dispute_about: nil,
+          what_is_penalty_or_surcharge_amount: nil
+        )
         expect(subject.save).to be(true)
       end
     end

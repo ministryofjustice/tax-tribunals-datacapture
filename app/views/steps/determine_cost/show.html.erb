@@ -4,6 +4,25 @@
 <%=t '.lead_text' %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th scope="col"><%=t '.check_your_answers' %></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @change_answers.rows.each do |row| %>
+      <tr>
+        <td><%=t row.question %></td>
+        <td><strong><%=t row.answer %></strong></td>
+        <td><%= link_to t('.change'), row.change_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p>
   <%= link_to t('.start_again'), session_path, method: :delete, class: 'link-back' %>
 </p>

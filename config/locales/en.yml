@@ -196,6 +196,33 @@ en:
         heading: Your Appeal
         lead_text: To submit an appeal you will have to pay
         start_again: Start again
+        change: Change
+        questions:
+          did_challenge_hmrc: Did you challenge the decision with HMRC first?
+          what_is_appeal_about: What is your appeal about?
+          what_is_dispute_about: What is your dispute about?
+          what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
+        answers:
+          did_challenge_hmrc:
+            'true': 'Yes'
+            'false': 'No'
+          what_is_appeal_about:
+            income_tax: Income Tax
+            vat: Value Added Tax (VAT)
+            apn_penalty: Advance Payment Notice (APN) penalty
+            inaccurate_return: Inaccurate return
+            closure_notice: Closure notice
+            information_notice: Information notices (Schedule 36)
+            request_permission_for_review: Request permission for a review
+            other_html: Other
+          what_is_dispute_about:
+            late_return_or_payment: Late return or payment
+            amount_of_tax_owed: Amount of tax owed
+            paye_coding_notice: Pay As You Earn (PAYE) coding notice
+          what_is_penalty_or_surcharge_amount:
+            100_or_less: £100 or less
+            101_to_20000: £101 – £20,000
+            20001_or_more: £20,001 or more
     must_challenge_hmrc:
       show:
         heading: You must challenge HMRC before you can appeal

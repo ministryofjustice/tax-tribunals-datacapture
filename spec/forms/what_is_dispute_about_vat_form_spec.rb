@@ -48,7 +48,10 @@ RSpec.describe WhatIsDisputeAboutVatForm do
       let(:what_is_dispute_about) { 'late_return_or_payment' }
 
       it 'saves the record' do
-        expect(tribunal_case).to receive(:update).with( what_is_dispute_about: 'late_return_or_payment')
+        expect(tribunal_case).to receive(:update).with(
+          what_is_dispute_about: 'late_return_or_payment',
+          what_is_penalty_or_surcharge_amount: nil
+        )
         expect(subject.save).to be(true)
       end
     end
