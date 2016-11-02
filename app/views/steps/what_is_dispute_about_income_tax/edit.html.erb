@@ -1,0 +1,15 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <p><%=t '.description_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :what_is_dispute_about,
+        choices: WhatIsDisputeAboutIncomeTaxForm.choices %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>
