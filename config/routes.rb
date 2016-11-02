@@ -3,6 +3,7 @@ STEPS = %i(
   what_is_appeal_about_challenged
   what_is_appeal_about_unchallenged
   what_is_dispute_about_vat
+  what_is_dispute_about_income_tax
   what_is_late_penalty_or_surcharge
 )
 
