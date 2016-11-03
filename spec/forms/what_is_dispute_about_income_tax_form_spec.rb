@@ -48,7 +48,20 @@ RSpec.describe WhatIsDisputeAboutIncomeTaxForm do
       let(:what_is_dispute_about) { 'paye_coding_notice' }
 
       it 'saves the record' do
-        expect(tribunal_case).to receive(:update).with( what_is_dispute_about: 'paye_coding_notice')
+        expect(tribunal_case).to receive(:update).with(
+          what_is_dispute_about: 'paye_coding_notice',
+          what_is_penalty_or_surcharge_amount: nil
+        )
+        expect(subject.save).to be(true)
+      end
+    end
+
+    context 'when what_is_dispute_about is already the same on the model' do
+      let(:tribunal_case)      { instance_double(TribunalCase, what_is_dispute_about: 'paye_coding_notice') }
+      let(:what_is_dispute_about) { 'paye_coding_notice' }
+
+      it 'does not save the record but returns true' do
+        expect(tribunal_case).to_not receive(:update)
         expect(subject.save).to be(true)
       end
     end
