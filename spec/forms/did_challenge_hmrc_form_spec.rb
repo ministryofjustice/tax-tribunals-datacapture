@@ -57,5 +57,15 @@ RSpec.describe DidChallengeHmrcForm do
         expect(subject.save).to be(true)
       end
     end
+
+    context 'when did_challenge_hmrc is already the same on the model' do
+      let(:tribunal_case)      { instance_double(TribunalCase, did_challenge_hmrc: true) }
+      let(:did_challenge_hmrc) { true }
+
+      it 'does not save the record but returns true' do
+        expect(tribunal_case).to_not receive(:update)
+        expect(subject.save).to be(true)
+      end
+    end
   end
 end

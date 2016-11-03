@@ -9,8 +9,14 @@ class WhatIsAppealAboutForm < BaseForm
 
   private
 
+  def changed?
+    tribunal_case.what_is_appeal_about != what_is_appeal_about
+  end
+
   def persist!
     raise 'No TribunalCase given' unless tribunal_case
+    return unless changed?
+
     tribunal_case.update(
       what_is_appeal_about: what_is_appeal_about,
       # The following are dependent attributes that need to be reset

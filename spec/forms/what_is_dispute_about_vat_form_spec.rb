@@ -55,5 +55,15 @@ RSpec.describe WhatIsDisputeAboutVatForm do
         expect(subject.save).to be(true)
       end
     end
+
+    context 'when what_is_dispute_about is already the same on the model' do
+      let(:tribunal_case)      { instance_double(TribunalCase, what_is_dispute_about: 'late_return_or_payment') }
+      let(:what_is_dispute_about) { 'late_return_or_payment' }
+
+      it 'does not save the record but returns true' do
+        expect(tribunal_case).to_not receive(:update)
+        expect(subject.save).to be(true)
+      end
+    end
   end
 end
