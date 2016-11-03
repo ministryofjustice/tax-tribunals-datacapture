@@ -8,7 +8,7 @@
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :what_is_dispute_about,
-        choices: WhatIsDisputeAboutIncomeTaxForm.choices %>
+        choices: @form_object.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

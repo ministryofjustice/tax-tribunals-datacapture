@@ -86,7 +86,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.what_is_dispute_about')
           expect(row.answer).to      eq('.answers.what_is_dispute_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_income_tax_path)
+          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_path)
         end
       end
 
@@ -97,7 +97,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.what_is_dispute_about')
           expect(row.answer).to      eq('.answers.what_is_dispute_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_vat_path)
+          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_path)
         end
       end
     end

@@ -43,16 +43,10 @@ class ChangeCostAnswersPresenter
   end
 
   def what_is_dispute_about_question
-    path = if tribunal_case.what_is_appeal_about == 'income_tax'
-             edit_steps_what_is_dispute_about_income_tax_path
-           else
-             edit_steps_what_is_dispute_about_vat_path
-           end
-
     row(
       tribunal_case.what_is_dispute_about,
       as:   :what_is_dispute_about,
-      path: path
+      path: edit_steps_what_is_dispute_about_path
     )
   end
 
