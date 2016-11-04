@@ -21,7 +21,7 @@ class WhatIsDisputeAboutForm < BaseForm
   private
 
   def include_paye_coding_notice?
-    tribunal_case && tribunal_case.what_is_appeal_about == 'income_tax'
+    tribunal_case && tribunal_case.what_is_appeal_about == TribunalCase::APPEAL_ABOUT_INCOME_TAX
   end
 
   def changed?

@@ -9,6 +9,7 @@ class TribunalCase < ApplicationRecord
     request_permission_for_review
     other
   )
+  APPEAL_ABOUT_INCOME_TAX = 'income_tax'
 
   def self.what_is_appeal_about_values
     WHAT_IS_APPEAL_ABOUT_VALUES
