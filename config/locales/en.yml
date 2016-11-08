@@ -167,12 +167,12 @@ en:
               <li>appeal to an independent tax tribunal within 30 days</li>
             </ul>
             <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
-    what_is_appeal_about_challenged:
+    case_type_challenged:
       edit:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
         description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
-    what_is_appeal_about_unchallenged:
+    case_type_unchallenged:
       edit:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
@@ -194,14 +194,14 @@ en:
         change: Change
         questions:
           did_challenge_hmrc: Did you challenge the decision with HMRC first?
-          what_is_appeal_about: What is your appeal about?
+          case_type: What is your appeal about?
           what_is_dispute_about: What is your dispute about?
           what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
         answers:
           did_challenge_hmrc:
             'true': 'Yes'
             'false': 'No'
-          what_is_appeal_about:
+          case_type:
             income_tax: Income Tax
             vat: Value Added Tax (VAT)
             apn_penalty: Advance Payment Notice (APN) penalty
@@ -238,9 +238,9 @@ en:
           attributes:
             did_challenge_hmrc:
               inclusion: Select whether you have challenged the decision with HMRC first
-        what_is_appeal_about_form:
+        case_type_form:
           attributes:
-            what_is_appeal_about:
+            case_type:
               inclusion: Select what your appeal is about
         what_is_dispute_about_form:
           attributes:
@@ -250,15 +250,15 @@ en:
     fieldset:
       did_challenge_hmrc_form:
         did_challenge_hmrc: Did you challenge the decision with HMRC first?
-      what_is_appeal_about_form:
-        what_is_appeal_about: What is your appeal about?
+      case_type_form:
+        case_type: What is your appeal about?
       what_is_dispute_about_form:
         what_is_dispute_about: What is your dispute about?
       what_is_late_penalty_or_surcharge_form:
         what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
     label:
-      what_is_appeal_about_form:
-        what_is_appeal_about:
+      case_type_form:
+        case_type:
           income_tax_html: <strong>Income Tax</strong><br>for example, Pay As You Earn (PAYE), self-assessment
           vat_html: <strong>Value Added Tax (VAT)</strong>
           apn_penalty_html: <strong>Advance Payment Notice (APN) penalty</strong><br>for example, non-compliance with Disclosure Of Tax Avoidance Schemes (DOTAS)

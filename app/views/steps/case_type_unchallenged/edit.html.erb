@@ -7,8 +7,8 @@
     <p><%=t '.description_text' %></p>
 
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :what_is_appeal_about,
-        choices: WhatIsAppealAboutForm.choices %>
+      <%= f.radio_button_fieldset :case_type,
+        choices: CaseTypeForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

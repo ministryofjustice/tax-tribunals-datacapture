@@ -6,7 +6,7 @@ RSpec.describe ChangeCostAnswersPresenter do
     instance_double(
       TribunalCase,
       did_challenge_hmrc:                  did_challenge_hmrc,
-      what_is_appeal_about:                what_is_appeal_about,
+      case_type:                case_type,
       what_is_dispute_about:               what_is_dispute_about,
       what_is_penalty_or_surcharge_amount: what_is_penalty_or_surcharge_amount
     )
@@ -14,7 +14,7 @@ RSpec.describe ChangeCostAnswersPresenter do
   let(:paths) { Rails.application.routes.url_helpers }
 
   let(:did_challenge_hmrc)                  { true }
-  let(:what_is_appeal_about)                { 'foo' }
+  let(:case_type)                { 'foo' }
   let(:what_is_dispute_about)               { nil }
   let(:what_is_penalty_or_surcharge_amount) { nil }
 
@@ -43,17 +43,17 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
     end
 
-    describe '`what_is_appeal_about` row' do
+    describe '`case_type` row' do
       let(:row) { subject.rows.second }
-      let(:what_is_appeal_about) { 'foo' }
+      let(:case_type) { 'foo' }
 
       context 'when appeal is challenged' do
         let(:did_challenge_hmrc) { true }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.what_is_appeal_about')
-          expect(row.answer).to      eq('.answers.what_is_appeal_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_appeal_about_challenged_path)
+          expect(row.question).to    eq('.questions.case_type')
+          expect(row.answer).to      eq('.answers.case_type.foo')
+          expect(row.change_path).to eq(paths.edit_steps_case_type_challenged_path)
         end
       end
 
@@ -61,9 +61,9 @@ RSpec.describe ChangeCostAnswersPresenter do
         let(:did_challenge_hmrc) { false }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.what_is_appeal_about')
-          expect(row.answer).to      eq('.answers.what_is_appeal_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_appeal_about_unchallenged_path)
+          expect(row.question).to    eq('.questions.case_type')
+          expect(row.answer).to      eq('.answers.case_type.foo')
+          expect(row.change_path).to eq(paths.edit_steps_case_type_unchallenged_path)
         end
       end
     end
@@ -79,9 +79,9 @@ RSpec.describe ChangeCostAnswersPresenter do
         end
       end
 
-      context 'when `what_is_appeal_about` is income_tax' do
+      context 'when `case_type` is income_tax' do
         let(:what_is_dispute_about) { 'foo' }
-        let(:what_is_appeal_about)  { 'income_tax' }
+        let(:case_type)  { 'income_tax' }
 
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.what_is_dispute_about')
@@ -90,9 +90,9 @@ RSpec.describe ChangeCostAnswersPresenter do
         end
       end
 
-      context 'when `what_is_appeal_about` is vat' do
+      context 'when `case_type` is vat' do
         let(:what_is_dispute_about) { 'foo' }
-        let(:what_is_appeal_about)  { 'vat' }
+        let(:case_type)  { 'vat' }
 
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.what_is_dispute_about')
@@ -107,7 +107,7 @@ RSpec.describe ChangeCostAnswersPresenter do
 
       # Needed so that the row is in the correct position
       let(:what_is_dispute_about) { 'foo' }
-      let(:what_is_appeal_about)  { 'bar' }
+      let(:case_type)  { 'bar' }
 
       context 'when `what_is_penalty_or_surcharge_amount` is nil' do
         let(:what_is_penalty_or_surcharge_amount) { nil }

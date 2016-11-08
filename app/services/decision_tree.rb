@@ -13,10 +13,10 @@ class DecisionTree
     case step.to_sym
     when :did_challenge_hmrc
       after_did_challenge_hmrc_step
-    when :what_is_appeal_about_challenged
-      after_what_is_appeal_about_challenged_step
-    when :what_is_appeal_about_unchallenged
-      after_what_is_appeal_about_unchallenged_step
+    when :case_type_challenged
+      after_case_type_challenged_step
+    when :case_type_unchallenged
+      after_case_type_unchallenged_step
     when :what_is_dispute_about
       after_what_is_dispute_about_step
     when :what_is_late_penalty_or_surcharge
@@ -31,13 +31,13 @@ class DecisionTree
   def after_did_challenge_hmrc_step
     case answer
     when :yes
-      { controller: :what_is_appeal_about_challenged, action: :edit }
+      { controller: :case_type_challenged, action: :edit }
     when :no
-      { controller: :what_is_appeal_about_unchallenged, action: :edit }
+      { controller: :case_type_unchallenged, action: :edit }
     end
   end
 
-  def after_what_is_appeal_about_challenged_step
+  def after_case_type_challenged_step
     case answer
     when :income_tax, :vat
       { controller: :what_is_dispute_about, action: :edit }
@@ -46,7 +46,7 @@ class DecisionTree
     end
   end
 
-  def after_what_is_appeal_about_unchallenged_step
+  def after_case_type_unchallenged_step
     case answer
     when :income_tax
       { controller: :must_challenge_hmrc, action: :show }

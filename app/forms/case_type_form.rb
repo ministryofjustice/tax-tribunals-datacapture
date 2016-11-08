@@ -1,16 +1,20 @@
-class WhatIsAppealAboutForm < BaseForm
-  attribute :what_is_appeal_about, String
+class CaseTypeForm < BaseForm
+  attribute :case_type, String
 
   def self.choices
-    TribunalCase.what_is_appeal_about_values
+    TribunalCase.case_type_values
   end
 
-  validates_inclusion_of :what_is_appeal_about, in: choices
+  validates_inclusion_of :case_type, in: choices
 
   private
 
+  def case_type_value
+    CaseType.new(case_type)
+  end
+
   def changed?
-    tribunal_case.what_is_appeal_about != what_is_appeal_about
+    tribunal_case.case_type != case_type_value
   end
 
   def persist!
@@ -18,7 +22,7 @@ class WhatIsAppealAboutForm < BaseForm
     return unless changed?
 
     tribunal_case.update(
-      what_is_appeal_about: what_is_appeal_about,
+      case_type: case_type_value,
       # The following are dependent attributes that need to be reset
       what_is_dispute_about: nil,
       what_is_penalty_or_surcharge_amount: nil

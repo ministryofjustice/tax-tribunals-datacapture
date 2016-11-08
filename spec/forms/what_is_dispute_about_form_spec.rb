@@ -8,18 +8,18 @@ RSpec.describe WhatIsDisputeAboutForm do
   let(:tribunal_case) {
     instance_double(
       TribunalCase,
-      what_is_appeal_about:  what_is_appeal_about,
+      case_type:  case_type,
       what_is_dispute_about: nil
     )
   }
-  let(:what_is_appeal_about)  { nil }
+  let(:case_type)  { nil }
   let(:what_is_dispute_about) { nil }
 
   subject { described_class.new(arguments) }
 
   describe '#choices' do
     context 'when the appeal is about income tax' do
-      let(:what_is_appeal_about) { 'income_tax' }
+      let(:case_type) { CaseType.new('income_tax') }
 
       it 'includes PAYE coding notice' do
         expect(subject.choices).to eq(%w(
@@ -31,7 +31,7 @@ RSpec.describe WhatIsDisputeAboutForm do
     end
 
     context 'when the appeal is not about income tax' do
-      let(:what_is_appeal_about) { 'vat' }
+      let(:case_type) { CaseType.new('vat') }
 
       it 'does not include PAYE coding notice' do
         expect(subject.choices).to eq(%w(
@@ -93,7 +93,7 @@ RSpec.describe WhatIsDisputeAboutForm do
       let(:what_is_dispute_about) { 'paye_coding_notice' }
 
       context 'and the appeal is about income tax' do
-        let(:what_is_appeal_about) { 'income_tax' }
+        let(:case_type) { CaseType.new('income_tax') }
 
         it 'is valid' do
           expect(subject).to be_valid
@@ -101,7 +101,7 @@ RSpec.describe WhatIsDisputeAboutForm do
       end
 
       context 'and the appeal is not about income tax' do
-        let(:what_is_appeal_about) { 'vat' }
+        let(:case_type) { CaseType.new('vat') }
 
         it 'is not valid' do
           expect(subject).to_not be_valid
@@ -113,7 +113,7 @@ RSpec.describe WhatIsDisputeAboutForm do
       let(:tribunal_case) {
         instance_double(
           TribunalCase,
-          what_is_dispute_about: 'paye_coding_notice', what_is_appeal_about:  'income_tax'
+          what_is_dispute_about: 'paye_coding_notice', case_type:  CaseType.new('income_tax')
         )
       }
       let(:what_is_dispute_about) { 'paye_coding_notice' }

@@ -1,38 +1,38 @@
 require 'rails_helper'
 
-RSpec.describe WhatIsAppealAboutForm do
+RSpec.describe CaseTypeForm do
   let(:arguments) { {
     tribunal_case:        tribunal_case,
-    what_is_appeal_about: what_is_appeal_about
+    case_type: case_type
   } }
-  let(:tribunal_case)        { instance_double(TribunalCase, what_is_appeal_about: nil) }
-  let(:what_is_appeal_about) { nil }
+  let(:tribunal_case)        { instance_double(TribunalCase, case_type: nil) }
+  let(:case_type) { nil }
 
   subject { described_class.new(arguments) }
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)        { nil }
-      let(:what_is_appeal_about) { 'vat' }
+      let(:case_type) { 'vat' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
       end
     end
 
-    context 'when what_is_appeal_about is not given' do
+    context 'when case_type is not given' do
       it 'returns false' do
         expect(subject.save).to be(false)
       end
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:what_is_appeal_about]).to_not be_empty
+        expect(subject.errors[:case_type]).to_not be_empty
       end
     end
 
-    context 'when what_is_appeal_about is not valid' do
-      let(:what_is_appeal_about) { 'lave-linge-pas-cher' }
+    context 'when case_type is not valid' do
+      let(:case_type) { 'lave-linge-pas-cher' }
 
       it 'returns false' do
         expect(subject.save).to be(false)
@@ -40,16 +40,16 @@ RSpec.describe WhatIsAppealAboutForm do
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:what_is_appeal_about]).to_not be_empty
+        expect(subject.errors[:case_type]).to_not be_empty
       end
     end
 
-    context 'when what_is_appeal_about is valid' do
-      let(:what_is_appeal_about) { 'income_tax' }
+    context 'when case_type is valid' do
+      let(:case_type) { 'income_tax' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          what_is_appeal_about: 'income_tax',
+          case_type: an_instance_of(CaseType),
           what_is_dispute_about: nil,
           what_is_penalty_or_surcharge_amount: nil
         )
@@ -57,9 +57,9 @@ RSpec.describe WhatIsAppealAboutForm do
       end
     end
 
-    context 'when what_is_appeal_about is already the same on the model' do
-      let(:tribunal_case)      { instance_double(TribunalCase, what_is_appeal_about: 'vat') }
-      let(:what_is_appeal_about) { 'vat' }
+    context 'when case_type is already the same on the model' do
+      let(:tribunal_case)      { instance_double(TribunalCase, case_type: CaseType.new('vat')) }
+      let(:case_type) { 'vat' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101154510) do
+ActiveRecord::Schema.define(version: 20161109153926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161101154510) do
     t.boolean  "did_challenge_hmrc"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "what_is_appeal_about"
+    t.string   "case_type"
     t.string   "what_is_dispute_about"
     t.string   "what_is_penalty_or_surcharge_amount"
   end
