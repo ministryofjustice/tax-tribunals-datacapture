@@ -17,8 +17,8 @@ class DecisionTree
       after_case_type_challenged_step
     when :case_type_unchallenged
       after_case_type_unchallenged_step
-    when :what_is_dispute_about
-      after_what_is_dispute_about_step
+    when :dispute_type
+      after_dispute_type_step
     when :what_is_late_penalty_or_surcharge
       after_what_is_late_penalty_or_surcharge_step
     else
@@ -40,7 +40,7 @@ class DecisionTree
   def after_case_type_challenged_step
     case answer
     when :income_tax, :vat
-      { controller: :what_is_dispute_about, action: :edit }
+      { controller: :dispute_type, action: :edit }
     else
       { controller: :determine_cost, action: :show }
     end
@@ -51,13 +51,13 @@ class DecisionTree
     when :income_tax
       { controller: :must_challenge_hmrc, action: :show }
     when :vat
-      { controller: :what_is_dispute_about, action: :edit }
+      { controller: :dispute_type, action: :edit }
     else
       { controller: :determine_cost, action: :show }
     end
   end
 
-  def after_what_is_dispute_about_step
+  def after_dispute_type_step
     case answer
     when :late_return_or_payment
       { controller: :what_is_late_penalty_or_surcharge, action: :edit }

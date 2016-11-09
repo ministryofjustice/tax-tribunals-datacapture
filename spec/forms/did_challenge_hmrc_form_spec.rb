@@ -51,7 +51,7 @@ RSpec.describe DidChallengeHmrcForm do
         expect(tribunal_case).to receive(:update).with(
           did_challenge_hmrc: true,
           case_type: nil,
-          what_is_dispute_about: nil,
+          dispute_type: nil,
           what_is_penalty_or_surcharge_amount: nil
         )
         expect(subject.save).to be(true)

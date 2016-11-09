@@ -2,7 +2,7 @@ STEPS = %i(
   did_challenge_hmrc
   case_type_challenged
   case_type_unchallenged
-  what_is_dispute_about
+  dispute_type
   what_is_late_penalty_or_surcharge
 )
 
