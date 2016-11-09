@@ -20,8 +20,8 @@ class StepController < ApplicationController
     if opts[:as]
       # Allow renaming of the attribute if the attribute name in the
       # form does not match the step name in the decision tree.
-      #   e.g. We might have an attribute `what_is_appeal_about` in
-      #   a form `what_is_appeal_about_challenged` - in which case
+      #   e.g. We might have an attribute `case_type` in
+      #   a form `case_type_challenged` - in which case
       #   we need to rename the key in the params hash.
       hash = { opts[:as] => hash[attr] }
     end

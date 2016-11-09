@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe TribunalCase, type: :model do
-  describe '.what_is_appeal_about_values' do
-    it 'matches TribunalCase::WHAT_IS_APPEAL_ABOUT_VALUES' do
-      expect(described_class.what_is_appeal_about_values).to eq(described_class::WHAT_IS_APPEAL_ABOUT_VALUES)
+  describe '.case_type_values' do
+    it 'gets values from the CaseType' do
+      expect(CaseType).to receive(:values).and_return(['foo'])
+      expect(described_class.case_type_values).to eq(['foo'])
     end
   end
 end
