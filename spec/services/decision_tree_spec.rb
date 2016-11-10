@@ -35,9 +35,9 @@ RSpec.describe DecisionTree do
       context 'and the answer is `vat`' do
         let(:step) { { case_type_challenged: 'vat' } }
 
-        it 'sends the user to the what_is_dispute_about step' do
+        it 'sends the user to the dispute_type step' do
           expect(subject.destination).to eq({
-            controller: :what_is_dispute_about,
+            controller: :dispute_type,
             action:     :edit
           })
         end
@@ -46,9 +46,9 @@ RSpec.describe DecisionTree do
       context 'and the answer is `income_tax`' do
         let(:step) { { case_type_challenged: 'income_tax' } }
 
-        it 'sends the user to the what_is_dispute_about step' do
+        it 'sends the user to the dispute_type step' do
           expect(subject.destination).to eq({
-            controller: :what_is_dispute_about,
+            controller: :dispute_type,
             action:     :edit
           })
         end
@@ -81,9 +81,9 @@ RSpec.describe DecisionTree do
       context 'and the answer is `vat`' do
         let(:step) { { case_type_unchallenged: 'vat' } }
 
-        it 'sends the user to the `what_is_dispute_about` endpoint' do
+        it 'sends the user to the `dispute_type` endpoint' do
           expect(subject.destination).to eq({
-            controller: :what_is_dispute_about,
+            controller: :dispute_type,
             action:     :edit
           })
         end
@@ -110,9 +110,9 @@ RSpec.describe DecisionTree do
       end
     end
 
-    context 'when the step is `what_is_dispute_about`' do
+    context 'when the step is `dispute_type`' do
       context 'and the answer is `amount_of_tax_owed`' do
-        let(:step) { { what_is_dispute_about: 'amount_of_tax_owed' } }
+        let(:step) { { dispute_type: 'amount_of_tax_owed' } }
 
         it 'sends the user to the `determine_cost` endpoint' do
           expect(subject.destination).to eq({
@@ -123,7 +123,7 @@ RSpec.describe DecisionTree do
       end
 
       context 'and the answer is `paye_coding_notice`' do
-        let(:step) { { what_is_dispute_about: 'paye_coding_notice' } }
+        let(:step) { { dispute_type: 'paye_coding_notice' } }
 
         it 'sends the user to the `determine_cost` endpoint' do
           expect(subject.destination).to eq({
@@ -134,7 +134,7 @@ RSpec.describe DecisionTree do
       end
 
       context 'and the answer is `late_return_or_payment`' do
-        let(:step) { { what_is_dispute_about: 'late_return_or_payment' } }
+        let(:step) { { dispute_type: 'late_return_or_payment' } }
 
         it 'sends the user to the `what_is_late_penalty_or_surcharge` step' do
           expect(subject.destination).to eq({

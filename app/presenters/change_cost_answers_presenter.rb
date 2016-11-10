@@ -13,7 +13,7 @@ class ChangeCostAnswersPresenter
     [
       did_challenge_hmrc_question,
       case_type_question,
-      what_is_dispute_about_question,
+      dispute_type_question,
       what_is_penalty_or_surcharge_amount_question
     ].compact
   end
@@ -42,11 +42,11 @@ class ChangeCostAnswersPresenter
     )
   end
 
-  def what_is_dispute_about_question
+  def dispute_type_question
     row(
-      tribunal_case.what_is_dispute_about,
-      as:   :what_is_dispute_about,
-      path: edit_steps_what_is_dispute_about_path
+      tribunal_case.dispute_type,
+      as:   :dispute_type,
+      path: edit_steps_dispute_type_path
     )
   end
 

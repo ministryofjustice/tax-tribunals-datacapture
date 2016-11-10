@@ -177,7 +177,7 @@ en:
         heading: What is your appeal about?
         lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
         description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
-    what_is_dispute_about:
+    dispute_type:
       edit:
         heading: What is your dispute about?
         lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
@@ -195,7 +195,7 @@ en:
         questions:
           did_challenge_hmrc: Did you challenge the decision with HMRC first?
           case_type: What is your appeal about?
-          what_is_dispute_about: What is your dispute about?
+          dispute_type: What is your dispute about?
           what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
         answers:
           did_challenge_hmrc:
@@ -210,7 +210,7 @@ en:
             information_notice: Information notices (Schedule 36)
             request_permission_for_review: Request permission for a review
             other_html: Other
-          what_is_dispute_about:
+          dispute_type:
             late_return_or_payment: Late return or payment
             amount_of_tax_owed: Amount of tax owed
             paye_coding_notice: Pay As You Earn (PAYE) coding notice
@@ -242,9 +242,9 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
-        what_is_dispute_about_form:
+        dispute_type_form:
           attributes:
-            what_is_dispute_about:
+            dispute_type:
               inclusion: Select what your dispute is about
   helpers:
     fieldset:
@@ -252,8 +252,8 @@ en:
         did_challenge_hmrc: Did you challenge the decision with HMRC first?
       case_type_form:
         case_type: What is your appeal about?
-      what_is_dispute_about_form:
-        what_is_dispute_about: What is your dispute about?
+      dispute_type_form:
+        dispute_type: What is your dispute about?
       what_is_late_penalty_or_surcharge_form:
         what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
     label:
@@ -267,8 +267,8 @@ en:
           information_notice_html: <strong>Information notices (Schedule 36)</strong><br>including penalties for non-compliance with information notices
           request_permission_for_review_html: <strong>Request permission for a review</strong><br>apply to get a late review accepted by HMRC, UK Border Force (UKBF) or National Crime Authority (NCA)
           other_html: <strong>Other</strong>
-      what_is_dispute_about_form:
-        what_is_dispute_about:
+      dispute_type_form:
+        dispute_type:
           late_return_or_payment_html: <strong>Late return or payment</strong><br>penalty or surcharge for late filing of returns and documents or late payment of duties
           amount_of_tax_owed_html: <strong>Amount of tax owed</strong>
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay

@@ -1,7 +1,7 @@
-class WhatIsDisputeAboutForm < BaseForm
-  attribute :what_is_dispute_about, String
+class DisputeTypeForm < BaseForm
+  attribute :dispute_type, String
 
-  validates_inclusion_of :what_is_dispute_about, in: proc { |record| record.choices }
+  validates_inclusion_of :dispute_type, in: proc { |record| record.choices }
 
   def choices
     if include_paye_coding_notice?
@@ -25,7 +25,7 @@ class WhatIsDisputeAboutForm < BaseForm
   end
 
   def changed?
-    tribunal_case.what_is_dispute_about != what_is_dispute_about
+    tribunal_case.dispute_type != dispute_type
   end
 
   def persist!
@@ -33,7 +33,7 @@ class WhatIsDisputeAboutForm < BaseForm
     return unless changed?
 
     tribunal_case.update(
-      what_is_dispute_about: what_is_dispute_about,
+      dispute_type: dispute_type,
       # The following are dependent attributes that need to be reset
       what_is_penalty_or_surcharge_amount: nil
     )

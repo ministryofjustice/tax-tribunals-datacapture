@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe WhatIsDisputeAboutForm do
+RSpec.describe DisputeTypeForm do
   let(:arguments) { {
     tribunal_case:         tribunal_case,
-    what_is_dispute_about: what_is_dispute_about
+    dispute_type: dispute_type
   } }
   let(:tribunal_case) {
     instance_double(
       TribunalCase,
       case_type:  case_type,
-      what_is_dispute_about: nil
+      dispute_type: nil
     )
   }
   let(:case_type)  { nil }
-  let(:what_is_dispute_about) { nil }
+  let(:dispute_type) { nil }
 
   subject { described_class.new(arguments) }
 
@@ -45,26 +45,26 @@ RSpec.describe WhatIsDisputeAboutForm do
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)         { nil }
-      let(:what_is_dispute_about) { 'amount_of_tax_owed' }
+      let(:dispute_type) { 'amount_of_tax_owed' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
       end
     end
 
-    context 'when what_is_dispute_about is not given' do
+    context 'when dispute_type is not given' do
       it 'returns false' do
         expect(subject.save).to be(false)
       end
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:what_is_dispute_about]).to_not be_empty
+        expect(subject.errors[:dispute_type]).to_not be_empty
       end
     end
 
-    context 'when what_is_dispute_about is not valid' do
-      let(:what_is_dispute_about) { 'feliz-navidad' }
+    context 'when dispute_type is not valid' do
+      let(:dispute_type) { 'feliz-navidad' }
 
       it 'returns false' do
         expect(subject.save).to be(false)
@@ -72,16 +72,16 @@ RSpec.describe WhatIsDisputeAboutForm do
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:what_is_dispute_about]).to_not be_empty
+        expect(subject.errors[:dispute_type]).to_not be_empty
       end
     end
 
-    context 'when what_is_dispute_about is valid' do
-      let(:what_is_dispute_about) { 'amount_of_tax_owed' }
+    context 'when dispute_type is valid' do
+      let(:dispute_type) { 'amount_of_tax_owed' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          what_is_dispute_about: 'amount_of_tax_owed',
+          dispute_type: 'amount_of_tax_owed',
           what_is_penalty_or_surcharge_amount: nil
         )
         expect(subject.save).to be(true)
@@ -89,8 +89,8 @@ RSpec.describe WhatIsDisputeAboutForm do
     end
 
 
-    context 'when what_is_dispute_about is only valid for income tax' do
-      let(:what_is_dispute_about) { 'paye_coding_notice' }
+    context 'when dispute_type is only valid for income tax' do
+      let(:dispute_type) { 'paye_coding_notice' }
 
       context 'and the appeal is about income tax' do
         let(:case_type) { CaseType.new('income_tax') }
@@ -109,14 +109,14 @@ RSpec.describe WhatIsDisputeAboutForm do
       end
     end
 
-    context 'when what_is_dispute_about is already the same on the model' do
+    context 'when dispute_type is already the same on the model' do
       let(:tribunal_case) {
         instance_double(
           TribunalCase,
-          what_is_dispute_about: 'paye_coding_notice', case_type:  CaseType.new('income_tax')
+          dispute_type: 'paye_coding_notice', case_type:  CaseType.new('income_tax')
         )
       }
-      let(:what_is_dispute_about) { 'paye_coding_notice' }
+      let(:dispute_type) { 'paye_coding_notice' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

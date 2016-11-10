@@ -7,7 +7,7 @@ RSpec.describe ChangeCostAnswersPresenter do
       TribunalCase,
       did_challenge_hmrc:                  did_challenge_hmrc,
       case_type:                case_type,
-      what_is_dispute_about:               what_is_dispute_about,
+      dispute_type:               dispute_type,
       what_is_penalty_or_surcharge_amount: what_is_penalty_or_surcharge_amount
     )
   }
@@ -15,7 +15,7 @@ RSpec.describe ChangeCostAnswersPresenter do
 
   let(:did_challenge_hmrc)                  { true }
   let(:case_type)                { 'foo' }
-  let(:what_is_dispute_about)               { nil }
+  let(:dispute_type)               { nil }
   let(:what_is_penalty_or_surcharge_amount) { nil }
 
   describe '#rows' do
@@ -68,11 +68,11 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
     end
 
-    describe '`what_is_dispute_about` row' do
+    describe '`dispute_type` row' do
       let(:row) { subject.rows[2] }
 
-      context 'when `what_is_dispute_about` is nil' do
-        let(:what_is_dispute_about) { nil }
+      context 'when `dispute_type` is nil' do
+        let(:dispute_type) { nil }
 
         it 'is not included' do
           expect(row).to be_nil
@@ -80,24 +80,24 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
 
       context 'when `case_type` is income_tax' do
-        let(:what_is_dispute_about) { 'foo' }
+        let(:dispute_type) { 'foo' }
         let(:case_type)  { 'income_tax' }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.what_is_dispute_about')
-          expect(row.answer).to      eq('.answers.what_is_dispute_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_path)
+          expect(row.question).to    eq('.questions.dispute_type')
+          expect(row.answer).to      eq('.answers.dispute_type.foo')
+          expect(row.change_path).to eq(paths.edit_steps_dispute_type_path)
         end
       end
 
       context 'when `case_type` is vat' do
-        let(:what_is_dispute_about) { 'foo' }
+        let(:dispute_type) { 'foo' }
         let(:case_type)  { 'vat' }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.what_is_dispute_about')
-          expect(row.answer).to      eq('.answers.what_is_dispute_about.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_dispute_about_path)
+          expect(row.question).to    eq('.questions.dispute_type')
+          expect(row.answer).to      eq('.answers.dispute_type.foo')
+          expect(row.change_path).to eq(paths.edit_steps_dispute_type_path)
         end
       end
     end
@@ -106,7 +106,7 @@ RSpec.describe ChangeCostAnswersPresenter do
       let(:row) { subject.rows[3] }
 
       # Needed so that the row is in the correct position
-      let(:what_is_dispute_about) { 'foo' }
+      let(:dispute_type) { 'foo' }
       let(:case_type)  { 'bar' }
 
       context 'when `what_is_penalty_or_surcharge_amount` is nil' do
