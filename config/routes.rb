@@ -1,5 +1,5 @@
 STEPS = %i(
-  did_challenge_hmrc
+  challenged_decision
   case_type_challenged
   case_type_unchallenged
   dispute_type

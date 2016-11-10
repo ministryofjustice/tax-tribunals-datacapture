@@ -5,7 +5,7 @@ RSpec.describe ChangeCostAnswersPresenter do
   let(:tribunal_case) {
     instance_double(
       TribunalCase,
-      did_challenge_hmrc:                  did_challenge_hmrc,
+      challenged_decision:                  challenged_decision,
       case_type:                case_type,
       dispute_type:               dispute_type,
       what_is_penalty_or_surcharge_amount: what_is_penalty_or_surcharge_amount
@@ -13,32 +13,32 @@ RSpec.describe ChangeCostAnswersPresenter do
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:did_challenge_hmrc)                  { true }
+  let(:challenged_decision)                  { true }
   let(:case_type)                { 'foo' }
   let(:dispute_type)               { nil }
   let(:what_is_penalty_or_surcharge_amount) { nil }
 
   describe '#rows' do
-    describe '`did_challenge_hmrc` row' do
+    describe '`challenged_decision` row' do
       let(:row) { subject.rows.first }
 
       context 'when appeal is challenged' do
-        let(:did_challenge_hmrc) { true }
+        let(:challenged_decision) { true }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.did_challenge_hmrc')
-          expect(row.answer).to      eq('.answers.did_challenge_hmrc.true')
-          expect(row.change_path).to eq(paths.edit_steps_did_challenge_hmrc_path)
+          expect(row.question).to    eq('.questions.challenged_decision')
+          expect(row.answer).to      eq('.answers.challenged_decision.true')
+          expect(row.change_path).to eq(paths.edit_steps_challenged_decision_path)
         end
       end
 
       context 'when appeal is unchallenged' do
-        let(:did_challenge_hmrc) { false }
+        let(:challenged_decision) { false }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.did_challenge_hmrc')
-          expect(row.answer).to      eq('.answers.did_challenge_hmrc.false')
-          expect(row.change_path).to eq(paths.edit_steps_did_challenge_hmrc_path)
+          expect(row.question).to    eq('.questions.challenged_decision')
+          expect(row.answer).to      eq('.answers.challenged_decision.false')
+          expect(row.change_path).to eq(paths.edit_steps_challenged_decision_path)
         end
       end
     end
@@ -48,7 +48,7 @@ RSpec.describe ChangeCostAnswersPresenter do
       let(:case_type) { 'foo' }
 
       context 'when appeal is challenged' do
-        let(:did_challenge_hmrc) { true }
+        let(:challenged_decision) { true }
 
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.case_type')
@@ -58,7 +58,7 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
 
       context 'when appeal is unchallenged' do
-        let(:did_challenge_hmrc) { false }
+        let(:challenged_decision) { false }
 
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.case_type')

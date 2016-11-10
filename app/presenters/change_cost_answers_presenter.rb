@@ -11,7 +11,7 @@ class ChangeCostAnswersPresenter
 
   def rows
     [
-      did_challenge_hmrc_question,
+      challenged_decision_question,
       case_type_question,
       dispute_type_question,
       what_is_penalty_or_surcharge_amount_question
@@ -20,16 +20,16 @@ class ChangeCostAnswersPresenter
 
   private
 
-  def did_challenge_hmrc_question
+  def challenged_decision_question
     row(
-      tribunal_case.did_challenge_hmrc,
-      as:   :did_challenge_hmrc,
-      path: edit_steps_did_challenge_hmrc_path
+      tribunal_case.challenged_decision,
+      as:   :challenged_decision,
+      path: edit_steps_challenged_decision_path
     )
   end
 
   def case_type_question
-    path = if tribunal_case.did_challenge_hmrc
+    path = if tribunal_case.challenged_decision
              edit_steps_case_type_challenged_path
            else
              edit_steps_case_type_unchallenged_path

@@ -150,7 +150,7 @@ en:
         </ul>
       start_now: Start now
   steps:
-    did_challenge_hmrc:
+    challenged_decision:
       edit:
         heading: Did you challenge the decision with HMRC first?
         lead_text: If you’ve written to HM Revenue & Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.
@@ -195,12 +195,12 @@ en:
         start_again: Start again
         change: Change
         questions:
-          did_challenge_hmrc: Did you challenge the decision with HMRC first?
+          challenged_decision: Did you challenge the decision with HMRC first?
           case_type: What is your appeal about?
           dispute_type: What is your dispute about?
           what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
         answers:
-          did_challenge_hmrc:
+          challenged_decision:
             'true': 'Yes'
             'false': 'No'
           case_type:
@@ -236,9 +236,9 @@ en:
   activemodel:
     errors:
       models:
-        did_challenge_hmrc_form:
+        challenged_decision_form:
           attributes:
-            did_challenge_hmrc:
+            challenged_decision:
               inclusion: Select whether you have challenged the decision with HMRC first
         case_type_form:
           attributes:
@@ -250,8 +250,8 @@ en:
               inclusion: Select what your dispute is about
   helpers:
     fieldset:
-      did_challenge_hmrc_form:
-        did_challenge_hmrc: Did you challenge the decision with HMRC first?
+      challenged_decision_form:
+        challenged_decision: Did you challenge the decision with HMRC first?
       case_type_form:
         case_type: What is your appeal about?
       dispute_type_form:

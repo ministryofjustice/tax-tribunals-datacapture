@@ -9,7 +9,7 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :did_challenge_hmrc, inline: true %>
+      <%= f.radio_button_fieldset :challenged_decision, inline: true %>
       <%= f.submit class: 'button' %>
     <% end %>
 
