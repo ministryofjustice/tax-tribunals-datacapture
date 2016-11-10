@@ -1,0 +1,24 @@
+strong {
+  font-weight: bold;
+}
+
+details {
+  margin: 30px 0;
+}
+
+.step-info {
+  @include core-19;
+  color: $grey-1;
+
+  margin-top: 45px;
+  margin-bottom: 0;
+
+  .link-back {
+    @include core-19;
+    margin-right: 5px;
+  }
+
+  & + .heading-large {
+    margin-top: 0;
+  }
+}

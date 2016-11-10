@@ -18,6 +18,10 @@ class DisputeTypeForm < BaseForm
     end
   end
 
+  def case_challenged?
+    tribunal_case.did_challenge_hmrc
+  end
+
   private
 
   def include_paye_coding_notice?

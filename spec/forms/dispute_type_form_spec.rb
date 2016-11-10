@@ -17,6 +17,34 @@ RSpec.describe DisputeTypeForm do
 
   subject { described_class.new(arguments) }
 
+  describe '#case_challenged?' do
+    context 'when the case has been challenged' do
+      let(:tribunal_case) {
+        instance_double(
+          TribunalCase,
+          did_challenge_hmrc: true
+        )
+      }
+
+      it 'returns true' do
+        expect(subject.case_challenged?).to eq(true)
+      end
+    end
+
+    context 'when the case has not been challenged' do
+      let(:tribunal_case) {
+        instance_double(
+          TribunalCase,
+          did_challenge_hmrc: false
+        )
+      }
+
+      it 'returns false' do
+        expect(subject.case_challenged?).to eq(false)
+      end
+    end
+  end
+
   describe '#choices' do
     context 'when the appeal is about income tax' do
       let(:case_type) { CaseType.new('income_tax') }
