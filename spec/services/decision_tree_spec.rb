@@ -7,9 +7,9 @@ RSpec.describe DecisionTree do
   subject { described_class.new(object: object, step: step, next_step: next_step) }
 
   describe '#destination' do
-    context 'when the step is `did_challenge_hmrc`' do
+    context 'when the step is `challenged_decision`' do
       context 'and the answer is yes' do
-        let(:step) { { did_challenge_hmrc: 'yes' } }
+        let(:step) { { challenged_decision: 'yes' } }
 
         it 'sends the user to the case_type_challenged step' do
           expect(subject.destination).to eq({
@@ -20,7 +20,7 @@ RSpec.describe DecisionTree do
       end
 
       context 'and the answer is no' do
-        let(:step) { { did_challenge_hmrc: 'no' } }
+        let(:step) { { challenged_decision: 'no' } }
 
         it 'sends the user to the case_type_unchallenged step' do
           expect(subject.destination).to eq({

@@ -1,38 +1,38 @@
 require 'rails_helper'
 
-RSpec.describe DidChallengeHmrcForm do
+RSpec.describe ChallengedDecisionForm do
   let(:arguments) { {
     tribunal_case:      tribunal_case,
-    did_challenge_hmrc: did_challenge_hmrc
+    challenged_decision: challenged_decision
   } }
-  let(:tribunal_case)      { instance_double(TribunalCase, did_challenge_hmrc: nil) }
-  let(:did_challenge_hmrc) { nil }
+  let(:tribunal_case)      { instance_double(TribunalCase, challenged_decision: nil) }
+  let(:challenged_decision) { nil }
 
   subject { described_class.new(arguments) }
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case) { nil }
-      let(:did_challenge_hmrc) { true }
+      let(:challenged_decision) { true }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
       end
     end
 
-    context 'when did_challenge_hmrc is not given' do
+    context 'when challenged_decision is not given' do
       it 'returns false' do
         expect(subject.save).to be(false)
       end
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:did_challenge_hmrc]).to_not be_empty
+        expect(subject.errors[:challenged_decision]).to_not be_empty
       end
     end
 
-    context 'when did_challenge_hmrc is not valid' do
-      let(:did_challenge_hmrc) { 'wibble' }
+    context 'when challenged_decision is not valid' do
+      let(:challenged_decision) { 'wibble' }
 
       it 'returns false' do
         expect(subject.save).to be(false)
@@ -40,16 +40,16 @@ RSpec.describe DidChallengeHmrcForm do
 
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
-        expect(subject.errors[:did_challenge_hmrc]).to_not be_empty
+        expect(subject.errors[:challenged_decision]).to_not be_empty
       end
     end
 
-    context 'when did_challenge_hmrc is valid' do
-      let(:did_challenge_hmrc) { true }
+    context 'when challenged_decision is valid' do
+      let(:challenged_decision) { true }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          did_challenge_hmrc: true,
+          challenged_decision: true,
           case_type: nil,
           dispute_type: nil,
           what_is_penalty_or_surcharge_amount: nil
@@ -58,9 +58,9 @@ RSpec.describe DidChallengeHmrcForm do
       end
     end
 
-    context 'when did_challenge_hmrc is already the same on the model' do
-      let(:tribunal_case)      { instance_double(TribunalCase, did_challenge_hmrc: true) }
-      let(:did_challenge_hmrc) { true }
+    context 'when challenged_decision is already the same on the model' do
+      let(:tribunal_case)      { instance_double(TribunalCase, challenged_decision: true) }
+      let(:challenged_decision) { true }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

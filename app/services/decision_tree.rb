@@ -11,8 +11,8 @@ class DecisionTree
     return @next_step if @next_step
 
     case step.to_sym
-    when :did_challenge_hmrc
-      after_did_challenge_hmrc_step
+    when :challenged_decision
+      after_challenged_decision_step
     when :case_type_challenged
       after_case_type_challenged_step
     when :case_type_unchallenged
@@ -28,7 +28,7 @@ class DecisionTree
 
   private
 
-  def after_did_challenge_hmrc_step
+  def after_challenged_decision_step
     case answer
     when :yes
       { controller: :case_type_challenged, action: :edit }

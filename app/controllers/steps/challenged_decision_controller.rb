@@ -1,14 +1,14 @@
-class Steps::DidChallengeHmrcController < StepController
+class Steps::ChallengedDecisionController < StepController
   def edit
     super
-    @form_object = DidChallengeHmrcForm.new(
+    @form_object = ChallengedDecisionForm.new(
       tribunal_case: current_tribunal_case,
-      did_challenge_hmrc: current_tribunal_case.did_challenge_hmrc
+      challenged_decision: current_tribunal_case.challenged_decision
     )
   end
 
   def update
-    update_and_advance(:did_challenge_hmrc, DidChallengeHmrcForm)
+    update_and_advance(:challenged_decision, ChallengedDecisionForm)
   end
 
   private

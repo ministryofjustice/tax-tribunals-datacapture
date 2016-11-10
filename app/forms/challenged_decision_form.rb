@@ -1,12 +1,12 @@
-class DidChallengeHmrcForm < BaseForm
-  attribute :did_challenge_hmrc, Boolean
+class ChallengedDecisionForm < BaseForm
+  attribute :challenged_decision, Boolean
 
-  validates_inclusion_of :did_challenge_hmrc, in: [true, false]
+  validates_inclusion_of :challenged_decision, in: [true, false]
 
   private
 
   def changed?
-    tribunal_case.did_challenge_hmrc != did_challenge_hmrc
+    tribunal_case.challenged_decision != challenged_decision
   end
 
   def persist!
@@ -14,7 +14,7 @@ class DidChallengeHmrcForm < BaseForm
     return unless changed?
 
     tribunal_case.update(
-      did_challenge_hmrc: did_challenge_hmrc,
+      challenged_decision: challenged_decision,
       # The following are dependent attributes that need to be reset
       case_type: nil,
       dispute_type: nil,

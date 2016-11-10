@@ -19,7 +19,7 @@ class DisputeTypeForm < BaseForm
   end
 
   def case_challenged?
-    tribunal_case.did_challenge_hmrc
+    tribunal_case.challenged_decision
   end
 
   private

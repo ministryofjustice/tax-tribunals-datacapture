@@ -22,7 +22,7 @@ RSpec.describe DisputeTypeForm do
       let(:tribunal_case) {
         instance_double(
           TribunalCase,
-          did_challenge_hmrc: true
+          challenged_decision: true
         )
       }
 
@@ -35,7 +35,7 @@ RSpec.describe DisputeTypeForm do
       let(:tribunal_case) {
         instance_double(
           TribunalCase,
-          did_challenge_hmrc: false
+          challenged_decision: false
         )
       }
 
