@@ -1,0 +1,17 @@
+strong {
+  font-weight: bold;
+}
+
+details {
+  margin: 30px 0;
+}
+
+.step-info {
+  @include core-19;
+  color: $grey-1;
+
+  .link-back {
+    @include core-19;
+    margin-right: 5px;
+  }
+}

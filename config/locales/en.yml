@@ -1,4 +1,6 @@
 en:
+  generic:
+    step: Question %{step} of %{of}
   start:
     index:
       heading: Appeal to an independent tax tribunal

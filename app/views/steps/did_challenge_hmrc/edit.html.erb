@@ -1,6 +1,10 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <p class="step-info util_mt-large util_mb-0">
+      <%= link_to 'Back', root_path, class: 'link-back' %>
+      <%=t 'generic.step', step: 1, of: 4 %>
+    </p>
+    <h1 class="heading-large util_mt-0"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
 

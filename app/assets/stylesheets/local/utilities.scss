@@ -1,0 +1,49 @@
+// utility classes used as overrides, therefore valid use of !important
+// https://css-tricks.com/when-using-important-is-the-right-choice/
+
+// margin utilities
+.util_margin-0 {
+  margin: 0 !important;
+}
+.util_mb-0 {
+  margin-bottom: 0 !important;
+}
+.util_mb-small {
+  margin-bottom: 15px !important;
+}
+.util_mb-medium {
+  margin-bottom: 30px !important;
+}
+.util_mb-large {
+  margin-bottom: 45px !important;
+}
+.util_mt-0 {
+  margin-top: 0 !important;
+}
+.util_mt-small {
+  margin-top: 15px !important;
+}
+.util_mt-medium {
+  margin-top: 30px !important;
+}
+.util_mt-large {
+  margin-top: 45px !important;
+}
+
+// case utilities
+.transform-upper {
+  text-transform: uppercase !important;
+}
+
+// js utilities
+.js-only {
+  display: none;
+
+  .js-enabled & {
+    display: block
+  }
+}
+
+.block {
+  display: block;
+}
