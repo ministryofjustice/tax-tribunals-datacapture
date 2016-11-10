@@ -1,6 +1,6 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <p class="step-info util_mt-large util_mb-0">
+    <p class="step-info">
       <% if @form_object.case_challenged? %>
         <%= link_to 'Back', edit_steps_case_type_challenged_path, class: 'link-back' %>
       <% else %>
@@ -8,7 +8,7 @@
       <% end %>
       <%=t 'generic.step', step: 3, of: 4 %>
     </p>
-    <h1 class="heading-large util_mt-0"><%=t '.heading' %></h1>
+    <h1 class="heading-large"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
 
