@@ -14,7 +14,7 @@ class ChangeCostAnswersPresenter
       challenged_decision_question,
       case_type_question,
       dispute_type_question,
-      what_is_penalty_or_surcharge_amount_question
+      penalty_amount_question
     ].compact
   end
 
@@ -50,11 +50,11 @@ class ChangeCostAnswersPresenter
     )
   end
 
-  def what_is_penalty_or_surcharge_amount_question
+  def penalty_amount_question
     row(
-      tribunal_case.what_is_penalty_or_surcharge_amount,
-      as:   :what_is_penalty_or_surcharge_amount,
-      path: edit_steps_what_is_late_penalty_or_surcharge_path
+      tribunal_case.penalty_amount,
+      as:   :penalty_amount,
+      path: edit_steps_penalty_amount_path
     )
   end
 

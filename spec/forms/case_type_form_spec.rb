@@ -51,7 +51,7 @@ RSpec.describe CaseTypeForm do
         expect(tribunal_case).to receive(:update).with(
           case_type: an_instance_of(CaseType),
           dispute_type: nil,
-          what_is_penalty_or_surcharge_amount: nil
+          penalty_amount: nil
         )
         expect(subject.save).to be(true)
       end
