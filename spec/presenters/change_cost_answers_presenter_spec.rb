@@ -8,7 +8,7 @@ RSpec.describe ChangeCostAnswersPresenter do
       challenged_decision:                  challenged_decision,
       case_type:                case_type,
       dispute_type:               dispute_type,
-      what_is_penalty_or_surcharge_amount: what_is_penalty_or_surcharge_amount
+      penalty_amount: penalty_amount
     )
   }
   let(:paths) { Rails.application.routes.url_helpers }
@@ -16,7 +16,7 @@ RSpec.describe ChangeCostAnswersPresenter do
   let(:challenged_decision)                  { true }
   let(:case_type)                { 'foo' }
   let(:dispute_type)               { nil }
-  let(:what_is_penalty_or_surcharge_amount) { nil }
+  let(:penalty_amount) { nil }
 
   describe '#rows' do
     describe '`challenged_decision` row' do
@@ -102,28 +102,28 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
     end
 
-    describe '`what_is_penalty_or_surcharge_amount` row' do
+    describe '`penalty_amount` row' do
       let(:row) { subject.rows[3] }
 
       # Needed so that the row is in the correct position
       let(:dispute_type) { 'foo' }
       let(:case_type)  { 'bar' }
 
-      context 'when `what_is_penalty_or_surcharge_amount` is nil' do
-        let(:what_is_penalty_or_surcharge_amount) { nil }
+      context 'when `penalty_amount` is nil' do
+        let(:penalty_amount) { nil }
 
         it 'is not included' do
           expect(row).to be_nil
         end
       end
 
-      context 'when `what_is_penalty_or_surcharge_amount` is given' do
-        let(:what_is_penalty_or_surcharge_amount)  { 'foo' }
+      context 'when `penalty_amount` is given' do
+        let(:penalty_amount)  { 'foo' }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.what_is_penalty_or_surcharge_amount')
-          expect(row.answer).to      eq('.answers.what_is_penalty_or_surcharge_amount.foo')
-          expect(row.change_path).to eq(paths.edit_steps_what_is_late_penalty_or_surcharge_path)
+          expect(row.question).to    eq('.questions.penalty_amount')
+          expect(row.answer).to      eq('.answers.penalty_amount.foo')
+          expect(row.change_path).to eq(paths.edit_steps_penalty_amount_path)
         end
       end
     end

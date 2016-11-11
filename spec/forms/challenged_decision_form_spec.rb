@@ -52,7 +52,7 @@ RSpec.describe ChallengedDecisionForm do
           challenged_decision: true,
           case_type: nil,
           dispute_type: nil,
-          what_is_penalty_or_surcharge_amount: nil
+          penalty_amount: nil
         )
         expect(subject.save).to be(true)
       end

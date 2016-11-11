@@ -9,8 +9,8 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :what_is_penalty_or_surcharge_amount,
-        choices: WhatIsLatePenaltyOrSurchargeForm.choices %>
+      <%= f.radio_button_fieldset :penalty_amount,
+        choices: PenaltyAmountForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

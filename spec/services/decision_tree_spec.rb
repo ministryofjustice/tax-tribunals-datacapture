@@ -136,17 +136,17 @@ RSpec.describe DecisionTree do
       context 'and the answer is `late_return_or_payment`' do
         let(:step) { { dispute_type: 'late_return_or_payment' } }
 
-        it 'sends the user to the `what_is_late_penalty_or_surcharge` step' do
+        it 'sends the user to the `penalty_amount` step' do
           expect(subject.destination).to eq({
-            controller: :what_is_late_penalty_or_surcharge,
+            controller: :penalty_amount,
             action:     :edit
           })
         end
       end
     end
 
-    context 'when the step is `what_is_late_penalty_or_surcharge`' do
-      let(:step) { { what_is_late_penalty_or_surcharge: 'anything' } }
+    context 'when the step is `penalty_amount`' do
+      let(:step) { { penalty_amount: 'anything' } }
 
       it 'sends the user to the endpoint' do
         expect(subject.destination).to eq({

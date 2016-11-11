@@ -19,8 +19,8 @@ class DecisionTree
       after_case_type_unchallenged_step
     when :dispute_type
       after_dispute_type_step
-    when :what_is_late_penalty_or_surcharge
-      after_what_is_late_penalty_or_surcharge_step
+    when :penalty_amount
+      after_penalty_amount_step
     else
       raise "Invalid step '#{step}'"
     end
@@ -60,13 +60,13 @@ class DecisionTree
   def after_dispute_type_step
     case answer
     when :late_return_or_payment
-      { controller: :what_is_late_penalty_or_surcharge, action: :edit }
+      { controller: :penalty_amount, action: :edit }
     when :amount_of_tax_owed, :paye_coding_notice
       { controller: :determine_cost, action: :show }
     end
   end
 
-  def after_what_is_late_penalty_or_surcharge_step
+  def after_penalty_amount_step
     { controller: :determine_cost, action: :show }
   end
 

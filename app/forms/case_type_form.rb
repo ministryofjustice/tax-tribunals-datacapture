@@ -25,7 +25,7 @@ class CaseTypeForm < BaseForm
       case_type: case_type_value,
       # The following are dependent attributes that need to be reset
       dispute_type: nil,
-      what_is_penalty_or_surcharge_amount: nil
+      penalty_amount: nil
     )
   end
 end

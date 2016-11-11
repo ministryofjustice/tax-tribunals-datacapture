@@ -184,7 +184,7 @@ en:
         heading: What is your dispute about?
         lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
         description_text: You can't combine separate disputes on separate letters into one appeal.
-    what_is_late_penalty_or_surcharge:
+    penalty_amount:
       edit:
         heading: What is the penalty or surcharge amount?
         lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
@@ -198,7 +198,7 @@ en:
           challenged_decision: Did you challenge the decision with HMRC first?
           case_type: What is your appeal about?
           dispute_type: What is your dispute about?
-          what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
+          penalty_amount: What is the penalty or surcharge amount?
         answers:
           challenged_decision:
             'true': 'Yes'
@@ -216,7 +216,7 @@ en:
             late_return_or_payment: Late return or payment
             amount_of_tax_owed: Amount of tax owed
             paye_coding_notice: Pay As You Earn (PAYE) coding notice
-          what_is_penalty_or_surcharge_amount:
+          penalty_amount:
             100_or_less: £100 or less
             101_to_20000: £101 – £20,000
             20001_or_more: £20,001 or more
@@ -256,8 +256,8 @@ en:
         case_type: What is your appeal about?
       dispute_type_form:
         dispute_type: What is your dispute about?
-      what_is_late_penalty_or_surcharge_form:
-        what_is_penalty_or_surcharge_amount: What is the penalty or surcharge amount?
+      penalty_amount_form:
+        penalty_amount: What is the penalty or surcharge amount?
     label:
       case_type_form:
         case_type:
@@ -274,8 +274,8 @@ en:
           late_return_or_payment_html: <strong>Late return or payment</strong><br>penalty or surcharge for late filing of returns and documents or late payment of duties
           amount_of_tax_owed_html: <strong>Amount of tax owed</strong>
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
-      what_is_late_penalty_or_surcharge_form:
-        what_is_penalty_or_surcharge_amount:
+      penalty_amount_form:
+        penalty_amount:
           100_or_less: £100 or less
           101_to_20000: £101 – £20,000
           20001_or_more: £20,001 or more

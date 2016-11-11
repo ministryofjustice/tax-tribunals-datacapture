@@ -3,7 +3,7 @@ STEPS = %i(
   case_type_challenged
   case_type_unchallenged
   dispute_type
-  what_is_late_penalty_or_surcharge
+  penalty_amount
 )
 
 ENDPOINTS = %i(

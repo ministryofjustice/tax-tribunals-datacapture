@@ -39,7 +39,7 @@ class DisputeTypeForm < BaseForm
     tribunal_case.update(
       dispute_type: dispute_type,
       # The following are dependent attributes that need to be reset
-      what_is_penalty_or_surcharge_amount: nil
+      penalty_amount: nil
     )
   end
 end
