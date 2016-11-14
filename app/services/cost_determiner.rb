@@ -8,17 +8,17 @@ class CostDeterminer
   end
 
   def lodgement_fee
-    case tribunal_case.case_type&.case_type
-    when 'income_tax'
+    case tribunal_case.case_type
+    when CaseType::INCOME_TAX
       income_tax_lodgement_fee
-    when 'vat'
+    when CaseType::VAT
       vat_lodgement_fee
-    when 'apn_penalty',
-         'closure_notice',
-         'information_notice',
-         'inaccurate_return',
-         'request_permission_for_review',
-         'other'
+    when CaseType::APN_PENALTY,
+         CaseType::CLOSURE_NOTICE,
+         CaseType::INFORMATION_NOTICE,
+         CaseType::INACCURATE_RETURN,
+         CaseType::REQUEST_PERMISSION_FOR_REVIEW,
+         CaseType::OTHER
       LodgementFee.fee_level_2
     else
       raise "Unable to determine cost of tribunal_case"

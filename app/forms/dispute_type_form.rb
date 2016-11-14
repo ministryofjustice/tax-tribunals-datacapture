@@ -25,7 +25,7 @@ class DisputeTypeForm < BaseForm
   private
 
   def include_paye_coding_notice?
-    tribunal_case&.case_type&.income_tax?
+    tribunal_case&.case_type == CaseType::INCOME_TAX
   end
 
   def changed?

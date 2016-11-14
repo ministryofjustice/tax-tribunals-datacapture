@@ -1,36 +1,32 @@
 class CaseType
-  VALUES = %w(
-    income_tax
-    vat
-    apn_penalty
-    inaccurate_return
-    closure_notice
-    information_notice
-    request_permission_for_review
-    other
-  )
-  INCOME_TAX = 'income_tax'
+  def initialize(raw_value)
+    @value = raw_value.to_sym
+    freeze
+  end
+
+  VALUES = [
+    INCOME_TAX                    = self.new(:income_tax),
+    VAT                           = self.new(:vat),
+    APN_PENALTY                   = self.new(:apn_penalty),
+    INACCURATE_RETURN             = self.new(:inaccurate_return),
+    CLOSURE_NOTICE                = self.new(:closure_notice),
+    INFORMATION_NOTICE            = self.new(:information_notice),
+    REQUEST_PERMISSION_FOR_REVIEW = self.new(:request_permission_for_review),
+    OTHER                         = self.new(:other)
+  ].freeze
 
   def self.values
     VALUES
   end
 
-  def initialize(case_type)
-    @case_type = case_type
-  end
-
-  attr_reader :case_type
+  attr_reader :value
 
   def ==(other)
-    return false unless other.is_a?(self.class)
-    other.case_type == case_type
+    other.is_a?(self.class) && other.value == value
   end
+  alias_method :===, :==
 
   def to_s
-    case_type
-  end
-
-  def income_tax?
-    case_type == INCOME_TAX
+    value.to_s
   end
 end
