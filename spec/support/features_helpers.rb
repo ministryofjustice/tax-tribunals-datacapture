@@ -11,3 +11,7 @@ def answer_question(question, with:)
   end
   click_button 'Continue'
 end
+
+def expect_amount_on(page, gbp: nil)
+  expect(page).to have_text("#{I18n.t('steps.determine_cost.show.fee_label')} £#{gbp}")
+end

@@ -1,74 +1,64 @@
-# Given an appeal object, figure out the cost to the appellant of lodging the appeal,
-# and any likely further costs (such as determination fee)
+# Given a tribunal_case object, figure out the cost to the taxpayer
+# of lodging the case
 class CostDeterminer
-  attr_reader :appeal
+  attr_reader :tribunal_case
 
-  def initialize(appeal)
-    @appeal = appeal
+  def initialize(tribunal_case)
+    @tribunal_case = tribunal_case
   end
 
-  def run
-    raise InvalidAppealError unless appeal.valid_for_costing?
-
-    case appeal.appeal_about
-    when :income_tax
-      income_tax_appeal_cost
-    when :vat
-      vat_appeal_cost
-    when :apn_penalty, :closure_notice, :information_notice, :request_permission_for_review, :other
-      AppealCost.medium
-    when :inaccurate_return
-      inaccurate_return_cost
+  def lodgement_fee
+    case tribunal_case.case_type&.case_type
+    when 'income_tax'
+      income_tax_lodgement_fee
+    when 'vat'
+      vat_lodgement_fee
+    when 'apn_penalty',
+         'closure_notice',
+         'information_notice',
+         'inaccurate_return',
+         'request_permission_for_review',
+         'other'
+      LodgementFee.fee_level_2
     else
-      raise "Unable to determine cost of appeal"
+      raise "Unable to determine cost of tribunal_case"
     end
   end
 
   private
 
-  def vat_appeal_cost
-    case appeal.dispute_about
-    when :amount_of_tax_owed
-      AppealCost.large
-    when :late_return_or_payment
-      penalty_amount_appeal_cost
+  def vat_lodgement_fee
+    case tribunal_case.dispute_type
+    when 'amount_of_tax_owed'
+      LodgementFee.fee_level_3
+    when 'late_return_or_payment'
+      penalty_amount_tribunal_case_cost
     else
-      raise "Unable to determine cost of VAT appeal"
+      raise "Unable to determine cost of VAT tribunal_case"
     end
   end
 
-  def income_tax_appeal_cost
-    case appeal.dispute_about
-    when :paye_coding_notice
-      AppealCost.medium
-    when :amount_of_tax_owed
-      AppealCost.large
-    when :late_return_or_payment
-      penalty_amount_appeal_cost
+  def income_tax_lodgement_fee
+    case tribunal_case.dispute_type
+    when 'paye_coding_notice'
+      LodgementFee.fee_level_2
+    when 'amount_of_tax_owed'
+      LodgementFee.fee_level_3
+    when 'late_return_or_payment'
+      penalty_amount_tribunal_case_cost
     else
-      raise "Unable to determine cost of income tax appeal"
+      raise "Unable to determine cost of income tax tribunal_case"
     end
   end
 
-  def penalty_amount_appeal_cost
-    case appeal.penalty_or_surcharge_amount
-    when 0..10000
-      AppealCost.small
-    when 10001..2000000
-      AppealCost.medium
+  def penalty_amount_tribunal_case_cost
+    case tribunal_case.penalty_amount
+    when '100_or_less'
+      LodgementFee.fee_level_1
+    when '101_to_20000'
+      LodgementFee.fee_level_2
     else
-      AppealCost.large
-    end
-  end
-
-  def inaccurate_return_cost
-    case appeal.inaccurate_return_type
-    when :careless
-      AppealCost.medium
-    when :deliberate
-      AppealCost.large
-    else
-      raise "Unable to determine cost of inaccurate return appeal"
+      LodgementFee.fee_level_3
     end
   end
 end
