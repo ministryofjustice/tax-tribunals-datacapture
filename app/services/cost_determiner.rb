@@ -19,7 +19,7 @@ class CostDeterminer
          CaseType::INACCURATE_RETURN,
          CaseType::REQUEST_PERMISSION_FOR_REVIEW,
          CaseType::OTHER
-      LodgementFee.fee_level_2
+      LodgementFee::FEE_LEVEL_2
     else
       raise "Unable to determine cost of tribunal_case"
     end
@@ -30,7 +30,7 @@ class CostDeterminer
   def vat_lodgement_fee
     case tribunal_case.dispute_type
     when 'amount_of_tax_owed'
-      LodgementFee.fee_level_3
+      LodgementFee::FEE_LEVEL_3
     when 'late_return_or_payment'
       penalty_amount_tribunal_case_cost
     else
@@ -41,9 +41,9 @@ class CostDeterminer
   def income_tax_lodgement_fee
     case tribunal_case.dispute_type
     when 'paye_coding_notice'
-      LodgementFee.fee_level_2
+      LodgementFee::FEE_LEVEL_2
     when 'amount_of_tax_owed'
-      LodgementFee.fee_level_3
+      LodgementFee::FEE_LEVEL_3
     when 'late_return_or_payment'
       penalty_amount_tribunal_case_cost
     else
@@ -54,11 +54,11 @@ class CostDeterminer
   def penalty_amount_tribunal_case_cost
     case tribunal_case.penalty_amount
     when '100_or_less'
-      LodgementFee.fee_level_1
+      LodgementFee::FEE_LEVEL_1
     when '101_to_20000'
-      LodgementFee.fee_level_2
+      LodgementFee::FEE_LEVEL_2
     else
-      LodgementFee.fee_level_3
+      LodgementFee::FEE_LEVEL_3
     end
   end
 end
