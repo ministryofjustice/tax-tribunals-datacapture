@@ -1,4 +1,9 @@
 en:
+  number:
+    currency:
+      format:
+        unit: £
+        precision: 0
   generic:
     step: Question %{step} of %{of}
   start:
@@ -190,8 +195,7 @@ en:
         lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
     determine_cost:
       show:
-        heading: Your Appeal
-        lead_text: To submit an appeal you will have to pay
+        fee_label: To submit your appeal you will have to pay
         start_again: Start again
         change: Change
         questions:

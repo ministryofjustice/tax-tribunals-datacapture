@@ -1,190 +1,161 @@
 require 'rails_helper'
 
 RSpec.describe CostDeterminer do
-  let(:appeal_attrs) { { valid_for_costing?: true } }
-  let(:appeal) { double(appeal_attrs) }
+  let(:case_attrs)    { {} }
+  let(:tribunal_case) { instance_double(TribunalCase, case_attrs) }
 
-  subject { described_class.new(appeal) }
+  subject { described_class.new(tribunal_case) }
 
-  context "when appeal is about an unhandled value" do
-    let(:appeal_attrs) { super().merge(appeal_about: :unhandled) }
+  context "when tribunal_case#case_type is nil" do
+    let(:case_attrs) { super().merge(case_type: nil) }
 
-    specify { expect{ subject.run }.to raise_error("Unable to determine cost of appeal") }
+    specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of tribunal_case") }
   end
 
-  context "when appeal is invalid" do
-    let(:appeal_attrs) { super().merge(valid_for_costing?: false) }
+  context "when tribunal_case is about an unhandled value" do
+    let(:case_attrs) { super().merge(case_type: double(case_type: 'unhandled')) }
 
-    it "raises bad appeal error" do
-      expect{ subject.run }.to raise_error(InvalidAppealError)
-    end
+    specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of tribunal_case") }
   end
 
   context "when hmrc challenged is true" do
-    let(:appeal_attrs) { super().merge(hmrc_challenged: true) }
+    let(:case_attrs) { super().merge(challenged_decision: true) }
 
-    context "when appeal is about an inaccurate return" do
-      let(:appeal_attrs) { super().merge(appeal_about: :inaccurate_return) }
-
-      context "when it's careless" do
-        let(:appeal_attrs) { super().merge(inaccurate_return_type: :careless) }
-
-        it "has £50 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(5000)
-        end
-      end
-
-      context "when it's deliberate" do
-        let(:appeal_attrs) { super().merge(inaccurate_return_type: :deliberate) }
-
-        it "has £200 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(20000)
-        end
-      end
-
-      context "when it's an unhandled value" do
-        let(:appeal_attrs) { super().merge(inaccurate_return_type: :whatever) }
-
-        specify { expect{ subject.run }.to raise_error("Unable to determine cost of inaccurate return appeal") }
-      end
-
-    end
-
-    context "when appeal is about VAT" do
-      let(:appeal_attrs) { super().merge(appeal_about: :vat) }
+    context "when tribunal_case is about VAT" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'vat')) }
 
       context "when dispute is about an unhandled value" do
-        let(:appeal_attrs) { super().merge(dispute_about: :something) }
+        let(:case_attrs) { super().merge(dispute_type: 'something') }
 
-        specify { expect{ subject.run }.to raise_error("Unable to determine cost of VAT appeal") }
+        specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of VAT tribunal_case") }
       end
 
       context "when dispute is about late return/payment" do
-        let(:appeal_attrs) { super().merge(dispute_about: :late_return_or_payment) }
+        let(:case_attrs) { super().merge(dispute_type: 'late_return_or_payment') }
 
         context "when the penalty/surcharge amounts is £100" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 10000) }
+          let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }
 
           it "has £20 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(2000)
+            expect(subject.lodgement_fee.value).to eq(2000)
           end
         end
 
         context "when the penalty/surcharge amounts is £200" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 20000) }
+          let(:case_attrs) { super().merge(penalty_amount: '101_to_20000') }
 
           it "has £50 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(5000)
+            expect(subject.lodgement_fee.value).to eq(5000)
           end
         end
 
         context "when the penalty/surcharge amounts is £20001" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 2000100) }
+          let(:case_attrs) { super().merge(penalty_amount: '20001_or_more') }
 
           it "has £200 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(20000)
+            expect(subject.lodgement_fee.value).to eq(20000)
           end
         end
       end
 
       context "when dispute is about amount of tax owed" do
-        let(:appeal_attrs) { super().merge(dispute_about: :amount_of_tax_owed) }
+        let(:case_attrs) { super().merge(dispute_type: 'amount_of_tax_owed') }
 
         it "has £200 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(20000)
+          expect(subject.lodgement_fee.value).to eq(20000)
         end
       end
     end
 
-    context "when appeal is about advance payment notice penalty" do
-      let(:appeal_attrs) { super().merge(appeal_about: :apn_penalty) }
+    context "when tribunal_case is about advance payment notice penalty" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'apn_penalty')) }
 
       it "has £50 lodgement fee" do
-        expect(subject.run.lodgement_fee).to eq(5000)
+        expect(subject.lodgement_fee.value).to eq(5000)
       end
     end
 
-    context "when appeal is about a closure notice" do
-      let(:appeal_attrs) { super().merge(appeal_about: :closure_notice) }
+    context "when tribunal_case is about a closure notice" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'closure_notice')) }
 
       it "has £50 lodgement fee" do
-        expect(subject.run.lodgement_fee).to eq(5000)
+        expect(subject.lodgement_fee.value).to eq(5000)
       end
     end
 
-    context "when appeal is about an information notice" do
-      let(:appeal_attrs) { super().merge(appeal_about: :information_notice) }
+    context "when tribunal_case is about an information notice" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'information_notice')) }
 
       it "has £50 lodgement fee" do
-        expect(subject.run.lodgement_fee).to eq(5000)
+        expect(subject.lodgement_fee.value).to eq(5000)
       end
     end
 
-    context "when appeal is about request for review" do
-      let(:appeal_attrs) { super().merge(appeal_about: :request_permission_for_review) }
+    context "when tribunal_case is about request for review" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'request_permission_for_review')) }
 
       it "has £50 lodgement fee" do
-        expect(subject.run.lodgement_fee).to eq(5000)
+        expect(subject.lodgement_fee.value).to eq(5000)
       end
     end
 
-    context "when appeal is about something else" do
-      let(:appeal_attrs) { super().merge(appeal_about: :other) }
+    context "when tribunal_case is about something else" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'other')) }
 
       it "has £50 lodgement fee" do
-        expect(subject.run.lodgement_fee).to eq(5000)
+        expect(subject.lodgement_fee.value).to eq(5000)
       end
     end
 
-    context "when appeal is about income tax" do
-      let(:appeal_attrs) { super().merge(appeal_about: :income_tax) }
+    context "when tribunal_case is about income tax" do
+      let(:case_attrs) { super().merge(case_type: double(case_type: 'income_tax')) }
 
       context "when dispute is about an unhandled value" do
-        let(:appeal_attrs) { super().merge(dispute_about: :something) }
+        let(:case_attrs) { super().merge(dispute_type: 'something') }
 
-        specify { expect{ subject.run }.to raise_error("Unable to determine cost of income tax appeal") }
+        specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of income tax tribunal_case") }
       end
 
       context "when dispute is about amount of tax owed" do
-        let(:appeal_attrs) { super().merge(dispute_about: :amount_of_tax_owed) }
+        let(:case_attrs) { super().merge(dispute_type: 'amount_of_tax_owed') }
 
         it "has £200 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(20000)
+          expect(subject.lodgement_fee.value).to eq(20000)
         end
       end
 
       context "when dispute is about paye coding" do
-        let(:appeal_attrs) { super().merge(dispute_about: :paye_coding_notice) }
+        let(:case_attrs) { super().merge(dispute_type: 'paye_coding_notice') }
 
         it "has £50 lodgement fee" do
-          expect(subject.run.lodgement_fee).to eq(5000)
+          expect(subject.lodgement_fee.value).to eq(5000)
         end
       end
 
       context "when dispute is about late return/payment" do
-        let(:appeal_attrs) { super().merge(dispute_about: :late_return_or_payment) }
+        let(:case_attrs) { super().merge(dispute_type: 'late_return_or_payment') }
 
         context "when the penalty/surcharge amounts is £100" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 10000) }
+          let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }
 
           it "has £20 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(2000)
+            expect(subject.lodgement_fee.value).to eq(2000)
           end
         end
 
         context "when the penalty/surcharge amounts is £200" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 20000) }
+          let(:case_attrs) { super().merge(penalty_amount: '101_to_20000') }
 
           it "has £50 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(5000)
+            expect(subject.lodgement_fee.value).to eq(5000)
           end
         end
 
         context "when the penalty/surcharge amounts is £20001" do
-          let(:appeal_attrs) { super().merge(penalty_or_surcharge_amount: 2000100) }
+          let(:case_attrs) { super().merge(penalty_amount: '20001_or_more') }
 
           it "has £200 lodgement fee" do
-            expect(subject.run.lodgement_fee).to eq(20000)
+            expect(subject.lodgement_fee.value).to eq(20000)
           end
         end
       end
