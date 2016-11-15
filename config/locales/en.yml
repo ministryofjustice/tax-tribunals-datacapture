@@ -221,9 +221,9 @@ en:
             amount_of_tax_owed: Amount of tax owed
             paye_coding_notice: Pay As You Earn (PAYE) coding notice
           penalty_amount:
-            100_or_less: £100 or less
-            101_to_20000: £101 – £20,000
-            20001_or_more: £20,001 or more
+            penalty_level_1: £100 or less
+            penalty_level_2: £101 – £20,000
+            penalty_level_3: £20,001 or more
     must_challenge_hmrc:
       show:
         heading: You must challenge HMRC before you can appeal
@@ -280,9 +280,9 @@ en:
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
       penalty_amount_form:
         penalty_amount:
-          100_or_less: £100 or less
-          101_to_20000: £101 – £20,000
-          20001_or_more: £20,001 or more
+          penalty_level_1: £100 or less
+          penalty_level_2: £101 – £20,000
+          penalty_level_3: £20,001 or more
     submit:
       # These are defaults applicable to most steps, override them for
       # forms that should have different nomenclature.

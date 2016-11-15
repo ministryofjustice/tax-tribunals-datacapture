@@ -33,8 +33,14 @@ RSpec.describe CostDeterminer do
       context "when dispute is about late return/payment" do
         let(:case_attrs) { super().merge(dispute_type: DisputeType::LATE_RETURN_OR_PAYMENT) }
 
+        context "when dispute is about an unhandled fee level" do
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount.new('ALL THE MONEYS')) }
+
+          specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of penalty tribunal_case") }
+        end
+
         context "when the penalty/surcharge amounts is £100" do
-          let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_1) }
 
           it "has £20 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(2000)
@@ -42,7 +48,7 @@ RSpec.describe CostDeterminer do
         end
 
         context "when the penalty/surcharge amounts is £200" do
-          let(:case_attrs) { super().merge(penalty_amount: '101_to_20000') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_2) }
 
           it "has £50 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(5000)
@@ -50,7 +56,7 @@ RSpec.describe CostDeterminer do
         end
 
         context "when the penalty/surcharge amounts is £20001" do
-          let(:case_attrs) { super().merge(penalty_amount: '20001_or_more') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_3) }
 
           it "has £200 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(20000)
@@ -135,8 +141,14 @@ RSpec.describe CostDeterminer do
       context "when dispute is about late return/payment" do
         let(:case_attrs) { super().merge(dispute_type: DisputeType::LATE_RETURN_OR_PAYMENT) }
 
+        context "when dispute is about an unhandled fee level" do
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount.new('ALL THE MONEYS')) }
+
+          specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of penalty tribunal_case") }
+        end
+
         context "when the penalty/surcharge amounts is £100" do
-          let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_1) }
 
           it "has £20 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(2000)
@@ -144,7 +156,7 @@ RSpec.describe CostDeterminer do
         end
 
         context "when the penalty/surcharge amounts is £200" do
-          let(:case_attrs) { super().merge(penalty_amount: '101_to_20000') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_2) }
 
           it "has £50 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(5000)
@@ -152,7 +164,7 @@ RSpec.describe CostDeterminer do
         end
 
         context "when the penalty/surcharge amounts is £20001" do
-          let(:case_attrs) { super().merge(penalty_amount: '20001_or_more') }
+          let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_3) }
 
           it "has £200 lodgement fee" do
             expect(subject.lodgement_fee.value).to eq(20000)

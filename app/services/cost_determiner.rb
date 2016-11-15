@@ -53,12 +53,14 @@ class CostDeterminer
 
   def penalty_amount_tribunal_case_cost
     case tribunal_case.penalty_amount
-    when '100_or_less'
+    when PenaltyAmount::PENALTY_LEVEL_1
       LodgementFee::FEE_LEVEL_1
-    when '101_to_20000'
+    when PenaltyAmount::PENALTY_LEVEL_2
       LodgementFee::FEE_LEVEL_2
-    else
+    when PenaltyAmount::PENALTY_LEVEL_3
       LodgementFee::FEE_LEVEL_3
+    else
+      raise "Unable to determine cost of penalty tribunal_case"
     end
   end
 end
