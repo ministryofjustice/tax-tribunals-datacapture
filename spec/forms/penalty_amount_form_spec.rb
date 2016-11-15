@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PenaltyAmountForm do
   let(:arguments) { {
-    tribunal_case:                       tribunal_case,
+    tribunal_case:  tribunal_case,
     penalty_amount: penalty_amount
   } }
   let(:tribunal_case)         { instance_double(TribunalCase, penalty_amount: nil) }
@@ -12,8 +12,8 @@ RSpec.describe PenaltyAmountForm do
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
-      let(:tribunal_case)                       { nil }
-      let(:penalty_amount) { '100_or_less' }
+      let(:tribunal_case)  { nil }
+      let(:penalty_amount) { 'penalty_level_1' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
@@ -45,11 +45,11 @@ RSpec.describe PenaltyAmountForm do
     end
 
     context 'when penalty_amount is valid' do
-      let(:penalty_amount) { '100_or_less' }
+      let(:penalty_amount) { 'penalty_level_1' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          penalty_amount: '100_or_less'
+          penalty_amount: PenaltyAmount::PENALTY_LEVEL_1
         )
         expect(subject.save).to be(true)
       end
