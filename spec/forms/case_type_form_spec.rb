@@ -58,8 +58,8 @@ RSpec.describe CaseTypeForm do
     end
 
     context 'when case_type is already the same on the model' do
-      let(:tribunal_case)      { instance_double(TribunalCase, case_type: CaseType.new('vat')) }
-      let(:case_type) { 'vat' }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType::VAT) }
+      let(:case_type)     { 'vat' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

@@ -2,7 +2,7 @@ class CaseTypeForm < BaseForm
   attribute :case_type, String
 
   def self.choices
-    TribunalCase.case_type_values.map(&:to_s)
+    CaseType.values.map(&:to_s)
   end
 
   validates_inclusion_of :case_type, in: choices
