@@ -11,7 +11,7 @@ class CaseType < ValueObject
   ].freeze
 
   def initialize(raw_value)
-    raise ArgumentError.new('Fee value must be symbol or implicitly convertible') unless raw_value.respond_to?(:to_sym)
+    raise ArgumentError.new('Case type must be symbol or implicitly convertible') unless raw_value.respond_to?(:to_sym)
     super(raw_value.to_sym)
   end
 

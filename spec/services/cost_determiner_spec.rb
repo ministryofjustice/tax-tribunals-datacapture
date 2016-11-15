@@ -25,13 +25,13 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::VAT) }
 
       context "when dispute is about an unhandled value" do
-        let(:case_attrs) { super().merge(dispute_type: 'something') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType.new('$^&%*')) }
 
         specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of VAT tribunal_case") }
       end
 
       context "when dispute is about late return/payment" do
-        let(:case_attrs) { super().merge(dispute_type: 'late_return_or_payment') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType::LATE_RETURN_OR_PAYMENT) }
 
         context "when the penalty/surcharge amounts is £100" do
           let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }
@@ -59,7 +59,7 @@ RSpec.describe CostDeterminer do
       end
 
       context "when dispute is about amount of tax owed" do
-        let(:case_attrs) { super().merge(dispute_type: 'amount_of_tax_owed') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType::AMOUNT_OF_TAX_OWED) }
 
         it "has £200 lodgement fee" do
           expect(subject.lodgement_fee.value).to eq(20000)
@@ -111,13 +111,13 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::INCOME_TAX) }
 
       context "when dispute is about an unhandled value" do
-        let(:case_attrs) { super().merge(dispute_type: 'something') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType.new('%$^&*@')) }
 
         specify { expect{ subject.lodgement_fee }.to raise_error("Unable to determine cost of income tax tribunal_case") }
       end
 
       context "when dispute is about amount of tax owed" do
-        let(:case_attrs) { super().merge(dispute_type: 'amount_of_tax_owed') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType::AMOUNT_OF_TAX_OWED) }
 
         it "has £200 lodgement fee" do
           expect(subject.lodgement_fee.value).to eq(20000)
@@ -125,7 +125,7 @@ RSpec.describe CostDeterminer do
       end
 
       context "when dispute is about paye coding" do
-        let(:case_attrs) { super().merge(dispute_type: 'paye_coding_notice') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType::PAYE_CODING_NOTICE) }
 
         it "has £50 lodgement fee" do
           expect(subject.lodgement_fee.value).to eq(5000)
@@ -133,7 +133,7 @@ RSpec.describe CostDeterminer do
       end
 
       context "when dispute is about late return/payment" do
-        let(:case_attrs) { super().merge(dispute_type: 'late_return_or_payment') }
+        let(:case_attrs) { super().merge(dispute_type: DisputeType::LATE_RETURN_OR_PAYMENT) }
 
         context "when the penalty/surcharge amounts is £100" do
           let(:case_attrs) { super().merge(penalty_amount: '100_or_less') }

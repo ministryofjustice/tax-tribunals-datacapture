@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe DisputeTypeForm do
   let(:arguments) { {
-    tribunal_case:         tribunal_case,
-    dispute_type: dispute_type
+    tribunal_case: tribunal_case,
+    dispute_type:  dispute_type
   } }
   let(:tribunal_case) {
     instance_double(
@@ -47,7 +47,7 @@ RSpec.describe DisputeTypeForm do
 
   describe '#choices' do
     context 'when the appeal is about income tax' do
-      let(:case_type) { CaseType.new('income_tax') }
+      let(:case_type) { CaseType::INCOME_TAX }
 
       it 'includes PAYE coding notice' do
         expect(subject.choices).to eq(%w(
@@ -59,7 +59,7 @@ RSpec.describe DisputeTypeForm do
     end
 
     context 'when the appeal is not about income tax' do
-      let(:case_type) { CaseType.new('vat') }
+      let(:case_type) { CaseType::VAT }
 
       it 'does not include PAYE coding notice' do
         expect(subject.choices).to eq(%w(
@@ -109,7 +109,7 @@ RSpec.describe DisputeTypeForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          dispute_type: 'amount_of_tax_owed',
+          dispute_type: DisputeType::AMOUNT_OF_TAX_OWED,
           penalty_amount: nil
         )
         expect(subject.save).to be(true)
@@ -121,7 +121,7 @@ RSpec.describe DisputeTypeForm do
       let(:dispute_type) { 'paye_coding_notice' }
 
       context 'and the appeal is about income tax' do
-        let(:case_type) { CaseType.new('income_tax') }
+        let(:case_type) { CaseType::INCOME_TAX }
 
         it 'is valid' do
           expect(subject).to be_valid
@@ -129,7 +129,7 @@ RSpec.describe DisputeTypeForm do
       end
 
       context 'and the appeal is not about income tax' do
-        let(:case_type) { CaseType.new('vat') }
+        let(:case_type) { CaseType::VAT }
 
         it 'is not valid' do
           expect(subject).to_not be_valid
@@ -141,7 +141,8 @@ RSpec.describe DisputeTypeForm do
       let(:tribunal_case) {
         instance_double(
           TribunalCase,
-          dispute_type: 'paye_coding_notice', case_type:  CaseType.new('income_tax')
+          dispute_type: DisputeType::PAYE_CODING_NOTICE,
+          case_type:    CaseType::INCOME_TAX
         )
       }
       let(:dispute_type) { 'paye_coding_notice' }

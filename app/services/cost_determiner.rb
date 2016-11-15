@@ -29,9 +29,9 @@ class CostDeterminer
 
   def vat_lodgement_fee
     case tribunal_case.dispute_type
-    when 'amount_of_tax_owed'
+    when DisputeType::AMOUNT_OF_TAX_OWED
       LodgementFee::FEE_LEVEL_3
-    when 'late_return_or_payment'
+    when DisputeType::LATE_RETURN_OR_PAYMENT
       penalty_amount_tribunal_case_cost
     else
       raise "Unable to determine cost of VAT tribunal_case"
@@ -40,11 +40,11 @@ class CostDeterminer
 
   def income_tax_lodgement_fee
     case tribunal_case.dispute_type
-    when 'paye_coding_notice'
+    when DisputeType::PAYE_CODING_NOTICE
       LodgementFee::FEE_LEVEL_2
-    when 'amount_of_tax_owed'
+    when DisputeType::AMOUNT_OF_TAX_OWED
       LodgementFee::FEE_LEVEL_3
-    when 'late_return_or_payment'
+    when DisputeType::LATE_RETURN_OR_PAYMENT
       penalty_amount_tribunal_case_cost
     else
       raise "Unable to determine cost of income tax tribunal_case"
