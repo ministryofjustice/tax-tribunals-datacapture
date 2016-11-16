@@ -1,18 +1,83 @@
 en:
-  number:
-    currency:
-      format:
-        unit: £
-        precision: 0
-  generic:
-    step: Question %{step} of %{of}
-  start:
-    index:
-      heading: Appeal to an independent tax tribunal
-      lead_text: Use this service to settle a tax dispute with HM Revenue and Customs (HMRC).
-      start_now: Start now
   steps:
     cost:
+      start:
+        show:
+          heading: 1. Find out the cost of your appeal
+          lead_text_html: You will need to pay an initial fee of £20, £50 or £200 to submit an appeal unless you're eligible for <a href="https://www.gov.uk/get-help-with-court-fees">help with fees</a>.
+          description_html: |
+            <p>You may also have to pay a further fee if your case needs further documents, correspondence and a hearing in person with a judge.</p>
+            <details role="group">
+              <summary role="button" aria-controls="details-content-0" aria-expanded="false">See how much your appeal or application might cost</summary>
+
+              <div class="panel" id="details-content-0" aria-hidden="true">
+                <table class="expandable-demo">
+                  <caption>Table explaining the fees for different types of appeals or applications</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Type of appeal or application</th>
+                      <th scope="col">Initial fee</th>
+                      <th scope="col">Further fee</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £100 or less (e.g. for late self-assessment)</li>
+                        </ul>
+                      </td>
+                      <td>£20</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £101 to £2,000 (e.g. for late filing or payment)</li>
+                        </ul>
+                      </td>
+                      <td>£50</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £2,001 to £20,000</li>
+                          <li>Inaccurate return</li>
+                          <li>Information notice</li>
+                          <li>Closure notice</li>
+                          <li>Pay As You Earn (PAYE) coding notice</li>
+                          <li>Request permission for a review</li>
+                        </ul>
+                      </td>
+                      <td>£50</td>
+                      <td>£200</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>All other types of appeal or application</li>
+                        </ul>
+                      </td>
+                      <td>£200</td>
+                      <td>£500</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Appeals over £1 million or principles of law</li>
+                        </ul>
+                      </td>
+                      <td>£200</td>
+                      <td>£1,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <p>The judge has the power to decide whether your fees are refunded when they look at your case. The tribunal itself does not have the power to enforce or award costs.</p>
+            <p>Check if you're able to <a href="https://www.gov.uk/get-help-with-court-fees">get help paying your fees</a> if you’re on a low income or receiving certain benefits.</p>
+          continue: Continue
       challenged_decision:
         edit:
           heading: Did you challenge the decision with HMRC first?
@@ -91,10 +156,6 @@ en:
           free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
-  errors:
-    # WARNING: This means every possible error message must be a full
-    #  English sentence because the attribute name won't be prepended!
-    format: "%{message}"
   activemodel:
     errors:
       models:
@@ -141,8 +202,3 @@ en:
           penalty_level_1: £100 or less
           penalty_level_2: £101 – £20,000
           penalty_level_3: £20,001 or more
-    submit:
-      # These are defaults applicable to most steps, override them for
-      # forms that should have different nomenclature.
-      create: Continue
-      update: Continue

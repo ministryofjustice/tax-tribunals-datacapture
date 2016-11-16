@@ -5,6 +5,10 @@ def start_application
   click_link 'Start now'
 end
 
+def start_task
+  click_link 'Continue'
+end
+
 def answer_question(question, with:)
   within_fieldset(question) do
     choose(with)

@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Cost decisions', :type => :feature do
-  before { start_application }
+  before do
+    start_application
+    start_task
+  end
 
   scenario 'unchallenged income tax appeal' do
     answer_question 'Did you challenge the decision with HMRC first?', with: 'No'

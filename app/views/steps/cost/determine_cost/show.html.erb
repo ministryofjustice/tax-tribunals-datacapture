@@ -27,5 +27,9 @@
 </table>
 
 <p>
+  <%= link_to t('.continue'), root_path, class: 'button button-start', role: 'button' %>
+</p>
+
+<p>
   <%= link_to t('.start_again'), session_path, method: :delete, class: 'link-back' %>
 </p>
