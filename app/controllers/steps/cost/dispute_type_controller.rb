@@ -1,4 +1,4 @@
-class Steps::DisputeTypeController < StepController
+class Steps::Cost::DisputeTypeController < StepController
   def edit
     super
     @form_object = DisputeTypeForm.new(

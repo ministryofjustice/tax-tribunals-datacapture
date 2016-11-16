@@ -1,4 +1,4 @@
-class Steps::DetermineCostController < StepController
+class Steps::Cost::DetermineCostController < StepController
   def show
     raise 'No tribunal case in session' unless current_tribunal_case
 

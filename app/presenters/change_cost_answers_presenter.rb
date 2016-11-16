@@ -24,15 +24,15 @@ class ChangeCostAnswersPresenter
     row(
       tribunal_case.challenged_decision,
       as:   :challenged_decision,
-      path: edit_steps_challenged_decision_path
+      path: edit_steps_cost_challenged_decision_path
     )
   end
 
   def case_type_question
     path = if tribunal_case.challenged_decision
-             edit_steps_case_type_challenged_path
+             edit_steps_cost_case_type_challenged_path
            else
-             edit_steps_case_type_unchallenged_path
+             edit_steps_cost_case_type_unchallenged_path
            end
 
     row(
@@ -46,7 +46,7 @@ class ChangeCostAnswersPresenter
     row(
       tribunal_case.dispute_type,
       as:   :dispute_type,
-      path: edit_steps_dispute_type_path
+      path: edit_steps_cost_dispute_type_path
     )
   end
 
@@ -54,7 +54,7 @@ class ChangeCostAnswersPresenter
     row(
       tribunal_case.penalty_amount,
       as:   :penalty_amount,
-      path: edit_steps_penalty_amount_path
+      path: edit_steps_cost_penalty_amount_path
     )
   end
 

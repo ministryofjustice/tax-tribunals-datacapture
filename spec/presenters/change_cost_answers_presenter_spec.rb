@@ -28,7 +28,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.challenged_decision')
           expect(row.answer).to      eq('.answers.challenged_decision.true')
-          expect(row.change_path).to eq(paths.edit_steps_challenged_decision_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_path)
         end
       end
 
@@ -38,7 +38,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.challenged_decision')
           expect(row.answer).to      eq('.answers.challenged_decision.false')
-          expect(row.change_path).to eq(paths.edit_steps_challenged_decision_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_path)
         end
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.case_type')
           expect(row.answer).to      eq('.answers.case_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_case_type_challenged_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_case_type_challenged_path)
         end
       end
 
@@ -63,7 +63,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.case_type')
           expect(row.answer).to      eq('.answers.case_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_case_type_unchallenged_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_case_type_unchallenged_path)
         end
       end
     end
@@ -86,7 +86,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.dispute_type')
           expect(row.answer).to      eq('.answers.dispute_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_dispute_type_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_dispute_type_path)
         end
       end
 
@@ -97,7 +97,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.dispute_type')
           expect(row.answer).to      eq('.answers.dispute_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_dispute_type_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_dispute_type_path)
         end
       end
     end
@@ -123,7 +123,7 @@ RSpec.describe ChangeCostAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.penalty_amount')
           expect(row.answer).to      eq('.answers.penalty_amount.foo')
-          expect(row.change_path).to eq(paths.edit_steps_penalty_amount_path)
+          expect(row.change_path).to eq(paths.edit_steps_cost_penalty_amount_path)
         end
       end
     end

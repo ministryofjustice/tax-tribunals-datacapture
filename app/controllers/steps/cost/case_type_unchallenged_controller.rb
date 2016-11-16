@@ -1,4 +1,4 @@
-class Steps::CaseTypeChallengedController < StepController
+class Steps::Cost::CaseTypeUnchallengedController < StepController
   def edit
     super
     @form_object = CaseTypeForm.new(
@@ -8,6 +8,6 @@ class Steps::CaseTypeChallengedController < StepController
   end
 
   def update
-    update_and_advance(:case_type, CaseTypeForm, as: :case_type_challenged)
+    update_and_advance(:case_type, CaseTypeForm, as: :case_type_unchallenged)
   end
 end
