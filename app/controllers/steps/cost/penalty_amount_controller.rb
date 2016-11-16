@@ -1,4 +1,4 @@
-class Steps::PenaltyAmountController < StepController
+class Steps::Cost::PenaltyAmountController < StepController
   def edit
     super
     @form_object = PenaltyAmountForm.new(

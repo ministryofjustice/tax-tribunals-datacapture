@@ -10,229 +10,87 @@ en:
     index:
       heading: Appeal to an independent tax tribunal
       lead_text: Use this service to settle a tax dispute with HM Revenue and Customs (HMRC).
-      description_html: >
-        <p>The tribunal is <strong>independent of government</strong> and will listen to both sides of the argument before making a decision.</p>
-        <p>For more information see the <a href="https://www.gov.uk/tax-tribunal/overview">guide to tax tribunals and fees</a>.</p>
-        <p>You can make an appeal to the tax tribunal by following each step below.</p>
-
-        <ol class="list list-number util_mt-large">
-          <li>
-            <p><strong>Find out how much your appeal costs</strong> (about 5 minutes to complete)</p>
-            <details role="group">
-              <summary role="button" aria-controls="details-content-0" aria-expanded="false">You will need to pay a fee of £20, £50 or £200 to submit an appeal unless you're eligible for <a href="https://www.gov.uk/get-help-with-court-fees">help with fees</a>.</summary>
-
-              <div class="panel" id="details-content-0" aria-hidden="true">
-                <p>The initial fee to submit your appeal depends on your type of case.</p>
-                <p>You may also have to pay a further fee if your case needs further documents, correspondence and a hearing in person with a judge.</p>
-                <p>The judge has the power to decide whether HMRC should reimburse your fees when they look at your case. The tribunal itself does not have the power to enforce or award costs.</p>
-                <p>Check if you're able to <a href="https://www.gov.uk/get-help-with-court-fees">get help paying your fees</a> if you’re on a low income or receiving certain benefits.</p>
-
-                <table class="expandable-demo">
-                  <caption>Table explaining the fees for different types of appeals or applications</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Type of appeal or application</th>
-                      <th scope="col">Initial fee</th>
-                      <th scope="col">Further fee</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of £100 or less
-                            (e.g. for late self-assessment)</li>
-                        </ul>
-                      </td>
-                      <td>£20</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of £101 to £2,000
-                            (e.g. for late filing or payment)</li>
-                        </ul>
-                      </td>
-                      <td>£50</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of £2,001 to £20,000</li>
-                          <li>Inaccurate return (careless)</li>
-                          <li>Information notice</li>
-                          <li>Closure notice</li>
-                          <li>Pay As You Earn (PAYE) coding notice</li>
-                          <li>Apply for a late review with HMRC</li>
-                        </ul>
-                      </td>
-                      <td>£50</td>
-                      <td>£200</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>All other types of appeal or application</li>
-                        </ul>
-                      </td>
-                      <td>£200</td>
-                      <td>£500</td>
-                    </tr>
-                      <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Appeals over £1 million or principles of law</li>
-                        </ul>
-                      </td>
-                      <td>£200</td>
-                      <td>£1,000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-          </li>
-
-          <li>
-            <p><strong>Check the deadline to appeal to the tribunal</strong> (5 minutes)</p>
-            <details role="group">
-              <summary role="button" aria-controls="details-content-1" aria-expanded="false">You must appeal within the time stated on your last letter from HMRC. This is usually 30 days.</summary>
-
-              <div class="panel" id="details-content-1" aria-hidden="true">
-                <p>If you haven't challenged HMRC about your dispute you may wish to <a href="https://www.gov.uk/tax-appeals">resolve the matter directly with HMRC</a> at no extra cost before you appeal to the tribunal.</p>
-                <p>For certain types of tax, you must first ask HMRC to look into your case before you can appeal to the tax tribunal.</p>
-                <p><strong>What you will need</strong></p>
-                <ul class="list list-bullet">
-                  <li>date you received your last letter from HMRC</li>
-                  <li>reasons why you're outside the time limit if you want to submit an appeal late</li>
-                </ul>
-              </div>
-            </details>
-          </li>
-          <li>
-            <p><strong>Enter your appeal or application details</strong> (20 minutes)</p>
-            <details role="group">
-              <summary role="button" aria-controls="details-content-2" aria-expanded="false">You will need to include grounds for your appeal and upload a scan or photo of the letters from HMRC.</summary>
-              <div class="panel" id="details-content-2" aria-hidden="true">
-                <p>You will need to provide:</p>
-                <ul class="list list-bullet">
-                  <li>a scan or photo of the original decision letter or review conclusion letter from HMRC</li>
-                  <li>HMRC reference number shown on the letters</li>
-                  <li>details of your representative if you have one</li>
-                  <li>a National Insurance number or VAT registration number depending on your type of appeal</li>
-                </ul>
-              </div>
-            </details>
-          </li>
-          <li>
-            <p><strong>Pay the fee to submit your appeal</strong> (5 minutes)</p>
-            <details role="group">
-              <summary role="button" aria-controls="details-content-3" aria-expanded="false">Your appeal will only be valid once you have paid the initial processing fee.</summary>
-              <div class="panel" id="details-content-3" aria-hidden="true">
-                <p>You can pay:</p>
-                <ul class="list list-bullet">
-                    <li>online using a debit or credit card</li>
-                    <li>enter a <a href="https://www.gov.uk/get-help-with-court-fees">help with fees</a> reference number</li>
-                    <li>send a cheque</li>
-                </ul>
-                <p><strong>What happens next</strong></p>
-                <p>The tax tribunal will process your appeal and decide how your case will proceed. You will usually hear within 14 days about what will happen next and whether you need to appear at a hearing with a judge.</p>
-              </div>
-            </details>
-          </li>
-        </ol>
-      further_html: >
-        <h2 class="heading-medium">Paying for an existing appeal</h2>
-        <p>If you have received a reference number and a confirmation code by email but still need to pay your fee, <a href="/payment_tool/case_requests">you can do that now</a>.</p>
-        <h2 class="heading-medium">Other ways to submit an appeal</h2>
-        <ul class="list list-bullet">
-          <li>You can submit an appeal or application by <a class="external" rel="external" href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a></li>
-          <li>
-            Send your form by post to First-tier Tribunal (Tax Chamber), PO Box 16972, Birmingham, B16 6TZ
-          </li>
-        </ul>
       start_now: Start now
   steps:
-    challenged_decision:
-      edit:
-        heading: Did you challenge the decision with HMRC first?
-        lead_text: If you’ve written to HM Revenue & Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.
-        help_panel:
-          heading: Help with challenging HMRC directly
-          content_html: >
-            <p>HMRC will tell you on the original decision  letter sent to you how you can query or challenge a tax decision.</p>
-            <p>You usually have 30 days to write to them saying why you think their decision is wrong.</p>
-            <p>It is free to ask HMRC to look into your tax issue again. You will usually only have to pay your own costs, for example towards postage, printing or any professional advice.</p>
-            <p><strong>You can still appeal to the tax tribunal after challenging HMRC</strong>
-            <p>HMRC will send you a letter telling you their view on your tax dispute and whether they've changed their mind.</p>
-            <p>If you disagree with HMRC’s response, you can:
-            <ul class="list list-bullet">
-              <li>ask HMRC for a review by an officer who wasn’t involved in the original decision. You can still appeal to the tax tribunal afterwards if you do not accept the review conclusion</li>
-              <li>consider alternative dispute resolution (ADR)</li>
-              <li>appeal to an independent tax tribunal within 30 days</li>
-            </ul>
-            <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
-    case_type_challenged:
-      edit:
-        heading: What is your appeal about?
-        lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
-        description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
-    case_type_unchallenged:
-      edit:
-        heading: What is your appeal about?
-        lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
-        description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
-    dispute_type:
-      edit:
-        heading: What is your dispute about?
-        lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
-        description_text: You can't combine separate disputes on separate letters into one appeal.
-    penalty_amount:
-      edit:
-        heading: What is the penalty or surcharge amount?
-        lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
-    determine_cost:
-      show:
-        fee_label: To submit your appeal you will have to pay
-        start_again: Start again
-        change: Change
-        questions:
-          challenged_decision: Did you challenge the decision with HMRC first?
-          case_type: What is your appeal about?
-          dispute_type: What is your dispute about?
-          penalty_amount: What is the penalty or surcharge amount?
-        answers:
-          challenged_decision:
-            'true': 'Yes'
-            'false': 'No'
-          case_type:
-            income_tax: Income Tax
-            vat: Value Added Tax (VAT)
-            apn_penalty: Advance Payment Notice (APN) penalty
-            inaccurate_return: Inaccurate return
-            closure_notice: Closure notice
-            information_notice: Information notices (Schedule 36)
-            request_permission_for_review: Request permission for a review
-            other_html: Other
-          dispute_type:
-            late_return_or_payment: Late return or payment
-            amount_of_tax_owed: Amount of tax owed
-            paye_coding_notice: Pay As You Earn (PAYE) coding notice
-          penalty_amount:
-            penalty_level_1: £100 or less
-            penalty_level_2: £101 – £20,000
-            penalty_level_3: £20,001 or more
-    must_challenge_hmrc:
-      show:
-        heading: You must challenge HMRC before you can appeal
-        lead_text: For your type of tax dispute you must challenge the decision with HMRC first.
-        free_to_challenge_hmrc_heading: It is free to challenge HMRC
-        free_to_challenge_hmrc_description_html: You must contact HMRC within the deadline shown on the original notice letter from HMRC. This is usually <strong>30 days</strong>, although you can still write to them after this if you have good reasons for being late.
-        free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
-        contact_hmrc_button: Contact HMRC
-        start_again: Start again
+    cost:
+      challenged_decision:
+        edit:
+          heading: Did you challenge the decision with HMRC first?
+          lead_text: If you’ve written to HM Revenue & Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.
+          help_panel:
+            heading: Help with challenging HMRC directly
+            content_html: >
+              <p>HMRC will tell you on the original decision  letter sent to you how you can query or challenge a tax decision.</p>
+              <p>You usually have 30 days to write to them saying why you think their decision is wrong.</p>
+              <p>It is free to ask HMRC to look into your tax issue again. You will usually only have to pay your own costs, for example towards postage, printing or any professional advice.</p>
+              <p><strong>You can still appeal to the tax tribunal after challenging HMRC</strong>
+              <p>HMRC will send you a letter telling you their view on your tax dispute and whether they've changed their mind.</p>
+              <p>If you disagree with HMRC’s response, you can:
+              <ul class="list list-bullet">
+                <li>ask HMRC for a review by an officer who wasn’t involved in the original decision. You can still appeal to the tax tribunal afterwards if you do not accept the review conclusion</li>
+                <li>consider alternative dispute resolution (ADR)</li>
+                <li>appeal to an independent tax tribunal within 30 days</li>
+              </ul>
+              <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
+      case_type_challenged:
+        edit:
+          heading: What is your appeal about?
+          lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
+          description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+      case_type_unchallenged:
+        edit:
+          heading: What is your appeal about?
+          lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
+          description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+      dispute_type:
+        edit:
+          heading: What is your dispute about?
+          lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
+          description_text: You can't combine separate disputes on separate letters into one appeal.
+      penalty_amount:
+        edit:
+          heading: What is the penalty or surcharge amount?
+          lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+      determine_cost:
+        show:
+          fee_label: To submit your appeal you will have to pay
+          start_again: Start again
+          change: Change
+          questions:
+            challenged_decision: Did you challenge the decision with HMRC first?
+            case_type: What is your appeal about?
+            dispute_type: What is your dispute about?
+            penalty_amount: What is the penalty or surcharge amount?
+          answers:
+            challenged_decision:
+              'true': 'Yes'
+              'false': 'No'
+            case_type:
+              income_tax: Income Tax
+              vat: Value Added Tax (VAT)
+              apn_penalty: Advance Payment Notice (APN) penalty
+              inaccurate_return: Inaccurate return
+              closure_notice: Closure notice
+              information_notice: Information notices (Schedule 36)
+              request_permission_for_review: Request permission for a review
+              other_html: Other
+            dispute_type:
+              late_return_or_payment: Late return or payment
+              amount_of_tax_owed: Amount of tax owed
+              paye_coding_notice: Pay As You Earn (PAYE) coding notice
+            penalty_amount:
+              penalty_level_1: £100 or less
+              penalty_level_2: £101 – £20,000
+              penalty_level_3: £20,001 or more
+      must_challenge_hmrc:
+        show:
+          heading: You must challenge HMRC before you can appeal
+          lead_text: For your type of tax dispute you must challenge the decision with HMRC first.
+          free_to_challenge_hmrc_heading: It is free to challenge HMRC
+          free_to_challenge_hmrc_description_html: You must contact HMRC within the deadline shown on the original notice letter from HMRC. This is usually <strong>30 days</strong>, although you can still write to them after this if you have good reasons for being late.
+          free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
+          contact_hmrc_button: Contact HMRC
+          start_again: Start again
   errors:
     # WARNING: This means every possible error message must be a full
     #  English sentence because the attribute name won't be prepended!

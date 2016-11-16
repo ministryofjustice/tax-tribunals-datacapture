@@ -2,9 +2,9 @@
   <div class="column-two-thirds">
     <p class="step-info">
       <% if @form_object.case_challenged? %>
-        <%= link_to 'Back', edit_steps_case_type_challenged_path, class: 'link-back' %>
+        <%= link_to 'Back', edit_steps_cost_case_type_challenged_path, class: 'link-back' %>
       <% else %>
-        <%= link_to 'Back', edit_steps_case_type_unchallenged_path, class: 'link-back' %>
+        <%= link_to 'Back', edit_steps_cost_case_type_unchallenged_path, class: 'link-back' %>
       <% end %>
       <%=t 'generic.step', step: 3, of: 4 %>
     </p>
