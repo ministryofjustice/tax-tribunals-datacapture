@@ -4,5 +4,7 @@ class Steps::Cost::DetermineCostController < StepController
 
     @change_answers = ChangeCostAnswersPresenter.new(current_tribunal_case)
     @lodgement_fee = CostDeterminer.new(current_tribunal_case).lodgement_fee
+
+    current_tribunal_case.update(lodgement_fee: @lodgement_fee)
   end
 end

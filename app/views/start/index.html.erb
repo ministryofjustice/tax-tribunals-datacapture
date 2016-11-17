@@ -1,6 +1,18 @@
-<h1 class="heading-large">
-  <%=t '.heading' %>
-</h1>
+<header class="homepage-top">
+  <div class="homepage-top-inner">
+    <div class="welcome-block">
+        <div class="inner-block floated-children">
+          <div class="welcome-text">
+            <div class="floated-inner-block">
+              <h1>
+                <%=t '.heading' %>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</header>
 
 <p class="lede">
   <%=t '.lead_text' %>
@@ -8,8 +20,21 @@
 
 <%=t '.description_html' %>
 
-<p>
-  <%= link_to t('.start_now'), steps_cost_start_path, class: 'button button-start', role: 'button' %>
-</p>
+<ol class="list list-number task-list" data-task-list="">
+  <% @presenter.rows.each do |row| %>
+    <li>
+      <%= link_to t(row.title), row.start_path, class: 'task-link' %> (<%=t '.minutes_to_complete', count: row.minutes_to_complete %>)
+      <% if row.value %>
+        <span class="task-status">
+          <span data-key="fee">
+            <%= row.value %>
+          </span>
+        </span>
+      <% else %>
+        <%= link_to t('.start'), row.start_path, class: 'button button-start', role: 'button' %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
 
 <%=t '.further_html' %>
