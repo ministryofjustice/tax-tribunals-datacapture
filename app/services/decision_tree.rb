@@ -21,6 +21,10 @@ class DecisionTree
       after_dispute_type_step
     when :penalty_amount
       after_penalty_amount_step
+    when :in_time
+      after_in_time_step
+    when :lateness_reason
+      after_lateness_reason_step
     else
       raise "Invalid step '#{step}'"
     end
@@ -68,6 +72,19 @@ class DecisionTree
 
   def after_penalty_amount_step
     { controller: :determine_cost, action: :show }
+  end
+
+  def after_in_time_step
+    case answer
+    when :yes
+      { controller: '/home', action: :index }
+    when :no, :unsure
+      { controller: :lateness_reason, action: :edit }
+    end
+  end
+
+  def after_lateness_reason_step
+    { controller: '/home', action: :index }
   end
 
   def step

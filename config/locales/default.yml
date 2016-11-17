@@ -6,6 +6,7 @@ en:
         precision: 0
   generic:
     step: Question %{step} of %{of}
+    back_link: Back
   errors:
     # WARNING: This means every possible error message must be a full
     #  English sentence because the attribute name won't be prepended!

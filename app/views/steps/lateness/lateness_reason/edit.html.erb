@@ -1,0 +1,29 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p class="step-info">
+      <%= link_to t('generic.back_link'), edit_steps_lateness_in_time_path, class: 'link-back' %>
+      <%=t 'generic.step', step: 2, of: 2 %>
+    </p>
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.text_area :lateness_reason, size: '40x4', class: 'form-control-3-4' %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+
+    <details>
+      <summary>
+        <span class="summary">
+          <%=t '.details_title' %>
+        </span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>
+          <%=t '.details_content' %>
+        </p>
+      </div>
+    </details>
+  </div>
+</div>

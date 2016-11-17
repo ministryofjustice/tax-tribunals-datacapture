@@ -23,14 +23,14 @@
 <ol class="list list-number task-list" data-task-list="">
   <% @presenter.rows.each do |row| %>
     <li>
-      <%= link_to t(row.title), row.start_path, class: 'task-link' %> (<%=t '.minutes_to_complete', count: row.minutes_to_complete %>)
+      <%= link_to t(".task_titles.#{row.title}"), row.start_path, class: 'task-link' %> (<%=t '.minutes_to_complete', count: row.minutes_to_complete %>)
       <% if row.value %>
         <span class="task-status">
-          <span data-key="fee">
+          <span>
             <%= row.value %>
           </span>
         </span>
-      <% else %>
+      <% elsif row.can_start? %>
         <%= link_to t('.start'), row.start_path, class: 'button button-start', role: 'button' %>
       <% end %>
     </li>

@@ -1,0 +1,50 @@
+en:
+  steps:
+    lateness:
+      start:
+        show:
+          heading: 2. Check you meet tribunal deadlines
+          lead_text: You must appeal within the time stated on your last letter from HMRC. This is usually 30 days.
+          description_html: |
+            <p>If you have asked HMRC for a review with a tax officer not originally involved in your case, you should wait until the review finishes.</p>
+            <p>Once the review is completed and you have received a letter from HMRC with the review conclusions you can then appeal to the tax tribunal.</p>
+            <h4 class="heading-small">What you will need</h4>
+            <ul class="list list-bullet">
+              <li>date you received your last letter from HMRC</li>
+              <li>reasons why you're outside the time limit if you want to submit an appeal late</li>
+            </ul>
+          previous_step_not_completed: You must complete Step 1 before you can check whether or not you meet the tribunal deadlines.
+          back_to_start: Return to start page
+      in_time:
+        edit:
+          heading: Do you think you're in time to appeal to the tax tribunal?
+          lead_text: Use the date shown on the last letter you received from HMRC to work out whether you meet the deadline to appeal to the tax tribunal. You usually have up to 30 days.
+      lateness_reason:
+        edit:
+          heading: Why are you late with your appeal?
+          lead_text: Enter the reasons why you are late appealing to the tribunal. The judge will consider your case. Your appeal fee will not be refunded if your reasons are not accepted.
+          details_title: Help with late appeals
+          details_content: You must provide reasonable grounds for submitting your appeal late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the appeal deadlines.
+  activemodel:
+    errors:
+      models:
+        in_time_form:
+          attributes:
+            in_time:
+              inclusion: Select whether you think you are in time to appeal to the tax tribunal
+        lateness_reason_form:
+          attributes:
+            lateness_reason:
+              too_short: You must explain why you are late. Use at least %{count} characters.
+  helpers:
+    fieldset:
+      in_time_form:
+        in_time: Do you think you're in time to appeal to the tax tribunal?
+    label:
+      in_time_form:
+        in_time:
+          "yes": Yes, I am in time
+          "no": No, I am late
+          unsure: I'm not sure
+      lateness_reason_form:
+        lateness_reason: Reason(s) for late appeal
