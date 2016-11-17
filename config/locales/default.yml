@@ -1,0 +1,18 @@
+en:
+  number:
+    currency:
+      format:
+        unit: £
+        precision: 0
+  generic:
+    step: Question %{step} of %{of}
+  errors:
+    # WARNING: This means every possible error message must be a full
+    #  English sentence because the attribute name won't be prepended!
+    format: "%{message}"
+  helpers:
+    submit:
+      # These are defaults applicable to most steps, override them for
+      # forms that should have different nomenclature.
+      create: Continue
+      update: Continue
