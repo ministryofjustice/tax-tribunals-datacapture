@@ -2,7 +2,7 @@ require 'rails_helper'
 
 def start_application
   visit '/'
-  click_link 'Start now'
+  click_link 'Start'
 end
 
 def start_task

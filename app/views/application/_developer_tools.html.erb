@@ -1,0 +1,14 @@
+  <% content_for(:footer_top) do %>
+    <details class="developer_tools">
+      <summary><span class="summary">Developer Tools</span></summary>
+      <div class="panel panel-border-narrow">
+        <% if @form_object&.tribunal_case %>
+          <h4 class="heading-small">Current Case ID</h4>
+          <p>
+            <%= @form_object.tribunal_case.id %>
+          </p>
+        <% end %>
+        <%= link_to 'Destroy session', session_path, method: :delete, class: 'button button-destroy_session', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </details>
+  <% end %>

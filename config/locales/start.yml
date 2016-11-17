@@ -1,6 +1,24 @@
 en:
   start:
     index:
-      heading: Appeal to an independent tax tribunal
-      lead_text: Use this service to settle a tax dispute with HM Revenue and Customs (HMRC).
-      start_now: Start now
+      heading: The tax tribunal is independent of government
+      lead_text: Use this service to settle a tax dispute by getting an impartial ruling from a judge.
+      description_html: |
+        <p>You must enter your appeal details in one go. You can't save and return to make changes at a later date.</p>
+        <p>Start your appeal by following each step below.</p>
+      further_html: |
+        <h2 class="heading-medium">Paying for an existing appeal</h2>
+        <p>If you have received a tribunal reference number and a confirmation code by email but still need to pay your fee, <a href="#">you can pay your tribunal fees online now</a>.</p>
+        <h2 class="heading-medium">Other ways to submit an appeal</h2>
+        <ul class="list list-bullet">
+          <li>You can submit an appeal or application by <a class="external" rel="external" href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a></li>
+          <li>
+            Send by post to First-tier Tribunal (Tax Chamber), PO Box 16972, Birmingham, B16 6TZ
+          </li>
+        </ul>
+      task_titles:
+        determine_cost: Find out the cost of your appeal
+      minutes_to_complete:
+        one: 1 minute to complete
+        other: "%{count} minutes to complete"
+      start: Start

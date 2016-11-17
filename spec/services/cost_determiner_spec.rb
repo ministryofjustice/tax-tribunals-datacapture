@@ -43,7 +43,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_1) }
 
           it "has £20 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(2000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_1)
           end
         end
 
@@ -51,7 +51,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_2) }
 
           it "has £50 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(5000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
           end
         end
 
@@ -59,7 +59,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_3) }
 
           it "has £200 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(20000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_3)
           end
         end
       end
@@ -68,7 +68,7 @@ RSpec.describe CostDeterminer do
         let(:case_attrs) { super().merge(dispute_type: DisputeType::AMOUNT_OF_TAX_OWED) }
 
         it "has £200 lodgement fee" do
-          expect(subject.lodgement_fee.value).to eq(20000)
+          expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_3)
         end
       end
     end
@@ -77,7 +77,7 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::APN_PENALTY) }
 
       it "has £50 lodgement fee" do
-        expect(subject.lodgement_fee.value).to eq(5000)
+        expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
       end
     end
 
@@ -85,7 +85,7 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::CLOSURE_NOTICE) }
 
       it "has £50 lodgement fee" do
-        expect(subject.lodgement_fee.value).to eq(5000)
+        expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
       end
     end
 
@@ -93,7 +93,7 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::INFORMATION_NOTICE) }
 
       it "has £50 lodgement fee" do
-        expect(subject.lodgement_fee.value).to eq(5000)
+        expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
       end
     end
 
@@ -101,7 +101,7 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::REQUEST_PERMISSION_FOR_REVIEW) }
 
       it "has £50 lodgement fee" do
-        expect(subject.lodgement_fee.value).to eq(5000)
+        expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
       end
     end
 
@@ -109,7 +109,7 @@ RSpec.describe CostDeterminer do
       let(:case_attrs) { super().merge(case_type: CaseType::OTHER) }
 
       it "has £50 lodgement fee" do
-        expect(subject.lodgement_fee.value).to eq(5000)
+        expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
       end
     end
 
@@ -126,7 +126,7 @@ RSpec.describe CostDeterminer do
         let(:case_attrs) { super().merge(dispute_type: DisputeType::AMOUNT_OF_TAX_OWED) }
 
         it "has £200 lodgement fee" do
-          expect(subject.lodgement_fee.value).to eq(20000)
+          expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_3)
         end
       end
 
@@ -134,7 +134,7 @@ RSpec.describe CostDeterminer do
         let(:case_attrs) { super().merge(dispute_type: DisputeType::PAYE_CODING_NOTICE) }
 
         it "has £50 lodgement fee" do
-          expect(subject.lodgement_fee.value).to eq(5000)
+          expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
         end
       end
 
@@ -151,7 +151,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_1) }
 
           it "has £20 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(2000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_1)
           end
         end
 
@@ -159,7 +159,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_2) }
 
           it "has £50 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(5000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_2)
           end
         end
 
@@ -167,7 +167,7 @@ RSpec.describe CostDeterminer do
           let(:case_attrs) { super().merge(penalty_amount: PenaltyAmount::PENALTY_LEVEL_3) }
 
           it "has £200 lodgement fee" do
-            expect(subject.lodgement_fee.value).to eq(20000)
+            expect(subject.lodgement_fee).to eq(LodgementFee::FEE_LEVEL_3)
           end
         end
       end
