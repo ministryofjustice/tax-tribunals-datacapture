@@ -1,5 +1,5 @@
 en:
-  start:
+  home:
     index:
       heading: The tax tribunal is independent of government
       lead_text: Use this service to settle a tax dispute by getting an impartial ruling from a judge.
@@ -18,6 +18,7 @@ en:
         </ul>
       task_titles:
         determine_cost: Find out the cost of your appeal
+        lateness: Check you meet the tribunal deadline
       minutes_to_complete:
         one: 1 minute to complete
         other: "%{count} minutes to complete"
