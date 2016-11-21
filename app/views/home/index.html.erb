@@ -30,7 +30,7 @@
             <%= row.value %>
           </span>
         </span>
-      <% elsif row.can_start? %>
+      <% elsif row.show_start_button? %>
         <%= link_to t('.start'), row.start_path, class: 'button button-start', role: 'button' %>
       <% end %>
     </li>

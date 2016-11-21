@@ -68,7 +68,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
           expect(row.start_path).to eq(paths.steps_lateness_start_path)
-          expect(row.can_start?).to eq(false)
+          expect(row.show_start_button?).to eq(false)
         end
       end
 
@@ -81,7 +81,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
           expect(row.start_path).to eq(paths.steps_lateness_start_path)
-          expect(row.can_start?).to eq(true)
+          expect(row.show_start_button?).to eq(true)
         end
       end
 
@@ -94,7 +94,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to eq(InTime::YES)
           expect(row.minutes_to_complete).to eq(5)
           expect(row.start_path).to eq(paths.steps_lateness_start_path)
-          expect(row.can_start?).to eq(false)
+          expect(row.show_start_button?).to eq(false)
         end
       end
 
@@ -106,7 +106,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
           expect(row.start_path).to eq(paths.steps_lateness_start_path)
-          expect(row.can_start?).to eq(false)
+          expect(row.show_start_button?).to eq(false)
         end
       end
     end

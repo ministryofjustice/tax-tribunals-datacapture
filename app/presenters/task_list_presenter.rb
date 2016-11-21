@@ -1,6 +1,6 @@
 class TaskListPresenter
-  TaskListRow = Struct.new(:title, :minutes_to_complete, :value, :start_path, :can_start?)
-
+  TaskListRow = Struct.new(:title, :minutes_to_complete, :value, :start_path, :show_start_button?)
+  
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::NumberHelper
 
