@@ -12,7 +12,7 @@
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :case_type,
-        choices: CaseTypeForm.choices %>
+        choices: Steps::Cost::CaseTypeForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

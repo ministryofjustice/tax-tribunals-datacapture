@@ -1,4 +1,6 @@
-class Steps::Cost::StartController < StepController
-  def show
+module Steps::Cost
+  class StartController < StepController
+    def show
+    end
   end
 end
