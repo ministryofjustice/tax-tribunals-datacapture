@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Fee do
   let(:level)  { :fee_level_999 }
