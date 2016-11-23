@@ -1,4 +1,4 @@
-class Steps::Cost::CaseTypeChallengedController < StepController
+class Steps::Cost::CaseTypeChallengedController < Steps::CostStepController
   def edit
     super
     @form_object = CaseTypeForm.new(

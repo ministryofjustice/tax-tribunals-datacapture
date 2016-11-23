@@ -1,4 +1,4 @@
-class Steps::Lateness::InTimeController < StepController
+class Steps::Lateness::InTimeController < Steps::LatenessStepController
   def edit
     super
     @form_object = InTimeForm.new(
