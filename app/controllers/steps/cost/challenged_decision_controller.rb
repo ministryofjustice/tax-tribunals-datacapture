@@ -1,4 +1,4 @@
-class Steps::Cost::ChallengedDecisionController < StepController
+class Steps::Cost::ChallengedDecisionController < Steps::CostStepController
   def edit
     super
     @form_object = ChallengedDecisionForm.new(

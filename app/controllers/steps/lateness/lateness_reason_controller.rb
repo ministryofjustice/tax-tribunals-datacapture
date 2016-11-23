@@ -1,4 +1,4 @@
-class Steps::Lateness::LatenessReasonController < StepController
+class Steps::Lateness::LatenessReasonController < Steps::LatenessStepController
   def edit
     super
     @form_object = LatenessReasonForm.new(

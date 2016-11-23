@@ -27,7 +27,7 @@ class StepController < ApplicationController
     end
 
     if @form_object.save
-      destination = DecisionTree.new(
+      destination = decision_tree_class.new(
         object:    current_tribunal_case,
         step:      hash,
         next_step: @next_step
