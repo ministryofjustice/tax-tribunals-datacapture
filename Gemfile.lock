@@ -132,6 +132,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.2)
+    jwt (1.5.6)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -188,6 +189,8 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    notifications-ruby-client (1.1.1)
+      jwt (~> 1.5)
     parallel (1.9.0)
     parser (2.3.2.0)
       ast (~> 2.2)
@@ -369,6 +372,7 @@ DEPENDENCIES
   lograge
   mojfile-uploader-api-client (~> 0.1)
   mutant-rspec
+  notifications-ruby-client
   pg (~> 0.18)
   phonelib
   pry-byebug

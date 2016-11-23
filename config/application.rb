@@ -8,6 +8,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "notifications/client"
 
 # Ensure that when running the application through Rake the RAILS_ENV doesn't incorrectly
 # get replaced with 'development' when running the specs.
