@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.feature 'Cost decisions', :type => :feature do
   before do

@@ -1,3 +1,5 @@
+ENV['RAILS_ENV'] ||= 'test'
+
 require 'simplecov'
 SimpleCov.minimum_coverage 100
 # SimpleCov conflicts with mutant. This lets us turn it off, when necessary.
