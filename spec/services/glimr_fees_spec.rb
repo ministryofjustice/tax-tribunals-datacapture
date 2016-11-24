@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe GlimrFees do
   describe '.fee_amount' do

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe TaskListPresenter do
   subject { described_class.new(tribunal_case) }

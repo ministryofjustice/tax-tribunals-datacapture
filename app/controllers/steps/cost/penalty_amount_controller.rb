@@ -1,5 +1,5 @@
 module Steps::Cost
-  class PenaltyAmountController < StepController
+  class PenaltyAmountController < Steps::CostStepController
     def edit
       super
       @form_object = PenaltyAmountForm.new(

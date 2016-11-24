@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples 'a generic step controller' do |form_class|
+RSpec.shared_examples 'a generic step controller' do |form_class, decision_tree_class|
   describe '#update' do
     let(:form_object) { instance_double(form_class, attributes: { foo: double }) }
     let(:form_class_params_name) { form_class.name.underscore }
@@ -15,10 +15,10 @@ RSpec.shared_examples 'a generic step controller' do |form_class|
         expect(form_object).to receive(:save).and_return(true)
       end
 
-      let(:decision_tree) { instance_double(DecisionTree, destination: '/expected_destination') }
+      let(:decision_tree) { instance_double(decision_tree_class, destination: '/expected_destination') }
 
       it 'asks the decision tree for the next destination and redirects there' do
-        expect(DecisionTree).to receive(:new).and_return(decision_tree)
+        expect(decision_tree_class).to receive(:new).and_return(decision_tree)
         put :update, params: expected_params
         expect(subject).to redirect_to('/expected_destination')
       end
@@ -37,8 +37,8 @@ RSpec.shared_examples 'a generic step controller' do |form_class|
   end
 end
 
-RSpec.shared_examples 'a start point step controller' do |form_class|
-  include_examples 'a generic step controller', form_class
+RSpec.shared_examples 'a start point step controller' do |form_class, decision_tree_class|
+  include_examples 'a generic step controller', form_class, decision_tree_class
 
   describe '#edit' do
     context 'when no case exists in the session yet' do
@@ -79,8 +79,8 @@ RSpec.shared_examples 'a start point step controller' do |form_class|
   end
 end
 
-RSpec.shared_examples 'an intermediate step controller' do |form_class|
-  include_examples 'a generic step controller', form_class
+RSpec.shared_examples 'an intermediate step controller' do |form_class, decision_tree_class|
+  include_examples 'a generic step controller', form_class, decision_tree_class
 
   describe '#edit' do
     context 'when no case exists in the session yet' do

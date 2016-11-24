@@ -1,5 +1,5 @@
 module Steps::Lateness
-  class LatenessReasonController < StepController
+  class LatenessReasonController < Steps::LatenessStepController
     def edit
       super
       @form_object = LatenessReasonForm.new(

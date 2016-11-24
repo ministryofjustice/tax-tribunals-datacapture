@@ -1,5 +1,5 @@
 module Steps::Cost
-  class DetermineCostController < StepController
+  class DetermineCostController < Steps::CostStepController
     def show
       raise 'No tribunal case in session' unless current_tribunal_case
 

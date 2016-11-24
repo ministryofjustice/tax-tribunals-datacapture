@@ -1,5 +1,5 @@
 module Steps::Lateness
-  class InTimeController < StepController
+  class InTimeController < Steps::LatenessStepController
     def edit
       super
       @form_object = InTimeForm.new(

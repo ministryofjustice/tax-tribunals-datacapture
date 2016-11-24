@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.shared_examples 'a start step controller' do
   describe '#show' do
