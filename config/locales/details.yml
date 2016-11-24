@@ -1,0 +1,24 @@
+en:
+  steps:
+    details:
+      start:
+        show:
+          heading: 3. Enter appeal details and pay fee
+          lead_text: You will need to include grounds for your appeal and upload a scan or photo of the letters from HMRC.
+          description_html: |
+            <h4 class="heading-small">What to get ready before you start</h4>
+            <ul class="list list-bullet">
+              <li>a scan or photo of the original notice letter or review conclusion letter from HMRC ready to upload</li>
+              <li>write down the reasons why you disagree with the decision(s) by HMRC so you can copy and paste the text or attach as a document</li>
+              <li>if you're completing this as a representative and you're not a legal professional, you'll need an email or scan of a letter from your client saying they can act on your behalf</li>
+              <li>a debit or credit card to pay the initial tribunal fee unless you're eligible for <a href="https://www.gov.uk/get-help-with-court-fees">help with fees</a></li>
+            </ul>
+            <p class="notice">
+              <i class="icon icon-important">
+                <span class="visuallyhidden">Warning</span>
+              </i>
+              <strong class="bold-small">
+                You can't save details as you go. Please get everything ready before you start.
+              </strong>
+            </p>
+          previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details. 
