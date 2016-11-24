@@ -22,8 +22,8 @@ RSpec.feature 'Lateness', type: :feature do
     expect(page).to have_current_path(root_path)
   end
 
-  scenario 'taxpayer is definitely late' do
-    answer_question "Do you think you're in time to appeal to the tax tribunal?", with: 'No, I am late'
+  scenario 'taxpayer is unsure' do
+    answer_question "Do you think you're in time to appeal to the tax tribunal?", with: "I'm not sure"
 
     fill_in 'Reason(s) for late appeal', with: 'I have no idea'
     continue
