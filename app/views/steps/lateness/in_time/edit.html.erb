@@ -10,7 +10,7 @@
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :in_time,
-        choices: InTimeForm.choices %>
+        choices: Steps::Lateness::InTimeForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>
