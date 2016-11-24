@@ -28,23 +28,23 @@ en:
   activemodel:
     errors:
       models:
-        in_time_form:
+        steps_lateness_in_time_form:
           attributes:
             in_time:
               inclusion: Select whether you think you are in time to appeal to the tax tribunal
-        lateness_reason_form:
+        steps_lateness_lateness_reason_form:
           attributes:
             lateness_reason:
               too_short: You must explain why you are late. Use at least %{count} characters.
   helpers:
     fieldset:
-      in_time_form:
+      steps_lateness_in_time_form:
         in_time: Do you think you're in time to appeal to the tax tribunal?
     label:
-      in_time_form:
+      steps_lateness_in_time_form:
         in_time:
           "yes": Yes, I am in time
           "no": No, I am late
           unsure: I'm not sure
-      lateness_reason_form:
+      steps_lateness_lateness_reason_form:
         lateness_reason: Reason(s) for late appeal

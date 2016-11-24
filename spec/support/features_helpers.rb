@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-def start_application
+def visit_homepage
   visit '/'
-  click_link 'Start'
 end
 
 def start_task
+  click_link 'Start'
   click_link 'Continue'
 end
 
@@ -13,7 +13,18 @@ def answer_question(question, with:)
   within_fieldset(question) do
     choose(with)
   end
+  continue
+end
+
+def continue
   click_button 'Continue'
+end
+
+def complete_cost_task
+  start_task
+  answer_question 'Did you challenge the decision with HMRC first?', with: 'No'
+  answer_question 'What is your appeal about?', with: 'Closure notice'
+  click_link 'Continue'
 end
 
 def expect_amount_on(page, gbp: nil)

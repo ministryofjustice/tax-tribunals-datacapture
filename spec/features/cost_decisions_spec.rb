@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'Cost decisions', :type => :feature do
   before do
-    start_application
+    visit_homepage
     start_task
   end
 
