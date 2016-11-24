@@ -10,7 +10,7 @@
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :penalty_amount,
-        choices: PenaltyAmountForm.choices %>
+        choices: Steps::Cost::PenaltyAmountForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe InTimeForm do
+RSpec.describe Steps::Lateness::InTimeForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     in_time:       in_time
