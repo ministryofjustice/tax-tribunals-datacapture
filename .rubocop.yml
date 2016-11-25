@@ -1,4 +1,6 @@
   AllCops:
+    Exclude:
+      - lib/generators/step/templates/*.rb
     TargetRubyVersion: 2.3
     DisabledByDefault: true
   Lint/AmbiguousOperator:
