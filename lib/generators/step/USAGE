@@ -1,0 +1,37 @@
+Description:
+    Generates a step for a given task.
+
+    CAUTION: This requires the task to exist already. It won't create a
+    task supercontroller, or task folders, or decision tree - instead
+    it will fail unceremoniously.
+
+    Assumes you want to generate an intermediate step, i.e. not a start page
+    or "check your answers" page.
+
+Example:
+    rails generate step Cost DisputeType
+
+    This will create:
+        app/controllers/steps/cost/dispute_type_controller.rb
+        app/forms/steps/cost/dispute_type_form.rb
+        app/views/steps/cost/dispute_type/edit.html.erb
+        spec/controllers/steps/cost/dispute_type_controller_spec.rb
+        spec/forms/steps/cost/dispute_type_form_spec.rb
+
+    This will update:
+        config/routes.rb
+          (adds an `edit_step` route for the step)
+        app/services/cost_decision_tree.rb
+          (adds the step to the decision tree)
+
+    You will have to do yourself:
+        - Change `@back_link_path` in the controller
+        - Add the fields into the form object (and write specs)
+        - Add the fields to the tribunal_case model (and migrate)
+        - Add the relevant form code in the view
+        - Update the step X of Y in the view
+        - Make the decision tree decide something
+        - Add specs for the decision tree
+        - Add a value object if required (and add the `composed_of` to the model)
+        - Add i18n
+        - Write feature specs

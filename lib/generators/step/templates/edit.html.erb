@@ -1,0 +1,16 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p class="step-info">
+      <%%= link_to t('generic.back_link'), @back_link_path, class: 'link-back' %>
+      <%%=t 'generic.step', step: 0, of: 0 %>
+    </p>
+    <h1 class="heading-large"><%%=t '.heading' %></h1>
+
+    <p class="lede"><%%=t '.lead_text' %></p>
+
+    <%%= step_form @form_object do |f| %>
+      <!-- TODO: Add form fields here -->
+      <%%= f.submit class: 'button' %>
+    <%% end %>
+  </div>
+</div>
