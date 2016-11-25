@@ -31,6 +31,10 @@ Rails.application.routes.draw do
       edit_step :in_time
       edit_step :lateness_reason
     end
+
+    namespace :details do
+      show_step :start
+    end
   end
 
   resource :session, only: [:destroy]

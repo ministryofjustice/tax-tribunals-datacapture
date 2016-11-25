@@ -19,6 +19,7 @@ en:
       task_titles:
         determine_cost: Find out the cost of your appeal
         lateness: Check you meet the tribunal deadline
+        details: Enter appeal details and pay fee
       minutes_to_complete:
         one: 1 minute to complete
         other: "%{count} minutes to complete"

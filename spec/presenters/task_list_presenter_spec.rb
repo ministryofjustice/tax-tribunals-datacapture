@@ -5,26 +5,29 @@ RSpec.describe TaskListPresenter do
   let(:tribunal_case) {
     instance_double(
       TribunalCase,
-      lodgement_fee:  lodgement_fee,
-      lodgement_fee?: !!lodgement_fee,
-      in_time:        in_time
+      cost_task_completed?:     cost_task_completed,
+      lateness_task_completed?: lateness_task_completed,
+      lodgement_fee:            lodgement_fee,
+      in_time:                  in_time
     )
   }
-  let(:lodgement_fee) { nil }
-  let(:in_time)       { nil }
+  let(:cost_task_completed)     { nil }
+  let(:lateness_task_completed) { nil }
+  let(:lodgement_fee)           { nil }
+  let(:in_time)                 { nil }
 
   let(:paths) { Rails.application.routes.url_helpers }
 
   describe '#rows' do
     it 'should always return all rows' do
-      expect(subject.rows.count).to eq(2)
+      expect(subject.rows.count).to eq(3)
     end
 
     describe 'the first row' do
       let(:row) { subject.rows.first }
 
-      context 'when there is a case without a lodgement fee in the session' do
-        let(:lodgement_fee) { nil }
+      context 'when there is a case with the cost task not completed' do
+        let(:cost_task_completed) { false }
 
         it 'has the correct values' do
           expect(row.title).to eq(:determine_cost)
@@ -34,8 +37,9 @@ RSpec.describe TaskListPresenter do
         end
       end
 
-      context 'when there is a case with a lodgement fee in the session' do
-        let(:lodgement_fee) { double(LodgementFee, to_gbp: 123.00) }
+      context 'when there is a case with the cost task completed' do
+        let(:cost_task_completed) { true }
+        let(:lodgement_fee)       { double(LodgementFee, to_gbp: 123.00) }
 
         it 'has the correct values' do
           expect(row.title).to eq(:determine_cost)
@@ -60,8 +64,8 @@ RSpec.describe TaskListPresenter do
     describe 'the second row' do
       let(:row) { subject.rows.second }
 
-      context 'when there is a case without a lodgement fee in the session' do
-        let(:lodgement_fee) { nil }
+      context 'when there is a case with the cost task not completed' do
+        let(:cost_task_completed) { false }
 
         it 'has the correct values' do
           expect(row.title).to eq(:lateness)
@@ -72,9 +76,10 @@ RSpec.describe TaskListPresenter do
         end
       end
 
-      context 'when there is a case with a lodgement fee but no in_time value in the session' do
-        let(:lodgement_fee) { double(LodgementFee, to_gbp: 123.00) }
-        let(:in_time)       { nil }
+      context 'when there is a case with the cost task completed but not the lateness task' do
+        let(:cost_task_completed)     { true }
+        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lateness_task_completed) { false }
 
         it 'has the correct values' do
           expect(row.title).to eq(:lateness)
@@ -85,9 +90,11 @@ RSpec.describe TaskListPresenter do
         end
       end
 
-      context 'when there is a case with a lodgement fee and in_time value in the session' do
-        let(:lodgement_fee) { double(LodgementFee, to_gbp: 123.00) }
-        let(:in_time)       { InTime::YES }
+      context 'when there is a case with both cost and lodgement tasks completed' do
+        let(:cost_task_completed)     { true }
+        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lateness_task_completed) { true }
+        let(:in_time)                 { InTime::YES }
 
         it 'has the correct values' do
           expect(row.title).to eq(:lateness)
@@ -106,6 +113,63 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
           expect(row.start_path).to eq(paths.steps_lateness_start_path)
+          expect(row.show_start_button?).to eq(false)
+        end
+      end
+    end
+
+    describe 'the third row' do
+      let(:row) { subject.rows.last }
+
+      context 'when there is a case without the cost task completed' do
+        let(:cost_task_completed) { false }
+
+        it 'has the correct values' do
+          expect(row.title).to eq(:details)
+          expect(row.value).to be_nil
+          expect(row.minutes_to_complete).to eq(20)
+          expect(row.start_path).to eq(paths.steps_details_start_path)
+          expect(row.show_start_button?).to eq(false)
+        end
+      end
+
+      context 'when there is a case without the lateness task completed' do
+        let(:cost_task_completed)     { true }
+        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lateness_task_completed) { false }
+
+        it 'has the correct values' do
+          expect(row.title).to eq(:details)
+          expect(row.value).to be_nil
+          expect(row.minutes_to_complete).to eq(20)
+          expect(row.start_path).to eq(paths.steps_details_start_path)
+          expect(row.show_start_button?).to eq(false)
+        end
+      end
+
+      context 'when there is a case with both cost and lateness tasks completed' do
+        let(:cost_task_completed)     { true }
+        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lateness_task_completed) { true }
+        let(:in_time)                 { InTime::YES }
+
+        it 'has the correct values' do
+          expect(row.title).to eq(:details)
+          expect(row.value).to be_nil
+          expect(row.minutes_to_complete).to eq(20)
+          expect(row.start_path).to eq(paths.steps_details_start_path)
+          expect(row.show_start_button?).to eq(true)
+        end
+      end
+
+      context 'when there is no case in the session' do
+        let(:tribunal_case) { nil }
+
+        it 'has the correct values' do
+          expect(row.title).to eq(:details)
+          expect(row.value).to be_nil
+          expect(row.minutes_to_complete).to eq(20)
+          expect(row.start_path).to eq(paths.steps_details_start_path)
           expect(row.show_start_button?).to eq(false)
         end
       end
