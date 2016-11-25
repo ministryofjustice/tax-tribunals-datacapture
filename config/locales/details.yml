@@ -22,3 +22,23 @@ en:
               </strong>
             </p>
           previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details. 
+      taxpayer_type:
+        edit:
+          heading: Is the appeal for an individual or company?
+          lead_text: Select whether the taxpayer is an individual or a company.
+  activemodel:
+    errors:
+      models:
+        steps/details/taxpayer_type_form:
+          attributes:
+            taxpayer_type:
+              inclusion: Select whether the appeal is for an individual or company
+  helpers:
+    fieldset:
+      steps_details_taxpayer_type_form:
+        taxpayer_type: Is the appeal for an individual or company?
+    label:
+      steps_details_taxpayer_type_form:
+        taxpayer_type:
+          individual_html: <strong>Individual</strong>
+          company_html: <strong>Company</strong><br>including partnerships (LLP), trusts, clubs and associations
