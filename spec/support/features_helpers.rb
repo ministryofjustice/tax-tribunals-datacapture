@@ -27,6 +27,11 @@ def complete_cost_task
   click_link 'Continue'
 end
 
+def complete_lateness_task
+  start_task
+  answer_question "Do you think you're in time to appeal to the tax tribunal?", with: 'Yes, I am in time'
+end
+
 def expect_amount_on(page, gbp: nil)
   expect(page).to have_text("#{I18n.t('steps.cost.determine_cost.show.fee_label')} £#{gbp}")
 end

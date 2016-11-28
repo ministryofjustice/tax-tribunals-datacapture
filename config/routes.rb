@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
     namespace :details do
       show_step :start
+      edit_step :taxpayer_type
     end
   end
 

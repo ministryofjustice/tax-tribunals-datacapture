@@ -1,23 +1,15 @@
 class TribunalCase < ApplicationRecord
-  composed_of :case_type,
-    allow_nil:  true,
-    mapping:    [%w(case_type value)]
+  # Cost task
+  has_value_object :case_type
+  has_value_object :dispute_type
+  has_value_object :penalty_amount
+  has_value_object :lodgement_fee
 
-  composed_of :dispute_type,
-    allow_nil:  true,
-    mapping:    [%w(dispute_type value)]
+  # Lateness task
+  has_value_object :in_time
 
-  composed_of :penalty_amount,
-    allow_nil:  true,
-    mapping:    [%w(penalty_amount value)]
-
-  composed_of :lodgement_fee,
-    allow_nil:  true,
-    mapping:    [%w(lodgement_fee value)]
-
-  composed_of :in_time,
-    allow_nil:  true,
-    mapping:    [%w(in_time value)]
+  # Details task
+  has_value_object :taxpayer_type
 
   def cost_task_completed?
     lodgement_fee?
