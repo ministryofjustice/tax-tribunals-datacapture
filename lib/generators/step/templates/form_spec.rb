@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::<%= task_name.classify %>::<%= step_name.classify %>Form do
+RSpec.describe Steps::<%= task_name.camelize %>::<%= step_name.camelize %>Form do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     <%= step_name.underscore %>: <%= step_name.underscore %>
@@ -10,7 +10,7 @@ RSpec.describe Steps::<%= task_name.classify %>::<%= step_name.classify %>Form d
 
   subject { described_class.new(arguments) }
 
-  pending 'Write specs for <%= step_name.classify %>Form!'
+  pending 'Write specs for <%= step_name.camelize %>Form!'
 
   # TODO: The below can be uncommented and serves as a starting point for
   #   forms operating on a single value object.
