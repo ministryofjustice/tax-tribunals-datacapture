@@ -20,7 +20,7 @@ module Steps::<%= task_name.camelize %>
     #   - Uncomment the below if you have a value object
     #   - Delete the method if you haven't
     # def <%= step_name.underscore %>_value
-    #  <%= step_name.camelize %>.new(<%= step_name %>)
+    #  <%= step_name.camelize %>.new(<%= step_name.underscore %>)
     # end
 
     def changed?
