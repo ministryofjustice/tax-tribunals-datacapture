@@ -1,5 +1,5 @@
-module Steps::<%= task_name.classify %>
-  class <%= step_name.classify %>Form < BaseForm
+module Steps::<%= task_name.camelize %>
+  class <%= step_name.camelize %>Form < BaseForm
     # TODO: Add more attributes or change type if necessary
     attribute :<%= step_name.underscore %>, String
 
@@ -8,7 +8,7 @@ module Steps::<%= task_name.classify %>
     #   - Delete the method if you haven't
     #
     # def self.choices
-    #  <%= step_name.classify %>.values.map(&:to_s)
+    #  <%= step_name.camelize %>.values.map(&:to_s)
     # end
     # validates_inclusion_of :<%= step_name.underscore %>, in: choices
 
@@ -20,7 +20,7 @@ module Steps::<%= task_name.classify %>
     #   - Uncomment the below if you have a value object
     #   - Delete the method if you haven't
     # def <%= step_name.underscore %>_value
-    #  <%= step_name.classify %>.new(<%= step_name %>)
+    #  <%= step_name.camelize %>.new(<%= step_name %>)
     # end
 
     def changed?
@@ -29,7 +29,7 @@ module Steps::<%= task_name.classify %>
       #  do e.g.:
       #
       #  tribunal_case.<%= step_name.underscore %> != <%= step_name.underscore %>_value
-      raise 'TODO: Update <%= step_name.classify %>#changed?'
+      raise 'TODO: Update <%= step_name.camelize %>#changed?'
     end
 
     def persist!
@@ -38,7 +38,7 @@ module Steps::<%= task_name.classify %>
 
       # TODO: Update this to persist your form object
       tribunal_case.update(
-        <%= step_name.underscore %>: (raise 'TODO: Update <%= step_name.classify %>#persist!')
+        <%= step_name.underscore %>: (raise 'TODO: Update <%= step_name.camelize %>#persist!')
         # The following are dependent attributes that need to be reset
         # TODO: Are there any dependent attributes? Reset them here.
       )
