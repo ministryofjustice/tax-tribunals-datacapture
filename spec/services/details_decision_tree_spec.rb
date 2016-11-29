@@ -8,7 +8,42 @@ RSpec.describe DetailsDecisionTree do
 
   describe '#destination' do
     context 'when the step is `taxpayer_type`' do
-      let(:step) { { taxpayer_type: 'anything_for_now'  } }
+      context 'and the answer is `individual`' do
+        let(:step) { { taxpayer_type: 'individual'  } }
+
+        it 'sends the user to the `individual_details` step' do
+          expect(subject.destination).to eq({
+            controller: :individual_details,
+            action:     :edit
+          })
+        end
+      end
+
+      context 'and the answer is `company`' do
+        let(:step) { { taxpayer_type: 'company'  } }
+
+        it 'sends the user to the `company_details` step' do
+          expect(subject.destination).to eq({
+            controller: :company_details,
+            action:     :edit
+          })
+        end
+      end
+    end
+
+    context 'when the step is `individual_details`' do
+      let(:step) { { individual_details: 'anything'  } }
+
+      it 'sends the user to the task list' do
+        expect(subject.destination).to eq({
+          controller: '/home',
+          action:     :index
+        })
+      end
+    end
+
+    context 'when the step is `company_details`' do
+      let(:step) { { company_details: 'anything'  } }
 
       it 'sends the user to the task list' do
         expect(subject.destination).to eq({

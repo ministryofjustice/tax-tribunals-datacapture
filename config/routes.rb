@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     namespace :details do
       show_step :start
       edit_step :taxpayer_type
+      edit_step :individual_details
+      edit_step :company_details
     end
   end
 
