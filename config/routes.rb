@@ -38,6 +38,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :session, only: [:destroy]
+  resource :session, only: [:destroy] do
+    member do
+      post :create_and_fill_cost
+      post :create_and_fill_cost_and_lateness
+    end
+  end
   root to: 'home#index'
 end
