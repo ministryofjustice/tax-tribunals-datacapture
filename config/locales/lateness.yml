@@ -1,6 +1,7 @@
 en:
   steps:
     lateness:
+      step_header: Question %{step} of 2
       start:
         show:
           heading: 2. Check you meet tribunal deadlines

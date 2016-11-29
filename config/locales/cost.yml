@@ -1,6 +1,7 @@
 en:
   steps:
     cost:
+      step_header: Question %{step} of 4
       start:
         show:
           heading: 1. Find out the cost of your appeal

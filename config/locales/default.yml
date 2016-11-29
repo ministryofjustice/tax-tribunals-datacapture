@@ -5,7 +5,6 @@ en:
         unit: £
         precision: 0
   generic:
-    step: Question %{step} of %{of}
     back_link: Back
   errors:
     # WARNING: This means every possible error message must be a full
