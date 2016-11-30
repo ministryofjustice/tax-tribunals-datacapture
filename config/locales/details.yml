@@ -27,6 +27,14 @@ en:
         edit:
           heading: Is the appeal for an individual or company?
           lead_text: Select whether the taxpayer is an individual or a company.
+      individual_details:
+        edit:
+          heading: Taxpayer's details
+          lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
+      company_details:
+        edit:
+          heading: Taxpayer's details
+          lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
   activemodel:
     errors:
       models:
@@ -34,6 +42,10 @@ en:
           attributes:
             taxpayer_type:
               inclusion: Select whether the appeal is for an individual or company
+        steps/details/individual_details_form:
+          blank: You must enter the taxpayer's %{attribute}
+        steps/details/company_details_form:
+          blank: You must enter the taxpayer's %{attribute}
   helpers:
     fieldset:
       steps_details_taxpayer_type_form:
@@ -43,3 +55,17 @@ en:
         taxpayer_type:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong><br>including partnerships (LLP), trusts, clubs and associations
+      steps_details_individual_details_form:
+        taxpayer_individual_name: Name (first name and last name)
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Phone number
+      steps_details_company_details_form:
+        taxpayer_company_name: Company name
+        taxpayer_company_registration_number: Company registration number
+        taxpayer_company_fao: Company contact person (first name and last name)
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Phone number
