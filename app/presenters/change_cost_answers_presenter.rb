@@ -29,16 +29,10 @@ class ChangeCostAnswersPresenter
   end
 
   def case_type_question
-    path = if tribunal_case.challenged_decision
-             edit_steps_cost_case_type_challenged_path
-           else
-             edit_steps_cost_case_type_unchallenged_path
-           end
-
     row(
       tribunal_case.case_type,
       as:   :case_type,
-      path: path
+      path: edit_steps_cost_case_type_path
     )
   end
 

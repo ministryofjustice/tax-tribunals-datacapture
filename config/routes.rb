@@ -18,8 +18,7 @@ Rails.application.routes.draw do
     namespace :cost do
       show_step :start
       edit_step :challenged_decision
-      edit_step :case_type_challenged
-      edit_step :case_type_unchallenged
+      edit_step :case_type
       edit_step :dispute_type
       edit_step :penalty_amount
       show_step :determine_cost

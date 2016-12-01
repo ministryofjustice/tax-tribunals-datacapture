@@ -98,12 +98,7 @@ en:
                 <li>appeal to an independent tax tribunal within 30 days</li>
               </ul>
               <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
-      case_type_challenged:
-        edit:
-          heading: What is your appeal about?
-          lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
-          description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
-      case_type_unchallenged:
+      case_type:
         edit:
           heading: What is your appeal about?
           lead_text: The type of tax or issue you're disputing is usually shown on the original notice letter from HMRC, or review conclusion letter (if you challenged the decision directly with HMRC).
@@ -175,7 +170,7 @@ en:
         steps/cost/penalty_amount_form:
           attributes:
             penalty_amount:
-              inclusion: Select what the penalty or surcharge amount is 
+              inclusion: Select what the penalty or surcharge amount is
   helpers:
     fieldset:
       steps_cost_challenged_decision_form:
