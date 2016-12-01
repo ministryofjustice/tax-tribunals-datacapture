@@ -11,9 +11,5 @@ module Steps::Details
     def update
       update_and_advance(:taxpayer_type, TaxpayerTypeForm)
     end
-
-    def previous_step_path
-      steps_details_start_path
-    end
   end
 end

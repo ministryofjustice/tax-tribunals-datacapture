@@ -11,9 +11,5 @@ module Steps::Lateness
     def update
       update_and_advance(:lateness_reason, LatenessReasonForm)
     end
-
-    def previous_step_path
-      edit_steps_lateness_in_time_path
-    end
   end
 end

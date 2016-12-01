@@ -11,10 +11,5 @@ module Steps::Cost
     def update
       update_and_advance(:case_type, CaseTypeForm, as: :case_type_unchallenged)
     end
-
-    def previous_step_path
-      edit_steps_cost_challenged_decision_path
-    end
   end
 end
-

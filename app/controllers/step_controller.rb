@@ -3,6 +3,15 @@ class StepController < ApplicationController
     raise 'No tribunal case in session' unless current_tribunal_case
   end
 
+  def previous_step_path
+    decision_tree = decision_tree_class.new(
+      object: current_tribunal_case,
+      step:   { controller_name => {} },
+    )
+
+    url_for(decision_tree.previous)
+  end
+
   private
 
   def current_tribunal_case

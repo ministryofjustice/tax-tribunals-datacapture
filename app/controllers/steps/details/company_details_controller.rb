@@ -17,9 +17,5 @@ module Steps::Details
     def update
       update_and_advance(:company_details, CompanyDetailsForm, as: :company_details)
     end
-
-    def previous_step_path
-      edit_steps_details_taxpayer_type_path
-    end
   end
 end

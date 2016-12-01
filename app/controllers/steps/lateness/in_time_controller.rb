@@ -11,9 +11,5 @@ module Steps::Lateness
     def update
       update_and_advance(:in_time, InTimeForm)
     end
-
-    def previous_step_path
-      steps_lateness_start_path
-    end
   end
 end

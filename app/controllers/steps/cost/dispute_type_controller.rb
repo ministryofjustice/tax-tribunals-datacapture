@@ -11,13 +11,5 @@ module Steps::Cost
     def update
       update_and_advance(:dispute_type, DisputeTypeForm)
     end
-
-    def previous_step_path
-      if current_tribunal_case.challenged_decision
-        edit_steps_cost_case_type_challenged_path
-      else
-        edit_steps_cost_case_type_unchallenged_path
-      end
-    end
   end
 end

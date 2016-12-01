@@ -164,4 +164,84 @@ RSpec.describe CostDecisionTree do
       end
     end
   end
+
+  describe '#previous' do
+    context 'when the step is `challenged_decision`' do
+      let(:step) { { challenged_decision: 'anything' } }
+
+      it 'sends the user to the `start` step' do
+        expect(subject.previous).to eq({
+          controller: :start,
+          action:     :show
+        })
+      end
+    end
+
+    context 'when the step is `case_type_challenged`' do
+      let(:step) { { case_type_challenged: 'anything' } }
+
+      it 'sends the user to the `decision_challenged` step' do
+        expect(subject.previous).to eq({
+          controller: :challenged_decision,
+          action:     :edit
+        })
+      end
+    end
+
+    context 'when the step is `case_type_unchallenged`' do
+      let(:step) { { case_type_unchallenged: 'anything' } }
+
+      it 'sends the user to the `decision_challenged` step' do
+        expect(subject.previous).to eq({
+          controller: :challenged_decision,
+          action:     :edit
+        })
+      end
+    end
+
+    context 'when the step is `dispute_type`' do
+      let(:step) { { dispute_type: 'anything' } }
+
+      context 'and the case has been challenged' do
+        let(:object) { instance_double(TribunalCase, challenged_decision: true) }
+
+        it 'sends the user to the `case_type_challenged` step' do
+          expect(subject.previous).to eq({
+            controller: :case_type_challenged,
+            action:     :edit
+          })
+        end
+      end
+
+      context 'and the case has not been challenged' do
+        let(:object) { instance_double(TribunalCase, challenged_decision: false) }
+
+        it 'sends the user to the `case_type_unchallenged` step' do
+          expect(subject.previous).to eq({
+            controller: :case_type_unchallenged,
+            action:     :edit
+          })
+        end
+      end
+    end
+
+    context 'when the step is `penalty_amount`' do
+      let(:step) { { penalty_amount: 'anything' } }
+
+      it 'sends the user to the `dispute_type` step' do
+        expect(subject.previous).to eq({
+          controller: :dispute_type,
+          action:     :edit
+        })
+      end
+    end
+
+    context 'when the step is invalid' do
+      let(:step) { { ungueltig: { waschmaschine: 'nein' } } }
+
+      it 'raises an error' do
+        expect { subject.previous }.to raise_error(RuntimeError)
+      end
+    end
+  end
 end
