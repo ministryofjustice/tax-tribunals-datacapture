@@ -8,4 +8,14 @@ module ApplicationHelper
 
     form_for record, opts, &block
   end
+
+  # Render a back link pointing to a controller-defined previous step, and a step
+  # header to show the user how far they have come in the task
+  def step_header(task, step_number)
+    render partial: 'step_header', locals: {
+      task:        task,
+      step_number: step_number,
+      path:        controller.previous_step_path
+    }
+  end
 end

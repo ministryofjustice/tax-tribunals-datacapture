@@ -1,13 +1,7 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <p class="step-info">
-      <% if @form_object.case_challenged? %>
-        <%= link_to t('generic.back_link'), edit_steps_cost_case_type_challenged_path, class: 'link-back' %>
-      <% else %>
-        <%= link_to t('generic.back_link'), edit_steps_cost_case_type_unchallenged_path, class: 'link-back' %>
-      <% end %>
-      <%=t 'steps.cost.step_header', step: 3 %>
-    </p>
+    <%= step_header(:cost, 3) %>
+
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>

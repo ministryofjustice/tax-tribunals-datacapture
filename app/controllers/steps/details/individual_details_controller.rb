@@ -10,11 +10,14 @@ module Steps::Details
         taxpayer_contact_email:    current_tribunal_case.taxpayer_contact_email,
         taxpayer_contact_phone:    current_tribunal_case.taxpayer_contact_phone
       )
-      @back_link_path = edit_steps_details_taxpayer_type_path
     end
 
     def update
       update_and_advance(:individual_details, IndividualDetailsForm, as: :individual_details)
+    end
+
+    def previous_step_path
+      edit_steps_details_taxpayer_type_path
     end
   end
 end

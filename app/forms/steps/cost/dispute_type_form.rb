@@ -19,10 +19,6 @@ module Steps::Cost
       end.map(&:to_s)
     end
 
-    def case_challenged?
-      tribunal_case.challenged_decision
-    end
-
     private
 
     def dispute_type_value

@@ -12,6 +12,10 @@ module Steps::Cost
       update_and_advance(:challenged_decision, ChallengedDecisionForm)
     end
 
+    def previous_step_path
+      steps_cost_start_path
+    end
+
     private
 
     def current_tribunal_case

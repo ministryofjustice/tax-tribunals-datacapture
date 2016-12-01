@@ -6,11 +6,14 @@ module Steps::Details
         tribunal_case: current_tribunal_case,
         taxpayer_type: current_tribunal_case.taxpayer_type
       )
-      @back_link_path = steps_details_start_path
     end
 
     def update
       update_and_advance(:taxpayer_type, TaxpayerTypeForm)
+    end
+
+    def previous_step_path
+      steps_details_start_path
     end
   end
 end
