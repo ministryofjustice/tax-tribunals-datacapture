@@ -14,7 +14,24 @@ class DetailsDecisionTree < DecisionTree
     end
   end
 
+  def previous
+    case step.to_sym
+    when :taxpayer_type
+      before_taxpayer_type_step
+    when :individual_details
+      before_individual_details_step
+    when :company_details
+      before_company_details_step
+    else
+      raise "Invalid step '#{step}'"
+    end
+  end
+
   private
+
+  def before_taxpayer_type_step
+    { controller: :start, action: :show }
+  end
 
   def after_taxpayer_type_step
     case answer
@@ -25,8 +42,16 @@ class DetailsDecisionTree < DecisionTree
     end
   end
 
+  def before_individual_details_step
+    { controller: :taxpayer_type, action: :edit }
+  end
+
   def after_individual_details_step
     { controller: '/home', action: :index }
+  end
+
+  def before_company_details_step
+    { controller: :taxpayer_type, action: :edit }
   end
 
   def after_company_details_step

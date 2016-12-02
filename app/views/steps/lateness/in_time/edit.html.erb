@@ -1,9 +1,7 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <p class="step-info">
-      <%= link_to t('generic.back_link'), steps_lateness_start_path, class: 'link-back' %>
-      <%=t 'steps.lateness.step_header', step: 1 %>
-    </p>
+    <%= step_header(:lateness, 1) %>
+
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>

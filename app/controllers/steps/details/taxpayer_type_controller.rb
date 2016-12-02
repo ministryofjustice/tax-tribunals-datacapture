@@ -6,7 +6,6 @@ module Steps::Details
         tribunal_case: current_tribunal_case,
         taxpayer_type: current_tribunal_case.taxpayer_type
       )
-      @back_link_path = steps_details_start_path
     end
 
     def update

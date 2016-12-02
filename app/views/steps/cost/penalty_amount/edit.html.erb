@@ -1,9 +1,7 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <p class="step-info">
-      <%= link_to t('generic.back_link'), edit_steps_cost_dispute_type_path, class: 'link-back' %>
-      <%=t 'steps.cost.step_header', step: 4 %>
-    </p>
+    <%= step_header(:cost, 4) %>
+
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>

@@ -6,7 +6,6 @@ module Steps::<%= task_name.camelize %>
         tribunal_case: current_tribunal_case,
         <%= step_name.underscore  %>: current_tribunal_case.<%= step_name.underscore %>
       )
-      @back_link_path = (raise 'TODO: Specify the back link path for this generated controller')
     end
 
     def update
