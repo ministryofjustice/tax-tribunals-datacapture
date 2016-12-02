@@ -11,46 +11,26 @@ RSpec.describe LatenessDecisionTree do
       context 'and the answer is `yes`' do
         let(:step) { { in_time: 'yes' } }
 
-        it 'sends the user to the task list' do
-          expect(subject.destination).to eq({
-            controller: '/home',
-            action:     :index
-          })
-        end
+        it { is_expected.to have_destination('/home', :index) }
       end
 
       context 'and the answer is `no`' do
         let(:step) { { in_time: 'no' } }
 
-        it 'sends the user to the `lateness_reason` step' do
-          expect(subject.destination).to eq({
-            controller: :lateness_reason,
-            action:     :edit
-          })
-        end
+        it { is_expected.to have_destination(:lateness_reason, :edit) }
       end
 
       context 'and the answer is `unsure`' do
         let(:step) { { in_time: 'unsure' } }
 
-        it 'sends the user to the `lateness_reason` step' do
-          expect(subject.destination).to eq({
-            controller: :lateness_reason,
-            action:     :edit
-          })
-        end
+        it { is_expected.to have_destination(:lateness_reason, :edit) }
       end
     end
 
     context 'when the step is `lateness_reason`' do
       let(:step) { { lateness_reason: 'anything' } }
 
-      it 'sends the user to the home page' do
-        expect(subject.destination).to eq({
-          controller: '/home',
-          action:     :index
-        })
-      end
+      it { is_expected.to have_destination('/home', :index) }
     end
 
     context 'when the step is invalid' do
@@ -66,23 +46,13 @@ RSpec.describe LatenessDecisionTree do
     context 'when the step is `in_time`' do
       let(:step) { { in_time: 'anything' } }
 
-      it 'sends the user to the `start` step' do
-        expect(subject.previous).to eq({
-          controller: :start,
-          action:     :show
-        })
-      end
+      it { is_expected.to have_previous(:start, :show) }
     end
 
     context 'when the step is `lateness_reason`' do
       let(:step) { { lateness_reason: 'anything' } }
 
-      it 'sends the user to the `in_time` step' do
-        expect(subject.previous).to eq({
-          controller: :in_time,
-          action:     :edit
-        })
-      end
+      it { is_expected.to have_previous(:in_time, :edit) }
     end
 
     context 'when the step is invalid' do
