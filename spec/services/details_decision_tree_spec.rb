@@ -11,46 +11,26 @@ RSpec.describe DetailsDecisionTree do
       context 'and the answer is `individual`' do
         let(:step) { { taxpayer_type: 'individual'  } }
 
-        it 'sends the user to the `individual_details` step' do
-          expect(subject.destination).to eq({
-            controller: :individual_details,
-            action:     :edit
-          })
-        end
+        it { is_expected.to have_destination(:individual_details, :edit) }
       end
 
       context 'and the answer is `company`' do
         let(:step) { { taxpayer_type: 'company'  } }
 
-        it 'sends the user to the `company_details` step' do
-          expect(subject.destination).to eq({
-            controller: :company_details,
-            action:     :edit
-          })
-        end
+        it { is_expected.to have_destination(:company_details, :edit) }
       end
     end
 
     context 'when the step is `individual_details`' do
       let(:step) { { individual_details: 'anything'  } }
 
-      it 'sends the user to the task list' do
-        expect(subject.destination).to eq({
-          controller: '/home',
-          action:     :index
-        })
-      end
+      it { is_expected.to have_destination('/home', :index) }
     end
 
     context 'when the step is `company_details`' do
       let(:step) { { company_details: 'anything'  } }
 
-      it 'sends the user to the task list' do
-        expect(subject.destination).to eq({
-          controller: '/home',
-          action:     :index
-        })
-      end
+      it { is_expected.to have_destination('/home', :index) }
     end
 
     context 'when the step is invalid' do
@@ -66,34 +46,19 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `taxpayer_type`' do
       let(:step) { { taxpayer_type: 'anything'  } }
 
-      it 'sends the user to `start` step' do
-        expect(subject.previous).to eq({
-          controller: :start,
-          action:     :show
-        })
-      end
+      it { is_expected.to have_previous(:start, :show) }
     end
 
     context 'when the step is `individual_details`' do
       let(:step) { { individual_details: 'anything'  } }
 
-      it 'sends the user to `taxpayer_type` step' do
-        expect(subject.previous).to eq({
-          controller: :taxpayer_type,
-          action:     :edit
-        })
-      end
+      it { is_expected.to have_previous(:taxpayer_type, :edit) }
     end
 
     context 'when the step is `company_details`' do
       let(:step) { { company_details: 'anything'  } }
 
-      it 'sends the user to `taxpayer_type` step' do
-        expect(subject.previous).to eq({
-          controller: :taxpayer_type,
-          action:     :edit
-        })
-      end
+      it { is_expected.to have_previous(:taxpayer_type, :edit) }
     end
 
     context 'when the step is invalid' do

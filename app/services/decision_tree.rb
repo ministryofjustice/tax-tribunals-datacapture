@@ -16,4 +16,16 @@ class DecisionTree
   def answer
     @step.values.first.to_sym
   end
+
+  def show(step)
+    { controller: step, action: :show }
+  end
+
+  def edit(step)
+    { controller: step, action: :edit }
+  end
+
+  def home
+    { controller: '/home', action: :index }
+  end
 end
