@@ -11,11 +11,5 @@ module Steps::<%= task_name.camelize %>
     def update
       update_and_advance(:<%= step_name.underscore %>, <%= step_name.camelize %>Form)
     end
-
-    def previous_step_path
-      # TODO: Update to e.g.:
-      #   edit_steps_<%= task_name.underscore %>_PREVIOUSSTEP_path
-      raise 'TODO: Define back link in controller'
-    end
   end
 end
