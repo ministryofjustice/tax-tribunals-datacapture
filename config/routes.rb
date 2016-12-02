@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       edit_step :taxpayer_type
       edit_step :individual_details
       edit_step :company_details
+      edit_step :grounds_for_appeal
     end
   end
 

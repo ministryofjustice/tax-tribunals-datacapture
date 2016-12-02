@@ -24,11 +24,17 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `individual_details`' do
       let(:step) { { individual_details: 'anything'  } }
 
-      it { is_expected.to have_destination('/home', :index) }
+      it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
     end
 
     context 'when the step is `company_details`' do
       let(:step) { { company_details: 'anything'  } }
+
+      it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+    end
+
+    context 'when the step is `grounds_for_appeal`' do
+      let(:step) { { grounds_for_appeal: 'anything'  } }
 
       it { is_expected.to have_destination('/home', :index) }
     end
@@ -59,6 +65,22 @@ RSpec.describe DetailsDecisionTree do
       let(:step) { { company_details: 'anything'  } }
 
       it { is_expected.to have_previous(:taxpayer_type, :edit) }
+    end
+
+    context 'when the step is `grounds_for_appeal`' do
+      let(:step) { { grounds_for_appeal: 'anything'  } }
+
+      context 'when the tax payer type is individual' do
+        let(:object) { instance_double(TribunalCase, taxpayer_type: TaxpayerType::INDIVIDUAL) }
+
+        it { is_expected.to have_previous(:individual_details, :edit) }
+      end
+
+      context 'when the tax payer type is company' do
+        let(:object) { instance_double(TribunalCase, taxpayer_type: TaxpayerType::COMPANY) }
+
+        it { is_expected.to have_previous(:company_details, :edit) }
+      end
     end
 
     context 'when the step is invalid' do

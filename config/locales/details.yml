@@ -35,6 +35,10 @@ en:
         edit:
           heading: Taxpayer's details
           lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
+      grounds_for_appeal:
+        edit:
+          heading: Grounds for appeal
+          lead_text: Enter the details of grounds for appeal.
   activemodel:
     errors:
       models:
@@ -69,3 +73,5 @@ en:
         taxpayer_contact_postcode: Postcode
         taxpayer_contact_email: Email address
         taxpayer_contact_phone: Phone number
+      steps_details_grounds_for_appeal_form:
+        grounds_for_appeal: Grounds for appeal
