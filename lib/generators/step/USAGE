@@ -21,8 +21,6 @@ Example:
     This will update:
         config/routes.rb
           (adds an `edit_step` route for the step)
-        app/services/cost_decision_tree.rb
-          (adds the step to the decision tree)
 
     You will have to do yourself:
         - Change `@back_link_path` in the controller
