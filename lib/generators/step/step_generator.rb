@@ -22,16 +22,4 @@ class StepGenerator < Rails::Generators::Base
       "  edit_step :#{step_name.underscore}\n    "
     end
   end
-
-  def add_to_decision_tree
-    tree_file = "app/services/#{task_name.underscore}_decision_tree.rb"
-
-    insert_into_file tree_file, before: "else\n      raise"do
-      "when :#{step_name.underscore}\n      after_#{step_name.underscore}_step\n    "
-    end
-
-    insert_into_file tree_file, before: /^end/ do
-      "  def after_#{step_name.underscore}_step\n    raise 'TODO: Implement me'\n  end\n"
-    end
-  end
 end
