@@ -6,7 +6,7 @@ class LatenessDecisionTree < DecisionTree
     when :in_time
       after_in_time_step
     when :lateness_reason
-      after_lateness_reason_step
+      home
     else
       raise "Invalid step '#{step}'"
     end
@@ -15,9 +15,9 @@ class LatenessDecisionTree < DecisionTree
   def previous
     case step.to_sym
     when :in_time
-      before_in_time_step
+      show(:start)
     when :lateness_reason
-      before_lateness_reason_step
+      edit(:in_time)
     else
       raise "Invalid step '#{step}'"
     end
@@ -25,24 +25,12 @@ class LatenessDecisionTree < DecisionTree
 
   private
 
-  def before_in_time_step
-    { controller: :start, action: :show }
-  end
-
   def after_in_time_step
     case answer
     when :yes
-      { controller: '/home', action: :index }
+      home
     when :no, :unsure
-      { controller: :lateness_reason, action: :edit }
+      edit(:lateness_reason)
     end
-  end
-
-  def before_lateness_reason_step
-    { controller: :in_time, action: :edit }
-  end
-
-  def after_lateness_reason_step
-    { controller: '/home', action: :index }
   end
 end

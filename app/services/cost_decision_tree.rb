@@ -4,13 +4,13 @@ class CostDecisionTree < DecisionTree
 
     case step.to_sym
     when :challenged_decision
-      after_challenged_decision_step
+      edit(:case_type)
     when :case_type
       after_case_type_step
     when :dispute_type
       after_dispute_type_step
     when :penalty_amount
-      after_penalty_amount_step
+      show(:determine_cost)
     else
       raise "Invalid step '#{step}'"
     end
@@ -19,13 +19,13 @@ class CostDecisionTree < DecisionTree
   def previous
     case step.to_sym
     when :challenged_decision
-      before_challenged_decision_step
+      show(:start)
     when :case_type
-      before_case_type_step
+      edit(:challenged_decision)
     when :dispute_type
-      before_dispute_type_step
+      edit(:case_type)
     when :penalty_amount
-      before_penalty_amount_step
+      edit(:dispute_type)
     else
       raise "Invalid step '#{step}'"
     end
@@ -33,51 +33,27 @@ class CostDecisionTree < DecisionTree
 
   private
 
-  def before_challenged_decision_step
-    { controller: :start, action: :show }
-  end
-
-  def after_challenged_decision_step
-    { controller: :case_type, action: :edit }
-  end
-
-  def before_case_type_step
-    { controller: :challenged_decision, action: :edit }
-  end
-
   def after_case_type_step
     case answer
     when :income_tax
       if @object.challenged_decision
-        { controller: :dispute_type, action: :edit }
+        edit(:dispute_type)
       else
-        { controller: :must_challenge_hmrc, action: :show }
+        show(:must_challenge_hmrc)
       end
     when :vat
-      { controller: :dispute_type, action: :edit }
+      edit(:dispute_type)
     else
-      { controller: :determine_cost, action: :show }
+      show(:determine_cost)
     end
-  end
-
-  def before_dispute_type_step
-    { controller: :case_type, action: :edit }
   end
 
   def after_dispute_type_step
     case answer
     when :late_return_or_payment
-      { controller: :penalty_amount, action: :edit }
+      edit(:penalty_amount)
     when :amount_of_tax_owed, :paye_coding_notice
-      { controller: :determine_cost, action: :show }
+      show(:determine_cost)
     end
-  end
-
-  def before_penalty_amount_step
-    { controller: :dispute_type, action: :edit }
-  end
-
-  def after_penalty_amount_step
-    { controller: :determine_cost, action: :show }
   end
 end
