@@ -8,32 +8,19 @@ RSpec.describe CostDecisionTree do
 
   describe '#destination' do
     context 'when the step is `challenged_decision`' do
-      context 'and the answer is yes' do
-        let(:step) { { challenged_decision: 'yes' } }
+      let(:step) { { challenged_decision: 'anything' } }
 
-        it 'sends the user to the case_type_challenged step' do
-          expect(subject.destination).to eq({
-            controller: :case_type_challenged,
-            action:     :edit
-          })
-        end
-      end
-
-      context 'and the answer is no' do
-        let(:step) { { challenged_decision: 'no' } }
-
-        it 'sends the user to the case_type_unchallenged step' do
-          expect(subject.destination).to eq({
-            controller: :case_type_unchallenged,
-            action:     :edit
-          })
-        end
+      it 'sends the user to the case_type step' do
+        expect(subject.destination).to eq({
+          controller: :case_type,
+          action:     :edit
+        })
       end
     end
 
-    context 'when the step is `case_type_challenged`' do
+    context 'when the step is `case_type`' do
       context 'and the answer is `vat`' do
-        let(:step) { { case_type_challenged: 'vat' } }
+        let(:step) { { case_type: 'vat' } }
 
         it 'sends the user to the dispute_type step' do
           expect(subject.destination).to eq({
@@ -44,48 +31,28 @@ RSpec.describe CostDecisionTree do
       end
 
       context 'and the answer is `income_tax`' do
-        let(:step) { { case_type_challenged: 'income_tax' } }
+        let(:step) { { case_type: 'income_tax' } }
 
-        it 'sends the user to the dispute_type step' do
-          expect(subject.destination).to eq({
-            controller: :dispute_type,
-            action:     :edit
-          })
+        context 'and the case is challenged' do
+          let(:object) { instance_double(TribunalCase, challenged_decision: true) }
+
+          it 'sends the user to the dispute_type step' do
+            expect(subject.destination).to eq({
+              controller: :dispute_type,
+              action:     :edit
+            })
+          end
         end
-      end
 
-      context 'and the answer is anything else' do
-        let(:step) { { case_type_challenged: 'anything_for_now' } }
+        context 'and the case is unchallenged' do
+          let(:object) { instance_double(TribunalCase, challenged_decision: false) }
 
-        it 'sends the user to the endpoint' do
-          expect(subject.destination).to eq({
-            controller: :determine_cost,
-            action:     :show
-          })
-        end
-      end
-    end
-
-    context 'when the step is `case_type_unchallenged`' do
-      context 'and the answer is `income_tax`' do
-        let(:step) { { case_type_unchallenged: 'income_tax' } }
-
-        it 'sends the user to the `must_challenge_hmrc` endpoint' do
-          expect(subject.destination).to eq({
-            controller: :must_challenge_hmrc,
-            action:     :show
-          })
-        end
-      end
-
-      context 'and the answer is `vat`' do
-        let(:step) { { case_type_unchallenged: 'vat' } }
-
-        it 'sends the user to the `dispute_type` endpoint' do
-          expect(subject.destination).to eq({
-            controller: :dispute_type,
-            action:     :edit
-          })
+          it 'sends the user to the must_challenge_hmrc step' do
+            expect(subject.destination).to eq({
+              controller: :must_challenge_hmrc,
+              action:     :show
+            })
+          end
         end
       end
 
@@ -98,7 +65,7 @@ RSpec.describe CostDecisionTree do
         other
       ).each do |tax_type|
         context "and the answer is `#{tax_type}`" do
-          let(:step) { { case_type_unchallenged: tax_type } }
+          let(:step) { { case_type: tax_type } }
 
           it 'sends the user to the `determine_cost` endpoint' do
             expect(subject.destination).to eq({
@@ -177,21 +144,10 @@ RSpec.describe CostDecisionTree do
       end
     end
 
-    context 'when the step is `case_type_challenged`' do
-      let(:step) { { case_type_challenged: 'anything' } }
+    context 'when the step is `case_type`' do
+      let(:step) { { case_type: 'anything' } }
 
-      it 'sends the user to the `decision_challenged` step' do
-        expect(subject.previous).to eq({
-          controller: :challenged_decision,
-          action:     :edit
-        })
-      end
-    end
-
-    context 'when the step is `case_type_unchallenged`' do
-      let(:step) { { case_type_unchallenged: 'anything' } }
-
-      it 'sends the user to the `decision_challenged` step' do
+      it 'sends the user to the `challenged_decision` step' do
         expect(subject.previous).to eq({
           controller: :challenged_decision,
           action:     :edit
@@ -202,26 +158,11 @@ RSpec.describe CostDecisionTree do
     context 'when the step is `dispute_type`' do
       let(:step) { { dispute_type: 'anything' } }
 
-      context 'and the case has been challenged' do
-        let(:object) { instance_double(TribunalCase, challenged_decision: true) }
-
-        it 'sends the user to the `case_type_challenged` step' do
-          expect(subject.previous).to eq({
-            controller: :case_type_challenged,
-            action:     :edit
-          })
-        end
-      end
-
-      context 'and the case has not been challenged' do
-        let(:object) { instance_double(TribunalCase, challenged_decision: false) }
-
-        it 'sends the user to the `case_type_unchallenged` step' do
-          expect(subject.previous).to eq({
-            controller: :case_type_unchallenged,
-            action:     :edit
-          })
-        end
+      it 'sends the user to the `case_type` step' do
+        expect(subject.previous).to eq({
+          controller: :case_type,
+          action:     :edit
+        })
       end
     end
 

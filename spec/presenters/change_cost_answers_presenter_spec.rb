@@ -13,10 +13,10 @@ RSpec.describe ChangeCostAnswersPresenter do
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:challenged_decision)                  { true }
-  let(:case_type)                { 'foo' }
-  let(:dispute_type)               { nil }
-  let(:penalty_amount) { nil }
+  let(:challenged_decision) { true }
+  let(:case_type)           { 'foo' }
+  let(:dispute_type)        { nil }
+  let(:penalty_amount)      { nil }
 
   describe '#rows' do
     describe '`challenged_decision` row' do
@@ -47,24 +47,10 @@ RSpec.describe ChangeCostAnswersPresenter do
       let(:row) { subject.rows.second }
       let(:case_type) { 'foo' }
 
-      context 'when appeal is challenged' do
-        let(:challenged_decision) { true }
-
-        it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.case_type')
-          expect(row.answer).to      eq('.answers.case_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_cost_case_type_challenged_path)
-        end
-      end
-
-      context 'when appeal is unchallenged' do
-        let(:challenged_decision) { false }
-
-        it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.case_type')
-          expect(row.answer).to      eq('.answers.case_type.foo')
-          expect(row.change_path).to eq(paths.edit_steps_cost_case_type_unchallenged_path)
-        end
+      it 'has the correct attributes' do
+        expect(row.question).to    eq('.questions.case_type')
+        expect(row.answer).to      eq('.answers.case_type.foo')
+        expect(row.change_path).to eq(paths.edit_steps_cost_case_type_path)
       end
     end
 

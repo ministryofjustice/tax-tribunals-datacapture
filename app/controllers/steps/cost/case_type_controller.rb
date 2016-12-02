@@ -1,5 +1,5 @@
 module Steps::Cost
-  class CaseTypeChallengedController < Steps::CostStepController
+  class CaseTypeController < Steps::CostStepController
     def edit
       super
       @form_object = CaseTypeForm.new(
@@ -9,7 +9,7 @@ module Steps::Cost
     end
 
     def update
-      update_and_advance(:case_type, CaseTypeForm, as: :case_type_challenged)
+      update_and_advance(:case_type, CaseTypeForm)
     end
   end
 end
