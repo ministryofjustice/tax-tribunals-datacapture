@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202124612) do
+ActiveRecord::Schema.define(version: 20161202161114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20161202124612) do
 
   create_table "tribunal_cases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.boolean  "challenged_decision"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                                                 null: false
+    t.datetime "updated_at",                                                                 null: false
     t.string   "case_type"
     t.string   "dispute_type"
     t.string   "penalty_amount"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161202124612) do
     t.string   "taxpayer_company_fao"
     t.string   "taxpayer_company_registration_number"
     t.text     "grounds_for_appeal"
+    t.string   "grounds_for_appeal_file_name"
+    t.uuid     "files_collection_ref",                 default: -> { "uuid_generate_v4()" }
   end
 
 end

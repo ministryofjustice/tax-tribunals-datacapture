@@ -4,12 +4,13 @@ module Steps::Details
       super
       @form_object = GroundsForAppealForm.new(
         tribunal_case: current_tribunal_case,
-        grounds_for_appeal: current_tribunal_case.grounds_for_appeal
+        grounds_for_appeal: current_tribunal_case.grounds_for_appeal,
+        grounds_for_appeal_file_name: current_tribunal_case.grounds_for_appeal_file_name
       )
     end
 
     def update
-      update_and_advance(:grounds_for_appeal, GroundsForAppealForm)
+      update_and_advance(:grounds_for_appeal, GroundsForAppealForm, as: :grounds_for_appeal)
     end
   end
 end
