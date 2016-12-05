@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include ActionDispatch::TestProcess
+
 RSpec.describe Steps::Details::GroundsForAppealForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
@@ -40,6 +42,15 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         it 'has a validation error on the grounds_for_appeal_document field' do
           expect(subject).to_not be_valid
           expect(subject.errors[:grounds_for_appeal_document]).to eq(['You must enter the reasons or attach a document'])
+        end
+      end
+
+      context 'when grounds_for_appeal_document is not valid' do
+        let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'application/zip') }
+
+        it 'should retrieve the errors from the uploader' do
+          expect(subject.errors).to receive(:add).with(:grounds_for_appeal_document, :content_type).and_call_original
+          expect(subject).to_not be_valid
         end
       end
     end

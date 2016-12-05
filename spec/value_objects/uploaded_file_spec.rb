@@ -75,4 +75,12 @@ RSpec.describe UploadedFile do
       end
     end
   end
+
+  context '#upload!' do
+    it 'should upload the document' do
+      expect_any_instance_of(MojFileUploaderApiClient::AddFile).to receive(:call)
+      expect(file.tempfile).to receive(:read).and_call_original
+      subject.upload!(collection_ref: '123')
+    end
+  end
 end
