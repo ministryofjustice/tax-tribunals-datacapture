@@ -8,6 +8,8 @@ class DetailsDecisionTree < DecisionTree
     when :individual_details, :company_details
       edit(:grounds_for_appeal)
     when :grounds_for_appeal
+      edit(:documents_checklist)
+    when :documents_checklist
       home
     else
       raise "Invalid step '#{step}'"
@@ -22,6 +24,8 @@ class DetailsDecisionTree < DecisionTree
       edit(:taxpayer_type)
     when :grounds_for_appeal
       before_grounds_for_appeal_step
+    when :documents_checklist
+      edit(:grounds_for_appeal)
     else
       raise "Invalid step '#{step}'"
     end

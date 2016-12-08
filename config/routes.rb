@@ -37,6 +37,13 @@ Rails.application.routes.draw do
       edit_step :individual_details
       edit_step :company_details
       edit_step :grounds_for_appeal
+      edit_step :documents_checklist
+    end
+  end
+
+  resources :documents, only: [:create] do
+    member do
+      delete :destroy
     end
   end
 

@@ -14,10 +14,6 @@ class StepController < ApplicationController
 
   private
 
-  def current_tribunal_case
-    @current_tribunal_case ||= TribunalCase.find_by_id(session[:tribunal_case_id])
-  end
-
   def update_and_advance(attr, form_class, opts={})
     hash = permitted_params(form_class).to_h
 

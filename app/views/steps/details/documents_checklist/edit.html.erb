@@ -1,0 +1,71 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:details, 4) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= form_tag documents_url, multipart: true do %>
+        <%= file_field_tag :document %>
+        <%= submit_tag 'Upload', class: 'button' %>
+    <% end %>
+
+    <div class="uploaded-files-wrapper">
+      <h2 class="heading-medium">Uploaded files</h2>
+
+      <ol class="list uploaded-files">
+        <% if @document_list&.any? %>
+            <% @document_list.each do |doc| %>
+                  <li class="file">
+                    <%= doc.name %>
+                    <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+                  </li>
+            <% end %>
+        <% else %>
+            <li class="no-files">No files uploaded</li>
+        <% end %>
+      </ol>
+    </div>
+
+    <%= step_form @form_object do |f| %>
+        <h2 class="heading-medium"><%= t '.documents_check_heading' %></h2>
+
+        <div class="form-group">
+          <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
+              <%= f.check_box :original_notice_provided %>
+              <%= t '.original_notice_provided_html' %>
+          <% end %>
+
+          <%= f.label :review_conclusion_provided, class: 'block-label selection-button-checkbox' do %>
+              <%= f.check_box :review_conclusion_provided %>
+              <%= t '.review_conclusion_provided_html' %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <h2 class="heading-medium"><%= t '.other_documents_check_heading' %></h2>
+
+          <%= t '.other_documents_list_html' %>
+
+          <%= f.label :additional_documents_provided, class: 'block-label selection-button-checkbox', 'data-target': 'supporting_docs_info' do %>
+              <%= f.check_box :additional_documents_provided %>
+              <%= t '.additional_documents_provided_html' %>
+          <% end %>
+
+          <div id="supporting_docs_info" class="panel">
+            <%= f.text_area :additional_documents_info, size: '40x4', class: 'form-control form-control-3-4' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox' do %>
+              <%= f.check_box :having_problems_uploading_documents %>
+              <%= t '.having_problems_uploading_documents_html' %>
+          <% end %>
+        </div>
+
+        <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>

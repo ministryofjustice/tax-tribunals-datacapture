@@ -1,8 +1,7 @@
 module Steps::Details
   class GroundsForAppealForm < BaseForm
     attribute :grounds_for_appeal, String
-    attribute :grounds_for_appeal_file_name, String
-    attribute :grounds_for_appeal_document, UploadedFile
+    attribute :grounds_for_appeal_document, DocumentUpload
 
     validates_presence_of :grounds_for_appeal, if: :requires_appeal_text?
     validates_presence_of :grounds_for_appeal_document, if: :requires_appeal_document?
@@ -32,15 +31,17 @@ module Steps::Details
     end
 
     def requires_appeal_text?
-      grounds_for_appeal_file_name.blank? && grounds_for_appeal_document.blank?
+      tribunal_case&.grounds_for_appeal_file_name.blank? && grounds_for_appeal_document.blank?
     end
 
     def requires_appeal_document?
       grounds_for_appeal.blank? && requires_appeal_text?
     end
 
+    # If there is a file upload, store the name of the file, otherwise, retrieve any previously
+    # uploaded file name from the tribunal_case object (or none if nil).
     def file_name
-      grounds_for_appeal_document&.file_name || grounds_for_appeal_file_name
+      grounds_for_appeal_document&.file_name || tribunal_case&.grounds_for_appeal_file_name
     end
   end
 end

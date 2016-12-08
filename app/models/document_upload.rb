@@ -1,6 +1,4 @@
-require 'base64'
-
-class UploadedFile
+class DocumentUpload
   include Virtus.model
 
   attribute :tempfile, Object
@@ -11,7 +9,7 @@ class UploadedFile
 
   # TODO: decide on the final allowed max size and content types
   #
-  MAX_FILE_SIZE = 1.megabyte.freeze
+  MAX_FILE_SIZE = 10.megabyte.freeze
   ALLOWED_CONTENT_TYPES = %w(
     application/pdf
     application/msword

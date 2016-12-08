@@ -36,6 +36,12 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `grounds_for_appeal`' do
       let(:step) { { grounds_for_appeal: 'anything'  } }
 
+      it { is_expected.to have_destination(:documents_checklist, :edit) }
+    end
+
+    context 'when the step is `documents_checklist`' do
+      let(:step) { { documents_checklist: 'anything'  } }
+
       it { is_expected.to have_destination('/home', :index) }
     end
 

@@ -7,12 +7,10 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     tribunal_case: tribunal_case,
     grounds_for_appeal: grounds_for_appeal,
     grounds_for_appeal_document: grounds_for_appeal_document,
-    grounds_for_appeal_file_name: grounds_for_appeal_file_name
   } }
-  let(:tribunal_case) { instance_double(TribunalCase, grounds_for_appeal: nil) }
+  let(:tribunal_case) { instance_double(TribunalCase, files_collection_ref: '12345', grounds_for_appeal: nil, grounds_for_appeal_file_name: nil) }
   let(:grounds_for_appeal) { nil }
   let(:grounds_for_appeal_document) { nil }
-  let(:grounds_for_appeal_file_name) { nil }
 
   subject { described_class.new(arguments) }
 
@@ -58,36 +56,42 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     context 'when grounds_for_appeal is valid' do
       context 'when providing appeal text' do
         let(:grounds_for_appeal) { 'I disagree with HMRC.' }
-        let(:grounds_for_appeal_file_name) { nil }
+        let(:grounds_for_appeal_document) { nil }
 
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: grounds_for_appeal,
-            grounds_for_appeal_file_name: grounds_for_appeal_file_name)
+            grounds_for_appeal: 'I disagree with HMRC.',
+            grounds_for_appeal_file_name: nil)
           expect(subject.save).to be(true)
         end
       end
 
       context 'when providing an attached document' do
         let(:grounds_for_appeal) { nil }
-        let(:grounds_for_appeal_file_name) { 'name.txt' }
+        let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
 
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: grounds_for_appeal,
-            grounds_for_appeal_file_name: grounds_for_appeal_file_name)
+            grounds_for_appeal: nil,
+            grounds_for_appeal_file_name: 'image.jpg')
+
+          expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: true))
+
           expect(subject.save).to be(true)
         end
       end
 
       context 'when providing appeal text and document' do
         let(:grounds_for_appeal) { 'I disagree with HMRC.' }
-        let(:grounds_for_appeal_file_name) { 'name.txt' }
+        let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
 
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: grounds_for_appeal,
-            grounds_for_appeal_file_name: grounds_for_appeal_file_name)
+            grounds_for_appeal: 'I disagree with HMRC.',
+            grounds_for_appeal_file_name: 'image.jpg')
+
+          expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: true))
+
           expect(subject.save).to be(true)
         end
       end
