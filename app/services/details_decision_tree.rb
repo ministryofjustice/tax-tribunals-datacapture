@@ -1,8 +1,8 @@
 class DetailsDecisionTree < DecisionTree
   def destination
-    return @next_step if @next_step
+    return next_step if next_step
 
-    case step.to_sym
+    case step_name.to_sym
     when :taxpayer_type
       after_taxpayer_type_step
     when :individual_details, :company_details
@@ -12,12 +12,12 @@ class DetailsDecisionTree < DecisionTree
     when :documents_checklist
       home
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
   def previous
-    case step.to_sym
+    case step_name.to_sym
     when :taxpayer_type
       show(:start)
     when :individual_details, :company_details
@@ -27,14 +27,14 @@ class DetailsDecisionTree < DecisionTree
     when :documents_checklist
       edit(:grounds_for_appeal)
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
   private
 
   def before_grounds_for_appeal_step
-    case @object.taxpayer_type
+    case tribunal_case.taxpayer_type
     when TaxpayerType::INDIVIDUAL
       edit(:individual_details)
     when TaxpayerType::COMPANY

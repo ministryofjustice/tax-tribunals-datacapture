@@ -9,7 +9,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(:taxpayer_type, TaxpayerTypeForm)
+      update_and_advance(TaxpayerTypeForm)
     end
   end
 end

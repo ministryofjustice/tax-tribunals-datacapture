@@ -9,7 +9,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(:grounds_for_appeal, GroundsForAppealForm, as: :grounds_for_appeal)
+      update_and_advance(GroundsForAppealForm, as: :grounds_for_appeal)
     end
   end
 end

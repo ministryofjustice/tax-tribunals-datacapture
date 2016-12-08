@@ -9,7 +9,7 @@ module Steps::Cost
     end
 
     def update
-      update_and_advance(:dispute_type, DisputeTypeForm)
+      update_and_advance(DisputeTypeForm)
     end
   end
 end

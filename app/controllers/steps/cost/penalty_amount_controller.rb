@@ -9,7 +9,7 @@ module Steps::Cost
     end
 
     def update
-      update_and_advance(:penalty_amount, PenaltyAmountForm, as: :penalty_amount)
+      update_and_advance(PenaltyAmountForm)
     end
   end
 end

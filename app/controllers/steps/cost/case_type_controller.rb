@@ -9,7 +9,7 @@ module Steps::Cost
     end
 
     def update
-      update_and_advance(:case_type, CaseTypeForm)
+      update_and_advance(CaseTypeForm)
     end
   end
 end

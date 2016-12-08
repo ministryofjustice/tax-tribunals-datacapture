@@ -9,7 +9,7 @@ module Steps::Cost
     end
 
     def update
-      update_and_advance(:challenged_decision, ChallengedDecisionForm)
+      update_and_advance(ChallengedDecisionForm)
     end
 
     private

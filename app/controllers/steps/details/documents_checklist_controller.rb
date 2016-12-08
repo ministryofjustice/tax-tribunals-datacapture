@@ -15,7 +15,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(:documents_checklist, DocumentsChecklistForm, as: :documents_checklist)
+      update_and_advance(DocumentsChecklistForm, as: :documents_checklist)
     end
 
     private

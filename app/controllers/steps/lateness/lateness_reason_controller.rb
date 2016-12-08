@@ -9,7 +9,7 @@ module Steps::Lateness
     end
 
     def update
-      update_and_advance(:lateness_reason, LatenessReasonForm)
+      update_and_advance(LatenessReasonForm)
     end
   end
 end

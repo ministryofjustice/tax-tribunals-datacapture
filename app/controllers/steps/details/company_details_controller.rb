@@ -15,7 +15,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(:company_details, CompanyDetailsForm, as: :company_details)
+      update_and_advance(CompanyDetailsForm, as: :company_details)
     end
   end
 end
