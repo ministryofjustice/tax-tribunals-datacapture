@@ -13,11 +13,14 @@ class DocumentUpload
   ALLOWED_CONTENT_TYPES = %w(
     application/pdf
     application/msword
+    application/vnd.ms-excel
     application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
     application/vnd.oasis.opendocument.text
     application/rtf
     text/plain
     text/rtf
+    text/csv
     image/jpeg
     image/png
     image/tiff
@@ -58,6 +61,8 @@ class DocumentUpload
 
   private
 
+  # We encode the file data in order to post it to the MOJ File Uploader app endpoint.
+  #
   def file_data
     Base64.encode64(tempfile.read)
   end

@@ -7,7 +7,7 @@ RSpec.describe DocumentsController, type: :controller do
   let(:collection_ref) { '12345' }
   let(:filename) { 'dGVzdA==\n' } # 'test' - base64 encoded
   let(:another_filename) { 'YW5vdGhlcg==\n' } # 'another' - base64 encoded
-  let(:current_tribunal_case) { instance_double(TribunalCase, grounds_for_appeal_file_name: 'test') }
+  let(:current_tribunal_case) { instance_double(TribunalCase, grounds_for_appeal_file_name: 'test', files_collection_ref: collection_ref) }
 
   let(:upload_valid) { true }
   let(:upload_errors) { nil }
@@ -15,7 +15,7 @@ RSpec.describe DocumentsController, type: :controller do
   let(:upload_double) { instance_double(DocumentUpload, upload!: upload_result, valid?: upload_valid, errors: upload_errors) }
 
   before do
-    allow(subject).to receive(:current_files_collection_ref).and_return(collection_ref)
+    allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
   end
 
   describe '#create' do
@@ -62,7 +62,6 @@ RSpec.describe DocumentsController, type: :controller do
 
     before do
       request.headers.merge!(headers)
-      expect(subject).to receive(:current_tribunal_case).at_least(:once).and_return(current_tribunal_case)
     end
 
     context 'deleting a different document to the grounds_for_appeal document' do

@@ -72,7 +72,7 @@ en:
               blank: You must enter the reasons or attach a document
             grounds_for_appeal_document:
               blank: You must enter the reasons or attach a document
-              file_size: The attached file exceeds the maximun allowed size
+              file_size: The attached file exceeds the maximum allowed size
               content_type: The attached file is not a supported type
         steps/details/individual_details_form:
           blank: You must enter the taxpayer's %{attribute}

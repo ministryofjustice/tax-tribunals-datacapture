@@ -3,28 +3,35 @@ class DocumentsController < ApplicationController
     document = DocumentUpload.new(document_param)
 
     error_msg = if document.valid?
-                  response = document.upload!(collection_ref: current_files_collection_ref)
+                  response = document.upload!(collection_ref: collection_ref)
                   'There was an error uploading the file. Please try again.' if response.error?
                 else
                   # TODO: how to deal with these errors?
                   "There were errors: #{document.errors}"
                 end
 
-    redirect_back(fallback_location: root_path, alert: error_msg)
+    redirect_to edit_steps_details_documents_checklist_path, alert: error_msg
   end
 
   def destroy
     MojFileUploaderApiClient::DeleteFile.new(
-      collection_ref: current_files_collection_ref,
+      collection_ref: collection_ref,
       filename: filename_param
     ).call
 
-    current_tribunal_case.update(grounds_for_appeal_file_name: nil) if grounds_for_appeal_filename?
-
-    redirect_back(fallback_location: root_path)
+    if grounds_for_appeal_filename?
+      current_tribunal_case.update(grounds_for_appeal_file_name: nil)
+      redirect_to edit_steps_details_grounds_for_appeal_path
+    else
+      redirect_to edit_steps_details_documents_checklist_path
+    end
   end
 
   private
+
+  def collection_ref
+    current_tribunal_case.files_collection_ref
+  end
 
   def grounds_for_appeal_filename?
     filename_param == current_tribunal_case.grounds_for_appeal_file_name

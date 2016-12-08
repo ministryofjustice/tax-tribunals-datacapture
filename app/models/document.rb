@@ -4,7 +4,7 @@ class Document
 
   def initialize(attrs)
     self.collection_ref = attrs.fetch(:collection_ref)
-    self.name = attrs[:name] || attrs[:title]
+    self.name = attrs[:name] || attrs.fetch(:title)
     self.last_modified = attrs[:last_modified]
   end
 
@@ -14,9 +14,12 @@ class Document
     result = MojFileUploaderApiClient::ListFiles.new(collection_ref: collection_ref).call
     result.body.fetch(:files, []).
         reject { |file| filtered_files.include?(file[:title]) }.
-        map { |file| new(file.merge(collection_ref: collection_ref)) }.compact
+        map { |file| new(file.merge(collection_ref: collection_ref)) }
   end
 
+  # We encode the file name when using it in the route path for DELETE (or fallback POST)
+  # i.e. document_path(doc) due to it possibly having characters like dots, etc.
+  #
   def to_param
     Base64.encode64(name)
   end

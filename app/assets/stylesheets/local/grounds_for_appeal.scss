@@ -1,3 +1,11 @@
+// Once a grounds for appeal document has been uploaded, when loading again the same step will give us
+// the option to delete said document. The fact we need to ensure the app is functional without javascript,
+// forces us to have two separated forms but the arrangement of the 'Remove document' form needs to
+// be visually rendered inside the 'Continue' form.
+//
+// We reposition the 'Remove' button and the 'Continue' button with the following CSS in order to visually
+// match the design and original arrangement when javascript is not available.
+
 #gfa_main_container.uploaded_doc_true {
   .gfa_uploaded_doc_container {
     position: relative;
