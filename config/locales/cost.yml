@@ -182,6 +182,10 @@ en:
       steps_cost_penalty_amount_form:
         penalty_amount: What is the penalty or surcharge amount?
     label:
+      steps_cost_challenged_decision_form:
+        challenged_decision:
+          'true': 'Yes'
+          'false': 'No'
       steps_cost_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>for example, Pay As You Earn (PAYE), self-assessment
