@@ -2,7 +2,11 @@ module Steps::Cost
   class ChallengedDecisionForm < BaseForm
     attribute :challenged_decision, Boolean
 
-    validates_inclusion_of :challenged_decision, in: [true, false]
+    def self.choices
+      [true, false]
+    end
+
+    validates_inclusion_of :challenged_decision, in: choices
 
     private
 
