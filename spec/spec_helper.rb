@@ -25,11 +25,6 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.before(:each) do
-    stub_request(:get, /http:\/\/localhost:9292\/.+/).
-      to_return(status: 200, body: {collection: 'mock-ref', files: []}.to_json)
-  end
-
 =begin
   config.filter_run_when_matching :focus
 

@@ -1,5 +1,10 @@
 require 'spec_helper'
 
+def stub_file_uploader
+  list_response_double = instance_double(MojFileUploaderApiClient::Response, code: 200, body: {})
+  allow(MojFileUploaderApiClient::ListFiles).to receive(:new).and_return(double(call: list_response_double))
+end
+
 def visit_homepage
   visit '/'
 end

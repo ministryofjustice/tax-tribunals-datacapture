@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Details', type: :feature do
   before do
+    stub_file_uploader
     visit_homepage
     complete_cost_task
     complete_lateness_task
