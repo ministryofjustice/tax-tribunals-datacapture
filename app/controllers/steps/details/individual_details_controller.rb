@@ -13,7 +13,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(:individual_details, IndividualDetailsForm, as: :individual_details)
+      update_and_advance(IndividualDetailsForm, as: :individual_details)
     end
   end
 end

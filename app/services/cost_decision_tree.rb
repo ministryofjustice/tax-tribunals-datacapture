@@ -1,8 +1,8 @@
 class CostDecisionTree < DecisionTree
   def destination
-    return @next_step if @next_step
+    return next_step if next_step
 
-    case step.to_sym
+    case step_name.to_sym
     when :challenged_decision
       edit(:case_type)
     when :case_type
@@ -12,12 +12,12 @@ class CostDecisionTree < DecisionTree
     when :penalty_amount
       show(:determine_cost)
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
   def previous
-    case step.to_sym
+    case step_name.to_sym
     when :challenged_decision
       show(:start)
     when :case_type
@@ -27,7 +27,7 @@ class CostDecisionTree < DecisionTree
     when :penalty_amount
       edit(:dispute_type)
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
@@ -36,7 +36,7 @@ class CostDecisionTree < DecisionTree
   def after_case_type_step
     case answer
     when :income_tax
-      if @object.challenged_decision
+      if tribunal_case.challenged_decision
         edit(:dispute_type)
       else
         show(:must_challenge_hmrc)

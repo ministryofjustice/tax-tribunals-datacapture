@@ -1,28 +1,31 @@
 class DecisionTree
   include ApplicationHelper
 
-  def initialize(object:, step:, next_step: nil)
-    @object    = object
-    @step      = step
-    @next_step = next_step
+  attr_reader :tribunal_case, :step_params, :as, :next_step
+
+  def initialize(tribunal_case:, step_params: {}, as: nil, next_step: nil)
+    @tribunal_case = tribunal_case
+    @step_params   = step_params
+    @as            = as
+    @next_step     = next_step
   end
 
   private
 
-  def step
-    @step.keys.first
+  def step_name
+    as || step_params.keys.first
   end
 
   def answer
-    @step.values.first.to_sym
+    step_params.values.first.to_sym
   end
 
-  def show(step)
-    { controller: step, action: :show }
+  def show(step_controller)
+    { controller: step_controller, action: :show }
   end
 
-  def edit(step)
-    { controller: step, action: :edit }
+  def edit(step_controller)
+    { controller: step_controller, action: :edit }
   end
 
   def home

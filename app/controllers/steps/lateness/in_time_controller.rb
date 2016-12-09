@@ -9,7 +9,7 @@ module Steps::Lateness
     end
 
     def update
-      update_and_advance(:in_time, InTimeForm)
+      update_and_advance(InTimeForm)
     end
   end
 end

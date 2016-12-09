@@ -1,25 +1,25 @@
 class LatenessDecisionTree < DecisionTree
   def destination
-    return @next_step if @next_step
+    return next_step if next_step
 
-    case step.to_sym
+    case step_name.to_sym
     when :in_time
       after_in_time_step
     when :lateness_reason
       home
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
   def previous
-    case step.to_sym
+    case step_name.to_sym
     when :in_time
       show(:start)
     when :lateness_reason
       edit(:in_time)
     else
-      raise "Invalid step '#{step}'"
+      raise "Invalid step '#{step_params}'"
     end
   end
 
