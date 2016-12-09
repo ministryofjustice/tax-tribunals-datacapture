@@ -77,11 +77,15 @@ GEM
       adamantium (~> 0.2.0)
       equalizer (~> 0.0.9)
     concurrent-ruby (1.0.2)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    domain_name (0.5.20161129)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -101,6 +105,9 @@ GEM
       sass (>= 3.2.0)
     govuk_template (0.19.1)
       rails (>= 3.1)
+    hashdiff (0.3.1)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     i18n-debug (1.1.0)
       i18n (< 1)
@@ -131,6 +138,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    mojfile-uploader-api-client (0.1.0)
+      rest-client (~> 2.0.0)
     morpher (0.2.6)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2.0)
@@ -159,6 +168,7 @@ GEM
     mutant-rspec (0.8.11)
       mutant (~> 0.8.11)
       rspec-core (>= 3.4.0, < 3.6.0)
+    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -219,6 +229,10 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     regexp_parser (0.3.6)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -245,6 +259,7 @@ GEM
     rubocop-rspec (1.7.0)
       rubocop (>= 0.42.0)
     ruby-progressbar (1.8.1)
+    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -274,6 +289,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     unicode-display_width (1.1.1)
     unparser (0.2.5)
       abstract_type (~> 0.0.7)
@@ -293,6 +311,10 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+    webmock (2.3.1)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -316,6 +338,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   lograge
+  mojfile-uploader-api-client (~> 0.1.0)
   mutant-rspec
   pg (~> 0.18)
   pry-byebug
@@ -333,6 +356,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   virtus
   web-console
+  webmock
 
 BUNDLED WITH
    1.13.6

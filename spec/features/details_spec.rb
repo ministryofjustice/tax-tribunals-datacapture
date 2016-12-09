@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Details', type: :feature do
   before do
+    stub_file_uploader
     visit_homepage
     complete_cost_task
     complete_lateness_task
@@ -17,6 +18,10 @@ RSpec.feature 'Details', type: :feature do
     fill_in 'Email address', with: 'jane.taxpayer@aol.co.uk'
     fill_in 'Phone number', with: '0118 999 881 999 119 7253'
     continue
+    fill_in 'Grounds for appeal', with: 'Hello world'
+    continue
+    check 'I am having trouble uploading my documents'
+    continue
 
     expect(page).to have_current_path(root_path)
   end
@@ -31,6 +36,10 @@ RSpec.feature 'Details', type: :feature do
     fill_in 'Postcode', with: 'AB1 2CD'
     fill_in 'Email address', with: 'jane.taxpayer@aol.co.uk'
     fill_in 'Phone number', with: '0118 999 881 999 119 7253'
+    continue
+    fill_in 'Grounds for appeal', with: 'Hello world'
+    continue
+    check 'I am having trouble uploading my documents'
     continue
 
     expect(page).to have_current_path(root_path)

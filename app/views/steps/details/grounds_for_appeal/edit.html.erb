@@ -1,0 +1,36 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:details, 3) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <p><%= t '.description_text' %></p>
+    <p><%= t '.text_area_description_text' %></p>
+
+    <% uploaded_document = current_grounds_for_appeal_document %>
+
+    <div id="gfa_main_container" class="uploaded_doc_<%=uploaded_document.present?%>">
+      <%= step_form @form_object do |f| %>
+          <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control-3-4' %>
+
+          <% if uploaded_document.nil? %>
+              <%= f.label :grounds_for_appeal_document %>
+              <%= f.file_field :grounds_for_appeal_document %>
+          <% end %>
+
+          <p><%= t '.footer_description_text' %></p>
+
+          <%= f.submit class: 'button gfa_continue' %>
+      <% end %>
+
+      <% if uploaded_document %>
+          <div class="gfa_uploaded_doc_container">
+            <p><%= t('.previous_document', file_name: uploaded_document.name) %></p>
+            <%= button_to 'Remove', document_path(uploaded_document), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

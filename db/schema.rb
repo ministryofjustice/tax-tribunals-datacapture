@@ -10,34 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129155123) do
+ActiveRecord::Schema.define(version: 20161205154426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "taxpayers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "tribunal_case_id"
-    t.index ["email"], name: "index_taxpayers_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_taxpayers_on_reset_password_token", unique: true, using: :btree
-  end
-
   create_table "tribunal_cases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.boolean  "challenged_decision"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                                                 null: false
+    t.datetime "updated_at",                                                                 null: false
     t.string   "case_type"
     t.string   "dispute_type"
     t.string   "penalty_amount"
@@ -53,6 +35,14 @@ ActiveRecord::Schema.define(version: 20161129155123) do
     t.string   "taxpayer_company_name"
     t.string   "taxpayer_company_fao"
     t.string   "taxpayer_company_registration_number"
+    t.text     "grounds_for_appeal"
+    t.string   "grounds_for_appeal_file_name"
+    t.uuid     "files_collection_ref",                 default: -> { "uuid_generate_v4()" }
+    t.boolean  "original_notice_provided",             default: false
+    t.boolean  "review_conclusion_provided",           default: false
+    t.boolean  "additional_documents_provided",        default: false
+    t.text     "additional_documents_info"
+    t.boolean  "having_problems_uploading_documents",  default: false
   end
 
 end

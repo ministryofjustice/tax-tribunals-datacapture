@@ -6,6 +6,7 @@ gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
 gem 'jquery-rails'
 gem 'lograge'
+gem 'mojfile-uploader-api-client', '~> 0.1.0'
 gem 'pg', '~> 0.18'
 gem 'pry-rails'
 gem 'puma', '~> 3.0'
@@ -41,4 +42,5 @@ group :test do
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
+  gem 'webmock'
 end

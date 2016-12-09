@@ -35,6 +35,30 @@ en:
         edit:
           heading: Taxpayer's details
           lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
+      grounds_for_appeal:
+        edit:
+          heading: Grounds for appeal
+          lead_text: Tell us why you think HMRC's decision(s) is wrong, giving reasons. If you are appealing against more than one decision, you must explain why you think each one is wrong.
+          description_text: Clearly explain in your own words. The tribunal will want to know things from your side and understand how any evidence you provide will support your case.
+          text_area_description_text: Use the input box below or attach your reasons as a document (for example, Word, PDF).
+          footer_description_text: You will next have to upload any supporting documents including any correspondence with HMRC and evidence to support your case.
+          previous_document: 'Previously attached document: %{file_name}'
+      documents_checklist:
+        edit:
+          heading: Documents checklist
+          lead_text: For your case to proceed you will need to upload the correct documents in digital format. We can accept scanned images or good quality pictures, for example via a smartphone.
+          documents_check_heading: 'You must upload the following (select the items you have uploaded):'
+          original_notice_provided_html: <strong>Original notice letter from HMRC</strong><br>this letter includes the explanation for any decision(s)
+          review_conclusion_provided_html: "<strong>The review conclusion letter from HMRC</strong><br>if your case was reviewed, this letter is often headed the 'Conclusion of review'"
+          other_documents_check_heading: 'You can also add the following to help your case:'
+          other_documents_list_html: |
+            <ul class="list list-bullet">
+              <li>A copy of any letter sent to HMRC querying the decision or asking for a review</li>
+              <li>Any evidence to support your case</li>
+              <li>Approval for your representative to act on your behalf</li>
+            </ul>
+          additional_documents_provided_html: I want to upload additional information
+          having_problems_uploading_documents_html: I am having trouble uploading my documents
   activemodel:
     errors:
       models:
@@ -42,10 +66,28 @@ en:
           attributes:
             taxpayer_type:
               inclusion: Select whether the appeal is for an individual or company
+        steps/details/grounds_for_appeal_form:
+          attributes:
+            grounds_for_appeal:
+              blank: You must enter the reasons or attach a document
+            grounds_for_appeal_document:
+              blank: You must enter the reasons or attach a document
+              file_size: The attached file exceeds the maximum allowed size
+              content_type: The attached file is not a supported type
         steps/details/individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/company_details_form:
           blank: You must enter the taxpayer's %{attribute}
+        steps/details/documents_checklist_form:
+          attributes:
+            original_notice_provided:
+              blank: You must upload and check this document type
+              no_documents: Please ensure the documents are uploaded
+            review_conclusion_provided:
+              blank: You must upload and check this document type
+            additional_documents_info:
+              too_short: You must describe the additional uploaded documents. Use at least %{count} characters.
+              present: Must be blank unless uploading additional documents
   helpers:
     fieldset:
       steps_details_taxpayer_type_form:
@@ -69,3 +111,8 @@ en:
         taxpayer_contact_postcode: Postcode
         taxpayer_contact_email: Email address
         taxpayer_contact_phone: Phone number
+      steps_details_grounds_for_appeal_form:
+        grounds_for_appeal: Grounds for appeal
+        grounds_for_appeal_document: Attach a document with reasons
+      steps_details_documents_checklist_form:
+        additional_documents_info: "Briefly state what's in the document(s) you are uploading (for example, bank statements)"
