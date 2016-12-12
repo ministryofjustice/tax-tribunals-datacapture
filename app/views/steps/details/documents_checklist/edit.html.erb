@@ -11,7 +11,7 @@
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
 
-    <%= form_tag documents_url, class: 'dropzone js-hidden show-when-js-is-loaded', id: 'dz_doc_upload' do %>
+    <%= form_tag documents_url, class: 'dropzone js-stick-at-top-when-scrolling js-hidden show-when-js-is-loaded', id: 'dz_doc_upload' do %>
         <div class="dz-default dz-message grid-row">
           <div class="column-one-third arrow-icon">
             <p></p>

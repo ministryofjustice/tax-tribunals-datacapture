@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.sticky
 //= require dropzone
 //= require_tree .
 

@@ -1,6 +1,6 @@
 'use strict';
 
-moj.Modules.docUploadDemo = {
+moj.Modules.docUpload = {
   form_id: 'dz_doc_upload',
   uploaded_files: '.uploaded-files',
   $form: null,
@@ -30,7 +30,6 @@ moj.Modules.docUploadDemo = {
     };
 
     self.$form.dropzone(dzOptions);
-    self.$form.sticky({topSpacing: 0, zIndex: 100});
 
     self.bindEvents();
   },
