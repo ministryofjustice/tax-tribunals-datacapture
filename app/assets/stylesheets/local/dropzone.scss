@@ -1,0 +1,83 @@
+
+.dropzone {
+  z-index: 100;
+  border: 2px dashed $grey-1;
+  padding: 30px;
+  margin-bottom: 20px;
+
+  .arrow-icon::before {
+    content: url('drag-drop-upload-ico.svg');
+    float: right;
+    width: 90px;
+    height: 90px;
+  }
+  &.dz-drag-hover {
+    border-color: $yellow;
+    .drag-helptext::before {
+      content: url('drag-drop-upload-hover-ico.svg');
+      float: left;
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .drag-helptext {
+    text-align: center;
+    display: inline-block;
+    &::before {
+      content: url('drag-drop-upload-ico.svg');
+      float: left;
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .button-secondary {
+    margin: 0;
+  }
+
+  .dz-preview {
+    padding-top: $gutter-half;
+    width: 100%;
+    .dz-progress {
+      width: 15em;
+      display: inline-block;
+      .dz-upload {
+        background-color: $grass-green;
+        display:inline-block;
+        height: 15px;
+        border-radius: 10px;
+      }
+      &.dz-success {
+        .dz-success-mark {
+          position: static;
+        }
+      }
+    }
+  }
+
+  .file-info {
+    font-size: 12px;
+    color: $secondary-text-colour;
+  }
+
+  .dz-message {
+    .dz-message-copy {
+      text-align: left;
+      margin-left: 20px;
+
+      .faux-link {
+        color: $link-colour;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+
+.dz-success.dz-complete {
+  .dz-progress {
+    display: none;
+  }
+}

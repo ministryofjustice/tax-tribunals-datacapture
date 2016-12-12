@@ -21,9 +21,28 @@ RSpec.describe DocumentUpload do
     end
   end
 
+  context '#encoded_file_name' do
+    it 'should have a base64 encoded file_name' do
+      expect(subject.encoded_file_name).to eq("aW1hZ2UuanBn\n")
+    end
+  end
+
   context '#file_size' do
     it 'should have a file size' do
       expect(subject.file_size).to eq(2304)
+    end
+  end
+
+  context '#collection_ref' do
+    it 'should have a collection_ref if provided' do
+      instance = described_class.new(file, collection_ref: '12345')
+      expect(instance.collection_ref).to eq('12345')
+    end
+  end
+
+  context '#to_hash' do
+    it 'should expose an attributes hash' do
+      expect(subject.to_hash).to eq({name: 'image.jpg', encoded_name: "aW1hZ2UuanBn\n", collection_ref: nil})
     end
   end
 
@@ -77,10 +96,28 @@ RSpec.describe DocumentUpload do
   end
 
   context '#upload!' do
-    it 'should upload the document' do
-      expect_any_instance_of(MojFileUploaderApiClient::AddFile).to receive(:call)
+    before do
+      expect_any_instance_of(MojFileUploaderApiClient::AddFile).to receive(:call).and_return(response)
       expect(file.tempfile).to receive(:read).and_call_original
-      subject.upload!(collection_ref: '123')
+    end
+
+    context 'no error' do
+      let(:response) { double('Response', error?: false) }
+
+      it 'should upload the document' do
+        subject.upload!(collection_ref: '123')
+        expect(subject.errors?).to eq(false)
+      end
+    end
+
+    context 'with error' do
+      let(:response) { double('Response', error?: true) }
+
+      it 'should upload the document' do
+        subject.upload!(collection_ref: '123')
+        expect(subject.errors?).to eq(true)
+        expect(subject.errors).to eq([:response_error])
+      end
     end
   end
 end

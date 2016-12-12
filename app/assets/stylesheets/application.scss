@@ -42,3 +42,11 @@
 @import 'local/tasklist';
 @import 'local/typography';
 @import 'local/grounds_for_appeal';
+
+// Dropzone vendor styling + local customization
+@import 'dropzone';
+@import 'local/dropzone';
+
+.js-hidden {
+  display: none !important;
+}

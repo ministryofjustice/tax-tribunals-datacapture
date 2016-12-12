@@ -46,8 +46,15 @@ RSpec.describe Document do
   end
 
   describe '#to_param' do
+    it 'uses the encoded name' do
+      expect(subject).to receive(:encoded_name)
+      subject.to_param
+    end
+  end
+
+  describe '#encoded_name' do
     it 'returns a base64 encoded name' do
-      expect(subject.to_param).to eq("dGVzdC5kb2M=\n")
+      expect(subject.encoded_name).to eq("dGVzdC5kb2M=\n")
     end
   end
 

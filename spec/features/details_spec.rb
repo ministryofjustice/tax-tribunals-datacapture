@@ -18,7 +18,7 @@ RSpec.feature 'Details', type: :feature do
     fill_in 'Email address', with: 'jane.taxpayer@aol.co.uk'
     fill_in 'Phone number', with: '0118 999 881 999 119 7253'
     continue
-    fill_in 'Grounds for appeal', with: 'Hello world'
+    fill_in 'Enter reasons below or attach as a document', with: 'Hello world'
     continue
     check 'I am having trouble uploading my documents'
     continue
@@ -37,7 +37,7 @@ RSpec.feature 'Details', type: :feature do
     fill_in 'Email address', with: 'jane.taxpayer@aol.co.uk'
     fill_in 'Phone number', with: '0118 999 881 999 119 7253'
     continue
-    fill_in 'Grounds for appeal', with: 'Hello world'
+    fill_in 'Enter reasons below or attach as a document', with: 'Hello world'
     continue
     check 'I am having trouble uploading my documents'
     continue

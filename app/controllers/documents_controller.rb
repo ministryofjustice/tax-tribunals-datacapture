@@ -1,16 +1,21 @@
 class DocumentsController < ApplicationController
+  respond_to :html, :json, :js
+
   def create
-    document = DocumentUpload.new(document_param)
+    uploader = DocumentUpload.new(document_param, collection_ref: collection_ref)
+    uploader.upload! if uploader.valid?
 
-    error_msg = if document.valid?
-                  response = document.upload!(collection_ref: collection_ref)
-                  'There was an error uploading the file. Please try again.' if response.error?
-                else
-                  # TODO: how to deal with these errors?
-                  "There were errors: #{document.errors}"
-                end
-
-    redirect_to edit_steps_details_documents_checklist_path, alert: error_msg
+    respond_with(uploader, location: edit_steps_details_documents_checklist_path) do |format|
+      if uploader.errors?
+        format.html {
+          flash[:alert] = uploader.errors
+          redirect_to edit_steps_details_documents_checklist_path
+        }
+        format.json {
+          render json: {error: uploader.errors}, status: :unprocessable_entity
+        }
+      end
+    end
   end
 
   def destroy
@@ -21,9 +26,15 @@ class DocumentsController < ApplicationController
 
     if grounds_for_appeal_filename?
       current_tribunal_case.update(grounds_for_appeal_file_name: nil)
-      redirect_to edit_steps_details_grounds_for_appeal_path
+      back_step = edit_steps_details_grounds_for_appeal_path
     else
-      redirect_to edit_steps_details_documents_checklist_path
+      back_step = edit_steps_details_documents_checklist_path
+    end
+
+    respond_to do |format|
+      format.html { redirect_to back_step }
+      format.json { head :no_content }
+      format.js   { head :no_content }
     end
   end
 

@@ -7,20 +7,25 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <p><%= t '.description_text' %></p>
-    <p><%= t '.text_area_description_text' %></p>
 
     <% uploaded_document = current_grounds_for_appeal_document %>
 
     <div id="gfa_main_container" class="uploaded_doc_<%=uploaded_document.present?%>">
       <%= step_form @form_object do |f| %>
-          <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control-3-4' %>
+          <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control form-control-3-4 form-control-large' %>
 
           <% if uploaded_document.nil? %>
-              <%= f.label :grounds_for_appeal_document %>
+              <p><%= t '.attach_document_html' %></p>
               <%= f.file_field :grounds_for_appeal_document %>
           <% end %>
 
-          <p><%= t '.footer_description_text' %></p>
+          <details>
+            <summary><%= t 'shared.file_upload.header' %></summary>
+            <div class="panel">
+              <%= t 'shared.file_upload.file_list_html' %>
+              <p><%= t 'shared.file_upload.footer' %></p>
+            </div>
+          </details>
 
           <%= f.submit class: 'button gfa_continue' %>
       <% end %>
