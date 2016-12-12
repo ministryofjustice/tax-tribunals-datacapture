@@ -2,6 +2,9 @@ FROM ministryofjustice/ruby:2.3.1-webapp-onbuild
 
 ENV PUMA_PORT 3000
 
+ENV MOJ_FILE_UPLOADER replace_this_at_build_time
+ENV GLIMR_API_URL replace_this_at_build_time
+
 RUN touch /etc/inittab
 
 RUN apt-get update && apt-get install -y
