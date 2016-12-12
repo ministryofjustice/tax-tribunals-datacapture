@@ -36,9 +36,9 @@ class CostDecisionTree < DecisionTree
   def after_case_type_step
     case answer
     when :income_tax
-      if tribunal_case.challenged_decision
+      if tribunal_case.challenged_decision == ChallengedDecision::YES
         edit(:dispute_type)
-      else
+      elsif tribunal_case.challenged_decision == ChallengedDecision::NO
         show(:must_challenge_hmrc)
       end
     when :vat
@@ -50,9 +50,9 @@ class CostDecisionTree < DecisionTree
 
   def after_dispute_type_step
     case answer
-    when :late_return_or_payment
+    when :penalty
       edit(:penalty_amount)
-    when :amount_of_tax_owed, :paye_coding_notice
+    when :amount_of_tax, :amount_and_penalty, :decision_on_enquiry, :paye_coding_notice, :other
       show(:determine_cost)
     end
   end

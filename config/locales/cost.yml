@@ -124,8 +124,8 @@ en:
             penalty_amount: What is the penalty or surcharge amount?
           answers:
             challenged_decision:
-              'true': 'Yes'
-              'false': 'No'
+              'yes': 'Yes'
+              'no': 'No'
             case_type:
               income_tax: Income Tax
               vat: Value Added Tax (VAT)
@@ -136,9 +136,12 @@ en:
               request_permission_for_review: Request permission for a review
               other_html: Other
             dispute_type:
-              late_return_or_payment: Late return or payment
-              amount_of_tax_owed: Amount of tax owed
               paye_coding_notice: Pay As You Earn (PAYE) coding notice
+              penalty: Penalty or surcharge
+              amount_of_tax: Amount of tax
+              amount_and_penalty: Amount of tax and a penalty or surcharge
+              decision_on_enquiry: Apply for a decision on an enquiry
+              other: Other
             penalty_amount:
               penalty_level_1: £100 or less
               penalty_level_2: £101 – £20,000
@@ -184,8 +187,8 @@ en:
     label:
       steps_cost_challenged_decision_form:
         challenged_decision:
-          'true': 'Yes'
-          'false': 'No'
+          'yes': 'Yes'
+          'no': 'No'
       steps_cost_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>for example, Pay As You Earn (PAYE), self-assessment
@@ -198,9 +201,12 @@ en:
           other_html: <strong>Other</strong>
       steps_cost_dispute_type_form:
         dispute_type:
-          late_return_or_payment_html: <strong>Late return or payment</strong><br>penalty or surcharge for late filing of returns and documents or late payment of duties
-          amount_of_tax_owed_html: <strong>Amount of tax owed</strong>
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
+          penalty_html: <strong>Penalty or surcharge</strong><br>for late filing of returns and documents, late payment of duties, inaccuracies, or non-compliance with information notices or Schedule 41
+          amount_of_tax_html: <strong>Amount of tax</strong><br>either tax you owe or money that HMRC should pay to you
+          amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both of these disputes will be stated on either the original notice letter from HMRC or the review conclusion letter
+          decision_on_enquiry_html: <strong>Apply for a decision on an enquiry</strong><br>force HMRC to issue a counteraction notice
+          other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:
         penalty_amount:
           penalty_level_1: £100 or less

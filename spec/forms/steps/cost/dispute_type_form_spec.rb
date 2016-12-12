@@ -22,11 +22,7 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
       let(:case_type) { CaseType::INCOME_TAX }
 
       it 'includes PAYE coding notice' do
-        expect(subject.choices).to eq(%w(
-          late_return_or_payment
-          amount_of_tax_owed
-          paye_coding_notice
-        ))
+        expect(subject.choices).to include('paye_coding_notice')
       end
     end
 
@@ -34,18 +30,15 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
       let(:case_type) { CaseType::VAT }
 
       it 'does not include PAYE coding notice' do
-        expect(subject.choices).to eq(%w(
-          late_return_or_payment
-          amount_of_tax_owed
-        ))
+        expect(subject.choices).to_not include('paye_coding_notice')
       end
     end
   end
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
-      let(:tribunal_case)         { nil }
-      let(:dispute_type) { 'amount_of_tax_owed' }
+      let(:tribunal_case) { nil }
+      let(:dispute_type)  { 'penalty' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
@@ -77,11 +70,11 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
     end
 
     context 'when dispute_type is valid' do
-      let(:dispute_type) { 'amount_of_tax_owed' }
+      let(:dispute_type) { 'penalty' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          dispute_type: DisputeType::AMOUNT_OF_TAX_OWED,
+          dispute_type: DisputeType::PENALTY,
           penalty_amount: nil
         )
         expect(subject.save).to be(true)

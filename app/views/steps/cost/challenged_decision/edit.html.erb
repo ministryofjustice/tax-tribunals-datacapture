@@ -7,7 +7,7 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :challenged_decision, inline: true, choices: Steps::Cost::ChallengedDecisionForm.choices %>
+      <%= f.radio_button_fieldset :challenged_decision, choices: Steps::Cost::ChallengedDecisionForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
 

@@ -1,17 +1,21 @@
 module Steps::Cost
   class ChallengedDecisionForm < BaseForm
-    attribute :challenged_decision, Boolean
+    attribute :challenged_decision, String
 
     def self.choices
-      [true, false]
+      ChallengedDecision.values.map(&:to_s)
     end
 
     validates_inclusion_of :challenged_decision, in: choices
 
     private
 
+    def challenged_decision_value
+      ChallengedDecision.new(challenged_decision)
+    end
+
     def changed?
-      tribunal_case.challenged_decision != challenged_decision
+      tribunal_case.challenged_decision != challenged_decision_value
     end
 
     def persist!
@@ -19,7 +23,7 @@ module Steps::Cost
       return unless changed?
 
       tribunal_case.update(
-        challenged_decision: challenged_decision,
+        challenged_decision: challenged_decision_value,
         # The following are dependent attributes that need to be reset
         case_type: nil,
         dispute_type: nil,

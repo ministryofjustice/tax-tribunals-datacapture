@@ -1,5 +1,6 @@
 class TribunalCase < ApplicationRecord
   # Cost task
+  has_value_object :challenged_decision
   has_value_object :case_type
   has_value_object :dispute_type
   has_value_object :penalty_amount
