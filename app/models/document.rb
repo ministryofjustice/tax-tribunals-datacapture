@@ -17,10 +17,14 @@ class Document
         map { |file| new(file.merge(collection_ref: collection_ref)) }
   end
 
-  # We encode the file name when using it in the route path for DELETE (or fallback POST)
+  def encoded_name
+    Base64.encode64(name)
+  end
+
+  # We use the encoded file name in the route path for DELETE (or fallback POST)
   # i.e. document_path(doc) due to it possibly having characters like dots, etc.
   #
   def to_param
-    Base64.encode64(name)
+    encoded_name
   end
 end
