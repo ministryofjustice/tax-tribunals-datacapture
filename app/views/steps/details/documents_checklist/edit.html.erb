@@ -6,27 +6,48 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= form_tag documents_url, multipart: true do %>
+    <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
         <%= file_field_tag :document %>
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
 
+    <%= form_tag documents_url, class: 'dropzone js-hidden show-when-js-is-loaded', id: 'dz_doc_upload' do %>
+        <div class="dz-default dz-message grid-row">
+          <div class="column-one-third arrow-icon">
+            <p></p>
+          </div>
+          <div class="column-one-half">
+            <p class="dz-message-copy">
+              <%= t 'shared.file_upload.dropzone_message_html' %>
+            </p>
+          </div>
+        </div>
+    <% end %>
+
     <div class="uploaded-files-wrapper">
-      <h2 class="heading-medium">Uploaded files</h2>
+      <h2 class="heading-medium"><%= t '.uploaded_files_header' %></h2>
 
       <ol class="list uploaded-files">
         <% if @document_list&.any? %>
             <% @document_list.each do |doc| %>
-                  <li class="file">
-                    <%= doc.name %>
-                    <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
-                  </li>
+                <li class="file">
+                  <%= doc.name %>
+                  <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+                </li>
             <% end %>
         <% else %>
-            <li class="no-files">No files uploaded</li>
+            <li class="no-files"><%= t '.no_uploaded_files' %></li>
         <% end %>
       </ol>
     </div>
+
+    <details>
+      <summary><%= t 'shared.file_upload.header' %></summary>
+      <div class="panel">
+        <%= t 'shared.file_upload.file_list_html' %>
+        <p><%= t 'shared.file_upload.footer' %></p>
+      </div>
+    </details>
 
     <%= step_form @form_object do |f| %>
         <h2 class="heading-medium"><%= t '.documents_check_heading' %></h2>
@@ -53,7 +74,7 @@
               <%= t '.additional_documents_provided_html' %>
           <% end %>
 
-          <div id="supporting_docs_info" class="panel">
+          <div id="supporting_docs_info" class="panel js-hidden">
             <%= f.text_area :additional_documents_info, size: '40x4', class: 'form-control form-control-3-4' %>
           </div>
         </div>
