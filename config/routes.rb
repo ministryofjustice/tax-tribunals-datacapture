@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :glimr_cases, only: [:create]
+
   resource :session, only: [:destroy] do
     member do
       post :create_and_fill_cost
