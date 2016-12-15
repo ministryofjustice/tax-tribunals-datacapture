@@ -14,23 +14,28 @@ class GlimrNewCase
     @confirmation_code = response.response_body[:confirmationCode]
   end
 
-  # TODO: find out where to obtain all the required information
   def params
-    {
+    params = {
       jurisdictionId: jurisdiction_id,
       onlineMappingCode: tc.case_type,
-      contactFirstName: taxpayer_first_name,
-      contactLastName: taxpayer_last_name,
       contactPhone: tc.taxpayer_contact_phone,
       contactEmail: tc.taxpayer_contact_email,
       contactPostalCode: tc.taxpayer_contact_postcode,
       documentsURL: documents_url
-    }.tap do |params|
-      params.merge!(taxpayer_street_params)
+    }
+
+    params.merge!(taxpayer_street_params)
+
+    if taxpayer_is_company?
       params.merge!(
         repOrganisationName: tc.taxpayer_company_name,
         repFAO: tc.taxpayer_company_fao
-      ) if taxpayer_is_company?
+      )
+    else
+      params.merge!(
+        contactFirstName: taxpayer_first_name,
+        contactLastName: taxpayer_last_name
+      )
     end
   end
 

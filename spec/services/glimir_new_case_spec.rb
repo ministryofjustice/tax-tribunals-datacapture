@@ -113,11 +113,13 @@ RSpec.describe GlimrNewCase do
       context 'when taxpayer_type is a company' do
         let(:taxpayer_type) { TaxpayerType::COMPANY }
         let(:company_params) {
-          glimr_params.merge(repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
+          glimr_params.except(:contactFirstName, :contactLastName).merge(
+              repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
         }
 
-        it 'sends some extra params' do
-          expect(GlimrApiClient::RegisterNewCase).to receive(:call).with(hash_including(company_params))
+        it 'sends required company params but not individual params' do
+          expect(GlimrApiClient::RegisterNewCase).to receive(:call).
+              with(hash_including(company_params)).and_return(glimr_response_double)
           subject.call!
         end
       end
