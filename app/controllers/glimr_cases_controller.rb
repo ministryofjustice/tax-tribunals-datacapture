@@ -1,9 +1,9 @@
 class GlimrCasesController < ApplicationController
 
   def create
-    new_case = CaseCreator.new(current_tribunal_case)
+    new_case = CaseCreator.new(current_tribunal_case).call
 
-    result_url = if new_case.call
+    result_url = if new_case.success?
                    new_case.payment_url
                  else
                    # TODO: change once we have the summary step
