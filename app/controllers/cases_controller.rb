@@ -1,5 +1,4 @@
-class GlimrCasesController < ApplicationController
-
+class CasesController < ApplicationController
   def create
     new_case = CaseCreator.new(current_tribunal_case).call
 
@@ -13,5 +12,4 @@ class GlimrCasesController < ApplicationController
 
     redirect_to result_url
   end
-
 end

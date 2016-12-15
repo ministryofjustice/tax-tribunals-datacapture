@@ -82,17 +82,32 @@ RSpec.describe GlimrNewCase do
       end
 
       context 'lengthy addresses' do
-        let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address" }
-        let(:glimr_params) do
-          {
-            contactStreet1: '769 Eleanore Landing',
-            contactStreet2: 'Another street',
-            contactStreet3: 'Suite 225',
-            contactStreet4: 'More address,Even more address'
-          }
+        context 'several lines but less than 4' do
+          let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225" }
+          let(:glimr_params) do
+            {
+                contactStreet1: '769 Eleanore Landing',
+                contactStreet2: 'Another street',
+                contactStreet3: 'Suite 225',
+            }
+          end
+
+          it { subject.call! }
         end
 
-        it { subject.call! }
+        context 'exceeding the 4 lines limit' do
+          let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address" }
+          let(:glimr_params) do
+            {
+                contactStreet1: '769 Eleanore Landing',
+                contactStreet2: 'Another street',
+                contactStreet3: 'Suite 225',
+                contactStreet4: 'More address, Even more address'
+            }
+          end
+
+          it { subject.call! }
+        end
       end
 
       context 'when taxpayer_type is a company' do

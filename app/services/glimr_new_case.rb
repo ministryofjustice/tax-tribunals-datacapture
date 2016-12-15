@@ -60,14 +60,13 @@ class GlimrNewCase
   # parameters, we store all the remaining lines into the contactStreet4 parameter.
   #
   def taxpayer_street_params
-    street_params = {}
     lines = tc.taxpayer_contact_address.lines.map(&:chomp)
 
-    lines.shift(3).each.with_index(1) do |line, index|
-      street_params.merge!("contactStreet#{index}": line)
-    end
-
-    street_params.merge!(contactStreet4: lines.join(',')) if lines.any?
-    street_params
+    {
+      contactStreet1: lines[0],
+      contactStreet2: lines[1],
+      contactStreet3: lines[2],
+      contactStreet4: lines[3..-1]&.join(', ')
+    }.compact
   end
 end

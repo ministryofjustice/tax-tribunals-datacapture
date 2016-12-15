@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :glimr_cases, only: [:create]
+  resources :cases, only: [:create]
 
   resource :session, only: [:destroy] do
     member do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GlimrCasesController, type: :controller do
+RSpec.describe CasesController, type: :controller do
 
   let(:current_tribunal_case) { instance_double(TribunalCase) }
   let(:case_creator_double) { instance_double(CaseCreator, call: case_creator_result) }
