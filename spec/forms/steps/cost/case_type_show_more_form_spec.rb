@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Cost::CaseTypeForm do
+RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     case_type:     case_type
@@ -10,10 +10,17 @@ RSpec.describe Steps::Cost::CaseTypeForm do
 
   subject { described_class.new(arguments) }
 
+  describe '.choices' do
+    it 'excludes choices already in the previous form' do
+      allow(Steps::Cost::CaseTypeForm).to receive(:choices).and_return([:bingo_duty])
+      expect(described_class.choices).to_not include(:bingo_duty)
+    end
+  end
+
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case) { nil }
-      let(:case_type)     { 'vat' }
+      let(:case_type)     { 'bingo_duty' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
@@ -45,7 +52,7 @@ RSpec.describe Steps::Cost::CaseTypeForm do
     end
 
     context 'when case_type is valid' do
-      let(:case_type) { 'income_tax' }
+      let(:case_type) { 'air_passenger_duty' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
@@ -58,8 +65,8 @@ RSpec.describe Steps::Cost::CaseTypeForm do
     end
 
     context 'when case_type is already the same on the model' do
-      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType::VAT) }
-      let(:case_type)     { 'vat' }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType::BINGO_DUTY) }
+      let(:case_type)     { 'bingo_duty' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

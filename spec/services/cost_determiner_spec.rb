@@ -1,5 +1,31 @@
 require 'spec_helper'
 
+shared_examples "a dispute about a penalty or surcharge" do
+  context "when the penalty is level 1" do
+    let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_1 }
+
+    it { is_expected.to have_lodgement_fee(:fee_level_1) }
+  end
+
+  context "when the penalty is level 2" do
+    let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_2 }
+
+    it { is_expected.to have_lodgement_fee(:fee_level_2) }
+  end
+
+  context "when the penalty is level 3" do
+    let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_3 }
+
+    it { is_expected.to have_lodgement_fee(:fee_level_3) }
+  end
+
+  context "when penalty amount is an unhandled value" do
+    let(:penalty_amount) { PenaltyAmount.new('$^&%*') }
+
+    it { is_expected.to fail_to_determine_lodgement_fee }
+  end
+end
+
 shared_examples "any tax" do
   context "when dispute is about an unhandled value" do
     let(:dispute_type) { DisputeType.new('$^&%*') }
@@ -10,29 +36,7 @@ shared_examples "any tax" do
   context "when dispute is about a penalty or surcharge" do
     let(:dispute_type) { DisputeType::PENALTY }
 
-    context "and the penalty is level 1" do
-      let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_1 }
-
-      it { is_expected.to have_lodgement_fee(:fee_level_1) }
-    end
-
-    context "and the penalty is level 2" do
-      let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_2 }
-
-      it { is_expected.to have_lodgement_fee(:fee_level_2) }
-    end
-
-    context "and the penalty is level 3" do
-      let(:penalty_amount) { PenaltyAmount::PENALTY_LEVEL_3 }
-
-      it { is_expected.to have_lodgement_fee(:fee_level_3) }
-    end
-
-    context "when penalty amount is an unhandled value" do
-      let(:penalty_amount) { PenaltyAmount.new('$^&%*') }
-
-      it { is_expected.to fail_to_determine_lodgement_fee }
-    end
+    it_behaves_like "a dispute about a penalty or surcharge"
   end
 
   context "when dispute is about amount of tax" do
@@ -108,28 +112,10 @@ RSpec.describe CostDeterminer do
     it_behaves_like "any tax"
   end
 
-  context "when tribunal_case is about advance payment notice penalty" do
-    let(:case_type) { CaseType::APN_PENALTY }
+  context "when tribunal_case is about an inaccurate return penalty" do
+    let(:case_type) { CaseType::INACCURATE_RETURN_PENALTY }
 
-    it { is_expected.to have_lodgement_fee(:fee_level_2) }
-  end
-
-  context "when tribunal_case is about a closure notice" do
-    let(:case_type) { CaseType::CLOSURE_NOTICE }
-
-    it { is_expected.to have_lodgement_fee(:fee_level_2) }
-  end
-
-  context "when tribunal_case is about an information notice" do
-    let(:case_type) { CaseType::INFORMATION_NOTICE }
-
-    it { is_expected.to have_lodgement_fee(:fee_level_2) }
-  end
-
-  context "when tribunal_case is about request for review" do
-    let(:case_type) { CaseType::REQUEST_PERMISSION_FOR_REVIEW }
-
-    it { is_expected.to have_lodgement_fee(:fee_level_2) }
+    it_behaves_like "a dispute about a penalty or surcharge"
   end
 
   context "when tribunal_case is about something else" do

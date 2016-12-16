@@ -1,13 +1,11 @@
 class CaseType < ValueObject
   VALUES = [
-    INCOME_TAX                    = new(:income_tax),
-    VAT                           = new(:vat),
-    APN_PENALTY                   = new(:apn_penalty),
-    INACCURATE_RETURN             = new(:inaccurate_return),
-    CLOSURE_NOTICE                = new(:closure_notice),
-    INFORMATION_NOTICE            = new(:information_notice),
-    REQUEST_PERMISSION_FOR_REVIEW = new(:request_permission_for_review),
-    OTHER                         = new(:other)
+    AIR_PASSENGER_DUTY         = new(:air_passenger_duty),
+    BINGO_DUTY                 = new(:bingo_duty),
+    INACCURATE_RETURN_PENALTY  = new(:inaccurate_return_penalty),
+    INCOME_TAX                 = new(:income_tax),
+    VAT                        = new(:vat),
+    OTHER                      = new(:other)
   ].freeze
 
   def initialize(raw_value)

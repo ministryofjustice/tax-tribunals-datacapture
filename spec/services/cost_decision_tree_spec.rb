@@ -14,6 +14,18 @@ RSpec.describe CostDecisionTree do
     end
 
     context 'when the step is `case_type`' do
+      context 'and the answer is `air_passenger_duty`' do
+        let(:step_params) { { case_type: 'air_passenger_duty' } }
+
+        it { is_expected.to have_destination(:dispute_type, :edit) }
+      end
+
+      context 'and the answer is `bingo_duty`' do
+        let(:step_params) { { case_type: 'bingo_duty' } }
+
+        it { is_expected.to have_destination(:dispute_type, :edit) }
+      end
+
       context 'and the answer is `vat`' do
         let(:step_params) { { case_type: 'vat' } }
 
@@ -36,19 +48,22 @@ RSpec.describe CostDecisionTree do
         end
       end
 
-      %w(
-        apn_penalty
-        inaccurate_return
-        closure_notice
-        information_notice
-        request_permission_for_review
-        other
-      ).each do |tax_type|
-        context "and the answer is `#{tax_type}`" do
-          let(:step_params) { { case_type: tax_type } }
+      context 'and the answer is `inaccurate_return_penalty`' do
+        let(:step_params) { { case_type: 'inaccurate_return_penalty' } }
 
-          it { is_expected.to have_destination(:determine_cost, :show) }
-        end
+        it { is_expected.to have_destination(:penalty_amount, :edit) }
+      end
+
+      context 'and the answer is `other`' do
+        let(:step_params) { { case_type: 'other' } }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the answer is show more' do
+        let(:step_params) { { case_type: '_show_more' } }
+
+        it { is_expected.to have_destination(:case_type_show_more, :edit) }
       end
     end
 
