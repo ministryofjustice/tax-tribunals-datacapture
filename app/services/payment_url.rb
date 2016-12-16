@@ -7,8 +7,25 @@ class PaymentUrl
   end
 
   def call!
-    # TODO: call the other API to store the case_reference and confirmation_code
-    # and get back the url to redirect back the user
-    @payment_url = 'http://www.example.com'
+    @payment_url = execute_request
+  end
+
+  private
+
+  def endpoint
+    [ENV.fetch('PAYMENT_ENDPOINT'), 'case_requests'].join('/')
+  end
+
+  def payload
+    {case_request: {case_reference: case_reference, confirmation_code: confirmation_code}}
+  end
+
+  def execute_request
+    resp = RestClient.post(endpoint, payload.to_json, content_type: :json)
+    body = JSON.parse(resp.body, symbolize_names: true)
+
+    raise Exception.new(body[:error]) if body[:error]
+
+    body[:return_url]
   end
 end
