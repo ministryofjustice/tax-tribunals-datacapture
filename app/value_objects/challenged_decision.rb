@@ -1,7 +1,7 @@
 class ChallengedDecision < ValueObject
   VALUES = [
-    YES                = new(:yes),
-    NO                 = new(:no),
+    YES = new(:yes),
+    NO  = new(:no),
   ].freeze
 
   def self.values
