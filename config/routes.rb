@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       edit_step :company_details
       edit_step :grounds_for_appeal
       edit_step :documents_checklist
+      show_step :check_answers
     end
   end
 

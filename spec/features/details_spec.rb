@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Details', type: :feature do
   before do
     stub_file_uploader
+    stub_case_submission(redirect_to: root_path)
     visit_homepage
     complete_cost_task
     complete_lateness_task
@@ -22,6 +23,8 @@ RSpec.feature 'Details', type: :feature do
     continue
     check 'I am having trouble uploading my documents'
     continue
+    expect(page).to have_current_path(steps_details_check_answers_path)
+    submit_and_continue
 
     expect(page).to have_current_path(root_path)
   end
@@ -41,6 +44,8 @@ RSpec.feature 'Details', type: :feature do
     continue
     check 'I am having trouble uploading my documents'
     continue
+    expect(page).to have_current_path(steps_details_check_answers_path)
+    submit_and_continue
 
     expect(page).to have_current_path(root_path)
   end

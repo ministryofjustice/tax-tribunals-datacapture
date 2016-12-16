@@ -1,0 +1,100 @@
+<%= step_header(:details, 0) %>
+
+<h1 class="heading-large"><%= t '.heading' %></h1>
+
+<table class="check-your-answers">
+  <tbody>
+
+  <tr>
+    <th colspan="3"><h2 class="heading-medium"><%= t '.fee_details_heading' %></h2></th>
+  </tr>
+  <% @fee_details_answers.rows.each do |row| %>
+      <tr>
+        <td><%= t row.question %></td>
+        <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+        <td class="change-answer">
+          <%= row.change_link t('.change') %>
+        </td>
+      </tr>
+  <% end %>
+
+  <tr>
+    <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_timeliness_heading' %></h2></th>
+  </tr>
+  <% @appeal_timeliness_answers.rows.each do |row| %>
+      <tr>
+        <td><%= t row.question %></td>
+        <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+        <td class="change-answer">
+          <%= row.change_link t('.change') %>
+        </td>
+      </tr>
+  <% end %>
+
+  <tr>
+    <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_details_heading' %></h2></th>
+  </tr>
+  <tr>
+    <th><%= t '.questions.appellant_details' %></th>
+    <td>
+      <div data-key="appellant_name"><%= @appellant_details.name %></div>
+      <div data-key="appellant_address" class="js_breaklines">
+        <%= simple_format(@appellant_details.address) %>
+      </div>
+      <div>
+        <%= t '.questions.appellant_phone' %> <span data-key="appellant_phone"><%= @appellant_details.phone %></span>
+      </div>
+      <div>
+        <%= t '.questions.appellant_email' %> <span data-key="appellant_email"><%= @appellant_details.email %></span>
+      </div>
+    </td>
+    <td class="change-answer">
+      <%= link_to t('.change'), edit_steps_details_taxpayer_type_path %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= t '.questions.grounds_for_appeal' %></th>
+    <td>
+      <span data-key="grounds_for_appeal">
+        <%= @documents_submitted.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
+      </span>
+    </td>
+    <td class="change-answer">
+      <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= t '.questions.documents_submitted' %></th>
+    <td>
+      <ul class="list-bullet uploaded-docs">
+        <% @documents_submitted.list.each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td class="change-answer">
+      <%= link_to t('.change'), edit_steps_details_documents_checklist_path %>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+<h2 class="heading-medium"><%= t '.declaration_of_truth' %></h2>
+
+<p><%= t '.declaration_of_truth_message' %></p>
+
+<p class="notice util_mt-large">
+  <i class="icon icon-important">
+    <span class="visuallyhidden"><%= t '.warning' %></span>
+  </i>
+  <strong class="bold-small">
+    <%= t '.warning_message' %>
+  </strong>
+</p>
+
+<p>
+  <%= button_to t('.submit_and_continue'), cases_path, class: 'button' %>
+</p>

@@ -1,0 +1,51 @@
+table {
+  margin-bottom: $gutter;
+}
+
+tr {
+  vertical-align: top;
+}
+
+td.details {
+  font-weight: bold;
+}
+
+td.right {
+  text-align: right;
+}
+
+.expandable-demo tr {
+  vertical-align: top;
+}
+
+.expandable-demo caption {
+  display: none;
+}
+
+td li strong { // TODO: remove this, it's horrible
+  display: block;
+}
+
+table.check-your-answers {
+  margin-top: 45px;
+
+  th {
+    font-size: 16px;
+    font-weight: normal;
+    max-width: 250px;
+  }
+  td {
+    font-size: 16px;
+    max-width: 400px;
+
+    &.left {
+      text-align: left;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
