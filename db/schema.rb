@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205154426) do
+ActiveRecord::Schema.define(version: 20161212140942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
   create_table "tribunal_cases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.boolean  "challenged_decision"
     t.datetime "created_at",                                                                 null: false
     t.datetime "updated_at",                                                                 null: false
     t.string   "case_type"
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161205154426) do
     t.boolean  "additional_documents_provided",        default: false
     t.text     "additional_documents_info"
     t.boolean  "having_problems_uploading_documents",  default: false
+    t.string   "challenged_decision"
   end
 
 end

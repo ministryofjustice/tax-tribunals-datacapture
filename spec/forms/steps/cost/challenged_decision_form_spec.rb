@@ -13,7 +13,7 @@ RSpec.describe Steps::Cost::ChallengedDecisionForm do
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case) { nil }
-      let(:challenged_decision) { true }
+      let(:challenged_decision) { 'yes' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
@@ -45,11 +45,11 @@ RSpec.describe Steps::Cost::ChallengedDecisionForm do
     end
 
     context 'when challenged_decision is valid' do
-      let(:challenged_decision) { true }
+      let(:challenged_decision) { 'no' }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          challenged_decision: true,
+          challenged_decision: ChallengedDecision::NO,
           case_type: nil,
           dispute_type: nil,
           penalty_amount: nil
@@ -59,8 +59,8 @@ RSpec.describe Steps::Cost::ChallengedDecisionForm do
     end
 
     context 'when challenged_decision is already the same on the model' do
-      let(:tribunal_case)      { instance_double(TribunalCase, challenged_decision: true) }
-      let(:challenged_decision) { true }
+      let(:tribunal_case)      { instance_double(TribunalCase, challenged_decision: ChallengedDecision::YES) }
+      let(:challenged_decision) { 'yes' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)

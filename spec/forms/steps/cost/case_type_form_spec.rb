@@ -2,8 +2,8 @@ require 'spec_helper'
 
 RSpec.describe Steps::Cost::CaseTypeForm do
   let(:arguments) { {
-    tribunal_case:        tribunal_case,
-    case_type: case_type
+    tribunal_case: tribunal_case,
+    case_type:     case_type
   } }
   let(:tribunal_case)        { instance_double(TribunalCase, case_type: nil) }
   let(:case_type) { nil }
@@ -12,8 +12,8 @@ RSpec.describe Steps::Cost::CaseTypeForm do
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
-      let(:tribunal_case)        { nil }
-      let(:case_type) { 'vat' }
+      let(:tribunal_case) { nil }
+      let(:case_type)     { 'vat' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)

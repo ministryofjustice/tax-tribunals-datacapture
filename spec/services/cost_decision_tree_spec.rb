@@ -24,13 +24,13 @@ RSpec.describe CostDecisionTree do
         let(:step_params) { { case_type: 'income_tax' } }
 
         context 'and the case is challenged' do
-          let(:tribunal_case) { instance_double(TribunalCase, challenged_decision: true) }
+          let(:tribunal_case) { instance_double(TribunalCase, challenged_decision: ChallengedDecision::YES) }
 
           it { is_expected.to have_destination(:dispute_type, :edit) }
         end
 
         context 'and the case is unchallenged' do
-          let(:tribunal_case) { instance_double(TribunalCase, challenged_decision: false) }
+          let(:tribunal_case) { instance_double(TribunalCase, challenged_decision: ChallengedDecision::NO) }
 
           it { is_expected.to have_destination(:must_challenge_hmrc, :show) }
         end
@@ -53,22 +53,40 @@ RSpec.describe CostDecisionTree do
     end
 
     context 'when the step is `dispute_type`' do
-      context 'and the answer is `amount_of_tax_owed`' do
-        let(:step_params) { { dispute_type: 'amount_of_tax_owed' } }
-
-        it { is_expected.to have_destination(:determine_cost, :show) }
-      end
-
       context 'and the answer is `paye_coding_notice`' do
         let(:step_params) { { dispute_type: 'paye_coding_notice' } }
 
         it { is_expected.to have_destination(:determine_cost, :show) }
       end
 
-      context 'and the answer is `late_return_or_payment`' do
-        let(:step_params) { { dispute_type: 'late_return_or_payment' } }
+      context 'and the answer is `penalty`' do
+        let(:step_params) { { dispute_type: 'penalty' } }
 
         it { is_expected.to have_destination(:penalty_amount, :edit) }
+      end
+
+      context 'and the answer is `amount_of_tax`' do
+        let(:step_params) { { dispute_type: 'amount_of_tax' } }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the answer is `amount_and_penalty`' do
+        let(:step_params) { { dispute_type: 'amount_and_penalty' } }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the answer is `decision_on_enquiry`' do
+        let(:step_params) { { dispute_type: 'decision_on_enquiry' } }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the answer is `other`' do
+        let(:step_params) { { dispute_type: 'other' } }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
       end
     end
 

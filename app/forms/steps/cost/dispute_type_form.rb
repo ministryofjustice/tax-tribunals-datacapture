@@ -6,16 +6,9 @@ module Steps::Cost
 
     def choices
       if include_paye_coding_notice?
-        [
-          DisputeType::LATE_RETURN_OR_PAYMENT,
-          DisputeType::AMOUNT_OF_TAX_OWED,
-          DisputeType::PAYE_CODING_NOTICE
-        ]
+        DisputeType.values
       else
-        [
-          DisputeType::LATE_RETURN_OR_PAYMENT,
-          DisputeType::AMOUNT_OF_TAX_OWED
-        ]
+        DisputeType.values - [DisputeType::PAYE_CODING_NOTICE]
       end.map(&:to_s)
     end
 
