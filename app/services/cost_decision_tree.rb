@@ -35,10 +35,15 @@ class CostDecisionTree < DecisionTree
 
   private
 
+  def tribunal_case_is_unchallenged_direct_tax
+    tribunal_case.case_type.direct_tax? &&
+      tribunal_case.challenged_decision == ChallengedDecision::NO
+  end
+
   def after_case_type_step
     if answer == Steps::Cost::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
-    elsif tribunal_case.case_type.direct_tax? && tribunal_case.challenged_decision == ChallengedDecision::NO
+    elsif tribunal_case_is_unchallenged_direct_tax
       show(:must_challenge_hmrc)
     elsif tribunal_case.case_type.ask_dispute_type?
       edit(:dispute_type)
