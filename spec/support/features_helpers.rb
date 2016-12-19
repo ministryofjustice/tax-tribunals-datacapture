@@ -29,7 +29,7 @@ def complete_cost_task
   start_task
   answer_question 'Did you challenge the decision with HMRC first?', with: 'No'
   answer_question 'What is your appeal about?', with: 'Other'
-  answer_question 'What is your appeal about?', with: 'Other'
+  answer_question 'What is your appeal about?', with: 'None of the above'
   click_link 'Continue'
 end
 
