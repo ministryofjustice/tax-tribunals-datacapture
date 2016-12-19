@@ -36,29 +36,23 @@ class CostDecisionTree < DecisionTree
   private
 
   def after_case_type_step
-    case answer
-    when :income_tax
-      if tribunal_case.challenged_decision == ChallengedDecision::YES
-        edit(:dispute_type)
-      elsif tribunal_case.challenged_decision == ChallengedDecision::NO
-        show(:must_challenge_hmrc)
-      end
-    when :air_passenger_duty, :bingo_duty, :vat
-      edit(:dispute_type)
-    when :inaccurate_return_penalty
-      edit(:penalty_amount)
-    when :other
-      show(:determine_cost)
-    when Steps::Cost::CaseTypeForm::SHOW_MORE
+    if answer == Steps::Cost::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
+    elsif tribunal_case.case_type.direct_tax? && tribunal_case.challenged_decision == ChallengedDecision::NO
+      show(:must_challenge_hmrc)
+    elsif tribunal_case.case_type.ask_dispute_type?
+      edit(:dispute_type)
+    elsif tribunal_case.case_type.ask_penalty?
+      edit(:penalty_amount)
+    else
+      show(:determine_cost)
     end
   end
 
   def after_dispute_type_step
-    case answer
-    when :penalty
+    if tribunal_case.dispute_type == DisputeType::PENALTY
       edit(:penalty_amount)
-    when :amount_of_tax, :amount_and_penalty, :decision_on_enquiry, :paye_coding_notice, :other
+    else
       show(:determine_cost)
     end
   end

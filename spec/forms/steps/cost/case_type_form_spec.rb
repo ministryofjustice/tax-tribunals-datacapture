@@ -46,10 +46,12 @@ RSpec.describe Steps::Cost::CaseTypeForm do
 
     context 'when case_type is valid' do
       let(:case_type) { 'income_tax' }
+      let(:case_type_object) { instance_double(CaseType) }
 
       it 'saves the record' do
+        allow(CaseType).to receive(:find_constant).with('income_tax').and_return(case_type_object)
         expect(tribunal_case).to receive(:update).with(
-          case_type: an_instance_of(CaseType),
+          case_type: case_type_object,
           dispute_type: nil,
           penalty_amount: nil
         )
