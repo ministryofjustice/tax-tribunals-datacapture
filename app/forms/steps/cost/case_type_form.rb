@@ -22,7 +22,7 @@ module Steps::Cost
     end
 
     def case_type_value
-      CaseType.new(case_type)
+      CaseType.find_constant(case_type)
     end
 
     def changed?

@@ -52,11 +52,13 @@ RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
     end
 
     context 'when case_type is valid' do
-      let(:case_type) { 'air_passenger_duty' }
+      let(:case_type) { 'bingo_duty' }
+      let(:case_type_object) { instance_double(CaseType) }
 
       it 'saves the record' do
+        allow(CaseType).to receive(:find_constant).with('bingo_duty').and_return(case_type_object)
         expect(tribunal_case).to receive(:update).with(
-          case_type: an_instance_of(CaseType),
+          case_type: case_type_object,
           dispute_type: nil,
           penalty_amount: nil
         )
