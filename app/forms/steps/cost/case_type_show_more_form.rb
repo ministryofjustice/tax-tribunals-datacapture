@@ -1,25 +1,15 @@
 module Steps::Cost
-  class CaseTypeForm < BaseForm
-    SHOW_MORE = :_show_more
-
+  class CaseTypeShowMoreForm < BaseForm
     attribute :case_type, String
 
     def self.choices
-      [
-        CaseType::INCOME_TAX,
-        CaseType::VAT,
-        CaseType::INACCURATE_RETURN_PENALTY,
-        SHOW_MORE
-      ].map(&:to_s)
+      # Make sure we don't show the choices we already had on the previous page
+      CaseType.values.map(&:to_s) - CaseTypeForm.choices
     end
 
     validates_inclusion_of :case_type, in: choices
 
     private
-
-    def case_type_value?
-      case_type && case_type != SHOW_MORE.to_s
-    end
 
     def case_type_value
       CaseType.new(case_type)
@@ -31,7 +21,7 @@ module Steps::Cost
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      return unless case_type_value? && changed?
+      return unless changed?
 
       tribunal_case.update(
         case_type: case_type_value,

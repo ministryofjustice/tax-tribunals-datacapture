@@ -5,7 +5,7 @@ class CostDecisionTree < DecisionTree
     case step_name.to_sym
     when :challenged_decision
       edit(:case_type)
-    when :case_type
+    when :case_type, :case_type_show_more
       after_case_type_step
     when :dispute_type
       after_dispute_type_step
@@ -22,6 +22,8 @@ class CostDecisionTree < DecisionTree
       show(:start)
     when :case_type
       edit(:challenged_decision)
+    when :case_type_show_more
+      edit(:case_type)
     when :dispute_type
       edit(:case_type)
     when :penalty_amount
@@ -41,10 +43,14 @@ class CostDecisionTree < DecisionTree
       elsif tribunal_case.challenged_decision == ChallengedDecision::NO
         show(:must_challenge_hmrc)
       end
-    when :vat
+    when :air_passenger_duty, :bingo_duty, :vat
       edit(:dispute_type)
-    else
+    when :inaccurate_return_penalty
+      edit(:penalty_amount)
+    when :other
       show(:determine_cost)
+    when Steps::Cost::CaseTypeForm::SHOW_MORE
+      edit(:case_type_show_more)
     end
   end
 

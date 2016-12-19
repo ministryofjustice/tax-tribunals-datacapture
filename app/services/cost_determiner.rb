@@ -11,12 +11,9 @@ class CostDeterminer
     case tribunal_case.case_type
     when CaseType::INCOME_TAX, CaseType::VAT
       tax_lodgement_fee
-    when CaseType::APN_PENALTY,
-         CaseType::CLOSURE_NOTICE,
-         CaseType::INFORMATION_NOTICE,
-         CaseType::INACCURATE_RETURN,
-         CaseType::REQUEST_PERMISSION_FOR_REVIEW,
-         CaseType::OTHER
+    when CaseType::INACCURATE_RETURN_PENALTY
+      penalty_lodgement_fee
+    when CaseType::OTHER
       LodgementFee::FEE_LEVEL_2
     else
       raise "Unable to determine cost of tribunal_case"

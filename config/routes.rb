@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       show_step :start
       edit_step :challenged_decision
       edit_step :case_type
+      edit_step :case_type_show_more
       edit_step :dispute_type
       edit_step :penalty_amount
       show_step :determine_cost

@@ -1,16 +1,14 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= step_header(:cost, 4) %>
+    <%= step_header(:cost, 3) %>
 
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <p><%=t '.description_text' %></p>
-
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :dispute_type,
-        choices: @form_object.choices %>
+      <%= f.radio_button_fieldset :case_type,
+        choices: Steps::Cost::CaseTypeShowMoreForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
   </div>
