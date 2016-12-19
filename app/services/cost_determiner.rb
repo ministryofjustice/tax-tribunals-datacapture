@@ -8,36 +8,19 @@ class CostDeterminer
   end
 
   def lodgement_fee
-    case tribunal_case.case_type
-    when CaseType::INCOME_TAX, CaseType::VAT
-      tax_lodgement_fee
-    when CaseType::INACCURATE_RETURN_PENALTY
+    if tribunal_case.penalty_amount
       penalty_lodgement_fee
-    when CaseType::OTHER
-      LodgementFee::FEE_LEVEL_2
+    elsif tribunal_case.dispute_type
+      dispute_type_lodgement_fee
+    elsif tribunal_case.case_type
+      case_type_lodgement_fee
     else
-      raise "Unable to determine cost of tribunal_case"
+      # A tribunal_case without case_type is not complete for costing
+      raise 'Unable to determine cost of tribunal_case'
     end
   end
 
   private
-
-  def tax_lodgement_fee
-    case tribunal_case.dispute_type
-    when DisputeType::AMOUNT_OF_TAX, DisputeType::AMOUNT_AND_PENALTY
-      LodgementFee::FEE_LEVEL_3
-    when DisputeType::PENALTY
-      penalty_lodgement_fee
-    when DisputeType::DECISION_ON_ENQUIRY
-      LodgementFee::FEE_LEVEL_2
-    when DisputeType::PAYE_CODING_NOTICE
-      LodgementFee::FEE_LEVEL_2
-    when DisputeType::OTHER
-      LodgementFee::FEE_LEVEL_3
-    else
-      raise "Unable to determine cost of tribunal_case"
-    end
-  end
 
   def penalty_lodgement_fee
     case tribunal_case.penalty_amount
@@ -48,7 +31,22 @@ class CostDeterminer
     when PenaltyAmount::PENALTY_LEVEL_3
       LodgementFee::FEE_LEVEL_3
     else
-      raise "Unable to determine cost of tribunal_case"
+      raise 'Unable to determine cost of tribunal_case'
     end
+  end
+
+  def dispute_type_lodgement_fee
+    case tribunal_case.dispute_type
+    when DisputeType::DECISION_ON_ENQUIRY, DisputeType::PAYE_CODING_NOTICE
+      LodgementFee::FEE_LEVEL_2
+    else
+      LodgementFee::FEE_LEVEL_3
+    end
+  end
+
+  def case_type_lodgement_fee
+    # TODO: Update this when we add the case types that don't need dispute_type or penalty_amount
+    # but don't have a £200 fee
+    LodgementFee::FEE_LEVEL_3
   end
 end

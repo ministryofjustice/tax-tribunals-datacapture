@@ -8,6 +8,8 @@ module Steps::Cost
       [
         CaseType::INCOME_TAX,
         CaseType::VAT,
+        CaseType::CAPITAL_GAINS_TAX,
+        CaseType::CORPORATION_TAX,
         CaseType::INACCURATE_RETURN_PENALTY,
         SHOW_MORE
       ].map(&:to_s)

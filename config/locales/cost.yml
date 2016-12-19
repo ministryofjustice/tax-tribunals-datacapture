@@ -131,9 +131,32 @@ en:
               'yes': 'Yes'
               'no': 'No'
             case_type:
-              income_tax: Income Tax
-              vat: Value Added Tax (VAT)
+              apn_penalty: Accelerated Payment Notice (APN) penalty
+              aggregates_levy: Aggregates Levy
+              air_passenger_duty: Air Passenger Duty
+              alcoholic_liquor_duties: Alcoholic Liquor Duties
+              bingo_duty: Bingo Duty
+              climate_change_levy: Climate Change Levy
+              construction_industry_scheme: Construction Industry Scheme (CIS)
+              customs_duty: Customs Duty
+              gaming_duty: Gaming Duty
+              general_betting_duty: General Betting Duty
+              hydrocarbon_oil_duties: Hydrocarbon Oil Duties
               inaccurate_return_penalty: Inaccurate return penalty
+              income_tax: Income Tax
+              inheritance_tax: Inheritance Tax
+              insurance_premium_tax: Insurance Premium Tax
+              landfill_tax: Landfill Tax
+              lottery_duty: Lottery Duty
+              ni_contributions: National Insurance (NI) contributions
+              petroleum_revenue_tax: Petroleum Revenue Tax
+              pool_betting_duty: Pool Betting Duty
+              remote_gaming_duty: Remote Gaming Duty
+              stamp_duties: Stamp duties<br>includes Stamp Duty Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)
+              statutory_payments: Statutory payments
+              student_loans: Student loans
+              tobacco_products_duty: Tobacco Products Duty
+              vat: Value Added Tax (VAT)
               other: Other
             dispute_type:
               paye_coding_notice: Pay As You Earn (PAYE) coding notice
@@ -199,13 +222,36 @@ en:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment
           vat_html: <strong>Value Added Tax (VAT)</strong>
+          capital_gains_tax_html: <strong>Capital Gains Tax</strong>
+          corporation_tax_html: <strong>Corporation Tax</strong>
           inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_cost_case_type_show_more_form:
         case_type:
+          apn_penalty_html: <strong>Accelerated Payment Notice (APN) penalty</strong>
+          aggregates_levy_html: <strong>Aggregates Levy</strong>
           air_passenger_duty_html: <strong>Air Passenger Duty</strong>
+          alcoholic_liquor_duties_html: <strong>Alcoholic Liquor Duties</strong>
           bingo_duty_html: <strong>Bingo Duty</strong>
-          other_html: <strong>Other</strong>
+          climate_change_levy_html: <strong>Climate Change Levy</strong>
+          construction_industry_scheme_html: <strong>Construction Industry Scheme (CIS)</strong>
+          customs_duty_html: <strong>Customs Duty</strong>
+          gaming_duty_html: <strong>Gaming Duty</strong>
+          general_betting_duty_html: <strong>General Betting Duty</strong>
+          hydrocarbon_oil_duties_html: <strong>Hydrocarbon Oil Duties</strong>
+          inheritance_tax_html: <strong>Inheritance Tax</strong>
+          insurance_premium_tax_html: <strong>Insurance Premium Tax</strong>
+          landfill_tax_html: <strong>Landfill Tax</strong>
+          lottery_duty_html: <strong>Lottery Duty</strong>
+          ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
+          petroleum_revenue_tax_html: <strong>Petroleum Revenue Tax</strong>
+          pool_betting_duty_html: <strong>Pool Betting Duty</strong>
+          remote_gaming_duty_html: <strong>Remote Gaming Duty</strong>
+          stamp_duties_html: <strong>Stamp duties</strong><br>includes Stamp Duty Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)
+          statutory_payments_html: <strong>Statutory payments</strong>
+          student_loans_html: <strong>Student loans</strong>
+          tobacco_products_duty_html: <strong>Tobacco Products Duty</strong>
+          other_html: <strong>None of the above</strong>
       steps_cost_dispute_type_form:
         dispute_type:
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
