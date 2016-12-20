@@ -42,6 +42,12 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `documents_checklist`' do
       let(:step_params) { { documents_checklist: 'anything'  } }
 
+      it { is_expected.to have_destination(:check_answers, :show) }
+    end
+
+    context 'when the step is `check_answers`' do
+      let(:step_params) { {check_answers: 'anything'} }
+
       it { is_expected.to have_destination('/home', :index) }
     end
 
@@ -87,6 +93,18 @@ RSpec.describe DetailsDecisionTree do
 
         it { is_expected.to have_previous(:company_details, :edit) }
       end
+    end
+
+    context 'when the step is `documents_checklist`' do
+      let(:step_params) { { documents_checklist: 'anything'  } }
+
+      it { is_expected.to have_previous(:grounds_for_appeal, :edit) }
+    end
+
+    context 'when the step is `check_answers`' do
+      let(:step_params) { { check_answers: 'anything'  } }
+
+      it { is_expected.to have_previous(:documents_checklist, :edit) }
     end
 
     context 'when the step is invalid' do

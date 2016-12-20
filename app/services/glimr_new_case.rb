@@ -26,7 +26,7 @@ class GlimrNewCase
 
     params.merge!(taxpayer_street_params)
 
-    if taxpayer_is_company?
+    if tc.taxpayer_is_company?
       params.merge!(
         repOrganisationName: tc.taxpayer_company_name,
         repFAO: tc.taxpayer_company_fao
@@ -40,10 +40,6 @@ class GlimrNewCase
   end
 
   private
-
-  def taxpayer_is_company?
-    tc.taxpayer_type == TaxpayerType::COMPANY
-  end
 
   def jurisdiction_id
     GlimrApiClient::Case::TRIBUNAL_JURISDICTION_ID

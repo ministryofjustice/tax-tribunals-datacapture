@@ -10,6 +10,8 @@ class DetailsDecisionTree < DecisionTree
     when :grounds_for_appeal
       edit(:documents_checklist)
     when :documents_checklist
+      show(:check_answers)
+    when :check_answers
       home
     else
       raise "Invalid step '#{step_params}'"
@@ -26,6 +28,8 @@ class DetailsDecisionTree < DecisionTree
       before_grounds_for_appeal_step
     when :documents_checklist
       edit(:grounds_for_appeal)
+    when :check_answers
+      edit(:documents_checklist)
     else
       raise "Invalid step '#{step_params}'"
     end

@@ -5,6 +5,11 @@ def stub_file_uploader
   allow(MojFileUploaderApiClient::ListFiles).to receive(:new).and_return(double(call: list_response_double))
 end
 
+def stub_case_submission(redirect_to:)
+  case_creator_double = instance_double(CaseCreator, success?: true, payment_url: redirect_to)
+  allow_any_instance_of(CaseCreator).to receive(:call).and_return(case_creator_double)
+end
+
 def visit_homepage
   visit '/'
 end
@@ -23,6 +28,10 @@ end
 
 def continue
   click_button 'Continue'
+end
+
+def submit_and_continue
+  click_button 'Submit and continue'
 end
 
 def complete_cost_task

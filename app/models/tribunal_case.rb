@@ -28,4 +28,8 @@ class TribunalCase < ApplicationRecord
   def default_documents_filter
     [grounds_for_appeal_file_name]
   end
+
+  def taxpayer_is_company?
+    taxpayer_type.equal? TaxpayerType::COMPANY
+  end
 end

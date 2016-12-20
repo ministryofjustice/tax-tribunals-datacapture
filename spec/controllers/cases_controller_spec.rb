@@ -26,7 +26,7 @@ RSpec.describe CasesController, type: :controller do
       it 'should redirect to the summary page with an error' do
         post :create
         expect(flash[:alert]).to eq(['an error'])
-        expect(response).to redirect_to(steps_details_start_url)
+        expect(response).to redirect_to(steps_details_check_answers_path)
       end
     end
   end

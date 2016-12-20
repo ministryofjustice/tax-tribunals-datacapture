@@ -99,3 +99,28 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
     end
   end
 end
+
+RSpec.shared_examples 'an intermediate step controller without update' do
+  context '#update' do
+    it 'raises an exception' do
+      expect { put :update }.to raise_error(AbstractController::ActionNotFound)
+    end
+  end
+
+  describe '#edit' do
+    context 'when no case exists in the session yet' do
+      it 'raises an exception' do
+        expect { get :edit }.to raise_error(RuntimeError)
+      end
+    end
+
+    context 'when a case exists in the session' do
+      let!(:existing_case) { TribunalCase.create }
+
+      it 'responds with HTTP success' do
+        get :edit, session: { tribunal_case_id: existing_case.id }
+        expect(response).to be_successful
+      end
+    end
+  end
+end
