@@ -5,7 +5,6 @@ class CasesController < ApplicationController
     result_url = if new_case.success?
                    new_case.payment_url
                  else
-                   # TODO: change once we have the summary step
                    flash[:alert] = new_case.errors
                    steps_details_check_answers_path
                  end
