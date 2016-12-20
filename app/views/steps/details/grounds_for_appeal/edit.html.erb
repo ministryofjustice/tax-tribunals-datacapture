@@ -15,7 +15,7 @@
           <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control form-control-3-4 form-control-large' %>
 
           <% if uploaded_document.nil? %>
-              <p><%= t '.attach_document_html' %></p>
+              <p><%= f.label :grounds_for_appeal_document, t('.attach_document_html') %></p>
               <%= f.file_field :grounds_for_appeal_document %>
           <% end %>
 

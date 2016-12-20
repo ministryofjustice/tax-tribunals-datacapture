@@ -12,11 +12,7 @@ module Steps::Details
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
 
-      grounds_for_appeal_document&.upload!(
-        collection_ref: tribunal_case.files_collection_ref
-      )
-
-      tribunal_case.update(
+      upload_document_if_present && tribunal_case.update(
         grounds_for_appeal: grounds_for_appeal,
         grounds_for_appeal_file_name: file_name
       )
@@ -24,10 +20,7 @@ module Steps::Details
 
     def valid_uploaded_file
       return true if grounds_for_appeal_document.nil? || grounds_for_appeal_document.valid?
-
-      grounds_for_appeal_document.errors.each do |error|
-        errors.add(:grounds_for_appeal_document, error)
-      end
+      retrieve_document_errors
     end
 
     def requires_appeal_text?
@@ -36,6 +29,21 @@ module Steps::Details
 
     def requires_appeal_document?
       grounds_for_appeal.blank? && requires_appeal_text?
+    end
+
+    def upload_document_if_present
+      return true if grounds_for_appeal_document.nil?
+
+      grounds_for_appeal_document.upload!(collection_ref: tribunal_case.files_collection_ref)
+      retrieve_document_errors
+
+      errors.empty?
+    end
+
+    def retrieve_document_errors
+      grounds_for_appeal_document.errors.each do |error|
+        errors.add(:grounds_for_appeal_document, error)
+      end
     end
 
     # If there is a file upload, store the name of the file, otherwise, retrieve any previously

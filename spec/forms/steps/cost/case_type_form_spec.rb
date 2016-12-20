@@ -54,7 +54,7 @@ RSpec.describe Steps::Cost::CaseTypeForm do
           case_type: case_type_object,
           dispute_type: nil,
           penalty_amount: nil
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

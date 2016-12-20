@@ -20,7 +20,7 @@ module Steps::Cost
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      return unless changed?
+      return true unless changed?
 
       tribunal_case.update(
         challenged_decision: challenged_decision_value,

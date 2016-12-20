@@ -51,7 +51,7 @@ RSpec.describe Steps::Lateness::InTimeForm do
         expect(tribunal_case).to receive(:update).with(
           in_time:         InTime::UNSURE,
           lateness_reason: nil
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

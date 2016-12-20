@@ -50,7 +50,7 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           lateness_reason: lateness_reason
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

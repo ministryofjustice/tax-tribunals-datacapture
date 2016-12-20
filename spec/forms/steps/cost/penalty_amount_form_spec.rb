@@ -50,7 +50,7 @@ RSpec.describe Steps::Cost::PenaltyAmountForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           penalty_amount: PenaltyAmount::PENALTY_LEVEL_1
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

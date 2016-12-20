@@ -133,7 +133,7 @@ RSpec.describe Steps::Details::CompanyDetailsForm do
           taxpayer_contact_postcode:            taxpayer_contact_postcode,
           taxpayer_contact_email:               taxpayer_contact_email,
           taxpayer_contact_phone:               taxpayer_contact_phone
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end
