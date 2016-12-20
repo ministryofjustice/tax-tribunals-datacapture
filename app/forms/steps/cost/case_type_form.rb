@@ -11,6 +11,7 @@ module Steps::Cost
         CaseType::CAPITAL_GAINS_TAX,
         CaseType::CORPORATION_TAX,
         CaseType::INACCURATE_RETURN_PENALTY,
+        CaseType::INFORMATION_NOTICE,
         SHOW_MORE
       ].map(&:to_s)
     end
