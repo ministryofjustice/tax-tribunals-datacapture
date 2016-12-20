@@ -21,7 +21,7 @@ class DocumentsController < ApplicationController
   def destroy
     MojFileUploaderApiClient::DeleteFile.new(
       collection_ref: collection_ref,
-      filename: filename_param
+      filename: filename
     ).call
 
     if grounds_for_appeal_filename?
@@ -45,11 +45,19 @@ class DocumentsController < ApplicationController
   end
 
   def grounds_for_appeal_filename?
-    filename_param == current_tribunal_case.grounds_for_appeal_file_name
+    decoded_filename == current_tribunal_case.grounds_for_appeal_file_name
+  end
+
+  def filename
+    URI.encode(decoded_filename)
+  end
+
+  def decoded_filename
+    Base64.decode64(filename_param)
   end
 
   def filename_param
-    URI.encode(Base64.decode64(document_params[:id]))
+    document_params[:id]
   end
 
   def document_param

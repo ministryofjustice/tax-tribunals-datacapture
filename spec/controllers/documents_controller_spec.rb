@@ -5,9 +5,9 @@ include ActionDispatch::TestProcess
 RSpec.describe DocumentsController, type: :controller do
 
   let(:collection_ref) { '12345' }
-  let(:filename) { 'dGVzdA==\n' } # 'test' - base64 encoded
+  let(:filename) { 'dGVzdCBmaWxlLnR4dA==\n' } # 'test file.txt' - base64 encoded
   let(:another_filename) { 'YW5vdGhlcg==\n' } # 'another' - base64 encoded
-  let(:current_tribunal_case) { instance_double(TribunalCase, grounds_for_appeal_file_name: 'test', files_collection_ref: collection_ref) }
+  let(:current_tribunal_case) { instance_double(TribunalCase, grounds_for_appeal_file_name: 'test file.txt', files_collection_ref: collection_ref) }
   let(:file) { fixture_file_upload('files/image.jpg', 'image/jpeg') }
 
   let(:upload_response) { double(code: 200, body: {}, error?: false) }
@@ -129,7 +129,7 @@ RSpec.describe DocumentsController, type: :controller do
 
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
-            collection_ref: collection_ref, filename: 'test').and_return(double(call: true))
+            collection_ref: collection_ref, filename: 'test%20file.txt').and_return(double(call: true))
 
         expect(current_tribunal_case).to receive(:update).with(grounds_for_appeal_file_name: nil)
       end
