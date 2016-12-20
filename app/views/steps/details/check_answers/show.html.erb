@@ -21,7 +21,7 @@
   <tr>
     <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_timeliness_heading' %></h2></th>
   </tr>
-  <% @appeal_timeliness_answers.rows.each do |row| %>
+  <% @appeal_lateness_answers.rows.each do |row| %>
       <tr>
         <td><%= t row.question %></td>
         <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
@@ -37,15 +37,15 @@
   <tr>
     <th><%= t '.questions.appellant_details' %></th>
     <td>
-      <div data-key="appellant_name"><%= @appellant_details.name %></div>
+      <div data-key="appellant_name"><%= @taxpayer_details.name %></div>
       <div data-key="appellant_address" class="js_breaklines">
-        <%= simple_format(@appellant_details.address) %>
+        <%= simple_format(@taxpayer_details.address) %>
       </div>
       <div>
-        <%= t '.questions.appellant_phone' %> <span data-key="appellant_phone"><%= @appellant_details.phone %></span>
+        <%= t '.questions.appellant_phone' %> <span data-key="appellant_phone"><%= @taxpayer_details.phone %></span>
       </div>
       <div>
-        <%= t '.questions.appellant_email' %> <span data-key="appellant_email"><%= @appellant_details.email %></span>
+        <%= t '.questions.appellant_email' %> <span data-key="appellant_email"><%= @taxpayer_details.email %></span>
       </div>
     </td>
     <td class="change-answer">

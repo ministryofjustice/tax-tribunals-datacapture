@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe AppealTimelinessAnswersPresenter do
+RSpec.describe AppealLatenessAnswersPresenter do
   subject { described_class.new(tribunal_case) }
   let(:tribunal_case) {
     instance_double(

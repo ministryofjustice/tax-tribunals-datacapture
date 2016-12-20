@@ -29,7 +29,7 @@ class TribunalCase < ApplicationRecord
     [grounds_for_appeal_file_name]
   end
 
-  def company?
+  def taxpayer_is_company?
     taxpayer_type.equal? TaxpayerType::COMPANY
   end
 end

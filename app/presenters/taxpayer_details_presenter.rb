@@ -1,7 +1,7 @@
-class AppellantDetailsPresenter < BaseAnswersPresenter
+class TaxpayerDetailsPresenter < BaseAnswersPresenter
 
   def name
-    return tribunal_case.taxpayer_company_fao if tribunal_case.company?
+    return tribunal_case.taxpayer_company_fao if tribunal_case.taxpayer_is_company?
     tribunal_case.taxpayer_individual_name
   end
 

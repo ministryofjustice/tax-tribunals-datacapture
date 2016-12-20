@@ -1,4 +1,4 @@
-class AppealTimelinessAnswersPresenter < BaseAnswersPresenter
+class AppealLatenessAnswersPresenter < BaseAnswersPresenter
   def rows
     [
       in_time_question,

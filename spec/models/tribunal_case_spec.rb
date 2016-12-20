@@ -143,7 +143,7 @@ RSpec.describe TribunalCase, type: :model do
       let(:attributes) { {taxpayer_type: TaxpayerType::COMPANY} }
 
       it 'returns true' do
-        expect(subject.company?).to eq(true)
+        expect(subject.taxpayer_is_company?).to eq(true)
       end
     end
 
@@ -151,7 +151,7 @@ RSpec.describe TribunalCase, type: :model do
       let(:attributes) { {taxpayer_type: TaxpayerType::INDIVIDUAL} }
 
       it 'returns false' do
-        expect(subject.company?).to eq(false)
+        expect(subject.taxpayer_is_company?).to eq(false)
       end
     end
   end

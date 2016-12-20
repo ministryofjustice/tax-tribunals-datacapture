@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe AppellantDetailsPresenter do
+RSpec.describe TaxpayerDetailsPresenter do
   subject { described_class.new(tribunal_case) }
   let(:tribunal_case) {
     TribunalCase.new(
