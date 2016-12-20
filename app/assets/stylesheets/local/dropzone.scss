@@ -6,7 +6,7 @@
   margin-bottom: 20px;
 
   .arrow-icon::before {
-    content: url('drag-drop-upload-ico.svg');
+    content: image-url('drag-drop-upload-ico.svg');
     float: right;
     width: 90px;
     height: 90px;
@@ -14,7 +14,7 @@
   &.dz-drag-hover {
     border-color: $yellow;
     .drag-helptext::before {
-      content: url('drag-drop-upload-hover-ico.svg');
+      content: image-url('drag-drop-upload-hover-ico.svg');
       float: left;
       width: 90px;
       height: 90px;
@@ -25,7 +25,7 @@
     text-align: center;
     display: inline-block;
     &::before {
-      content: url('drag-drop-upload-ico.svg');
+      content: image-url('drag-drop-upload-ico.svg');
       float: left;
       width: 90px;
       height: 90px;
