@@ -1,8 +1,8 @@
-class ChallengedDecision < ValueObject
+class HardshipReviewRequested < ValueObject
   VALUES = [
     YES = new(:yes),
-    NO  = new(:no),
-  ].freeze
+    NO  = new(:no)
+  ]
 
   def self.values
     VALUES

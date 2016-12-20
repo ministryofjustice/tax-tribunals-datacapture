@@ -26,6 +26,12 @@ Rails.application.routes.draw do
       show_step :must_challenge_hmrc
     end
 
+    namespace :hardship do
+      edit_step :disputed_tax_paid
+      edit_step :hardship_review_requested
+      edit_step :hardship_review_status
+    end
+
     namespace :lateness do
       show_step :start
       edit_step :in_time
