@@ -19,7 +19,7 @@ module Steps::Details
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      return unless changed?
+      return true unless changed?
 
       tribunal_case.update(
         taxpayer_type: taxpayer_type_value

@@ -55,7 +55,7 @@ RSpec.describe Steps::<%= task_name.camelize %>::<%= step_name.camelize %>Form d
   #     it 'saves the record' do
   #       expect(tribunal_case).to receive(:update).with(
   #         # TODO: What's in the update?
-  #       )
+  #       ).and_return(true)
   #       expect(subject.save).to be(true)
   #     end
   #   end

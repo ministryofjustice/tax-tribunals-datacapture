@@ -34,7 +34,7 @@ module Steps::<%= task_name.camelize %>
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      return unless changed?
+      return true unless changed?
 
       # TODO: Update this to persist your form object
       tribunal_case.update(

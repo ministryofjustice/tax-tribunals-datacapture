@@ -146,6 +146,7 @@ en:
               blank: You must enter the reasons or attach a document
               file_size: The attached file exceeds the maximum allowed size
               content_type: The attached file is not a supported type
+              response_error: There was an error uploading the file. Please try again
         steps/details/individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/company_details_form:

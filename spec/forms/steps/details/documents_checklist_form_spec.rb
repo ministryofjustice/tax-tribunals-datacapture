@@ -121,7 +121,7 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
           additional_documents_provided:        additional_documents_provided,
           additional_documents_info:            additional_documents_info,
           having_problems_uploading_documents:  having_problems_uploading_documents
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

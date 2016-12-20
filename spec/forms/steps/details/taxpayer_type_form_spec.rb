@@ -50,7 +50,7 @@ RSpec.describe Steps::Details::TaxpayerTypeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           taxpayer_type: TaxpayerType::INDIVIDUAL
-        )
+        ).and_return(true)
         expect(subject.save).to be(true)
       end
     end

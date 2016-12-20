@@ -61,7 +61,8 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
             grounds_for_appeal: 'I disagree with HMRC.',
-            grounds_for_appeal_file_name: nil)
+            grounds_for_appeal_file_name: nil
+          ).and_return(true)
           expect(subject.save).to be(true)
         end
       end
@@ -71,14 +72,25 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
         let(:upload_response) { double(code: 200, body: {}, error?: false) }
 
-        it 'saves the record' do
-          expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: nil,
-            grounds_for_appeal_file_name: 'image.jpg')
+        context 'document upload successful' do
+          it 'saves the record' do
+            expect(tribunal_case).to receive(:update).with(
+              grounds_for_appeal: nil,
+              grounds_for_appeal_file_name: 'image.jpg'
+            ).and_return(true)
 
-          expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+            expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
 
-          expect(subject.save).to be(true)
+            expect(subject.save).to be(true)
+          end
+        end
+
+        context 'document upload unsuccessful' do
+          it 'doesn\'t save the record' do
+            expect(tribunal_case).not_to receive(:update)
+            expect(subject).to receive(:upload_document_if_present).and_return(false)
+            expect(subject.save).to be(false)
+          end
         end
       end
 
@@ -90,7 +102,8 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
             grounds_for_appeal: 'I disagree with HMRC.',
-            grounds_for_appeal_file_name: 'image.jpg')
+            grounds_for_appeal_file_name: 'image.jpg'
+          ).and_return(true)
 
           expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
 
