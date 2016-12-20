@@ -37,7 +37,7 @@ class CostDeterminer
 
   def dispute_type_lodgement_fee
     case tribunal_case.dispute_type
-    when DisputeType::DECISION_ON_ENQUIRY, DisputeType::PAYE_CODING_NOTICE
+    when DisputeType::DECISION_ON_ENQUIRY, DisputeType::PAYE_CODING_NOTICE, DisputeType::INFORMATION_NOTICE
       LodgementFee::FEE_LEVEL_2
     else
       LodgementFee::FEE_LEVEL_3

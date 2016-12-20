@@ -5,7 +5,13 @@ module Steps::Cost
     validates_inclusion_of :dispute_type, in: proc { |record| record.choices }
 
     def choices
-      if include_paye_coding_notice?
+      case tribunal_case&.case_type
+      when CaseType::INFORMATION_NOTICE
+        [
+          DisputeType::PENALTY,
+          DisputeType::INFORMATION_NOTICE
+        ]
+      when CaseType::INCOME_TAX
         DisputeType.values
       else
         DisputeType.values - [DisputeType::PAYE_CODING_NOTICE]
@@ -16,10 +22,6 @@ module Steps::Cost
 
     def dispute_type_value
       DisputeType.new(dispute_type)
-    end
-
-    def include_paye_coding_notice?
-      tribunal_case&.case_type == CaseType::INCOME_TAX
     end
 
     def changed?

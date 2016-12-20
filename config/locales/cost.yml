@@ -146,6 +146,7 @@ en:
               income_tax: Income Tax
               inheritance_tax: Inheritance Tax
               insurance_premium_tax: Insurance Premium Tax
+              information_notice: Information notices
               landfill_tax: Landfill Tax
               lottery_duty: Lottery Duty
               ni_contributions: National Insurance (NI) contributions
@@ -163,6 +164,7 @@ en:
               penalty: Penalty or surcharge
               amount_of_tax: Amount of tax
               amount_and_penalty: Amount of tax and a penalty or surcharge
+              information_notice: Appeal against an information notice
               decision_on_enquiry: Apply for a decision on an enquiry
               other: Other
             penalty_amount:
@@ -225,6 +227,7 @@ en:
           capital_gains_tax_html: <strong>Capital Gains Tax</strong>
           corporation_tax_html: <strong>Corporation Tax</strong>
           inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
+          information_notice_html: <strong>Information notices</strong><br>including penalties for non-compliance with information notices
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_cost_case_type_show_more_form:
         case_type:
@@ -258,6 +261,7 @@ en:
           penalty_html: <strong>Penalty or surcharge</strong><br>for late filing of returns and documents, late payment of duties, inaccuracies, or non-compliance with information notices or Schedule 41
           amount_of_tax_html: <strong>Amount of tax</strong><br>either tax you owe or money that HMRC should pay to you
           amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both of these disputes will be stated on either the original notice letter from HMRC or the review conclusion letter
+          information_notice_html: <strong>Appeal against an information notice</strong>
           decision_on_enquiry_html: <strong>Apply for a decision on an enquiry</strong><br>force HMRC to issue a counteraction notice
           other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:

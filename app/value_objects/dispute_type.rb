@@ -1,9 +1,10 @@
 class DisputeType < ValueObject
   VALUES = [
-    PAYE_CODING_NOTICE  = new(:paye_coding_notice),
     PENALTY             = new(:penalty),
     AMOUNT_OF_TAX       = new(:amount_of_tax),
     AMOUNT_AND_PENALTY  = new(:amount_and_penalty),
+    PAYE_CODING_NOTICE  = new(:paye_coding_notice),
+    INFORMATION_NOTICE  = new(:information_notice),
     DECISION_ON_ENQUIRY = new(:decision_on_enquiry),
     OTHER               = new(:other)
   ].freeze

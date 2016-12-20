@@ -52,14 +52,20 @@ RSpec.describe CostDeterminer do
     it { is_expected.to fail_to_determine_lodgement_fee }
   end
 
-  context "when the case is an appeal against a PAYE coding notice" do
+  context "when the dispute is an appeal against a PAYE coding notice" do
     let(:dispute_type) { DisputeType::PAYE_CODING_NOTICE }
 
     it { is_expected.to have_lodgement_fee(:fee_level_2) }
   end
 
-  context "when the case is an application for a decision on an enquiry" do
+  context "when the dispute is an application for a decision on an enquiry" do
     let(:dispute_type) { DisputeType::DECISION_ON_ENQUIRY }
+
+    it { is_expected.to have_lodgement_fee(:fee_level_2) }
+  end
+
+  context "when the dispute is an appeal against an information notice" do
+    let(:dispute_type) { DisputeType::INFORMATION_NOTICE }
 
     it { is_expected.to have_lodgement_fee(:fee_level_2) }
   end

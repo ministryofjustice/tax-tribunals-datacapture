@@ -40,6 +40,7 @@ class CaseType < ValueObject
     HYDROCARBON_OIL_DUTIES       = new(:hydrocarbon_oil_duties,       indirect_tax_properties),
     INACCURATE_RETURN_PENALTY    = new(:inaccurate_return_penalty,    direct_tax: false, ask_dispute_type: false, ask_penalty: true,  ask_hardship: false),
     INCOME_TAX                   = new(:income_tax,                   direct_tax_properties),
+    INFORMATION_NOTICE           = new(:information_notice,           direct_tax: false, ask_dispute_type: true,  ask_penalty: true,  ask_hardship: false),
     INHERITANCE_TAX              = new(:inheritance_tax,              direct_tax_properties),
     INSURANCE_PREMIUM_TAX        = new(:insurance_premium_tax,        indirect_tax_properties),
     LANDFILL_TAX                 = new(:landfill_tax,                 indirect_tax_properties),
