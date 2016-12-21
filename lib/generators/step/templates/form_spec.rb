@@ -60,7 +60,7 @@ RSpec.describe Steps::<%= task_name.camelize %>::<%= step_name.camelize %>Form d
   #     end
   #   end
 
-  #   context 'when in_time is already the same on the model' do
+  #   context 'when <%= step_name.underscore %> is already the same on the model' do
   #     let(:tribunal_case) {
   #       instance_double(
   #         TribunalCase,

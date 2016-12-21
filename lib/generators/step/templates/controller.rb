@@ -9,7 +9,7 @@ module Steps::<%= task_name.camelize %>
     end
 
     def update
-      update_and_advance(:<%= step_name.underscore %>, <%= step_name.camelize %>Form)
+      update_and_advance(<%= step_name.camelize %>Form)
     end
   end
 end
