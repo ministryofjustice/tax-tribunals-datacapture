@@ -17,6 +17,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
 
+# PDF generation
+gem 'wicked_pdf', '~> 1.1.0'
+gem 'wkhtmltopdf-binary'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

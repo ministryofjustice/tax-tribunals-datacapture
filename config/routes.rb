@@ -51,6 +51,12 @@ Rails.application.routes.draw do
 
   resources :cases, only: [:create]
 
+  resources :case_details, only: [:index] do
+    collection do
+      get :test_upload
+    end
+  end
+
   resource :session, only: [:destroy] do
     member do
       post :create_and_fill_cost
