@@ -25,9 +25,9 @@ class CostDecisionTree < DecisionTree
     when :case_type_show_more
       edit(:case_type)
     when :dispute_type
-      edit(:case_type)
+      before_dispute_type_step
     when :penalty_amount
-      edit(:dispute_type)
+      before_penalty_amount_step
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -59,6 +59,22 @@ class CostDecisionTree < DecisionTree
       edit(:penalty_amount)
     else
       show(:determine_cost)
+    end
+  end
+
+  def before_dispute_type_step
+    if Steps::Cost::CaseTypeForm.choices.include?(tribunal_case.case_type.to_s)
+      edit(:case_type)
+    else
+      edit(:case_type_show_more)
+    end
+  end
+
+  def before_penalty_amount_step
+    if tribunal_case.dispute_type?
+      edit(:dispute_type)
+    else
+      before_dispute_type_step
     end
   end
 end
