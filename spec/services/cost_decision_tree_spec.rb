@@ -129,16 +129,62 @@ RSpec.describe CostDecisionTree do
       it { is_expected.to have_previous(:challenged_decision, :edit) }
     end
 
-    context 'when the step is `dispute_type`' do
-      let(:step_params) { { dispute_type: 'anything' } }
+    context 'when the step is `case_type_show_more`' do
+      let(:step_params) { { case_type_show_more: 'anything' } }
 
       it { is_expected.to have_previous(:case_type, :edit) }
     end
 
+    context 'when the step is `dispute_type`' do
+      let(:step_params)   { { dispute_type: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType.new(:foo)) }
+
+      context 'when the case type was listed on the `case_type` step' do
+        before do
+          expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['foo'])
+        end
+
+        it { is_expected.to have_previous(:case_type, :edit) }
+      end
+
+      context 'when the case type was listed on the `case_type_show_more` step' do
+        before do
+          expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['not_foo'])
+        end
+
+        it { is_expected.to have_previous(:case_type_show_more, :edit) }
+      end
+    end
+
     context 'when the step is `penalty_amount`' do
       let(:step_params) { { penalty_amount: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType.new(:foo), dispute_type?: has_dispute_type) }
 
-      it { is_expected.to have_previous(:dispute_type, :edit) }
+      context 'when the case does not have a dispute_type' do
+        let(:has_dispute_type) { false }
+
+        context 'when the case type was listed on the `case_type` step' do
+          before do
+            expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['foo'])
+          end
+
+          it { is_expected.to have_previous(:case_type, :edit) }
+        end
+
+        context 'when the case type was listed on the `case_type_show_more` step' do
+          before do
+            expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['not_foo'])
+          end
+
+          it { is_expected.to have_previous(:case_type_show_more, :edit) }
+        end
+      end
+
+      context 'when the case has a dispute type' do
+        let(:has_dispute_type) { true }
+
+        it { is_expected.to have_previous(:dispute_type, :edit) }
+      end
     end
 
     context 'when the step is invalid' do

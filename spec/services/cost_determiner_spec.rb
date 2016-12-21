@@ -69,4 +69,10 @@ RSpec.describe CostDeterminer do
 
     it { is_expected.to have_lodgement_fee(:fee_level_2) }
   end
+
+  context "when the dispute is anything else" do
+    let(:dispute_type) { DisputeType.new(:anything_else) }
+
+    it { is_expected.to have_lodgement_fee(:fee_level_3) }
+  end
 end
