@@ -23,13 +23,12 @@ Example:
           (adds an `edit_step` route for the step)
 
     You will have to do yourself:
-        - Change `@back_link_path` in the controller
         - Add the fields into the form object (and write specs)
         - Add the fields to the tribunal_case model (and migrate)
         - Add the relevant form code in the view
         - Update the step X of Y in the view
         - Make the decision tree decide something
         - Add specs for the decision tree
-        - Add a value object if required (and add the `composed_of` to the model)
+        - Add a value object if required (and add the `has_value_object`
+          to the model)
         - Add i18n
-        - Write feature specs
