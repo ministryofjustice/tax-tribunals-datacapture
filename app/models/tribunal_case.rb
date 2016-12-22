@@ -6,6 +6,11 @@ class TribunalCase < ApplicationRecord
   has_value_object :penalty_amount
   has_value_object :lodgement_fee
 
+  # Hardship task
+  has_value_object :disputed_tax_paid
+  has_value_object :hardship_review_requested
+  has_value_object :hardship_review_status
+
   # Lateness task
   has_value_object :in_time
 

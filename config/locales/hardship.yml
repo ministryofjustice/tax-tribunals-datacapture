@@ -1,0 +1,53 @@
+en:
+  steps:
+    hardship:
+      step_header: Question %{step} of 8
+      disputed_tax_paid:
+        edit:
+          heading: Have you paid the amount of tax involved in the dispute?
+          lead_text: If you have paid or deposited the amount of tax involved in the dispute, select 'Yes'. If you can't pay because it will cause you financial difficulties, you can still continue your appeal.
+      hardship_review_requested:
+        edit:
+          heading: Did you apply for financial hardship?
+          lead_text: You can still continue if you select 'No'. The tax tribunal will keep your appeal as pending until you ask HMRC to defer paying the tax because of financial hardship.
+      hardship_review_status:
+        edit:
+          heading: What is the status of your hardship application?
+          lead_text: If hardship is refused, you can still continue your appeal and ask the judge to consider your reasons.
+  activemodel:
+    errors:
+      models:
+        steps/hardship/disputed_tax_paid_form:
+          attributes:
+            disputed_tax_paid:
+              inclusion: Select whether you have paid the amount of tax involved in the dispute
+        steps/hardship/hardship_review_requested_form:
+          attributes:
+            hardship_review_requested:
+              inclusion: Select whether you have applied for financial hardship
+        steps/hardship/hardship_review_status_form:
+          attributes:
+            hardship_review_status:
+              inclusion: Select the status of your hardship application
+  helpers:
+    fieldset:
+      steps_hardship_disputed_tax_paid_form:
+        disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
+      steps_hardship_hardship_review_requested_form:
+        hardship_review_requested: Did you apply for financial hardship?
+      steps_hardship_hardship_review_status_form:
+        hardship_review_status: What is the status of your hardship application?
+    label:
+      steps_hardship_disputed_tax_paid_form:
+        disputed_tax_paid:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_hardship_hardship_review_requested_form:
+        hardship_review_requested:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_hardship_hardship_review_status_form:
+        hardship_review_status:
+          granted: Granted
+          pending: Pending HMRC decision
+          refused: Refused

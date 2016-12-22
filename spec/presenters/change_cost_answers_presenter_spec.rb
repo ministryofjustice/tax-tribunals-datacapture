@@ -5,18 +5,24 @@ RSpec.describe ChangeCostAnswersPresenter do
   let(:tribunal_case) {
     instance_double(
       TribunalCase,
-      challenged_decision:                  challenged_decision,
-      case_type:                case_type,
-      dispute_type:               dispute_type,
-      penalty_amount: penalty_amount
+      challenged_decision: challenged_decision,
+      case_type: case_type,
+      dispute_type: dispute_type,
+      penalty_amount: penalty_amount,
+      disputed_tax_paid: disputed_tax_paid,
+      hardship_review_requested: hardship_review_requested,
+      hardship_review_status: hardship_review_status
     )
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:challenged_decision) { true }
-  let(:case_type)           { 'foo' }
-  let(:dispute_type)        { nil }
-  let(:penalty_amount)      { nil }
+  let(:challenged_decision)       { true }
+  let(:case_type)                 { 'foo' }
+  let(:dispute_type)              { nil }
+  let(:penalty_amount)            { nil }
+  let(:disputed_tax_paid)         { nil }
+  let(:hardship_review_requested) { nil }
+  let(:hardship_review_status)    { nil }
 
   describe '#rows' do
     describe '`challenged_decision` row' do
@@ -93,7 +99,7 @@ RSpec.describe ChangeCostAnswersPresenter do
 
       # Needed so that the row is in the correct position
       let(:dispute_type) { 'foo' }
-      let(:case_type)  { 'bar' }
+      let(:case_type) { 'bar' }
 
       context 'when `penalty_amount` is nil' do
         let(:penalty_amount) { nil }
@@ -110,6 +116,87 @@ RSpec.describe ChangeCostAnswersPresenter do
           expect(row.question).to    eq('.questions.penalty_amount')
           expect(row.answer).to      eq('.answers.penalty_amount.foo')
           expect(row.change_path).to eq(paths.edit_steps_cost_penalty_amount_path)
+        end
+      end
+    end
+
+    describe '`disputed_tax_paid` row' do
+      let(:row) { subject.rows[3] }
+
+      # Needed so that the row is in the correct position
+      let(:dispute_type) { 'foo' }
+      let(:case_type) { 'bar' }
+
+      context 'when `disputed_tax_paid` is nil' do
+        let(:disputed_tax_paid) { nil }
+
+        it 'is not included' do
+          expect(row).to be_nil
+        end
+      end
+
+      context 'when `disputed_tax_paid` is given' do
+        let(:disputed_tax_paid)  { 'foo' }
+
+        it 'has the correct attributes' do
+          expect(row.question).to    eq('.questions.disputed_tax_paid')
+          expect(row.answer).to      eq('.answers.disputed_tax_paid.foo')
+          expect(row.change_path).to eq(paths.edit_steps_hardship_disputed_tax_paid_path)
+        end
+      end
+    end
+
+    describe '`hardship_review_requested` row' do
+      let(:row) { subject.rows[4] }
+
+      # Needed so that the row is in the correct position
+      let(:dispute_type) { 'foo' }
+      let(:case_type) { 'bar' }
+      let(:disputed_tax_paid) { 'baz' }
+
+      context 'when `hardship_review_requested` is nil' do
+        let(:hardship_review_requested) { nil }
+
+        it 'is not included' do
+          expect(row).to be_nil
+        end
+      end
+
+      context 'when `hardship_review_requested` is given' do
+        let(:hardship_review_requested)  { 'foo' }
+
+        it 'has the correct attributes' do
+          expect(row.question).to    eq('.questions.hardship_review_requested')
+          expect(row.answer).to      eq('.answers.hardship_review_requested.foo')
+          expect(row.change_path).to eq(paths.edit_steps_hardship_hardship_review_requested_path)
+        end
+      end
+    end
+
+    describe '`hardship_review_status` row' do
+      let(:row) { subject.rows[5] }
+
+      # Needed so that the row is in the correct position
+      let(:dispute_type) { 'foo' }
+      let(:case_type) { 'bar' }
+      let(:disputed_tax_paid) { 'baz' }
+      let(:hardship_review_requested) { 'bam' }
+
+      context 'when `hardship_review_status` is nil' do
+        let(:hardship_review_status) { nil }
+
+        it 'is not included' do
+          expect(row).to be_nil
+        end
+      end
+
+      context 'when `hardship_review_status` is given' do
+        let(:hardship_review_status) { 'foo' }
+
+        it 'has the correct attributes' do
+          expect(row.question).to    eq('.questions.hardship_review_status')
+          expect(row.answer).to      eq('.answers.hardship_review_status.foo')
+          expect(row.change_path).to eq(paths.edit_steps_hardship_hardship_review_status_path)
         end
       end
     end

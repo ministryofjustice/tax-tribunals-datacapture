@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212140942) do
+ActiveRecord::Schema.define(version: 20161220125616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20161212140942) do
     t.text     "additional_documents_info"
     t.boolean  "having_problems_uploading_documents",  default: false
     t.string   "challenged_decision"
+    t.string   "disputed_tax_paid"
+    t.string   "hardship_review_requested"
+    t.string   "hardship_review_status"
   end
 
 end

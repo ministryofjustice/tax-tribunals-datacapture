@@ -10,10 +10,9 @@ class CaseType < ValueObject
   end
 
   def initialize(raw_value, direct_tax: false, ask_dispute_type: false, ask_penalty: false, ask_hardship: false)
-    raise ArgumentError.new('Case type must be symbol or implicitly convertible') unless raw_value.respond_to?(:to_sym)
     @direct_tax, @ask_dispute_type, @ask_penalty, @ask_hardship = direct_tax, ask_dispute_type, ask_penalty, ask_hardship
 
-    super(raw_value.to_sym)
+    super(raw_value)
   end
 
   def self.direct_tax_properties
@@ -53,7 +52,7 @@ class CaseType < ValueObject
     STUDENT_LOANS                = new(:student_loans,                direct_tax_properties),
     TOBACCO_PRODUCTS_DUTY        = new(:tobacco_products_duty,        indirect_tax_properties),
     VAT                          = new(:vat,                          indirect_tax_properties),
-    OTHER                        = new(:other,                        direct_tax: false, ask_dispute_type: false, ask_penalty: false, ask_hardship: true)
+    OTHER                        = new(:other,                        direct_tax: false, ask_dispute_type: false, ask_penalty: false, ask_hardship: false)
   ].freeze
 
   def self.values
