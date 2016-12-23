@@ -18,7 +18,7 @@ RSpec.describe PaymentUrl do
 
   describe '#call!' do
     let(:endpoint) { 'http://payments.com/case_requests' }
-    let(:headers) { {content_type: :json} }
+    let(:headers) { {content_type: :json, accept: :json} }
     let(:payload) {
       {case_request: {case_reference: 'TC/12345', confirmation_code: 'ABCDEF'}}.to_json
     }
