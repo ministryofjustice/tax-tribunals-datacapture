@@ -94,6 +94,8 @@ GEM
     erubis (2.7.0)
     excon (0.54.0)
     execjs (2.7.0)
+    faker (1.7.2)
+      i18n (~> 0.5)
     ffi (1.9.14)
     glimr-api-client (0.2.0)
       excon (~> 0.51)
@@ -334,6 +336,7 @@ DEPENDENCIES
   byebug
   capybara
   dotenv-rails
+  faker
   glimr-api-client (~> 0.2.0)
   govuk_elements_form_builder!
   govuk_elements_rails

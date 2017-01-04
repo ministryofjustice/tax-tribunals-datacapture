@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     member do
       post :create_and_fill_cost
       post :create_and_fill_cost_and_lateness
+      post :create_and_fill_cost_and_lateness_and_appellant
     end
   end
   root to: 'home#index'

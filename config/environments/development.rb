@@ -32,3 +32,5 @@ Rails.application.configure do
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+
+Faker::Config.locale = 'en-GB' # For the development tools
