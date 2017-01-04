@@ -15,6 +15,33 @@ class SessionsController < ApplicationController
     # :nocov:
   end
 
+  # although this is linked from the 'setup everything' developer tools button,
+  # it does not upload any documents. So, if you need real documents for the
+  # case, you need to use the 'Change' link on the 'Check your answers' page
+  # and add some.
+  def create_and_fill_cost_and_lateness_and_appellant
+    raise 'For development use only' unless Rails.env.development?
+    # :nocov:
+    tribunal_case.update(
+      case_type: CaseType::OTHER,
+      challenged_decision: ChallengedDecision::YES,
+      lodgement_fee: LodgementFee::FEE_LEVEL_3,
+      in_time: InTime::YES,
+      taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
+      taxpayer_contact_email: Faker::Internet.email,
+      taxpayer_contact_postcode: Faker::Address.postcode,
+      taxpayer_individual_name: Faker::Name.name,
+      taxpayer_contact_address: [
+        Faker::Address.street_address,
+        Faker::Address.city,
+        Faker::Address.county
+      ].join("\n")
+    )
+
+    redirect_to steps_details_check_answers_path
+    # :nocov:
+  end
+
   def destroy
     reset_session
     redirect_to root_path

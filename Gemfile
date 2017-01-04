@@ -18,9 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
 
 group :development do
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'faker'
   gem 'i18n-debug'
+  gem 'listen', '~> 3.0.5'
+  gem 'web-console'
 end
 
 group :development, :test do
