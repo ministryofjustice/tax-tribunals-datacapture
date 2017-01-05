@@ -4,7 +4,6 @@ class TribunalCase < ApplicationRecord
   has_value_object :case_type, constructor: :find_constant
   has_value_object :dispute_type
   has_value_object :penalty_amount
-  has_value_object :lodgement_fee
 
   # Hardship task
   has_value_object :disputed_tax_paid
@@ -17,8 +16,16 @@ class TribunalCase < ApplicationRecord
   # Details task
   has_value_object :taxpayer_type
 
+  def mapping_code
+    MappingCodeDeterminer.new(self).mapping_code
+  end
+
+  def lodgement_fee
+    GlimrFees.lodgement_fee_amount(self)
+  end
+
   def cost_task_completed?
-    lodgement_fee?
+    MappingCodeDeterminer.new(self).valid_for_determining_mapping_code?
   end
 
   def lateness_task_completed?

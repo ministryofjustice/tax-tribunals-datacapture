@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220125616) do
+ActiveRecord::Schema.define(version: 20170105164422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20161220125616) do
     t.string   "case_type"
     t.string   "dispute_type"
     t.string   "penalty_amount"
-    t.string   "lodgement_fee"
     t.string   "in_time"
     t.text     "lateness_reason"
     t.string   "taxpayer_type"
