@@ -44,7 +44,7 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
 
   def fee_amount_question
     row(
-      number_to_currency(tribunal_case.lodgement_fee.to_gbp),
+      number_to_currency(tribunal_case.lodgement_fee / 100.0),
       as: :fee_amount,
       i18n_value: false
     ) if tribunal_case.lodgement_fee.present?

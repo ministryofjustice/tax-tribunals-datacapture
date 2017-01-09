@@ -26,6 +26,12 @@ Rails.application.routes.draw do
       show_step :must_challenge_hmrc
     end
 
+    namespace :hardship do
+      edit_step :disputed_tax_paid
+      edit_step :hardship_review_requested
+      edit_step :hardship_review_status
+    end
+
     namespace :lateness do
       show_step :start
       edit_step :in_time
@@ -61,6 +67,7 @@ Rails.application.routes.draw do
     member do
       post :create_and_fill_cost
       post :create_and_fill_cost_and_lateness
+      post :create_and_fill_cost_and_lateness_and_appellant
     end
   end
   root to: 'home#index'

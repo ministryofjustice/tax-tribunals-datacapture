@@ -136,8 +136,8 @@ RSpec.describe FeeDetailsAnswersPresenter do
         end
       end
 
-      context 'when `lodgement_fee` is given' do
-        let(:lodgement_fee)  { LodgementFee::FEE_LEVEL_2 }
+      context 'when `lodgement_fee` is present' do
+        let(:lodgement_fee)  { 5000 }
 
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.fee_amount')

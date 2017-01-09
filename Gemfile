@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'glimr-api-client', '~> 0.2.0'
+gem 'glimr-api-client', '~> 0.2'
 gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
@@ -22,9 +22,10 @@ gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
 
 group :development do
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'faker'
   gem 'i18n-debug'
+  gem 'listen', '~> 3.0.5'
+  gem 'web-console'
 end
 
 group :development, :test do

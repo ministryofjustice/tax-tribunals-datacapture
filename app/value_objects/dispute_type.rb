@@ -13,8 +13,11 @@ class DisputeType < ValueObject
     VALUES
   end
 
-  def initialize(raw_value)
-    raise ArgumentError.new('Dispute type must be symbol or implicitly convertible') unless raw_value.respond_to?(:to_sym)
-    super(raw_value.to_sym)
+  def ask_penalty?
+    self == PENALTY
+  end
+
+  def ask_hardship?
+    [AMOUNT_OF_TAX, AMOUNT_AND_PENALTY].include?(self)
   end
 end

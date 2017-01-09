@@ -13,23 +13,20 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe '#create_and_fill_cost' do
-    before do
-      expect(Rails.env).to receive(:development?).at_least(:once).and_return(false)
-    end
+  [
+    'create_and_fill_cost',
+    'create_and_fill_cost_and_lateness',
+    'create_and_fill_cost_and_lateness_and_appellant'
+  ].each do |method|
+    describe "##{method}" do
+      before do
+        expect(Rails.env).to receive(:development?).at_least(:once).and_return(false)
+      end
 
-    it 'will not work in a non-development environment' do
-      expect { post :create_and_fill_cost }.to raise_error(RuntimeError)
+      it 'will not work in a non-development environment' do
+        expect { post method.to_sym }.to raise_error(RuntimeError)
+      end
     end
   end
 
-  describe '#create_and_fill_cost_and_lateness' do
-    before do
-      expect(Rails.env).to receive(:development?).at_least(:once).and_return(false)
-    end
-
-    it 'will not work in a non-development environment' do
-      expect { post :create_and_fill_cost_and_lateness }.to raise_error(RuntimeError)
-    end
-  end
 end

@@ -21,7 +21,7 @@ class PaymentUrl
   end
 
   def execute_request
-    resp = RestClient.post(endpoint, payload.to_json, content_type: :json)
+    resp = RestClient.post(endpoint, payload.to_json, content_type: :json, accept: :json)
     body = JSON.parse(resp.body, symbolize_names: true)
 
     raise Exception.new(body[:error]) if body[:error]

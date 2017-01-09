@@ -2,7 +2,8 @@ class ValueObject
   attr_reader :value
 
   def initialize(raw_value)
-    @value = raw_value
+    raise ArgumentError.new('Raw value must be symbol or implicitly convertible') unless raw_value.respond_to?(:to_sym)
+    @value = raw_value.to_sym
     freeze
   end
 

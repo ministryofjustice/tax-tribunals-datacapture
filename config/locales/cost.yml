@@ -1,7 +1,7 @@
 en:
   steps:
     cost:
-      step_header: Question %{step} of 5
+      step_header: Question %{step} of 8
       start:
         show:
           heading: 1. Find out the cost of your appeal
@@ -126,6 +126,9 @@ en:
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
             penalty_amount: What is the penalty or surcharge amount?
+            disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
+            hardship_review_requested: Did you apply for financial hardship?
+            hardship_review_status: What is the status of your hardship application?
           answers:
             challenged_decision:
               'yes': 'Yes'
@@ -171,6 +174,16 @@ en:
               penalty_level_1: £100 or less
               penalty_level_2: £101 – £20,000
               penalty_level_3: £20,001 or more
+            disputed_tax_paid:
+              'no': 'No'
+              'yes': 'Yes'
+            hardship_review_requested:
+              'no': 'No'
+              'yes': 'Yes'
+            hardship_review_status:
+              granted: Granted
+              pending: Pending HMRC review
+              refused: Refused
       must_challenge_hmrc:
         show:
           heading: You must challenge HMRC before you can appeal

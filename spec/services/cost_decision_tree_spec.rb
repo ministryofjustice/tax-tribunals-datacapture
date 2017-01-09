@@ -62,40 +62,31 @@ RSpec.describe CostDecisionTree do
 
     context 'when the step is `dispute_type`' do
       let(:step_params)   { { dispute_type: 'anything' } }
-      let(:tribunal_case) { instance_double(TribunalCase, dispute_type: dispute_type) }
+      let(:case_type)     { CaseType.new(:anything) }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type, dispute_type: dispute_type) }
 
-      context 'and the dispute type is PAYE coding notice' do
-        let(:dispute_type) { DisputeType::PAYE_CODING_NOTICE }
-
-        it { is_expected.to have_destination(:determine_cost, :show) }
-      end
-
-      context 'and the dispute type is penalty or surcharge' do
-        let(:dispute_type) { DisputeType::PENALTY }
+      context 'and the dispute type should ask for a penalty amount' do
+        let(:dispute_type) { instance_double(DisputeType, ask_penalty?: true) }
 
         it { is_expected.to have_destination(:penalty_amount, :edit) }
       end
 
-      context 'and the dispute type is amount of tax' do
-        let(:dispute_type) { DisputeType::AMOUNT_OF_TAX }
+      context 'and the dispute type should not ask for a penalty amount but the dispute_type asks hardship and the case_type asks hardship' do
+        let(:dispute_type) { instance_double(DisputeType, ask_penalty?: false, ask_hardship?: true) }
+        let(:case_type)     { CaseType.new(:anything, ask_hardship: true) }
+
+        it { is_expected.to have_destination('/steps/hardship/disputed_tax_paid', :edit) }
+      end
+
+      context 'and the dispute type should not ask for a penalty amount but the dispute_type asks hardship but the case_type does not ask hardship' do
+        let(:dispute_type) { instance_double(DisputeType, ask_penalty?: false, ask_hardship?: true) }
+        let(:case_type)     { CaseType.new(:anything, ask_hardship: false) }
 
         it { is_expected.to have_destination(:determine_cost, :show) }
       end
 
-      context 'and the dispute type is amount of tax and penalty' do
-        let(:dispute_type) { DisputeType::AMOUNT_AND_PENALTY }
-
-        it { is_expected.to have_destination(:determine_cost, :show) }
-      end
-
-      context 'and the dispute type is ask for a decision on an enquiry' do
-        let(:dispute_type) { DisputeType::DECISION_ON_ENQUIRY }
-
-        it { is_expected.to have_destination(:determine_cost, :show) }
-      end
-
-      context 'and the dispute type is other' do
-        let(:dispute_type) { DisputeType::OTHER }
+      context 'and the dispute type should not ask for a penalty amount and not ask hardship' do
+        let(:dispute_type) { instance_double(DisputeType, ask_penalty?: false, ask_hardship?: false) }
 
         it { is_expected.to have_destination(:determine_cost, :show) }
       end
@@ -103,8 +94,35 @@ RSpec.describe CostDecisionTree do
 
     context 'when the step is `penalty_amount`' do
       let(:step_params) { { penalty_amount: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type, dispute_type: dispute_type) }
 
-      it { is_expected.to have_destination(:determine_cost, :show) }
+      context 'and the case type should ask hardship and the dispute_type should ask hardship' do
+        let(:case_type)    { CaseType.new(:anything, ask_hardship: true) }
+        let(:dispute_type) { instance_double(DisputeType, ask_hardship?: true) }
+
+        it { is_expected.to have_destination('/steps/hardship/disputed_tax_paid', :edit) }
+      end
+
+      context 'and the case type should ask the hardship questions but the dispute_type should not' do
+        let(:case_type) { CaseType.new(:anything, ask_hardship: true) }
+        let(:dispute_type) { instance_double(DisputeType, ask_hardship?: false) }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the case type should not ask the hardship questions but the dispute_type is one that otherwise should' do
+        let(:case_type) { CaseType.new(:anything, ask_hardship: false) }
+        let(:dispute_type) { instance_double(DisputeType, ask_hardship?: true) }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
+
+      context 'and the case type should not ask the hardship questions and the dispute_type should not either' do
+        let(:case_type) { CaseType.new(:anything, ask_hardship: false) }
+        let(:dispute_type) { instance_double(DisputeType, ask_hardship?: false) }
+
+        it { is_expected.to have_destination(:determine_cost, :show) }
+      end
     end
 
     context 'when the step is invalid' do
@@ -129,16 +147,62 @@ RSpec.describe CostDecisionTree do
       it { is_expected.to have_previous(:challenged_decision, :edit) }
     end
 
-    context 'when the step is `dispute_type`' do
-      let(:step_params) { { dispute_type: 'anything' } }
+    context 'when the step is `case_type_show_more`' do
+      let(:step_params) { { case_type_show_more: 'anything' } }
 
       it { is_expected.to have_previous(:case_type, :edit) }
     end
 
+    context 'when the step is `dispute_type`' do
+      let(:step_params)   { { dispute_type: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType.new(:foo)) }
+
+      context 'when the case type was listed on the `case_type` step' do
+        before do
+          expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['foo'])
+        end
+
+        it { is_expected.to have_previous(:case_type, :edit) }
+      end
+
+      context 'when the case type was listed on the `case_type_show_more` step' do
+        before do
+          expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['not_foo'])
+        end
+
+        it { is_expected.to have_previous(:case_type_show_more, :edit) }
+      end
+    end
+
     context 'when the step is `penalty_amount`' do
       let(:step_params) { { penalty_amount: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, case_type: CaseType.new(:foo), dispute_type?: has_dispute_type) }
 
-      it { is_expected.to have_previous(:dispute_type, :edit) }
+      context 'when the case does not have a dispute_type' do
+        let(:has_dispute_type) { false }
+
+        context 'when the case type was listed on the `case_type` step' do
+          before do
+            expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['foo'])
+          end
+
+          it { is_expected.to have_previous(:case_type, :edit) }
+        end
+
+        context 'when the case type was listed on the `case_type_show_more` step' do
+          before do
+            expect(Steps::Cost::CaseTypeForm).to receive(:choices).and_return(['not_foo'])
+          end
+
+          it { is_expected.to have_previous(:case_type_show_more, :edit) }
+        end
+      end
+
+      context 'when the case has a dispute type' do
+        let(:has_dispute_type) { true }
+
+        it { is_expected.to have_previous(:dispute_type, :edit) }
+      end
     end
 
     context 'when the step is invalid' do
