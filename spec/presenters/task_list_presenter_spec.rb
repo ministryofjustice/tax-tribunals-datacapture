@@ -39,7 +39,7 @@ RSpec.describe TaskListPresenter do
 
       context 'when there is a case with the cost task completed' do
         let(:cost_task_completed) { true }
-        let(:lodgement_fee)       { double(LodgementFee, to_gbp: 123.00) }
+        let(:lodgement_fee)       { 12300 }
 
         it 'has the correct values' do
           expect(row.title).to eq(:determine_cost)
@@ -78,7 +78,7 @@ RSpec.describe TaskListPresenter do
 
       context 'when there is a case with the cost task completed but not the lateness task' do
         let(:cost_task_completed)     { true }
-        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lodgement_fee)           { 123.00 }
         let(:lateness_task_completed) { false }
 
         it 'has the correct values' do
@@ -92,7 +92,7 @@ RSpec.describe TaskListPresenter do
 
       context 'when there is a case with both cost and lodgement tasks completed' do
         let(:cost_task_completed)     { true }
-        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lodgement_fee)           { 123.00 }
         let(:lateness_task_completed) { true }
         let(:in_time)                 { InTime::YES }
 
@@ -135,7 +135,7 @@ RSpec.describe TaskListPresenter do
 
       context 'when there is a case without the lateness task completed' do
         let(:cost_task_completed)     { true }
-        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lodgement_fee)           { 123.00 }
         let(:lateness_task_completed) { false }
 
         it 'has the correct values' do
@@ -149,7 +149,7 @@ RSpec.describe TaskListPresenter do
 
       context 'when there is a case with both cost and lateness tasks completed' do
         let(:cost_task_completed)     { true }
-        let(:lodgement_fee)           { double(LodgementFee, to_gbp: 123.00) }
+        let(:lodgement_fee)           { 123.00 }
         let(:lateness_task_completed) { true }
         let(:in_time)                 { InTime::YES }
 

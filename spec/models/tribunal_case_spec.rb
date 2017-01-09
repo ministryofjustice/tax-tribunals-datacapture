@@ -4,19 +4,38 @@ RSpec.describe TribunalCase, type: :model do
   subject { described_class.new(attributes) }
   let(:attributes) { {} }
 
-  describe '#cost_task_completed?' do
-    let(:attributes) { { lodgement_fee: lodgement_fee } }
+  describe '#lodgement_fee' do
+    it 'queries GlimrFees for the amount' do
+      expect(GlimrFees).to receive(:lodgement_fee_amount).with(subject).and_return(9999)
+      expect(subject.lodgement_fee).to eq(9999)
+    end
+  end
 
-    context 'when a lodgement fee has been determined' do
-      let(:lodgement_fee) { LodgementFee::FEE_LEVEL_1 }
+  describe '#mapping_code' do
+    let(:mapping_code) { MappingCode.new(:hmrc_stole_my_cookies) }
+    let(:determiner) { instance_double(MappingCodeDeterminer, mapping_code: mapping_code) }
+
+    it 'queries MappingCodeDeterminer for the mapping code' do
+      expect(MappingCodeDeterminer).to receive(:new).with(subject).and_return(determiner)
+      expect(subject.mapping_code).to eq(mapping_code)
+    end
+  end
+
+  describe '#cost_task_completed?' do
+    before do
+      allow(MappingCodeDeterminer).to receive(:new).with(subject).and_return(determiner)
+    end
+
+    context 'when a mapping code can be determined' do
+      let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: true) }
 
       it 'returns true' do
         expect(subject.cost_task_completed?).to eq(true)
       end
     end
 
-    context 'when no lodgement fee has been determined yet' do
-      let(:lodgement_fee) { nil }
+    context 'when no mapping code can be determined yet' do
+      let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: false) }
 
       it 'returns false' do
         expect(subject.cost_task_completed?).to eq(false)
@@ -26,15 +45,18 @@ RSpec.describe TribunalCase, type: :model do
 
   describe '#lateness_task_completed?' do
     let(:attributes) { {
-      lodgement_fee:   lodgement_fee,
       in_time:         in_time,
       lateness_reason: lateness_reason
     } }
     let(:in_time)         { nil }
     let(:lateness_reason) { nil }
 
+    before do
+      allow(MappingCodeDeterminer).to receive(:new).and_return(determiner)
+    end
+
     context 'when a lodgement fee has been determined' do
-      let(:lodgement_fee) { LodgementFee::FEE_LEVEL_1 }
+      let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: true) }
 
       context 'when there is no in_time value' do
         let(:in_time) { nil }
@@ -102,7 +124,7 @@ RSpec.describe TribunalCase, type: :model do
     end
 
     context 'when no lodgement fee has been determined yet' do
-      let(:lodgement_fee) { nil }
+      let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: false) }
 
       it 'returns false' do
         expect(subject.lateness_task_completed?).to eq(false)

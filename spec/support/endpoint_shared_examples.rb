@@ -9,7 +9,7 @@ RSpec.shared_examples 'an end point step controller' do
     end
 
     context 'when a case is in progress' do
-      let(:tribunal_case) { TribunalCase.create }
+      let(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
 
       it 'is successful' do
         get :show, session: { tribunal_case_id: tribunal_case.id }

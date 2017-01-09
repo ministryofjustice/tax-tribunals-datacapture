@@ -3,7 +3,7 @@
     <%=t '.fee_label' %>
   </h2>
   <p>
-    <strong class="heading-large"><%= number_to_currency(@lodgement_fee.to_gbp) %></strong>
+    <strong class="heading-large"><%= number_to_currency(@lodgement_fee / 100.0) %></strong>
   </p>
 </div>
 

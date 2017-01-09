@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create_and_fill_cost
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES, lodgement_fee: LodgementFee::FEE_LEVEL_3)
+    tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES)
     redirect_to root_path
     # :nocov:
   end
@@ -25,7 +25,6 @@ class SessionsController < ApplicationController
     tribunal_case.update(
       case_type: CaseType::OTHER,
       challenged_decision: ChallengedDecision::YES,
-      lodgement_fee: LodgementFee::FEE_LEVEL_3,
       in_time: InTime::YES,
       taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
       taxpayer_contact_email: Faker::Internet.email,
