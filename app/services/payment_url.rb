@@ -8,6 +8,7 @@ class PaymentUrl
 
   def call!
     @payment_url = execute_request
+    self
   end
 
   private
