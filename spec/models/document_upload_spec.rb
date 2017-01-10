@@ -9,15 +9,47 @@ RSpec.describe DocumentUpload do
 
   subject { described_class.new(file) }
 
-  context '#errors' do
-    it 'should be empty upon initialization' do
-      expect(subject.errors).to eq([])
+  context 'for a tempfile' do
+    let(:file) { Tempfile.new }
+
+    subject { described_class.new(file, content_type: 'image/jpeg', filename: 'image.jpg') }
+
+    context '#file_name' do
+      it 'should have a file name' do
+        expect(subject.file_name).to eq('image.jpg')
+      end
+    end
+
+    context '#file_size' do
+      it 'should have a file size' do
+        expect(subject.file_size).to eq(0)
+      end
+    end
+
+    context '#content_type' do
+      it 'should have a content_type' do
+        expect(subject.content_type).to eq('image/jpeg')
+      end
     end
   end
 
-  context '#file_name' do
-    it 'should have a file name' do
-      expect(subject.file_name).to eq('image.jpg')
+  context 'for an uploaded file' do
+    context '#file_name' do
+      it 'should have a file name' do
+        expect(subject.file_name).to eq('image.jpg')
+      end
+    end
+
+    context '#file_size' do
+      it 'should have a file size' do
+        expect(subject.file_size).to eq(2304)
+      end
+    end
+
+    context '#content_type' do
+      it 'should have a content_type' do
+        expect(subject.content_type).to eq('image/jpeg')
+      end
     end
   end
 
@@ -27,9 +59,9 @@ RSpec.describe DocumentUpload do
     end
   end
 
-  context '#file_size' do
-    it 'should have a file size' do
-      expect(subject.file_size).to eq(2304)
+  context '#errors' do
+    it 'should be empty upon initialization' do
+      expect(subject.errors).to eq([])
     end
   end
 

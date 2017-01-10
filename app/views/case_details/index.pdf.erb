@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      html, body, table, td, th {
+        font-family: "nta", Arial, sans-serif;
+      }
+
+      body {
+        padding: 20px;
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      div.newpage {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>This is page 1</h2>
+
+    <p>Case ID <%= tribunal_case.id %></p>
+
+    <div class="newpage"></div>
+
+    <h2>This is page 2</h2>
+
+    <p>Maybe more case details here</p>
+  </body>
+</html>
