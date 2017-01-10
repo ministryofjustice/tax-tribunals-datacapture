@@ -59,6 +59,11 @@ RSpec.describe GlimrNewCase do
     end
 
     context 'registering the case into glimr' do
+      it 'returns a GlimrNewCase instance' do
+        result = subject.call!
+        expect(result).to be_an_instance_of(described_class)
+      end
+
       it 'retrieves the tc_number and conf_code' do
         subject.call!
         expect(subject.case_reference).to eq('TC/12345')

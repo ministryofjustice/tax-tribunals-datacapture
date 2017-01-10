@@ -30,7 +30,12 @@ RSpec.describe PaymentUrl do
     context 'for a successful request' do
       let(:response) { double('Response', body: {return_url: 'http://www.example.com/payment'}.to_json) }
 
-      it 'retrieves the payment URL' do
+      it 'returns a PaymentUrl instance' do
+        result = subject.call!
+        expect(result).to be_an_instance_of(described_class)
+      end
+
+      it 'assigns the payment URL' do
         subject.call!
         expect(subject.payment_url).to eq('http://www.example.com/payment')
       end
