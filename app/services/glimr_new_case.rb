@@ -12,6 +12,7 @@ class GlimrNewCase
     response = GlimrApiClient::RegisterNewCase.call(params)
     @case_reference = response.response_body[:tribunalCaseNumber]
     @confirmation_code = response.response_body[:confirmationCode]
+    self
   end
 
   def params
