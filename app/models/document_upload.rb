@@ -29,12 +29,12 @@ class DocumentUpload
     image/x-bitmap
   )
 
-  def initialize(obj, collection_ref: nil)
-    raise ArgumentError.new('UploadedFile must be an IO object') unless obj.respond_to?(:read)
+  def initialize(obj, content_type: nil, filename: nil, collection_ref: nil)
+    raise ArgumentError.new('Must receive an IO object') unless obj.respond_to?(:read)
 
-    self.tempfile = obj.tempfile
-    self.content_type = obj.content_type
-    self.original_filename = obj.original_filename
+    self.tempfile = obj.respond_to?(:tempfile) ? obj.tempfile : obj
+    self.content_type = content_type || obj.content_type
+    self.original_filename = filename || obj.original_filename
     self.collection_ref = collection_ref
     self.errors = []
   end

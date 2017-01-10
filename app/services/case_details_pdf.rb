@@ -22,29 +22,34 @@ class CaseDetailsPdf
     generate && upload!
   end
 
+  # TODO: change once we are storing the TC number in the tribunal case DB entry
+  def filename
+    ['TC_NUMBER', 'HMRC', taxpayer_name].join('_').gsub(/\s+/, '') + '.pdf'
+  end
+
+  def collection_ref
+    tribunal_case.files_collection_ref
+  end
+
   private
+
+  def taxpayer_name
+    tribunal_case.taxpayer_is_company? ? tribunal_case.taxpayer_company_name : tribunal_case.taxpayer_individual_name
+  end
 
   def render_options
     {locals: {tribunal_case: tribunal_case}}.merge(PDF_CONFIG)
   end
 
   def upload!
-    Tempfile.create('tmpfile') do |pdf_file|
-      File.binwrite(pdf_file, @pdf)
+    Tempfile.create('tmpfile') do |file|
+      File.binwrite(file, @pdf)
 
-      # TODO ideally, make the DocumentUpload class generic enough to work with Tempfile/File
-      # DocumentUpload.new(pdf_file, collection_ref: tribunal_case.files_collection_ref)
+      uploader = DocumentUpload.new(file, filename: filename, content_type: 'application/pdf', collection_ref: collection_ref)
+      uploader.upload! if uploader.valid?
 
-      # TODO: once done the above then we don't need the following code at all
-      res = MojFileUploaderApiClient::AddFile.new(
-        collection_ref: tribunal_case.files_collection_ref,
-        title: 'case_details.pdf',
-        filename: 'case_details.pdf',
-        data: Base64.encode64(pdf_file.read)
-      ).call
-
-      # TODO: make it real
-      raise 'boom!' if res.error?
+      # TODO: make it real once we integrate with the case submission and step
+      raise 'boom!' if uploader.errors?
     end
   end
 end
