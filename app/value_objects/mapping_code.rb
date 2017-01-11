@@ -1,13 +1,18 @@
 class MappingCode < ValueObject
   VALUES = [
-    APPL_PENALTY_LOW  = new(:appl_penalty_low),
-    APPL_PENALTY_MED  = new(:appl_penalty_med),
-    APPL_PENALTY_HIGH = new(:appl_penalty_high),
-    APPL_PAYECODING   = new(:appl_payecoding),
-    APPL_INFONOTICE   = new(:appl_infonotice),
-    APPL_OTHER        = new(:appl_other),
-    APPN_CLOSEENQUIRY = new(:appn_closeenquiry),
-    APPN_OTHER        = new(:appn_other)
+    TAXAMOUNTDISPUTE    = new(:taxamountdispute),
+    TAXPENALTYLOW       = new(:taxpenaltylow),
+    TAXPENALTYMED       = new(:taxpenaltymed),
+    TAXPENALTYHIGH      = new(:taxpenaltyhigh),
+    PAYECODING          = new(:payecoding),
+    ADVPAYNOTICEPENALTY = new(:advpaynoticepenalty),
+    INFONOTICEPENALTY   = new(:infonoticepenalty),
+    INACCURATERETURN    = new(:inaccuratereturn),
+    APPNTOCLOSE         = new(:appntoclose),
+    REQUESTREVIEW       = new(:requestreview),
+    APPNINFONOTICE      = new(:appninfonotice),
+    OTHERAPPEAL         = new(:otherappeal),
+    OTHERAPPLICATION    = new(:otherapplication)
   ].freeze
 
   def to_glimr_str
