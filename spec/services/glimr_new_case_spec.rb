@@ -53,82 +53,94 @@ RSpec.describe GlimrNewCase do
       }
     end
 
-    before do
-      allow(GlimrApiClient::RegisterNewCase).to receive(:call).
+    context "Glimr call happens" do
+
+      before do
+        expect(GlimrApiClient::RegisterNewCase).to receive(:call).
           with(hash_including(glimr_params)).and_return(glimr_response_double)
-      allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPL_PENALTY_LOW,)
-    end
-
-    context 'registering the case into glimr' do
-      it 'returns a GlimrNewCase instance' do
-        result = subject.call!
-        expect(result).to be_an_instance_of(described_class)
+        allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPL_PENALTY_LOW,)
       end
 
-      it 'retrieves the tc_number and conf_code' do
-        subject.call!
-        expect(subject.case_reference).to eq('TC/12345')
-        expect(subject.confirmation_code).to eq('ABCDEF')
-      end
-
-      describe 'different variations of the taxpayer name' do
-        context 'only a first name' do
-          let(:taxpayer_name) { 'Filomena' }
-          let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: nil} }
-
-          it { subject.call! }
+      context 'registering the case into glimr' do
+        it 'returns a GlimrNewCase instance' do
+          result = subject.call!
+          expect(result).to be_an_instance_of(described_class)
         end
 
-        context 'a first name and two last names' do
-          let(:taxpayer_name) { 'Filomena Keebler Mayer' }
-          let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: 'Keebler Mayer'} }
-
-          it { subject.call! }
+        it 'retrieves the tc_number and conf_code' do
+          subject.call!
+          expect(subject.case_reference).to eq('TC/12345')
+          expect(subject.confirmation_code).to eq('ABCDEF')
         end
-      end
 
-      context 'lengthy addresses' do
-        context 'several lines but less than 4' do
-          let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225" }
-          let(:glimr_params) do
-            {
+        describe 'different variations of the taxpayer name' do
+          context 'only a first name' do
+            let(:taxpayer_name) { 'Filomena' }
+            let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: nil} }
+
+            it { subject.call! }
+          end
+
+          context 'a first name and two last names' do
+            let(:taxpayer_name) { 'Filomena Keebler Mayer' }
+            let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: 'Keebler Mayer'} }
+
+            it { subject.call! }
+          end
+        end
+
+        context 'lengthy addresses' do
+          context 'several lines but less than 4' do
+            let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225" }
+            let(:glimr_params) do
+              {
                 contactStreet1: '769 Eleanore Landing',
                 contactStreet2: 'Another street',
                 contactStreet3: 'Suite 225',
-            }
+              }
+            end
+
+            it { subject.call! }
           end
 
-          it { subject.call! }
-        end
-
-        context 'exceeding the 4 lines limit' do
-          let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address" }
-          let(:glimr_params) do
-            {
+          context 'exceeding the 4 lines limit' do
+            let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address" }
+            let(:glimr_params) do
+              {
                 contactStreet1: '769 Eleanore Landing',
                 contactStreet2: 'Another street',
                 contactStreet3: 'Suite 225',
                 contactStreet4: 'More address, Even more address'
-            }
-          end
+              }
+            end
 
-          it { subject.call! }
+            it { subject.call! }
+          end
         end
+      end
+    end
+
+    context "Glimr call does not happen" do
+      before do
+        allow(GlimrApiClient::RegisterNewCase).to receive(:call).
+          with(hash_including(glimr_params)).and_return(glimr_response_double)
+        allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPL_PENALTY_LOW,)
       end
 
       context 'when taxpayer_type is a company' do
         let(:taxpayer_type) { TaxpayerType::COMPANY }
         let(:company_params) {
           glimr_params.except(:contactFirstName, :contactLastName).merge(
-              repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
+            repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
         }
 
         it 'sends required company params but not individual params' do
           expect(GlimrApiClient::RegisterNewCase).to receive(:call).
-              with(hash_including(company_params)).and_return(glimr_response_double)
+            with(hash_including(company_params)).and_return(glimr_response_double)
           subject.call!
         end
       end
+
 
       context 'when there are errors' do
         let(:glimr_response_double) { double('Response', response_body: nil) }
