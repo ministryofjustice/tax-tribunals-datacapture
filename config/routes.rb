@@ -64,5 +64,7 @@ Rails.application.routes.draw do
       post :create_and_fill_cost_and_lateness_and_appellant
     end
   end
+
+  resources :healthcheck, only: [:index]
   root to: 'home#index'
 end
