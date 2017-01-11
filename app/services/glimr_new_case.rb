@@ -18,7 +18,7 @@ class GlimrNewCase
   def params
     params = {
       jurisdictionId: jurisdiction_id,
-      onlineMappingCode: tc.mapping_code,
+      onlineMappingCode: tc.mapping_code.to_glimr_str,
       contactPhone: tc.taxpayer_contact_phone,
       contactEmail: tc.taxpayer_contact_email,
       contactPostalCode: tc.taxpayer_contact_postcode,
