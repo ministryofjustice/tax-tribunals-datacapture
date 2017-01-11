@@ -27,38 +27,36 @@ class MappingCodeDeterminer
   end
 
   def penalty_mapping_code
-    # TODO: Replace with correct mapping codes once they have been agreed on
     case tribunal_case.penalty_amount
     when PenaltyAmount::PENALTY_LEVEL_1
-      MappingCode::TAXPENALTYLOW
+      MappingCode::APPEAL_PENALTY_LOW
     when PenaltyAmount::PENALTY_LEVEL_2
-      MappingCode::TAXPENALTYMED
+      MappingCode::APPEAL_PENALTY_MED
     when PenaltyAmount::PENALTY_LEVEL_3
-      MappingCode::TAXPENALTYHIGH
+      MappingCode::APPEAL_PENALTY_HIGH
     end
   end
 
   def dispute_type_mapping_code
-    # TODO: Replace with correct mapping codes once they have been agreed on
     case tribunal_case.dispute_type
     when DisputeType::DECISION_ON_ENQUIRY
-      MappingCode::APPNTOCLOSE
+      MappingCode::APPN_DECISION_ENQRY
     when DisputeType::PAYE_CODING_NOTICE
-      MappingCode::PAYECODING
+      MappingCode::APPEAL_PAYECODING
     when DisputeType::INFORMATION_NOTICE
-      MappingCode::TAXPENALTYMED
+      MappingCode::APPEAL_INFONOTICE
     when DisputeType::AMOUNT_OF_TAX,
          DisputeType::AMOUNT_AND_PENALTY,
          DisputeType::OTHER
-      MappingCode::OTHERAPPLICATION
+      MappingCode::APPEAL_OTHER
     end
   end
 
   def case_type_mapping_code
-    # TODO: Replace with correct mapping codes once they have been agreed on
+    # TODO: Add further when-branches once we have additional case types
     case tribunal_case.case_type
     when CaseType::OTHER
-      MappingCode::OTHERAPPEAL
+      MappingCode::APPEAL_OTHER
     end
   end
 end
