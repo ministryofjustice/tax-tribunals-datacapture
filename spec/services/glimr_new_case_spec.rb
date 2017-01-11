@@ -41,7 +41,7 @@ RSpec.describe GlimrNewCase do
     let(:glimr_params) do
       {
         jurisdictionId: 8,
-        onlineMappingCode: 'APPL_FOOBAR',
+        onlineMappingCode: 'APPL_PENALTY_LOW',
         documentsURL: 'http://downloader.com/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
         contactFirstName: 'Filomena',
         contactLastName: 'Keebler',
@@ -56,7 +56,7 @@ RSpec.describe GlimrNewCase do
     before do
       allow(GlimrApiClient::RegisterNewCase).to receive(:call).
           with(hash_including(glimr_params)).and_return(glimr_response_double)
-      allow(tribunal_case).to receive(:mapping_code).and_return('APPL_FOOBAR')
+      allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPL_PENALTY_LOW,)
     end
 
     context 'registering the case into glimr' do
