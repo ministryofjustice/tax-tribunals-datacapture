@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <%= stylesheet_link_tag wicked_pdf_asset_base64('local/case_details_pdf') -%>
+</head>
+
+<body id="case-details-pdf">
+<%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
+
+<h3><%= t '.appeal_details_heading' %></h3>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.appellant_details' %></td>
+    <td class="content">
+      <div><%= tribunal_case.taxpayer.name %></div>
+      <div>
+        <%= simple_format(tribunal_case.taxpayer.address) %>
+      </div>
+      <div>
+        <%= t '.questions.appellant_phone' %>
+        <span><%= tribunal_case.taxpayer.phone %></span>
+      </div>
+      <div>
+        <%= t '.questions.appellant_email' %>
+        <span><%= tribunal_case.taxpayer.email %></span>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.representative_details' %></td>
+    <td class="content">
+      Not yet implemented in data capture.
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.legal_representative' %></td>
+    <td class="content">
+      Not yet implemented in data capture.
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.desired_outcome' %></td>
+  </tr>
+  <tr>
+    <td class="content with-padding">
+      <div>Not yet implemented in data capture.</div>
+      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue mauris ut elit mattis posuere non scelerisque odio. Aliquam faucibus auctor libero, dignissim blandit dolor consequat sed.</div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.grounds_for_appeal' %></td>
+    <td class="content">
+      <%= tribunal_case.documents.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= t '.questions.documents_submitted' %></td>
+    <td class="content">
+      <ul class="documents">
+        <% tribunal_case.documents.list.each do |document| %>
+            <li><%= document.title %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="newpage"></div>
+
+<%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
+
+<h3><%= t '.fee_details_heading' %></h3>
+
+<hr/>
+<table>
+  <tbody>
+  <% tribunal_case.fee_answers.rows.each do |row| %>
+    <tr>
+      <td class="section"><%= t row.question %></td>
+      <td class="content"><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h3><%= t '.appeal_timeliness_heading' %></h3>
+
+<hr/>
+<table>
+  <tbody>
+  <% tribunal_case.appeal_lateness_answers.rows.each do |row| %>
+      <tr>
+        <td class="section"><%= t row.question %></td>
+        <td class="content"><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</body>
+</html>

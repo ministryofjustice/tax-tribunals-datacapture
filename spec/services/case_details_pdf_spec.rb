@@ -2,19 +2,22 @@ require 'spec_helper'
 
 RSpec.describe CaseDetailsPdf do
   let!(:tribunal_case) { TribunalCase.create(case_attributes) }
-  let(:controller_ctx) { CaseDetailsController.new }
+  let(:decorated_tribunal_case) { CaseDetailsPresenter.new(tribunal_case) }
+  let(:controller_ctx) { ApplicationController.new }
 
   let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
   let(:case_attributes) do
     {
+      case_type: CaseType::OTHER,
       taxpayer_type: taxpayer_type,
       taxpayer_individual_name: 'Individual Name',
-      taxpayer_company_name: 'Company Name',
+      taxpayer_company_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
+      case_reference: 'TC/2016/12345'
     }
   end
 
-  subject { described_class.new(tribunal_case, controller_ctx) }
+  subject { described_class.new(decorated_tribunal_case, controller_ctx) }
 
 
   describe '#filename' do
@@ -22,7 +25,7 @@ RSpec.describe CaseDetailsPdf do
       let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
 
       it 'should include the individual name in the file name' do
-        expect(subject.filename).to eq('TC_NUMBER_HMRC_IndividualName.pdf')
+        expect(subject.filename).to eq('TC_2016_12345_HMRC_IndividualName.pdf')
       end
     end
 
@@ -30,14 +33,24 @@ RSpec.describe CaseDetailsPdf do
       let(:taxpayer_type) { TaxpayerType::COMPANY }
 
       it 'should include the company name in the file name' do
-        expect(subject.filename).to eq('TC_NUMBER_HMRC_CompanyName.pdf')
+        expect(subject.filename).to eq('TC_2016_12345_HMRC_CompanyContactName.pdf')
       end
     end
   end
 
   describe '#generate' do
+    before do
+      allow(tribunal_case).to receive(:documents).and_return([])
+    end
+
     it 'should generate the PDF' do
       expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
+
+      expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:fee_answers).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
+
       expect(subject.generate).to match(/%PDF/)
     end
   end
@@ -47,7 +60,7 @@ RSpec.describe CaseDetailsPdf do
       expect(controller_ctx).to receive(:render_to_string).and_return('rendered pdf')
       expect(DocumentUpload).to receive(:new).with(
         an_instance_of(File),
-        filename: 'TC_NUMBER_HMRC_IndividualName.pdf',
+        filename: 'TC_2016_12345_HMRC_IndividualName.pdf',
         content_type: 'application/pdf',
         collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687'
       ).and_return(uploader_double)

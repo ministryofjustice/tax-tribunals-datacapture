@@ -128,8 +128,9 @@ en:
               penalty_level_2: £101 – £20,000
               penalty_level_3: £20,001 or more
             in_time:
-              'yes': 'Yes'
-              'no': 'No'
+              yes: No
+              no: Yes
+              unsure: Not sure
             no_grounds_for_appeal_text: No text entered
   activemodel:
     errors:

@@ -1,0 +1,56 @@
+en:
+  steps:
+    details:
+      check_answers:
+        pdf:
+          show:
+            fee_details_heading: Fee details
+            appeal_timeliness_heading: Appeal timeliness
+            appeal_details_heading: Appeal details
+            questions:
+              challenged_decision: Decision challenged with HMRC?
+              case_type: What is your appeal about?
+              dispute_type: What is your dispute about?
+              penalty_amount: Penalty or surcharge amount
+              fee_amount: Fee
+              in_time: Is this application late?
+              lateness_reason: Reason for lateness?
+              appellant_details: Appellant details
+              appellant_phone: "Tel:"
+              appellant_email: "Email:"
+              grounds_for_appeal: Grounds for appeal
+              documents_submitted: Documents submitted
+              representative_details: Representative details
+              legal_representative: Legal representative
+              desired_outcome: Desired outcome
+            answers:
+              challenged_decision:
+                'yes': 'Yes'
+                'no': 'No'
+              case_type:
+                income_tax: Income Tax
+                vat: Value Added Tax (VAT)
+                apn_penalty: Advance Payment Notice (APN) penalty
+                inaccurate_return: Inaccurate return
+                closure_notice: Closure notice
+                information_notice: Information notices (Schedule 36)
+                request_permission_for_review: Request permission for a review
+                other_html: Other
+              dispute_type:
+                paye_coding_notice: Pay As You Earn (PAYE) coding notice
+                penalty: Penalty or surcharge
+                amount_of_tax: Amount of tax
+                amount_and_penalty: Amount of tax and a penalty or surcharge
+                decision_on_enquiry: Apply for a decision on an enquiry
+                other: Other
+              penalty_amount:
+                penalty_level_1: £100 or less
+                penalty_level_2: £101 – £20,000
+                penalty_level_3: £20,001 or more
+              in_time:
+                yes: No
+                no: Yes
+                unsure: Not sure
+              no_grounds_for_appeal_text: No text entered
+          header:
+            appellant_connector: ' vs '
