@@ -33,10 +33,8 @@ class CaseDetailsPdf
     tribunal_case.files_collection_ref
   end
 
-  # While still developing the PDF generation, we don't want to raise exceptions due to
-  # not having a case_reference attribute filled, so we default to 'no_ref'.
   def case_reference
-    (tribunal_case.case_reference || 'no_ref').upcase.tr('/', '_')
+    (tribunal_case.case_reference || 'NO_REF').tr('/', '_')
   end
 
   def taxpayer_name

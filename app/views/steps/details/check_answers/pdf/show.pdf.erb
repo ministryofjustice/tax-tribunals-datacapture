@@ -8,24 +8,24 @@
 <body id="case-details-pdf">
 <%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
 
-<h3><%= t '.appeal_details_heading' %></h3>
+<h3><%= pdf_t '.appeal_details_heading' %></h3>
 
 <hr/>
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.appellant_details' %></td>
+    <td class="section"><%= pdf_t '.questions.appellant_details' %></td>
     <td class="content">
       <div><%= tribunal_case.taxpayer.name %></div>
       <div>
         <%= simple_format(tribunal_case.taxpayer.address) %>
       </div>
       <div>
-        <%= t '.questions.appellant_phone' %>
+        <%= pdf_t '.questions.appellant_phone' %>
         <span><%= tribunal_case.taxpayer.phone %></span>
       </div>
       <div>
-        <%= t '.questions.appellant_email' %>
+        <%= pdf_t '.questions.appellant_email' %>
         <span><%= tribunal_case.taxpayer.email %></span>
       </div>
     </td>
@@ -37,7 +37,7 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.representative_details' %></td>
+    <td class="section"><%= pdf_t '.questions.representative_details' %></td>
     <td class="content">
       Not yet implemented in data capture.
     </td>
@@ -49,7 +49,7 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.legal_representative' %></td>
+    <td class="section"><%= pdf_t '.questions.legal_representative' %></td>
     <td class="content">
       Not yet implemented in data capture.
     </td>
@@ -61,7 +61,7 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.desired_outcome' %></td>
+    <td class="section"><%= pdf_t '.questions.desired_outcome' %></td>
   </tr>
   <tr>
     <td class="content with-padding">
@@ -76,9 +76,9 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.grounds_for_appeal' %></td>
+    <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
     <td class="content">
-      <%= tribunal_case.documents.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
+      <%= tribunal_case.documents.grounds_for_appeal_text(default: pdf_t('.answers.no_grounds_for_appeal_text')) %>
     </td>
   </tr>
   </tbody>
@@ -88,7 +88,7 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= t '.questions.documents_submitted' %></td>
+    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
     <td class="content">
       <ul class="documents">
         <% tribunal_case.documents.list.each do |document| %>
@@ -104,15 +104,15 @@
 
 <%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
 
-<h3><%= t '.fee_details_heading' %></h3>
+<h3><%= pdf_t '.fee_details_heading' %></h3>
 
 <hr/>
 <table>
   <tbody>
   <% tribunal_case.fee_answers.rows.each do |row| %>
     <tr>
-      <td class="section"><%= t row.question %></td>
-      <td class="content"><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+      <td class="section"><%= pdf_t row.question %></td>
+      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
     </tr>
     <tr>
       <td colspan="2"></td>
@@ -121,19 +121,19 @@
   </tbody>
 </table>
 
-<h3><%= t '.appeal_timeliness_heading' %></h3>
+<h3><%= pdf_t '.appeal_timeliness_heading' %></h3>
 
 <hr/>
 <table>
   <tbody>
   <% tribunal_case.appeal_lateness_answers.rows.each do |row| %>
-      <tr>
-        <td class="section"><%= t row.question %></td>
-        <td class="content"><%= row.i18n_value ? t(row.answer) : row.answer %></td>
-      </tr>
-      <tr>
-        <td colspan="2"></td>
-      </tr>
+    <tr>
+      <td class="section"><%= pdf_t row.question %></td>
+      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
   <% end %>
   </tbody>
 </table>

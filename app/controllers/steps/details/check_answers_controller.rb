@@ -9,11 +9,15 @@ module Steps::Details
 
       respond_to do |format|
         format.html
-        format.pdf {
-          pdf = CaseDetailsPdf.new(@tribunal_case, self)
-          send_data pdf.generate, filename: pdf.filename, disposition: 'inline'
-        }
+        format.pdf { download_case_pdf(@tribunal_case) and return }
       end
+    end
+
+    private
+
+    def download_case_pdf(tribunal_case)
+      pdf = CaseDetailsPdf.new(tribunal_case, self)
+      send_data pdf.generate, filename: pdf.filename, type: 'application/pdf', disposition: 'inline'
     end
   end
 end
