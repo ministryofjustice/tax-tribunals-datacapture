@@ -18,7 +18,7 @@ RSpec.describe CaseCreator do
 
   describe '#call' do
     let(:glimr_new_case_double) {
-      instance_double(GlimrNewCase, call!: double(case_reference: 'TC/12345', confirmation_code: 'ABCDEF'))
+      instance_double(GlimrNewCase, call!: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
     }
     let(:payment_double) {
       instance_double(PaymentUrl, call!: double(payment_url: 'http://www.example.com'))
@@ -26,7 +26,7 @@ RSpec.describe CaseCreator do
 
     before do
       allow(GlimrNewCase).to receive(:new).with(tribunal_case).and_return(glimr_new_case_double)
-      allow(PaymentUrl).to receive(:new).with(case_reference: 'TC/12345', confirmation_code: 'ABCDEF').and_return(payment_double)
+      allow(PaymentUrl).to receive(:new).with(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF').and_return(payment_double)
     end
 
     context 'registering the case into glimr' do
@@ -75,6 +75,27 @@ RSpec.describe CaseCreator do
           subject.call
           expect(subject.success?).to eq(false)
           expect(subject.errors).to eq(['boom!'])
+        end
+      end
+    end
+
+    context 'storing the returned GLiMR case reference' do
+      context 'when glimr and payment call was success' do
+        it 'should store the case reference in the DB entry' do
+          expect(tribunal_case.case_reference).to be_nil
+          subject.call
+          expect(tribunal_case.case_reference).to eq('TC/2017/12345')
+        end
+      end
+
+      context 'when glimr or payment call failed' do
+        before do
+          allow(payment_double).to receive(:call!).and_raise('boom!')
+        end
+
+        it 'should not even reach this point' do
+          expect(tribunal_case).not_to receive(:update).with(:case_reference)
+          subject.call
         end
       end
     end

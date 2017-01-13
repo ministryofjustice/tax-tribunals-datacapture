@@ -14,7 +14,13 @@ RSpec.describe CasesController, type: :controller do
     context 'for a successful result' do
       let(:case_creator_result) { instance_double(CaseCreator, success?: true, errors: [], payment_url: 'http://www.example.com') }
 
+      it 'should generate and upload the case details PDF' do
+        expect_any_instance_of(CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
+        post :create
+      end
+
       it 'should redirect to the payment page' do
+        allow(controller).to receive(:generate_and_upload_pdf)
         post :create
         expect(response).to have_http_status(:redirect)
       end

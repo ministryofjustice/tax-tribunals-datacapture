@@ -15,6 +15,8 @@ class CaseCreator
           case_reference: glimr_case.case_reference,
           confirmation_code: glimr_case.confirmation_code).call!
 
+      tribunal_case.update(case_reference: glimr_case.case_reference)
+
       @payment_url = payment.payment_url
     rescue => ex
       errors << ex.message
