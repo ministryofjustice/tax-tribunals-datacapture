@@ -6,7 +6,7 @@ class LatenessDecisionTree < DecisionTree
     when :in_time
       after_in_time_step
     when :lateness_reason
-      home
+      task_list
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -28,7 +28,7 @@ class LatenessDecisionTree < DecisionTree
   def after_in_time_step
     case answer
     when :yes
-      home
+      task_list
     when :no, :unsure
       edit(:lateness_reason)
     end

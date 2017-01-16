@@ -66,5 +66,7 @@ Rails.application.routes.draw do
   end
 
   resources :healthcheck, only: [:index]
+
   root to: 'home#index'
+  get :task_list, to: 'task_list#index'
 end

@@ -9,7 +9,7 @@ RSpec.describe SessionsController, type: :controller do
 
     it 'redirects to the start page' do
       get :destroy
-      expect(subject).to redirect_to(root_path)
+      expect(subject).to redirect_to(task_list_path)
     end
   end
 

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES)
-    redirect_to root_path
+    redirect_to task_list_path
     # :nocov:
   end
 
@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path
+    redirect_to task_list_path
   end
 
   private
