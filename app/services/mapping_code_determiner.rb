@@ -41,8 +41,6 @@ class MappingCodeDeterminer
   def dispute_type_mapping_code
     # TODO: Replace with correct mapping codes once they have been agreed on
     case tribunal_case.dispute_type
-    when DisputeType::DECISION_ON_ENQUIRY
-      MappingCode::APPNTOCLOSE
     when DisputeType::PAYE_CODING_NOTICE
       MappingCode::PAYECODING
     when DisputeType::INFORMATION_NOTICE

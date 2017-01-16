@@ -124,7 +124,6 @@ en:
               penalty: Penalty or surcharge
               amount_of_tax: Amount of tax
               amount_and_penalty: Amount of tax and a penalty or surcharge
-              decision_on_enquiry: Apply for a decision on an enquiry
               other: Other
             penalty_amount:
               penalty_level_1: £100 or less
