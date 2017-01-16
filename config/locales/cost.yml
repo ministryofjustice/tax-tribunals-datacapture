@@ -168,7 +168,6 @@ en:
               amount_of_tax: Amount of tax
               amount_and_penalty: Amount of tax and a penalty or surcharge
               information_notice: Appeal against an information notice
-              decision_on_enquiry: Apply for a decision on an enquiry
               other: Other
             penalty_amount:
               penalty_level_1: £100 or less
@@ -275,7 +274,6 @@ en:
           amount_of_tax_html: <strong>Amount of tax</strong><br>either tax you owe or money that HMRC should pay to you
           amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both of these disputes will be stated on either the original notice letter from HMRC or the review conclusion letter
           information_notice_html: <strong>Appeal against an information notice</strong>
-          decision_on_enquiry_html: <strong>Apply for a decision on an enquiry</strong><br>force HMRC to issue a counteraction notice
           other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:
         penalty_amount:

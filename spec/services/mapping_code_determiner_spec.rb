@@ -52,12 +52,6 @@ RSpec.describe MappingCodeDeterminer do
     it { is_expected.to have_mapping_code(:payecoding) }
   end
 
-  context 'when the dispute is an application for a decision on an enquiry' do
-    let(:dispute_type) { DisputeType::DECISION_ON_ENQUIRY }
-
-    it { is_expected.to have_mapping_code(:appntoclose) }
-  end
-
   context 'when the dispute is an appeal against an information notice' do
     let(:dispute_type) { DisputeType::INFORMATION_NOTICE }
 

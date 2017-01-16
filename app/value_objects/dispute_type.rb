@@ -5,7 +5,6 @@ class DisputeType < ValueObject
     AMOUNT_AND_PENALTY  = new(:amount_and_penalty),
     PAYE_CODING_NOTICE  = new(:paye_coding_notice),
     INFORMATION_NOTICE  = new(:information_notice),
-    DECISION_ON_ENQUIRY = new(:decision_on_enquiry),
     OTHER               = new(:other)
   ].freeze
 
