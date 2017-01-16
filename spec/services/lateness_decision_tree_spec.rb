@@ -11,7 +11,7 @@ RSpec.describe LatenessDecisionTree do
       context 'and the answer is `yes`' do
         let(:step_params) { { in_time: 'yes' } }
 
-        it { is_expected.to have_destination('/home', :index) }
+        it { is_expected.to have_destination('/task_list', :index) }
       end
 
       context 'and the answer is `no`' do
@@ -30,7 +30,7 @@ RSpec.describe LatenessDecisionTree do
     context 'when the step is `lateness_reason`' do
       let(:step_params) { { lateness_reason: 'anything' } }
 
-      it { is_expected.to have_destination('/home', :index) }
+      it { is_expected.to have_destination('/task_list', :index) }
     end
 
     context 'when the step is invalid' do
