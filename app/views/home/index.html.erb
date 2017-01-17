@@ -6,10 +6,10 @@
     <h1 class="heading-large"><%= t '.heading' %></h1>
 
     <ul class="list task-list">
-      <% [[:appeal, 30, task_list_path], [:close, 15, '#'], [:pay, 5, '#']].each do |(type, minutes, path)| %>
+      <% @link_sections.each do |(name, minutes, path)| %>
         <li>
-          <%= link_to t('.link_titles.%s' % type), path, class: 'task-link' %>
-          <p><%= t('.link_descriptions.%s' % type) %></p>
+          <%= link_to t('.link_titles.%s' % name), path, class: 'task-link' %>
+          <p><%= t('.link_descriptions.%s' % name) %></p>
           <p>(<%= t('.link_time_estimate', minutes: minutes) %>)</p>
         </li>
       <% end %>
