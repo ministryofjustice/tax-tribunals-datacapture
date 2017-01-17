@@ -5,12 +5,12 @@ class HomeController < ApplicationController
 
   private
 
-  # [task name, estimated time to complete this task, path to the task]
+  # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
   def link_sections
     [
       [:appeal, 30, task_list_path],
       [:close, 15, '#'],
-      [:pay, 5, ENV.fetch('PAYMENT_EXTERNAL_URL')]
+      [:pay, 5, ENV.fetch('FEES_EXTERNAL_URL')]
     ]
   end
 end

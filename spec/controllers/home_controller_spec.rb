@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe HomeController do
   describe '#index' do
     before do
-      expect(ENV).to receive(:fetch).with('PAYMENT_EXTERNAL_URL').and_return('http://payments.url')
+      expect(ENV).to receive(:fetch).with('FEES_EXTERNAL_URL').and_return('http://payments.url')
     end
 
     it 'assigns the expected link sections' do
