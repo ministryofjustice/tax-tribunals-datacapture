@@ -39,8 +39,6 @@ class MappingCodeDeterminer
 
   def dispute_type_mapping_code
     case tribunal_case.dispute_type
-    when DisputeType::DECISION_ON_ENQUIRY
-      MappingCode::APPN_DECISION_ENQRY
     when DisputeType::PAYE_CODING_NOTICE
       MappingCode::APPEAL_PAYECODING
     when DisputeType::INFORMATION_NOTICE
