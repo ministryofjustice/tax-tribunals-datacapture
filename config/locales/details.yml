@@ -94,7 +94,7 @@ en:
             challenged_decision: Did you challenge the decision with HMRC first?
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
-            penalty_amount: What is the penalty or surcharge amount?
+            penalty_level: What is the penalty or surcharge amount?
             fee_amount: Fee
             in_time: Is this application late?
             lateness_reason: Reason(s) for late application
@@ -125,7 +125,7 @@ en:
               amount_of_tax: Amount of tax
               amount_and_penalty: Amount of tax and a penalty or surcharge
               other: Other
-            penalty_amount:
+            penalty_level:
               penalty_level_1: £100 or less
               penalty_level_2: £101 – £20,000
               penalty_level_3: £20,001 or more

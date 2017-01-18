@@ -4,7 +4,7 @@ class ChangeCostAnswersPresenter < BaseAnswersPresenter
       challenged_decision_question,
       case_type_question,
       dispute_type_question,
-      penalty_amount_question,
+      penalty_level_question,
       disputed_tax_paid_question,
       hardship_review_requested_question,
       hardship_review_status_question
@@ -37,10 +37,10 @@ class ChangeCostAnswersPresenter < BaseAnswersPresenter
     )
   end
 
-  def penalty_amount_question
+  def penalty_level_question
     row(
-      tribunal_case.penalty_amount,
-      as: :penalty_amount,
+      tribunal_case.penalty_level,
+      as: :penalty_level,
       change_path: edit_steps_cost_penalty_amount_path
     )
   end

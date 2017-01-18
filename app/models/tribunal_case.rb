@@ -3,7 +3,7 @@ class TribunalCase < ApplicationRecord
   has_value_object :challenged_decision
   has_value_object :case_type, constructor: :find_constant
   has_value_object :dispute_type
-  has_value_object :penalty_amount
+  has_value_object :penalty_level
 
   # Hardship task
   has_value_object :disputed_tax_paid
