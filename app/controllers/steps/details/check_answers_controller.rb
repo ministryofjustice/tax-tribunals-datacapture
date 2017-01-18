@@ -1,12 +1,23 @@
 module Steps::Details
   class CheckAnswersController < Steps::DetailsStepController
+    respond_to :html, :pdf
+
     def show
       raise 'No tribunal case in session' unless current_tribunal_case
 
-      @fee_details_answers = FeeDetailsAnswersPresenter.new(current_tribunal_case)
-      @appeal_lateness_answers = AppealLatenessAnswersPresenter.new(current_tribunal_case)
-      @taxpayer_details = TaxpayerDetailsPresenter.new(current_tribunal_case)
-      @documents_submitted = DocumentsSubmittedPresenter.new(current_tribunal_case)
+      @tribunal_case = CaseDetailsPresenter.new(current_tribunal_case)
+
+      respond_to do |format|
+        format.html
+        format.pdf { download_case_pdf(@tribunal_case) and return }
+      end
+    end
+
+    private
+
+    def download_case_pdf(tribunal_case)
+      pdf = CaseDetailsPdf.new(tribunal_case, self)
+      send_data pdf.generate, filename: pdf.filename, type: 'application/pdf', disposition: 'inline'
     end
   end
 end

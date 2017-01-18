@@ -4,8 +4,9 @@ class CaseDetailsPdf
   attr_reader :tribunal_case, :controller_ctx, :pdf
 
   PDF_CONFIG = {
-    template: 'case_details/index',
-    pdf: 'case_details',
+    template: 'steps/details/check_answers/pdf/show',
+    formats: [:pdf],
+    pdf: true,
     encoding: 'UTF-8'
   }
 
@@ -22,19 +23,22 @@ class CaseDetailsPdf
     generate && upload!
   end
 
-  # TODO: change once we are storing the TC number in the tribunal case DB entry
   def filename
-    ['TC_NUMBER', 'HMRC', taxpayer_name].join('_').gsub(/\s+/, '') + '.pdf'
+    [case_reference, 'HMRC', taxpayer_name].join('_') + '.pdf'
   end
+
+  private
 
   def collection_ref
     tribunal_case.files_collection_ref
   end
 
-  private
+  def case_reference
+    (tribunal_case.case_reference || 'NO_REF').tr('/', '_')
+  end
 
   def taxpayer_name
-    tribunal_case.taxpayer_is_company? ? tribunal_case.taxpayer_company_name : tribunal_case.taxpayer_individual_name
+    tribunal_case.taxpayer.name.gsub(/\s+/, '')
   end
 
   def render_options

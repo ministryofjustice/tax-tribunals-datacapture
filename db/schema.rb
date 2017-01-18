@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105164422) do
+ActiveRecord::Schema.define(version: 20170118103849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170105164422) do
     t.datetime "updated_at",                                                                 null: false
     t.string   "case_type"
     t.string   "dispute_type"
-    t.string   "penalty_amount"
+    t.string   "penalty_level"
     t.string   "in_time"
     t.text     "lateness_reason"
     t.string   "taxpayer_type"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20170105164422) do
     t.string   "disputed_tax_paid"
     t.string   "hardship_review_requested"
     t.string   "hardship_review_status"
+    t.string   "case_reference"
+    t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 
 end

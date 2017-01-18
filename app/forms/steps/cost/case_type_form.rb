@@ -40,7 +40,7 @@ module Steps::Cost
         case_type: case_type_value,
         # The following are dependent attributes that need to be reset
         dispute_type: nil,
-        penalty_amount: nil
+        penalty_level: nil
       )
     end
   end

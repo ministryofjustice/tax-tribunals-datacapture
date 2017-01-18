@@ -94,15 +94,18 @@ en:
             challenged_decision: Did you challenge the decision with HMRC first?
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
-            penalty_amount: What is the penalty or surcharge amount?
+            penalty_level: What is the penalty or surcharge amount?
             fee_amount: Fee
             in_time: Is this application late?
             lateness_reason: Reason(s) for late application
             appellant_details: Appellant details
             appellant_phone: "Tel:"
             appellant_email: "Email:"
-            grounds_for_appeal: "Grounds for appeal"
-            documents_submitted: "Documents submitted"
+            grounds_for_appeal: Grounds for appeal
+            documents_submitted: Documents submitted
+            representative_details: Representative details
+            legal_representative: Legal representative
+            desired_outcome: Desired outcome
           answers:
             challenged_decision:
               'yes': 'Yes'
@@ -115,21 +118,21 @@ en:
               closure_notice: Closure notice
               information_notice: Information notices (Schedule 36)
               request_permission_for_review: Request permission for a review
-              other_html: Other
+              other: Other
             dispute_type:
               paye_coding_notice: Pay As You Earn (PAYE) coding notice
               penalty: Penalty or surcharge
               amount_of_tax: Amount of tax
               amount_and_penalty: Amount of tax and a penalty or surcharge
-              decision_on_enquiry: Apply for a decision on an enquiry
               other: Other
-            penalty_amount:
+            penalty_level:
               penalty_level_1: £100 or less
               penalty_level_2: £101 – £20,000
               penalty_level_3: £20,001 or more
-            in_time:
-              'yes': 'Yes'
-              'no': 'No'
+            in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
+              yes: No
+              no: Yes
+              unsure: Not sure
             no_grounds_for_appeal_text: No text entered
   activemodel:
     errors:

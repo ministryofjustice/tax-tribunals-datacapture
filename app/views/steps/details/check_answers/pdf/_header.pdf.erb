@@ -1,0 +1,6 @@
+<p>
+  <span class="case-reference"><%= tribunal_case.case_reference || 'NO REF' %></span>
+  <br/>
+  <strong><%= [tribunal_case.taxpayer.name, 'HMRC'].to_sentence(two_words_connector: t('.appellant_connector')) %></strong>
+</p>
+<br/>

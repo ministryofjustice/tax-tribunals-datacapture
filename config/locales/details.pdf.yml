@@ -1,0 +1,19 @@
+# Define in this file only those translations that differ from the ones in details.yml
+# Any key not found here will cascade to try to find it in details.yml when using the
+# helper method `pdf_t()` instead of `t()`
+#
+en:
+  steps:
+    details:
+      check_answers:
+        pdf:
+          header:
+            appellant_connector: ' vs '
+          show:
+            questions:
+              challenged_decision: Decision challenged with HMRC?
+              penalty_level: Penalty or surcharge amount
+              lateness_reason: Reason for lateness?
+            answers:
+              # Insert here custom translations for answers
+              placeholder: placeholder

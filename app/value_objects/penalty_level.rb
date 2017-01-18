@@ -1,4 +1,4 @@
-class PenaltyAmount < ValueObject
+class PenaltyLevel < ValueObject
   VALUES = [
     PENALTY_LEVEL_1 = new(:penalty_level_1),
     PENALTY_LEVEL_2 = new(:penalty_level_2),

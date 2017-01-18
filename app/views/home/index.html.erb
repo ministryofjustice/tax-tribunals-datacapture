@@ -1,40 +1,19 @@
-<header class="homepage-top">
-  <div class="homepage-top-inner">
-    <div class="welcome-block">
-        <div class="inner-block floated-children">
-          <div class="welcome-text">
-            <div class="floated-inner-block">
-              <h1>
-                <%=t '.heading' %>
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-</header>
+<div class="grid-row">
+  <div class="column-two-thirds">
 
-<p class="lede">
-  <%=t '.lead_text' %>
-</p>
+    <p class="lede">&nbsp;</p>
 
-<%=t '.description_html' %>
+    <h1 class="heading-large"><%= t '.heading' %></h1>
 
-<ol class="list list-number task-list" data-task-list="">
-  <% @presenter.rows.each do |row| %>
-    <li>
-      <%= link_to t(".task_titles.#{row.title}"), row.start_path, class: 'task-link' %> (<%=t '.minutes_to_complete', count: row.minutes_to_complete %>)
-      <% if row.value %>
-        <span class="task-status">
-          <span>
-            <%= row.value %>
-          </span>
-        </span>
-      <% elsif row.show_start_button? %>
-        <%= link_to t('.start'), row.start_path, class: 'button button-start', role: 'button' %>
+    <ul class="list task-list">
+      <% @link_sections.each do |(name, minutes, path)| %>
+        <li>
+          <%= link_to t('.link_titles.%s' % name), path, class: 'task-link' %>
+          <p><%= t('.link_descriptions.%s' % name) %></p>
+          <p>(<%= t('.link_time_estimate', minutes: minutes) %>)</p>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ol>
+    </ul>
 
-<%=t '.further_html' %>
+  </div>
+</div>

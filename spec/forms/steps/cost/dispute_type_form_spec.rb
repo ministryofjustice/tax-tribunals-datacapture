@@ -28,7 +28,6 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
           amount_and_penalty
           paye_coding_notice
           information_notice
-          decision_on_enquiry
           other
         ))
       end
@@ -54,7 +53,6 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
           amount_of_tax
           amount_and_penalty
           information_notice
-          decision_on_enquiry
           other
         ))
       end
@@ -101,7 +99,7 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           dispute_type: DisputeType::PENALTY,
-          penalty_amount: nil
+          penalty_level: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end

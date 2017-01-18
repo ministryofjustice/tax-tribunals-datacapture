@@ -59,6 +59,10 @@
     border-bottom: 1px solid $grey-2;
     margin: 0;
     position: relative;
+
+    p {
+      width: 75%;
+    }
   }
 
   a.task-link {

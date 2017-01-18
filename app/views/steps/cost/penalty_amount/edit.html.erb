@@ -7,7 +7,7 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
-      <%= f.radio_button_fieldset :penalty_amount,
+      <%= f.radio_button_fieldset :penalty_level,
         choices: Steps::Cost::PenaltyAmountForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
