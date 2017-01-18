@@ -4,7 +4,7 @@ RSpec.describe CheckAnswersHelper do
   describe '#pdf_t' do
     # These are just 2 keys to perform a quick sanity check of the method.
     # If ever changed or removed, any other keys can be used instead.
-    let(:found_key) { '.questions.penalty_amount' }
+    let(:found_key) { '.questions.penalty_level' }
     let(:cascaded_key) { '.questions.fee_amount' }
 
     before do

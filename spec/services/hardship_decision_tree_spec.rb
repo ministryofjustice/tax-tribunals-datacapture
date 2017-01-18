@@ -59,16 +59,16 @@ RSpec.describe HardshipDecisionTree do
   describe '#previous' do
     context 'when the step is `disputed_tax_paid`' do
       let(:step_params) { { disputed_tax_paid: 'anything' } }
-      let(:tribunal_case) { instance_double(TribunalCase, penalty_amount?: has_penalty_amount) }
+      let(:tribunal_case) { instance_double(TribunalCase, penalty_level?: has_penalty_level) }
 
       context 'when the tribunal_case has a penalty' do
-        let(:has_penalty_amount) { true }
+        let(:has_penalty_level) { true }
 
         it { is_expected.to have_previous('/steps/cost/penalty_amount', :edit) }
       end
 
       context 'when the tribunal_case does not have a penalty' do
-        let(:has_penalty_amount) { false }
+        let(:has_penalty_level) { false }
 
         it { is_expected.to have_previous('/steps/cost/dispute_type', :edit) }
       end

@@ -17,7 +17,7 @@ class MappingCodeDeterminer
   private
 
   def mapping_code_or_nil
-    if tribunal_case.penalty_amount
+    if tribunal_case.penalty_level
       penalty_mapping_code
     elsif tribunal_case.dispute_type
       dispute_type_mapping_code
@@ -28,12 +28,12 @@ class MappingCodeDeterminer
 
   def penalty_mapping_code
     # TODO: Replace with correct mapping codes once they have been agreed on
-    case tribunal_case.penalty_amount
-    when PenaltyAmount::PENALTY_LEVEL_1
+    case tribunal_case.penalty_level
+    when PenaltyLevel::PENALTY_LEVEL_1
       MappingCode::TAXPENALTYLOW
-    when PenaltyAmount::PENALTY_LEVEL_2
+    when PenaltyLevel::PENALTY_LEVEL_2
       MappingCode::TAXPENALTYMED
-    when PenaltyAmount::PENALTY_LEVEL_3
+    when PenaltyLevel::PENALTY_LEVEL_3
       MappingCode::TAXPENALTYHIGH
     end
   end

@@ -125,7 +125,7 @@ en:
             challenged_decision: Did you challenge the decision with HMRC first?
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
-            penalty_amount: What is the penalty or surcharge amount?
+            penalty_level: What is the penalty or surcharge amount?
             disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
             hardship_review_requested: Did you apply for financial hardship?
             hardship_review_status: What is the status of your hardship application?
@@ -169,7 +169,7 @@ en:
               amount_and_penalty: Amount of tax and a penalty or surcharge
               information_notice: Appeal against an information notice
               other: Other
-            penalty_amount:
+            penalty_level:
               penalty_level_1: £100 or less
               penalty_level_2: £101 – £20,000
               penalty_level_3: £20,001 or more
@@ -213,7 +213,7 @@ en:
               inclusion: Select what your dispute is about
         steps/cost/penalty_amount_form:
           attributes:
-            penalty_amount:
+            penalty_level:
               inclusion: Select what the penalty or surcharge amount is
   helpers:
     fieldset:
@@ -226,7 +226,7 @@ en:
       steps_cost_dispute_type_form:
         dispute_type: What is your dispute about?
       steps_cost_penalty_amount_form:
-        penalty_amount: What is the penalty or surcharge amount?
+        penalty_level: What is the penalty or surcharge amount?
     label:
       steps_cost_challenged_decision_form:
         challenged_decision:
@@ -276,7 +276,7 @@ en:
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:
-        penalty_amount:
+        penalty_level:
           penalty_level_1: £100 or less
           penalty_level_2: £101 – £20,000
           penalty_level_3: £20,001 or more

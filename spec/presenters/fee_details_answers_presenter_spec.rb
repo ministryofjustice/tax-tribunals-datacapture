@@ -8,7 +8,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
       challenged_decision: challenged_decision,
       case_type: case_type,
       dispute_type: dispute_type,
-      penalty_amount: penalty_amount,
+      penalty_level: penalty_level,
       lodgement_fee: lodgement_fee
     )
   }
@@ -17,7 +17,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
   let(:challenged_decision) { true }
   let(:case_type)           { 'foo' }
   let(:dispute_type)        { nil }
-  let(:penalty_amount)      { nil }
+  let(:penalty_level)       { nil }
   let(:lodgement_fee)       { nil }
 
   describe '#rows' do
@@ -94,27 +94,27 @@ RSpec.describe FeeDetailsAnswersPresenter do
       end
     end
 
-    describe '`penalty_amount` row' do
+    describe '`penalty_level` row' do
       let(:row) { subject.rows[3] }
 
       # Needed so that the row is in the correct position
       let(:dispute_type) { 'foo' }
       let(:case_type) { 'bar' }
 
-      context 'when `penalty_amount` is nil' do
-        let(:penalty_amount) { nil }
+      context 'when `penalty_level` is nil' do
+        let(:penalty_level) { nil }
 
         it 'is not included' do
           expect(row).to be_nil
         end
       end
 
-      context 'when `penalty_amount` is given' do
-        let(:penalty_amount) { 'foo' }
+      context 'when `penalty_level` is given' do
+        let(:penalty_level) { 'foo' }
 
         it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.penalty_amount')
-          expect(row.answer).to      eq('.answers.penalty_amount.foo')
+          expect(row.question).to    eq('.questions.penalty_level')
+          expect(row.answer).to      eq('.answers.penalty_level.foo')
           expect(row.change_path).to be_nil
         end
       end
@@ -126,7 +126,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
       # Needed so that the row is in the correct position
       let(:dispute_type) { 'foo' }
       let(:case_type) { 'bar' }
-      let(:penalty_amount) { 'foo' }
+      let(:penalty_level) { 'foo' }
 
       context 'when `lodgement_fee` is nil' do
         let(:lodgement_fee) { nil }

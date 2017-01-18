@@ -48,7 +48,7 @@ class HardshipDecisionTree < DecisionTree
   end
 
   def before_disputed_tax_paid_step
-    if tribunal_case.penalty_amount?
+    if tribunal_case.penalty_level?
       { controller: '/steps/cost/penalty_amount', action: :edit }
     else
       { controller: '/steps/cost/dispute_type', action: :edit }
