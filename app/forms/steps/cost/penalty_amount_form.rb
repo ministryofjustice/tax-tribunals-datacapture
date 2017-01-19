@@ -1,6 +1,7 @@
 module Steps::Cost
   class PenaltyAmountForm < BaseForm
     attribute :penalty_level, String
+    attribute :penalty_amount, String
 
     def self.choices
       PenaltyLevel.values.map(&:to_s)
@@ -15,7 +16,10 @@ module Steps::Cost
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      tribunal_case.update(penalty_level: penalty_level_value)
+      tribunal_case.update(
+        penalty_level: penalty_level_value,
+        penalty_amount: penalty_amount
+      )
     end
   end
 end

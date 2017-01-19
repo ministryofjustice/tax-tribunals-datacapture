@@ -3,8 +3,9 @@ module Steps::Cost
     def edit
       super
       @form_object = PenaltyAmountForm.new(
-        tribunal_case: current_tribunal_case,
-        penalty_level: current_tribunal_case.penalty_level
+        tribunal_case:  current_tribunal_case,
+        penalty_level:  current_tribunal_case.penalty_level,
+        penalty_amount: current_tribunal_case.penalty_amount,
       )
     end
 

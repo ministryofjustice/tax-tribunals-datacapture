@@ -3,10 +3,12 @@ require 'spec_helper'
 RSpec.describe Steps::Cost::PenaltyAmountForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
-    penalty_level: penalty_level
+    penalty_level: penalty_level,
+    penalty_amount: penalty_amount
   } }
-  let(:tribunal_case) { instance_double(TribunalCase, penalty_level: nil) }
-  let(:penalty_level) { nil }
+  let(:tribunal_case) { instance_double(TribunalCase, penalty_level: nil, penalty_amount: nil) }
+  let(:penalty_level)  { nil }
+  let(:penalty_amount) { nil }
 
   subject { described_class.new(arguments) }
 
@@ -49,9 +51,22 @@ RSpec.describe Steps::Cost::PenaltyAmountForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          penalty_level: PenaltyLevel::PENALTY_LEVEL_1
+          penalty_level: PenaltyLevel::PENALTY_LEVEL_1,
+          penalty_amount: nil
         ).and_return(true)
         expect(subject.save).to be(true)
+      end
+
+      context 'when penalty amount supplied' do
+        let(:penalty_amount) { 'about 12345' }
+
+        it 'saves the record' do
+          expect(tribunal_case).to receive(:update).with(
+            penalty_level: PenaltyLevel::PENALTY_LEVEL_1,
+            penalty_amount: 'about 12345'
+          ).and_return(true)
+          expect(subject.save).to be(true)
+        end
       end
     end
   end

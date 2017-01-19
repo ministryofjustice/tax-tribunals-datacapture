@@ -127,8 +127,8 @@ en:
               other: Other
             penalty_level:
               penalty_level_1: £100 or less
-              penalty_level_2: £101 – £20,000
-              penalty_level_3: £20,001 or more
+              penalty_level_2: over £100 – £20,000
+              penalty_level_3: over £20,000
             in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
               yes: No
               no: Yes

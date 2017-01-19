@@ -13,6 +13,7 @@ en:
             questions:
               challenged_decision: Decision challenged with HMRC?
               penalty_level: Penalty or surcharge amount
+              penalty_amount: Penalty or surcharge amount
               lateness_reason: Reason for lateness?
             answers:
               # Insert here custom translations for answers
