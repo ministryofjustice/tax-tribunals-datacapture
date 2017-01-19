@@ -52,7 +52,7 @@ RSpec.describe AppealLatenessAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.lateness_reason')
         expect(row.answer).to      eq('foo')
-        expect(row.change_path).to be_nil
+        expect(row.change_path).to eq(paths.edit_steps_lateness_lateness_reason_path)
       end
     end
   end

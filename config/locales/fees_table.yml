@@ -1,0 +1,73 @@
+en:
+  steps:
+    cost:
+      determine_cost:
+        fees_table:
+          header: Paying for your appeal
+          intro_html: |
+            <p>
+              You will have to pay the initial fee, or enter a
+              <a class="external" rel="external" href="https://www.gov.uk/get-help-with-court-fees">help with fees</a> reference
+              number, to submit your appeal successfully.
+            </p>
+            <p>To pay by cheque or money order, you will have to print out the details you enter online and send your appeal by
+              post.</p>
+            <p>
+              You will also have to pay a further fee towards continued work on your appeal. The further fee is payable once your
+              case is in progress.
+            </p>
+          table_caption: Table explaining the fees for different types of appeals or applications
+          columns:
+            appeal_type: Type of appeal
+            initial_fee: Initial fee
+            further_fee: Further fee
+          penalties:
+            20_html: |
+              <td>
+                <ul class="list list-bullet">
+                  <li>Penalty of £100 or less</li>
+                </ul>
+              </td>
+              <td>£20</td>
+              <td>—</td>
+            50_html: |
+              <td>
+                <ul class="list list-bullet">
+                  <li>Penalty of over £100 to £2,000</li>
+                </ul>
+              </td>
+              <td>£50</td>
+              <td>—</td>
+            200_html: |
+              <td>
+                <ul class="list list-bullet">
+                  <li>Penalty of over £2,000 to £20,000</li>
+                  <li>Appeal against an information notice</li>
+                  <li>Pay As You Earn (PAYE) coding notice</li>
+                  <li>Request permission for a late review</li>
+                  <li>Request HMRC issue a counteraction notice</li>
+                </ul>
+              </td>
+              <td>£50</td>
+              <td>£200</td>
+            500_html: |
+              <td>
+                <ul class="list list-bullet">
+                  <li>All other types of appeal or application *</li>
+                  <br>
+                  <p class="font-xsmall">* excluding those attached to a main appeal (for example applications for hardship or
+                    postponement of tax) which have no fee to pay</p>
+                </ul>
+              </td>
+              <td>£200</td>
+              <td>£500</td>
+            1000_html: |
+              <td>
+                <ul class="list list-bullet">
+                  <li>Appeals over £1 million or for principles of law</li>
+                </ul>
+              </td>
+              <td>£200</td>
+              <td>£1,000</td>
+          successful_header: What happens if you are successful
+          successful_text: The judge is independent and has the power to decide whether your fees are refunded by the unsuccessful party.

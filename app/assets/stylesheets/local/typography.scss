@@ -22,3 +22,22 @@ details {
     margin-top: 0;
   }
 }
+
+.check-your-answers {
+  td {
+    @include core-19;
+    vertical-align: top;
+  }
+
+  .change-answer {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 0;
+  }
+}
+
+.fee-display {
+  margin: 0.25em 0;
+  @include bold-48;
+  display: block;
+}
