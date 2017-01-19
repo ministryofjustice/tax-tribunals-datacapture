@@ -1,30 +1,31 @@
 <div class="govuk-box-highlight">
-  <h2 class="bold-medium">
+  <h2 class="bold-large">
     <%=t '.fee_label' %>
+    <span class="fee-display">
+      <%= number_to_currency(@lodgement_fee / 100.0) %>
+    </span>
   </h2>
-  <p>
-    <strong class="heading-large"><%= number_to_currency(@lodgement_fee / 100.0) %></strong>
-  </p>
+  <p><%= t('.fee_label_help') %></p>
 </div>
 
-<table>
+<table class="check-your-answers your-answers">
   <thead>
     <tr>
-      <th scope="col"><%=t '.check_your_answers' %></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th><h2 class="heading-medium"><%=t '.check_your_answers' %></h2></th>
+      <td class="change-answer left"><%= link_to t('.change'), edit_steps_cost_case_type_path %></td>
     </tr>
   </thead>
   <tbody>
     <% @change_answers.rows.each do |row| %>
       <tr>
-        <td><%=t row.question %></td>
-        <td><strong><%=t row.answer %></strong></td>
-        <td><%= link_to t('.change'), row.change_path %></td>
+        <th><%=t row.question %></th>
+        <td><%=t row.answer %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= render partial: 'fees_table' %>
 
 <p>
   <%= link_to t('.continue'), task_list_path, class: 'button button-start', role: 'button' %>

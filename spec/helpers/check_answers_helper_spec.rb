@@ -19,7 +19,7 @@ RSpec.describe CheckAnswersHelper do
 
     it 'cascades a not found key' do
       result = helper.pdf_t(cascaded_key)
-      expect(result).to eq('Fee')
+      expect(result).to eq('Initial appeal fee')
     end
   end
 end

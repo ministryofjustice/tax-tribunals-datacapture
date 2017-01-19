@@ -25,7 +25,8 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
   def case_type_question
     row(
       tribunal_case.case_type,
-      as: :case_type
+      as: :case_type,
+      change_path: edit_steps_cost_case_type_path
     )
   end
 
@@ -47,7 +48,8 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.penalty_amount,
       as: :penalty_amount,
-      i18n_value: false
+      i18n_value: false,
+      change_path: edit_steps_cost_penalty_amount_path
     )
   end
 

@@ -20,7 +20,8 @@ class AppealLatenessAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.lateness_reason,
       as: :lateness_reason,
-      i18n_value: false
+      i18n_value: false,
+      change_path: edit_steps_lateness_lateness_reason_path
     )
   end
 end

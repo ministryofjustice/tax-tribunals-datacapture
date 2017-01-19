@@ -121,11 +121,14 @@ en:
           penalty_level_3: over £20,000
       determine_cost:
         show:
-          fee_label: To submit your appeal you will have to pay
+          fee_label: To submit an appeal costs
+          fee_label_help: unless you can get help with fees
+          check_your_answers: Check your answers
           start_again: Start again
+          continue: Continue
           change: Change
           questions:
-            challenged_decision: Did you challenge the decision with HMRC first?
+            challenged_decision: Have you challenged HMRC?
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?

@@ -58,7 +58,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.case_type')
         expect(row.answer).to      eq('.answers.case_type.foo')
-        expect(row.change_path).to be_nil
+        expect(row.change_path).to eq(paths.edit_steps_cost_case_type_path)
       end
     end
 
@@ -144,7 +144,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.penalty_amount')
           expect(row.answer).to      eq('about 12345')
-          expect(row.change_path).to be_nil
+          expect(row.change_path).to eq(paths.edit_steps_cost_penalty_amount_path)
         end
       end
     end
