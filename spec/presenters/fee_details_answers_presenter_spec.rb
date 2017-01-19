@@ -9,6 +9,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
       case_type: case_type,
       dispute_type: dispute_type,
       penalty_level: penalty_level,
+      penalty_amount: penalty_amount,
       lodgement_fee: lodgement_fee
     )
   }
@@ -18,6 +19,7 @@ RSpec.describe FeeDetailsAnswersPresenter do
   let(:case_type)           { 'foo' }
   let(:dispute_type)        { nil }
   let(:penalty_level)       { nil }
+  let(:penalty_amount)      { nil }
   let(:lodgement_fee)       { nil }
 
   describe '#rows' do
@@ -115,6 +117,33 @@ RSpec.describe FeeDetailsAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.penalty_level')
           expect(row.answer).to      eq('.answers.penalty_level.foo')
+          expect(row.change_path).to be_nil
+        end
+      end
+    end
+
+    describe '`penalty_amount` row' do
+      let(:row) { subject.rows[4] }
+
+      # Needed so that the row is in the correct position
+      let(:dispute_type) { 'foo' }
+      let(:case_type) { 'bar' }
+      let(:penalty_level) { 'foo' }
+
+      context 'when `penalty_amount` is nil' do
+        let(:penalty_amount) { nil }
+
+        it 'is not included' do
+          expect(row).to be_nil
+        end
+      end
+
+      context 'when `penalty_amount` is given' do
+        let(:penalty_amount)  { 'about 12345' }
+
+        it 'has the correct attributes' do
+          expect(row.question).to    eq('.questions.penalty_amount')
+          expect(row.answer).to      eq('about 12345')
           expect(row.change_path).to be_nil
         end
       end

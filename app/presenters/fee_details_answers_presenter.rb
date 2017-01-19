@@ -7,6 +7,7 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
       case_type_question,
       dispute_type_question,
       penalty_level_question,
+      penalty_amount_question,
       fee_amount_question
     ].compact
   end
@@ -39,6 +40,14 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.penalty_level,
       as: :penalty_level
+    )
+  end
+
+  def penalty_amount_question
+    row(
+      tribunal_case.penalty_amount,
+      as: :penalty_amount,
+      i18n_value: false
     )
   end
 

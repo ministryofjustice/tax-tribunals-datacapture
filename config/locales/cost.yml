@@ -116,6 +116,9 @@ en:
         edit:
           heading: What is the penalty or surcharge amount?
           lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+          penalty_level_1: £100 or less
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
       determine_cost:
         show:
           fee_label: To submit your appeal you will have to pay
@@ -126,6 +129,7 @@ en:
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
+            penalty_amount: What is the penalty or surcharge amount?
             disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
             hardship_review_requested: Did you apply for financial hardship?
             hardship_review_status: What is the status of your hardship application?
@@ -171,8 +175,8 @@ en:
               other: Other
             penalty_level:
               penalty_level_1: £100 or less
-              penalty_level_2: £101 – £20,000
-              penalty_level_3: £20,001 or more
+              penalty_level_2: over £100 – £20,000
+              penalty_level_3: over £20,000
             disputed_tax_paid:
               'no': 'No'
               'yes': 'Yes'
@@ -226,7 +230,8 @@ en:
       steps_cost_dispute_type_form:
         dispute_type: What is your dispute about?
       steps_cost_penalty_amount_form:
-        penalty_level: What is the penalty or surcharge amount?
+        # Use empty string in _html keys to not show the fieldset legend
+        penalty_level_html: ""
     label:
       steps_cost_challenged_decision_form:
         challenged_decision:
@@ -276,7 +281,8 @@ en:
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:
+        penalty_amount: What is the penalty or surcharge amount? (Optional)
         penalty_level:
           penalty_level_1: £100 or less
-          penalty_level_2: £101 – £20,000
-          penalty_level_3: £20,001 or more
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
