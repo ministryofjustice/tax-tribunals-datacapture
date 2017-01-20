@@ -3,6 +3,7 @@ class ChangeCostAnswersPresenter < BaseAnswersPresenter
     [
       challenged_decision_question,
       case_type_question,
+      challenged_decision_status_question,
       dispute_type_question,
       tax_amount_question,
       penalty_level_question,
@@ -20,6 +21,14 @@ class ChangeCostAnswersPresenter < BaseAnswersPresenter
       tribunal_case.challenged_decision,
       as: :challenged_decision,
       change_path: edit_steps_cost_challenged_decision_path
+    )
+  end
+
+  def challenged_decision_status_question
+    row(
+      tribunal_case.challenged_decision_status,
+      as: :challenged_decision_status,
+      change_path: edit_steps_cost_challenged_decision_status_path
     )
   end
 

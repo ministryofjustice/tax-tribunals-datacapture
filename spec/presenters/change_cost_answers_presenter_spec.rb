@@ -6,6 +6,7 @@ RSpec.describe ChangeCostAnswersPresenter do
     instance_double(
       TribunalCase,
       challenged_decision: challenged_decision,
+      challenged_decision_status: challenged_decision_status,
       case_type: case_type,
       dispute_type: dispute_type,
       penalty_level: penalty_level,
@@ -19,6 +20,7 @@ RSpec.describe ChangeCostAnswersPresenter do
   let(:paths) { Rails.application.routes.url_helpers }
 
   let(:challenged_decision)       { true }
+  let(:challenged_decision_status) { nil }
   let(:case_type)                 { 'foo' }
   let(:dispute_type)              { nil }
   let(:penalty_level)             { nil }
@@ -51,6 +53,43 @@ RSpec.describe ChangeCostAnswersPresenter do
           expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_path)
         end
       end
+    end
+
+    describe '`challenged_decision_status` row' do
+      let(:row) { subject.rows[2] }
+      let(:case_type) { 'bar' }
+
+      context 'when appeal is challenged' do
+        context 'for a received status' do
+          let(:challenged_decision_status) { ChallengedDecisionStatus::RECEIVED }
+
+          it 'has the correct attributes' do
+            expect(row.question).to eq('.questions.challenged_decision_status')
+            expect(row.answer).to eq('.answers.challenged_decision_status.received')
+            expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_status_path)
+          end
+        end
+
+        context 'for a overdue status' do
+          let(:challenged_decision_status) { ChallengedDecisionStatus::OVERDUE }
+
+          it 'has the correct attributes' do
+            expect(row.question).to eq('.questions.challenged_decision_status')
+            expect(row.answer).to eq('.answers.challenged_decision_status.overdue')
+            expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_status_path)
+          end
+        end
+      end
+
+      # context 'when appeal is unchallenged' do
+      #   let(:challenged_decision) { false }
+      #
+      #   it 'has the correct attributes' do
+      #     expect(row.question).to    eq('.questions.challenged_decision')
+      #     expect(row.answer).to      eq('.answers.challenged_decision.false')
+      #     expect(row.change_path).to eq(paths.edit_steps_cost_challenged_decision_path)
+      #   end
+      # end
     end
 
     describe '`case_type` row' do
