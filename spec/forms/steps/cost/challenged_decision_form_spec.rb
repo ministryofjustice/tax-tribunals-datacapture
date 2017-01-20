@@ -52,7 +52,9 @@ RSpec.describe Steps::Cost::ChallengedDecisionForm do
           challenged_decision: ChallengedDecision::NO,
           case_type: nil,
           dispute_type: nil,
-          penalty_level: nil
+          penalty_level: nil,
+          penalty_amount: nil,
+          tax_amount: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end

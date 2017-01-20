@@ -99,7 +99,9 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           dispute_type: DisputeType::PENALTY,
-          penalty_level: nil
+          penalty_level: nil,
+          penalty_amount: nil,
+          tax_amount: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end

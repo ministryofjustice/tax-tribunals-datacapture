@@ -6,8 +6,6 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <p><%=t '.description_text' %></p>
-
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :case_type,
         choices: Steps::Cost::CaseTypeForm.choices %>

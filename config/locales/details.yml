@@ -96,6 +96,7 @@ en:
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
+            tax_amount: What is the amount of tax?
             fee_amount: Initial appeal fee
             in_time: Is the appeal late?
             lateness_reason: Reason(s) for late appeal

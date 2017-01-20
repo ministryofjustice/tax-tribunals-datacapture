@@ -35,7 +35,9 @@ module Steps::Cost
       tribunal_case.update(
         dispute_type: dispute_type_value,
         # The following are dependent attributes that need to be reset
-        penalty_level: nil
+        penalty_level: nil,
+        penalty_amount: nil,
+        tax_amount: nil
       )
     end
   end
