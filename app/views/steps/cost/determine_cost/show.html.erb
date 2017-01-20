@@ -19,7 +19,7 @@
     <% @change_answers.rows.each do |row| %>
       <tr>
         <th><%=t row.question %></th>
-        <td><%=t row.answer %></td>
+        <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
       </tr>
     <% end %>
   </tbody>

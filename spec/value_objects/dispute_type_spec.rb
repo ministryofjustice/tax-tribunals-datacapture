@@ -18,6 +18,20 @@ RSpec.describe DisputeType do
     end
   end
 
+  describe '#ask_tax?' do
+    it 'returns false by default' do
+      expect(subject.ask_tax?).to be(false)
+    end
+
+    context 'when the dispute type is AMOUNT_OF_TAX' do
+      let(:type) { :amount_of_tax }
+
+      it 'returns true' do
+        expect(subject.ask_tax?).to be(true)
+      end
+    end
+  end
+
   describe '#ask_hardship?' do
     it 'returns false by default' do
       expect(subject.ask_hardship?).to be(false)

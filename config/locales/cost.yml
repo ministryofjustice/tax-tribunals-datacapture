@@ -101,8 +101,7 @@ en:
       case_type:
         edit:
           heading: What is your appeal about?
-          lead_text: The type of tax, decision or application is usually shown on the original notice letter from HMRC, or review conclusion letter (if you had a review with HMRC).
-          description_text: If the tax or issue is not listed below or you’re making a different type of appeal or application, please select ‘other’.
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
       case_type_show_more:
         edit:
           heading: What is your appeal about?
@@ -110,8 +109,7 @@ en:
       dispute_type:
         edit:
           heading: What is your dispute about?
-          lead_text: Your dispute will be stated on either the original notice letter from HMRC, or the review conclusion letter if your case was reviewed.
-          description_text: You can't combine separate disputes on separate letters into one appeal.
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
       penalty_amount:
         edit:
           heading: What is the penalty or surcharge amount?
@@ -119,6 +117,10 @@ en:
           penalty_level_1: £100 or less
           penalty_level_2: over £100 – £20,000
           penalty_level_3: over £20,000
+      tax_amount:
+        edit:
+          heading: What amount of tax is under dispute?
+          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
       determine_cost:
         show:
           fee_label: To submit an appeal costs
@@ -133,6 +135,7 @@ en:
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
+            tax_amount: What is the amount of tax?
             disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
             hardship_review_requested: Did you apply for financial hardship?
             hardship_review_status: What is the status of your hardship application?
@@ -224,16 +227,16 @@ en:
               inclusion: Select what the penalty or surcharge amount is
   helpers:
     fieldset:
+      # Use an empty string in _html keys to not show the fieldset legend
       steps_cost_challenged_decision_form:
         challenged_decision: Did you challenge the decision with HMRC first?
       steps_cost_case_type_form:
-        case_type: What is your appeal about?
+        case_type_html: ""
       steps_cost_case_type_show_more_form:
         case_type: What is your appeal about?
       steps_cost_dispute_type_form:
-        dispute_type: What is your dispute about?
+        dispute_type_html: ""
       steps_cost_penalty_amount_form:
-        # Use empty string in _html keys to not show the fieldset legend
         penalty_level_html: ""
     label:
       steps_cost_challenged_decision_form:
@@ -247,7 +250,7 @@ en:
           capital_gains_tax_html: <strong>Capital Gains Tax</strong>
           corporation_tax_html: <strong>Corporation Tax</strong>
           inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
-          information_notice_html: <strong>Information notices</strong><br>including penalties for non-compliance with information notices
+          information_notice_html: <strong>Information notices</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_cost_case_type_show_more_form:
         case_type:
@@ -278,9 +281,9 @@ en:
       steps_cost_dispute_type_form:
         dispute_type:
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
-          penalty_html: <strong>Penalty or surcharge</strong><br>for late filing of returns and documents, late payment of duties, inaccuracies, or non-compliance with information notices or Schedule 41
-          amount_of_tax_html: <strong>Amount of tax</strong><br>either tax you owe or money that HMRC should pay to you
-          amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both of these disputes will be stated on either the original notice letter from HMRC or the review conclusion letter
+          penalty_html: <strong>Penalty or surcharge</strong>
+          amount_of_tax_html: <strong>Amount of tax</strong>
+          amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both must be stated on the same letter
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
       steps_cost_penalty_amount_form:
@@ -289,3 +292,5 @@ en:
           penalty_level_1: £100 or less
           penalty_level_2: over £100 – £20,000
           penalty_level_3: over £20,000
+      steps_cost_tax_amount_form:
+        tax_amount: The amount of tax under dispute (optional)

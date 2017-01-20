@@ -60,7 +60,9 @@ RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
         expect(tribunal_case).to receive(:update).with(
           case_type: case_type_object,
           dispute_type: nil,
-          penalty_level: nil
+          penalty_level: nil,
+          penalty_amount: nil,
+          tax_amount: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end

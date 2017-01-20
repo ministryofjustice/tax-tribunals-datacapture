@@ -8,6 +8,7 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
       dispute_type_question,
       penalty_level_question,
       penalty_amount_question,
+      tax_amount_question,
       fee_amount_question
     ].compact
   end
@@ -50,6 +51,15 @@ class FeeDetailsAnswersPresenter < BaseAnswersPresenter
       as: :penalty_amount,
       i18n_value: false,
       change_path: edit_steps_cost_penalty_amount_path
+    )
+  end
+
+  def tax_amount_question
+    row(
+      tribunal_case.tax_amount,
+      as: :tax_amount,
+      i18n_value: false,
+      change_path: edit_steps_cost_tax_amount_path
     )
   end
 

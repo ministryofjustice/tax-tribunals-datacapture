@@ -27,7 +27,9 @@ module Steps::Cost
         # The following are dependent attributes that need to be reset
         case_type: nil,
         dispute_type: nil,
-        penalty_level: nil
+        penalty_level: nil,
+        penalty_amount: nil,
+        tax_amount: nil
       )
     end
   end
