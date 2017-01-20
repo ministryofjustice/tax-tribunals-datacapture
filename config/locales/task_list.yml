@@ -10,6 +10,11 @@ en:
         determine_cost: Give details about your type of dispute and find out your tax tribunal fees.
         lateness: You can still submit your appeal late by giving reasons for the judge to consider.
         details: Explain why you're appealing, upload a copy of your decision letter and pay the initial fee.
+      task_answers:
+        in_time:
+          'yes': In time
+          'no': Late
+          unsure: Not sure
       minutes_to_complete:
         one: 1 minute to complete
         other: "%{count} minutes to complete"
