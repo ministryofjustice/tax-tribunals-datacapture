@@ -134,7 +134,7 @@ en:
             in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
               'yes': 'No'
               'no': 'Yes'
-              unsure: Not sure
+              unsure: Unknown
             no_grounds_for_appeal_text: No text entered
   activemodel:
     errors:

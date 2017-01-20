@@ -24,7 +24,7 @@
             <p>(<%=t '.minutes_to_complete', count: row.minutes_to_complete %>)</p>
             <% if row.value %>
               <span class="task-status">
-                <span><%= row.value %></span>
+                <span><%= t(row.i18n_value, default: row.value) %></span>
               </span>
             <% elsif row.show_start_button? %>
               <%= link_to t('.start'), row.start_path, class: 'button button-start', role: 'button' %>

@@ -19,13 +19,13 @@ en:
       in_time:
         edit:
           heading: Do you think you're in time to appeal to the tax tribunal?
-          lead_text: Use the date shown on the last letter you received from HMRC to work out whether you meet the deadline to appeal to the tax tribunal. You usually have up to 30 days.
+          lead_text: Use the date shown on either the original notice letter or review conclusion letter.
       lateness_reason:
         edit:
           heading: Why are you late with your appeal?
-          lead_text: Enter the reasons why you are late appealing to the tribunal. The judge will consider your case. Your appeal fee will not be refunded if your reasons are not accepted.
+          lead_text: You must provide reasonable grounds for appealing late. If the judge rejects your reasons, your appeal will not proceed and any fees will not be refunded.
           details_title: Help with late appeals
-          details_content: You must provide reasonable grounds for submitting your appeal late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the appeal deadlines.
+          details_content: You must provide reasonable grounds for submitting your appeal late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the tax tribunal deadlines.
   activemodel:
     errors:
       models:
@@ -39,13 +39,14 @@ en:
               too_short: You must explain why you are late. Use at least %{count} characters.
   helpers:
     fieldset:
+      # Use an empty string in _html keys to not show the fieldset legend
       steps_lateness_in_time_form:
-        in_time: Do you think you're in time to appeal to the tax tribunal?
+        in_time_html: ""
     label:
       steps_lateness_in_time_form:
         in_time:
           "yes": Yes, I am in time
           "no": No, I am late
-          unsure: I'm not sure
+          unsure: I am not sure
       steps_lateness_lateness_reason_form:
         lateness_reason: Reason(s) for late appeal
