@@ -12,7 +12,7 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
   subject { described_class.new(arguments) }
 
   describe '#lateness_unknown?' do
-    context 'when appeal is late' do
+    context 'when appeal is not late' do
       let(:in_time) { InTime::YES }
 
       it 'should return false' do
@@ -20,7 +20,7 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
       end
     end
 
-    context 'when appeal is not late' do
+    context 'when appeal is late' do
       let(:in_time) { InTime::NO }
 
       it 'should return false' do
@@ -28,7 +28,7 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
       end
     end
 
-    context 'when appeal is unsure to be late' do
+    context 'when appellant is not sure' do
       let(:in_time) { InTime::UNSURE }
 
       it 'should return false' do
