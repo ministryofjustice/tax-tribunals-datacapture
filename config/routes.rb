@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       show_step :determine_cost
       show_step :must_challenge_hmrc
       edit_step :tax_amount
+      edit_step :penalty_and_tax_amounts
     end
 
     namespace :hardship do

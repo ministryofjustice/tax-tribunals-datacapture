@@ -9,7 +9,7 @@ class CostDecisionTree < DecisionTree
       after_case_type_step
     when :dispute_type
       after_dispute_type_step
-    when :penalty_amount, :tax_amount
+    when :penalty_amount, :tax_amount, :penalty_and_tax_amounts
       hardship_or_determine_cost_step
     else
       raise "Invalid step '#{step_params}'"
@@ -26,7 +26,7 @@ class CostDecisionTree < DecisionTree
       edit(:case_type)
     when :dispute_type
       before_dispute_type_step
-    when :penalty_amount, :tax_amount
+    when :penalty_amount, :tax_amount, :penalty_and_tax_amounts
       before_penalty_or_tax_amount_step
     else
       raise "Invalid step '#{step_params}'"
@@ -59,6 +59,8 @@ class CostDecisionTree < DecisionTree
       edit(:penalty_amount)
     elsif tribunal_case.dispute_type.ask_tax?
       edit(:tax_amount)
+    elsif tribunal_case.dispute_type.ask_penalty_and_tax?
+      edit(:penalty_and_tax_amounts)
     else
       hardship_or_determine_cost_step
     end
