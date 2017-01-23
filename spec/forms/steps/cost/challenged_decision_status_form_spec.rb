@@ -10,70 +10,65 @@ RSpec.describe Steps::Cost::ChallengedDecisionStatusForm do
 
   subject { described_class.new(arguments) }
 
-  pending 'Write specs for ChallengedDecisionStatusForm!'
+  describe '#save' do
+    context 'when no tribunal_case is associated with the form' do
+      let(:tribunal_case)  { nil }
+      let(:challenged_decision_status) { ChallengedDecisionStatus::RECEIVED.to_s }
 
-  # TODO: The below can be uncommented and serves as a starting point for
-  #   forms operating on a single value object.
+      specify do
+        expect { subject.save }.to raise_error(RuntimeError)
+      end
+    end
 
-  # describe '#save' do
-  #   context 'when no tribunal_case is associated with the form' do
-  #     let(:tribunal_case)  { nil }
-  #     let(:challenged_decision_status) { 'value' }
+    context 'when challenged_decision_status is not given' do
+      it 'does not save' do
+        expect(subject.save).to be(false)
+      end
 
-  #     it 'raises an error' do
-  #       expect { subject.save }.to raise_error(RuntimeError)
-  #     end
-  #   end
+      it 'has a validation error on the field' do
+        expect(subject).to_not be_valid
+        expect(subject.errors[:challenged_decision_status]).to_not be_empty
+      end
+    end
 
-  #   context 'when challenged_decision_status is not given' do
-  #     it 'returns false' do
-  #       expect(subject.save).to be(false)
-  #     end
+    context 'when challenged_decision_status is not valid' do
+      let(:challenged_decision_status) { 'INVALID VALUE' }
 
-  #     it 'has a validation error on the field' do
-  #       expect(subject).to_not be_valid
-  #       expect(subject.errors[:challenged_decision_status]).to_not be_empty
-  #     end
-  #   end
+      it 'returns false' do
+        expect(subject.save).to be(false)
+      end
 
-  #   context 'when challenged_decision_status is not valid' do
-  #     let(:challenged_decision_status) { 'INVALID VALUE' }
+      it 'has a validation error on the field' do
+        expect(subject).to_not be_valid
+        expect(subject.errors[:challenged_decision_status]).to_not be_empty
+      end
+    end
 
-  #     it 'returns false' do
-  #       expect(subject.save).to be(false)
-  #     end
+    context 'when challenged_decision_status is valid' do
+      let(:challenged_decision_status) { ChallengedDecisionStatus::RECEIVED.to_s }
 
-  #     it 'has a validation error on the field' do
-  #       expect(subject).to_not be_valid
-  #       expect(subject.errors[:challenged_decision_status]).to_not be_empty
-  #     end
-  #   end
+      it 'saves the record' do
+        expect(tribunal_case).to receive(:update).with(
+          challenged_decision_status: ChallengedDecisionStatus::RECEIVED
+        ).and_return(true)
+        expect(subject.save).to be(true)
+      end
+    end
 
-  #   context 'when challenged_decision_status is valid' do
-  #     let(:challenged_decision_status) { 'INSERT VALID VALUE HERE' }
+    context 'when challenged_decision_status is already the same on the model' do
+      let(:tribunal_case) {
+        instance_double(
+          TribunalCase,
+          challenged_decision_status: ChallengedDecisionStatus::PENDING
+        )
+      }
+      let(:challenged_decision_status) { ChallengedDecisionStatus::PENDING.to_s }
 
-  #     it 'saves the record' do
-  #       expect(tribunal_case).to receive(:update).with(
-  #         # TODO: What's in the update?
-  #       ).and_return(true)
-  #       expect(subject.save).to be(true)
-  #     end
-  #   end
-
-  #   context 'when challenged_decision_status is already the same on the model' do
-  #     let(:tribunal_case) {
-  #       instance_double(
-  #         TribunalCase,
-  #         challenged_decision_status: 'INSERT EXISTING VALUE HERE'
-  #       )
-  #     }
-  #     let(:challenged_decision_status) { 'CHANGEME' }
-
-  #     it 'does not save the record but returns true' do
-  #       expect(tribunal_case).to_not receive(:update)
-  #       expect(subject.save).to be(true)
-  #     end
-  #   end
-  # end
+      it 'does not save the record but returns true' do
+        expect(tribunal_case).not_to receive(:update)
+        expect(subject.save).to be(true)
+      end
+    end
+  end
 end
 

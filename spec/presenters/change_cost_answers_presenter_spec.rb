@@ -19,16 +19,16 @@ RSpec.describe ChangeCostAnswersPresenter do
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:challenged_decision)       { true }
+  let(:challenged_decision)        { true }
   let(:challenged_decision_status) { nil }
-  let(:case_type)                 { 'foo' }
-  let(:dispute_type)              { nil }
-  let(:penalty_level)             { nil }
-  let(:penalty_amount)            { nil }
-  let(:tax_amount)                { nil }
-  let(:disputed_tax_paid)         { nil }
-  let(:hardship_review_requested) { nil }
-  let(:hardship_review_status)    { nil }
+  let(:case_type)                  { 'foo' }
+  let(:dispute_type)               { nil }
+  let(:penalty_level)              { nil }
+  let(:penalty_amount)             { nil }
+  let(:tax_amount)                 { nil }
+  let(:disputed_tax_paid)          { nil }
+  let(:hardship_review_requested)  { nil }
+  let(:hardship_review_status)     { nil }
 
   describe '#rows' do
     describe '`challenged_decision` row' do
