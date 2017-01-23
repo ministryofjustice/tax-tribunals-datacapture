@@ -11,6 +11,8 @@ class CostDecisionTree < DecisionTree
       after_dispute_type_step
     when :penalty_amount, :tax_amount, :penalty_and_tax_amounts
       hardship_or_determine_cost_step
+    when :challenged_decision_status
+      edit(:dispute_type)
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -22,7 +24,7 @@ class CostDecisionTree < DecisionTree
       show(:start)
     when :case_type
       edit(:challenged_decision)
-    when :case_type_show_more
+    when :case_type_show_more, :challenged_decision_status
       edit(:case_type)
     when :dispute_type
       before_dispute_type_step
@@ -40,11 +42,18 @@ class CostDecisionTree < DecisionTree
       tribunal_case.challenged_decision == ChallengedDecision::NO
   end
 
+  def tribunal_case_is_challenged_indirect_tax
+    !tribunal_case.case_type.direct_tax? &&
+      tribunal_case.challenged_decision == ChallengedDecision::YES
+  end
+
   def after_case_type_step
     if answer == Steps::Cost::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
     elsif tribunal_case_is_unchallenged_direct_tax
       show(:must_challenge_hmrc)
+    elsif tribunal_case_is_challenged_indirect_tax
+      edit(:challenged_decision_status)
     elsif tribunal_case.case_type.ask_dispute_type?
       edit(:dispute_type)
     elsif tribunal_case.case_type.ask_penalty?
