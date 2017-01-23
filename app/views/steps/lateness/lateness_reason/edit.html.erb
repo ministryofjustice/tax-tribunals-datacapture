@@ -2,9 +2,13 @@
   <div class="column-two-thirds">
     <%= step_header(:lateness, 2) %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="heading-large">
+      <%= @form_object.lateness_unknown? ? t('.heading_unsure') : t('.heading') %>
+    </h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
+    <p class="lede">
+      <%= @form_object.lateness_unknown? ? t('.lead_text_unsure') : t('.lead_text') %>
+    </p>
 
     <%= step_form @form_object do |f| %>
       <%= f.text_area :lateness_reason, size: '40x4', class: 'form-control-3-4' %>

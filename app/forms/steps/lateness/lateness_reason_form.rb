@@ -4,6 +4,10 @@ module Steps::Lateness
 
     validates_length_of :lateness_reason, minimum: 5
 
+    def lateness_unknown?
+      tribunal_case.in_time == InTime::UNSURE
+    end
+
     private
 
     def persist!

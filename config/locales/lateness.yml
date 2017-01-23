@@ -5,14 +5,14 @@ en:
       start:
         show:
           heading: 2. Check you meet tribunal deadlines
-          lead_text: You must appeal within the time stated on your last letter from HMRC. This is usually 30 days.
+          lead_text: You have 30 calendar days to submit an appeal. You can still appeal late if you have good reasons.
           description_html: |
-            <p>If you have asked HMRC for a review with a tax officer not originally involved in your case, you should wait until the review finishes.</p>
-            <p>Once the review is completed and you have received a letter from HMRC with the review conclusions you can then appeal to the tax tribunal.</p>
+            <p>The deadline to appeal begins from the date shown on either the original notice letter or review conclusion letter.</p>
+            <p>If you accepted or asked for a review, you can only appeal once you have received a review conclusion letter or 45 days passes without receiving one.</p>
             <h4 class="heading-small">What you will need</h4>
             <ul class="list list-bullet">
-              <li>date you received your last letter from HMRC</li>
-              <li>reasons why you're outside the time limit if you want to submit an appeal late</li>
+              <li><strong>date of the decision letter</strong> - this will be shown on either the original notice letter or review conclusion letter</li>
+              <li><strong>reasons if you want to appeal late</strong> - the judge will consider your reasons and decide whether to accept or reject your appeal</li>
             </ul>
           previous_step_not_completed: You must complete Step 1 before you can check whether or not you meet the tribunal deadlines.
           back_to_start: Return to start page
@@ -23,7 +23,9 @@ en:
       lateness_reason:
         edit:
           heading: Why are you late with your appeal?
+          heading_unsure: Are there reasons why your appeal might be late?
           lead_text: You must provide reasonable grounds for appealing late. If the judge rejects your reasons, your appeal will not proceed and any fees will not be refunded.
+          lead_text_unsure: To help us process your case quickly, you should give reasons why your appeal might be late. The judge will look at your reasons and decide whether to accept your appeal if it is late.
           details_title: Help with late appeals
           details_content: You must provide reasonable grounds for submitting your appeal late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the tax tribunal deadlines.
   activemodel:
