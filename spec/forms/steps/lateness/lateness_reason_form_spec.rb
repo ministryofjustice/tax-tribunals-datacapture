@@ -5,10 +5,37 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
     tribunal_case:   tribunal_case,
     lateness_reason: lateness_reason
   } }
-  let(:tribunal_case)   { instance_double(TribunalCase, lateness_reason: nil) }
+  let(:tribunal_case)   { instance_double(TribunalCase, lateness_reason: nil, in_time: in_time) }
   let(:lateness_reason) { nil }
+  let(:in_time)         { nil }
 
   subject { described_class.new(arguments) }
+
+  describe '#lateness_unknown?' do
+    context 'when appeal is late' do
+      let(:in_time) { InTime::YES }
+
+      it 'should return false' do
+        expect(subject.lateness_unknown?).to be(false)
+      end
+    end
+
+    context 'when appeal is not late' do
+      let(:in_time) { InTime::NO }
+
+      it 'should return false' do
+        expect(subject.lateness_unknown?).to be(false)
+      end
+    end
+
+    context 'when appeal is unsure to be late' do
+      let(:in_time) { InTime::UNSURE }
+
+      it 'should return false' do
+        expect(subject.lateness_unknown?).to be(true)
+      end
+    end
+  end
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
