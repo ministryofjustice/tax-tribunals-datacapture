@@ -121,6 +121,10 @@ en:
         edit:
           heading: What amount of tax is under dispute?
           lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+      penalty_and_tax_amounts:
+        edit:
+          heading: What is the tax amount and penalty or surcharge amount?
+          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
       determine_cost:
         show:
           fee_label: To submit an appeal costs
@@ -135,7 +139,7 @@ en:
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
-            tax_amount: What is the amount of tax?
+            tax_amount: What is the amount of tax in dispute?
             disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
             hardship_review_requested: Did you apply for financial hardship?
             hardship_review_status: What is the status of your hardship application?
@@ -294,3 +298,6 @@ en:
           penalty_level_3: over £20,000
       steps_cost_tax_amount_form:
         tax_amount: The amount of tax under dispute (optional)
+      steps_cost_penalty_and_tax_amounts_form:
+        tax_amount: The amount of tax you are disputing (optional)
+        penalty_amount: The penalty or surcharge amount you are disputing (optional)

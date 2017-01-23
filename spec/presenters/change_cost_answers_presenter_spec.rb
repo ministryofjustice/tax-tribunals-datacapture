@@ -177,6 +177,65 @@ RSpec.describe ChangeCostAnswersPresenter do
       end
     end
 
+    describe '`penalty and tax amount` rows' do
+      let(:row) { subject.rows[3] }
+
+      # Needed so that the rows are in the correct position
+      let(:dispute_type) { 'foo' }
+      let(:case_type) { 'bar' }
+
+      context 'when `tax amount` is nil and `penalty amount` is nil' do
+        let(:tax_amount) { nil }
+        let(:penalty_amount) { nil }
+
+        it 'row is not included' do
+          expect(row).to be_nil
+        end
+      end
+
+      context 'when `tax amount` is given and `penalty amount` is nil' do
+        let(:tax_amount) { 'about 12345' }
+        let(:penalty_amount) { nil }
+
+        it 'tax amount row has the correct attributes' do
+          expect(row.question).to    eq('.questions.tax_amount')
+          expect(row.answer).to      eq('about 12345')
+          expect(row.change_path).to eq(paths.edit_steps_cost_tax_amount_path)
+        end
+      end
+
+      context 'when `tax amount` is nil and `penalty amount` is given' do
+        let(:tax_amount) { nil }
+        let(:penalty_amount) { 'about 12345' }
+
+        it 'penalty amount row has the correct attributes' do
+          expect(row.question).to    eq('.questions.penalty_amount')
+          expect(row.answer).to      eq('about 12345')
+          expect(row.change_path).to eq(paths.edit_steps_cost_penalty_amount_path)
+        end
+      end
+
+      context 'when `tax amount` is given and `penalty amount` is given' do
+        let(:tax_amount) { 'about 12345' }
+        let(:penalty_amount) { 'about 54321' }
+
+        let(:tax_row) { subject.rows[3] }
+        let(:penalty_row) { subject.rows[4] }
+
+        it 'tax amount row has the correct attributes' do
+          expect(tax_row.question).to    eq('.questions.tax_amount')
+          expect(tax_row.answer).to      eq('about 12345')
+          expect(tax_row.change_path).to eq(paths.edit_steps_cost_tax_amount_path)
+        end
+
+        it 'penalty amount row has the correct attributes' do
+          expect(penalty_row.question).to    eq('.questions.penalty_amount')
+          expect(penalty_row.answer).to      eq('about 54321')
+          expect(penalty_row.change_path).to eq(paths.edit_steps_cost_penalty_amount_path)
+        end
+      end
+    end
+
     describe '`disputed_tax_paid` row' do
       let(:row) { subject.rows[3] }
 
