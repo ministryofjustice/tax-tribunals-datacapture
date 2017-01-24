@@ -5,6 +5,10 @@ class ContactDetailValidator
     def valid_email?(email)
       new(email).valid_email?
     end
+
+    def valid_postcode?(postcode)
+      new(postcode).valid_postcode?
+    end
   end
 
   def initialize(contact_detail)
@@ -13,5 +17,9 @@ class ContactDetailValidator
 
   def valid_email?
     EmailValidator.valid?(contact_detail)
+  end
+
+  def valid_postcode?
+    UKPostcode.parse(contact_detail).full_valid?
   end
 end
