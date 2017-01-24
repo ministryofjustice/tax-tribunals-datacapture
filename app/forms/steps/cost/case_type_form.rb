@@ -12,6 +12,7 @@ module Steps::Cost
         CaseType::CORPORATION_TAX,
         CaseType::INACCURATE_RETURN_PENALTY,
         CaseType::INFORMATION_NOTICE,
+        CaseType::NI_CONTRIBUTIONS,
         SHOW_MORE
       ].map(&:to_s)
     end

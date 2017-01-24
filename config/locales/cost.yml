@@ -263,6 +263,7 @@ en:
           corporation_tax_html: <strong>Corporation Tax</strong>
           inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
           information_notice_html: <strong>Information notices</strong>
+          ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_cost_case_type_show_more_form:
         case_type:
