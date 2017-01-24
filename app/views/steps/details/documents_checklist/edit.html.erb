@@ -11,7 +11,8 @@
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
 
-    <%= form_tag documents_url, class: 'dropzone js-stick-at-top-when-scrolling js-hidden show-when-js-is-loaded', id: 'dz_doc_upload' do %>
+    <div id="doc_upload_zone-sticky-wrapper" class="sticky-wrapper" style="height: 240px;">
+      <div class="dropzone dz-clickable js-stick-at-top-when-scrolling js-hidden show-when-js-is-loaded" id="dz_doc_upload" style="width: 630px;">
         <div class="dz-default dz-message grid-row">
           <div class="column-one-third arrow-icon">
             <p></p>
@@ -22,7 +23,8 @@
             </p>
           </div>
         </div>
-    <% end %>
+      </div>
+    </div>
 
     <div class="uploaded-files-wrapper">
       <h2 class="heading-medium"><%= t '.uploaded_files_header' %></h2>
@@ -46,18 +48,8 @@
       </ol>
     </div>
 
-    <details>
-      <summary><%= t 'shared.file_upload.header' %></summary>
-      <div class="panel">
-        <%= t 'shared.file_upload.file_list_html' %>
-        <p><%= t 'shared.file_upload.footer' %></p>
-      </div>
-    </details>
-
     <%= step_form @form_object do |f| %>
-        <h2 class="heading-medium"><%= t '.documents_check_heading' %></h2>
-
-        <div class="form-group">
+        <div class="form-group util_mt-large">
           <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
               <%= f.check_box :original_notice_provided %>
               <%= t '.original_notice_provided_html' %>
@@ -69,29 +61,25 @@
           <% end %>
         </div>
 
-        <div class="form-group">
-          <h2 class="heading-medium"><%= t '.other_documents_check_heading' %></h2>
-
-          <%= t '.other_documents_list_html' %>
-
-          <%= f.label :additional_documents_provided, class: 'block-label selection-button-checkbox', 'data-target': 'supporting_docs_info' do %>
-              <%= f.check_box :additional_documents_provided %>
-              <%= t '.additional_documents_provided_html' %>
-          <% end %>
-
-          <div id="supporting_docs_info" class="panel js-hidden">
-            <%= f.text_area :additional_documents_info, size: '40x4', class: 'form-control form-control-3-4' %>
-          </div>
-        </div>
-
-        <div class="form-group">
+        <div class="form-group util_mt-large">
           <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox' do %>
               <%= f.check_box :having_problems_uploading_documents %>
               <%= t '.having_problems_uploading_documents_html' %>
           <% end %>
         </div>
 
-        <%= f.submit class: 'button' %>
+        <div class="form-group util_mt-large">
+          <%= f.submit class: 'button' %>
+        </div>
     <% end %>
+  </div>
+
+  <div class="column-one-third">
+    <p class="lede">&nbsp;</p>
+    <p class="lede">&nbsp;</p>
+    <h2 class="heading-small"><%= t('.need_help') %></h2>
+    <nav role="navigation" class="font-xsmall">
+      <p><a href="#"><%= t('.contact_us') %></a></p>
+    </nav>
   </div>
 </div>
