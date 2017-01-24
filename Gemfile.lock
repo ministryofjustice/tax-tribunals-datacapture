@@ -90,6 +90,8 @@ GEM
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
+    email_validator (1.6.0)
+      activemodel
     equalizer (0.0.11)
     erubis (2.7.0)
     excon (0.54.0)
@@ -181,6 +183,7 @@ GEM
     parser (2.3.2.0)
       ast (~> 2.2)
     pg (0.19.0)
+    phonelib (0.6.9)
     powerpack (0.1.1)
     procto (0.0.3)
     pry (0.10.4)
@@ -296,6 +299,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    uk_postcode (2.1.1)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -338,6 +342,7 @@ DEPENDENCIES
   byebug
   capybara
   dotenv-rails
+  email_validator
   faker
   glimr-api-client (~> 0.2)
   govuk_elements_form_builder!
@@ -352,6 +357,7 @@ DEPENDENCIES
   mojfile-uploader-api-client (~> 0.1)
   mutant-rspec
   pg (~> 0.18)
+  phonelib
   pry-byebug
   pry-rails
   puma (~> 3.0)
@@ -366,6 +372,7 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   uglifier (>= 1.3.0)
+  uk_postcode
   virtus
   web-console
   webmock
@@ -373,4 +380,4 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 BUNDLED WITH
-   1.13.6
+   1.13.7
