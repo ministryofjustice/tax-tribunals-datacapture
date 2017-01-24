@@ -13,7 +13,8 @@ RSpec.describe CaseDetailsPdf do
       taxpayer_individual_name: 'Individual Name',
       taxpayer_company_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
-      case_reference: 'TC/2016/12345'
+      case_reference: 'TC/2016/12345',
+      outcome: 'my desired outcome'
     }
   end
 
@@ -50,6 +51,7 @@ RSpec.describe CaseDetailsPdf do
       expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:fee_answers).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
 
       expect(subject.generate).to match(/%PDF/)
     end

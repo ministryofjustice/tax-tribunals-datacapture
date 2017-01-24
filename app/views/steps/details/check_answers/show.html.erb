@@ -37,15 +37,15 @@
   <tr>
     <th><%= t '.questions.appellant_details' %></th>
     <td>
-      <div data-key="appellant_name"><%= @tribunal_case.taxpayer.name %></div>
-      <div data-key="appellant_address" class="js_breaklines">
+      <div><%= @tribunal_case.taxpayer.name %></div>
+      <div class="js_breaklines">
         <%= simple_format(@tribunal_case.taxpayer.address) %>
       </div>
       <div>
-        <%= t '.questions.appellant_phone' %> <span data-key="appellant_phone"><%= @tribunal_case.taxpayer.phone %></span>
+        <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
       </div>
       <div>
-        <%= t '.questions.appellant_email' %> <span data-key="appellant_email"><%= @tribunal_case.taxpayer.email %></span>
+        <%= t '.questions.appellant_email' %> <span><%= @tribunal_case.taxpayer.email %></span>
       </div>
     </td>
     <td class="change-answer">
@@ -56,12 +56,24 @@
   <tr>
     <th><%= t '.questions.grounds_for_appeal' %></th>
     <td>
-      <span data-key="grounds_for_appeal">
+      <span>
         <%= @tribunal_case.documents.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
       </span>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= t '.questions.desired_outcome' %></th>
+    <td>
+      <span>
+        <%= simple_format(@tribunal_case.outcome) %>
+      </span>
+    </td>
+    <td class="change-answer">
+      <%= link_to t('.change'), edit_steps_details_outcome_path %>
     </td>
   </tr>
 

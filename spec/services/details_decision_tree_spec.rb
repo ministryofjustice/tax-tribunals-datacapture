@@ -36,6 +36,12 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `grounds_for_appeal`' do
       let(:step_params) { { grounds_for_appeal: 'anything'  } }
 
+      it { is_expected.to have_destination(:outcome, :edit) }
+    end
+
+    context 'when the step is `outcome`' do
+      let(:step_params) { { outcome: 'anything'  } }
+
       it { is_expected.to have_destination(:documents_checklist, :edit) }
     end
 
@@ -95,10 +101,16 @@ RSpec.describe DetailsDecisionTree do
       end
     end
 
+    context 'when the step is `outcome`' do
+      let(:step_params) { { outcome: 'anything'  } }
+
+      it { is_expected.to have_previous(:grounds_for_appeal, :edit) }
+    end
+
     context 'when the step is `documents_checklist`' do
       let(:step_params) { { documents_checklist: 'anything'  } }
 
-      it { is_expected.to have_previous(:grounds_for_appeal, :edit) }
+      it { is_expected.to have_previous(:outcome, :edit) }
     end
 
     context 'when the step is `check_answers`' do
