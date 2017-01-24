@@ -83,4 +83,55 @@ RSpec.describe ContactDetailValidator do
       specify { is_expected.to be_falsey }
     end
   end
+
+  describe '#valid_phone?' do
+    subject { described_class.valid_phone?(phone) }
+
+    # 'Valid' in the sense of a valid format. Other examples use the official
+    # MoJ landline number.
+    context 'a valid mobile' do
+      let(:phone) { '07766554433' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid landline' do
+      let(:phone) { '02033343555' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid landline with internal spacing' do
+      let(:phone) { '020 3334 3555' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid phone with a country code' do
+      let(:phone) { '+44 20 3334 3555' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid phone with leading spaces' do
+      let(:phone) { ' 02033343555' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid phone with trailing spaces' do
+      let(:phone) { '02033343555 ' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'a valid phone with trailing spaces' do
+      let(:phone) { '02033343555 ' }
+      specify { is_expected.to be_truthy }
+    end
+
+    context 'an invalid phone' do
+      let(:phone) { '12033343555 ' }
+      specify { is_expected.to be_falsey }
+    end
+
+    context 'something that is not a phone at all' do
+      let(:phone) { 'test@example.com' }
+      specify { is_expected.to be_falsey }
+    end
+  end
 end

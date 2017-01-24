@@ -9,6 +9,10 @@ class ContactDetailValidator
     def valid_postcode?(postcode)
       new(postcode).valid_postcode?
     end
+
+    def valid_phone?(phone)
+      new(phone).valid_phone?
+    end
   end
 
   def initialize(contact_detail)
@@ -21,5 +25,9 @@ class ContactDetailValidator
 
   def valid_postcode?
     UKPostcode.parse(contact_detail).full_valid?
+  end
+
+  def valid_phone?
+    Phonelib.valid_for_country?(contact_detail, :gb)
   end
 end
