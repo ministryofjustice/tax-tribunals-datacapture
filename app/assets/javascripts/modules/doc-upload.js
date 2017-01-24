@@ -16,12 +16,14 @@ moj.Modules.docUpload = {
     self.$fileList = $(self.uploaded_files);
 
     dzOptions = {
+      url: '/documents',
       paramName: 'document',
       autoProcessQueue: true,
       addRemoveLinks: true,
       createImageThumbnails: false,
       uploadMultiple: false,
       forceFallback: false,
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
 
       success: function (file, response) {
         self.removeDropzonePreview(file);

@@ -1,0 +1,28 @@
+ul.buttons {
+  li {
+    margin-bottom: $gutter;
+  }
+}
+
+.uploaded-files {
+  border-top: 1px solid $grey-2;
+
+  li {
+    padding: 10px;
+    border-bottom: 1px solid $grey-2;
+  }
+
+  .no-files {
+    padding-left: 0;
+  }
+
+  .file {
+    list-style-type: decimal;
+    list-style-position: inside;
+    padding-left: 20px;
+
+    a {
+      float: right;
+    }
+  }
+}

@@ -6,8 +6,6 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <p><%= t '.description_text' %></p>
-
     <% uploaded_document = current_grounds_for_appeal_document %>
 
     <div id="gfa_main_container" class="uploaded_doc_<%=uploaded_document.present?%>">
@@ -19,13 +17,7 @@
               <%= f.file_field :grounds_for_appeal_document %>
           <% end %>
 
-          <details>
-            <summary><%= t 'shared.file_upload.header' %></summary>
-            <div class="panel">
-              <%= t 'shared.file_upload.file_list_html' %>
-              <p><%= t 'shared.file_upload.footer' %></p>
-            </div>
-          </details>
+          <%= render partial: 'steps/shared/file_upload_requirements' %>
 
           <%= f.submit class: 'button gfa_continue' %>
       <% end %>

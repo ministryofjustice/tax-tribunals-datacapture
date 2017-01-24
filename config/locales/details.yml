@@ -6,7 +6,6 @@ en:
         <ul class="list list-bullet">
           <li>File formats: Word, PDF, Excel, JPG, GIF, PNG</li>
           <li>File size: up to 20 megabytes (MB)</li>
-          <li>Scan documents in black and white
           <li>Files cannot be password protected</li>
         </ul>
       footer: You can’t upload executable (.exe) and other zip, archive or compressed files due to virus risks.
@@ -50,29 +49,23 @@ en:
       grounds_for_appeal:
         edit:
           heading: Grounds for appeal
-          lead_text: Tell us why you think HMRC's decision(s) is wrong, giving reasons. If you are appealing against more than one decision, you must explain why you think each one is wrong.
+          lead_text: Clearly explain why you are appealing, giving reasons for each decision you dispute. The judge will want to hear things from your side.
           description_text: Clearly explain in your own words. The judge will want to know things from your side and understand how any evidence you provide supports your case.
           footer_description_text: You will next have to upload any supporting documents including any correspondence with HMRC and evidence to support your case.
           previous_document: 'Previously attached document: %{file_name}'
           attach_document_html: <strong>Attach reasons as a document</strong>
       documents_checklist:
         edit:
-          heading: Documents checklist
-          lead_text: For your case to proceed you will need to upload the correct documents in digital format. We can accept scanned images or good quality pictures, for example via a smartphone.
+          heading: Select and upload your letters in digital format
+          lead_text: We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.
           documents_check_heading: 'You must upload the following (select the items you have uploaded):'
-          original_notice_provided_html: <strong>Original notice or decision letter from HMRC</strong><br>this letter includes the explanation for any decision(s)
-          review_conclusion_provided_html: "<strong>The review conclusion letter from HMRC</strong><br>if your case was reviewed, this letter is often headed the 'Conclusion of review'"
-          other_documents_check_heading: 'You can also add the following to help your case:'
-          other_documents_list_html: |
-            <ul class="list list-bullet">
-              <li>A copy of any letter sent to HMRC querying the decision or asking for a review</li>
-              <li>Any evidence to support your case</li>
-              <li>Approval to act as a representative</li>
-            </ul>
-          additional_documents_provided_html: I want to upload additional information
+          original_notice_provided_html: <strong>Original notice letter</strong><br>including the explanation for any decision(s)
+          review_conclusion_provided_html: <strong>Review conclusion letter</strong><br>you will only have this if your case was reviewed
           having_problems_uploading_documents_html: I am having trouble uploading my documents
           uploaded_files_header: Uploaded files
           no_uploaded_files: No files uploaded
+          need_help: Need help using the online service?
+          contact_us: Contact us
       check_answers:
         show:
           submit_and_continue: Submit and continue
@@ -163,9 +156,7 @@ en:
               no_documents: Please ensure the documents are uploaded
             review_conclusion_provided:
               blank: You must upload and check this document type
-            additional_documents_info:
-              too_short: You must describe the additional uploaded documents. Use at least %{count} characters.
-              present: Must be blank unless uploading additional documents
+              no_documents: Please ensure the documents are uploaded
   helpers:
     fieldset:
       steps_details_taxpayer_type_form:
@@ -192,5 +183,3 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
-      steps_details_documents_checklist_form:
-        additional_documents_info: "Briefly state what's in the document(s) you are uploading (for example, bank statements)"
