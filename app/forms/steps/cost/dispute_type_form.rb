@@ -12,9 +12,9 @@ module Steps::Cost
           DisputeType::INFORMATION_NOTICE
         ]
       when CaseType::INCOME_TAX
-        DisputeType.values
+        DisputeType.values - [DisputeType::INFORMATION_NOTICE]
       else
-        DisputeType.values - [DisputeType::PAYE_CODING_NOTICE]
+        DisputeType.values - [DisputeType::INFORMATION_NOTICE, DisputeType::PAYE_CODING_NOTICE]
       end.map(&:to_s)
     end
 

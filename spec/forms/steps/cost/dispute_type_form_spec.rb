@@ -21,13 +21,12 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
     context 'when the appeal is about income tax' do
       let(:case_type) { CaseType::INCOME_TAX }
 
-      it 'shows all choices (including PAYE coding notice)' do
+      it 'shows only the relevant choices' do
         expect(subject.choices).to eq(%w(
           penalty
           amount_of_tax
           amount_and_penalty
           paye_coding_notice
-          information_notice
           other
         ))
       end
@@ -47,12 +46,11 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
     context 'when the appeal is about anything else' do
       let(:case_type) { CaseType.new(:anything) }
 
-      it 'shows all relevant choices (excluding PAYE coding notice)' do
+      it 'shows only the relevant choices' do
         expect(subject.choices).to eq(%w(
           penalty
           amount_of_tax
           amount_and_penalty
-          information_notice
           other
         ))
       end
@@ -120,6 +118,26 @@ RSpec.describe Steps::Cost::DisputeTypeForm do
       end
 
       context 'and the appeal is not about income tax' do
+        let(:case_type) { CaseType::VAT }
+
+        it 'is not valid' do
+          expect(subject).to_not be_valid
+        end
+      end
+    end
+
+    context 'when dispute_type is only valid for information notices' do
+      let(:dispute_type) { 'information_notice' }
+
+      context 'and the appeal is about information notices' do
+        let(:case_type) { CaseType::INFORMATION_NOTICE }
+
+        it 'is valid' do
+          expect(subject).to be_valid
+        end
+      end
+
+      context 'and the appeal is not about information notices' do
         let(:case_type) { CaseType::VAT }
 
         it 'is not valid' do
