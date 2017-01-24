@@ -135,6 +135,7 @@ en:
           change: Change
           questions:
             challenged_decision: Have you challenged HMRC?
+            challenged_decision_status: What is the status of your challenge?
             case_type: What is your appeal about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
@@ -147,6 +148,9 @@ en:
             challenged_decision:
               'yes': 'Yes'
               'no': 'No'
+            challenged_decision_status:
+              received: Review conclusion received
+              overdue: Pending - more than 45 days
             case_type:
               apn_penalty: Accelerated Payment Notice (APN) penalty
               aggregates_levy: Aggregates Levy
@@ -206,6 +210,10 @@ en:
           free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
+      challenged_decision_status:
+        edit:
+          heading: "challenged decision header"
+          lead_text: "lead text here change me"
   activemodel:
     errors:
       models:

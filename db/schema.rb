@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170123150417) do
     t.string   "case_reference"
     t.string   "penalty_amount"
     t.string   "tax_amount"
+    t.string   "challenged_decision_status"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 
