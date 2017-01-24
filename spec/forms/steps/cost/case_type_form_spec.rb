@@ -10,6 +10,21 @@ RSpec.describe Steps::Cost::CaseTypeForm do
 
   subject { described_class.new(arguments) }
 
+  describe '.choices' do
+    it 'returns the relevant choices' do
+      expect(described_class.choices).to eq(%w(
+        income_tax
+        vat
+        capital_gains_tax
+        corporation_tax
+        inaccurate_return_penalty
+        information_notice
+        ni_contributions
+        _show_more
+      ))
+    end
+  end
+
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case) { nil }
