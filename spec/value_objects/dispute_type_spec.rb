@@ -4,6 +4,13 @@ RSpec.describe DisputeType do
   let(:type) { :foo }
   subject    { described_class.new(type) }
 
+  describe '.values' do
+    it 'returns all dispute types' do
+      expect(described_class.values.map(&:to_s)).to \
+        eq(%w(penalty amount_of_tax amount_and_penalty paye_coding_notice information_notice other))
+    end
+  end
+
   describe '#ask_penalty?' do
     it 'returns false by default' do
       expect(subject.ask_penalty?).to be(false)
