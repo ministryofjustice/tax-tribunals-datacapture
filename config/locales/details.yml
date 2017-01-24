@@ -129,6 +129,10 @@ en:
               'no': 'Yes'
               unsure: Unknown
             no_grounds_for_appeal_text: No text entered
+      outcome:
+        edit:
+          heading: What outcome do you want from your appeal?
+          lead_text: Give a summary of the decisions you think should be made in regards to your appeal. Write no more than 2-3 sentences which clearly outline the result you want.
   activemodel:
     errors:
       models:
@@ -145,6 +149,10 @@ en:
               file_size: The attached file exceeds the maximum allowed size
               content_type: The attached file is not a supported type
               response_error: There was an error uploading the file. Please try again
+        steps/details/outcome_form:
+          attributes:
+            outcome:
+              too_short: You must outline the result you want. Use at least %{count} characters.
         steps/details/individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/company_details_form:

@@ -8,6 +8,8 @@ class DetailsDecisionTree < DecisionTree
     when :individual_details, :company_details
       edit(:grounds_for_appeal)
     when :grounds_for_appeal
+      edit(:outcome)
+    when :outcome
       edit(:documents_checklist)
     when :documents_checklist
       show(:check_answers)
@@ -26,8 +28,10 @@ class DetailsDecisionTree < DecisionTree
       edit(:taxpayer_type)
     when :grounds_for_appeal
       before_grounds_for_appeal_step
-    when :documents_checklist
+    when :outcome
       edit(:grounds_for_appeal)
+    when :documents_checklist
+      edit(:outcome)
     when :check_answers
       edit(:documents_checklist)
     else
