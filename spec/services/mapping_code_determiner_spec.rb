@@ -25,19 +25,19 @@ RSpec.describe MappingCodeDeterminer do
   context 'when there is a penalty and it is level 1' do
     let(:penalty_level) { PenaltyLevel::PENALTY_LEVEL_1 }
 
-    it { is_expected.to have_mapping_code(:taxpenaltylow) }
+    it { is_expected.to have_mapping_code(:appeal_penalty_low) }
   end
 
   context 'when there is a penalty and it is level 2' do
     let(:penalty_level) { PenaltyLevel::PENALTY_LEVEL_2 }
 
-    it { is_expected.to have_mapping_code(:taxpenaltymed) }
+    it { is_expected.to have_mapping_code(:appeal_penalty_med) }
   end
 
   context 'when there is a penalty and it is level 3' do
     let(:penalty_level) { PenaltyLevel::PENALTY_LEVEL_3 }
 
-    it { is_expected.to have_mapping_code(:taxpenaltyhigh) }
+    it { is_expected.to have_mapping_code(:appeal_penalty_high) }
   end
 
   context 'when there is a penalty but it is an unhandled value' do
@@ -49,31 +49,31 @@ RSpec.describe MappingCodeDeterminer do
   context 'when the dispute is an appeal against a PAYE coding notice' do
     let(:dispute_type) { DisputeType::PAYE_CODING_NOTICE }
 
-    it { is_expected.to have_mapping_code(:payecoding) }
+    it { is_expected.to have_mapping_code(:appeal_payecoding) }
   end
 
   context 'when the dispute is an appeal against an information notice' do
     let(:dispute_type) { DisputeType::INFORMATION_NOTICE }
 
-    it { is_expected.to have_mapping_code(:taxpenaltymed) }
+    it { is_expected.to have_mapping_code(:appeal_infonotice) }
   end
 
   context 'when the dispute is about amount of tax' do
     let(:dispute_type) { DisputeType::AMOUNT_OF_TAX }
 
-    it { is_expected.to have_mapping_code(:otherapplication) }
+    it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
   context 'when the dispute is about amount of tax and a penalty' do
     let(:dispute_type) { DisputeType::AMOUNT_AND_PENALTY }
 
-    it { is_expected.to have_mapping_code(:otherapplication) }
+    it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
   context 'when the dispute is about something else' do
     let(:dispute_type) { DisputeType::OTHER }
 
-    it { is_expected.to have_mapping_code(:otherapplication) }
+    it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
   context 'when the dispute is about penalty but there is no penalty amount' do
@@ -91,7 +91,7 @@ RSpec.describe MappingCodeDeterminer do
   context 'when the case type is about something else' do
     let(:case_type) { CaseType::OTHER }
 
-    it { is_expected.to have_mapping_code(:otherappeal) }
+    it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
   context 'when there is a case type but it is an unhandled value' do
