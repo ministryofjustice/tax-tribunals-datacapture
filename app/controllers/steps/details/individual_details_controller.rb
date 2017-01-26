@@ -2,7 +2,7 @@ module Steps::Details
   class IndividualDetailsController < Steps::DetailsStepController
     def edit
       super
-      @form_object = IndividualDetailsForm.new(
+      @form_object = IndividualTaxpayerDetailsForm.new(
         tribunal_case:             current_tribunal_case,
         taxpayer_individual_name:  current_tribunal_case.taxpayer_individual_name,
         taxpayer_contact_address:  current_tribunal_case.taxpayer_contact_address,
@@ -13,7 +13,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(IndividualDetailsForm, as: :individual_details)
+      update_and_advance(IndividualTaxpayerDetailsForm, as: :individual_details)
     end
   end
 end

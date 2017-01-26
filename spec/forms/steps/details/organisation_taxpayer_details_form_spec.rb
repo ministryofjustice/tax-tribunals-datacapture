@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::CompanyDetailsForm do
+RSpec.describe Steps::Details::OrganisationTaxpayerDetailsForm do
   let(:arguments) { {
     tribunal_case:                        tribunal_case,
     taxpayer_company_name:                taxpayer_company_name,

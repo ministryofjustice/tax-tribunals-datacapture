@@ -2,7 +2,7 @@ module Steps::Details
   class CompanyDetailsController < Steps::DetailsStepController
     def edit
       super
-      @form_object = CompanyDetailsForm.new(
+      @form_object = OrganisationTaxpayerDetailsForm.new(
         tribunal_case:                        current_tribunal_case,
         taxpayer_company_name:                current_tribunal_case.taxpayer_company_name,
         taxpayer_company_registration_number: current_tribunal_case.taxpayer_company_registration_number,
@@ -15,7 +15,7 @@ module Steps::Details
     end
 
     def update
-      update_and_advance(CompanyDetailsForm, as: :company_details)
+      update_and_advance(OrganisationTaxpayerDetailsForm, as: :company_details)
     end
   end
 end
