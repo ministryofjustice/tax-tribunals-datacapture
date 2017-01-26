@@ -89,13 +89,13 @@ RSpec.describe DetailsDecisionTree do
       let(:step_params) { { grounds_for_appeal: 'anything'  } }
 
       context 'when the tax payer type is individual' do
-        let(:tribunal_case) { instance_double(TribunalCase, taxpayer_type: TaxpayerType::INDIVIDUAL) }
+        let(:tribunal_case) { instance_double(TribunalCase, taxpayer_type: ContactableEntityType::INDIVIDUAL) }
 
         it { is_expected.to have_previous(:individual_details, :edit) }
       end
 
       context 'when the tax payer type is company' do
-        let(:tribunal_case) { instance_double(TribunalCase, taxpayer_type: TaxpayerType::COMPANY) }
+        let(:tribunal_case) { instance_double(TribunalCase, taxpayer_type: ContactableEntityType::COMPANY) }
 
         it { is_expected.to have_previous(:company_details, :edit) }
       end
