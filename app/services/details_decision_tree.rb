@@ -43,9 +43,9 @@ class DetailsDecisionTree < DecisionTree
 
   def before_grounds_for_appeal_step
     case tribunal_case.taxpayer_type
-    when TaxpayerType::INDIVIDUAL
+    when ContactableEntityType::INDIVIDUAL
       edit(:individual_details)
-    when TaxpayerType::COMPANY
+    when ContactableEntityType::COMPANY
       edit(:company_details)
     end
   end

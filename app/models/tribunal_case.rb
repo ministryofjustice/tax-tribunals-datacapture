@@ -14,7 +14,7 @@ class TribunalCase < ApplicationRecord
   has_value_object :in_time
 
   # Details task
-  has_value_object :taxpayer_type
+  has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
 
   def mapping_code
     MappingCodeDeterminer.new(self).mapping_code
@@ -42,6 +42,6 @@ class TribunalCase < ApplicationRecord
   end
 
   def taxpayer_is_company?
-    taxpayer_type.equal? TaxpayerType::COMPANY
+    taxpayer_type.equal? ContactableEntityType::COMPANY
   end
 end

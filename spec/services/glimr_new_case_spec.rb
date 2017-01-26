@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe GlimrNewCase do
   let!(:tribunal_case)   { TribunalCase.create(case_attributes) }
-  let(:taxpayer_type)    { TaxpayerType::INDIVIDUAL }
+  let(:taxpayer_type)    { ContactableEntityType::INDIVIDUAL }
   let(:taxpayer_name)    { 'Filomena Keebler' }
   let(:taxpayer_address) { "769 Eleanore Landing\nSuite 225" }
 
@@ -128,7 +128,7 @@ RSpec.describe GlimrNewCase do
       end
 
       context 'when taxpayer_type is a company' do
-        let(:taxpayer_type) { TaxpayerType::COMPANY }
+        let(:taxpayer_type) { ContactableEntityType::COMPANY }
         let(:company_params) {
           glimr_params.except(:contactFirstName, :contactLastName).merge(
             repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')

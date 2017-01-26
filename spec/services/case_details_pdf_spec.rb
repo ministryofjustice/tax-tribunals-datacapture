@@ -5,7 +5,7 @@ RSpec.describe CaseDetailsPdf do
   let(:decorated_tribunal_case) { CaseDetailsPresenter.new(tribunal_case) }
   let(:controller_ctx) { ApplicationController.new }
 
-  let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
+  let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
   let(:case_attributes) do
     {
       case_type: CaseType::OTHER,
@@ -23,7 +23,7 @@ RSpec.describe CaseDetailsPdf do
 
   describe '#filename' do
     context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
+      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
 
       it 'should include the individual name in the file name' do
         expect(subject.filename).to eq('TC_2016_12345_HMRC_IndividualName.pdf')
@@ -31,7 +31,7 @@ RSpec.describe CaseDetailsPdf do
     end
 
     context 'when taxpayer is a company' do
-      let(:taxpayer_type) { TaxpayerType::COMPANY }
+      let(:taxpayer_type) { ContactableEntityType::COMPANY }
 
       it 'should include the company name in the file name' do
         expect(subject.filename).to eq('TC_2016_12345_HMRC_CompanyContactName.pdf')

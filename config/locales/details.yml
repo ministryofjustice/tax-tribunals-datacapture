@@ -33,11 +33,10 @@ en:
                 You can't save details as you go. Please get everything ready before you start.
               </strong>
             </p>
-          previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details. 
+          previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details.
       taxpayer_type:
         edit:
-          heading: Is the appeal for an individual or company?
-          lead_text: Select whether the taxpayer is an individual or a company.
+          heading: Who is your appeal for?
       individual_details:
         edit:
           heading: Taxpayer's details
@@ -168,12 +167,13 @@ en:
   helpers:
     fieldset:
       steps_details_taxpayer_type_form:
-        taxpayer_type: Is the appeal for an individual or company?
+        taxpayer_type: Who is your appeal for?
     label:
       steps_details_taxpayer_type_form:
         taxpayer_type:
           individual_html: <strong>Individual</strong>
-          company_html: <strong>Company</strong><br>including partnerships (LLP), trusts, clubs and associations
+          company_html: <strong>Company</strong>
+          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP), trust, club or association
       steps_details_individual_details_form:
         taxpayer_individual_name: Name (first name and last name)
         taxpayer_contact_address: Address

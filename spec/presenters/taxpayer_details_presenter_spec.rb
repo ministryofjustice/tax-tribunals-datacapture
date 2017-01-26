@@ -17,7 +17,7 @@ RSpec.describe TaxpayerDetailsPresenter do
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
+  let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
   let(:taxpayer_individual_name) { 'Name' }
   let(:taxpayer_contact_address) { 'Address' }
   let(:taxpayer_contact_postcode) { 'Postcode' }
@@ -29,7 +29,7 @@ RSpec.describe TaxpayerDetailsPresenter do
 
   describe '#name' do
     context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
+      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
 
       it 'should returns the taxpayer_individual_name field' do
         expect(subject.name).to eq('Name')
@@ -37,7 +37,7 @@ RSpec.describe TaxpayerDetailsPresenter do
     end
 
     context 'when taxpayer is a company' do
-      let(:taxpayer_type) { TaxpayerType::COMPANY }
+      let(:taxpayer_type) { ContactableEntityType::COMPANY }
 
       it 'should returns the taxpayer_company_fao field' do
         expect(subject.name).to eq('Company contact')
@@ -59,7 +59,7 @@ RSpec.describe TaxpayerDetailsPresenter do
 
   describe '#address' do
     context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { TaxpayerType::INDIVIDUAL }
+      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
       let(:taxpayer_company_name) { nil }
 
       it 'returns the address, including postcode' do
@@ -68,7 +68,7 @@ RSpec.describe TaxpayerDetailsPresenter do
     end
 
     context 'when taxpayer is a company' do
-      let(:taxpayer_type) { TaxpayerType::COMPANY }
+      let(:taxpayer_type) { ContactableEntityType::COMPANY }
       let(:taxpayer_company_name) { 'Company name' }
 
       it 'returns the address, including postcode' do

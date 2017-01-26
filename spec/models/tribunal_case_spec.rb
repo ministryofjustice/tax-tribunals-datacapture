@@ -162,7 +162,7 @@ RSpec.describe TribunalCase, type: :model do
 
   describe '#company?' do
     context 'when taxpayer is a company' do
-      let(:attributes) { {taxpayer_type: TaxpayerType::COMPANY} }
+      let(:attributes) { {taxpayer_type: ContactableEntityType::COMPANY} }
 
       it 'returns true' do
         expect(subject.taxpayer_is_company?).to eq(true)
@@ -170,7 +170,7 @@ RSpec.describe TribunalCase, type: :model do
     end
 
     context 'when taxpayer is an individual' do
-      let(:attributes) { {taxpayer_type: TaxpayerType::INDIVIDUAL} }
+      let(:attributes) { {taxpayer_type: ContactableEntityType::INDIVIDUAL} }
 
       it 'returns false' do
         expect(subject.taxpayer_is_company?).to eq(false)
