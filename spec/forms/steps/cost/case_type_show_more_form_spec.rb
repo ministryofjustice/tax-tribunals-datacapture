@@ -15,6 +15,41 @@ RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
       allow(Steps::Cost::CaseTypeForm).to receive(:choices).and_return([:bingo_duty])
       expect(described_class.choices).to_not include(:bingo_duty)
     end
+
+    it 'returns the relevant choices' do
+      expect(described_class.choices).to eq(%w(
+        apn_penalty
+        aggregates_levy
+        air_passenger_duty
+        alcoholic_liquor_duties
+        apply_decision_enquiry
+        bingo_duty
+        climate_change_levy
+        construction_industry_scheme
+        counter_terrorism
+        customs_duty
+        dotas_penalty
+        gaming_duty
+        general_betting_duty
+        export_regulations_penalty
+        hydrocarbon_oil_duties
+        inheritance_tax
+        insurance_premium_tax
+        landfill_tax
+        lottery_duty
+        money_laundering_decisions
+        petroleum_revenue_tax
+        pool_betting_duty
+        remote_gaming_duty
+        request_late_review
+        restoration_case
+        stamp_duties
+        statutory_payments
+        student_loans
+        tobacco_products_duty
+        other
+      ))
+    end
   end
 
   describe '#save' do

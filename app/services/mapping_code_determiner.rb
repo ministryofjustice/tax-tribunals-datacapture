@@ -53,8 +53,14 @@ class MappingCodeDeterminer
   def case_type_mapping_code
     # TODO: Add further when-branches once we have additional case types
     case tribunal_case.case_type
+    when CaseType::APPLY_DECISION_ENQUIRY
+      MappingCode::APPN_DECISION_ENQRY
+    when CaseType::REQUEST_LATE_REVIEW
+      MappingCode::APPN_LATE
     when CaseType::OTHER
       MappingCode::APPEAL_OTHER
+    else
+      MappingCode::APPN_OTHER
     end
   end
 end
