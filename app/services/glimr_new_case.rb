@@ -27,10 +27,10 @@ class GlimrNewCase
 
     params.merge!(taxpayer_street_params)
 
-    if tc.taxpayer_is_company?
+    if tc.taxpayer_is_organisation?
       params.merge!(
-        repOrganisationName: tc.taxpayer_company_name,
-        repFAO: tc.taxpayer_company_fao
+        repOrganisationName: tc.taxpayer_organisation_name,
+        repFAO: tc.taxpayer_organisation_fao
       )
     else
       params.merge!(

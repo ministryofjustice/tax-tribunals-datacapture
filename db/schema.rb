@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126153349) do
+ActiveRecord::Schema.define(version: 20170127121358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
   create_table "tribunal_cases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.datetime "created_at",                                                                 null: false
-    t.datetime "updated_at",                                                                 null: false
+    t.datetime "created_at",                                                                      null: false
+    t.datetime "updated_at",                                                                      null: false
     t.string   "case_type"
     t.string   "dispute_type"
     t.string   "penalty_level"
@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 20170126153349) do
     t.text     "taxpayer_contact_postcode"
     t.string   "taxpayer_contact_email"
     t.string   "taxpayer_contact_phone"
-    t.string   "taxpayer_company_name"
-    t.string   "taxpayer_company_fao"
-    t.string   "taxpayer_company_registration_number"
+    t.string   "taxpayer_organisation_name"
+    t.string   "taxpayer_organisation_fao"
+    t.string   "taxpayer_organisation_registration_number"
     t.text     "grounds_for_appeal"
     t.string   "grounds_for_appeal_file_name"
-    t.uuid     "files_collection_ref",                 default: -> { "uuid_generate_v4()" }
-    t.boolean  "original_notice_provided",             default: false
-    t.boolean  "review_conclusion_provided",           default: false
-    t.boolean  "having_problems_uploading_documents",  default: false
+    t.uuid     "files_collection_ref",                      default: -> { "uuid_generate_v4()" }
+    t.boolean  "original_notice_provided",                  default: false
+    t.boolean  "review_conclusion_provided",                default: false
+    t.boolean  "having_problems_uploading_documents",       default: false
     t.string   "challenged_decision"
     t.string   "disputed_tax_paid"
     t.string   "hardship_review_requested"

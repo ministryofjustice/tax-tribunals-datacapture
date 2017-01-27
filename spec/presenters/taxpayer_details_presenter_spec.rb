@@ -10,36 +10,36 @@ RSpec.describe TaxpayerDetailsPresenter do
       taxpayer_contact_postcode: taxpayer_contact_postcode,
       taxpayer_contact_email: taxpayer_contact_email,
       taxpayer_contact_phone: taxpayer_contact_phone,
-      taxpayer_company_name: taxpayer_company_name,
-      taxpayer_company_fao: taxpayer_company_fao,
-      taxpayer_company_registration_number: taxpayer_company_registration_number
+      taxpayer_organisation_name: taxpayer_organisation_name,
+      taxpayer_organisation_fao: taxpayer_organisation_fao,
+      taxpayer_organisation_registration_number: taxpayer_organisation_registration_number
     )
   }
   let(:paths) { Rails.application.routes.url_helpers }
 
-  let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
+  let(:taxpayer_type) { nil }
   let(:taxpayer_individual_name) { 'Name' }
   let(:taxpayer_contact_address) { 'Address' }
   let(:taxpayer_contact_postcode) { 'Postcode' }
   let(:taxpayer_contact_email) { 'Email' }
   let(:taxpayer_contact_phone) { 'Phone' }
-  let(:taxpayer_company_name) { 'Company name' }
-  let(:taxpayer_company_fao) { 'Company contact' }
-  let(:taxpayer_company_registration_number) { '0123' }
+  let(:taxpayer_organisation_name) { 'Company name' }
+  let(:taxpayer_organisation_fao) { 'Company contact' }
+  let(:taxpayer_organisation_registration_number) { '0123' }
 
   describe '#name' do
-    context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
+    context 'when taxpayer is not an organisation' do
+      let(:taxpayer_type) { OpenStruct.new(value: :anything, organisation?: false) }
 
       it 'should returns the taxpayer_individual_name field' do
         expect(subject.name).to eq('Name')
       end
     end
 
-    context 'when taxpayer is a company' do
-      let(:taxpayer_type) { ContactableEntityType::COMPANY }
+    context 'when taxpayer is an organisation' do
+      let(:taxpayer_type) { OpenStruct.new(value: :anything, organisation?: true) }
 
-      it 'should returns the taxpayer_company_fao field' do
+      it 'should returns the taxpayer_organisation_fao field' do
         expect(subject.name).to eq('Company contact')
       end
     end
@@ -58,18 +58,18 @@ RSpec.describe TaxpayerDetailsPresenter do
   end
 
   describe '#address' do
-    context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
-      let(:taxpayer_company_name) { nil }
+    context 'when taxpayer is not an organisation' do
+      let(:taxpayer_type) { OpenStruct.new(value: :anything, organisation?: false) }
+      let(:taxpayer_organisation_name) { nil }
 
       it 'returns the address, including postcode' do
         expect(subject.address).to eq("Address\nPostcode")
       end
     end
 
-    context 'when taxpayer is a company' do
-      let(:taxpayer_type) { ContactableEntityType::COMPANY }
-      let(:taxpayer_company_name) { 'Company name' }
+    context 'when taxpayer is an organisation' do
+      let(:taxpayer_type) { OpenStruct.new(value: :anything, organisation?: true) }
+      let(:taxpayer_organisation_name) { 'Company name' }
 
       it 'returns the address, including postcode' do
         expect(subject.address).to eq("Company name\nAddress\nPostcode")

@@ -11,7 +11,7 @@ RSpec.describe CaseDetailsPdf do
       case_type: CaseType::OTHER,
       taxpayer_type: taxpayer_type,
       taxpayer_individual_name: 'Individual Name',
-      taxpayer_company_fao: 'Company Contact Name',
+      taxpayer_organisation_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
       case_reference: 'TC/2016/12345',
       outcome: 'my desired outcome'
@@ -22,20 +22,10 @@ RSpec.describe CaseDetailsPdf do
 
 
   describe '#filename' do
-    context 'when taxpayer is an individual' do
-      let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
-
-      it 'should include the individual name in the file name' do
-        expect(subject.filename).to eq('TC_2016_12345_HMRC_IndividualName.pdf')
-      end
-    end
-
-    context 'when taxpayer is a company' do
-      let(:taxpayer_type) { ContactableEntityType::COMPANY }
-
-      it 'should include the company name in the file name' do
-        expect(subject.filename).to eq('TC_2016_12345_HMRC_CompanyContactName.pdf')
-      end
+    let(:taxpayer_details_presenter) { instance_double(TaxpayerDetailsPresenter, name: 'Foo Bar') }
+    it 'should generate an appropriate file name' do
+      expect(decorated_tribunal_case).to receive(:taxpayer).and_return(taxpayer_details_presenter)
+      expect(subject.filename).to eq('TC_2016_12345_HMRC_FooBar.pdf')
     end
   end
 

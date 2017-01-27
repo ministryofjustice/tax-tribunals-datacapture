@@ -41,7 +41,7 @@ class TribunalCase < ApplicationRecord
     [grounds_for_appeal_file_name]
   end
 
-  def taxpayer_is_company?
-    taxpayer_type.equal? ContactableEntityType::COMPANY
+  def taxpayer_is_organisation?
+    taxpayer_type.organisation?
   end
 end

@@ -5,7 +5,7 @@ class DetailsDecisionTree < DecisionTree
     case step_name.to_sym
     when :taxpayer_type
       after_taxpayer_type_step
-    when :individual_details, :company_details
+    when :individual_details, :organisation_details
       edit(:grounds_for_appeal)
     when :grounds_for_appeal
       edit(:outcome)
@@ -24,7 +24,7 @@ class DetailsDecisionTree < DecisionTree
     case step_name.to_sym
     when :taxpayer_type
       show(:start)
-    when :individual_details, :company_details
+    when :individual_details, :organisation_details
       edit(:taxpayer_type)
     when :grounds_for_appeal
       before_grounds_for_appeal_step
@@ -46,7 +46,7 @@ class DetailsDecisionTree < DecisionTree
     when ContactableEntityType::INDIVIDUAL
       edit(:individual_details)
     when ContactableEntityType::COMPANY
-      edit(:company_details)
+      edit(:organisation_details)
     end
   end
 
@@ -54,8 +54,8 @@ class DetailsDecisionTree < DecisionTree
     case answer
     when :individual
       edit(:individual_details)
-    when :company
-      edit(:company_details)
+    when :organisation, :other_organisation
+      edit(:organisation_details)
     end
   end
 end

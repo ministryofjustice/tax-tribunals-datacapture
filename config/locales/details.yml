@@ -41,7 +41,7 @@ en:
         edit:
           heading: Taxpayer's details
           lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
-      company_details:
+      organisation_details:
         edit:
           heading: Taxpayer's details
           lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
@@ -138,7 +138,7 @@ en:
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
-              inclusion: Select whether the appeal is for an individual or company
+              inclusion: Select whether the appeal is for an individual or organisation
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
@@ -154,7 +154,7 @@ en:
               too_short: You must outline the result you want. Use at least %{count} characters.
         steps/details/individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
-        steps/details/company_details_form:
+        steps/details/organisation_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/documents_checklist_form:
           attributes:
@@ -180,10 +180,10 @@ en:
         taxpayer_contact_postcode: Postcode
         taxpayer_contact_email: Email address
         taxpayer_contact_phone: Phone number
-      steps_details_company_details_form:
-        taxpayer_company_name: Company name
-        taxpayer_company_registration_number: Company registration number
-        taxpayer_company_fao: Company contact person (first name and last name)
+      steps_details_organisation_details_form:
+        taxpayer_organisation_name: Company name
+        taxpayer_organisation_registration_number: Company registration number
+        taxpayer_organisation_fao: Company contact person (first name and last name)
         taxpayer_contact_address: Address
         taxpayer_contact_postcode: Postcode
         taxpayer_contact_email: Email address

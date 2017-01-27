@@ -45,7 +45,7 @@ Rails.application.routes.draw do
       show_step :start
       edit_step :taxpayer_type
       edit_step :individual_details
-      edit_step :company_details
+      edit_step :organisation_details
       edit_step :grounds_for_appeal
       edit_step :outcome
       edit_step :documents_checklist
