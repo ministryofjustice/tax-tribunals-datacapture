@@ -141,7 +141,7 @@ en:
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
             tax_amount: What is the amount of tax in dispute?
-            disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
+            disputed_tax_paid: Have you paid the amount of tax under dispute?
             hardship_review_requested: Did you apply for financial hardship?
             hardship_review_status: What is the status of your hardship application?
           answers:
@@ -236,6 +236,8 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
+            case_type_other_value:
+              blank: Enter the type
         steps/cost/dispute_type_form:
           attributes:
             dispute_type:
@@ -273,6 +275,7 @@ en:
           ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_cost_case_type_show_more_form:
+        case_type_other_value: Enter the type of tax or dispute involved in your case
         case_type:
           apn_penalty_html: <strong>Accelerated Payment Notice (APN) penalty</strong>
           aggregates_levy_html: <strong>Aggregates Levy</strong>

@@ -58,6 +58,8 @@ class CostDecisionTree < DecisionTree
       edit(:dispute_type)
     elsif tribunal_case.case_type.ask_penalty?
       edit(:penalty_amount)
+    elsif tribunal_case.case_type.ask_hardship?
+      edit('/steps/hardship/disputed_tax_paid')
     else
       show(:determine_cost)
     end

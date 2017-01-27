@@ -4,8 +4,8 @@ en:
       step_header: Question %{step} of 8
       disputed_tax_paid:
         edit:
-          heading: Have you paid the amount of tax involved in the dispute?
-          lead_text: If you have paid or deposited the amount of tax involved in the dispute, select 'Yes'. If you can't pay because it will cause you financial difficulties, you can still continue your appeal.
+          heading: Have you paid the amount of tax under dispute?
+          lead_text: If you can't pay because it will cause you financial hardship, you can still continue your appeal.
       hardship_review_requested:
         edit:
           heading: Did you apply for financial hardship?
@@ -31,8 +31,9 @@ en:
               inclusion: Select the status of your hardship application
   helpers:
     fieldset:
+      # Use an empty string in _html keys to not show the fieldset legend
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid: Have you paid the amount of tax involved in the dispute?
+        disputed_tax_paid_html: ""
       steps_hardship_hardship_review_requested_form:
         hardship_review_requested: Did you apply for financial hardship?
       steps_hardship_hardship_review_status_form:

@@ -46,6 +46,12 @@ RSpec.describe CostDecisionTree, '#destination' do
       it { is_expected.to have_destination(:penalty_amount, :edit) }
     end
 
+    context 'and the case type is one that should only ask hardship' do
+      let(:case_type) { CaseType.new(:dummy, ask_dispute_type: false, ask_penalty: false, ask_hardship: true) }
+
+      it { is_expected.to have_destination('/steps/hardship/disputed_tax_paid', :edit) }
+    end
+
     context 'and the case type is one that should ask neither dispute type nor penalty' do
       let(:case_type) { CaseType.new(:dummy, ask_dispute_type: false, ask_penalty: false) }
 

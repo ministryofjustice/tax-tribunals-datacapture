@@ -60,7 +60,7 @@ class CaseType < ValueObject
     STUDENT_LOANS                = new(:student_loans,                direct_tax_properties),
     TOBACCO_PRODUCTS_DUTY        = new(:tobacco_products_duty,        indirect_tax_properties),
     VAT                          = new(:vat,                          indirect_tax_properties),
-    OTHER                        = new(:other,                        direct_tax: false, ask_dispute_type: false, ask_penalty: false, ask_hardship: false)
+    OTHER                        = new(:other,                        direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: true)
   ].freeze
 
   def self.values

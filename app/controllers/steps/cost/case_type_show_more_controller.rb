@@ -4,7 +4,8 @@ module Steps::Cost
       super
       @form_object = CaseTypeShowMoreForm.new(
         tribunal_case: current_tribunal_case,
-        case_type: current_tribunal_case.case_type
+        case_type: current_tribunal_case.case_type,
+        case_type_other_value: current_tribunal_case.case_type_other_value
       )
     end
 
