@@ -1,0 +1,16 @@
+en:
+  steps:
+    closure:
+      start:
+        show:
+          continue: Continue
+          heading: Apply to close an enquiry
+          lead_text: Ask the judge to close an HMRC enquiry if you think it has gone on too long.
+          description_html: |
+            <h2 class="heading-medium">What you will need</h2>
+            <ul class="list list-bullet">
+              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and years under enquiry</li>
+              <li><strong>further information (optional)</strong> saying why you think the enquiry should close</li>
+              <li><strong>any supporting documents (optional)</strong> ready to upload in digital format</li>
+              <li><strong><a href="https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28">signed approval (PDF, 58Kb)</a></strong> if you want someone to act on your behalf and receive letters from the tax tribunal or attend a hearing</li>
+            </ul>

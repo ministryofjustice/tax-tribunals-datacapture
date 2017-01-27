@@ -41,6 +41,10 @@ Rails.application.routes.draw do
       edit_step :lateness_reason
     end
 
+    namespace :closure do
+      show_step :start
+    end
+
     namespace :details do
       show_step :start
       edit_step :taxpayer_type
