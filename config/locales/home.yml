@@ -6,9 +6,7 @@ en:
       link_titles:
         appeal: Appeal against a tax decision
         close: Apply to close an enquiry
-        pay: Pay for an existing appeal
       link_descriptions:
         appeal: Get an impartial decision on a dispute with HMRC, UK Border Force or the National Crime Agency.
         close: Ask the judge to order the closure of an ongoing tax enquiry.
-        pay: If you have received a tax tribunal reference number and confirmation code by email but still need to pay your fee.
       link_time_estimate: "%{minutes} minutes to complete"
