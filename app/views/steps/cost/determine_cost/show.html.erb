@@ -16,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @change_answers.rows.each do |row| %>
+    <% @cost_answers.rows.each do |row| %>
       <tr>
         <th><%=t row.question %></th>
         <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>

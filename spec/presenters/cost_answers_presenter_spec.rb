@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe FeeDetailsAnswersPresenter do
+RSpec.describe CostAnswersPresenter do
   subject { described_class.new(tribunal_case) }
 
   let(:tribunal_case) { TribunalCase.create }
@@ -9,12 +9,11 @@ RSpec.describe FeeDetailsAnswersPresenter do
     [
       :challenged_decision_question,
       :case_type_question,
-      :dispute_type_question,
       :challenged_decision_status_question,
+      :dispute_type_question,
+      :tax_amount_question,
       :penalty_level_question,
       :penalty_amount_question,
-      :tax_amount_question,
-      :fee_amount_question,
       :disputed_tax_paid_question,
       :hardship_review_requested_question,
       :hardship_review_status_question

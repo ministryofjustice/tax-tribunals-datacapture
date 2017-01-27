@@ -51,6 +51,7 @@ RSpec.describe Steps::Cost::ChallengedDecisionForm do
         expect(tribunal_case).to receive(:update).with(
           challenged_decision: ChallengedDecision::NO,
           case_type: nil,
+          case_type_other_value: nil,
           dispute_type: nil,
           penalty_level: nil,
           penalty_amount: nil,
