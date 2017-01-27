@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
+RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     case_type: case_type,
@@ -14,7 +14,7 @@ RSpec.describe Steps::Cost::CaseTypeShowMoreForm do
 
   describe '.choices' do
     it 'excludes choices already in the previous form' do
-      allow(Steps::Cost::CaseTypeForm).to receive(:choices).and_return([:bingo_duty])
+      allow(Steps::Appeal::CaseTypeForm).to receive(:choices).and_return([:bingo_duty])
       expect(described_class.choices).to_not include(:bingo_duty)
     end
 

@@ -34,7 +34,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.i18n_value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
-          expect(row.start_path).to eq(paths.steps_cost_start_path)
+          expect(row.start_path).to eq(paths.steps_appeal_start_path)
         end
       end
 
@@ -47,7 +47,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to eq('£123')
           expect(row.i18n_value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
-          expect(row.start_path).to eq(paths.steps_cost_start_path)
+          expect(row.start_path).to eq(paths.steps_appeal_start_path)
         end
       end
 
@@ -59,7 +59,7 @@ RSpec.describe TaskListPresenter do
           expect(row.value).to be_nil
           expect(row.i18n_value).to be_nil
           expect(row.minutes_to_complete).to eq(5)
-          expect(row.start_path).to eq(paths.steps_cost_start_path)
+          expect(row.start_path).to eq(paths.steps_appeal_start_path)
         end
       end
     end

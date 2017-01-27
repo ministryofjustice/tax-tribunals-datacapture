@@ -9,14 +9,14 @@ Description:
     or "check your answers" page.
 
 Example:
-    rails generate step Cost DisputeType
+    rails generate step Appeal DisputeType
 
     This will create:
-        app/controllers/steps/cost/dispute_type_controller.rb
-        app/forms/steps/cost/dispute_type_form.rb
-        app/views/steps/cost/dispute_type/edit.html.erb
-        spec/controllers/steps/cost/dispute_type_controller_spec.rb
-        spec/forms/steps/cost/dispute_type_form_spec.rb
+        app/controllers/steps/appeal/dispute_type_controller.rb
+        app/forms/steps/appeal/dispute_type_form.rb
+        app/views/steps/appeal/dispute_type/edit.html.erb
+        spec/controllers/steps/appeal/dispute_type_controller_spec.rb
+        spec/forms/steps/appeal/dispute_type_form_spec.rb
 
     This will update:
         config/routes.rb

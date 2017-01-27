@@ -5,7 +5,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.challenged_decision,
       as: :challenged_decision,
-      change_path: edit_steps_cost_challenged_decision_path
+      change_path: edit_steps_appeal_challenged_decision_path
     )
   end
 
@@ -13,7 +13,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.challenged_decision_status,
       as: :challenged_decision_status,
-      change_path: edit_steps_cost_challenged_decision_status_path
+      change_path: edit_steps_appeal_challenged_decision_status_path
     )
   end
 
@@ -23,7 +23,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.case_type,
       as: :case_type,
-      change_path: edit_steps_cost_case_type_path
+      change_path: edit_steps_appeal_case_type_path
     )
   end
 
@@ -32,7 +32,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
       tribunal_case.case_type_other_value,
       as: :case_type,
       i18n_value: false,
-      change_path: edit_steps_cost_case_type_show_more_path
+      change_path: edit_steps_appeal_case_type_show_more_path
     )
   end
 
@@ -40,7 +40,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.dispute_type,
       as: :dispute_type,
-      change_path: edit_steps_cost_dispute_type_path
+      change_path: edit_steps_appeal_dispute_type_path
     )
   end
 
@@ -48,7 +48,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.penalty_level,
       as: :penalty_level,
-      change_path: edit_steps_cost_penalty_amount_path
+      change_path: edit_steps_appeal_penalty_amount_path
     )
   end
 
@@ -57,7 +57,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
       tribunal_case.penalty_amount,
       as: :penalty_amount,
       i18n_value: false,
-      change_path: edit_steps_cost_penalty_amount_path
+      change_path: edit_steps_appeal_penalty_amount_path
     )
   end
 
@@ -66,7 +66,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
       tribunal_case.tax_amount,
       as: :tax_amount,
       i18n_value: false,
-      change_path: edit_steps_cost_tax_amount_path
+      change_path: edit_steps_appeal_tax_amount_path
     )
   end
 

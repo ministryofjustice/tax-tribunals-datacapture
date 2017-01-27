@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Cost::PenaltyAmountForm do
+RSpec.describe Steps::Appeal::PenaltyAmountForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     penalty_level: penalty_level,

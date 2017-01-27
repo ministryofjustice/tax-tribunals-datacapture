@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Cost::DisputeTypeForm do
+RSpec.describe Steps::Appeal::DisputeTypeForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     dispute_type:  dispute_type

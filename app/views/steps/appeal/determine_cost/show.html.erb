@@ -1,0 +1,36 @@
+<div class="govuk-box-highlight">
+  <h2 class="bold-large">
+    <%=t '.fee_label' %>
+    <span class="fee-display">
+      <%= number_to_currency(@lodgement_fee / 100.0) %>
+    </span>
+  </h2>
+  <p><%= t('.fee_label_help') %></p>
+</div>
+
+<table class="check-your-answers your-answers">
+  <thead>
+    <tr>
+      <th><h2 class="heading-medium"><%=t '.check_your_answers' %></h2></th>
+      <td class="change-answer left"><%= link_to t('.change'), edit_steps_appeal_case_type_path %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cost_answers.rows.each do |row| %>
+      <tr>
+        <th><%=t row.question %></th>
+        <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render partial: 'fees_table' %>
+
+<p>
+  <%= link_to t('.continue'), task_list_path, class: 'button button-start', role: 'button' %>
+</p>
+
+<p>
+  <%= link_to t('.start_again'), session_path, method: :delete, class: 'link-back' %>
+</p>

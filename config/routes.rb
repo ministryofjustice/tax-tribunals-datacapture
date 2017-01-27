@@ -15,7 +15,7 @@ end
 
 Rails.application.routes.draw do
   namespace :steps do
-    namespace :cost do
+    namespace :appeal do
       show_step :start
       edit_step :challenged_decision
       edit_step :case_type

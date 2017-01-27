@@ -1,0 +1,30 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:cost, 5) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :penalty_level,
+        choices: Steps::Appeal::PenaltyAmountForm.choices %>
+
+      <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true">
+        <%= f.text_field :penalty_amount, class: 'form-control' %>
+      </div>
+
+      <%= f.submit class: 'button' %>
+    <% end %>
+
+    <%= javascript_tag do %>
+      //
+      // This is a hack because we want two out of three radio buttons to show the amount field,
+      // and that is not possible to do with the current gov.uk elements form builder version.
+      //
+      moj.Modules.customRadioToggles.config.$targetElement = $('#penalty_amount_detail');
+      moj.Modules.customRadioToggles.config.$showElements  = $('form input:radio:not(:first)');
+      moj.Modules.customRadioToggles.config.$hideElements  = $('form input:radio:first');
+    <% end %>
+  </div>
+</div>
