@@ -32,7 +32,7 @@ class BaseFeeAnswersPresenter < BaseAnswersPresenter
       tribunal_case.case_type_other_value,
       as: :case_type,
       i18n_value: false,
-      change_path: edit_steps_cost_case_type_show_more_path
+      change_path: edit_steps_appeal_case_type_show_more_path
     )
   end
 
