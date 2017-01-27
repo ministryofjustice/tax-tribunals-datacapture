@@ -160,21 +160,12 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
-  describe '#company?' do
-    context 'when taxpayer is a company' do
-      let(:attributes) { {taxpayer_type: ContactableEntityType::COMPANY} }
+  describe '#taxpayer_is_organisation?' do
+    let(:taxpayer_type) { OpenStruct.new(organisation?: true, value: :anything) }
+    let(:attributes) { { taxpayer_type: taxpayer_type } }
 
-      it 'returns true' do
-        expect(subject.taxpayer_is_company?).to eq(true)
-      end
-    end
-
-    context 'when taxpayer is an individual' do
-      let(:attributes) { {taxpayer_type: ContactableEntityType::INDIVIDUAL} }
-
-      it 'returns false' do
-        expect(subject.taxpayer_is_company?).to eq(false)
-      end
+    it 'queries the taxpayer_type' do
+      expect(subject.taxpayer_is_organisation?).to eq(true)
     end
   end
 end

@@ -14,10 +14,16 @@ RSpec.describe DetailsDecisionTree do
         it { is_expected.to have_destination(:individual_details, :edit) }
       end
 
-      context 'and the answer is `company`' do
-        let(:step_params) { { taxpayer_type: 'company'  } }
+      context 'and the answer is `organisation`' do
+        let(:step_params) { { taxpayer_type: 'organisation'  } }
 
-        it { is_expected.to have_destination(:company_details, :edit) }
+        it { is_expected.to have_destination(:organisation_details, :edit) }
+      end
+
+      context 'and the answer is `other_organisation`' do
+        let(:step_params) { { taxpayer_type: 'other_organisation'  } }
+
+        it { is_expected.to have_destination(:organisation_details, :edit) }
       end
     end
 
@@ -27,8 +33,8 @@ RSpec.describe DetailsDecisionTree do
       it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
     end
 
-    context 'when the step is `company_details`' do
-      let(:step_params) { { company_details: 'anything'  } }
+    context 'when the step is `organisation_details`' do
+      let(:step_params) { { organisation_details: 'anything'  } }
 
       it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
     end
@@ -79,8 +85,8 @@ RSpec.describe DetailsDecisionTree do
       it { is_expected.to have_previous(:taxpayer_type, :edit) }
     end
 
-    context 'when the step is `company_details`' do
-      let(:step_params) { { company_details: 'anything'  } }
+    context 'when the step is `organisation_details`' do
+      let(:step_params) { { organisation_details: 'anything'  } }
 
       it { is_expected.to have_previous(:taxpayer_type, :edit) }
     end
@@ -94,10 +100,10 @@ RSpec.describe DetailsDecisionTree do
         it { is_expected.to have_previous(:individual_details, :edit) }
       end
 
-      context 'when the tax payer type is company' do
+      context 'when the tax payer type is organisation' do
         let(:tribunal_case) { instance_double(TribunalCase, taxpayer_type: ContactableEntityType::COMPANY) }
 
-        it { is_expected.to have_previous(:company_details, :edit) }
+        it { is_expected.to have_previous(:organisation_details, :edit) }
       end
     end
 

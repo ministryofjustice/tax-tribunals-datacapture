@@ -1,4 +1,4 @@
-RSpec.shared_examples 'a contactable entity' do |params|
+RSpec.shared_examples 'a contactable entity form' do |params|
   entity_type = params.fetch(:entity_type)
   additional_fields = params.fetch(:additional_fields, [])
 

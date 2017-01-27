@@ -14,8 +14,8 @@ RSpec.describe GlimrNewCase do
       taxpayer_contact_postcode: 'SW1H 9AJ',
       taxpayer_contact_phone: '0700 12345678',
       taxpayer_contact_email: 'test@example.com',
-      taxpayer_company_name: 'Company Name',
-      taxpayer_company_fao: 'Destany Fritsch',
+      taxpayer_organisation_name: 'Company Name',
+      taxpayer_organisation_fao: 'Destany Fritsch',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
     }
   end
@@ -54,7 +54,6 @@ RSpec.describe GlimrNewCase do
     end
 
     context "Glimr call happens" do
-
       before do
         expect(GlimrApiClient::RegisterNewCase).to receive(:call).
           with(hash_including(glimr_params)).and_return(glimr_response_double)
@@ -127,16 +126,16 @@ RSpec.describe GlimrNewCase do
         allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPEAL_PENALTY_LOW)
       end
 
-      context 'when taxpayer_type is a company' do
+      context 'when taxpayer_type is company' do
         let(:taxpayer_type) { ContactableEntityType::COMPANY }
-        let(:company_params) {
+        let(:organisation_params) {
           glimr_params.except(:contactFirstName, :contactLastName).merge(
             repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
         }
 
-        it 'sends required company params but not individual params' do
+        it 'sends required organisation params but not individual params' do
           expect(GlimrApiClient::RegisterNewCase).to receive(:call).
-            with(hash_including(company_params)).and_return(glimr_response_double)
+            with(hash_including(organisation_params)).and_return(glimr_response_double)
           subject.call!
         end
       end

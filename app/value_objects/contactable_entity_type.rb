@@ -8,4 +8,8 @@ class ContactableEntityType < ValueObject
   def self.values
     VALUES
   end
+
+  def organisation?
+    [COMPANY, OTHER_ORGANISATION].include?(self)
+  end
 end
