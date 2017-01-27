@@ -7,9 +7,9 @@ RSpec.describe SessionsController, type: :controller do
       expect(session).to be_empty
     end
 
-    it 'redirects to the start page' do
+    it 'redirects to the appeal page' do
       get :destroy
-      expect(subject).to redirect_to(task_list_path)
+      expect(subject).to redirect_to(appeal_path)
     end
   end
 

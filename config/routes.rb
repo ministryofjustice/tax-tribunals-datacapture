@@ -82,5 +82,5 @@ Rails.application.routes.draw do
   resources :healthcheck, only: [:index]
 
   root to: 'home#index'
-  get :task_list, to: 'task_list#index'
+  get :appeal, to: 'home#index'
 end
