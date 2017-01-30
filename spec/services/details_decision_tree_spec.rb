@@ -28,15 +28,35 @@ RSpec.describe DetailsDecisionTree do
     end
 
     context 'when the step is `individual_details`' do
-      let(:step_params) { { individual_details: 'anything'  } }
+      let(:step_params) { {individual_details: 'anything'} }
 
-      it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+      context 'for a tax appeal' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::TAX_APPEAL) }
+
+        it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+      end
+
+      context 'for a closure enquiry' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::CLOSE_ENQUIRY) }
+
+        it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
+      end
     end
 
     context 'when the step is `organisation_details`' do
       let(:step_params) { { organisation_details: 'anything'  } }
 
-      it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+      context 'for a tax appeal' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::TAX_APPEAL) }
+
+        it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+      end
+
+      context 'for a closure enquiry' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::CLOSE_ENQUIRY) }
+
+        it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
+      end
     end
 
     context 'when the step is `grounds_for_appeal`' do
@@ -76,7 +96,17 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `taxpayer_type`' do
       let(:step_params) { { taxpayer_type: 'anything'  } }
 
-      it { is_expected.to have_previous(:start, :show) }
+      context 'for a tax appeal' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::TAX_APPEAL) }
+
+        it { is_expected.to have_previous(:start, :show) }
+      end
+
+      context 'for a closure enquiry' do
+        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::CLOSE_ENQUIRY) }
+
+        it { is_expected.to have_previous('/steps/closure/case_type', :edit) }
+      end
     end
 
     context 'when the step is `individual_details`' do

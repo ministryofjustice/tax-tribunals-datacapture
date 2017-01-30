@@ -4,7 +4,7 @@ class ClosureDecisionTree < DecisionTree
 
     case step_name.to_sym
     when :case_type
-      # TODO: do something
+      edit('/steps/details/taxpayer_type')
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -14,6 +14,8 @@ class ClosureDecisionTree < DecisionTree
     case step_name.to_sym
     when :case_type
       show(:start)
+    when :enquiry_details
+      edit('/steps/details/taxpayer_type')
     else
       raise "Invalid step '#{step_params}'"
     end

@@ -1,0 +1,16 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:closure, 0) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.text_field :closure_hmrc_reference %>
+      <%= f.text_field :closure_years_under_enquiry %>
+      <%= f.text_field :closure_hmrc_officer %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>

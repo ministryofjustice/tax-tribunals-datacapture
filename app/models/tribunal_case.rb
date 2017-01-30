@@ -16,6 +16,10 @@ class TribunalCase < ApplicationRecord
   # Details task
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
 
+  # Closure task
+  has_value_object :intent
+  has_value_object :closure_case_type
+
   def mapping_code
     MappingCodeDeterminer.new(self).mapping_code
   end
