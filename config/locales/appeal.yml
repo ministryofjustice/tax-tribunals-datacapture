@@ -1,6 +1,6 @@
 en:
   steps:
-    cost:
+    appeal:
       step_header: Question %{step} of 8
       start:
         show:
@@ -249,22 +249,22 @@ en:
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
-      steps_cost_challenged_decision_form:
+      steps_appeal_challenged_decision_form:
         challenged_decision: Did you challenge the decision with HMRC first?
-      steps_cost_case_type_form:
+      steps_appeal_case_type_form:
         case_type_html: ""
-      steps_cost_case_type_show_more_form:
+      steps_appeal_case_type_show_more_form:
         case_type_html: ""
-      steps_cost_dispute_type_form:
+      steps_appeal_dispute_type_form:
         dispute_type_html: ""
-      steps_cost_penalty_amount_form:
+      steps_appeal_penalty_amount_form:
         penalty_level_html: ""
     label:
-      steps_cost_challenged_decision_form:
+      steps_appeal_challenged_decision_form:
         challenged_decision:
           'yes': 'Yes'
           'no': 'No'
-      steps_cost_case_type_form:
+      steps_appeal_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment
           vat_html: <strong>Value Added Tax (VAT)</strong>
@@ -274,7 +274,7 @@ en:
           information_notice_html: <strong>Information notices</strong>
           ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
-      steps_cost_case_type_show_more_form:
+      steps_appeal_case_type_show_more_form:
         case_type_other_value: Enter the type of tax or dispute involved in your case
         case_type:
           apn_penalty_html: <strong>Accelerated Payment Notice (APN) penalty</strong>
@@ -308,7 +308,7 @@ en:
           student_loans_html: <strong>Student loans</strong>
           tobacco_products_duty_html: <strong>Tobacco Products Duty</strong>
           other_html: <strong>None of the above</strong>
-      steps_cost_dispute_type_form:
+      steps_appeal_dispute_type_form:
         dispute_type:
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
           penalty_html: <strong>Penalty or surcharge</strong>
@@ -316,14 +316,14 @@ en:
           amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both must be stated on the same letter
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
-      steps_cost_penalty_amount_form:
+      steps_appeal_penalty_amount_form:
         penalty_amount: What is the penalty or surcharge amount? (Optional)
         penalty_level:
           penalty_level_1: £100 or less
           penalty_level_2: over £100 – £20,000
           penalty_level_3: over £20,000
-      steps_cost_tax_amount_form:
+      steps_appeal_tax_amount_form:
         tax_amount: The amount of tax under dispute (optional)
-      steps_cost_penalty_and_tax_amounts_form:
+      steps_appeal_penalty_and_tax_amounts_form:
         tax_amount: The amount of tax you are disputing (optional)
         penalty_amount: The penalty or surcharge amount you are disputing (optional)
