@@ -19,7 +19,7 @@ RSpec.describe ClosureDecisionTree do
 
   describe '#previous' do
     context 'when the step is `change_me`' do
-      let(:step_params) { { change_me: 'anything' } }
+      let(:step_params) { { case_type: 'anything' } }
 
       it { is_expected.to have_previous(:start, :show) }
     end

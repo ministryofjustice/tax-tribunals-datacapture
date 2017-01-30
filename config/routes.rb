@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
     namespace :closure do
       show_step :start
+      edit_step :case_type
     end
 
     namespace :details do
