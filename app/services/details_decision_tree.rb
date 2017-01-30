@@ -4,8 +4,8 @@ class DetailsDecisionTree < DecisionTree
 
     case step_name.to_sym
     when :taxpayer_type
-      after_taxpayer_type_step
-    when :individual_details, :organisation_details
+      edit(:taxpayer_details)
+    when :taxpayer_details
       after_details_step
     when :grounds_for_appeal
       edit(:outcome)
@@ -24,10 +24,10 @@ class DetailsDecisionTree < DecisionTree
     case step_name.to_sym
     when :taxpayer_type
       before_taxpayer_type_step
-    when :individual_details, :organisation_details
+    when :taxpayer_details
       edit(:taxpayer_type)
     when :grounds_for_appeal
-      before_grounds_for_appeal_step
+      edit(:taxpayer_details)
     when :outcome
       edit(:grounds_for_appeal)
     when :documents_checklist
@@ -40,24 +40,6 @@ class DetailsDecisionTree < DecisionTree
   end
 
   private
-
-  def before_grounds_for_appeal_step
-    case tribunal_case.taxpayer_type
-    when ContactableEntityType::INDIVIDUAL
-      edit(:individual_details)
-    when ContactableEntityType::COMPANY
-      edit(:organisation_details)
-    end
-  end
-
-  def after_taxpayer_type_step
-    case answer
-    when :individual
-      edit(:individual_details)
-    when :company, :other_organisation
-      edit(:organisation_details)
-    end
-  end
 
   def before_taxpayer_type_step
     case tribunal_case.intent

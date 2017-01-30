@@ -38,14 +38,9 @@ en:
       taxpayer_type:
         edit:
           heading: Who is your appeal for?
-      individual_details:
+      taxpayer_details:
         edit:
-          heading: Taxpayer's details
-          lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
-      organisation_details:
-        edit:
-          heading: Taxpayer's details
-          lead_text: Enter details for the taxpayer involved in the appeal. These will usually be shown on any correspondence with HMRC.
+          heading: Enter taxpayer's details
       grounds_for_appeal:
         edit:
           heading: Grounds for appeal
@@ -153,9 +148,9 @@ en:
           attributes:
             outcome:
               too_short: You must outline the result you want. Use at least %{count} characters.
-        steps/details/individual_details_form:
+        steps/details/taxpayer_individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
-        steps/details/organisation_details_form:
+        steps/details/taxpayer_organisation_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/documents_checklist_form:
           attributes:
@@ -175,13 +170,13 @@ en:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
           other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP), trust, club or association
-      steps_details_individual_taxpayer_details_form:
+      steps_details_taxpayer_individual_details_form:
         taxpayer_individual_name: Name (first name and last name)
         taxpayer_contact_address: Address
         taxpayer_contact_postcode: Postcode
         taxpayer_contact_email: Email address
         taxpayer_contact_phone: Phone number
-      steps_details_organisation_details_form:
+      steps_details_taxpayer_organisation_details_form:
         taxpayer_organisation_name: Company name
         taxpayer_organisation_registration_number: Company registration number
         taxpayer_organisation_fao: Company contact person (first name and last name)

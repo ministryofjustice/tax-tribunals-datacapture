@@ -50,8 +50,7 @@ Rails.application.routes.draw do
     namespace :details do
       show_step :start
       edit_step :taxpayer_type
-      edit_step :individual_details
-      edit_step :organisation_details
+      edit_step :taxpayer_details
       edit_step :grounds_for_appeal
       edit_step :outcome
       edit_step :documents_checklist
