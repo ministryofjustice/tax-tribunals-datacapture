@@ -1,0 +1,15 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:closure, 1) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :closure_case_type,
+        choices: Steps::Closure::CaseTypeForm.choices %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>

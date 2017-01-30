@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   def current_tribunal_case
     @current_tribunal_case ||= TribunalCase.find_by_id(session[:tribunal_case_id])
   end
+
+  private
+
+  def initialize_tribunal_case(intent:)
+    TribunalCase.create(intent: intent).tap do |tribunal_case|
+      session[:tribunal_case_id] = tribunal_case.id
+    end
+  end
 end
