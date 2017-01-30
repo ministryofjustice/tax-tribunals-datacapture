@@ -19,6 +19,10 @@ en:
         edit:
           heading: What type of tax return is under enquiry?
           lead_text: The tax tribunal can only receive applications to close the following types of enquiry.
+      enquiry_details:
+        edit:
+          heading: Enter details for the enquiry you want to close
+          lead_text: You will find this information on any letters you have received from HMRC about the enquiry.
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
@@ -32,3 +36,16 @@ en:
           income_tax_closure_html: Income Tax
           partnership_tax_closure_html: Partnership Tax
           stamp_duty_land_tax_closure_html: Stamp Duty Land Tax
+      steps_closure_enquiry_details_form:
+        closure_hmrc_reference: HMRC reference number
+        closure_years_under_enquiry: Years under enquiry
+        closure_hmrc_officer: Name of HMRC officer conducting the enquiry (optional)
+  activemodel:
+    errors:
+      models:
+        steps/closure/enquiry_details_form:
+          attributes:
+            closure_hmrc_reference:
+              blank: Enter the reference number
+            closure_years_under_enquiry:
+              blank: Enter the years under enquiry
