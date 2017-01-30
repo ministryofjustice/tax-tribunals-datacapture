@@ -175,7 +175,7 @@ en:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
           other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP), trust, club or association
-      steps_details_individual_details_form:
+      steps_details_individual_taxpayer_details_form:
         taxpayer_individual_name: Name (first name and last name)
         taxpayer_contact_address: Address
         taxpayer_contact_postcode: Postcode
