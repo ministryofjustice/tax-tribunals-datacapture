@@ -54,7 +54,7 @@ class DetailsDecisionTree < DecisionTree
     case answer
     when :individual
       edit(:individual_details)
-    when :organisation, :other_organisation
+    when :company, :other_organisation
       edit(:organisation_details)
     end
   end
