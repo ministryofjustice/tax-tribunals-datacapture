@@ -16,6 +16,7 @@ en:
             </ul>
           previous_step_not_completed: You must complete Step 1 before you can check whether or not you meet the tribunal deadlines.
           back_to_start: Return to start page
+          continue: Continue
       in_time:
         edit:
           heading: Do you think you're in time to appeal to the tax tribunal?
