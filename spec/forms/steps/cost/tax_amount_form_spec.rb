@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Cost::TaxAmountForm do
+RSpec.describe Steps::Appeal::TaxAmountForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     tax_amount: tax_amount

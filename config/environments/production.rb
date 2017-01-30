@@ -28,4 +28,6 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
+
+  config.action_view.raise_on_missing_translations = true
 end

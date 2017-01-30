@@ -23,9 +23,9 @@ class TaskListPresenter
   def cost_determination_row
     if tribunal_case&.cost_task_completed?
       value = number_to_currency(tribunal_case.lodgement_fee / 100.0)
-      TaskListRow.new(:determine_cost, 5, value, nil, steps_cost_start_path, false)
+      TaskListRow.new(:determine_cost, 5, value, nil, steps_appeal_start_path, false)
     else
-      TaskListRow.new(:determine_cost, 5, nil, nil, steps_cost_start_path, true)
+      TaskListRow.new(:determine_cost, 5, nil, nil, steps_appeal_start_path, true)
     end
   end
 

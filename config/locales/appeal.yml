@@ -1,0 +1,329 @@
+en:
+  steps:
+    appeal:
+      step_header: Question %{step} of 8
+      start:
+        show:
+          heading: 1. Find out the cost of your appeal
+          lead_text_html: You will need to pay an initial fee of £20, £50 or £200 to submit an appeal unless you're eligible for <a href="https://www.gov.uk/get-help-with-court-fees">help with fees</a>.
+          description_html: |
+            <p>You may also have to pay a further fee if your case needs further documents, correspondence and a hearing in person with a judge.</p>
+            <details role="group">
+              <summary role="button" aria-controls="details-content-0" aria-expanded="false">See how much your appeal or application might cost</summary>
+
+              <div class="panel" id="details-content-0" aria-hidden="true">
+                <table class="expandable-demo">
+                  <caption>Table explaining the fees for different types of appeals or applications</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Type of appeal or application</th>
+                      <th scope="col">Initial fee</th>
+                      <th scope="col">Further fee</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £100 or less (e.g. for late self-assessment)</li>
+                        </ul>
+                      </td>
+                      <td>£20</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £101 to £2,000 (e.g. for late filing or payment)</li>
+                        </ul>
+                      </td>
+                      <td>£50</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Penalty of £2,001 to £20,000</li>
+                          <li>Inaccurate return</li>
+                          <li>Information notice</li>
+                          <li>Closure notice</li>
+                          <li>Pay As You Earn (PAYE) coding notice</li>
+                          <li>Request permission for a review</li>
+                        </ul>
+                      </td>
+                      <td>£50</td>
+                      <td>£200</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>All other types of appeal or application</li>
+                        </ul>
+                      </td>
+                      <td>£200</td>
+                      <td>£500</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul class="list list-bullet">
+                          <li>Appeals over £1 million or principles of law</li>
+                        </ul>
+                      </td>
+                      <td>£200</td>
+                      <td>£1,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <p>The judge has the power to decide whether your fees are refunded when they look at your case. The tribunal itself does not have the power to enforce or award costs.</p>
+            <p>Check if you're able to <a href="https://www.gov.uk/get-help-with-court-fees">get help paying your fees</a> if you’re on a low income or receiving certain benefits.</p>
+          continue: Continue
+      challenged_decision:
+        edit:
+          heading: Did you challenge the decision with HMRC first?
+          lead_text: If you’ve written to HM Revenue & Customs (HMRC) to say why the decision is wrong, or have asked for a review of your case, please select ‘Yes’.
+          help_panel:
+            heading: Help with challenging HMRC directly
+            content_html: >
+              <p>HMRC will tell you on the original decision  letter sent to you how you can query or challenge a tax decision.</p>
+              <p>You usually have 30 days to write to them saying why you think their decision is wrong.</p>
+              <p>It is free to ask HMRC to look into your tax issue again. You will usually only have to pay your own costs, for example towards postage, printing or any professional advice.</p>
+              <p><strong>You can still appeal to the tax tribunal after challenging HMRC</strong>
+              <p>HMRC will send you a letter telling you their view on your tax dispute and whether they've changed their mind.</p>
+              <p>If you disagree with HMRC’s response, you can:
+              <ul class="list list-bullet">
+                <li>ask HMRC for a review by an officer who wasn’t involved in the original decision. You can still appeal to the tax tribunal afterwards if you do not accept the review conclusion</li>
+                <li>consider alternative dispute resolution (ADR)</li>
+                <li>appeal to an independent tax tribunal within 30 days</li>
+              </ul>
+              <p>See the <a href="https://www.gov.uk/tax-appeals">guidance from HMRC on how to appeal</a> against a tax decision.</p>
+      case_type:
+        edit:
+          heading: What is your appeal about?
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
+      case_type_show_more:
+        edit:
+          heading: What is your appeal about?
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
+      dispute_type:
+        edit:
+          heading: What is your dispute about?
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
+      penalty_amount:
+        edit:
+          heading: What is the penalty or surcharge amount?
+          lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+          penalty_level_1: £100 or less
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
+      tax_amount:
+        edit:
+          heading: What amount of tax is under dispute?
+          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+      penalty_and_tax_amounts:
+        edit:
+          heading: What is the tax amount and penalty or surcharge amount?
+          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+      determine_cost:
+        show:
+          fee_label: To submit an appeal costs
+          fee_label_help: unless you can get help with fees
+          check_your_answers: Check your answers
+          start_again: Start again
+          continue: Continue
+          change: Change
+          questions:
+            challenged_decision: Have you challenged HMRC?
+            challenged_decision_status: What is the status of your challenge?
+            case_type: What is your appeal about?
+            dispute_type: What is your dispute about?
+            penalty_level: What is the penalty or surcharge amount?
+            penalty_amount: What is the penalty or surcharge amount?
+            tax_amount: What is the amount of tax in dispute?
+            disputed_tax_paid: Have you paid the amount of tax under dispute?
+            hardship_review_requested: Did you apply for financial hardship?
+            hardship_review_status: What is the status of your hardship application?
+          answers:
+            challenged_decision:
+              'yes': 'Yes'
+              'no': 'No'
+            challenged_decision_status:
+              received: Review conclusion received
+              overdue: Pending - more than 45 days
+            case_type:
+              apn_penalty: Accelerated Payment Notice (APN) penalty
+              aggregates_levy: Aggregates Levy
+              air_passenger_duty: Air Passenger Duty
+              alcoholic_liquor_duties: Alcoholic Liquor Duties
+              apply_decision_enquiry: Apply for a decision on an enquiry
+              bingo_duty: Bingo Duty
+              climate_change_levy: Climate Change Levy
+              construction_industry_scheme: Construction Industry Scheme (CIS)
+              counter_terrorism: Counter-terrorism decision
+              customs_duty: Customs Duty
+              dotas_penalty: Disclosure Of Tax Avoidance Schemes (DOTAS) penalty
+              gaming_duty: Gaming Duty
+              general_betting_duty: General Betting Duty
+              export_regulations_penalty: Export (Penalty) Regulations / FA 2003 decision
+              hydrocarbon_oil_duties: Hydrocarbon Oil Duties
+              inaccurate_return_penalty: Inaccurate return penalty
+              income_tax: Income Tax
+              inheritance_tax: Inheritance Tax
+              insurance_premium_tax: Insurance Premium Tax
+              information_notice: Information notices
+              landfill_tax: Landfill Tax
+              lottery_duty: Lottery Duty
+              ni_contributions: National Insurance (NI) contributions
+              money_laundering_decisions: Money laundering decisions
+              petroleum_revenue_tax: Petroleum Revenue Tax
+              pool_betting_duty: Pool Betting Duty
+              remote_gaming_duty: Remote Gaming Duty
+              request_late_review: Request permission for a late review
+              restoration_case: Restoration case
+              stamp_duties: Stamp duties
+              statutory_payments: Statutory payments
+              student_loans: Student loans
+              tobacco_products_duty: Tobacco Products Duty
+              vat: Value Added Tax (VAT)
+              other: Other
+            dispute_type:
+              paye_coding_notice: Pay As You Earn (PAYE) coding notice
+              penalty: Penalty or surcharge
+              amount_of_tax: Amount of tax
+              amount_and_penalty: Amount of tax and a penalty or surcharge
+              information_notice: Appeal against an information notice
+              other: Other
+            penalty_level:
+              penalty_level_1: £100 or less
+              penalty_level_2: over £100 – £20,000
+              penalty_level_3: over £20,000
+            disputed_tax_paid:
+              'no': 'No'
+              'yes': 'Yes'
+            hardship_review_requested:
+              'no': 'No'
+              'yes': 'Yes'
+            hardship_review_status:
+              granted: Granted
+              pending: Pending HMRC review
+              refused: Refused
+      must_challenge_hmrc:
+        show:
+          heading: You must challenge HMRC before you can appeal
+          lead_text: For your type of tax dispute you must challenge the decision with HMRC first.
+          free_to_challenge_hmrc_heading: It is free to challenge HMRC
+          free_to_challenge_hmrc_description_html: You must contact HMRC within the deadline shown on the original notice letter from HMRC. This is usually <strong>30 days</strong>, although you can still write to them after this if you have good reasons for being late.
+          free_to_challenge_hmrc_guidance_html: See the guidance on<a href="https://www.gov.uk/tax-appeals"> how to challenge an HMRC tax decision</a>.
+          contact_hmrc_button: Contact HMRC
+          start_again: Start again
+      challenged_decision_status:
+        edit:
+          heading: "challenged decision header"
+          lead_text: "lead text here change me"
+  activemodel:
+    errors:
+      models:
+        steps/cost/challenged_decision_form:
+          attributes:
+            challenged_decision:
+              inclusion: Select whether you have challenged the decision with HMRC first
+        steps/cost/case_type_form:
+          attributes:
+            case_type:
+              inclusion: Select what your appeal is about
+        steps/cost/case_type_show_more_form:
+          attributes:
+            case_type:
+              inclusion: Select what your appeal is about
+            case_type_other_value:
+              blank: Enter the type
+        steps/cost/dispute_type_form:
+          attributes:
+            dispute_type:
+              inclusion: Select what your dispute is about
+        steps/cost/penalty_amount_form:
+          attributes:
+            penalty_level:
+              inclusion: Select what the penalty or surcharge amount is
+  helpers:
+    fieldset:
+      # Use an empty string in _html keys to not show the fieldset legend
+      steps_appeal_challenged_decision_form:
+        challenged_decision: Did you challenge the decision with HMRC first?
+      steps_appeal_case_type_form:
+        case_type_html: ""
+      steps_appeal_case_type_show_more_form:
+        case_type_html: ""
+      steps_appeal_dispute_type_form:
+        dispute_type_html: ""
+      steps_appeal_penalty_amount_form:
+        penalty_level_html: ""
+    label:
+      steps_appeal_challenged_decision_form:
+        challenged_decision:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_appeal_case_type_form:
+        case_type:
+          income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment
+          vat_html: <strong>Value Added Tax (VAT)</strong>
+          capital_gains_tax_html: <strong>Capital Gains Tax</strong>
+          corporation_tax_html: <strong>Corporation Tax</strong>
+          inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
+          information_notice_html: <strong>Information notices</strong>
+          ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
+          _show_more_html: <strong>Other type of tax, appeal or application</strong>
+      steps_appeal_case_type_show_more_form:
+        case_type_other_value: Enter the type of tax or dispute involved in your case
+        case_type:
+          apn_penalty_html: <strong>Accelerated Payment Notice (APN) penalty</strong>
+          aggregates_levy_html: <strong>Aggregates Levy</strong>
+          air_passenger_duty_html: <strong>Air Passenger Duty</strong>
+          alcoholic_liquor_duties_html: <strong>Alcoholic Liquor Duties</strong>
+          apply_decision_enquiry_html: <strong>Apply for a decision on an enquiry</strong><br>force HMRC to issue a counteraction notice
+          bingo_duty_html: <strong>Bingo Duty</strong>
+          climate_change_levy_html: <strong>Climate Change Levy</strong>
+          construction_industry_scheme_html: <strong>Construction Industry Scheme (CIS)</strong>
+          counter_terrorism_html: <strong>Counter-terrorism decision</strong>
+          customs_duty_html: <strong>Customs Duty</strong>
+          dotas_penalty_html: <strong>Disclosure Of Tax Avoidance Schemes (DOTAS) penalty</strong>
+          gaming_duty_html: <strong>Gaming Duty</strong>
+          general_betting_duty_html: <strong>General Betting Duty</strong>
+          export_regulations_penalty_html: <strong>Export (Penalty) Regulations / FA 2003 decision</strong>
+          hydrocarbon_oil_duties_html: <strong>Hydrocarbon Oil Duties</strong>
+          inheritance_tax_html: <strong>Inheritance Tax</strong>
+          insurance_premium_tax_html: <strong>Insurance Premium Tax</strong>
+          landfill_tax_html: <strong>Landfill Tax</strong>
+          lottery_duty_html: <strong>Lottery Duty</strong>
+          ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
+          money_laundering_decisions_html: <strong>Money laundering decisions</strong>
+          petroleum_revenue_tax_html: <strong>Petroleum Revenue Tax</strong>
+          pool_betting_duty_html: <strong>Pool Betting Duty</strong>
+          remote_gaming_duty_html: <strong>Remote Gaming Duty</strong>
+          request_late_review_html: <strong>Request permission for a late review</strong><br>apply to get a late review accepted by HMRC, UK Border Force (UKBF) or National Crime Authority (NCA)
+          restoration_case_html: <strong>Restoration case</strong><br>apply for the return of seized goods or equivalent compensation
+          stamp_duties_html: <strong>Stamp duties</strong><br>includes Stamp Duty Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)
+          statutory_payments_html: <strong>Statutory payments</strong><br>for example statutory sick pay, maternity pay, paternity pay or adoption pay
+          student_loans_html: <strong>Student loans</strong>
+          tobacco_products_duty_html: <strong>Tobacco Products Duty</strong>
+          other_html: <strong>None of the above</strong>
+      steps_appeal_dispute_type_form:
+        dispute_type:
+          paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
+          penalty_html: <strong>Penalty or surcharge</strong>
+          amount_of_tax_html: <strong>Amount of tax</strong>
+          amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both must be stated on the same letter
+          information_notice_html: <strong>Appeal against an information notice</strong>
+          other_html: <strong>None of the above</strong>
+      steps_appeal_penalty_amount_form:
+        penalty_amount: What is the penalty or surcharge amount? (Optional)
+        penalty_level:
+          penalty_level_1: £100 or less
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
+      steps_appeal_tax_amount_form:
+        tax_amount: The amount of tax under dispute (optional)
+      steps_appeal_penalty_and_tax_amounts_form:
+        tax_amount: The amount of tax you are disputing (optional)
+        penalty_amount: The penalty or surcharge amount you are disputing (optional)

@@ -14,9 +14,9 @@
         <h4>Quick case set up</h4>
         <p class="details">Creates a case (or if one is in the session already, updates it) and prefills it so you can go straight to the next task.</p>
         <p>
-          <%= link_to 'Set up appeal cost', create_and_fill_cost_session_path, method: :post, class: 'button button-create_session' %>
-          <%= link_to 'Set up appeal cost & lateness', create_and_fill_cost_and_lateness_session_path, method: :post, class: 'button button-create_session' %>
-          <%= link_to 'Set up everything', create_and_fill_cost_and_lateness_and_appellant_session_path, method: :post, class: 'button button-create_session' %>
+          <%= link_to 'Set up appeal cost', create_and_fill_appeal_session_path, method: :post, class: 'button button-create_session' %>
+          <%= link_to 'Set up appeal cost & lateness', create_and_fill_appeal_and_lateness_session_path, method: :post, class: 'button button-create_session' %>
+          <%= link_to 'Set up everything', create_and_fill_appeal_and_lateness_and_appellant_session_path, method: :post, class: 'button button-create_session' %>
         </p>
       </div>
     </details>

@@ -1,0 +1,14 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:appeal, 5) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.text_field :tax_amount, class: 'form-control' %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>

@@ -14,9 +14,9 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   [
-    'create_and_fill_cost',
-    'create_and_fill_cost_and_lateness',
-    'create_and_fill_cost_and_lateness_and_appellant'
+    'create_and_fill_appeal',
+    'create_and_fill_appeal_and_lateness',
+    'create_and_fill_appeal_and_lateness_and_appellant'
   ].each do |method|
     describe "##{method}" do
       before do

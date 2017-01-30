@@ -1,6 +1,6 @@
 en:
   steps:
-    cost:
+    appeal:
       determine_cost:
         fees_table:
           header: Paying for your appeal
