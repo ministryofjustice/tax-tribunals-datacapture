@@ -10,6 +10,8 @@ class HomeController < ApplicationController
     [
       [:appeal, 30, task_list_path],
       [:close, 15, steps_closure_start_path],
+      [:appeal, 30, steps_appeal_start_path],
+      [:close, 15, '#'],
     ]
   end
 end

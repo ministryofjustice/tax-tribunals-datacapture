@@ -1,13 +1,27 @@
+<header class="homepage-top">
+	<div class="homepage-top-inner">
+		<div class="welcome-block">
+			<div class="inner-block floated-children">
+				<div class="welcome-text">
+					<div class="floated-inner-block">
+						<h1><%= t '.impartial_decision' %></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
 <h1 class="heading-large">
-  <%=t '.heading' %>
+	<%=t '.heading' %>
 </h1>
 
 <p class="lede">
-  <%=t '.lead_text_html' %>
+<%=t '.lead_text_html' %>
 </p>
 
 <%=t '.description_html' %>
 
 <p>
-  <%= link_to t('.continue'), edit_steps_appeal_challenged_decision_path, class: 'button button-start', role: 'button' %>
+<%= link_to t('.continue'), edit_steps_appeal_challenged_decision_path, class: 'button button-start', role: 'button' %>
 </p>

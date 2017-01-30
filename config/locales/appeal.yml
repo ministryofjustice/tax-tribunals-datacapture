@@ -4,7 +4,8 @@ en:
       step_header: Question %{step} of 8
       start:
         show:
-          heading: 1. Find out the cost of your appeal
+          impartial_decision: Get an impartial decision on your dispute
+          heading: Appeal against a tax decision
           lead_text_html: You will need to pay an initial fee of £20, £50 or £200 to submit an appeal unless you are <a href="https://www.gov.uk/get-help-with-court-fees">on a low income or certain benefits</a>.
           description_html: |
             <p>You will also have to pay a further fee if your case is more complex and needs a hearing in person with a judge.</p>
@@ -45,6 +46,7 @@ en:
                       <td>
                         <ul class="list list-bullet">
                           <li>Penalty of over £2,000 to £20,000</li>
+                          <li>Inaccurate return</li>
                           <li>Appeal against an information notice</li>
                           <li>Pay As You Earn (PAYE) coding notice</li>
                           <li>Request permission for a late review</li>
