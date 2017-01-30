@@ -15,7 +15,7 @@ RSpec.describe DetailsDecisionTree do
       end
 
       context 'and the answer is `organisation`' do
-        let(:step_params) { { taxpayer_type: 'organisation'  } }
+        let(:step_params) { { taxpayer_type: 'company'  } }
 
         it { is_expected.to have_destination(:organisation_details, :edit) }
       end
