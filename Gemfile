@@ -16,7 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.0'
 gem 'responders'
 gem 'sass-rails', '~> 5.0'
-gem 'sentry-raven'
+gem 'sentry-raven', require: false
 gem 'uglifier', '>= 1.3.0'
 gem 'uk_postcode'
 gem 'virtus'
