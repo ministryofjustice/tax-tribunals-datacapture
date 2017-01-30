@@ -63,9 +63,9 @@ Rails.application.routes.draw do
 
   resource :session, only: [:destroy] do
     member do
-      post :create_and_fill_cost
-      post :create_and_fill_cost_and_lateness
-      post :create_and_fill_cost_and_lateness_and_appellant
+      post :create_and_fill_appeal
+      post :create_and_fill_appeal_and_lateness
+      post :create_and_fill_appeal_and_lateness_and_appellant
     end
   end
 

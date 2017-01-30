@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def create_and_fill_cost
+  def create_and_fill_appeal
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES)
@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
     # :nocov:
   end
 
-  def create_and_fill_cost_and_lateness
+  def create_and_fill_appeal_and_lateness
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(in_time: InTime::YES)
-    create_and_fill_cost
+    create_and_fill_appeal
     # :nocov:
   end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   # it does not upload any documents. So, if you need real documents for the
   # case, you need to use the 'Change' link on the 'Check your answers' page
   # and add some.
-  def create_and_fill_cost_and_lateness_and_appellant
+  def create_and_fill_appeal_and_lateness_and_appellant
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(
