@@ -34,6 +34,7 @@ en:
               </strong>
             </p>
           previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details.
+          continue: Continue
       taxpayer_type:
         edit:
           heading: Who is your appeal for?
