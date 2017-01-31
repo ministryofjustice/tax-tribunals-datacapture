@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::TaxpayerOrganisationDetailsForm do
+RSpec.describe Steps::Details::TaxpayerCompanyDetailsForm do
   it_behaves_like 'a contactable entity form',
     entity_type: :taxpayer,
     additional_fields: [
       :taxpayer_organisation_name,
+      :taxpayer_organisation_registration_number,
       :taxpayer_organisation_fao
     ]
 
@@ -17,6 +18,6 @@ RSpec.describe Steps::Details::TaxpayerOrganisationDetailsForm do
   end
 
   describe '#show_registration_number?' do
-    specify { expect(subject.show_registration_number?).to eq(false) }
+    specify { expect(subject.show_registration_number?).to eq(true) }
   end
 end

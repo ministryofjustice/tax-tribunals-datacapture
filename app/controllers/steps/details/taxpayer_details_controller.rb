@@ -28,7 +28,9 @@ module Steps::Details
       case current_tribunal_case.taxpayer_type
       when ContactableEntityType::INDIVIDUAL
         TaxpayerIndividualDetailsForm
-      when ContactableEntityType::COMPANY, ContactableEntityType::OTHER_ORGANISATION
+      when ContactableEntityType::COMPANY
+        TaxpayerCompanyDetailsForm
+      when ContactableEntityType::OTHER_ORGANISATION
         TaxpayerOrganisationDetailsForm
       end
     end
