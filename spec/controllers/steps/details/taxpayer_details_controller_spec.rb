@@ -14,7 +14,7 @@ RSpec.describe Steps::Details::TaxpayerDetailsController, type: :controller do
   context 'given a company taxpayer' do
     let(:tribunal_case) { TribunalCase.new(taxpayer_type: ContactableEntityType::COMPANY) }
 
-    it_behaves_like 'an intermediate step controller', Steps::Details::TaxpayerOrganisationDetailsForm, DetailsDecisionTree
+    it_behaves_like 'an intermediate step controller', Steps::Details::TaxpayerCompanyDetailsForm, DetailsDecisionTree
   end
 
   context 'given an organisation taxpayer' do
