@@ -29,7 +29,8 @@ class SessionsController < ApplicationController
       taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
       taxpayer_contact_email: Faker::Internet.email,
       taxpayer_contact_postcode: Faker::Address.postcode,
-      taxpayer_individual_name: Faker::Name.name,
+      taxpayer_individual_first_name: Faker::Name.first_name,
+      taxpayer_individual_last_name: Faker::Name.last_name,
       taxpayer_contact_address: [
         Faker::Address.street_address,
         Faker::Address.city,

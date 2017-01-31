@@ -6,7 +6,8 @@ module Steps::Details
         tribunal_case: current_tribunal_case,
         # Values for all possible form objects are here, as irrelevant ones will simply be
         # discarded by the concrete implementation
-        taxpayer_individual_name: current_tribunal_case.taxpayer_individual_name,
+        taxpayer_individual_first_name: current_tribunal_case.taxpayer_individual_first_name,
+        taxpayer_individual_last_name: current_tribunal_case.taxpayer_individual_last_name,
         taxpayer_organisation_name: current_tribunal_case.taxpayer_organisation_name,
         taxpayer_organisation_registration_number: current_tribunal_case.taxpayer_organisation_registration_number,
         taxpayer_organisation_fao: current_tribunal_case.taxpayer_organisation_fao,
