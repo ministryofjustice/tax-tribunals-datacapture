@@ -37,6 +37,9 @@ Rails.application.configure do
   # missing translations of model attribute names. The form will
   # get the constantized attribute name itself, in form labels.
   config.action_view.raise_on_missing_translations = true
+
+  # Enable console when running via docker compose
+  config.web_console.whitelisted_ips = '172.23.0.0/16'
 end
 
 Faker::Config.locale = 'en-GB' # For the development tools
