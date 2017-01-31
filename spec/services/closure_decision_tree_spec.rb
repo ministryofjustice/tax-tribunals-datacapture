@@ -14,6 +14,12 @@ RSpec.describe ClosureDecisionTree do
       it { is_expected.to have_destination('/steps/details/taxpayer_type', :edit) }
     end
 
+    context 'when the step is `enquiry_details`' do
+      let(:step_params) { { enquiry_details: 'anything' } }
+
+      it { is_expected.to have_destination(:additional_info, :edit) }
+    end
+
     context 'when the step is invalid' do
       let(:step_params) { {ungueltig: {waschmaschine: 'nein'}} }
 
@@ -34,6 +40,12 @@ RSpec.describe ClosureDecisionTree do
       let(:step_params) { { enquiry_details: 'anything' } }
 
       it { is_expected.to have_previous('/steps/details/taxpayer_type', :edit) }
+    end
+
+    context 'when the step is `additional_info`' do
+      let(:step_params) { { additional_info: 'anything' } }
+
+      it { is_expected.to have_previous(:enquiry_details, :edit) }
     end
 
     context 'when the step is invalid' do

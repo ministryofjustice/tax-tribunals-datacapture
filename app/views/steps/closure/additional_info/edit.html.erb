@@ -1,0 +1,12 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:closure, 0) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.text_area :closure_additional_info, size: '40x6', class: 'form-control form-control-3-4' %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>
