@@ -4,9 +4,9 @@ class DetailsDecisionTree < DecisionTree
 
     case step_name.to_sym
     when :taxpayer_type
-      after_taxpayer_type_step
-    when :individual_details, :organisation_details
-      edit(:grounds_for_appeal)
+      edit(:taxpayer_details)
+    when :taxpayer_details
+      after_details_step
     when :grounds_for_appeal
       edit(:outcome)
     when :outcome
@@ -23,11 +23,11 @@ class DetailsDecisionTree < DecisionTree
   def previous
     case step_name.to_sym
     when :taxpayer_type
-      show(:start)
-    when :individual_details, :organisation_details
+      before_taxpayer_type_step
+    when :taxpayer_details
       edit(:taxpayer_type)
     when :grounds_for_appeal
-      before_grounds_for_appeal_step
+      edit(:taxpayer_details)
     when :outcome
       edit(:grounds_for_appeal)
     when :documents_checklist
@@ -41,21 +41,21 @@ class DetailsDecisionTree < DecisionTree
 
   private
 
-  def before_grounds_for_appeal_step
-    case tribunal_case.taxpayer_type
-    when ContactableEntityType::INDIVIDUAL
-      edit(:individual_details)
-    when ContactableEntityType::COMPANY
-      edit(:organisation_details)
+  def before_taxpayer_type_step
+    case tribunal_case.intent
+    when Intent::TAX_APPEAL
+      show(:start)
+    when Intent::CLOSE_ENQUIRY
+      edit('/steps/closure/case_type')
     end
   end
 
-  def after_taxpayer_type_step
-    case answer
-    when :individual
-      edit(:individual_details)
-    when :company, :other_organisation
-      edit(:organisation_details)
+  def after_details_step
+    case tribunal_case.intent
+    when Intent::TAX_APPEAL
+      edit(:grounds_for_appeal)
+    when Intent::CLOSE_ENQUIRY
+      edit('/steps/closure/enquiry_details')
     end
   end
 end

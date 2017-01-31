@@ -44,13 +44,13 @@ Rails.application.routes.draw do
     namespace :closure do
       show_step :start
       edit_step :case_type
+      edit_step :enquiry_details
     end
 
     namespace :details do
       show_step :start
       edit_step :taxpayer_type
-      edit_step :individual_details
-      edit_step :organisation_details
+      edit_step :taxpayer_details
       edit_step :grounds_for_appeal
       edit_step :outcome
       edit_step :documents_checklist

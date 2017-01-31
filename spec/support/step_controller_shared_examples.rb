@@ -84,6 +84,12 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
 
   describe '#edit' do
     context 'when no case exists in the session yet' do
+      before do
+        # Needed because some specs that include these examples stub current_tribunal_case,
+        # which is undesirable for this particular test
+        allow(controller).to receive(:current_tribunal_case).and_call_original
+      end
+
       it 'raises an exception' do
         expect { get :edit }.to raise_error(RuntimeError)
       end

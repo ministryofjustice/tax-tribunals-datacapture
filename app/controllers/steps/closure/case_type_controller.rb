@@ -9,7 +9,7 @@ module Steps::Closure
     end
 
     def update
-      update_and_advance(CaseTypeForm)
+      update_and_advance(CaseTypeForm, as: :case_type)
     end
 
     private
