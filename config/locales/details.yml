@@ -41,6 +41,24 @@ en:
       taxpayer_details:
         edit:
           heading: Enter taxpayer's details
+      has_representative:
+        edit:
+          heading: Do you have someone to represent you?
+          lead_text: A representative can receive correspondence on your behalf or represent you if you need a hearing.
+          details_heading: What is a representative and what can they do?
+          details_content_html: |
+            <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
+            <p>You may want to use one if you need help or advice, or need assistance submitting an appeal or application.</p>
+            <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
+            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an appeal or application.</p>
+            <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
+      representative_type:
+        edit:
+          heading: Is your representative an individual, company or other type of organisation?
+      representative_details:
+        edit:
+          heading: Representative's details
+          lead_text: If you have approved your representative to act on your behalf, all correspondence will be sent to the address, or email address, you enter below.
       grounds_for_appeal:
         edit:
           heading: Grounds for appeal
@@ -134,7 +152,15 @@ en:
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
-              inclusion: Select whether the appeal is for an individual or organisation
+              inclusion: Select whether the appeal is for an individual, company or organisation
+        steps/details/has_representative_form:
+          attributes:
+            has_representative:
+              inclusion: Select whether you have someone to represent you
+        steps/details/representative_type_form:
+          attributes:
+            representative_type:
+              inclusion: Select whether your representative is an individual, company or organisation
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
@@ -150,6 +176,8 @@ en:
               too_short: You must outline the result you want. Use at least %{count} characters.
         steps/details/taxpayer_individual_details_form:
           blank: You must enter the taxpayer's %{attribute}
+        steps/details/taxpayer_company_details_form:
+          blank: You must enter the taxpayer's %{attribute}
         steps/details/taxpayer_organisation_details_form:
           blank: You must enter the taxpayer's %{attribute}
         steps/details/documents_checklist_form:
@@ -164,12 +192,25 @@ en:
     fieldset:
       steps_details_taxpayer_type_form:
         taxpayer_type: Who is your appeal for?
+      steps_details_has_representative_form:
+        has_representative: Do you have someone to represent you?
+      steps_details_representative_type_form:
+        representative_type: Is your representative an individual, company or other type of organisation?
     label:
       steps_details_taxpayer_type_form:
         taxpayer_type:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
           other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP), trust, club or association
+      steps_details_has_representative_form:
+        has_representative:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_details_representative_type_form:
+        representative_type:
+          individual_html: <strong>Individual</strong>
+          company_html: <strong>Company</strong>
+          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP)
       generic_taxpayer_contact_labels: &generic_taxpayer_contact_labels
         taxpayer_contact_address: Address
         taxpayer_contact_postcode: Postcode
@@ -188,6 +229,24 @@ en:
         <<: *generic_taxpayer_contact_labels
         taxpayer_organisation_name: Organisation name
         taxpayer_organisation_fao: Contact name
+      generic_representative_contact_labels: &generic_representative_contact_labels
+        representative_contact_address: Address
+        representative_contact_postcode: Postcode
+        representative_contact_email: Email address (to receive confirmation by email)
+        representative_contact_phone: Contact phone number (optional)
+      steps_details_representative_individual_details_form:
+        <<: *generic_representative_contact_labels
+        representative_individual_first_name: First name
+        representative_individual_last_name: Last name
+      steps_details_representative_company_details_form:
+        <<: *generic_representative_contact_labels
+        representative_organisation_name: Company name
+        representative_organisation_registration_number: Company registration number (optional)
+        representative_organisation_fao: Contact name
+      steps_details_representative_organisation_details_form:
+        <<: *generic_representative_contact_labels
+        representative_organisation_name: Organisation name
+        representative_organisation_fao: Contact name
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document

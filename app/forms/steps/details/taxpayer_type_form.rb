@@ -3,7 +3,7 @@ module Steps::Details
     attribute :taxpayer_type, String
 
     def self.choices
-     ContactableEntityType.values.map(&:to_s)
+      ContactableEntityType.values.map(&:to_s)
     end
     validates_inclusion_of :taxpayer_type, in: choices
 

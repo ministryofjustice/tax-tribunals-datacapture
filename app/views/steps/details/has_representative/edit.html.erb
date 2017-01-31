@@ -1,0 +1,24 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:details, 3) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.radio_button_fieldset :has_representative,
+        choices: Steps::Details::HasRepresentativeForm.choices %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+    
+    <details role="group">
+      <summary role="button" aria-controls="details-content-0" aria-expanded="true">
+        <%=t '.details_heading' %>
+      </summary>
+			<div class="panel" id="details-content-0" aria-hidden="false">
+        <%=t '.details_content_html' %>
+			</div>
+		</details>  
+  </div>
+</div>

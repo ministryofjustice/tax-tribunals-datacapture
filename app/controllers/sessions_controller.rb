@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
   def create_and_fill_appeal
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES)
+    tribunal_case.update(
+      intent: Intent::TAX_APPEAL,
+      case_type: CaseType::OTHER,
+      challenged_decision: ChallengedDecision::YES
+    )
     redirect_to task_list_path
     # :nocov:
   end
@@ -23,6 +27,7 @@ class SessionsController < ApplicationController
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(
+      intent: Intent::TAX_APPEAL,
       case_type: CaseType::OTHER,
       challenged_decision: ChallengedDecision::YES,
       in_time: InTime::YES,

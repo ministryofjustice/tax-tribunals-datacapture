@@ -1,0 +1,26 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:details, 0) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <% @form_object.name_fields.each do |name_field| %>
+        <%= f.text_field name_field %>
+      <% end %>
+      <%= f.text_area :representative_contact_address, size: '40x4', class: 'form-control-3-4' %>
+      <%= f.text_field :representative_contact_postcode %>
+      <% if @form_object.show_fao? %>
+        <%= f.text_field :representative_organisation_fao %>
+      <% end %>
+      <%= f.text_field :representative_contact_email %>
+      <%= f.text_field :representative_contact_phone %>
+      <% if @form_object.show_registration_number? %>
+        <%= f.text_field :representative_organisation_registration_number %>
+      <% end %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>
