@@ -23,6 +23,9 @@ en:
         edit:
           heading: Enter details for the enquiry you want to close
           lead_text: You will find this information on any letters you have received from HMRC about the enquiry.
+      additional_info:
+        edit:
+          heading: Say why you think the enquiry should close (optional)
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
@@ -40,6 +43,8 @@ en:
         closure_hmrc_reference: HMRC reference number
         closure_years_under_enquiry: Years under enquiry
         closure_hmrc_officer: Name of HMRC officer conducting the enquiry (optional)
+      steps_closure_additional_info_form:
+        closure_additional_info: Additional information
   activemodel:
     errors:
       models:
