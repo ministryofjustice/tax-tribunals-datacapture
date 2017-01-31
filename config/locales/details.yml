@@ -103,7 +103,7 @@ en:
             untruthful or dishonest, criminal proceedings for fraud can be brought against me. I understand that if
             I have given false  information or I do not provide further evidence if requested, my application may be
             rejected and any tax tribunal fees will not be refunded.
-          fee_details_heading: Appeal type and cost
+          appeal_type_heading: Appeal type
           appeal_timeliness_heading: Appeal deadline
           appeal_details_heading: Appeal details
           questions:
@@ -113,7 +113,6 @@ en:
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
             tax_amount: What is the amount of tax?
-            fee_amount: Initial appeal fee
             in_time: Is the appeal late?
             lateness_reason: Reason(s) for late appeal
             appellant_details: "Taxpayer's details"
