@@ -22,8 +22,16 @@ module Steps::Details
       return true unless changed?
 
       tribunal_case.update(
-        taxpayer_type: taxpayer_type_value
+        taxpayer_type: taxpayer_type_value,
         # The following are dependent attributes that need to be reset
+        taxpayer_individual_name: nil,
+        taxpayer_organisation_name: nil,
+        taxpayer_organisation_registration_number: nil,
+        taxpayer_organisation_fao: nil,
+        taxpayer_contact_address: nil,
+        taxpayer_contact_postcode: nil,
+        taxpayer_contact_email: nil,
+        taxpayer_contact_phone: nil
       )
     end
   end
