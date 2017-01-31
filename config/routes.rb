@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       show_step :start
       edit_step :case_type
       edit_step :enquiry_details
+      edit_step :additional_info
     end
 
     namespace :details do
