@@ -7,7 +7,7 @@ en:
         lateness: Check you meet the tribunal deadline
         details: Enter appeal details and pay fee
       task_descriptions:
-        determine_cost: Give details about your type of dispute and find out your tax tribunal fees.
+        determine_cost: Give details about your dispute and find out your tax tribunal fees.
         lateness: You can still submit your appeal late by giving reasons for the judge to consider.
         details: Explain why you're appealing, upload a copy of your decision letter and pay the initial fee.
       task_answers:
