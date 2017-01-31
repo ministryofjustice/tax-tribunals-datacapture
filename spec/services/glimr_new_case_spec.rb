@@ -1,15 +1,17 @@
 require 'spec_helper'
 
 RSpec.describe GlimrNewCase do
-  let!(:tribunal_case)   { TribunalCase.create(case_attributes) }
-  let(:taxpayer_type)    { ContactableEntityType::INDIVIDUAL }
-  let(:taxpayer_name)    { 'Filomena Keebler' }
-  let(:taxpayer_address) { "769 Eleanore Landing\nSuite 225" }
+  let!(:tribunal_case)      { TribunalCase.create(case_attributes) }
+  let(:taxpayer_type)       { ContactableEntityType::INDIVIDUAL }
+  let(:taxpayer_first_name) { 'Filomena' }
+  let(:taxpayer_last_name)  { 'Keebler' }
+  let(:taxpayer_address)    { "769 Eleanore Landing\nSuite 225" }
 
   let(:case_attributes) do
     {
       taxpayer_type: taxpayer_type,
-      taxpayer_individual_name: taxpayer_name,
+      taxpayer_individual_first_name: taxpayer_first_name,
+      taxpayer_individual_last_name: taxpayer_last_name,
       taxpayer_contact_address: taxpayer_address,
       taxpayer_contact_postcode: 'SW1H 9AJ',
       taxpayer_contact_phone: '0700 12345678',
@@ -70,22 +72,6 @@ RSpec.describe GlimrNewCase do
           subject.call!
           expect(subject.case_reference).to eq('TC/12345')
           expect(subject.confirmation_code).to eq('ABCDEF')
-        end
-
-        describe 'different variations of the taxpayer name' do
-          context 'only a first name' do
-            let(:taxpayer_name) { 'Filomena' }
-            let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: nil} }
-
-            it { subject.call! }
-          end
-
-          context 'a first name and two last names' do
-            let(:taxpayer_name) { 'Filomena Keebler Mayer' }
-            let(:glimr_params) { {contactFirstName: 'Filomena', contactLastName: 'Keebler Mayer'} }
-
-            it { subject.call! }
-          end
         end
 
         context 'lengthy addresses' do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131094256) do
+ActiveRecord::Schema.define(version: 20170131114018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20170131094256) do
     t.string   "in_time"
     t.text     "lateness_reason"
     t.string   "taxpayer_type"
-    t.string   "taxpayer_individual_name"
     t.text     "taxpayer_contact_address"
     t.text     "taxpayer_contact_postcode"
     t.string   "taxpayer_contact_email"
@@ -55,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170131094256) do
     t.string   "closure_hmrc_officer"
     t.string   "closure_years_under_enquiry"
     t.text     "closure_additional_info"
+    t.string   "taxpayer_individual_first_name"
+    t.string   "taxpayer_individual_last_name"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 

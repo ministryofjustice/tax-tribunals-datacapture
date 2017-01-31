@@ -1,11 +1,13 @@
 module Steps::Details
   class TaxpayerIndividualDetailsForm < TaxpayerDetailsForm
-    attribute :taxpayer_individual_name, String
+    attribute :taxpayer_individual_first_name, String
+    attribute :taxpayer_individual_last_name, String
 
-    validates_presence_of :taxpayer_individual_name
+    validates_presence_of :taxpayer_individual_first_name,
+                          :taxpayer_individual_last_name
 
     def name_fields
-      [:taxpayer_individual_name]
+      [:taxpayer_individual_first_name, :taxpayer_individual_last_name]
     end
 
     def show_fao?
@@ -20,7 +22,8 @@ module Steps::Details
 
     def persist!
       super(
-        taxpayer_individual_name: taxpayer_individual_name
+        taxpayer_individual_first_name: taxpayer_individual_first_name,
+        taxpayer_individual_last_name: taxpayer_individual_last_name
       )
     end
   end
