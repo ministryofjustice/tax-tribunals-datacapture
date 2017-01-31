@@ -49,7 +49,15 @@ RSpec.describe Steps::Details::TaxpayerTypeForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          taxpayer_type: ContactableEntityType::INDIVIDUAL
+          taxpayer_type: ContactableEntityType::INDIVIDUAL,
+          taxpayer_individual_name: nil,
+          taxpayer_organisation_name: nil,
+          taxpayer_organisation_registration_number: nil,
+          taxpayer_organisation_fao: nil,
+          taxpayer_contact_address: nil,
+          taxpayer_contact_postcode: nil,
+          taxpayer_contact_email: nil,
+          taxpayer_contact_phone: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end
