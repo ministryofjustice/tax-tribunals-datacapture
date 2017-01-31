@@ -7,8 +7,7 @@ module Steps::Details
 
     validates_presence_of :taxpayer_contact_address,
                           :taxpayer_contact_postcode,
-                          :taxpayer_contact_email,
-                          :taxpayer_contact_phone
+                          :taxpayer_contact_email
 
     private
 

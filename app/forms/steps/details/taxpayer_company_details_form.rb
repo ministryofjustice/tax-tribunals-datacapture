@@ -5,7 +5,6 @@ module Steps::Details
     attribute :taxpayer_organisation_fao, String
 
     validates_presence_of :taxpayer_organisation_name,
-                          :taxpayer_organisation_registration_number,
                           :taxpayer_organisation_fao
 
     def name_fields

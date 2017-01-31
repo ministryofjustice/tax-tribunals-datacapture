@@ -7,6 +7,9 @@ RSpec.describe Steps::Details::TaxpayerCompanyDetailsForm do
       :taxpayer_organisation_name,
       :taxpayer_organisation_registration_number,
       :taxpayer_organisation_fao
+    ],
+    optional_fields: [
+      :taxpayer_organisation_registration_number
     ]
 
   describe '#name_fields' do
