@@ -8,7 +8,7 @@ RSpec.describe HomeController do
       name, time, link = assigns[:link_sections][0]
       expect(name).to eq(:appeal)
       expect(time).to eq(30)
-      expect(link).to eq('/appeal')
+      expect(link).to eq('/steps/appeal/start')
 
       name, time, link = assigns[:link_sections][1]
       expect(name).to eq(:close)

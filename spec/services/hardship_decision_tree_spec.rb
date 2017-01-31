@@ -14,7 +14,7 @@ RSpec.describe HardshipDecisionTree do
       context 'and the disputed tax has been paid' do
         let(:disputed_tax_paid) { DisputedTaxPaid::YES }
 
-        it { is_expected.to have_destination('/steps/cost/determine_cost', :show) }
+        it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
       end
 
       context 'and the disputed tax has not been paid' do
@@ -37,14 +37,14 @@ RSpec.describe HardshipDecisionTree do
       context 'and a hardship review has not been requested' do
         let(:hardship_review_requested) { HardshipReviewRequested::NO }
 
-        it { is_expected.to have_destination('/steps/cost/determine_cost', :show) }
+        it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
       end
     end
 
     context 'when the step is `hardship_review_status`' do
       let(:step_params) { { hardship_review_status: 'anything' } }
 
-      it { is_expected.to have_destination('/steps/cost/determine_cost', :show) }
+      it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
     end
 
     context 'when the step is invalid' do
@@ -64,13 +64,13 @@ RSpec.describe HardshipDecisionTree do
       context 'when the tribunal_case has a penalty' do
         let(:has_penalty_level) { true }
 
-        it { is_expected.to have_previous('/steps/cost/penalty_amount', :edit) }
+        it { is_expected.to have_previous('/steps/appeal/penalty_amount', :edit) }
       end
 
       context 'when the tribunal_case does not have a penalty' do
         let(:has_penalty_level) { false }
 
-        it { is_expected.to have_previous('/steps/cost/dispute_type', :edit) }
+        it { is_expected.to have_previous('/steps/appeal/dispute_type', :edit) }
       end
     end
 

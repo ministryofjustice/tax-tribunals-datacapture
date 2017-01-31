@@ -38,13 +38,13 @@ RSpec.describe AppealDecisionTree, '#destination' do
 			let(:dispute_type) { instance_double(DisputeType, ask_penalty?: false, ask_tax?: false, ask_penalty_and_tax?: false, ask_hardship?: true) }
 			let(:case_type)     { CaseType.new(:anything, ask_hardship: false) }
 
-			it { is_expected.to have_destination(:determine_cost, :show) }
+      it { is_expected.to have_destination('steps/lateness/in_time', :edit) }
 		end
 
 		context 'and the dispute type should not ask for a penalty amount, tax amount or hardship' do
 			let(:dispute_type) { instance_double(DisputeType, ask_penalty?: false, ask_tax?: false, ask_penalty_and_tax?: false, ask_hardship?: false) }
 
-			it { is_expected.to have_destination(:determine_cost, :show) }
+      it { is_expected.to have_destination('steps/lateness/in_time', :edit) }
 		end
 	end
 end
