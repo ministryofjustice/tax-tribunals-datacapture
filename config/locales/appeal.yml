@@ -6,79 +6,22 @@ en:
         show:
           impartial_decision: Get an impartial decision on your dispute
           heading: Appeal against a tax decision
-          lead_text_html: You will need to pay an initial fee of £20, £50 or £200 to submit an appeal unless you are <a href="https://www.gov.uk/get-help-with-court-fees">on a low income or certain benefits</a>.
+          lead_text_html: You have 30 calendar days from the date of the decision letter to submit an appeal.
           description_html: |
-            <p>You will also have to pay a further fee if your case is more complex and needs a hearing in person with a judge.</p>
-            <p>The judge has the power to decide whether your fees are reimbursed by the unsuccessful party.</p>
-            <details role="group">
-              <summary role="button" aria-controls="details-content-0" aria-expanded="false">See how much your appeal or application might cost</summary>
-
-              <div class="panel" id="details-content-0" aria-hidden="true">
-                <table class="expandable-demo">
-                  <caption>Table explaining the fees for different types of appeals or applications</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Type of appeal or application</th>
-                      <th scope="col">Initial fee</th>
-                      <th scope="col">Further fee</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of £100 or less</li>
-                        </ul>
-                      </td>
-                      <td>£20</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of £101 to £2,000</li>
-                        </ul>
-                      </td>
-                      <td>£50</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Penalty of over £2,000 to £20,000</li>
-                          <li>Inaccurate return</li>
-                          <li>Appeal against an information notice</li>
-                          <li>Pay As You Earn (PAYE) coding notice</li>
-                          <li>Request permission for a late review</li>
-                          <li>Request HMRC issue a counteraction notice</li>
-                        </ul>
-                      </td>
-                      <td>£50</td>
-                      <td>£200</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>All other types of appeal or application * </li>
-                        </ul>
-                      </td>
-                      <td>£200</td>
-                      <td>£500</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul class="list list-bullet">
-                          <li>Appeals over £1 million or principles of law</li>
-                        </ul>
-                      </td>
-                      <td>£200</td>
-                      <td>£1,000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>* excluding those attached to a main appeal (for example applications for hardship or postponement of tax) which have no fee to pay</p>
-            </details>
+            <p>You can still appeal late with good reasons. The judge will decide whether to accept your appeal after the deadline.</p>
+            <h2 class="heading-medium">What you will need</h2>
+            <ul class="list list-bullet">
+              <li><strong>a scan or photo</strong> of the original notice letter, or review conclusion letter, so it's ready to upload in a digital format</li>
+              <li><strong>written reasons for your appeal</strong> to copy and paste or attach as a document</li>
+              <li>
+                <strong><a href="%{approval_form_href}">signed approval (%{approval_form_format_and_size})</a></strong>
+                if you want someone to act on your behalf and receive letters from the tax tribunal or attend a hearing
+               </li>
+            </ul>
+            <p class="notice util_mt-large">
+              <i class="icon icon-important"> <span class="visuallyhidden">Warning</span> </i>
+              <strong class="bold-small">You can’t save details so get everything ready before you start </strong>
+            </p>
           continue: Continue
       challenged_decision:
         edit:
