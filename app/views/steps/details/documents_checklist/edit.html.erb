@@ -7,6 +7,7 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
+        <%= hidden_field_tag :current_step_path, edit_steps_details_documents_checklist_path %>
         <%= file_field_tag :document %>
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
@@ -27,14 +28,15 @@
     </div>
 
     <div class="uploaded-files-wrapper">
-      <h2 class="heading-medium"><%= t '.uploaded_files_header' %></h2>
+      <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
 
       <ol class="list uploaded-files">
         <% if @document_list&.any? %>
             <% @document_list.each do |doc| %>
                 <li class="file hide-when-js-is-loaded">
                   <%= doc.name %>
-                  <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+                  <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' },
+                                class: 'button', params: { current_step_path: edit_steps_details_documents_checklist_path } %>
                 </li>
 
                 <li class="file js-hidden show-when-js-is-loaded">
@@ -43,7 +45,7 @@
                 </li>
             <% end %>
         <% else %>
-            <li class="no-files"><%= t '.no_uploaded_files' %></li>
+            <li class="no-files"><%= t 'shared.file_upload.no_uploaded_files' %></li>
         <% end %>
       </ol>
     </div>
@@ -64,7 +66,7 @@
         <div class="form-group util_mt-large">
           <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox' do %>
               <%= f.check_box :having_problems_uploading_documents %>
-              <%= t '.having_problems_uploading_documents_html' %>
+              <%= t 'shared.file_upload.having_problems' %>
           <% end %>
         </div>
 
@@ -75,11 +77,6 @@
   </div>
 
   <div class="column-one-third">
-    <p class="lede">&nbsp;</p>
-    <p class="lede">&nbsp;</p>
-    <h2 class="heading-small"><%= t('.need_help') %></h2>
-    <nav role="navigation" class="font-xsmall">
-      <p><a href="#"><%= t('.contact_us') %></a></p>
-    </nav>
+    <%= render partial: 'steps/shared/file_upload_sidebar' %>
   </div>
 </div>

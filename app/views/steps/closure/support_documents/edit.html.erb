@@ -1,0 +1,73 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:closure, 0) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
+      <%= hidden_field_tag :current_step_path, edit_steps_closure_support_documents_path %>
+      <%= file_field_tag :document %>
+      <%= submit_tag 'Upload', class: 'button' %>
+    <% end %>
+
+    <div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0">
+      <div class="dz-default dz-message grid-row">
+        <div class="column-one-third arrow-icon">
+          <p></p>
+        </div>
+        <div class="column-one-half">
+          <p class="dz-message-copy">
+            <%= t 'shared.file_upload.dropzone_message_html' %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="uploaded-files-wrapper">
+      <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
+
+      <ol class="list uploaded-files">
+        <% if @document_list&.any? %>
+          <% @document_list.each do |doc| %>
+            <li class="file hide-when-js-is-loaded">
+              <%= doc.name %>
+              <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' },
+                            class: 'button', params: { current_step_path: edit_steps_closure_support_documents_path } %>
+            </li>
+
+            <li class="file js-hidden show-when-js-is-loaded">
+              <%= doc.name %>
+              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name %>
+            </li>
+          <% end %>
+        <% else %>
+          <li class="no-files"><%= t 'shared.file_upload.no_uploaded_files' %></li>
+        <% end %>
+      </ol>
+    </div>
+
+    <%= step_form @form_object do |f| %>
+      <div class="form-group util_mt-large">
+        <%= f.label :closure_problems_uploading_documents, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
+          <%= f.check_box :closure_problems_uploading_documents, 'aria-controls': 'unable_to_upload_panel' %>
+          <%= t('shared.file_upload.having_problems') %>
+        <% end %>
+
+        <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
+          <p><%= t('shared.file_upload.having_problems_explanation') %></p>
+          <%= f.text_area :closure_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
+        </div>
+      </div>
+
+      <div class="form-group util_mt-large">
+        <%= f.submit class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="column-one-third">
+    <%= render partial: 'steps/shared/file_upload_sidebar' %>
+  </div>
+</div>

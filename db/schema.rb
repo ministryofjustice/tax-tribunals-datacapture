@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131094256) do
+ActiveRecord::Schema.define(version: 20170131115831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20170131094256) do
     t.string   "closure_hmrc_officer"
     t.string   "closure_years_under_enquiry"
     t.text     "closure_additional_info"
+    t.boolean  "closure_problems_uploading_documents",      default: false
+    t.text     "closure_problems_uploading_details"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 

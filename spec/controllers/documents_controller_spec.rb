@@ -18,18 +18,19 @@ RSpec.describe DocumentsController, type: :controller do
   end
 
   describe '#create' do
-    let(:headers) { {'HTTP_REFERER': edit_steps_details_documents_checklist_path} }
+    let(:current_step_path) { nil }
     let(:format) { :html }
 
     before do
-      request.headers.merge!(headers)
-      post :create, params: {document: file}, format: format
+      post :create, params: {document: file, current_step_path: current_step_path}, format: format
     end
 
     context 'document is valid' do
       context 'HTML format' do
+        let(:current_step_path) { 'step/to/redirect' }
+
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to be_nil
         end
       end
@@ -48,8 +49,10 @@ RSpec.describe DocumentsController, type: :controller do
       let(:upload_response) { double(code: 500, body: {}, error?: true) }
 
       context 'HTML format' do
+        let(:current_step_path) { 'step/to/redirect' }
+
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:response_error])
         end
       end
@@ -68,8 +71,10 @@ RSpec.describe DocumentsController, type: :controller do
       let(:file) { fixture_file_upload('files/image.jpg', 'application/zip') }
 
       context 'HTML format' do
+        let(:current_step_path) { 'step/to/redirect' }
+
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:content_type])
         end
       end
@@ -86,17 +91,7 @@ RSpec.describe DocumentsController, type: :controller do
   end
 
   describe '#destroy' do
-    let(:headers) { {'HTTP_REFERER': edit_steps_details_documents_checklist_path} }
-
-    before do
-      request.headers.merge!(headers)
-    end
-
     context 'deleting a different document to the grounds_for_appeal document' do
-      let(:params) {
-        {id: another_filename}
-      }
-
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
             collection_ref: collection_ref, filename: 'another').and_return(double(call: true))
@@ -106,14 +101,14 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should delete the file and redirect to the documents_checklist step' do
-          delete :destroy, params: params
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          delete :destroy, params: {id: another_filename, current_step_path: 'step/to/redirect' }
+          expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
       context 'JSON format' do
         it 'should respond with an empty body and success status code' do
-          delete :destroy, params: params, format: :json
+          delete :destroy, params: {id: another_filename}, format: :json
           expect(response.status).to eq(204)
           expect(response.body).to eq('')
         end
@@ -121,12 +116,6 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context 'deleting the grounds_for_appeal document' do
-      let(:params) {
-        {id: filename}
-      }
-
-      let(:headers) { {'HTTP_REFERER': edit_steps_details_grounds_for_appeal_path} }
-
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
             collection_ref: collection_ref, filename: 'test%20file.txt').and_return(double(call: true))
@@ -136,14 +125,14 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should nil the document name and redirect to the same step' do
-          delete :destroy, params: params
-          expect(subject).to redirect_to(edit_steps_details_grounds_for_appeal_path)
+          delete :destroy, params: {id: filename, current_step_path: 'step/to/redirect' }
+          expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
       context 'JSON format' do
         it 'should respond with an empty body and success status code' do
-          delete :destroy, params: params, format: :json
+          delete :destroy, params: {id: filename}, format: :json
           expect(response.status).to eq(204)
           expect(response.body).to eq('')
         end

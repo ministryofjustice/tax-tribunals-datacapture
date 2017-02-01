@@ -5,11 +5,11 @@ class DocumentsController < ApplicationController
     uploader = DocumentUpload.new(document_param, collection_ref: collection_ref)
     uploader.upload! if uploader.valid?
 
-    respond_with(uploader, location: edit_steps_details_documents_checklist_path) do |format|
+    respond_with(uploader, location: current_step_path) do |format|
       if uploader.errors?
         format.html {
           flash[:alert] = uploader.errors
-          redirect_to edit_steps_details_documents_checklist_path
+          redirect_to current_step_path
         }
         format.json {
           render json: {error: uploader.errors}, status: :unprocessable_entity
@@ -24,15 +24,10 @@ class DocumentsController < ApplicationController
       filename: filename
     ).call
 
-    if grounds_for_appeal_filename?
-      current_tribunal_case.update(grounds_for_appeal_file_name: nil)
-      back_step = edit_steps_details_grounds_for_appeal_path
-    else
-      back_step = edit_steps_details_documents_checklist_path
-    end
+    current_tribunal_case.update(grounds_for_appeal_file_name: nil) if grounds_for_appeal_filename?
 
     respond_to do |format|
-      format.html { redirect_to back_step }
+      format.html { redirect_to current_step_path }
       format.json { head :no_content }
       format.js   { head :no_content }
     end
@@ -46,6 +41,10 @@ class DocumentsController < ApplicationController
 
   def grounds_for_appeal_filename?
     decoded_filename == current_tribunal_case.grounds_for_appeal_file_name
+  end
+
+  def current_step_path
+    document_params[:current_step_path]
   end
 
   def filename
@@ -65,6 +64,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.permit(:_method, :id, :step, :document, :authenticity_token)
+    params.permit(:_method, :id, :current_step_path, :document, :authenticity_token)
   end
 end

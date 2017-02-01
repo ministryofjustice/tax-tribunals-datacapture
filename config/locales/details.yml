@@ -9,7 +9,14 @@ en:
           <li>Files cannot be password protected</li>
         </ul>
       footer: You can’t upload executable (.exe) and other zip, archive or compressed files due to virus risks.
-      dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span class="faux-link">click to choose a file</span>
+      dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span class="faux-link" tabindex="-1">click to choose a file</span>
+      uploaded_files_header: Uploaded files
+      no_uploaded_files: No files uploaded
+      having_problems: I am having trouble uploading my documents
+      having_problems_explanation: You will need to continue completing your appeal and print off details, send copies of letters with a cheque or money order.
+    service_help:
+      need_help: Need help using the online service?
+      contact_us: Contact us
   steps:
     details:
       step_header: Question %{step} of ?
@@ -56,11 +63,6 @@ en:
           documents_check_heading: 'You must upload the following (select the items you have uploaded):'
           original_notice_provided_html: <strong>Original notice letter</strong><br>including the explanation for any decision(s)
           review_conclusion_provided_html: <strong>Review conclusion letter</strong><br>you will only have this if your case was reviewed
-          having_problems_uploading_documents_html: I am having trouble uploading my documents
-          uploaded_files_header: Uploaded files
-          no_uploaded_files: No files uploaded
-          need_help: Need help using the online service?
-          contact_us: Contact us
       check_answers:
         show:
           submit_and_continue: Submit and continue
