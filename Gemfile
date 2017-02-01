@@ -26,6 +26,8 @@ gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
