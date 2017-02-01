@@ -31,12 +31,24 @@ class SessionsController < ApplicationController
       case_type: CaseType::OTHER,
       challenged_decision: ChallengedDecision::YES,
       in_time: InTime::YES,
+      taxpayer_type: ContactableEntityType::INDIVIDUAL,
       taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
       taxpayer_contact_email: Faker::Internet.email,
       taxpayer_contact_postcode: Faker::Address.postcode,
       taxpayer_individual_first_name: Faker::Name.first_name,
       taxpayer_individual_last_name: Faker::Name.last_name,
       taxpayer_contact_address: [
+        Faker::Address.street_address,
+        Faker::Address.city,
+        Faker::Address.county
+      ].join("\n"),
+      representative_type: ContactableEntityType::INDIVIDUAL,
+      representative_contact_phone: Faker::PhoneNumber.phone_number,
+      representative_contact_email: Faker::Internet.email,
+      representative_contact_postcode: Faker::Address.postcode,
+      representative_individual_first_name: Faker::Name.first_name,
+      representative_individual_last_name: Faker::Name.last_name,
+      representative_contact_address: [
         Faker::Address.street_address,
         Faker::Address.city,
         Faker::Address.county
