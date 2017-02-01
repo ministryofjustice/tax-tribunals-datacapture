@@ -7,6 +7,7 @@ RSpec.shared_examples 'a generic step controller' do |form_class, decision_tree_
     let(:expected_params) { { form_class_params_name => { foo: 'bar' } } }
 
     before do
+      expect(controller).to receive(:store_step_path_in_session)
       allow(form_class).to receive(:new).and_return(form_object)
     end
 
@@ -107,6 +108,10 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
 end
 
 RSpec.shared_examples 'an intermediate step controller without update' do
+  before do
+    expect(controller).to receive(:store_step_path_in_session)
+  end
+
   context '#update' do
     it 'raises an exception' do
       expect { put :update }.to raise_error(AbstractController::ActionNotFound)

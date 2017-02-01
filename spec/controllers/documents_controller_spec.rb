@@ -15,20 +15,18 @@ RSpec.describe DocumentsController, type: :controller do
   before do
     allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
     allow(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+    session[:current_step_path] = 'step/to/redirect'
   end
 
   describe '#create' do
-    let(:current_step_path) { nil }
     let(:format) { :html }
 
     before do
-      post :create, params: {document: file, current_step_path: current_step_path}, format: format
+      post :create, params: {document: file}, format: format
     end
 
     context 'document is valid' do
       context 'HTML format' do
-        let(:current_step_path) { 'step/to/redirect' }
-
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to be_nil
@@ -49,8 +47,6 @@ RSpec.describe DocumentsController, type: :controller do
       let(:upload_response) { double(code: 500, body: {}, error?: true) }
 
       context 'HTML format' do
-        let(:current_step_path) { 'step/to/redirect' }
-
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:response_error])
@@ -71,8 +67,6 @@ RSpec.describe DocumentsController, type: :controller do
       let(:file) { fixture_file_upload('files/image.jpg', 'application/zip') }
 
       context 'HTML format' do
-        let(:current_step_path) { 'step/to/redirect' }
-
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:content_type])
@@ -92,6 +86,10 @@ RSpec.describe DocumentsController, type: :controller do
 
   describe '#destroy' do
     context 'deleting a different document to the grounds_for_appeal document' do
+      let(:params) {
+        {id: another_filename}
+      }
+
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
             collection_ref: collection_ref, filename: 'another').and_return(double(call: true))
@@ -101,14 +99,14 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should delete the file and redirect to the documents_checklist step' do
-          delete :destroy, params: {id: another_filename, current_step_path: 'step/to/redirect' }
+          delete :destroy, params: params
           expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
       context 'JSON format' do
         it 'should respond with an empty body and success status code' do
-          delete :destroy, params: {id: another_filename}, format: :json
+          delete :destroy, params: params, format: :json
           expect(response.status).to eq(204)
           expect(response.body).to eq('')
         end
@@ -116,6 +114,10 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context 'deleting the grounds_for_appeal document' do
+      let(:params) {
+        {id: filename}
+      }
+
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
             collection_ref: collection_ref, filename: 'test%20file.txt').and_return(double(call: true))
@@ -125,14 +127,14 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should nil the document name and redirect to the same step' do
-          delete :destroy, params: {id: filename, current_step_path: 'step/to/redirect' }
+          delete :destroy, params: params
           expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
       context 'JSON format' do
         it 'should respond with an empty body and success status code' do
-          delete :destroy, params: {id: filename}, format: :json
+          delete :destroy, params: params, format: :json
           expect(response.status).to eq(204)
           expect(response.body).to eq('')
         end
