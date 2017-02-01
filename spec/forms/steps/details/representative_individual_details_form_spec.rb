@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
+RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
   it_behaves_like 'a contactable entity form',
-    entity_type: :taxpayer,
+    entity_type: :representative,
     additional_fields: [
-      :taxpayer_individual_first_name,
-      :taxpayer_individual_last_name
+      :representative_individual_first_name,
+      :representative_individual_last_name
     ]
 
   describe '#name_fields' do
-    specify { expect(subject.name_fields).to eq([:taxpayer_individual_first_name, :taxpayer_individual_last_name]) }
+    specify { expect(subject.name_fields).to eq([:representative_individual_first_name, :representative_individual_last_name]) }
   end
 
   describe '#show_fao?' do

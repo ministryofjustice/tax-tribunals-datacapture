@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::TaxpayerOrganisationDetailsForm do
+RSpec.describe Steps::Details::RepresentativeOrganisationDetailsForm do
   it_behaves_like 'a contactable entity form',
-    entity_type: :taxpayer,
+    entity_type: :representative,
     additional_fields: [
-      :taxpayer_organisation_name,
-      :taxpayer_organisation_fao
+      :representative_organisation_name,
+      :representative_organisation_fao
     ]
 
   describe '#name_fields' do
-    specify { expect(subject.name_fields).to eq([:taxpayer_organisation_name]) }
+    specify { expect(subject.name_fields).to eq([:representative_organisation_name]) }
   end
 
   describe '#show_fao?' do
