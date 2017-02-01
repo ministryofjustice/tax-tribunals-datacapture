@@ -25,7 +25,8 @@
       <% if uploaded_document %>
           <div class="gfa_uploaded_doc_container">
             <p><%= t('.previous_document', file_name: uploaded_document.name) %></p>
-            <%= button_to 'Remove', document_path(uploaded_document), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' %>
+            <%= button_to 'Remove', document_path(uploaded_document), method: :delete, data: {confirm: 'Are you sure?'},
+                          class: 'button', params: { current_step_path: edit_steps_details_grounds_for_appeal_path } %>
           </div>
       <% end %>
     </div>

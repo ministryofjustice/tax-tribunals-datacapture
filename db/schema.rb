@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170131191054) do
     t.string   "closure_hmrc_officer"
     t.string   "closure_years_under_enquiry"
     t.text     "closure_additional_info"
+    t.boolean  "closure_problems_uploading_documents",            default: false
+    t.text     "closure_problems_uploading_details"
     t.string   "taxpayer_individual_first_name"
     t.string   "taxpayer_individual_last_name"
     t.string   "has_representative"
