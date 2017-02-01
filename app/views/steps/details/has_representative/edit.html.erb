@@ -11,14 +11,14 @@
         choices: Steps::Details::HasRepresentativeForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
-    
+
     <details role="group">
       <summary role="button" aria-controls="details-content-0" aria-expanded="true">
         <%=t '.details_heading' %>
       </summary>
-			<div class="panel" id="details-content-0" aria-hidden="false">
+      <div class="panel" id="details-content-0" aria-hidden="false">
         <%=t '.details_content_html' %>
-			</div>
-		</details>  
+      </div>
+    </details>
   </div>
 </div>
