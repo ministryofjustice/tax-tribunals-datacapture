@@ -43,10 +43,6 @@ class DocumentsController < ApplicationController
     decoded_filename == current_tribunal_case.grounds_for_appeal_file_name
   end
 
-  def current_step_path
-    document_params[:current_step_path]
-  end
-
   def filename
     URI.encode(decoded_filename)
   end
@@ -64,6 +60,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.permit(:_method, :id, :current_step_path, :document, :authenticity_token)
+    params.permit(:_method, :id, :document, :authenticity_token)
   end
 end

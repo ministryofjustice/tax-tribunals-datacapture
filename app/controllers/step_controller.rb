@@ -1,4 +1,6 @@
 class StepController < ApplicationController
+  before_action :store_step_path_in_session, only: [:edit, :update]
+
   def edit
     raise 'No tribunal case in session' unless current_tribunal_case
   end
@@ -42,5 +44,9 @@ class StepController < ApplicationController
     params
       .fetch(form_class.model_name.singular, {})
       .permit(form_class.new.attributes.keys)
+  end
+
+  def store_step_path_in_session
+    session[:current_step_path] = request.fullpath
   end
 end

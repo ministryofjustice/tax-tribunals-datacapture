@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     @current_tribunal_case ||= TribunalCase.find_by_id(session[:tribunal_case_id])
   end
 
+  def current_step_path
+    session[:current_step_path]
+  end
+
   private
 
   def initialize_tribunal_case(intent:)
