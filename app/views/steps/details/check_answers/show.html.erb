@@ -52,6 +52,28 @@
       <%= link_to t('.change'), edit_steps_details_taxpayer_type_path %>
     </td>
   </tr>
+    <tr>
+      <th><%= t '.questions.representative_details' %></th>
+      <td>
+        <% if @tribunal_case.representative.present? %>
+          <div><%= @tribunal_case.representative.name %></div>
+          <div class="js_breaklines">
+            <%= simple_format(@tribunal_case.representative.address) %>
+          </div>
+          <div>
+            <%= t '.questions.representative_phone' %> <span><%= @tribunal_case.representative.phone %></span>
+          </div>
+          <div>
+            <%= t '.questions.representative_email' %> <span><%= @tribunal_case.representative.email %></span>
+          </div>
+        <% else %>
+          <%= t '.answers.no_representative' %>
+        <% end %>
+      </td>
+      <td class="change-answer">
+        <%= link_to t('.change'), edit_steps_details_has_representative_path %>
+      </td>
+    </tr>
 
   <tr>
     <th><%= t '.questions.grounds_for_appeal' %></th>

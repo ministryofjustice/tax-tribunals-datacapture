@@ -50,4 +50,8 @@ class TribunalCase < ApplicationRecord
   def taxpayer_is_organisation?
     taxpayer_type.organisation?
   end
+
+  def representative_is_organisation?
+    representative_type.organisation?
+  end
 end
