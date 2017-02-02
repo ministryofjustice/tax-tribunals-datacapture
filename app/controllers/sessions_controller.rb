@@ -38,10 +38,9 @@ class SessionsController < ApplicationController
       taxpayer_individual_first_name: Faker::Name.first_name,
       taxpayer_individual_last_name: Faker::Name.last_name,
       taxpayer_contact_address: [
-        Faker::Address.street_address,
-        Faker::Address.city,
-        Faker::Address.county
+        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
       ].join("\n"),
+      has_representative: HasRepresentative::YES,
       representative_type: ContactableEntityType::INDIVIDUAL,
       representative_contact_phone: Faker::PhoneNumber.phone_number,
       representative_contact_email: Faker::Internet.email,
@@ -49,9 +48,7 @@ class SessionsController < ApplicationController
       representative_individual_first_name: Faker::Name.first_name,
       representative_individual_last_name: Faker::Name.last_name,
       representative_contact_address: [
-        Faker::Address.street_address,
-        Faker::Address.city,
-        Faker::Address.county
+        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
       ].join("\n")
     )
 

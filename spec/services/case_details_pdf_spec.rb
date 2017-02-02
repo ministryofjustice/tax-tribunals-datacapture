@@ -13,6 +13,11 @@ RSpec.describe CaseDetailsPdf do
       taxpayer_individual_first_name: 'Firstname',
       taxpayer_individual_last_name: 'Lastname',
       taxpayer_organisation_fao: 'Company Contact Name',
+      has_representative: HasRepresentative::YES,
+      representative_type: ContactableEntityType::INDIVIDUAL,
+      representative_individual_first_name: 'Firstname',
+      representative_individual_last_name: 'Lastname',
+      representative_organisation_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
       case_reference: 'TC/2016/12345',
       outcome: 'my desired outcome'
@@ -39,6 +44,7 @@ RSpec.describe CaseDetailsPdf do
       expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
 
       expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:fee_answers).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original

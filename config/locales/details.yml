@@ -111,9 +111,11 @@ en:
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
             appellant_email: "Email:"
+            representative_details: "Representative's details"
+            representative_phone: "Tel:"
+            representative_email: "Email:"
             grounds_for_appeal: Grounds for appeal
             documents_submitted: Documents submitted
-            representative_details: Representative details
             legal_representative: Legal representative
             desired_outcome: Desired outcome
           answers:
@@ -144,6 +146,7 @@ en:
               'no': 'Yes'
               unsure: Unknown
             no_grounds_for_appeal_text: No text entered
+            no_representative: I don't have a representative
       outcome:
         edit:
           heading: What outcome do you want from your appeal?

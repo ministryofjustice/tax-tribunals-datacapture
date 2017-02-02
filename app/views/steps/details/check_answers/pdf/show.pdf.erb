@@ -39,7 +39,24 @@
   <tr>
     <td class="section"><%= pdf_t '.questions.representative_details' %></td>
     <td class="content">
-      Not yet implemented in data capture.
+      <% if tribunal_case.representative.present? %>
+        <div><%= tribunal_case.representative.name %></div>
+        <div>
+          <%= simple_format(tribunal_case.representative.address) %>
+        </div>
+        <div>
+          <%= pdf_t '.questions.representative_phone' %>
+          <span><%= tribunal_case.representative.phone %></span>
+        </div>
+        <div>
+          <%= pdf_t '.questions.representative_email' %>
+          <span><%= tribunal_case.representative.email %></span>
+        </div>
+      <% else %>
+        <div>
+          <%= pdf_t '.answers.no_representative' %>
+        </div>
+      <% end %>
     </td>
   </tr>
   </tbody>

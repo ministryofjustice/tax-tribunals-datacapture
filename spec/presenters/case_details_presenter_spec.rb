@@ -11,6 +11,12 @@ RSpec.describe CaseDetailsPresenter do
     end
   end
 
+  context '#representative' do
+    it 'returns a representative presenter instance' do
+      expect(subject.representative).to be_an_instance_of(RepresentativeDetailsPresenter)
+    end
+  end
+
   context '#documents' do
     it 'returns a documents presenter instance' do
       expect(subject.documents).to be_an_instance_of(DocumentsSubmittedPresenter)
