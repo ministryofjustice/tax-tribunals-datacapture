@@ -5,7 +5,7 @@ module Steps::Details
     attribute :having_problems_uploading_documents, Boolean
     attribute :having_problems_uploading_details, String
 
-    validate :documents_uploaded, :letter_checkboxes,
+    validate :documents_uploaded, :letter_checkboxes_ticked,
              if: :tribunal_case, unless: :having_problems_uploading_documents
 
     validates_length_of :having_problems_uploading_details,
@@ -28,7 +28,7 @@ module Steps::Details
       tribunal_case.documents.any? || errors.add(:original_notice_provided, :no_documents)
     end
 
-    def letter_checkboxes
+    def letter_checkboxes_ticked
       [
         original_notice_provided,
         review_conclusion_provided
