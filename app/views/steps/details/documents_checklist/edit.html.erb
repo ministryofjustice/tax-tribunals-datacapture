@@ -6,6 +6,8 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
+    <p><%=t 'shared.file_upload.technical_info' %></p>
+
     <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
         <%= file_field_tag :document %>
         <%= submit_tag 'Upload', class: 'button' %>
@@ -62,10 +64,15 @@
         </div>
 
         <div class="form-group util_mt-large">
-          <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox' do %>
+          <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
               <%= f.check_box :having_problems_uploading_documents %>
               <%= t 'shared.file_upload.having_problems' %>
           <% end %>
+
+          <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
+            <p><%= t('shared.file_upload.having_problems_explanation_html') %></p>
+            <%= f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
+          </div>
         </div>
 
         <div class="form-group util_mt-large">

@@ -29,7 +29,7 @@ en:
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
-          lead_text: We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.
+          lead_text: The tax tribunal is independent and doesn't have access to files from HMRC.
           having_problems_uploading_documents_html: I am having trouble uploading my documents
   helpers:
     fieldset:
@@ -51,7 +51,7 @@ en:
       steps_closure_additional_info_form:
         closure_additional_info: Additional information
       steps_closure_support_documents_form:
-        closure_problems_uploading_details: Describe the trouble you are having uploading your documents
+        closure_problems_uploading_details: Reasons you can't upload
   activemodel:
     errors:
       models:
