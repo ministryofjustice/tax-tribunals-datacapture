@@ -9,11 +9,19 @@ en:
           <li>Files cannot be password protected</li>
         </ul>
       footer: You can’t upload executable (.exe) and other zip, archive or compressed files due to virus risks.
+      technical_info: We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
-      having_problems_explanation: You will need to continue completing your appeal and print off details, send copies of letters with a cheque or money order.
+      having_problems_explanation_html: |
+        <strong>What to do next</strong>
+        <ul class="list list-bullet">
+          <li>enter reasons why you can't upload documents</li>
+          <li>continue your appeal online</li>
+          <li>print out your case details</li>
+          <li>post your documents and case details</li>
+        </ul>
     service_help:
       need_help: Need help using the online service?
       contact_us: Contact us
@@ -76,8 +84,8 @@ en:
           attach_document_html: <strong>Attach reasons as a document</strong>
       documents_checklist:
         edit:
-          heading: Select and upload your letters in digital format
-          lead_text: We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.
+          heading: Upload your letter(s)
+          lead_text: The tax tribunal is independent and doesn't have access to files from HMRC.
           documents_check_heading: 'You must upload the following (select the items you have uploaded):'
           original_notice_provided_html: <strong>Original notice letter</strong><br>including the explanation for any decision(s)
           review_conclusion_provided_html: <strong>Review conclusion letter</strong><br>you will only have this if your case was reviewed
@@ -185,11 +193,10 @@ en:
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:
-              blank: You must upload and check this document type
-              no_documents: Please ensure the documents are uploaded
-            review_conclusion_provided:
-              blank: You must upload and check this document type
-              no_documents: Please ensure the documents are uploaded
+              blank: You must select the letter(s) you have uploaded
+              no_documents: You must upload a file
+            having_problems_uploading_details:
+              too_short: You must give a reason why you can't upload your documents
   helpers:
     fieldset:
       steps_details_taxpayer_type_form:
@@ -252,3 +259,5 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
+      steps_details_documents_checklist_form:
+        having_problems_uploading_details: Reasons you can't upload
