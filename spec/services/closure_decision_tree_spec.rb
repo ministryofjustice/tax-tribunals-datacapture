@@ -52,7 +52,25 @@ RSpec.describe ClosureDecisionTree do
     context 'when the step is `enquiry_details`' do
       let(:step_params) { { enquiry_details: 'anything' } }
 
-      it { is_expected.to have_previous('/steps/details/taxpayer_type', :edit) }
+      context 'and there is a representative' do
+        context 'and the user is the taxpayer' do
+          let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES, user_type: UserType::TAXPAYER) }
+
+          it { is_expected.to have_previous('/steps/details/representative_details', :edit) }
+        end
+
+        context 'and the user is the representative' do
+          let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES, user_type: UserType::REPRESENTATIVE) }
+
+          it { is_expected.to have_previous('/steps/details/taxpayer_details', :edit) }
+        end
+      end
+
+      context 'and there is no representative' do
+        let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::NO, user_type: UserType::TAXPAYER) }
+
+        it { is_expected.to have_previous('/steps/details/has_representative', :edit) }
+      end
     end
 
     context 'when the step is `additional_info`' do

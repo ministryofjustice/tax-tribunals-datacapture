@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       edit_step :outcome
       edit_step :documents_checklist
       show_step :check_answers
+      edit_step :user_type
     end
   end
 

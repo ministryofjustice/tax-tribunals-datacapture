@@ -50,6 +50,9 @@ en:
             </p>
           previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details.
           continue: Continue
+      user_type:
+        edit:
+          heading: Are you the taxpayer involved in the appeal?
       taxpayer_type:
         edit:
           heading: Who is your appeal for?
@@ -163,6 +166,10 @@ en:
   activemodel:
     errors:
       models:
+        steps/details/user_type_form:
+          attributes:
+            user_type:
+              inclusion: Select whether you are the taxpayer involved in the appeal
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
@@ -203,6 +210,8 @@ en:
               too_short: You must give a reason why you can't upload your documents
   helpers:
     fieldset:
+      steps_details_user_type_form:
+        user_type: Are you the taxpayer involved in the appeal?
       steps_details_taxpayer_type_form:
         taxpayer_type: Who is your appeal for?
       steps_details_has_representative_form:
@@ -210,6 +219,10 @@ en:
       steps_details_representative_type_form:
         representative_type: Is your representative an individual, company or other type of organisation?
     label:
+      steps_details_user_type_form:
+        user_type:
+          taxpayer: 'Yes'
+          representative: No, I am acting on behalf of the taxpayer
       steps_details_taxpayer_type_form:
         taxpayer_type:
           individual_html: <strong>Individual</strong>

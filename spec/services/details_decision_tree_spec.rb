@@ -7,6 +7,22 @@ RSpec.describe DetailsDecisionTree do
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
   describe '#destination' do
+    context 'when the step is `user_type`' do
+      let(:step_params) { { user_type: 'anything'  } }
+
+      context 'and the user is a taxpayer' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
+
+        it { is_expected.to have_destination(:taxpayer_type, :edit) }
+      end
+
+      context 'and the user is a representative' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
+
+        it { is_expected.to have_destination(:representative_type, :edit) }
+      end
+    end
+
     context 'when the step is `taxpayer_type`' do
       let(:step_params) { { taxpayer_type: 'anything'  } }
 
@@ -16,7 +32,25 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `taxpayer_details`' do
       let(:step_params) { { taxpayer_details: 'anything'  } }
 
-      it { is_expected.to have_destination(:has_representative, :edit) }
+      context 'and the user is the taxpayer' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
+
+        it { is_expected.to have_destination(:has_representative, :edit) }
+      end
+
+      context 'and the user is a representative' do
+        context 'for a tax appeal' do
+          let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE, intent: Intent::TAX_APPEAL) }
+
+          it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+        end
+
+        context 'for a closure enquiry' do
+          let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE, intent: Intent::CLOSE_ENQUIRY) }
+
+          it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
+        end
+      end
     end
 
     context 'when the step is `has_representative`' do
@@ -52,16 +86,24 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `representative_details`' do
       let(:step_params) { { representative_details: 'anything'  } }
 
-      context 'for a tax appeal' do
-        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::TAX_APPEAL) }
+      context 'when the user is the taxpayer' do
+        context 'for a tax appeal' do
+          let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER, intent: Intent::TAX_APPEAL) }
 
-        it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+          it { is_expected.to have_destination(:grounds_for_appeal, :edit) }
+        end
+
+        context 'for a closure enquiry' do
+          let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER, intent: Intent::CLOSE_ENQUIRY) }
+
+          it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
+        end
       end
 
-      context 'for a closure enquiry' do
-        let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::CLOSE_ENQUIRY) }
+      context 'when the user is the representative' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
 
-        it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
+        it { is_expected.to have_destination(:taxpayer_type, :edit) }
       end
     end
 
@@ -99,8 +141,8 @@ RSpec.describe DetailsDecisionTree do
   end
 
   describe '#previous' do
-    context 'when the step is `taxpayer_type`' do
-      let(:step_params) { { taxpayer_type: 'anything'  } }
+    context 'when the step is `user_type`' do
+      let(:step_params) { { user_type: 'anything'  } }
 
       context 'for a tax appeal' do
         let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::TAX_APPEAL) }
@@ -112,6 +154,22 @@ RSpec.describe DetailsDecisionTree do
         let(:tribunal_case) { instance_double(TribunalCase, intent: Intent::CLOSE_ENQUIRY) }
 
         it { is_expected.to have_previous('/steps/closure/case_type', :edit) }
+      end
+    end
+
+    context 'when the step is `taxpayer_type`' do
+      let(:step_params) { { taxpayer_type: 'anything'  } }
+
+      context 'and the user is the taxpayer' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
+
+        it { is_expected.to have_previous(:user_type, :edit) }
+      end
+
+      context 'and the user is the representative' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
+
+        it { is_expected.to have_previous(:representative_details, :edit) }
       end
     end
 
@@ -130,7 +188,17 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `representative_type`' do
       let(:step_params) { { representative_type: 'anything'  } }
 
-      it { is_expected.to have_previous(:has_representative, :edit) }
+      context 'and the user is the taxpayer' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
+
+        it { is_expected.to have_previous(:has_representative, :edit) }
+      end
+
+      context 'and the user is the representative' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
+
+        it { is_expected.to have_previous(:user_type, :edit) }
+      end
     end
 
     context 'when the step is `representative_details`' do
@@ -143,9 +211,17 @@ RSpec.describe DetailsDecisionTree do
       let(:step_params) { { grounds_for_appeal: 'anything'  } }
 
       context 'when there is a representative' do
-        let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES) }
+        context 'and the user is the representative' do
+          let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES, user_type: UserType::REPRESENTATIVE) }
 
-        it { is_expected.to have_previous(:representative_details, :edit) }
+          it { is_expected.to have_previous(:taxpayer_details, :edit) }
+        end
+
+        context 'and the user is the taxpayer' do
+          let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES, user_type: UserType::TAXPAYER) }
+
+          it { is_expected.to have_previous(:representative_details, :edit) }
+        end
       end
 
       context 'when there is not a representative' do
