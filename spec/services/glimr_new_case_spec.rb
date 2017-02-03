@@ -116,7 +116,7 @@ RSpec.describe GlimrNewCase do
         let(:taxpayer_type) { ContactableEntityType::COMPANY }
         let(:organisation_params) {
           glimr_params.except(:contactFirstName, :contactLastName).merge(
-            repOrganisationName: 'Company Name', repFAO: 'Destany Fritsch')
+            contactOrganisationName: 'Company Name', contactFAO: 'Destany Fritsch')
         }
 
         it 'sends required organisation params but not individual params' do

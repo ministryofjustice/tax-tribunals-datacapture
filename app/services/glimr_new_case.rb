@@ -29,8 +29,8 @@ class GlimrNewCase
 
     if tc.taxpayer_is_organisation?
       params.merge!(
-        repOrganisationName: tc.taxpayer_organisation_name,
-        repFAO: tc.taxpayer_organisation_fao
+        contactOrganisationName: tc.taxpayer_organisation_name,
+        contactFAO: tc.taxpayer_organisation_fao
       )
     else
       params.merge!(
