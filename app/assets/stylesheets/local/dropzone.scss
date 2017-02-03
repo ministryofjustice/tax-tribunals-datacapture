@@ -1,9 +1,9 @@
 
 .dropzone {
-  z-index: 100;
   border: 2px dashed $grey-1;
   padding: 30px;
   margin-bottom: 20px;
+  clear: both;
 
   .arrow-icon::before {
     content: image-url('drag-drop-upload-ico.svg');
@@ -69,8 +69,14 @@
       .faux-link {
         color: $link-colour;
         text-decoration: underline;
+        cursor: pointer;
+        display: inline-block;
       }
     }
+  }
+
+  &:focus {
+    outline: 3px solid $yellow;
   }
 }
 
