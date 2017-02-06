@@ -58,7 +58,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to task_list_path
+    redirect_to appeal_path
   end
 
   private

@@ -9,8 +9,8 @@ class AppealDecisionTree < DecisionTree
       after_case_type_step
     when :dispute_type
       after_dispute_type_step
-    when :penalty_amount, :tax_amount, :penalty_and_tax_amounts
-      hardship_or_determine_cost_step
+    when :penalty_amount, :penalty_and_tax_amounts, :tax_amount
+      hardship_or_lateness_step
     when :challenged_decision_status
       edit(:dispute_type)
     else
@@ -73,15 +73,15 @@ class AppealDecisionTree < DecisionTree
     elsif tribunal_case.dispute_type.ask_penalty_and_tax?
       edit(:penalty_and_tax_amounts)
     else
-      hardship_or_determine_cost_step
+      hardship_or_lateness_step
     end
   end
 
-  def hardship_or_determine_cost_step
+  def hardship_or_lateness_step
     if tribunal_case.case_type.ask_hardship? && tribunal_case.dispute_type.ask_hardship?
       edit('/steps/hardship/disputed_tax_paid')
     else
-      show(:determine_cost)
+      edit('steps/lateness/in_time')
     end
   end
 

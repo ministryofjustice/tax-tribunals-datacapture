@@ -1,13 +1,35 @@
-<h1 class="heading-large">
-  <%=t '.heading' %>
-</h1>
+<header class="homepage-top">
+  <div class="homepage-top-inner">
+    <div class="welcome-block">
+      <div class="inner-block floated-children">
+        <div class="welcome-text">
+          <div class="floated-inner-block">
+            <h1><%= t '.impartial_decision' %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<p class="lede">
-  <%=t '.lead_text_html' %>
-</p>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large">
+      <%=t '.heading' %>
+    </h1>
 
-<%=t '.description_html' %>
+    <p class="lede">
+    <%=t '.lead_text_html' %>
+    </p>
 
-<p>
-  <%= link_to t('.continue'), edit_steps_appeal_challenged_decision_path, class: 'button button-start', role: 'button' %>
-</p>
+    <%= t('.description_html',
+          approval_form_href: 'https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28',
+          approval_form_format_and_size: 'PDF, 58Kb'
+         )
+      %>
+
+    <p>
+    <%= link_to t('.continue'), edit_steps_appeal_challenged_decision_path, class: 'button button-start', role: 'button' %>
+    </p>
+  </div>
+</div>

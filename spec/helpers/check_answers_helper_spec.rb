@@ -5,7 +5,7 @@ RSpec.describe CheckAnswersHelper do
     # These are just 2 keys to perform a quick sanity check of the method.
     # If ever changed or removed, any other keys can be used instead.
     let(:found_key) { '.questions.penalty_level' }
-    let(:cascaded_key) { '.questions.fee_amount' }
+    let(:cascaded_key) { '.questions.lateness_reason' }
 
     before do
       # Without setting this virtual path, we cannot mimic the lazy lookup of the view
@@ -19,7 +19,7 @@ RSpec.describe CheckAnswersHelper do
 
     it 'cascades a not found key' do
       result = helper.pdf_t(cascaded_key)
-      expect(result).to eq('Initial appeal fee')
+      expect(result).to eq('Reason for lateness?')
     end
   end
 end

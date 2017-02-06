@@ -28,7 +28,9 @@ class LatenessDecisionTree < DecisionTree
   def after_in_time_step
     case answer
     when :yes
-      task_list
+      # TODO: Change this to point at the first step in the repellant flow
+      # ('./who_are_you' in the prototype) when that is merged in.
+      edit('/steps/details/taxpayer_type')
     when :no, :unsure
       edit(:lateness_reason)
     end

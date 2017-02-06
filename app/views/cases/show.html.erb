@@ -1,0 +1,19 @@
+<h1 class="heading-large">
+  <span class="heading-secondary"><%= t('.case_reference', case_reference: current_tribunal_case.case_reference) %></span>
+  <%# TODO: change glimr api gem so it no longer gets case_title from fees. %>
+</h1>
+
+<div class="govuk-box-highlight">
+  <h1 class="bold-large"><%= t('.case_submitted') %></h1>
+</div>
+<p><%= t('.confirmation_email') %></p>
+
+<h2 class="heading-medium"><%= t('.what_happens_next') %></h2>
+<p>
+  <%= t('.what_the_tribunal_will_do') %>
+</p>
+<p>
+  <%# TODO: Link this or remove it before we go live. %>
+  <%= t('.what_did_you_think_html') %>
+</p>
+

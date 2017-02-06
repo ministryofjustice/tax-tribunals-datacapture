@@ -69,7 +69,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cases, only: [:create]
+  resources :cases, only: [:create, :show]
 
   resource :session, only: [:destroy] do
     member do
@@ -82,5 +82,5 @@ Rails.application.routes.draw do
   resources :healthcheck, only: [:index]
 
   root to: 'home#index'
-  get :task_list, to: 'task_list#index'
+  get :appeal, to: 'home#index'
 end

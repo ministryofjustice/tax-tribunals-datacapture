@@ -20,13 +20,9 @@ RSpec.describe CaseCreator do
     let(:glimr_new_case_double) {
       instance_double(GlimrNewCase, call!: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
     }
-    let(:payment_double) {
-      instance_double(PaymentUrl, call!: double(payment_url: 'http://www.example.com'))
-    }
 
     before do
       allow(GlimrNewCase).to receive(:new).with(tribunal_case).and_return(glimr_new_case_double)
-      allow(PaymentUrl).to receive(:new).with(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF').and_return(payment_double)
     end
 
     context 'registering the case into glimr' do
@@ -54,31 +50,6 @@ RSpec.describe CaseCreator do
       end
     end
 
-    context 'retrieving the payment url' do
-      it 'calls the payment API' do
-        expect(payment_double).to receive(:call!)
-        subject.call
-      end
-
-      it 'should respond to success? with false and have no errors' do
-        subject.call
-        expect(subject.success?).to eq(true)
-        expect(subject.errors).to eq([])
-      end
-
-      context 'when there are errors' do
-        before do
-          allow(payment_double).to receive(:call!).and_raise('boom!')
-        end
-
-        it 'should respond to success? with false and have errors' do
-          subject.call
-          expect(subject.success?).to eq(false)
-          expect(subject.errors).to eq(['boom!'])
-        end
-      end
-    end
-
     context 'storing the returned GLiMR case reference' do
       context 'when glimr and payment call was success' do
         it 'should store the case reference in the DB entry' do
@@ -88,11 +59,7 @@ RSpec.describe CaseCreator do
         end
       end
 
-      context 'when glimr or payment call failed' do
-        before do
-          allow(payment_double).to receive(:call!).and_raise('boom!')
-        end
-
+      context 'when glimr call fails' do
         it 'should not even reach this point' do
           expect(tribunal_case).not_to receive(:update).with(:case_reference)
           subject.call

@@ -98,12 +98,14 @@ en:
           warning_message: "Once you click 'Submit and continue', you cannot change your answers"
           declaration_of_truth: Declaration and statement of truth
           declaration_of_truth_message: |
-            By completing this application and clicking the ‘Submit and continue’ button, I believe the information
-            I have given in this form is true to the best of my knowledge. If I am found to have been deliberately
-            untruthful or dishonest, criminal proceedings for fraud can be brought against me. I understand that if
-            I have given false  information or I do not provide further evidence if requested, my application may be
-            rejected and any tax tribunal fees will not be refunded.
-          fee_details_heading: Appeal type and cost
+            By completing this Notice of Appeal and clicking the ‘Submit and
+            continue’ button, I believe the information I have given in this
+            form is true to the best of my knowledge. If I am found to have
+            been deliberately untruthful or dishonest, criminal proceedings for
+            fraud can be brought against me. I understand that if I have given
+            false information or I do not provide further evidence if
+            requested, my appeal may be rejected.
+          appeal_type_heading: Appeal type
           appeal_timeliness_heading: Appeal deadline
           appeal_details_heading: Appeal details
           questions:
@@ -113,7 +115,6 @@ en:
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
             tax_amount: What is the amount of tax?
-            fee_amount: Initial appeal fee
             in_time: Is the appeal late?
             lateness_reason: Reason(s) for late appeal
             appellant_details: "Taxpayer's details"

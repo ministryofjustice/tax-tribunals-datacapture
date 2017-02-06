@@ -4,7 +4,7 @@ class CasesController < ApplicationController
 
     result_url = if new_case.success?
                    generate_and_upload_pdf
-                   new_case.payment_url
+                   case_path(current_tribunal_case)
                  else
                    flash[:alert] = new_case.errors
                    steps_details_check_answers_path
