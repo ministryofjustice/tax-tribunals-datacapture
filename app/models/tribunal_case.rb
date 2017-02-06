@@ -14,6 +14,7 @@ class TribunalCase < ApplicationRecord
   has_value_object :in_time
 
   # Details task
+  has_value_object :user_type
   has_value_object :has_representative
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
   has_value_object :representative_type, class_name: 'ContactableEntityType'
