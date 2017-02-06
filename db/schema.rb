@@ -10,22 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131094256) do
+ActiveRecord::Schema.define(version: 20170202144329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
   create_table "tribunal_cases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.datetime "created_at",                                                                      null: false
-    t.datetime "updated_at",                                                                      null: false
+    t.datetime "created_at",                                                                            null: false
+    t.datetime "updated_at",                                                                            null: false
     t.string   "case_type"
     t.string   "dispute_type"
     t.string   "penalty_level"
     t.string   "in_time"
     t.text     "lateness_reason"
     t.string   "taxpayer_type"
-    t.string   "taxpayer_individual_name"
     t.text     "taxpayer_contact_address"
     t.text     "taxpayer_contact_postcode"
     t.string   "taxpayer_contact_email"
@@ -35,10 +34,10 @@ ActiveRecord::Schema.define(version: 20170131094256) do
     t.string   "taxpayer_organisation_registration_number"
     t.text     "grounds_for_appeal"
     t.string   "grounds_for_appeal_file_name"
-    t.uuid     "files_collection_ref",                      default: -> { "uuid_generate_v4()" }
-    t.boolean  "original_notice_provided",                  default: false
-    t.boolean  "review_conclusion_provided",                default: false
-    t.boolean  "having_problems_uploading_documents",       default: false
+    t.uuid     "files_collection_ref",                            default: -> { "uuid_generate_v4()" }
+    t.boolean  "original_notice_provided",                        default: false
+    t.boolean  "review_conclusion_provided",                      default: false
+    t.boolean  "having_problems_uploading_documents",             default: false
     t.string   "challenged_decision"
     t.string   "disputed_tax_paid"
     t.string   "hardship_review_requested"
@@ -55,6 +54,22 @@ ActiveRecord::Schema.define(version: 20170131094256) do
     t.string   "closure_hmrc_officer"
     t.string   "closure_years_under_enquiry"
     t.text     "closure_additional_info"
+    t.boolean  "closure_problems_uploading_documents",            default: false
+    t.text     "closure_problems_uploading_details"
+    t.string   "taxpayer_individual_first_name"
+    t.string   "taxpayer_individual_last_name"
+    t.string   "has_representative"
+    t.string   "representative_type"
+    t.string   "representative_individual_first_name"
+    t.string   "representative_individual_last_name"
+    t.text     "representative_contact_address"
+    t.text     "representative_contact_postcode"
+    t.string   "representative_contact_email"
+    t.string   "representative_contact_phone"
+    t.string   "representative_organisation_name"
+    t.string   "representative_organisation_fao"
+    t.string   "representative_organisation_registration_number"
+    t.text     "having_problems_uploading_details"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 

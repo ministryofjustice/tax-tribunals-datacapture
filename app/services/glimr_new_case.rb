@@ -29,13 +29,13 @@ class GlimrNewCase
 
     if tc.taxpayer_is_organisation?
       params.merge!(
-        repOrganisationName: tc.taxpayer_organisation_name,
-        repFAO: tc.taxpayer_organisation_fao
+        contactOrganisationName: tc.taxpayer_organisation_name,
+        contactFAO: tc.taxpayer_organisation_fao
       )
     else
       params.merge!(
-        contactFirstName: taxpayer_first_name,
-        contactLastName: taxpayer_last_name
+        contactFirstName: tc.taxpayer_individual_first_name,
+        contactLastName: tc.taxpayer_individual_last_name
       )
     end
   end
@@ -48,14 +48,6 @@ class GlimrNewCase
 
   def documents_url
     [ENV.fetch('TAX_TRIBUNALS_DOWNLOADER_URL'), tc.files_collection_ref].join('/')
-  end
-
-  def taxpayer_first_name
-    tc.taxpayer_individual_name.split(' ', 2)[0]
-  end
-
-  def taxpayer_last_name
-    tc.taxpayer_individual_name.split(' ', 2)[1]
   end
 
   # contactStreetX are indexed 1 to 4, so if there are more lines than available

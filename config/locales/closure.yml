@@ -26,6 +26,11 @@ en:
       additional_info:
         edit:
           heading: Say why you think the enquiry should close (optional)
+      support_documents:
+        edit:
+          heading: Add documents to support your application (optional)
+          lead_text: The tax tribunal is independent and doesn't have access to files from HMRC.
+          having_problems_uploading_documents_html: I am having trouble uploading my documents
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
@@ -45,6 +50,8 @@ en:
         closure_hmrc_officer: Name of HMRC officer conducting the enquiry (optional)
       steps_closure_additional_info_form:
         closure_additional_info: Additional information
+      steps_closure_support_documents_form:
+        closure_problems_uploading_details: Reasons you can't upload
   activemodel:
     errors:
       models:
@@ -54,3 +61,7 @@ en:
               blank: Enter the reference number
             closure_years_under_enquiry:
               blank: Enter the years under enquiry
+        steps/closure/support_documents_form:
+          attributes:
+            closure_problems_uploading_details:
+              too_short: You must give a reason why you can't upload your documents

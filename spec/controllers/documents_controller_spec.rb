@@ -15,21 +15,20 @@ RSpec.describe DocumentsController, type: :controller do
   before do
     allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
     allow(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+    session[:current_step_path] = 'step/to/redirect'
   end
 
   describe '#create' do
-    let(:headers) { {'HTTP_REFERER': edit_steps_details_documents_checklist_path} }
     let(:format) { :html }
 
     before do
-      request.headers.merge!(headers)
       post :create, params: {document: file}, format: format
     end
 
     context 'document is valid' do
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to be_nil
         end
       end
@@ -49,7 +48,7 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:response_error])
         end
       end
@@ -69,7 +68,7 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
           expect(flash.alert).to eq([:content_type])
         end
       end
@@ -86,12 +85,6 @@ RSpec.describe DocumentsController, type: :controller do
   end
 
   describe '#destroy' do
-    let(:headers) { {'HTTP_REFERER': edit_steps_details_documents_checklist_path} }
-
-    before do
-      request.headers.merge!(headers)
-    end
-
     context 'deleting a different document to the grounds_for_appeal document' do
       let(:params) {
         {id: another_filename}
@@ -107,7 +100,7 @@ RSpec.describe DocumentsController, type: :controller do
       context 'HTML format' do
         it 'should delete the file and redirect to the documents_checklist step' do
           delete :destroy, params: params
-          expect(subject).to redirect_to(edit_steps_details_documents_checklist_path)
+          expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
@@ -125,8 +118,6 @@ RSpec.describe DocumentsController, type: :controller do
         {id: filename}
       }
 
-      let(:headers) { {'HTTP_REFERER': edit_steps_details_grounds_for_appeal_path} }
-
       before do
         expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
             collection_ref: collection_ref, filename: 'test%20file.txt').and_return(double(call: true))
@@ -137,7 +128,7 @@ RSpec.describe DocumentsController, type: :controller do
       context 'HTML format' do
         it 'should nil the document name and redirect to the same step' do
           delete :destroy, params: params
-          expect(subject).to redirect_to(edit_steps_details_grounds_for_appeal_path)
+          expect(subject).to redirect_to('step/to/redirect')
         end
       end
 

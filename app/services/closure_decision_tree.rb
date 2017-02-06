@@ -7,6 +7,10 @@ class ClosureDecisionTree < DecisionTree
       edit('/steps/details/taxpayer_type')
     when :enquiry_details
       edit(:additional_info)
+    when :additional_info
+      edit(:support_documents)
+    when :support_documents
+      show(:start) # TODO: check your answers step
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -20,6 +24,8 @@ class ClosureDecisionTree < DecisionTree
       edit('/steps/details/taxpayer_type')
     when :additional_info
       edit(:enquiry_details)
+    when :support_documents
+      edit(:additional_info)
     else
       raise "Invalid step '#{step_params}'"
     end

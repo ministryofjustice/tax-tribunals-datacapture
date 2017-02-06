@@ -168,4 +168,13 @@ RSpec.describe TribunalCase, type: :model do
       expect(subject.taxpayer_is_organisation?).to eq(true)
     end
   end
+
+  describe '#representative_is_organisation?' do
+    let(:representative_type) { OpenStruct.new(organisation?: true, value: :anything) }
+    let(:attributes) { { representative_type: representative_type } }
+
+    it 'queries the representative_type' do
+      expect(subject.representative_is_organisation?).to eq(true)
+    end
+  end
 end

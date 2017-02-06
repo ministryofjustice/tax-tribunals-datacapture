@@ -6,28 +6,42 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
+    <p><%=t 'shared.file_upload.technical_info' %></p>
+
+    <%= fields_for @form_object do |f| %>
+      <div class="form-group">
+        <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
+          <%= f.check_box :original_notice_provided, form: 'new_steps_details_documents_checklist_form' %>
+          <%= t '.original_notice_provided_html' %>
+        <% end %>
+
+        <%= f.label :review_conclusion_provided, class: 'block-label selection-button-checkbox' do %>
+          <%= f.check_box :review_conclusion_provided, form: 'new_steps_details_documents_checklist_form' %>
+          <%= t '.review_conclusion_provided_html' %>
+        <% end %>
+      </div>
+    <% end %>
+
     <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
         <%= file_field_tag :document %>
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
 
-    <div id="doc_upload_zone-sticky-wrapper" class="sticky-wrapper" style="height: 240px;">
-      <div class="dropzone dz-clickable js-stick-at-top-when-scrolling js-hidden show-when-js-is-loaded" id="dz_doc_upload" style="width: 630px;">
-        <div class="dz-default dz-message grid-row">
-          <div class="column-one-third arrow-icon">
-            <p></p>
-          </div>
-          <div class="column-one-half">
-            <p class="dz-message-copy">
-              <%= t 'shared.file_upload.dropzone_message_html' %>
-            </p>
-          </div>
+    <div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0">
+      <div class="dz-default dz-message grid-row">
+        <div class="column-one-third arrow-icon">
+          <p></p>
+        </div>
+        <div class="column-one-half">
+          <p class="dz-message-copy">
+            <%= t 'shared.file_upload.dropzone_message_html' %>
+          </p>
         </div>
       </div>
     </div>
 
     <div class="uploaded-files-wrapper">
-      <h2 class="heading-medium"><%= t '.uploaded_files_header' %></h2>
+      <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
 
       <ol class="list uploaded-files">
         <% if @document_list&.any? %>
@@ -43,29 +57,22 @@
                 </li>
             <% end %>
         <% else %>
-            <li class="no-files"><%= t '.no_uploaded_files' %></li>
+            <li class="no-files"><%= t 'shared.file_upload.no_uploaded_files' %></li>
         <% end %>
       </ol>
     </div>
 
     <%= step_form @form_object do |f| %>
         <div class="form-group util_mt-large">
-          <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
-              <%= f.check_box :original_notice_provided %>
-              <%= t '.original_notice_provided_html' %>
-          <% end %>
-
-          <%= f.label :review_conclusion_provided, class: 'block-label selection-button-checkbox' do %>
-              <%= f.check_box :review_conclusion_provided %>
-              <%= t '.review_conclusion_provided_html' %>
-          <% end %>
-        </div>
-
-        <div class="form-group util_mt-large">
-          <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox' do %>
+          <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
               <%= f.check_box :having_problems_uploading_documents %>
-              <%= t '.having_problems_uploading_documents_html' %>
+              <%= t 'shared.file_upload.having_problems' %>
           <% end %>
+
+          <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
+            <p><%= t('shared.file_upload.having_problems_explanation_html') %></p>
+            <%= f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
+          </div>
         </div>
 
         <div class="form-group util_mt-large">
@@ -75,11 +82,6 @@
   </div>
 
   <div class="column-one-third">
-    <p class="lede">&nbsp;</p>
-    <p class="lede">&nbsp;</p>
-    <h2 class="heading-small"><%= t('.need_help') %></h2>
-    <nav role="navigation" class="font-xsmall">
-      <p><a href="#"><%= t('.contact_us') %></a></p>
-    </nav>
+    <%= render partial: 'steps/shared/file_upload_sidebar' %>
   </div>
 </div>

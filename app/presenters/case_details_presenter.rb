@@ -13,6 +13,10 @@ class CaseDetailsPresenter < SimpleDelegator
     @taxpayer ||= TaxpayerDetailsPresenter.new(tribunal_case)
   end
 
+  def representative
+    @representative ||= RepresentativeDetailsPresenter.new(tribunal_case)
+  end
+
   def documents
     @documents ||= DocumentsSubmittedPresenter.new(tribunal_case)
   end

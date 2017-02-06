@@ -1,6 +1,7 @@
 RSpec.shared_examples 'a contactable entity form' do |params|
   entity_type = params.fetch(:entity_type)
   additional_fields = params.fetch(:additional_fields, [])
+  optional_fields = params.fetch(:optional_fields, [])
 
   default_fields = [
     "#{entity_type}_contact_address",
@@ -9,7 +10,12 @@ RSpec.shared_examples 'a contactable entity form' do |params|
     "#{entity_type}_contact_phone"
   ].map(&:to_sym)
 
+  optional_fields += [
+    "#{entity_type}_contact_phone"
+  ].map(&:to_sym)
+
   fields = default_fields + additional_fields
+  required_fields = fields - optional_fields
 
   let(:fields_with_dummy_values) { fields.map {|k| [k, 'dummy_value'] }.to_h }
   let(:arguments) { fields_with_dummy_values.merge({ tribunal_case: tribunal_case }) }
@@ -26,7 +32,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
       end
     end
 
-    fields.each do |field|
+    required_fields.each do |field|
       context "when #{field} is not present" do
         let(:fields_with_dummy_values) { super().merge(field => nil) }
 

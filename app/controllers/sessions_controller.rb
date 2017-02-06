@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
   def create_and_fill_appeal
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(case_type: CaseType::OTHER, challenged_decision: ChallengedDecision::YES)
+    tribunal_case.update(
+      intent: Intent::TAX_APPEAL,
+      case_type: CaseType::OTHER,
+      challenged_decision: ChallengedDecision::YES
+    )
     redirect_to task_list_path
     # :nocov:
   end
@@ -23,17 +27,28 @@ class SessionsController < ApplicationController
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
     tribunal_case.update(
+      intent: Intent::TAX_APPEAL,
       case_type: CaseType::OTHER,
       challenged_decision: ChallengedDecision::YES,
       in_time: InTime::YES,
+      taxpayer_type: ContactableEntityType::INDIVIDUAL,
       taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
       taxpayer_contact_email: Faker::Internet.email,
       taxpayer_contact_postcode: Faker::Address.postcode,
-      taxpayer_individual_name: Faker::Name.name,
+      taxpayer_individual_first_name: Faker::Name.first_name,
+      taxpayer_individual_last_name: Faker::Name.last_name,
       taxpayer_contact_address: [
-        Faker::Address.street_address,
-        Faker::Address.city,
-        Faker::Address.county
+        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
+      ].join("\n"),
+      has_representative: HasRepresentative::YES,
+      representative_type: ContactableEntityType::INDIVIDUAL,
+      representative_contact_phone: Faker::PhoneNumber.phone_number,
+      representative_contact_email: Faker::Internet.email,
+      representative_contact_postcode: Faker::Address.postcode,
+      representative_individual_first_name: Faker::Name.first_name,
+      representative_individual_last_name: Faker::Name.last_name,
+      representative_contact_address: [
+        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
       ].join("\n")
     )
 

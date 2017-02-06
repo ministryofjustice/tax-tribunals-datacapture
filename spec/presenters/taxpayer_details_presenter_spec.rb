@@ -5,7 +5,8 @@ RSpec.describe TaxpayerDetailsPresenter do
   let(:tribunal_case) {
     TribunalCase.new(
       taxpayer_type: taxpayer_type,
-      taxpayer_individual_name: taxpayer_individual_name,
+      taxpayer_individual_first_name: taxpayer_individual_first_name,
+      taxpayer_individual_last_name: taxpayer_individual_last_name,
       taxpayer_contact_address: taxpayer_contact_address,
       taxpayer_contact_postcode: taxpayer_contact_postcode,
       taxpayer_contact_email: taxpayer_contact_email,
@@ -18,7 +19,8 @@ RSpec.describe TaxpayerDetailsPresenter do
   let(:paths) { Rails.application.routes.url_helpers }
 
   let(:taxpayer_type) { nil }
-  let(:taxpayer_individual_name) { 'Name' }
+  let(:taxpayer_individual_first_name) { 'Firstname' }
+  let(:taxpayer_individual_last_name) { 'Lastname' }
   let(:taxpayer_contact_address) { 'Address' }
   let(:taxpayer_contact_postcode) { 'Postcode' }
   let(:taxpayer_contact_email) { 'Email' }
@@ -31,8 +33,8 @@ RSpec.describe TaxpayerDetailsPresenter do
     context 'when taxpayer is not an organisation' do
       let(:taxpayer_type) { OpenStruct.new(value: :anything, organisation?: false) }
 
-      it 'should returns the taxpayer_individual_name field' do
-        expect(subject.name).to eq('Name')
+      it 'should returns the concatenated individual name fields' do
+        expect(subject.name).to eq('Firstname Lastname')
       end
     end
 

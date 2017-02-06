@@ -5,7 +5,6 @@ RSpec.describe Steps::Details::TaxpayerOrganisationDetailsForm do
     entity_type: :taxpayer,
     additional_fields: [
       :taxpayer_organisation_name,
-      :taxpayer_organisation_registration_number,
       :taxpayer_organisation_fao
     ]
 
@@ -18,6 +17,6 @@ RSpec.describe Steps::Details::TaxpayerOrganisationDetailsForm do
   end
 
   describe '#show_registration_number?' do
-    specify { expect(subject.show_registration_number?).to eq(true) }
+    specify { expect(subject.show_registration_number?).to eq(false) }
   end
 end

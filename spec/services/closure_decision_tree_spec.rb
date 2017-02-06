@@ -20,6 +20,19 @@ RSpec.describe ClosureDecisionTree do
       it { is_expected.to have_destination(:additional_info, :edit) }
     end
 
+    context 'when the step is `additional_info`' do
+      let(:step_params) { { additional_info: 'anything' } }
+
+      it { is_expected.to have_destination(:support_documents, :edit) }
+    end
+
+    # TODO: change once we have the `check your answers` step
+    context 'when the step is `support_documents`' do
+      let(:step_params) { { support_documents: 'anything' } }
+
+      it { is_expected.to have_destination(:start, :show) }
+    end
+
     context 'when the step is invalid' do
       let(:step_params) { {ungueltig: {waschmaschine: 'nein'}} }
 
@@ -46,6 +59,12 @@ RSpec.describe ClosureDecisionTree do
       let(:step_params) { { additional_info: 'anything' } }
 
       it { is_expected.to have_previous(:enquiry_details, :edit) }
+    end
+
+    context 'when the step is `support_documents`' do
+      let(:step_params) { { support_documents: 'anything' } }
+
+      it { is_expected.to have_previous(:additional_info, :edit) }
     end
 
     context 'when the step is invalid' do

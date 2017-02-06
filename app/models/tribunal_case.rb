@@ -14,7 +14,9 @@ class TribunalCase < ApplicationRecord
   has_value_object :in_time
 
   # Details task
+  has_value_object :has_representative
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
+  has_value_object :representative_type, class_name: 'ContactableEntityType'
 
   # Closure task
   has_value_object :intent
@@ -47,5 +49,9 @@ class TribunalCase < ApplicationRecord
 
   def taxpayer_is_organisation?
     taxpayer_type.organisation?
+  end
+
+  def representative_is_organisation?
+    representative_type.organisation?
   end
 end

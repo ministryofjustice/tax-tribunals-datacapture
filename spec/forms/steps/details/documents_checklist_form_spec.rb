@@ -5,7 +5,8 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
       tribunal_case: tribunal_case,
       original_notice_provided: original_notice_provided,
       review_conclusion_provided: review_conclusion_provided,
-      having_problems_uploading_documents: having_problems_uploading_documents
+      having_problems_uploading_documents: having_problems_uploading_documents,
+      having_problems_uploading_details: having_problems_uploading_details
   } }
 
   let(:tribunal_case) { instance_double(TribunalCase, documents: documents) }
@@ -13,6 +14,7 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
   let(:original_notice_provided) { true }
   let(:review_conclusion_provided) { true }
   let(:having_problems_uploading_documents) { false }
+  let(:having_problems_uploading_details) { nil }
   let(:documents) { ['test.doc'] }
 
   subject { described_class.new(arguments) }
@@ -27,33 +29,18 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
     end
 
     context 'validations on checkboxes' do
-      context 'when original_notice_provided is not selected' do
-        let(:original_notice_provided) { nil }
+      context 'when no checkboxes are selected' do
+        let(:original_notice_provided) { false }
+        let(:review_conclusion_provided) { false }
 
         it 'has a validation error on the field' do
           expect(subject).to_not be_valid
-          expect(subject.errors[:original_notice_provided]).to eq(['You must upload and check this document type'])
+          expect(subject.errors[:original_notice_provided]).to_not be_empty
         end
 
         context 'unless having_problems_uploading_documents checkbox selected' do
           let(:having_problems_uploading_documents) { true }
-
-          it 'returns validations true' do
-            expect(subject).to be_valid
-          end
-        end
-      end
-
-      context 'when review_conclusion_provided is not selected' do
-        let(:review_conclusion_provided) { nil }
-
-        it 'has a validation error on the field' do
-          expect(subject).to_not be_valid
-          expect(subject.errors[:review_conclusion_provided]).to eq(['You must upload and check this document type'])
-        end
-
-        context 'unless having_problems_uploading_documents checkbox selected' do
-          let(:having_problems_uploading_documents) { true }
+          let(:having_problems_uploading_details) { 'my explanation' }
 
           it 'returns validations true' do
             expect(subject).to be_valid
@@ -66,14 +53,42 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
 
         it 'has validation errors on the fields' do
           expect(subject).to_not be_valid
-          expect(subject.errors[:original_notice_provided]).to eq(['Please ensure the documents are uploaded'])
-          expect(subject.errors[:review_conclusion_provided]).to eq(['Please ensure the documents are uploaded'])
+          expect(subject.errors[:original_notice_provided]).to_not be_empty
         end
 
         context 'unless having_problems_uploading_documents checkbox selected' do
           let(:having_problems_uploading_documents) { true }
+          let(:having_problems_uploading_details) { 'my explanation' }
 
           it 'returns validations true' do
+            expect(subject).to be_valid
+          end
+        end
+      end
+
+      context 'when having_problems_uploading_documents is selected' do
+        let(:having_problems_uploading_documents) { true }
+
+        context 'no explanation provided' do
+          it 'has a validation error' do
+            expect(subject).to_not be_valid
+            expect(subject.errors[:having_problems_uploading_details]).to_not be_empty
+          end
+        end
+
+        context 'explanation provided is too short' do
+          let(:having_problems_uploading_details) { 'x' }
+
+          it 'has a validation error' do
+            expect(subject).to_not be_valid
+            expect(subject.errors[:having_problems_uploading_details]).to_not be_empty
+          end
+        end
+
+        context 'explanation provided is long enough' do
+          let(:having_problems_uploading_details) { 'xx' }
+
+          it 'has no validation errors' do
             expect(subject).to be_valid
           end
         end
@@ -85,7 +100,8 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
         expect(tribunal_case).to receive(:update).with(
           original_notice_provided:             original_notice_provided,
           review_conclusion_provided:           review_conclusion_provided,
-          having_problems_uploading_documents:  having_problems_uploading_documents
+          having_problems_uploading_documents:  having_problems_uploading_documents,
+          having_problems_uploading_details:    having_problems_uploading_details
         ).and_return(true)
         expect(subject.save).to be(true)
       end

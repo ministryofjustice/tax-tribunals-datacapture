@@ -10,8 +10,14 @@ RSpec.describe CaseDetailsPdf do
     {
       case_type: CaseType::OTHER,
       taxpayer_type: taxpayer_type,
-      taxpayer_individual_name: 'Individual Name',
+      taxpayer_individual_first_name: 'Firstname',
+      taxpayer_individual_last_name: 'Lastname',
       taxpayer_organisation_fao: 'Company Contact Name',
+      has_representative: HasRepresentative::YES,
+      representative_type: ContactableEntityType::INDIVIDUAL,
+      representative_individual_first_name: 'Firstname',
+      representative_individual_last_name: 'Lastname',
+      representative_organisation_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
       case_reference: 'TC/2016/12345',
       outcome: 'my desired outcome'
@@ -38,6 +44,7 @@ RSpec.describe CaseDetailsPdf do
       expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
 
       expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:fee_answers).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
@@ -52,7 +59,7 @@ RSpec.describe CaseDetailsPdf do
       expect(controller_ctx).to receive(:render_to_string).and_return('rendered pdf')
       expect(DocumentUpload).to receive(:new).with(
         an_instance_of(File),
-        filename: 'TC_2016_12345_HMRC_IndividualName.pdf',
+        filename: 'TC_2016_12345_HMRC_FirstnameLastname.pdf',
         content_type: 'application/pdf',
         collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687'
       ).and_return(uploader_double)

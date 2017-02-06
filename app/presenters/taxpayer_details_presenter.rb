@@ -1,8 +1,7 @@
 class TaxpayerDetailsPresenter < BaseAnswersPresenter
-
   def name
     return tribunal_case.taxpayer_organisation_fao if tribunal_case.taxpayer_is_organisation?
-    tribunal_case.taxpayer_individual_name
+    [tribunal_case.taxpayer_individual_first_name, tribunal_case.taxpayer_individual_last_name].join(' ')
   end
 
   def phone

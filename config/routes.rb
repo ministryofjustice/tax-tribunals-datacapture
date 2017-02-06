@@ -46,12 +46,16 @@ Rails.application.routes.draw do
       edit_step :case_type
       edit_step :enquiry_details
       edit_step :additional_info
+      edit_step :support_documents
     end
 
     namespace :details do
       show_step :start
       edit_step :taxpayer_type
       edit_step :taxpayer_details
+      edit_step :has_representative
+      edit_step :representative_type
+      edit_step :representative_details
       edit_step :grounds_for_appeal
       edit_step :outcome
       edit_step :documents_checklist

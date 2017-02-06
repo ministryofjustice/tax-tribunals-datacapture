@@ -8,7 +8,8 @@ module Steps::Details
         tribunal_case: current_tribunal_case,
         original_notice_provided: current_tribunal_case.original_notice_provided,
         review_conclusion_provided: current_tribunal_case.review_conclusion_provided,
-        having_problems_uploading_documents: current_tribunal_case.having_problems_uploading_documents
+        having_problems_uploading_documents: current_tribunal_case.having_problems_uploading_documents,
+        having_problems_uploading_details: current_tribunal_case.having_problems_uploading_details
       )
     end
 
