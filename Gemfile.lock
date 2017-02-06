@@ -107,7 +107,7 @@ GEM
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
-    glimr-api-client (0.2.2)
+    glimr-api-client (0.2.3)
       excon (~> 0.51)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -394,4 +394,4 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 BUNDLED WITH
-   1.13.7
+   1.14.3
