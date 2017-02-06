@@ -6,7 +6,7 @@ class LatenessDecisionTree < DecisionTree
     when :in_time
       after_in_time_step
     when :lateness_reason
-      task_list
+      edit('/steps/details/user_type')
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -28,9 +28,7 @@ class LatenessDecisionTree < DecisionTree
   def after_in_time_step
     case answer
     when :yes
-      # TODO: Change this to point at the first step in the repellant flow
-      # ('./who_are_you' in the prototype) when that is merged in.
-      edit('/steps/details/taxpayer_type')
+      edit('/steps/details/user_type')
     when :no, :unsure
       edit(:lateness_reason)
     end
