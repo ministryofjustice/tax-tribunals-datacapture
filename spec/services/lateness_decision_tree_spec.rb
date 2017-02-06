@@ -11,9 +11,7 @@ RSpec.describe LatenessDecisionTree do
       context 'and the answer is `yes`' do
         let(:step_params) { { in_time: 'yes' } }
 
-        # TODO: Change this to point at the first step in the repellant flow
-        # ('./who_are_you' in the prototype) when that is merged in.
-        it { is_expected.to have_destination('/steps/details/taxpayer_type', :edit) }
+        it { is_expected.to have_destination('/steps/details/user_type', :edit) }
       end
 
       context 'and the answer is `no`' do
@@ -32,7 +30,7 @@ RSpec.describe LatenessDecisionTree do
     context 'when the step is `lateness_reason`' do
       let(:step_params) { { lateness_reason: 'anything' } }
 
-      it { is_expected.to have_destination('/task_list', :index) }
+      it { is_expected.to have_destination('/steps/details/user_type', :edit) }
     end
 
     context 'when the step is invalid' do
