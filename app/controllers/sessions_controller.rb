@@ -7,15 +7,20 @@ class SessionsController < ApplicationController
       case_type: CaseType::OTHER,
       challenged_decision: ChallengedDecision::YES
     )
-    redirect_to task_list_path
+    redirect_to edit_steps_lateness_in_time_path
     # :nocov:
   end
 
   def create_and_fill_appeal_and_lateness
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(in_time: InTime::YES)
-    create_and_fill_appeal
+    tribunal_case.update(
+      intent: Intent::TAX_APPEAL,
+      case_type: CaseType::OTHER,
+      challenged_decision: ChallengedDecision::YES,
+      in_time: InTime::YES
+    )
+    redirect_to edit_steps_details_user_type_path
     # :nocov:
   end
 
