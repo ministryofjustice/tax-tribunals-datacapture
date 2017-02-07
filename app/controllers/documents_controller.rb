@@ -12,7 +12,7 @@ class DocumentsController < ApplicationController
           redirect_to current_step_path
         }
         format.json {
-          render json: {error: uploader.errors}, status: :unprocessable_entity
+          render json: {error: uploader.errors.first}, status: :unprocessable_entity
         }
       end
     end

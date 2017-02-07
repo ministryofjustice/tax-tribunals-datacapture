@@ -3,11 +3,18 @@
 moj.Modules.docUpload = {
   form_id: 'dz_doc_upload',
   uploaded_files: '.uploaded-files',
+  preview_template: '.dz-file-preview',
   $form: null,
   $fileList: null,
 
+  config: {
+    maxFilesize: null,
+    acceptedFiles: null
+  },
+
   init: function() {
     var self = this,
+        previewTemplate,
         dzOptions;
 
     Dropzone.autoDiscover = false;
@@ -15,12 +22,20 @@ moj.Modules.docUpload = {
     self.$form = $('#' + self.form_id);
     self.$fileList = $(self.uploaded_files);
 
+    if (!self.$form.length) { return; }
+
+    previewTemplate = $(self.preview_template).remove()[0].outerHTML;
+
     dzOptions = {
       url: '/documents',
       paramName: 'document',
+      maxFilesize: parseInt(self.config.maxFilesize),
+      acceptedFiles: self.config.acceptedFiles,
       autoProcessQueue: true,
       addRemoveLinks: true,
       createImageThumbnails: false,
+      previewTemplate: previewTemplate,
+      dictRemoveFile: 'Remove',
       uploadMultiple: false,
       forceFallback: false,
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},

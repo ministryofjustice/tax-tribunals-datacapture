@@ -90,39 +90,20 @@ RSpec.describe DocumentUpload do
         allow(file.tempfile).to receive(:size).and_return(100.megabytes)
       end
 
-      it 'should return false' do
+      it 'should not be valid' do
+        expect(subject).to receive(:add_error).with(:file_size).and_call_original
         expect(subject.valid?).to eq(false)
-      end
-
-      it 'should have an error' do
-        subject.valid?
-        expect(subject.errors).to eq([:file_size])
+        expect(subject.errors).not_to be_empty
       end
     end
 
     context 'when file is not valid due to content type' do
       let(:content_type) { 'application/zip' }
 
-      it 'should return false' do
+      it 'should not be valid' do
+        expect(subject).to receive(:add_error).with(:content_type).and_call_original
         expect(subject.valid?).to eq(false)
-      end
-
-      it 'should have an error' do
-        subject.valid?
-        expect(subject.errors).to eq([:content_type])
-      end
-    end
-
-    context 'when file is not valid due to content type' do
-      let(:content_type) { 'application/zip' }
-
-      it 'should return false' do
-        expect(subject.valid?).to eq(false)
-      end
-
-      it 'should have an error' do
-        subject.valid?
-        expect(subject.errors).to eq([:content_type])
+        expect(subject.errors).not_to be_empty
       end
     end
   end
@@ -143,12 +124,24 @@ RSpec.describe DocumentUpload do
     end
 
     context 'with error' do
-      let(:response) { double('Response', error?: true) }
+      context 'response error' do
+        let(:response) { double('Response', error?: true, body: 'an error') }
 
-      it 'should upload the document' do
-        subject.upload!(collection_ref: '123')
-        expect(subject.errors?).to eq(true)
-        expect(subject.errors).to eq([:response_error])
+        it 'should upload the document' do
+          expect(subject).to receive(:add_error).with(:response_error).and_call_original
+          subject.upload!(collection_ref: '123')
+          expect(subject.errors?).to eq(true)
+        end
+      end
+
+      context 'virus detected error' do
+        let(:response) { double('Response', error?: true, body: 'Virus scan failed') }
+
+        it 'should upload the document' do
+          expect(subject).to receive(:add_error).with(:virus_detected).and_call_original
+          subject.upload!(collection_ref: '123')
+          expect(subject.errors?).to eq(true)
+        end
       end
     end
   end
