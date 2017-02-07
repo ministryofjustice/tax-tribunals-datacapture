@@ -4,13 +4,6 @@ RSpec.describe TribunalCase, type: :model do
   subject { described_class.new(attributes) }
   let(:attributes) { {} }
 
-  describe '#lodgement_fee' do
-    it 'queries GlimrFees for the amount' do
-      expect(GlimrFees).to receive(:lodgement_fee_amount).with(subject).and_return(9999)
-      expect(subject.lodgement_fee).to eq(9999)
-    end
-  end
-
   describe '#mapping_code' do
     let(:mapping_code) { MappingCode.new(:hmrc_stole_my_cookies) }
     let(:determiner) { instance_double(MappingCodeDeterminer, mapping_code: mapping_code) }
