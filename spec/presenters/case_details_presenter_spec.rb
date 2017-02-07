@@ -23,12 +23,6 @@ RSpec.describe CaseDetailsPresenter do
     end
   end
 
-  context '#fee_answers' do
-    it 'returns a fee answers presenter instance' do
-      expect(subject.fee_answers).to be_an_instance_of(FeeDetailsAnswersPresenter)
-    end
-  end
-
   context '#appeal_lateness_answers' do
     it 'returns a appeal lateness answers presenter instance' do
       expect(subject.appeal_lateness_answers).to be_an_instance_of(AppealLatenessAnswersPresenter)

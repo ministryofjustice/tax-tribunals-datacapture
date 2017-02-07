@@ -27,10 +27,6 @@ class TribunalCase < ApplicationRecord
     MappingCodeDeterminer.new(self).mapping_code
   end
 
-  def lodgement_fee
-    GlimrFees.lodgement_fee_amount(self)
-  end
-
   def cost_task_completed?
     MappingCodeDeterminer.new(self).valid_for_determining_mapping_code?
   end
