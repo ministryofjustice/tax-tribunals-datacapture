@@ -25,7 +25,7 @@ en:
         edit:
           heading: Why are you late with your appeal?
           heading_unsure: Are there reasons why your appeal might be late?
-          lead_text: You must provide reasonable grounds for appealing late. If the judge rejects your reasons, your appeal will not proceed and any fees will not be refunded.
+          lead_text: You must provide reasonable grounds for appealing late. If the judge rejects your reasons, your appeal will not proceed.
           lead_text_unsure: To help us process your case quickly, you should give reasons why your appeal might be late. The judge will look at your reasons and decide whether to accept your appeal if it is late.
           details_title: Help with late appeals
           details_content: You must provide reasonable grounds for submitting your appeal late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the tax tribunal deadlines.

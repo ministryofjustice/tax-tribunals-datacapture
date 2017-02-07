@@ -48,7 +48,7 @@ RSpec.describe TribunalCase, type: :model do
       allow(MappingCodeDeterminer).to receive(:new).and_return(determiner)
     end
 
-    context 'when a lodgement fee has been determined' do
+    context 'when a mapping code can be determined' do
       let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: true) }
 
       context 'when there is no in_time value' do
@@ -116,7 +116,7 @@ RSpec.describe TribunalCase, type: :model do
       end
     end
 
-    context 'when no lodgement fee has been determined yet' do
+    context 'when no mapping code can be determined yet' do
       let(:determiner) { instance_double(MappingCodeDeterminer, valid_for_determining_mapping_code?: false) }
 
       it 'returns false' do
