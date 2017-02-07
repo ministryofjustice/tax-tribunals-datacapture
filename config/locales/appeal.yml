@@ -67,8 +67,6 @@ en:
           lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
       determine_cost:
         show:
-          fee_label: To submit an appeal costs
-          fee_label_help: unless you can get help with fees
           check_your_answers: Check your answers
           start_again: Start again
           continue: Continue

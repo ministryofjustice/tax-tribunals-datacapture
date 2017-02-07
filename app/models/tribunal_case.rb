@@ -27,15 +27,6 @@ class TribunalCase < ApplicationRecord
     MappingCodeDeterminer.new(self).mapping_code
   end
 
-  def cost_task_completed?
-    MappingCodeDeterminer.new(self).valid_for_determining_mapping_code?
-  end
-
-  def lateness_task_completed?
-    return false unless cost_task_completed? && in_time?
-    in_time.eql?(InTime::YES) || lateness_reason?
-  end
-
   def documents(filter: default_documents_filter)
     Document.for_collection(files_collection_ref, filter: filter)
   end
