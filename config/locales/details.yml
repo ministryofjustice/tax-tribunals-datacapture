@@ -52,10 +52,10 @@ en:
           continue: Continue
       user_type:
         edit:
-          heading: Are you the taxpayer involved in the appeal?
+          heading: Are you the taxpayer making the appeal?
       taxpayer_type:
         edit:
-          heading: Who is your appeal for?
+          heading: Who is making the appeal?
       taxpayer_details:
         edit:
           heading: Enter taxpayer's details
@@ -211,11 +211,11 @@ en:
   helpers:
     fieldset:
       steps_details_user_type_form:
-        user_type: Are you the taxpayer involved in the appeal?
+        user_type: ""
       steps_details_taxpayer_type_form:
-        taxpayer_type: Who is your appeal for?
+        taxpayer_type: ""
       steps_details_has_representative_form:
-        has_representative: Do you have someone to represent you?
+        has_representative: ""
       steps_details_representative_type_form:
         representative_type: Is your representative an individual, company or other type of organisation?
     label:
@@ -227,7 +227,7 @@ en:
         taxpayer_type:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
-          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP), trust, club or association
+          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership, trust, club or association
       steps_details_has_representative_form:
         has_representative:
           'yes': 'Yes'
