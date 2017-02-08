@@ -46,6 +46,7 @@ RSpec.describe CaseDetailsPdf do
       expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
+      expect(decorated_tribunal_case).to receive(:appeal_type_answers).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
       expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
 

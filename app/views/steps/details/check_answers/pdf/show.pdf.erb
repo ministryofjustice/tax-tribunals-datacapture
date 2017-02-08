@@ -123,6 +123,19 @@
 <h3><%= pdf_t '.appeal_type_heading' %></h3>
 
 <hr/>
+<table>
+  <tbody>
+  <% tribunal_case.appeal_type_answers.rows.each do |row| %>
+    <tr>
+      <td class="section"><%= pdf_t row.question %></td>
+      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <h3><%= pdf_t '.appeal_timeliness_heading' %></h3>
 

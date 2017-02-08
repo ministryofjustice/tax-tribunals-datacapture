@@ -2,6 +2,7 @@ class DisputeType < ValueObject
   VALUES = [
     PENALTY             = new(:penalty),
     AMOUNT_OF_TAX       = new(:amount_of_tax),
+    AMOUNT_OF_TAX_OWED  = new(:amount_of_tax_owed),
     AMOUNT_AND_PENALTY  = new(:amount_and_penalty),
     PAYE_CODING_NOTICE  = new(:paye_coding_notice),
     INFORMATION_NOTICE  = new(:information_notice),
@@ -17,7 +18,7 @@ class DisputeType < ValueObject
   end
 
   def ask_tax?
-    self == AMOUNT_OF_TAX
+    [AMOUNT_OF_TAX, AMOUNT_OF_TAX_OWED].include?(self)
   end
 
   def ask_penalty_and_tax?
@@ -25,6 +26,6 @@ class DisputeType < ValueObject
   end
 
   def ask_hardship?
-    [AMOUNT_OF_TAX, AMOUNT_AND_PENALTY].include?(self)
+    ask_tax? || ask_penalty_and_tax?
   end
 end

@@ -15,6 +15,7 @@ module Steps::Appeal
         [
           DisputeType::PENALTY,
           DisputeType::AMOUNT_OF_TAX,
+          DisputeType::AMOUNT_OF_TAX_OWED,
           DisputeType::AMOUNT_AND_PENALTY,
           DisputeType::PAYE_CODING_NOTICE,
           DisputeType::OTHER
@@ -23,6 +24,7 @@ module Steps::Appeal
         [
           DisputeType::PENALTY,
           DisputeType::AMOUNT_OF_TAX,
+          DisputeType::AMOUNT_OF_TAX_OWED,
           DisputeType::AMOUNT_AND_PENALTY,
           DisputeType::OTHER
         ]

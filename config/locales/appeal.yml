@@ -49,7 +49,7 @@ en:
       dispute_type:
         edit:
           heading: What is your dispute about?
-          lead_text: You will find this information on either the original notice letter or review conclusion letter.
+          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
       penalty_amount:
         edit:
           heading: What is the penalty or surcharge amount?
@@ -166,10 +166,11 @@ en:
           other_html: <strong>None of the above</strong>
       steps_appeal_dispute_type_form:
         dispute_type:
-          paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
           penalty_html: <strong>Penalty or surcharge</strong>
-          amount_of_tax_html: <strong>Amount of tax</strong>
-          amount_and_penalty_html: <strong>Amount of tax and a penalty or surcharge</strong><br>both must be stated on the same letter
+          amount_of_tax_html: <strong>HMRC should repay tax to you</strong>
+          amount_of_tax_owed_html: <strong>HMRC claim you owe tax</strong>
+          amount_and_penalty_html: <strong>HMRC claim you owe tax and a penalty or surcharge</strong><br>both must be shown on the same letter
+          paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
       steps_appeal_penalty_amount_form:

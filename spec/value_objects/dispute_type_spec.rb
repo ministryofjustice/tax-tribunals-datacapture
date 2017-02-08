@@ -6,8 +6,14 @@ RSpec.describe DisputeType do
 
   describe '.values' do
     it 'returns all dispute types' do
-      expect(described_class.values.map(&:to_s)).to \
-        eq(%w(penalty amount_of_tax amount_and_penalty paye_coding_notice information_notice other))
+      expect(described_class.values.map(&:to_s)).to eq(%w(
+        penalty
+        amount_of_tax
+        amount_of_tax_owed
+        amount_and_penalty
+        paye_coding_notice
+        information_notice other
+      ))
     end
   end
 
@@ -37,6 +43,14 @@ RSpec.describe DisputeType do
         expect(subject.ask_tax?).to be(true)
       end
     end
+
+    context 'when the dispute type is AMOUNT_OF_TAX_OWED' do
+      let(:type) { :amount_of_tax_owed }
+
+      it 'returns true' do
+        expect(subject.ask_tax?).to be(true)
+      end
+    end
   end
 
   describe '#ask_penalty_and_tax?' do
@@ -60,6 +74,14 @@ RSpec.describe DisputeType do
 
     context 'when the dispute type is AMOUNT_OF_TAX' do
       let(:type) { :amount_of_tax }
+
+      it 'returns true' do
+        expect(subject.ask_hardship?).to be(true)
+      end
+    end
+
+    context 'when the dispute type is AMOUNT_OF_TAX_OWED' do
+      let(:type) { :amount_of_tax_owed }
 
       it 'returns true' do
         expect(subject.ask_hardship?).to be(true)
