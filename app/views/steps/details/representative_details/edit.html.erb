@@ -4,7 +4,7 @@
 
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
+    <p class="lede"><%= translate_for_user_type '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
       <% @form_object.name_fields.each do |name_field| %>

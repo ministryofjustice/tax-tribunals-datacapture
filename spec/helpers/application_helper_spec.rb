@@ -43,4 +43,16 @@ RSpec.describe ApplicationHelper do
       helper.step_header(:my_task, 999)
     end
   end
+
+  describe '#translate_for_user_type' do
+    let(:user_type) { UserType.new(:humanoid) }
+    let(:tribunal_case) { instance_double(TribunalCase, user_type: user_type) }
+
+    it 'translates for the correct user type' do
+      expect(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
+      expect(helper).to receive(:translate).with('.foobar.as_humanoid', random_param: 'Nein')
+
+      helper.translate_for_user_type('.foobar', random_param: 'Nein')
+    end
+  end
 end

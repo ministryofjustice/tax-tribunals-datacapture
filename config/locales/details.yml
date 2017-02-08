@@ -54,7 +54,9 @@ en:
           heading: Are you the taxpayer making the appeal?
       taxpayer_type:
         edit:
-          heading: Who is making the appeal?
+          heading:
+            as_taxpayer: Who is making the appeal?
+            as_representative: Who is the appeal for?
       taxpayer_details:
         edit:
           heading: Enter taxpayer's details
@@ -71,11 +73,15 @@ en:
             <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
       representative_type:
         edit:
-          heading: Is your representative an individual, company or other type of organisation?
+          heading:
+            as_taxpayer: Is your representative an individual, company or other type of organisation?
+            as_representative: Are you representing the taxpayer as an individual, company or other type of organisation?
       representative_details:
         edit:
           heading: Representative's details
-          lead_text: If you have approved your representative to act on your behalf, all correspondence will be sent to the address, or email address, you enter below.
+          lead_text:
+            as_taxpayer: If you have approved your representative to act on your behalf, all correspondence will be sent to the address, or email address, you enter below.
+            as_representative: If you are approved to act on behalf of the taxpayer all correspondence will be sent to the address, or email address, you enter below.
       grounds_for_appeal:
         edit:
           heading: Grounds for appeal
