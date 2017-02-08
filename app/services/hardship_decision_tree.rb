@@ -8,7 +8,7 @@ class HardshipDecisionTree < DecisionTree
     when :hardship_review_requested
       after_hardship_review_requested_step
     when :hardship_review_status
-      { controller: '/steps/appeal/determine_cost', action: :show }
+      { controller: '/steps/lateness/in_time', action: :edit }
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -32,7 +32,7 @@ class HardshipDecisionTree < DecisionTree
   def after_disputed_tax_paid_step
     case tribunal_case.disputed_tax_paid
     when DisputedTaxPaid::YES
-      { controller: '/steps/appeal/determine_cost', action: :show }
+      { controller: '/steps/lateness/in_time', action: :edit }
     when DisputedTaxPaid::NO
       { controller: :hardship_review_requested, action: :edit }
     end
@@ -43,7 +43,7 @@ class HardshipDecisionTree < DecisionTree
     when HardshipReviewRequested::YES
       { controller: :hardship_review_status, action: :edit }
     when HardshipReviewRequested::NO
-      { controller: '/steps/appeal/determine_cost', action: :show }
+      { controller: '/steps/lateness/in_time', action: :edit }
     end
   end
 

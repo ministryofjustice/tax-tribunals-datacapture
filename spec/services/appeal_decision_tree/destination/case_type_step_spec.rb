@@ -55,7 +55,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the case type is one that should ask neither dispute type nor penalty' do
       let(:case_type) { CaseType.new(:dummy, ask_dispute_type: false, ask_penalty: false) }
 
-      it { is_expected.to have_destination(:determine_cost, :show) }
+      it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
     end
 
     context 'and the answer is show more' do

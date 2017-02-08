@@ -61,7 +61,7 @@ class AppealDecisionTree < DecisionTree
     elsif tribunal_case.case_type.ask_hardship?
       edit('/steps/hardship/disputed_tax_paid')
     else
-      show(:determine_cost)
+      edit('/steps/lateness/in_time')
     end
   end
 
