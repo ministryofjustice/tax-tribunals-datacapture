@@ -7,6 +7,6 @@ en:
         appeal: Appeal against a tax decision
         close: Apply to close an enquiry
       link_descriptions:
-        appeal: Get an impartial decision on a dispute with HMRC, UK Border Force or the National Crime Agency.
+        appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force or the National Crime Agency.
         close: Ask the judge to order the closure of an ongoing tax enquiry.
       link_time_estimate: "%{minutes} minutes to complete"

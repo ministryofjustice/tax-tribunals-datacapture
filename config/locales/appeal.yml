@@ -6,9 +6,9 @@ en:
         show:
           impartial_decision: Get an impartial decision on your dispute
           heading: Appeal against a tax decision
-          lead_text_html: You have 30 calendar days from the date of the decision letter to submit an appeal.
+          lead_text_html: You have 30 calendar days to appeal. This begins from the date of the original notice or review conclusion letter.
           description_html: |
-            <p>You can still appeal late with good reasons. The judge will decide whether to accept your appeal after the deadline.</p>
+            <p>You can appeal late by giving reasons. The judge will decide if your appeal can continue.</p>
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
               <li><strong>a scan or photo</strong> of the original notice letter, or review conclusion letter, so it's ready to upload in a digital format</li>
@@ -25,7 +25,7 @@ en:
           continue: Continue
       challenged_decision:
         edit:
-          heading: Did you write and challenge the original decision?
+          heading: Did you challenge the original decision in writing?
           help_panel:
             heading: Help with challenging a tax decision
             content_html: >
@@ -188,7 +188,7 @@ en:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
       steps_appeal_challenged_decision_form:
-        challenged_decision: Did you write and challenge the original decision?
+        challenged_decision_html: ""
       steps_appeal_case_type_form:
         case_type_html: ""
       steps_appeal_case_type_show_more_form:
@@ -209,7 +209,7 @@ en:
           capital_gains_tax_html: <strong>Capital Gains Tax</strong>
           corporation_tax_html: <strong>Corporation Tax</strong>
           inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
-          information_notice_html: <strong>Information notices</strong>
+          information_notice_html: <strong>Information notice</strong><br>a request for further information about your tax position
           ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>
       steps_appeal_case_type_show_more_form:
