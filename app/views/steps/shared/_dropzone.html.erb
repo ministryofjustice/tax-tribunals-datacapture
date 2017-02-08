@@ -1,0 +1,51 @@
+<!-- Some configuration -->
+<%= javascript_tag do %>
+  moj.Modules.docUpload.config.acceptedFiles = '<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>';
+  moj.Modules.docUpload.config.maxFilesize = '<%= DocumentUpload::MAX_FILE_SIZE %>';
+<% end %>
+
+<!-- This is used as the file preview template -->
+<div class="dz-preview dz-file-preview">
+  <div class="dz-details">
+    <div class="file-container">
+      <span data-dz-errormessage></span>
+    </div>
+  </div>
+  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+  <div class="dz-error-mark js-hidden show-when-js-is-loaded"><span>✘</span></div>
+</div>
+
+<div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0">
+  <div class="dz-default dz-message grid-row">
+    <div class="column-one-third arrow-icon">
+      <p></p>
+    </div>
+    <div class="column-one-half">
+      <p class="dz-message-copy">
+        <%= t 'shared.file_upload.dropzone_message_html' %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="uploaded-files-wrapper">
+  <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
+
+  <ol class="list uploaded-files">
+    <% if document_list&.any? %>
+        <% document_list.each do |doc| %>
+            <li class="file hide-when-js-is-loaded">
+              <%= doc.name %>
+              <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+            </li>
+
+            <li class="file js-hidden show-when-js-is-loaded">
+              <%= doc.name %>
+              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name %>
+            </li>
+        <% end %>
+    <% else %>
+        <li class="no-files"><%= t 'shared.file_upload.no_uploaded_files' %></li>
+    <% end %>
+  </ol>
+</div>

@@ -49,7 +49,7 @@ RSpec.describe DocumentsController, type: :controller do
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
-          expect(flash.alert).to eq([:response_error])
+          expect(flash.alert).not_to be_empty
         end
       end
 
@@ -58,7 +58,8 @@ RSpec.describe DocumentsController, type: :controller do
 
         it 'should respond with an error object' do
           expect(response.status).to eq(422)
-          expect(response.body).to eq('{"error":["response_error"]}')
+          res = JSON.parse(response.body)
+          expect(res).to have_key('error')
         end
       end
     end
@@ -69,7 +70,7 @@ RSpec.describe DocumentsController, type: :controller do
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
-          expect(flash.alert).to eq([:content_type])
+          expect(flash.alert).not_to be_empty
         end
       end
 
@@ -78,7 +79,8 @@ RSpec.describe DocumentsController, type: :controller do
 
         it 'should respond with an error object' do
           expect(response.status).to eq(422)
-          expect(response.body).to eq('{"error":["content_type"]}')
+          res = JSON.parse(response.body)
+          expect(res).to have_key('error')
         end
       end
     end

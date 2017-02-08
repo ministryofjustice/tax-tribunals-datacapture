@@ -1,0 +1,7 @@
+en:
+  document_upload:
+    errors:
+      file_size: "%{file_name} is too big. You will need to resubmit a smaller version, less than %{max_size} megabytes (MB)"
+      content_type: "%{file_name} is in a format we don't accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files"
+      virus_detected: "%{file_name} has a virus. You will need to resubmit a virus free copy"
+      response_error: "%{file_name} failed to upload. Please try again"

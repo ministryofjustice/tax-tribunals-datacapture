@@ -10,7 +10,7 @@ class DocumentUpload
 
   # TODO: decide on the final allowed max size and content types
   #
-  MAX_FILE_SIZE = 10.megabyte.freeze
+  MAX_FILE_SIZE = 20 # MB
   ALLOWED_CONTENT_TYPES = %w(
     application/pdf
     application/msword
@@ -22,12 +22,13 @@ class DocumentUpload
     text/plain
     text/rtf
     text/csv
+    image/gif
     image/jpeg
     image/png
     image/tiff
     image/bmp
     image/x-bitmap
-  )
+  ).freeze
 
   def initialize(obj, content_type: nil, filename: nil, collection_ref: nil)
     raise ArgumentError.new('Must receive an IO object') unless obj.respond_to?(:read)
@@ -47,7 +48,7 @@ class DocumentUpload
       data: file_data
     ).call
 
-    add_error(:response_error) if response.error?
+    parse_response_errors(response)
     response
   end
 
@@ -86,11 +87,25 @@ class DocumentUpload
   end
 
   def validate
-    add_error(:file_size) if file_size > MAX_FILE_SIZE
+    add_error(:file_size) if file_size > MAX_FILE_SIZE.megabytes
     add_error(:content_type) unless content_type.downcase.in?(ALLOWED_CONTENT_TYPES)
   end
 
   def add_error(code)
-    errors << code unless errors.include?(code)
+    errors << translate(code) unless errors.include?(code)
+  end
+
+  def parse_response_errors(response)
+    return unless response.error?
+
+    if response.body.to_s =~ /Virus scan failed/
+      add_error(:virus_detected)
+    else
+      add_error(:response_error)
+    end
+  end
+
+  def translate(key)
+    I18n.translate("errors.#{key}", scope: 'document_upload', file_name: file_name, max_size: MAX_FILE_SIZE)
   end
 end
