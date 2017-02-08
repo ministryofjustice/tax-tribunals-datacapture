@@ -3,7 +3,17 @@ strong {
 }
 
 details {
-  margin: 30px 0;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+}
+
+form {
+  padding-bottom: $gutter;
+}
+
+fieldset + .form-group {
+  margin-bottom: 0;
+  margin-top: $gutter;
 }
 
 .step-info {

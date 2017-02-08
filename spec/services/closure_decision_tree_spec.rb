@@ -11,7 +11,7 @@ RSpec.describe ClosureDecisionTree do
     context 'when the step is `case_type`' do
       let(:step_params) { { case_type: 'anything' } }
 
-      it { is_expected.to have_destination('/steps/details/taxpayer_type', :edit) }
+      it { is_expected.to have_destination('/steps/details/user_type', :edit) }
     end
 
     context 'when the step is `enquiry_details`' do

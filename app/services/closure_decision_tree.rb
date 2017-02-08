@@ -4,7 +4,7 @@ class ClosureDecisionTree < DecisionTree
 
     case step_name.to_sym
     when :case_type
-      edit('/steps/details/taxpayer_type')
+      edit('/steps/details/user_type')
     when :enquiry_details
       edit(:additional_info)
     when :additional_info

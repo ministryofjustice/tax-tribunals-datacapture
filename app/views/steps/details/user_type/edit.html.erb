@@ -9,5 +9,12 @@
         choices: Steps::Details::UserTypeForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
+
+    <details role="group">
+      <summary role="button" aria-controls="details-content" aria-expanded="false"><%=t '.representative_heading' %></summary>
+      <div class="panel" id="details-content" aria-hidden="true">
+        <%=t '.representative_content_html' %>
+      </div>
+    </details>
   </div>
 </div>

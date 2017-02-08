@@ -52,6 +52,13 @@ en:
       user_type:
         edit:
           heading: Are you the taxpayer making the appeal?
+          representative_heading: What is a representative and what can they do?
+          representative_content_html: |
+            <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
+            <p>You may want to use one if you need help or advice, or need assistance submitting an appeal or application.</p>
+            <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
+            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an appeal or application.</p>
+            <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
       taxpayer_type:
         edit:
           heading: Who is making the appeal?
