@@ -22,6 +22,7 @@ class DocumentUpload
     text/plain
     text/rtf
     text/csv
+    image/gif
     image/jpeg
     image/png
     image/tiff
@@ -105,6 +106,6 @@ class DocumentUpload
   end
 
   def translate(key)
-    I18n.translate("errors.#{key}", file_name: file_name, scope: 'document_upload')
+    I18n.translate("errors.#{key}", scope: 'document_upload', file_name: file_name, max_size: MAX_FILE_SIZE)
   end
 end

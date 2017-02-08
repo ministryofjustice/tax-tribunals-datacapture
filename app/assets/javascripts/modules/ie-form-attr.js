@@ -2,8 +2,8 @@
 
 /**
  * polyfill for html5 form attr
+ * http://stackoverflow.com/a/40164509
  */
-
 moj.Modules.IEFormAttr = {
   init: function () {
     // detect if browser supports this
