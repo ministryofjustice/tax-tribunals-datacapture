@@ -18,4 +18,8 @@ module ApplicationHelper
       path:        controller.previous_step_path
     }
   end
+
+  def translate_for_user_type(key, params={})
+    translate("#{key}.as_#{current_tribunal_case.user_type}", params)
+  end
 end

@@ -2,7 +2,7 @@
   <div class="column-two-thirds">
     <%= step_header(:details, 0) %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="heading-large"><%= translate_for_user_type '.heading' %></h1>
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :representative_type,
