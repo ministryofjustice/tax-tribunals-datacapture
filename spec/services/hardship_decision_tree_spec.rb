@@ -14,7 +14,7 @@ RSpec.describe HardshipDecisionTree do
       context 'and the disputed tax has been paid' do
         let(:disputed_tax_paid) { DisputedTaxPaid::YES }
 
-        it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
       end
 
       context 'and the disputed tax has not been paid' do
@@ -37,14 +37,14 @@ RSpec.describe HardshipDecisionTree do
       context 'and a hardship review has not been requested' do
         let(:hardship_review_requested) { HardshipReviewRequested::NO }
 
-        it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
       end
     end
 
     context 'when the step is `hardship_review_status`' do
       let(:step_params) { { hardship_review_status: 'anything' } }
 
-      it { is_expected.to have_destination('/steps/appeal/determine_cost', :show) }
+      it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
     end
 
     context 'when the step is invalid' do
