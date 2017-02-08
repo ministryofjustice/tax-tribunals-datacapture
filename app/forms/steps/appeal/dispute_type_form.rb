@@ -14,8 +14,8 @@ module Steps::Appeal
       when CaseType::INCOME_TAX
         [
           DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX,
-          DisputeType::AMOUNT_OF_TAX_OWED,
+          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
           DisputeType::AMOUNT_AND_PENALTY,
           DisputeType::PAYE_CODING_NOTICE,
           DisputeType::OTHER
@@ -23,8 +23,8 @@ module Steps::Appeal
       else
         [
           DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX,
-          DisputeType::AMOUNT_OF_TAX_OWED,
+          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
           DisputeType::AMOUNT_AND_PENALTY,
           DisputeType::OTHER
         ]

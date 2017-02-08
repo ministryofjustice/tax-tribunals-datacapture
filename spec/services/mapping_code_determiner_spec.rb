@@ -58,8 +58,14 @@ RSpec.describe MappingCodeDeterminer do
     it { is_expected.to have_mapping_code(:appeal_infonotice) }
   end
 
-  context 'when the dispute is about amount of tax' do
-    let(:dispute_type) { DisputeType::AMOUNT_OF_TAX }
+  context 'when the dispute is about amount of tax owed by HMRC' do
+    let(:dispute_type) { DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
+  end
+
+  context 'when the dispute is about amount of tax owed by the taxpayer' do
+    let(:dispute_type) { DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER }
 
     it { is_expected.to have_mapping_code(:appeal_other) }
   end

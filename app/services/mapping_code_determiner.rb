@@ -43,7 +43,8 @@ class MappingCodeDeterminer
       MappingCode::APPEAL_PAYECODING
     when DisputeType::INFORMATION_NOTICE
       MappingCode::APPEAL_INFONOTICE
-    when DisputeType::AMOUNT_OF_TAX,
+    when DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+         DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
          DisputeType::AMOUNT_AND_PENALTY,
          DisputeType::OTHER
       MappingCode::APPEAL_OTHER

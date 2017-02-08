@@ -24,8 +24,8 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       it 'shows only the relevant choices' do
         expect(subject.choices).to eq(%w(
           penalty
-          amount_of_tax
-          amount_of_tax_owed
+          amount_of_tax_owed_by_hmrc
+          amount_of_tax_owed_by_taxpayer
           amount_and_penalty
           paye_coding_notice
           other
@@ -50,8 +50,8 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       it 'shows only the relevant choices' do
         expect(subject.choices).to eq(%w(
           penalty
-          amount_of_tax
-          amount_of_tax_owed
+          amount_of_tax_owed_by_hmrc
+          amount_of_tax_owed_by_taxpayer
           amount_and_penalty
           other
         ))
