@@ -190,7 +190,7 @@ en:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
       steps_appeal_challenged_decision_form:
-        challenged_decision: ""
+        challenged_decision_html: ""
       steps_appeal_case_type_form:
         case_type_html: ""
       steps_appeal_case_type_show_more_form:

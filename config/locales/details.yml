@@ -211,11 +211,11 @@ en:
   helpers:
     fieldset:
       steps_details_user_type_form:
-        user_type: ""
+        user_type_html: ""
       steps_details_taxpayer_type_form:
-        taxpayer_type: ""
+        taxpayer_type_html: ""
       steps_details_has_representative_form:
-        has_representative: ""
+        has_representative_html: ""
       steps_details_representative_type_form:
         representative_type: Is your representative an individual, company or other type of organisation?
     label:
