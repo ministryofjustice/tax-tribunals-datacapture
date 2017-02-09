@@ -20,6 +20,13 @@ module ApplicationHelper
   end
 
   def translate_for_user_type(key, params={})
-    translate("#{key}.as_#{current_tribunal_case.user_type}", params)
+    translate_with_appeal_or_application("#{key}.as_#{current_tribunal_case.user_type}", params)
+  end
+
+  def translate_with_appeal_or_application(key, params={})
+    appeal_or_application = I18n.translate("generic.appeal_or_application.#{current_tribunal_case.appeal_or_application}")
+    params_with_appeal_or_application = params.merge(appeal_or_application: appeal_or_application)
+
+    translate(key, params_with_appeal_or_application)
   end
 end

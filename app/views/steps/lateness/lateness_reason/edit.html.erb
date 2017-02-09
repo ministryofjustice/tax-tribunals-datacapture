@@ -3,11 +3,11 @@
     <%= step_header(:lateness, 2) %>
 
     <h1 class="heading-large">
-      <%= @form_object.lateness_unknown? ? t('.heading_unsure') : t('.heading') %>
+      <%= @form_object.lateness_unknown? ? translate_with_appeal_or_application('.heading_unsure') : translate_with_appeal_or_application('.heading') %>
     </h1>
 
     <p class="lede">
-      <%= @form_object.lateness_unknown? ? t('.lead_text_unsure') : t('.lead_text') %>
+      <%= @form_object.lateness_unknown? ? translate_with_appeal_or_application('.lead_text_unsure') : translate_with_appeal_or_application('.lead_text') %>
     </p>
 
     <%= step_form @form_object do |f| %>
@@ -18,12 +18,12 @@
     <details>
       <summary>
         <span class="summary">
-          <%=t '.details_title' %>
+          <%= translate_with_appeal_or_application '.details_title' %>
         </span>
       </summary>
       <div class="panel panel-border-narrow">
         <p>
-          <%=t '.details_content' %>
+          <%= translate_with_appeal_or_application '.details_content' %>
         </p>
       </div>
     </details>

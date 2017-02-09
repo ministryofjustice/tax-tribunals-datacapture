@@ -1,5 +1,7 @@
 class TribunalCase < ApplicationRecord
-  # Cost task
+  has_value_object :intent
+
+  # Appeal task
   has_value_object :challenged_decision
   has_value_object :case_type, constructor: :find_constant
   has_value_object :dispute_type
@@ -20,7 +22,6 @@ class TribunalCase < ApplicationRecord
   has_value_object :representative_type, class_name: 'ContactableEntityType'
 
   # Closure task
-  has_value_object :intent
   has_value_object :closure_case_type
 
   def mapping_code
@@ -41,5 +42,12 @@ class TribunalCase < ApplicationRecord
 
   def representative_is_organisation?
     representative_type.organisation?
+  end
+
+  def appeal_or_application
+    return :application if intent.eql?(Intent::CLOSE_ENQUIRY)
+    return :appeal      unless case_type
+
+    case_type.appeal_or_application
   end
 end
