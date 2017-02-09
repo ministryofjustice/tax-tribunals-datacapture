@@ -16,7 +16,7 @@ class CasesController < ApplicationController
   private
 
   def generate_and_upload_pdf
-    tribunal_case = CaseDetailsPresenter.new(current_tribunal_case)
+    tribunal_case = AppealPresenter.new(current_tribunal_case)
     CaseDetailsPdf.new(tribunal_case, self).generate_and_upload
   end
 end

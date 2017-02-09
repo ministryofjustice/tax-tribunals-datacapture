@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
+RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
   it_behaves_like 'an end point step controller'
 
   context 'case details presenter' do
@@ -10,7 +10,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
       get :show, session: {tribunal_case_id: tribunal_case.id}
 
       presenter = assigns[:tribunal_case]
-      expect(presenter).to be_an_instance_of(AppealPresenter)
+      expect(presenter).to be_an_instance_of(ClosurePresenter)
     end
   end
 

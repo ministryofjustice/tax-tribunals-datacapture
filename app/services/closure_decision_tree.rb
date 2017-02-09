@@ -10,7 +10,9 @@ class ClosureDecisionTree < DecisionTree
     when :additional_info
       edit(:support_documents)
     when :support_documents
-      show(:start) # TODO: check your answers step
+      show(:check_answers)
+    when :check_answers
+      task_list
     else
       raise "Invalid step '#{step_params}'"
     end
@@ -26,6 +28,8 @@ class ClosureDecisionTree < DecisionTree
       edit(:enquiry_details)
     when :support_documents
       edit(:additional_info)
+    when :check_answers
+      edit(:support_documents)
     else
       raise "Invalid step '#{step_params}'"
     end

@@ -1,9 +1,9 @@
-class CaseDetailsPresenter < SimpleDelegator
+class AppealPresenter < SimpleDelegator
 
   # Initialise with a TribunalCase instance and any method not
   # defined in this class will be forwarded automatically to that instance.
   #
-  #   details = CaseDetailsPresenter.new(tribunal_case_instance)
+  #   details = AppealPresenter.new(tribunal_case_instance)
   #
   #   details.taxpayer -> this class method
   #   details.case_reference -> tribunal_case_instance method

@@ -108,7 +108,7 @@ en:
         show:
           submit_and_continue: Submit and continue
           change: Change
-          heading: Check answers
+          heading: Check your answers
           warning: Warning
           warning_message: "Once you click 'Submit and continue', you cannot change your answers"
           declaration_of_truth: Declaration and statement of truth

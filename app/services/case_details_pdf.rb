@@ -4,7 +4,6 @@ class CaseDetailsPdf
   attr_reader :tribunal_case, :controller_ctx, :pdf
 
   PDF_CONFIG = {
-    template: 'steps/details/check_answers/pdf/show',
     formats: [:pdf],
     pdf: true,
     encoding: 'UTF-8'
@@ -42,7 +41,18 @@ class CaseDetailsPdf
   end
 
   def render_options
-    {locals: {tribunal_case: tribunal_case}}.merge(PDF_CONFIG)
+    {template: template, locals: {tribunal_case: tribunal_case}}.merge(PDF_CONFIG)
+  end
+
+  def template
+    case tribunal_case.intent
+    when Intent::TAX_APPEAL
+      'steps/details/check_answers/pdf/show'
+    when Intent::CLOSE_ENQUIRY
+      'steps/closure/check_answers/pdf/show'
+    else
+      raise "Invalid intent '#{tribunal_case.intent}'"
+    end
   end
 
   def upload!
