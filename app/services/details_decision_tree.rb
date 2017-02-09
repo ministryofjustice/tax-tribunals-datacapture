@@ -22,7 +22,7 @@ class DetailsDecisionTree < DecisionTree
     when :documents_checklist
       show(:check_answers)
     when :check_answers
-      task_list
+      home_path
     else
       raise "Invalid step '#{step_params}'"
     end
