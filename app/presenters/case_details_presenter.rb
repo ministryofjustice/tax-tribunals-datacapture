@@ -21,6 +21,10 @@ class CaseDetailsPresenter < SimpleDelegator
     @documents ||= DocumentsSubmittedPresenter.new(tribunal_case)
   end
 
+  def appeal_type_answers
+    @appeal_type_answers ||= AppealTypeAnswersPresenter.new(tribunal_case)
+  end
+
   def appeal_lateness_answers
     @appeal_lateness_answers ||= AppealLatenessAnswersPresenter.new(tribunal_case)
   end

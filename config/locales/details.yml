@@ -158,8 +158,9 @@ en:
             dispute_type:
               paye_coding_notice: Pay As You Earn (PAYE) coding notice
               penalty: Penalty or surcharge
-              amount_of_tax: Amount of tax
-              amount_and_penalty: Amount of tax and a penalty or surcharge
+              amount_of_tax_owed_by_hmrc: HMRC should repay tax to you
+              amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
+              amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
               other: Other
             penalty_level:
               penalty_level_1: £100 or less
