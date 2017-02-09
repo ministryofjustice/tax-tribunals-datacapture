@@ -6,6 +6,9 @@ en:
         precision: 0
   generic:
     back_link: Back
+    appeal_or_application:
+      appeal: appeal
+      application: application
   errors:
     # WARNING: This means every possible error message must be a full
     #  English sentence because the attribute name won't be prepended!

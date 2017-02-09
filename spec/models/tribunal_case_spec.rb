@@ -51,4 +51,35 @@ RSpec.describe TribunalCase, type: :model do
       expect(subject.representative_is_organisation?).to eq(true)
     end
   end
+
+  describe '#appeal_or_application' do
+    context 'when the intent is CLOSE_ENQUIRY' do
+      let(:case_type)  { CaseType.new(:random, appeal_or_application: :whatever) }
+      let(:attributes) { { intent: Intent.new(:close_enquiry), case_type: case_type } }
+
+      it 'returns application regardless of case type' do
+        expect(subject.appeal_or_application).to eq(:application)
+      end
+    end
+
+    context 'when the intent is TAX_APPEAL' do
+      let(:attributes) { { intent: Intent.new(:tax_appeal), case_type: case_type } }
+
+      context 'when there is no case type' do
+        let(:case_type) { nil }
+
+        it 'returns appeal by default' do
+          expect(subject.appeal_or_application).to eq(:appeal)
+        end
+      end
+
+      context 'when there is a case type' do
+        let(:case_type)  { CaseType.new(:random, appeal_or_application: :whatever) }
+
+        it 'delegates to the case type' do
+          expect(subject.appeal_or_application).to eq(:whatever)
+        end
+      end
+    end
+  end
 end

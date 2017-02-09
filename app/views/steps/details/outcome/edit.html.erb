@@ -2,9 +2,9 @@
   <div class="column-two-thirds">
     <%= step_header(:details, 4) %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="heading-large"><%= translate_with_appeal_or_application '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
+    <p class="lede"><%= translate_with_appeal_or_application '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
       <%= f.text_area :outcome, size: '40x6', class: 'form-control form-control-3-4' %>

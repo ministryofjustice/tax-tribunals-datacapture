@@ -18,7 +18,7 @@ en:
         <strong>What to do next</strong>
         <ul class="list list-bullet">
           <li>enter reasons why you can't upload documents</li>
-          <li>continue your appeal online</li>
+          <li>continue your %{appeal_or_application} online</li>
           <li>print out your case details</li>
           <li>post your documents and case details</li>
         </ul>
@@ -30,8 +30,8 @@ en:
       step_header: Question %{step} of ?
       start:
         show:
-          heading: 3. Enter appeal details
-          lead_text: You will need to include grounds for your appeal and upload a scan or photo of the letters from HMRC.
+          heading: 3. Enter %{appeal_or_application} details
+          lead_text: You will need to include grounds for your %{appeal_or_application} and upload a scan or photo of the letters from HMRC.
           description_html: |
             <h4 class="heading-small">What to get ready before you start</h4>
             <ul class="list list-bullet">
@@ -47,23 +47,23 @@ en:
                 You can't save details as you go. Please get everything ready before you start.
               </strong>
             </p>
-          previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your appeal details.
+          previous_step_not_completed: You must complete Step 1 and Step 2 before you can enter your %{appeal_or_application} details.
           continue: Continue
       user_type:
         edit:
-          heading: Are you the taxpayer making the appeal?
+          heading: Are you the taxpayer making the %{appeal_or_application}?
           representative_heading: What is a representative and what can they do?
           representative_content_html: |
             <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
-            <p>You may want to use one if you need help or advice, or need assistance submitting an appeal or application.</p>
+            <p>You may want to use one if you need help or advice, or need assistance submitting an %{appeal_or_application}.</p>
             <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
-            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an appeal or application.</p>
+            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an %{appeal_or_application}.</p>
             <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
       taxpayer_type:
         edit:
           heading:
-            as_taxpayer: Who is making the appeal?
-            as_representative: Who is the appeal for?
+            as_taxpayer: Who is making the %{appeal_or_application}?
+            as_representative: Who is the %{appeal_or_application} for?
       taxpayer_details:
         edit:
           heading: Enter taxpayer's details
@@ -74,9 +74,9 @@ en:
           details_heading: What is a representative and what can they do?
           details_content_html: |
             <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
-            <p>You may want to use one if you need help or advice, or need assistance submitting an appeal or application.</p>
+            <p>You may want to use one if you need help or advice, or need assistance submitting an %{appeal_or_application}.</p>
             <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
-            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an appeal or application.</p>
+            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an %{appeal_or_application}.</p>
             <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
       representative_type:
         edit:
@@ -91,7 +91,7 @@ en:
             as_representative: If you are approved to act on behalf of the taxpayer all correspondence will be sent to the address, or email address, you enter below.
       grounds_for_appeal:
         edit:
-          heading: Grounds for appeal
+          heading: Grounds for %{appeal_or_application}
           lead_text: Clearly explain why you are appealing, giving reasons for each decision you dispute. The judge will want to hear things from your side.
           description_text: Clearly explain in your own words. The judge will want to know things from your side and understand how any evidence you provide supports your case.
           footer_description_text: You will next have to upload any supporting documents including any correspondence with HMRC and evidence to support your case.
@@ -119,26 +119,26 @@ en:
             been deliberately untruthful or dishonest, criminal proceedings for
             fraud can be brought against me. I understand that if I have given
             false information or I do not provide further evidence if
-            requested, my appeal may be rejected.
+            requested, my %{appeal_or_application} may be rejected.
           appeal_type_heading: Appeal type
           appeal_timeliness_heading: Appeal deadline
           appeal_details_heading: Appeal details
           questions:
             challenged_decision: Did you challenge the original decision?
-            case_type: What is your appeal about?
+            case_type: What is your %{appeal_or_application} about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
             tax_amount: What is the amount of tax?
-            in_time: Is the appeal late?
-            lateness_reason: Reason(s) for late appeal
+            in_time: Is the %{appeal_or_application} late?
+            lateness_reason: Reason(s) for late %{appeal_or_application}
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
             appellant_email: "Email:"
             representative_details: "Representative's details"
             representative_phone: "Tel:"
             representative_email: "Email:"
-            grounds_for_appeal: Grounds for appeal
+            grounds_for_appeal: Grounds for %{appeal_or_application}
             documents_submitted: Documents submitted
             legal_representative: Legal representative
             desired_outcome: Desired outcome
@@ -174,15 +174,15 @@ en:
             no_representative: I don't have a representative
       outcome:
         edit:
-          heading: What outcome do you want from your appeal?
-          lead_text: Give a summary of the decisions you think should be made in regards to your appeal. Write no more than 2-3 sentences which clearly outline the result you want.
+          heading: What outcome do you want from your %{appeal_or_application}?
+          lead_text: Give a summary of the decisions you think should be made in regards to your %{appeal_or_application}. Write no more than 2-3 sentences which clearly outline the result you want.
   activemodel:
     errors:
       models:
         steps/details/user_type_form:
           attributes:
             user_type:
-              inclusion: Select whether you are the taxpayer involved in the appeal
+              inclusion: Select whether you are the taxpayer involved
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
@@ -194,7 +194,7 @@ en:
         steps/details/representative_type_form:
           attributes:
             representative_type:
-              inclusion: Select whether your representative is an individual, company or organisation
+              inclusion: Select whether the representative is an individual, company or organisation
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:

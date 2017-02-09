@@ -23,7 +23,7 @@
         <% end %>
 
         <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
-          <p><%= t('shared.file_upload.having_problems_explanation_html') %></p>
+          <p><%= translate_with_appeal_or_application('shared.file_upload.having_problems_explanation_html') %></p>
           <%= f.text_area :closure_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
         </div>
       </div>

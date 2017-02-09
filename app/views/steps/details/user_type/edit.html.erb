@@ -2,7 +2,7 @@
   <div class="column-two-thirds">
     <%= step_header(:details, 0) %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="heading-large"><%= translate_with_appeal_or_application '.heading' %></h1>
 
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :user_type,
@@ -13,7 +13,7 @@
     <details role="group">
       <summary role="button" aria-controls="details-content" aria-expanded="false"><%=t '.representative_heading' %></summary>
       <div class="panel" id="details-content" aria-hidden="true">
-        <%=t '.representative_content_html' %>
+        <%= translate_with_appeal_or_application '.representative_content_html' %>
       </div>
     </details>
   </div>
