@@ -4,6 +4,35 @@ ul.buttons {
   }
 }
 
+.task-list {
+  font-size: 24px;
+  border-top: 1px solid $grey-2;
+  list-style-position: inside;
+  padding-left: 0;
+  margin-top: 45px;
+  margin-bottom: 45px;
+
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid $grey-2;
+    margin: 0;
+    position: relative;
+    vertical-align: top;
+
+    @media (min-width: 641px) {
+      p {
+        width: 75%;
+      }
+    }
+  }
+
+  a.task-link {
+    font-weight: bold;
+    max-width: 70%;
+    display: inline-block;
+  }
+}
+
 .uploaded-files {
   border-top: 1px solid $grey-2;
 
