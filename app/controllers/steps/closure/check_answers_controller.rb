@@ -1,11 +1,11 @@
-module Steps::Details
-  class CheckAnswersController < Steps::DetailsStepController
+module Steps::Closure
+  class CheckAnswersController < Steps::ClosureStepController
     respond_to :html, :pdf
 
     def show
       raise 'No tribunal case in session' unless current_tribunal_case
 
-      @tribunal_case = AppealPresenter.new(current_tribunal_case)
+      @tribunal_case = ClosurePresenter.new(current_tribunal_case)
 
       respond_to do |format|
         format.html

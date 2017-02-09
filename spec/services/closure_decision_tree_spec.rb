@@ -26,11 +26,16 @@ RSpec.describe ClosureDecisionTree do
       it { is_expected.to have_destination(:support_documents, :edit) }
     end
 
-    # TODO: change once we have the `check your answers` step
     context 'when the step is `support_documents`' do
       let(:step_params) { { support_documents: 'anything' } }
 
-      it { is_expected.to have_destination(:start, :show) }
+      it { is_expected.to have_destination(:check_answers, :show) }
+    end
+
+    context 'when the step is `check_answers`' do
+      let(:step_params) { {check_answers: 'anything'} }
+
+      it { is_expected.to have_destination('/home', :index) }
     end
 
     context 'when the step is invalid' do
@@ -83,6 +88,12 @@ RSpec.describe ClosureDecisionTree do
       let(:step_params) { { support_documents: 'anything' } }
 
       it { is_expected.to have_previous(:additional_info, :edit) }
+    end
+
+    context 'when the step is `check_answers`' do
+      let(:step_params) { { check_answers: 'anything' } }
+
+      it { is_expected.to have_previous(:support_documents, :edit) }
     end
 
     context 'when the step is invalid' do

@@ -2,13 +2,15 @@ require 'spec_helper'
 
 RSpec.describe CaseDetailsPdf do
   let!(:tribunal_case) { TribunalCase.create(case_attributes) }
-  let(:decorated_tribunal_case) { CaseDetailsPresenter.new(tribunal_case) }
+  let(:decorated_tribunal_case) { AppealPresenter.new(tribunal_case) }
   let(:controller_ctx) { ApplicationController.new }
 
+  let(:intent) { Intent::TAX_APPEAL }
   let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
   let(:case_attributes) do
     {
       case_type: CaseType::OTHER,
+      closure_case_type: ClosureCaseType::CAPITAL_GAINS_TAX_CLOSURE,
       taxpayer_type: taxpayer_type,
       taxpayer_individual_first_name: 'Firstname',
       taxpayer_individual_last_name: 'Lastname',
@@ -20,7 +22,8 @@ RSpec.describe CaseDetailsPdf do
       representative_organisation_fao: 'Company Contact Name',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
       case_reference: 'TC/2016/12345',
-      outcome: 'my desired outcome'
+      outcome: 'my desired outcome',
+      intent: intent
     }
   end
 
@@ -40,17 +43,45 @@ RSpec.describe CaseDetailsPdf do
       allow(tribunal_case).to receive(:documents).and_return([])
     end
 
-    it 'should generate the PDF' do
-      expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
+    context 'for a tax appeal application' do
+      let(:intent) { Intent::TAX_APPEAL }
 
-      expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
-      expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
-      expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
-      expect(decorated_tribunal_case).to receive(:appeal_type_answers).at_least(:once).and_call_original
-      expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
-      expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
+      it 'should generate the PDF' do
+        expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
 
-      expect(subject.generate).to match(/%PDF/)
+        expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:appeal_type_answers).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
+
+        expect(subject.generate).to match(/%PDF/)
+      end
+    end
+
+    context 'for a closure application' do
+      let(:intent) { Intent::CLOSE_ENQUIRY }
+      let(:decorated_tribunal_case) { ClosurePresenter.new(tribunal_case) }
+
+      it 'should generate the PDF' do
+        expect(controller_ctx).to receive(:render_to_string).at_least(:once).and_call_original
+
+        expect(decorated_tribunal_case).to receive(:taxpayer).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).to receive(:enquiry_answers).at_least(:once).and_call_original
+
+        expect(subject.generate).to match(/%PDF/)
+      end
+    end
+
+    context 'for an invalid intent' do
+      let(:intent) { nil }
+
+      it 'should raise an exception' do
+        expect { subject.generate }.to raise_exception(/Invalid intent/)
+      end
     end
   end
 

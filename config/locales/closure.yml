@@ -31,6 +31,47 @@ en:
           heading: Add documents to support your application (optional)
           lead_text: The tax tribunal is independent and doesn't have access to files from HMRC.
           having_problems_uploading_documents_html: I am having trouble uploading my documents
+      check_answers:
+        show:
+          submit_and_continue: Submit and continue
+          change: Change
+          heading: Check your answers
+          warning: Warning
+          warning_message: "Once you click 'Submit and continue', you cannot change your answers"
+          declaration_of_truth: Declaration and statement of truth
+          declaration_of_truth_message: |
+            By completing this Application to Close an Enquiry and clicking the ‘Submit and
+            continue’ button, I believe the information I have given in this
+            form is true to the best of my knowledge. If I am found to have
+            been deliberately untruthful or dishonest, criminal proceedings for
+            fraud can be brought against me. I understand that if I have given
+            false information or I do not provide further evidence if
+            requested, my application may be rejected.
+          application_type_heading: Application type
+          application_details_heading: Application details
+          enquiry_details_heading: Enquiry details
+          questions:
+            case_type: What type of enquiry do you want to close?
+            hmrc_reference: HMRC reference number
+            years_under_enquiry: Years under enquiry
+            hmrc_officer: HMRC officer conducting enquiry
+            additional_info: Additional information
+            appellant_details: "Taxpayer's details"
+            appellant_phone: "Tel:"
+            appellant_email: "Email:"
+            representative_details: "Representative's details"
+            representative_phone: "Tel:"
+            representative_email: "Email:"
+            documents_submitted: Documents submitted
+            legal_representative: Legal representative
+          answers:
+            case_type:
+              capital_gains_tax_closure: Capital Gains Tax
+              corporation_tax_closure: Corporation Tax
+              income_tax_closure: Income Tax
+              partnership_tax_closure: Partnership Tax
+              stamp_duty_land_tax_closure: Stamp Duty Land Tax
+            no_representative: I don't have a representative
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
