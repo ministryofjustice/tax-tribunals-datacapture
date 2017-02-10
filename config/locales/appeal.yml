@@ -70,7 +70,7 @@ en:
           heading: You must challenge the decision before you can appeal
           lead_text: The original notice letter will say how you can query or challenge a tax decision.
           free_to_challenge_hmrc_heading: You will be able to appeal to the tax tribunal once you have written to challenge the decision.
-          free_to_challenge_hmrc_guidance_html: See the guidance on what to do when you<a>disagree with a tax decision</a>.
+          free_to_challenge_hmrc_guidance_html: See the guidance on what to do when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
       challenged_decision_status:
