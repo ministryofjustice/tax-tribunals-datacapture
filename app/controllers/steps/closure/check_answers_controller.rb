@@ -19,5 +19,9 @@ module Steps::Closure
       pdf = CaseDetailsPdf.new(tribunal_case, self)
       send_data pdf.generate, filename: pdf.filename, type: 'application/pdf', disposition: 'inline'
     end
+
+    def update_navigation_stack
+      current_tribunal_case&.update(navigation_stack: [])
+    end
   end
 end

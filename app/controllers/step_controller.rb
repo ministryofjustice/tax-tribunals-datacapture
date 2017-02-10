@@ -1,17 +1,14 @@
 class StepController < ApplicationController
   before_action :store_step_path_in_session, only: [:edit, :update]
+  before_action :update_navigation_stack
 
   def edit
     raise 'No tribunal case in session' unless current_tribunal_case
   end
 
   def previous_step_path
-    decision_tree = decision_tree_class.new(
-      tribunal_case: current_tribunal_case,
-      as:            controller_name
-    )
-
-    url_for(decision_tree.previous)
+    # Second to last element in the array, will be nil for arrays of size 0 or 1
+    current_tribunal_case&.navigation_stack&.slice(-2) || root_path
   end
 
   private
@@ -48,5 +45,16 @@ class StepController < ApplicationController
 
   def store_step_path_in_session
     session[:current_step_path] = request.fullpath
+  end
+
+  def update_navigation_stack
+    return unless current_tribunal_case
+
+    stack_until_current_page = current_tribunal_case.navigation_stack.take_while do |path|
+      path != request.fullpath
+    end
+
+    current_tribunal_case.navigation_stack = stack_until_current_page + [request.fullpath]
+    current_tribunal_case.save!
   end
 end

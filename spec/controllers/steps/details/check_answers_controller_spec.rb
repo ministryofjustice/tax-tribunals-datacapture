@@ -4,7 +4,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
   it_behaves_like 'an end point step controller'
 
   context 'case details presenter' do
-    let(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
+    let(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER, navigation_stack: ['/not', '/empty']) }
 
     it 'assigns the presenter' do
       get :show, session: {tribunal_case_id: tribunal_case.id}
@@ -12,10 +12,17 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
       presenter = assigns[:tribunal_case]
       expect(presenter).to be_an_instance_of(AppealPresenter)
     end
+
+    it 'clears the navigation stack' do
+      get :show, session: {tribunal_case_id: tribunal_case.id}
+
+      tribunal_case.reload
+      expect(tribunal_case.navigation_stack).to be_empty
+    end
   end
 
   context 'PDF format' do
-    let(:current_tribunal_case) { instance_double(TribunalCase) }
+    let(:current_tribunal_case) { instance_double(TribunalCase, update: nil) }
     let(:pdf_creator_double) { instance_double(CaseDetailsPdf, generate: 'some pdf content', filename: 'filename123.pdf') }
 
     before do
