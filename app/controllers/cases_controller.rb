@@ -4,10 +4,10 @@ class CasesController < ApplicationController
 
     result_url = if new_case.success?
                    generate_and_upload_pdf
-                   case_path(current_tribunal_case)
+                   confirmation_path
                  else
                    flash[:alert] = new_case.errors
-                   steps_details_check_answers_path
+                   check_answers_path
                  end
 
     redirect_to result_url
@@ -16,7 +16,21 @@ class CasesController < ApplicationController
   private
 
   def generate_and_upload_pdf
-    tribunal_case = AppealPresenter.new(current_tribunal_case)
+    tribunal_case = presenter_class.new(current_tribunal_case)
     CaseDetailsPdf.new(tribunal_case, self).generate_and_upload
   end
+
+  # :nocov:
+  def presenter_class
+    raise 'implement in subclasses'
+  end
+
+  def check_answers_path
+    raise 'implement in subclasses'
+  end
+
+  def confirmation_path
+    raise 'implement in subclasses'
+  end
+  # :nocov:
 end

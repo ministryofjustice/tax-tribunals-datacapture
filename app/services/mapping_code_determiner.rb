@@ -21,6 +21,8 @@ class MappingCodeDeterminer
       penalty_mapping_code
     elsif tribunal_case.dispute_type
       dispute_type_mapping_code
+    elsif tribunal_case.closure_case_type
+      closure_case_type_mapping_code
     elsif tribunal_case.case_type
       case_type_mapping_code
     end
@@ -63,5 +65,9 @@ class MappingCodeDeterminer
     else
       MappingCode::APPN_OTHER
     end
+  end
+
+  def closure_case_type_mapping_code
+    MappingCode::APPN_DECISION_ENQRY
   end
 end

@@ -72,6 +72,27 @@ en:
               partnership_tax_closure: Partnership Tax
               stamp_duty_land_tax_closure: Stamp Duty Land Tax
             no_representative: I don't have a representative
+      confirmation:
+        show:
+          case_reference: 'Your case reference number is:'
+          case_submitted: Case submitted
+          confirmation_email: We will send confirmation by email
+          note_number: Please make a note of this number in case you need to contact us.
+          save_or_print_pdf: Save or print your case details
+          what_happens_next_html: |
+            <p>We will also send your case reference number and case details by email.</p>
+            <h2 class="heading-medium">What happens next?</h2>
+            <ul class="list list-bullet">
+              <li>we will review your details</li>
+              <li>we may ask for more information before your case can proceed</li>
+              <li>we will write to let you know the next steps and if your case needs a hearing</li>
+              <li>we will notify other parties involved and ask for their response</li>
+            </ul>
+            <p>
+              If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
+              <a href="https://www.gov.uk/call-charges">call charges</a>).
+            </p>
+          finish: Finish
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend

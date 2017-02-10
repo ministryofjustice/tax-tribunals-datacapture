@@ -1,0 +1,21 @@
+<div class="govuk-box-highlight">
+  <h1 class="bold-large"><%= t '.case_submitted' %></h1>
+  <p><%= t '.confirmation_email' %></p>
+</div>
+
+<h1 class="heading-large">
+  <span class="heading-secondary"><%= t '.case_reference' %></span>
+  <span><%= @tribunal_case.case_reference %></span>
+</h1>
+
+<p><%= t '.note_number' %></p>
+
+<h2 class="heading-medium">
+  <%= link_to t('.save_or_print_pdf'), steps_closure_check_answers_path(format: :pdf), target: '_blank' %>
+</h2>
+
+<%= t '.what_happens_next_html' %>
+
+<div class="form-group">
+  <%= link_to t('.finish'), root_path, class: 'button' %>
+</div>

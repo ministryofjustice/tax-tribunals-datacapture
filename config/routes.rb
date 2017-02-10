@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       edit_step :additional_info
       edit_step :support_documents
       show_step :check_answers
+      show_step :confirmation
     end
 
     namespace :details do
@@ -60,6 +61,7 @@ Rails.application.routes.draw do
       edit_step :outcome
       edit_step :documents_checklist
       show_step :check_answers
+      show_step :confirmation
       edit_step :user_type
     end
   end
@@ -70,7 +72,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cases, only: [:create, :show]
+  resources :appeal_cases, :closure_cases, only: [:create]
 
   resource :session, only: [:destroy] do
     member do

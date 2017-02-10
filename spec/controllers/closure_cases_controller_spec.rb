@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CasesController, type: :controller do
+RSpec.describe ClosureCasesController, type: :controller do
 
   let(:current_tribunal_case) { instance_double(TribunalCase) }
   let(:case_creator_double) { instance_double(CaseCreator, call: case_creator_result) }
@@ -19,10 +19,10 @@ RSpec.describe CasesController, type: :controller do
         post :create
       end
 
-      it 'should redirect to the show page' do
+      it 'should redirect to the confirmation page' do
         allow(controller).to receive(:generate_and_upload_pdf)
         post :create
-        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(steps_closure_confirmation_path)
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe CasesController, type: :controller do
       it 'should redirect to the summary page with an error' do
         post :create
         expect(flash[:alert]).to eq(['an error'])
-        expect(response).to redirect_to(steps_details_check_answers_path)
+        expect(response).to redirect_to(steps_closure_check_answers_path)
       end
     end
   end
