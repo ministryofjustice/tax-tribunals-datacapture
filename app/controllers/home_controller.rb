@@ -3,6 +3,11 @@ class HomeController < ApplicationController
     @link_sections = link_sections
   end
 
+  # TODO: This page is only used for user research. It should be removed
+  # before the service goes live.
+  def dummy_start_page
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
