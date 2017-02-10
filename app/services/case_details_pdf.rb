@@ -62,8 +62,7 @@ class CaseDetailsPdf
       uploader = DocumentUpload.new(file, filename: filename, content_type: 'application/pdf', collection_ref: collection_ref)
       uploader.upload! if uploader.valid?
 
-      # TODO: make it real once we integrate with the case submission and step
-      raise 'boom!' if uploader.errors?
+      raise "Failed to upload file #{file}: #{uploader.errors.inspect}" if uploader.errors?
     end
   end
 end
