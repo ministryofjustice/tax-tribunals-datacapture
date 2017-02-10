@@ -25,6 +25,8 @@ en:
     service_help:
       need_help: Need help using the online service?
       contact_us: Contact us
+    survey_link_html: |
+      <a href="https://goo.gl/forms/5MeKnK5kGJH99Fsn2">What did you think of this service?</a> (takes 30 seconds)
   steps:
     details:
       step_header: Question %{step} of ?
