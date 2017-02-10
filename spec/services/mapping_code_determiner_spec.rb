@@ -6,6 +6,7 @@ RSpec.describe MappingCodeDeterminer do
     instance_double(TribunalCase,
       challenged_decision: challenged_decision,
       case_type:           case_type,
+      closure_case_type:   closure_case_type,
       dispute_type:        dispute_type,
       penalty_level:       penalty_level
     )
@@ -13,12 +14,13 @@ RSpec.describe MappingCodeDeterminer do
 
   let(:challenged_decision) { nil }
   let(:case_type)           { nil }
+  let(:closure_case_type)   { nil }
   let(:dispute_type)        { nil }
   let(:penalty_level)       { nil }
 
   subject { described_class.new(tribunal_case) }
 
-  context 'when there is no case_type' do
+  context 'when there is no case_type nor closure_case_type' do
     it { is_expected.to fail_to_determine_mapping_code }
   end
 
@@ -116,5 +118,11 @@ RSpec.describe MappingCodeDeterminer do
     let(:case_type) { CaseType.new(:anything_else) }
 
     it { is_expected.to have_mapping_code(:appn_other) }
+  end
+
+  context 'when there is a closure case type' do
+    let(:closure_case_type) { ClosureCaseType::STAMP_DUTY_LAND_TAX_CLOSURE }
+
+    it { is_expected.to have_mapping_code(:appn_decision_enqry) }
   end
 end
