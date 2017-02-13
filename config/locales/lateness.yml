@@ -2,21 +2,6 @@ en:
   steps:
     lateness:
       step_header: Question %{step} of 2
-      start:
-        show:
-          heading: 2. Check you meet tribunal deadlines
-          lead_text: You have 30 calendar days to submit an appeal. You can still appeal late if you have good reasons.
-          description_html: |
-            <p>The deadline to appeal begins from the date shown on either the original notice letter or review conclusion letter.</p>
-            <p>If you accepted or asked for a review, you can only appeal once you have received a review conclusion letter or 45 days passes without receiving one.</p>
-            <h4 class="heading-small">What you will need</h4>
-            <ul class="list list-bullet">
-              <li><strong>date of the decision letter</strong> - this will be shown on either the original notice letter or review conclusion letter</li>
-              <li><strong>reasons if you want to appeal late</strong> - the judge will consider your reasons and decide whether to accept or reject your appeal</li>
-            </ul>
-          previous_step_not_completed: You must complete Step 1 before you can check whether or not you meet the tribunal deadlines.
-          back_to_start: Return to start page
-          continue: Continue
       in_time:
         edit:
           heading: Do you think you're in time to appeal to the tax tribunal?
