@@ -1,0 +1,25 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:details, 0) %>
+
+    <h1 class="heading-large"><%= translate_for_user_type '.heading' %></h1>
+
+    <p class="lede"><%= translate_for_user_type '.lead_text' %></p>
+
+    <details role="group">
+      <summary role="button" aria-controls="details-content-0">
+        <%= translate_for_user_type '.details_heading' %>
+      </summary>
+      <div class="panel" id="details-content-0">
+        <%= translate_for_user_type '.details_info_html' %>
+        <%=t '.details_example_html' %>
+        <%= link_to t('.download_button_text'), asset_path('proforma.pdf'), class: 'button' %>
+      </div>
+    </details>
+
+    <%= step_form @form_object do |f| %>
+      <!-- TODO: Add form fields here -->
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>

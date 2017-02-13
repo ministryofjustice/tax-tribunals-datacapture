@@ -80,6 +80,22 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `representative_is_legal_professional`' do
       let(:step_params) { { representative_is_legal_professional: 'anything'  } }
 
+      context 'when the representative is a legal professional' do
+        let(:tribunal_case) { instance_double(TribunalCase, representative_is_legal_professional: RepresentativeIsLegalProfessional::YES) }
+
+        it { is_expected.to have_destination(:representative_type, :edit) }
+      end
+
+      context 'when the representative is not a legal professional' do
+        let(:tribunal_case) { instance_double(TribunalCase, representative_is_legal_professional: RepresentativeIsLegalProfessional::NO) }
+
+        it { is_expected.to have_destination(:representative_approval, :edit) }
+      end
+    end
+
+    context 'when the step is `representative_approval`' do
+      let(:step_params) { { representative_approval: 'anything'  } }
+
       it { is_expected.to have_destination(:representative_type, :edit) }
     end
 

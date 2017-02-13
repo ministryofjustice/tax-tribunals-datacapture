@@ -62,6 +62,7 @@ Rails.application.routes.draw do
       show_step :check_answers
       show_step :confirmation
       edit_step :user_type
+      edit_step :representative_approval
     end
   end
 
