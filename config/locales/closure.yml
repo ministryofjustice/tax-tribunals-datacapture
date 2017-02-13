@@ -66,11 +66,16 @@ en:
             legal_representative: Legal representative
           answers:
             case_type:
-              capital_gains_tax_closure: Capital Gains Tax
-              corporation_tax_closure: Corporation Tax
-              income_tax_closure: Income Tax
-              partnership_tax_closure: Partnership Tax
-              stamp_duty_land_tax_closure: Stamp Duty Land Tax
+              personal_return: Personal return
+              company_return: Company return
+              partnership_return: Partnership return
+              trustee_return: Trustee return
+              claim_or_amendment: Claim or amendment of a claim
+              enterprise_mgmt_incentives: 'Enterprise Management Incentives (EMIs): qualifying options'
+              non_resident_capital_gains_tax: 'Non-resident Capital Gains Tax (NRCGT) return'
+              stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction return'
+              stamp_duty_land_tax_claim: 'Stamp Duty Land Tax (SDLT): claim or amendment of a claim'
+              transactions_in_securities: 'Transactions in securities: issue of counteraction or no-counteraction notice'
             no_representative: I don't have a representative
       confirmation:
         show:
@@ -101,11 +106,16 @@ en:
     label:
       steps_closure_case_type_form:
         closure_case_type:
-          capital_gains_tax_closure_html: Capital Gains Tax
-          corporation_tax_closure_html: Corporation Tax
-          income_tax_closure_html: Income Tax
-          partnership_tax_closure_html: Partnership Tax
-          stamp_duty_land_tax_closure_html: Stamp Duty Land Tax
+          personal_return_html: Personal return
+          company_return_html: Company return
+          partnership_return_html: Partnership return
+          trustee_return_html: Trustee return
+          claim_or_amendment_html: Claim or amendment of a claim
+          enterprise_mgmt_incentives_html: 'Enterprise Management Incentives (EMIs): qualifying options'
+          non_resident_capital_gains_tax_html: 'Non-resident Capital Gains Tax (NRCGT) return'
+          stamp_duty_land_tax_return_html: 'Stamp Duty Land Tax (SDLT): land transaction return'
+          stamp_duty_land_tax_claim_html: 'Stamp Duty Land Tax (SDLT): claim or amendment of a claim'
+          transactions_in_securities_html: 'Transactions in securities: issue of counteraction or no-counteraction notice'
       steps_closure_enquiry_details_form:
         closure_hmrc_reference: HMRC reference number
         closure_years_under_enquiry: Years under enquiry

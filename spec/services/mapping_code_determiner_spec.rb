@@ -121,7 +121,7 @@ RSpec.describe MappingCodeDeterminer do
   end
 
   context 'when there is a closure case type' do
-    let(:closure_case_type) { ClosureCaseType::STAMP_DUTY_LAND_TAX_CLOSURE }
+    let(:closure_case_type) { ClosureCaseType::PERSONAL_RETURN }
 
     it { is_expected.to have_mapping_code(:appn_decision_enqry) }
   end

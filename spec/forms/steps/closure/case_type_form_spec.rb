@@ -13,11 +13,16 @@ RSpec.describe Steps::Closure::CaseTypeForm do
   describe '.choices' do
     it 'returns the relevant choices' do
       expect(described_class.choices).to eq(%w(
-        capital_gains_tax_closure
-        corporation_tax_closure
-        income_tax_closure
-        partnership_tax_closure
-        stamp_duty_land_tax_closure
+        personal_return
+        company_return
+        partnership_return
+        trustee_return
+        claim_or_amendment
+        enterprise_mgmt_incentives
+        non_resident_capital_gains_tax
+        stamp_duty_land_tax_return
+        stamp_duty_land_tax_claim
+        transactions_in_securities
       ))
     end
   end
@@ -25,7 +30,7 @@ RSpec.describe Steps::Closure::CaseTypeForm do
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)  { nil }
-      let(:closure_case_type) { 'income_tax_closure' }
+      let(:closure_case_type) { 'personal_return' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
@@ -57,8 +62,8 @@ RSpec.describe Steps::Closure::CaseTypeForm do
     end
 
     context 'when closure_case_type is valid' do
-      let(:closure_case_type) { 'income_tax_closure' }
-      let(:closure_case_type_object) { ClosureCaseType::INCOME_TAX_CLOSURE }
+      let(:closure_case_type) { 'personal_return' }
+      let(:closure_case_type_object) { ClosureCaseType::PERSONAL_RETURN }
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
@@ -69,8 +74,8 @@ RSpec.describe Steps::Closure::CaseTypeForm do
     end
 
     context 'when closure_case_type is already the same on the model' do
-      let(:tribunal_case) { instance_double(TribunalCase, closure_case_type: ClosureCaseType::CORPORATION_TAX_CLOSURE) }
-      let(:closure_case_type) { 'corporation_tax_closure' }
+      let(:tribunal_case) { instance_double(TribunalCase, closure_case_type: ClosureCaseType::PERSONAL_RETURN) }
+      let(:closure_case_type) { 'personal_return' }
 
       it 'does not save the record but returns true' do
         expect(tribunal_case).to_not receive(:update)
