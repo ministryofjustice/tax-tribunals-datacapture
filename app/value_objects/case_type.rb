@@ -1,9 +1,10 @@
 class CaseType < ValueObject
-  attr_reader :direct_tax, :ask_dispute_type, :ask_penalty, :ask_hardship, :appeal_or_application
+  attr_reader :direct_tax, :ask_dispute_type, :ask_penalty, :ask_hardship, :ask_challenged, :appeal_or_application
   alias_method :direct_tax?, :direct_tax
   alias_method :ask_dispute_type?, :ask_dispute_type
   alias_method :ask_penalty?, :ask_penalty
   alias_method :ask_hardship?, :ask_hardship
+  alias_method :ask_challenged?, :ask_challenged
 
   def self.find_constant(raw_value)
     const_get(raw_value.upcase)
@@ -14,19 +15,21 @@ class CaseType < ValueObject
     @ask_dispute_type      = params.fetch(:ask_dispute_type, false)
     @ask_penalty           = params.fetch(:ask_penalty, false)
     @ask_hardship          = params.fetch(:ask_hardship, false)
+    @ask_challenged        = params.fetch(:ask_challenged, false)
     @appeal_or_application = params.fetch(:appeal_or_application, :appeal)
 
     super(raw_value)
   end
 
   def self.direct_tax_properties
-    { direct_tax: true, ask_dispute_type: true, ask_penalty: true, ask_hardship: false, appeal_or_application: :appeal }
+    { direct_tax: true, ask_dispute_type: true, ask_penalty: true, ask_hardship: false, ask_challenged: true, appeal_or_application: :appeal }
   end
 
   def self.indirect_tax_properties
-    { direct_tax: false, ask_dispute_type: true, ask_penalty: true, ask_hardship: true, appeal_or_application: :appeal }
+    { direct_tax: false, ask_dispute_type: true, ask_penalty: true, ask_hardship: true, ask_challenged: true, appeal_or_application: :appeal }
   end
 
+  # TODO: we need to do an audit of the following case types to make sure they follow the correct path in the decision tree
   VALUES = [
     APN_PENALTY                  = new(:apn_penalty,                  direct_tax: false, ask_dispute_type: false, ask_penalty: true, ask_hardship: false, appeal_or_application: :appeal),
     AGGREGATES_LEVY              = new(:aggregates_levy,              indirect_tax_properties),
@@ -58,13 +61,13 @@ class CaseType < ValueObject
     POOL_BETTING_DUTY            = new(:pool_betting_duty,            indirect_tax_properties),
     REMOTE_GAMING_DUTY           = new(:remote_gaming_duty,           indirect_tax_properties),
     REQUEST_LATE_REVIEW          = new(:request_late_review,          direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: false, appeal_or_application: :application),
-    RESTORATION_CASE             = new(:restoration_case,             direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: false, appeal_or_application: :application),
+    RESTORATION_CASE             = new(:restoration_case,             direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: false, ask_challenged: true, appeal_or_application: :application),
     STAMP_DUTIES                 = new(:stamp_duties,                 direct_tax_properties),
     STATUTORY_PAYMENTS           = new(:statutory_payments,           direct_tax_properties),
     STUDENT_LOANS                = new(:student_loans,                direct_tax_properties),
     TOBACCO_PRODUCTS_DUTY        = new(:tobacco_products_duty,        indirect_tax_properties),
     VAT                          = new(:vat,                          indirect_tax_properties),
-    OTHER                        = new(:other,                        direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: true, appeal_or_application: :appeal)
+    OTHER                        = new(:other,                        direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: true, ask_challenged: false, appeal_or_application: :appeal)
   ].freeze
 
   def self.values
