@@ -35,7 +35,6 @@ Rails.application.routes.draw do
     end
 
     namespace :lateness do
-      show_step :start
       edit_step :in_time
       edit_step :lateness_reason
     end
@@ -51,7 +50,6 @@ Rails.application.routes.draw do
     end
 
     namespace :details do
-      show_step :start
       edit_step :taxpayer_type
       edit_step :taxpayer_details
       edit_step :has_representative
