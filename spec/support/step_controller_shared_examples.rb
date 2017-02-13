@@ -59,7 +59,7 @@ RSpec.shared_examples 'a start point step controller' do |form_class, decision_t
     end
 
     context 'when a case exists in the session' do
-      let!(:existing_case) { TribunalCase.create }
+      let!(:existing_case) { TribunalCase.create(navigation_stack: ['/not', '/empty']) }
 
       it 'does not create a new case' do
         expect {
@@ -75,6 +75,13 @@ RSpec.shared_examples 'a start point step controller' do |form_class, decision_t
       it 'does not change the case ID in the session' do
         get :edit, session: { tribunal_case_id: existing_case.id }
         expect(session[:tribunal_case_id]).to eq(existing_case.id)
+      end
+
+      it 'clears the navigation stack in the session' do
+        get :edit, session: { tribunal_case_id: existing_case.id }
+        existing_case.reload
+
+        expect(existing_case.navigation_stack).to eq([controller.request.fullpath])
       end
     end
   end

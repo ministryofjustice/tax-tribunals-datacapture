@@ -21,5 +21,12 @@ module Steps::Closure
       #   to be doing this here.
       super || initialize_tribunal_case(intent: Intent::CLOSE_ENQUIRY)
     end
+
+    def update_navigation_stack
+      # This is the first step in the closure flow, so reset the navigation stack
+      # before re-initialising it in StepController#update_navigation_stack
+      current_tribunal_case.navigation_stack = []
+      super
+    end
   end
 end

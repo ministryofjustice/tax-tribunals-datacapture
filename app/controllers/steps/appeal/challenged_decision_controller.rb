@@ -21,5 +21,12 @@ module Steps::Appeal
       #   to be doing this here.
       super || initialize_tribunal_case(intent: Intent::TAX_APPEAL)
     end
+
+    def update_navigation_stack
+      # This is the first step in the appeal flow, so reset the navigation stack
+      # before re-initialising it in StepController#update_navigation_stack
+      current_tribunal_case.navigation_stack = []
+      super
+    end
   end
 end
