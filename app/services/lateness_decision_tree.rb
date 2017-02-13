@@ -12,17 +12,6 @@ class LatenessDecisionTree < DecisionTree
     end
   end
 
-  def previous
-    case step_name.to_sym
-    when :in_time
-      show(:start)
-    when :lateness_reason
-      edit(:in_time)
-    else
-      raise "Invalid step '#{step_params}'"
-    end
-  end
-
   private
 
   def after_in_time_step

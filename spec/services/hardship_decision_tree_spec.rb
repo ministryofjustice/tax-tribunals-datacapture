@@ -55,43 +55,4 @@ RSpec.describe HardshipDecisionTree do
       end
     end
   end
-
-  describe '#previous' do
-    context 'when the step is `disputed_tax_paid`' do
-      let(:step_params) { { disputed_tax_paid: 'anything' } }
-      let(:tribunal_case) { instance_double(TribunalCase, penalty_level?: has_penalty_level) }
-
-      context 'when the tribunal_case has a penalty' do
-        let(:has_penalty_level) { true }
-
-        it { is_expected.to have_previous('/steps/appeal/penalty_amount', :edit) }
-      end
-
-      context 'when the tribunal_case does not have a penalty' do
-        let(:has_penalty_level) { false }
-
-        it { is_expected.to have_previous('/steps/appeal/dispute_type', :edit) }
-      end
-    end
-
-    context 'when the step is `hardship_review_requested`' do
-      let(:step_params) { { hardship_review_requested: 'anything' } }
-
-      it { is_expected.to have_previous(:disputed_tax_paid, :edit) }
-    end
-
-    context 'when the step is `hardship_review_status`' do
-      let(:step_params) { { hardship_review_status: 'anything' } }
-
-      it { is_expected.to have_previous(:hardship_review_requested, :edit) }
-    end
-
-    context 'when the step is invalid' do
-      let(:step_params) { { ungueltig: { waschmaschine: 'nein' } } }
-
-      it 'raises an error' do
-        expect { subject.previous }.to raise_error(RuntimeError)
-      end
-    end
-  end
 end
