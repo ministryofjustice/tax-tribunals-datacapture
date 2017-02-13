@@ -86,5 +86,5 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get :appeal, to: 'home#index'
-  get :dummy_start_page, to: 'home#dummy_start_page'
+  get :start_page, to: 'home#start_page'
 end

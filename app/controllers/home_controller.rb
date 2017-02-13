@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   # TODO: This page is only used for user research. It should be removed
   # before the service goes live.
-  def dummy_start_page
+  def start_page
   end
 
   private
