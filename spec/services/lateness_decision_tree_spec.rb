@@ -41,26 +41,4 @@ RSpec.describe LatenessDecisionTree do
       end
     end
   end
-
-  describe '#previous' do
-    context 'when the step is `in_time`' do
-      let(:step_params) { { in_time: 'anything' } }
-
-      it { is_expected.to have_previous(:start, :show) }
-    end
-
-    context 'when the step is `lateness_reason`' do
-      let(:step_params) { { lateness_reason: 'anything' } }
-
-      it { is_expected.to have_previous(:in_time, :edit) }
-    end
-
-    context 'when the step is invalid' do
-      let(:step_params) { { ungueltig: { waschmaschine: 'nein' } } }
-
-      it 'raises an error' do
-        expect { subject.previous }.to raise_error(RuntimeError)
-      end
-    end
-  end
 end

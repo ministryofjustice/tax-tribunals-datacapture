@@ -18,23 +18,6 @@ class AppealDecisionTree < DecisionTree
     end
   end
 
-  def previous
-    case step_name.to_sym
-    when :challenged_decision
-      show(:start)
-    when :case_type
-      edit(:challenged_decision)
-    when :case_type_show_more, :challenged_decision_status
-      edit(:case_type)
-    when :dispute_type
-      before_dispute_type_step
-    when :penalty_amount, :tax_amount, :penalty_and_tax_amounts
-      before_penalty_or_tax_amount_step
-    else
-      raise "Invalid step '#{step_params}'"
-    end
-  end
-
   private
 
   def tribunal_case_is_unchallenged_direct_tax
@@ -82,22 +65,6 @@ class AppealDecisionTree < DecisionTree
       edit('/steps/hardship/disputed_tax_paid')
     else
       edit('steps/lateness/in_time')
-    end
-  end
-
-  def before_dispute_type_step
-    if Steps::Appeal::CaseTypeForm.choices.include?(tribunal_case.case_type.to_s)
-      edit(:case_type)
-    else
-      edit(:case_type_show_more)
-    end
-  end
-
-  def before_penalty_or_tax_amount_step
-    if tribunal_case.dispute_type?
-      edit(:dispute_type)
-    else
-      before_dispute_type_step
     end
   end
 end

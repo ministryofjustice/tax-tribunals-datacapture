@@ -15,14 +15,4 @@ RSpec.describe AppealDecisionTree do
       end
     end
   end
-
-  describe '#previous' do
-    context 'when the step is invalid' do
-      let(:step_params) { { ungueltig: { waschmaschine: 'nein' } } }
-
-      it 'raises an error' do
-        expect { subject.previous }.to raise_error(RuntimeError)
-      end
-    end
-  end
 end

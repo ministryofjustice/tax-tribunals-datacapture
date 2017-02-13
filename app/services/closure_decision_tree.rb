@@ -17,36 +17,4 @@ class ClosureDecisionTree < DecisionTree
       raise "Invalid step '#{step_params}'"
     end
   end
-
-  def previous
-    case step_name.to_sym
-    when :case_type
-      show(:start)
-    when :enquiry_details
-      before_enquiry_details_step
-    when :additional_info
-      edit(:enquiry_details)
-    when :support_documents
-      edit(:additional_info)
-    when :check_answers
-      edit(:support_documents)
-    else
-      raise "Invalid step '#{step_params}'"
-    end
-  end
-
-  private
-
-  def before_enquiry_details_step
-    case tribunal_case.user_type
-    when UserType::REPRESENTATIVE
-      edit('/steps/details/taxpayer_details')
-    when UserType::TAXPAYER
-      if tribunal_case.has_representative == HasRepresentative::YES
-        edit('/steps/details/representative_details')
-      else
-        edit('/steps/details/has_representative')
-      end
-    end
-  end
 end
