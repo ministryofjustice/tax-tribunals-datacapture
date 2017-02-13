@@ -1,10 +1,15 @@
 class ClosureCaseType < ValueObject
   VALUES = [
-    CAPITAL_GAINS_TAX_CLOSURE   = new(:capital_gains_tax_closure),
-    CORPORATION_TAX_CLOSURE     = new(:corporation_tax_closure),
-    INCOME_TAX_CLOSURE          = new(:income_tax_closure),
-    PARTNERSHIP_TAX_CLOSURE     = new(:partnership_tax_closure),
-    STAMP_DUTY_LAND_TAX_CLOSURE = new(:stamp_duty_land_tax_closure),
+    PERSONAL_RETURN                = new(:personal_return),
+    COMPANY_RETURN                 = new(:company_return),
+    PARTNERSHIP_RETURN             = new(:partnership_return),
+    TRUSTEE_RETURN                 = new(:trustee_return),
+    CLAIM_OR_AMENDMENT             = new(:claim_or_amendment),
+    ENTERPRISE_MGMT_INCENTIVES     = new(:enterprise_mgmt_incentives),
+    NON_RESIDENT_CAPITAL_GAINS_TAX = new(:non_resident_capital_gains_tax),
+    STAMP_DUTY_LAND_TAX_RETURN     = new(:stamp_duty_land_tax_return),
+    STAMP_DUTY_LAND_TAX_CLAIM      = new(:stamp_duty_land_tax_claim),
+    TRANSACTIONS_IN_SECURITIES     = new(:transactions_in_securities),
   ].freeze
 
   def self.values

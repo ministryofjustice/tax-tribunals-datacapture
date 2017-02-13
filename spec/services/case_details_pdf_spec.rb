@@ -10,7 +10,7 @@ RSpec.describe CaseDetailsPdf do
   let(:case_attributes) do
     {
       case_type: CaseType::OTHER,
-      closure_case_type: ClosureCaseType::CAPITAL_GAINS_TAX_CLOSURE,
+      closure_case_type: ClosureCaseType::PERSONAL_RETURN,
       taxpayer_type: taxpayer_type,
       taxpayer_individual_first_name: 'Firstname',
       taxpayer_individual_last_name: 'Lastname',
