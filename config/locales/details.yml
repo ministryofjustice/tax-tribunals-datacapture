@@ -59,6 +59,11 @@ en:
             <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
             <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an %{appeal_or_application}.</p>
             <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
+      representative_is_legal_professional:
+        edit:
+          heading:
+            as_taxpayer: Is your representative a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland?
+            as_representative: Are you a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland?
       representative_type:
         edit:
           heading:
@@ -189,6 +194,10 @@ en:
           attributes:
             taxpayer_type:
               inclusion: Select whether the appeal is for an individual, company or organisation
+        steps/details/representative_is_legal_professional_form:
+          attributes:
+            representative_is_legal_professional:
+              inclusion: Select whether the representative is a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland
         steps/details/has_representative_form:
           attributes:
             has_representative:
@@ -229,6 +238,8 @@ en:
         user_type_html: ""
       steps_details_taxpayer_type_form:
         taxpayer_type_html: ""
+      steps_details_representative_is_legal_professional_form:
+        representative_is_legal_professional_html: ""
       steps_details_has_representative_form:
         has_representative_html: ""
       steps_details_representative_type_form:
@@ -245,6 +256,10 @@ en:
           other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership, trust, club or association
       steps_details_has_representative_form:
         has_representative:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_details_representative_is_legal_professional_form:
+        representative_is_legal_professional:
           'yes': 'Yes'
           'no': 'No'
       steps_details_representative_type_form:

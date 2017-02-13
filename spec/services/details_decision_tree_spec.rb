@@ -19,7 +19,7 @@ RSpec.describe DetailsDecisionTree do
       context 'and the user is a representative' do
         let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
 
-        it { is_expected.to have_destination(:representative_type, :edit) }
+        it { is_expected.to have_destination(:representative_is_legal_professional, :edit) }
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe DetailsDecisionTree do
       context 'and the answer is yes' do
         let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES) }
 
-        it { is_expected.to have_destination(:representative_type, :edit) }
+        it { is_expected.to have_destination(:representative_is_legal_professional, :edit) }
       end
 
       context 'and the answer is no' do
@@ -75,6 +75,12 @@ RSpec.describe DetailsDecisionTree do
           it { is_expected.to have_destination('/steps/closure/enquiry_details', :edit) }
         end
       end
+    end
+
+    context 'when the step is `representative_is_legal_professional`' do
+      let(:step_params) { { representative_is_legal_professional: 'anything'  } }
+
+      it { is_expected.to have_destination(:representative_type, :edit) }
     end
 
     context 'when the step is `representative_type`' do
