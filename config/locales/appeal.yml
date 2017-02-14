@@ -73,10 +73,13 @@ en:
           free_to_challenge_hmrc_guidance_html: See the guidance on what to do when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
+      must_wait_challenge_decision:
+        show:
+          heading: You must wait for a decision - Copy needed
+          lead_text: Copy needed
       challenged_decision_status:
         edit:
-          heading: "challenged decision header"
-          lead_text: "lead text here change me"
+          heading: Did you receive a response to your challenge?
   activemodel:
     errors:
       models:
@@ -107,6 +110,8 @@ en:
       # Use an empty string in _html keys to not show the fieldset legend
       steps_appeal_challenged_decision_form:
         challenged_decision_html: ""
+      steps_appeal_challenged_decision_status_form:
+        challenged_decision_status_html: ""
       steps_appeal_case_type_form:
         case_type_html: ""
       steps_appeal_case_type_show_more_form:
@@ -120,6 +125,13 @@ en:
         challenged_decision:
           'yes': 'Yes'
           'no': 'No'
+      steps_appeal_challenged_decision_status_form:
+        challenged_decision_status:
+          received: Yes, I have a review conclusion letter
+          pending: 'No'
+          overdue: No, I've been waiting for 45 days or more
+          refused: 'Refused due to being "out of time"'
+          not_required: Did not require a review
       steps_appeal_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment

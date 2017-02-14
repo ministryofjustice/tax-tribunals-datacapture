@@ -50,6 +50,7 @@ RSpec.describe Steps::Appeal::ChallengedDecisionForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           challenged_decision: ChallengedDecision::NO,
+          challenged_decision_status: nil,
           dispute_type: nil,
           penalty_level: nil,
           penalty_amount: nil,

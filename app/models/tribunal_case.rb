@@ -3,6 +3,7 @@ class TribunalCase < ApplicationRecord
 
   # Appeal task
   has_value_object :challenged_decision
+  has_value_object :challenged_decision_status
   has_value_object :case_type, constructor: :find_constant
   has_value_object :dispute_type
   has_value_object :penalty_level
