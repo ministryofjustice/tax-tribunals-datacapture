@@ -20,16 +20,16 @@ class AppealDecisionTree < DecisionTree
 
   private
 
-  def tribunal_case_is_unchallenged_indirect_tax
+  def tribunal_case_is_unchallenged_indirect_tax?
     !tribunal_case.case_type.direct_tax? &&
       tribunal_case.challenged_decision == ChallengedDecision::NO
   end
 
-  def tribunal_case_is_challenged
+  def tribunal_case_is_challenged?
     tribunal_case.challenged_decision == ChallengedDecision::YES
   end
 
-  def tribunal_case_has_penalties_but_not_disputes
+  def tribunal_case_has_penalties_but_not_disputes?
     tribunal_case.case_type.ask_penalty? && !tribunal_case.case_type.ask_dispute_type?
   end
 
@@ -40,7 +40,7 @@ class AppealDecisionTree < DecisionTree
       edit(:challenged_decision)
     elsif tribunal_case.case_type.ask_dispute_type?
       edit(:dispute_type)
-    elsif tribunal_case_has_penalties_but_not_disputes
+    elsif tribunal_case_has_penalties_but_not_disputes?
       edit(:penalty_amount)
     else
       edit('/steps/lateness/in_time')
@@ -48,9 +48,9 @@ class AppealDecisionTree < DecisionTree
   end
 
   def after_challenged_decision_step
-    if tribunal_case_is_challenged
+    if tribunal_case_is_challenged?
       edit(:challenged_decision_status)
-    elsif tribunal_case_is_unchallenged_indirect_tax
+    elsif tribunal_case_is_unchallenged_indirect_tax?
       edit(:dispute_type)
     else
       show(:must_challenge_hmrc)
