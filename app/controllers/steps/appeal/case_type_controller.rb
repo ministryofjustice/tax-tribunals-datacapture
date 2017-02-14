@@ -1,5 +1,5 @@
 module Steps::Appeal
-  class CaseTypeController < Steps::AppealStepController
+  class CaseTypeController < Steps::AppealFirstStepController
     def edit
       super
       @form_object = CaseTypeForm.new(
