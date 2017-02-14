@@ -11,7 +11,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the status is `pending`' do
       let(:challenged_decision_status) { ChallengedDecisionStatus::PENDING }
 
-      it { is_expected.to have_destination(:must_wait_challenge_decision, :show) }
+      it { is_expected.to have_destination(:must_wait_for_challenge_decision, :show) }
     end
 
     context 'and the status is other than `pending`' do

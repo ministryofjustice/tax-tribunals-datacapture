@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       edit_step :challenged_decision
       edit_step :challenged_decision_status
       show_step :must_challenge_hmrc
-      show_step :must_wait_challenge_decision
+      show_step :must_wait_for_challenge_decision
       edit_step :dispute_type
       edit_step :penalty_amount
       edit_step :tax_amount

@@ -59,7 +59,7 @@ class AppealDecisionTree < DecisionTree
 
   def after_challenged_decision_status_step
     if tribunal_case.challenged_decision_status.pending?
-      show(:must_wait_challenge_decision)
+      show(:must_wait_for_challenge_decision)
     else
       edit(:dispute_type)
     end

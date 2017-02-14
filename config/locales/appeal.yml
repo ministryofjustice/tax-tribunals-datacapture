@@ -73,7 +73,7 @@ en:
           free_to_challenge_hmrc_guidance_html: See the guidance on what to do when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
-      must_wait_challenge_decision:
+      must_wait_for_challenge_decision:
         show:
           heading: You must wait for a decision - Copy needed
           lead_text: Copy needed

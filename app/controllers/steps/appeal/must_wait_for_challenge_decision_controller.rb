@@ -1,5 +1,5 @@
 module Steps::Appeal
-  class MustWaitChallengeDecisionController < Steps::AppealStepController
+  class MustWaitForChallengeDecisionController < Steps::AppealStepController
     def show
       raise 'No tribunal case in session' unless current_tribunal_case
     end
