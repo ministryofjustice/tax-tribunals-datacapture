@@ -4,7 +4,8 @@ module Steps::Appeal
       super
       @form_object = DisputeTypeForm.new(
         tribunal_case: current_tribunal_case,
-        dispute_type: current_tribunal_case.dispute_type
+        dispute_type: current_tribunal_case.dispute_type,
+        dispute_type_other_value: current_tribunal_case.dispute_type_other_value
       )
     end
 

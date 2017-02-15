@@ -101,6 +101,8 @@ en:
           attributes:
             dispute_type:
               inclusion: Select what your dispute is about
+            dispute_type_other_value:
+              blank: Enter the dispute
         steps/appeal/penalty_amount_form:
           attributes:
             penalty_level:
@@ -177,6 +179,7 @@ en:
           tobacco_products_duty_html: <strong>Tobacco Products Duty</strong>
           other_html: <strong>None of the above</strong>
       steps_appeal_dispute_type_form:
+        dispute_type_other_value: What is your dispute about?
         dispute_type:
           penalty_html: <strong>Penalty or surcharge</strong>
           amount_of_tax_owed_by_hmrc_html: <strong>HMRC should repay tax to you</strong>

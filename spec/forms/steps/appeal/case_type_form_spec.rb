@@ -67,8 +67,10 @@ RSpec.describe Steps::Appeal::CaseTypeForm do
         allow(CaseType).to receive(:find_constant).with('income_tax').and_return(case_type_object)
         expect(tribunal_case).to receive(:update).with(
           case_type: case_type_object,
+          case_type_other_value: nil,
           challenged_decision: nil,
           dispute_type: nil,
+          dispute_type_other_value: nil,
           penalty_level: nil,
           penalty_amount: nil,
           tax_amount: nil

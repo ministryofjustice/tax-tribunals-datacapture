@@ -3,7 +3,8 @@ require 'spec_helper'
 RSpec.describe Steps::Appeal::DisputeTypeForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
-    dispute_type:  dispute_type
+    dispute_type: dispute_type,
+    dispute_type_other_value: dispute_type_other_value,
   } }
   let(:tribunal_case) {
     instance_double(
@@ -14,6 +15,7 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
   }
   let(:case_type)  { nil }
   let(:dispute_type) { nil }
+  let(:dispute_type_other_value) { nil}
 
   subject { described_class.new(arguments) }
 
@@ -40,6 +42,7 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
         expect(subject.choices).to eq(%w(
           penalty
           information_notice
+          other
         ))
       end
     end
@@ -99,11 +102,44 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           dispute_type: DisputeType::PENALTY,
+          dispute_type_other_value: nil,
           penalty_level: nil,
           penalty_amount: nil,
           tax_amount: nil
         ).and_return(true)
         expect(subject.save).to be(true)
+      end
+
+      context 'for `other` dispute type' do
+        let(:dispute_type) { 'other' }
+
+        context 'when other value entered' do
+          let(:dispute_type_other_value) { 'my dispute' }
+
+          it 'saves the record' do
+            expect(tribunal_case).to receive(:update).with(
+              dispute_type: DisputeType::OTHER,
+              dispute_type_other_value: 'my dispute',
+              penalty_level: nil,
+              penalty_amount: nil,
+              tax_amount: nil
+            ).and_return(true)
+            expect(subject.save).to be(true)
+          end
+        end
+
+        context 'when other value not entered' do
+          let(:dispute_type_other_value) { nil }
+
+          it 'returns false' do
+            expect(subject.save).to be(false)
+          end
+
+          it 'has a validation error on the field' do
+            expect(subject).to_not be_valid
+            expect(subject.errors[:dispute_type_other_value]).to_not be_empty
+          end
+        end
       end
     end
 
@@ -153,7 +189,8 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
         instance_double(
           TribunalCase,
           dispute_type: DisputeType::PAYE_CODING_NOTICE,
-          case_type:    CaseType::INCOME_TAX
+          dispute_type_other_value: nil,
+          case_type: CaseType::INCOME_TAX
         )
       }
       let(:dispute_type) { 'paye_coding_notice' }

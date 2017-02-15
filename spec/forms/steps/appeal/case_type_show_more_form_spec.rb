@@ -100,6 +100,7 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
               case_type_other_value: nil,
               challenged_decision: nil,
               dispute_type: nil,
+              dispute_type_other_value: nil,
               penalty_level: nil,
               penalty_amount: nil,
               tax_amount: nil
@@ -122,6 +123,7 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
                 case_type_other_value: 'my tax issue',
                 challenged_decision: nil,
                 dispute_type: nil,
+                dispute_type_other_value: nil,
                 penalty_level: nil,
                 penalty_amount: nil,
                 tax_amount: nil
