@@ -38,10 +38,10 @@ RSpec.describe AppealTypeAnswersPresenter do
 
   let(:declared_rows) {
     [
-        :challenged_decision_question,
         :case_type_question,
-        :dispute_type_question,
+        :challenged_decision_question,
         :challenged_decision_status_question,
+        :dispute_type_question,
         :penalty_level_question,
         :penalty_amount_question,
         :tax_amount_question,
@@ -71,7 +71,7 @@ RSpec.describe AppealTypeAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.challenged_decision')
         expect(row.answer).to      eq('.answers.challenged_decision.true')
-        expect(row.change_path).to eq(paths.edit_steps_appeal_challenged_decision_path)
+        expect(row.change_path).to be_nil
       end
     end
 
@@ -81,12 +81,8 @@ RSpec.describe AppealTypeAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.challenged_decision')
         expect(row.answer).to      eq('.answers.challenged_decision.false')
-        expect(row.change_path).to eq(paths.edit_steps_appeal_challenged_decision_path)
+        expect(row.change_path).to be_nil
       end
-    end
-
-    it 'has a change link' do
-      expect(row.change_link('test')).to eq('<a href="/steps/appeal/challenged_decision">test</a>')
     end
   end
 
@@ -125,7 +121,11 @@ RSpec.describe AppealTypeAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.case_type')
         expect(row.answer).to      eq('.answers.case_type.foo')
-        expect(row.change_path).to be_nil
+        expect(row.change_path).to eq(paths.edit_steps_appeal_case_type_path)
+      end
+
+      it 'has a change link' do
+        expect(row.change_link('test')).to eq('<a href="/steps/appeal/case_type">test</a>')
       end
     end
 
@@ -136,7 +136,11 @@ RSpec.describe AppealTypeAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.case_type')
         expect(row.answer).to      eq('my tax issue')
-        expect(row.change_path).to be_nil
+        expect(row.change_path).to eq(paths.edit_steps_appeal_case_type_path)
+      end
+
+      it 'has a change link' do
+        expect(row.change_link('test')).to eq('<a href="/steps/appeal/case_type">test</a>')
       end
     end
   end

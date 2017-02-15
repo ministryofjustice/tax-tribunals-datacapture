@@ -69,6 +69,7 @@ RSpec.describe Steps::Appeal::CaseTypeForm do
           case_type: case_type_object,
           case_type_other_value: nil,
           challenged_decision: nil,
+          challenged_decision_status: nil,
           dispute_type: nil,
           dispute_type_other_value: nil,
           penalty_level: nil,

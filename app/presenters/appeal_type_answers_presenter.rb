@@ -1,10 +1,10 @@
 class AppealTypeAnswersPresenter < BaseAnswersPresenter
   def rows
     [
-      challenged_decision_question,
       case_type_question,
-      dispute_type_question,
+      challenged_decision_question,
       challenged_decision_status_question,
+      dispute_type_question,
       penalty_level_question,
       penalty_amount_question,
       tax_amount_question,
@@ -17,8 +17,7 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
   def challenged_decision_question
     row(
       tribunal_case.challenged_decision,
-      as: :challenged_decision,
-      change_path: edit_steps_appeal_challenged_decision_path
+      as: :challenged_decision
     )
   end
 
@@ -34,7 +33,8 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
 
     row(
       tribunal_case.case_type,
-      as: :case_type
+      as: :case_type,
+      change_path: edit_steps_appeal_case_type_path
     )
   end
 
@@ -42,7 +42,8 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
     row(
       tribunal_case.case_type_other_value,
       as: :case_type,
-      i18n_value: false
+      i18n_value: false,
+      change_path: edit_steps_appeal_case_type_path
     )
   end
 
