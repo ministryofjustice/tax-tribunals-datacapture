@@ -183,11 +183,41 @@ en:
             case_type:
               income_tax: Income Tax
               vat: Value Added Tax (VAT)
-              apn_penalty: Advance Payment Notice (APN) penalty
-              inaccurate_return: Inaccurate return
-              closure_notice: Closure notice
-              information_notice: Information notices (Schedule 36)
-              request_permission_for_review: Request permission for a review
+              capital_gains_tax: Capital Gains Tax
+              corporation_tax: Corporation Tax
+              inaccurate_return_penalty: Inaccurate return penalty
+              information_notice: Information notice
+              ni_contributions: National Insurance (NI) contributions
+              apn_penalty: Accelerated Payment Notice (APN) penalty
+              aggregates_levy: Aggregates Levy
+              air_passenger_duty: Air Passenger Duty
+              alcoholic_liquor_duties: Alcoholic Liquor Duties
+              apply_decision_enquiry: Apply for a decision on an enquiry
+              bingo_duty: Bingo Duty
+              climate_change_levy: Climate Change Levy
+              construction_industry_scheme: Construction Industry Scheme (CIS)
+              counter_terrorism: Counter-terrorism decision
+              customs_duty: Customs Duty
+              dotas_penalty: Disclosure Of Tax Avoidance Schemes (DOTAS) penalty
+              gaming_duty: Gaming Duty
+              general_betting_duty: General Betting Duty
+              export_regulations_penalty: Export (Penalty) Regulations / FA 2003 decision
+              hydrocarbon_oil_duties: Hydrocarbon Oil Duties
+              inheritance_tax: Inheritance Tax
+              insurance_premium_tax: Insurance Premium Tax
+              landfill_tax: Landfill Tax
+              lottery_duty: Lottery Duty
+              ni_contributions: National Insurance (NI) contributions
+              money_laundering_decisions: Money laundering decisions
+              petroleum_revenue_tax: Petroleum Revenue Tax
+              pool_betting_duty: Pool Betting Duty
+              remote_gaming_duty: Remote Gaming Duty
+              request_late_review: Request permission for a late review
+              restoration_case: Restoration case
+              stamp_duties: Stamp duties
+              statutory_payments: Statutory payments
+              student_loans: Student loans
+              tobacco_products_duty: Tobacco Products Duty
               other: Other
             dispute_type:
               paye_coding_notice: Pay As You Earn (PAYE) coding notice
