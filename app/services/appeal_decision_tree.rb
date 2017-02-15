@@ -58,8 +58,11 @@ class AppealDecisionTree < DecisionTree
   end
 
   def after_challenged_decision_status_step
-    # TODO: introduce changes to the challenged status here
-    edit(:dispute_type)
+    if tribunal_case.challenged_decision_status.pending?
+      show(:must_wait_for_challenge_decision)
+    else
+      edit(:dispute_type)
+    end
   end
 
   def after_dispute_type_step

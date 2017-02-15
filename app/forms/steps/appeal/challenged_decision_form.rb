@@ -25,6 +25,7 @@ module Steps::Appeal
       tribunal_case.update(
         challenged_decision: challenged_decision_value,
         # The following are dependent attributes that need to be reset
+        challenged_decision_status: nil,
         dispute_type: nil,
         penalty_level: nil,
         penalty_amount: nil,

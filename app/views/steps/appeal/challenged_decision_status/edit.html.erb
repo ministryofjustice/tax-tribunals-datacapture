@@ -1,14 +1,12 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= step_header(:appeal, 0) %>
+    <%= step_header(:appeal, 3) %>
 
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
-
     <%= step_form @form_object do |f| %>
       <%= f.radio_button_fieldset :challenged_decision_status,
-        choices: Steps::Appeal::ChallengedDecisionStatusForm.choices %>
+        choices: @form_object.choices %>
 
       <%= f.submit class: 'button' %>
     <% end %>

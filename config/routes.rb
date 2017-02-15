@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   namespace :steps do
     namespace :appeal do
       show_step :start
-      edit_step :challenged_decision
       edit_step :case_type
       edit_step :case_type_show_more
+      edit_step :challenged_decision
+      edit_step :challenged_decision_status
+      show_step :must_challenge_hmrc
+      show_step :must_wait_for_challenge_decision
       edit_step :dispute_type
       edit_step :penalty_amount
-      show_step :must_challenge_hmrc
       edit_step :tax_amount
-      edit_step :challenged_decision_status
       edit_step :penalty_and_tax_amounts
     end
 

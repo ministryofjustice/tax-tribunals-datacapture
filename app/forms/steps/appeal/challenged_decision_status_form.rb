@@ -2,10 +2,25 @@ module Steps::Appeal
   class ChallengedDecisionStatusForm < BaseForm
     attribute :challenged_decision_status, String
 
-    def self.choices
-      ChallengedDecisionStatus.values.map(&:to_s)
+    validates_inclusion_of :challenged_decision_status, in: proc { |record| record.choices }, if: :tribunal_case
+
+    def choices
+      if tribunal_case.case_type.direct_tax?
+        [
+          ChallengedDecisionStatus::RECEIVED,
+          ChallengedDecisionStatus::PENDING,
+          ChallengedDecisionStatus::OVERDUE,
+          ChallengedDecisionStatus::NOT_REQUIRED
+        ]
+      else
+        [
+          ChallengedDecisionStatus::RECEIVED,
+          ChallengedDecisionStatus::PENDING,
+          ChallengedDecisionStatus::OVERDUE,
+          ChallengedDecisionStatus::REFUSED
+        ]
+      end.map(&:to_s)
     end
-    validates_inclusion_of :challenged_decision_status, in: choices
 
     private
 
