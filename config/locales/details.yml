@@ -111,6 +111,7 @@ en:
           appeal_details_heading: Appeal details
           questions:
             challenged_decision: Did you challenge the original decision?
+            challenged_decision_status: What is the status of the challenge?
             case_type: What is your %{appeal_or_application} about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
@@ -132,6 +133,11 @@ en:
             challenged_decision:
               'yes': 'Yes'
               'no': 'No'
+            challenged_decision_status:
+              received: I have a review conclusion letter
+              overdue: I've been waiting for 45 days or more
+              refused: 'Refused due to being "out of time"'
+              not_required: Did not require a review
             case_type:
               income_tax: Income Tax
               vat: Value Added Tax (VAT)

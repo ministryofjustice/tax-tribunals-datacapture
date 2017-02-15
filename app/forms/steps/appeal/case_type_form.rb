@@ -42,6 +42,7 @@ module Steps::Appeal
         # The following are dependent attributes that need to be reset
         case_type_other_value: nil,
         challenged_decision: nil,
+        challenged_decision_status: nil,
         dispute_type: nil,
         dispute_type_other_value: nil,
         penalty_level: nil,
