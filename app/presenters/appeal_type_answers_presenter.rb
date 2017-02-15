@@ -47,9 +47,19 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
   end
 
   def dispute_type_question
+    return dispute_type_other_value_question if tribunal_case.dispute_type == DisputeType::OTHER
+
     row(
       tribunal_case.dispute_type,
       as: :dispute_type
+    )
+  end
+
+  def dispute_type_other_value_question
+    row(
+      tribunal_case.dispute_type_other_value,
+      as: :dispute_type,
+      i18n_value: false
     )
   end
 

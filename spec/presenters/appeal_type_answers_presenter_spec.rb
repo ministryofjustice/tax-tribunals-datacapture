@@ -11,6 +11,7 @@ RSpec.describe AppealTypeAnswersPresenter do
       case_type: case_type,
       case_type_other_value: case_type_other_value,
       dispute_type: dispute_type,
+      dispute_type_other_value: dispute_type_other_value,
       penalty_level: penalty_level,
       penalty_amount: penalty_amount,
       tax_amount: tax_amount,
@@ -27,6 +28,7 @@ RSpec.describe AppealTypeAnswersPresenter do
   let(:case_type)                  { nil }
   let(:case_type_other_value)      { nil }
   let(:dispute_type)               { nil }
+  let(:dispute_type_other_value)   { nil }
   let(:penalty_level)              { nil }
   let(:penalty_amount)             { nil }
   let(:tax_amount)                 { nil }
@@ -141,6 +143,7 @@ RSpec.describe AppealTypeAnswersPresenter do
 
   describe '`dispute_type` question' do
     let(:row) { subject.dispute_type_question }
+    let(:case_type) { 'income_tax' }
 
     context 'when `dispute_type` is nil' do
       let(:dispute_type) { nil }
@@ -150,9 +153,8 @@ RSpec.describe AppealTypeAnswersPresenter do
       end
     end
 
-    context 'when `case_type` is income_tax' do
+    context 'for a specific dispute type' do
       let(:dispute_type) { 'foo' }
-      let(:case_type) { 'income_tax' }
 
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.dispute_type')
@@ -161,13 +163,13 @@ RSpec.describe AppealTypeAnswersPresenter do
       end
     end
 
-    context 'when `case_type` is vat' do
-      let(:dispute_type) { 'foo' }
-      let(:case_type)  { 'vat' }
+    context 'for `other` dispute type' do
+      let(:dispute_type) { DisputeType::OTHER }
+      let(:dispute_type_other_value) { 'my dispute' }
 
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.dispute_type')
-        expect(row.answer).to      eq('.answers.dispute_type.foo')
+        expect(row.answer).to      eq('my dispute')
         expect(row.change_path).to be_nil
       end
     end
