@@ -1,0 +1,4 @@
+<div class="gfa_uploaded_doc_container">
+  <p><%= t('.previous_document', file_name: current_document.name) %></p>
+  <%= button_to 'Remove', document_path(current_document), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' %>
+</div>
