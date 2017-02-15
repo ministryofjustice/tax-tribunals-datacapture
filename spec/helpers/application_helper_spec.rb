@@ -44,6 +44,17 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#kickout_step_header' do
+    it 'renders the expected content' do
+      expect(helper).to receive(:render).with(partial: 'step_header', locals: {
+        task:        nil,
+        step_number: nil,
+        path:        '/foo/bar'
+      })
+      helper.kickout_step_header
+    end
+  end
+
   describe '#translate_for_user_type' do
     let(:user_type) { UserType.new(:humanoid) }
     let(:tribunal_case) { instance_double(TribunalCase, user_type: user_type) }
