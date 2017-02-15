@@ -20,7 +20,8 @@ module ApplicationHelper
   end
 
   def translate_for_user_type(key, params={})
-    translate_with_appeal_or_application("#{key}.as_#{current_tribunal_case.user_type}", params)
+    suffix = '_html' if key.end_with?('_html')
+    translate_with_appeal_or_application("#{key}.as_#{current_tribunal_case.user_type}#{suffix}", params)
   end
 
   def translate_with_appeal_or_application(key, params={})

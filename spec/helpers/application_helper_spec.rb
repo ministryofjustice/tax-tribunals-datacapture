@@ -48,11 +48,20 @@ RSpec.describe ApplicationHelper do
     let(:user_type) { UserType.new(:humanoid) }
     let(:tribunal_case) { instance_double(TribunalCase, user_type: user_type) }
 
-    it 'translates for the correct user type' do
+    before do
       expect(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
+    end
+
+    it 'translates for the correct user type' do
       expect(helper).to receive(:translate_with_appeal_or_application).with('.foobar.as_humanoid', random_param: 'Nein').and_return('Foo!')
 
       expect(helper.translate_for_user_type('.foobar', random_param: 'Nein')).to eq('Foo!')
+    end
+
+    it 'also appends _html to the user type keys when the key ends in _html' do
+      expect(helper).to receive(:translate_with_appeal_or_application).with('.foobar_html.as_humanoid_html', random_param: 'Ja').and_return('<blink>Foo!</blink>')
+
+      expect(helper.translate_for_user_type('.foobar_html', random_param: 'Ja')).to eq('<blink>Foo!</blink>')
     end
   end
 

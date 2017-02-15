@@ -64,6 +64,48 @@ en:
           heading:
             as_taxpayer: Is your representative a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland?
             as_representative: Are you a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland?
+      representative_approval:
+        edit:
+          heading:
+            as_taxpayer: Approve a representative (optional)
+            as_representative: Provide approval from the taxpayer (optional)
+          lead_text:
+            as_taxpayer: You will need to provide approval for your representative before they can receive correspondence or represent you at a hearing.
+            as_representative: You will need approval from the taxpayer if you want to receive correspondence or represent the taxpayer at a hearing.
+          details_heading:
+            as_taxpayer: How to approve a representative
+            as_representative: How to get approval from the taxpayer
+          details_info_html:
+            as_taxpayer_html: |
+              <ul class="list list-bullet">
+                 <li>copy and paste the text below into a document or download as a PDF</li>
+                 <li>complete and sign the form</li>
+                 <li>if your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company you will need the signature of a company director</li>
+                 <li>upload the form in digital format below</li>
+               </ul>
+            as_representative_html: |
+              <ul class="list list-bullet">
+                <li>copy and paste the text below into an email, document or download as a PDF</li>
+                <li>send to the taxpayer to complete</li>
+                <li>if you are acting on behalf of a company you will need approval from a company director</li>
+                <li>ask the taxpayer to email back the information from their email account or return a signed form</li>
+                <li>upload a copy of the email or signed form in digital format below</li>
+              </ul>
+          details_example_html: |
+            <h2 class="heading-medium">Example text</h2>
+            <div class="panel">
+              <div class="letter">
+                <p>Taxpayer's name:</p>
+                <p>I authorise my representative to act on my behalf in this <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure"> application</span>.</p>
+                <p>Name of representative:</p>
+                <p>Address of representative:</p>
+                <p>Signed by taxpayer:</p>
+                <p>Name of signatory (printed):</p>
+                <p>Position held:</p>
+                <p>Date:</p>
+              </div>
+            </div>
+          download_button_text: Download PDF
       representative_type:
         edit:
           heading:

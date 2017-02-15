@@ -12,6 +12,8 @@ class DetailsDecisionTree < DecisionTree
     when :has_representative
       after_has_representative_step
     when :representative_is_legal_professional
+      after_representative_is_legal_professional_step
+    when :representative_approval
       edit(:representative_type)
     when :representative_type
       edit(:representative_details)
@@ -56,6 +58,15 @@ class DetailsDecisionTree < DecisionTree
       edit(:representative_is_legal_professional)
     when HasRepresentative::NO
       after_details_step
+    end
+  end
+
+  def after_representative_is_legal_professional_step
+    case tribunal_case.representative_is_legal_professional
+    when RepresentativeIsLegalProfessional::YES
+      edit(:representative_type)
+    when RepresentativeIsLegalProfessional::NO
+      edit(:representative_approval)
     end
   end
 
