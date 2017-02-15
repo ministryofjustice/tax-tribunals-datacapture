@@ -19,6 +19,12 @@ module ApplicationHelper
     }
   end
 
+  # Renders a back link without the progress information, as kickout pages are not
+  # really question pages, but the end of a journey
+  def kickout_step_header
+    step_header(nil, nil)
+  end
+
   def translate_for_user_type(key, params={})
     suffix = '_html' if key.end_with?('_html')
     translate_with_appeal_or_application("#{key}.as_#{current_tribunal_case.user_type}#{suffix}", params)
