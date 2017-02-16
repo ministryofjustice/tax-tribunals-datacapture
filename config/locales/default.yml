@@ -19,3 +19,7 @@ en:
       # forms that should have different nomenclature.
       create: Continue
       update: Continue
+  steps:
+    shared:
+      current_document:
+        previous_document: 'Previously attached document: %{file_name}'

@@ -123,7 +123,6 @@ en:
           lead_text: Clearly explain why you are appealing, giving reasons for each decision you dispute. The judge will want to hear things from your side.
           description_text: Clearly explain in your own words. The judge will want to know things from your side and understand how any evidence you provide supports your case.
           footer_description_text: You will next have to upload any supporting documents including any correspondence with HMRC and evidence to support your case.
-          previous_document: 'Previously attached document: %{file_name}'
           attach_document_html: <strong>Attach reasons as a document</strong>
       documents_checklist:
         edit:
