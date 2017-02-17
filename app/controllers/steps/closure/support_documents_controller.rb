@@ -3,7 +3,6 @@ module Steps::Closure
     before_action :set_documents_list, only: [:edit, :update]
 
     def edit
-      super
       @form_object = SupportDocumentsForm.new(
         tribunal_case: current_tribunal_case,
         closure_problems_uploading_documents: current_tribunal_case.closure_problems_uploading_documents,

@@ -1,0 +1,9 @@
+# TODO: copy needed
+en:
+  errors:
+    case_not_found:
+      heading: No tribunal case in session
+      start_again: Start again
+    case_submitted:
+      heading: Case already submitted
+      start_again: Start new case

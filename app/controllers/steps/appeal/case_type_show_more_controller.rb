@@ -1,7 +1,6 @@
 module Steps::Appeal
   class CaseTypeShowMoreController < Steps::AppealStepController
     def edit
-      super
       @form_object = CaseTypeShowMoreForm.new(
         tribunal_case: current_tribunal_case,
         case_type: current_tribunal_case.case_type,

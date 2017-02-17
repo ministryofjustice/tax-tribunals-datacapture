@@ -12,26 +12,21 @@ RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
       presenter = assigns[:tribunal_case]
       expect(presenter).to be_an_instance_of(ClosurePresenter)
     end
-
-    it 'clears the navigation stack' do
-      get :show, session: {tribunal_case_id: tribunal_case.id}
-
-      tribunal_case.reload
-      expect(tribunal_case.navigation_stack).to be_empty
-    end
   end
 
   context 'PDF format' do
-    let(:current_tribunal_case) { instance_double(TribunalCase, update: nil) }
+    let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
     let(:pdf_creator_double) { instance_double(CaseDetailsPdf, generate: 'some pdf content', filename: 'filename123.pdf') }
 
     before do
-      allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-      expect(CaseDetailsPdf).to receive(:new).with(current_tribunal_case, an_instance_of(described_class)).and_return(pdf_creator_double)
+      expect(CaseDetailsPdf).to receive(:new).with(
+        an_instance_of(ClosurePresenter),
+        an_instance_of(described_class)
+      ).and_return(pdf_creator_double)
     end
 
     it 'generates and sends the case details PDF' do
-      get :show, format: :pdf
+      get :show, format: :pdf, session: {tribunal_case_id: tribunal_case.id}
       expect(response).to have_http_status(:ok)
       expect(response.headers['Content-Disposition']).to eq('inline; filename="filename123.pdf"')
       expect(response.body).to eq('some pdf content')

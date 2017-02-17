@@ -1,7 +1,6 @@
 module Steps::Appeal
   class ChallengedDecisionController < Steps::AppealStepController
     def edit
-      super
       @form_object = ChallengedDecisionForm.new(
         tribunal_case: current_tribunal_case,
         challenged_decision: current_tribunal_case.challenged_decision

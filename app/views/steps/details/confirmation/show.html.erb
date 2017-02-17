@@ -16,8 +16,6 @@
 
 <%= t '.what_happens_next_html' %>
 
-<div class="form-group">
-  <%= link_to t('.finish'), root_path, class: 'button' %>
-</div>
+<%= render partial: 'steps/shared/finish_button' %>
 
 <%= render partial: 'steps/shared/survey' %>

@@ -1,7 +1,6 @@
 module Steps::Appeal
   class PenaltyAndTaxAmountsController < Steps::AppealStepController
     def edit
-      super
       @form_object = PenaltyAndTaxAmountsForm.new(
         tribunal_case:  current_tribunal_case,
         penalty_amount: current_tribunal_case.penalty_amount,

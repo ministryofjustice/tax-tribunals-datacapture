@@ -1,7 +1,6 @@
 module Steps::Details
   class RepresentativeApprovalController < Steps::DetailsStepController
     def edit
-      super
       @form_object = RepresentativeApprovalForm.new(
         tribunal_case: current_tribunal_case
       )

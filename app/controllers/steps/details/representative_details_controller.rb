@@ -1,7 +1,6 @@
 module Steps::Details
   class RepresentativeDetailsController < Steps::DetailsStepController
     def edit
-      super
       @form_object = form_klass.new(
         tribunal_case: current_tribunal_case,
         # Values for all possible form objects are here, as irrelevant ones will simply be

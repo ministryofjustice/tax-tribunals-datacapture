@@ -1,7 +1,6 @@
 module Steps::Closure
   class EnquiryDetailsController < Steps::ClosureStepController
     def edit
-      super
       @form_object = EnquiryDetailsForm.new(
         tribunal_case: current_tribunal_case,
         closure_hmrc_reference: current_tribunal_case.closure_hmrc_reference,
