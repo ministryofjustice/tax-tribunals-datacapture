@@ -88,6 +88,7 @@ Rails.application.routes.draw do
   resource :errors, only: [] do
     get :case_not_found
     get :case_submitted
+    get :unhandled
   end
 
   root to: 'home#index'
