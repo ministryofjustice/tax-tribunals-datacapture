@@ -1,7 +1,6 @@
 module Steps::Details
   class OutcomeController < Steps::DetailsStepController
     def edit
-      super
       @form_object = OutcomeForm.new(
         tribunal_case: current_tribunal_case,
         outcome: current_tribunal_case.outcome

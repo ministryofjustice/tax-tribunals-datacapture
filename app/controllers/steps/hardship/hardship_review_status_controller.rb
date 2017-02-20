@@ -1,7 +1,6 @@
 module Steps::Hardship
   class HardshipReviewStatusController < Steps::HardshipStepController
     def edit
-      super
       @form_object = HardshipReviewStatusForm.new(
         tribunal_case: current_tribunal_case,
         hardship_review_status: current_tribunal_case.hardship_review_status

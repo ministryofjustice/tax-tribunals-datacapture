@@ -97,7 +97,6 @@ en:
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
-          finish: Finish
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend

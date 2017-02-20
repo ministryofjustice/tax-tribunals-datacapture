@@ -85,6 +85,11 @@ Rails.application.routes.draw do
 
   resources :healthcheck, only: [:index]
 
+  resource :errors, only: [] do
+    get :case_not_found
+    get :case_submitted
+  end
+
   root to: 'home#index'
   get :appeal, to: 'home#index'
   get :start_page, to: 'home#start_page'

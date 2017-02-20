@@ -1,10 +1,8 @@
 class StepController < ApplicationController
+  before_action :check_tribunal_case_presence
+  before_action :check_tribunal_case_status, except: [:show]
   before_action :store_step_path_in_session, only: [:edit, :update]
   before_action :update_navigation_stack
-
-  def edit
-    raise 'No tribunal case in session' unless current_tribunal_case
-  end
 
   def previous_step_path
     # Second to last element in the array, will be nil for arrays of size 0 or 1

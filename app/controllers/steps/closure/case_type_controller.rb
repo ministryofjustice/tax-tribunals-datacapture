@@ -1,7 +1,6 @@
 module Steps::Closure
-  class CaseTypeController < Steps::ClosureFirstStepController
+  class CaseTypeController < Steps::ClosureStepController
     def edit
-      super
       @form_object = CaseTypeForm.new(
         tribunal_case: current_tribunal_case,
         closure_case_type: current_tribunal_case.closure_case_type

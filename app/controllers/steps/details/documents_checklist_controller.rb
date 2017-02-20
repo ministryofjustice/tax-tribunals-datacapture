@@ -3,7 +3,6 @@ module Steps::Details
     before_action :set_documents_list, only: [:edit, :update]
 
     def edit
-      super
       @form_object = DocumentsChecklistForm.new(
         tribunal_case: current_tribunal_case,
         original_notice_provided: current_tribunal_case.original_notice_provided,

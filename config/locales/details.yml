@@ -27,6 +27,7 @@ en:
       contact_us: Contact us
     survey_link_html: |
       <a href="https://goo.gl/forms/5MeKnK5kGJH99Fsn2">What did you think of this service?</a> (takes 30 seconds)
+    finish: Finish
   steps:
     details:
       step_header: Question %{step} of ?
@@ -259,7 +260,6 @@ en:
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
-          finish: Finish
   activemodel:
     errors:
       models:

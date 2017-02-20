@@ -1,4 +1,7 @@
 class DocumentsController < ApplicationController
+  # TODO: to be completed as part of another PR
+  #before_action :check_tribunal_case_presence, :check_tribunal_case_status
+
   respond_to :html, :json, :js
 
   def create

@@ -57,6 +57,12 @@ RSpec.describe CaseCreator do
           subject.call
           expect(tribunal_case.case_reference).to eq('TC/2017/12345')
         end
+
+        it 'should mark the case as `submitted`' do
+          expect(tribunal_case.case_status).to be_nil
+          subject.call
+          expect(tribunal_case.case_status).to eq(CaseStatus::SUBMITTED)
+        end
       end
 
       context 'when glimr call fails' do
