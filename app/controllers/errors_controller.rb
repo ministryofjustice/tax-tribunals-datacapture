@@ -12,4 +12,11 @@ class ErrorsController < ApplicationController
       format.json { head :unprocessable_entity }
     end
   end
+
+  def unhandled
+    respond_to do |format|
+      format.html
+      format.json { head :internal_server_error }
+    end
+  end
 end

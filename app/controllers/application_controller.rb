@@ -1,12 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  rescue_from Errors::CaseNotFound do
-    redirect_to case_not_found_errors_path
-  end
+  rescue_from Exception do |exception|
+    case exception
+    when Errors::CaseNotFound, ActionController::InvalidAuthenticityToken
+      redirect_to case_not_found_errors_path
+    when Errors::CaseSubmitted
+      redirect_to case_submitted_errors_path
+    else
+      raise unless Rails.env.production?
 
-  rescue_from Errors::CaseSubmitted do
-    redirect_to case_submitted_errors_path
+      Raven.capture_exception(exception)
+      redirect_to unhandled_errors_path
+    end
   end
 
   helper_method :current_tribunal_case

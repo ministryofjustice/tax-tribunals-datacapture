@@ -7,3 +7,8 @@ en:
     case_submitted:
       heading: Case already submitted
       start_again: Start new case
+    unhandled:
+      heading: Sorry, something went wrong
+      start_again: Start again
+      lead_text: "To keep this service secure, any information you've entered hasn't been saved."
+      more_text: "You'll need to start again."
