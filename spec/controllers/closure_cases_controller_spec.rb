@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ClosureCasesController, type: :controller do
 
-  let(:current_tribunal_case) { instance_double(TribunalCase) }
+  let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil) }
   let(:case_creator_double) { instance_double(CaseCreator, call: case_creator_result) }
+
+  include_examples 'checks the validity of the current tribunal case on create'
 
   describe 'POST #create' do
     before do

@@ -7,7 +7,14 @@ RSpec.describe DocumentsController, type: :controller do
   let(:collection_ref) { '12345' }
   let(:filename) { 'dGVzdCBmaWxlLnR4dA==\n' } # 'test file.txt' - base64 encoded
   let(:another_filename) { 'YW5vdGhlcg==\n' } # 'another' - base64 encoded
-  let(:current_tribunal_case) { instance_double(TribunalCase, grounds_for_appeal_file_name: 'test file.txt', files_collection_ref: collection_ref) }
+  let(:current_tribunal_case) {
+    instance_double(
+      TribunalCase,
+      grounds_for_appeal_file_name: 'test file.txt',
+      files_collection_ref: collection_ref,
+      case_status: nil
+    )
+  }
   let(:file) { fixture_file_upload('files/image.jpg', 'image/jpeg') }
 
   let(:upload_response) { double(code: 200, body: {}, error?: false) }
@@ -17,6 +24,8 @@ RSpec.describe DocumentsController, type: :controller do
     allow(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
     session[:current_step_path] = 'step/to/redirect'
   end
+
+  include_examples 'checks the validity of the current tribunal case on create'
 
   describe '#create' do
     let(:format) { :html }
@@ -85,6 +94,8 @@ RSpec.describe DocumentsController, type: :controller do
       end
     end
   end
+
+  include_examples 'checks the validity of the current tribunal case on destroy'
 
   describe '#destroy' do
     context 'deleting a different document to the grounds_for_appeal document' do

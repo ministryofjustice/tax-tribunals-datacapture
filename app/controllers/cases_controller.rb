@@ -1,6 +1,5 @@
 class CasesController < ApplicationController
-  # TODO: to be completed as part of another PR
-  #before_action :check_tribunal_case_presence, :check_tribunal_case_status
+  before_action :check_tribunal_case_presence, :check_tribunal_case_status
 
   def create
     new_case = CaseCreator.new(current_tribunal_case).call
