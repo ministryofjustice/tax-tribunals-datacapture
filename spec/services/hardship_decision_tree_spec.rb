@@ -43,6 +43,29 @@ RSpec.describe HardshipDecisionTree do
 
     context 'when the step is `hardship_review_status`' do
       let(:step_params) { { hardship_review_status: 'anything' } }
+      let(:tribunal_case) { instance_double(TribunalCase, hardship_review_status: hardship_review_status) }
+
+      context 'and a hardship has been granted 'do
+        let(:hardship_review_status) { HardshipReviewStatus::GRANTED }
+
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
+      end
+
+      context 'and a hardship has been refused'do
+        let(:hardship_review_status) { HardshipReviewStatus::REFUSED }
+
+        it { is_expected.to have_destination(:hardship_reason, :edit) }
+      end
+
+      context 'and a hardship review is still pending' do
+        let(:hardship_review_status) { HardshipReviewStatus::PENDING }
+
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
+      end
+    end
+
+    context 'when the step is `hardship_reason`' do
+      let(:step_params) { { hardship_reason: 'anything' } }
 
       it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
     end

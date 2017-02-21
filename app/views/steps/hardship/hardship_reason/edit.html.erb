@@ -1,0 +1,14 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header(:hardship, 8) %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%= f.text_area :hardship_reason, size: '60x10', class: 'form-control-3-4' %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  </div>
+</div>
