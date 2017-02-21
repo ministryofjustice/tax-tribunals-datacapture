@@ -14,6 +14,10 @@ en:
         edit:
           heading: What is the status of your hardship application?
           lead_text: If hardship is refused, you can still continue your appeal and ask the judge to consider your reasons.
+      hardship_reason:
+        edit:
+          heading: Why will paying the tax under dispute cause financial hardship?
+          lead_text: The judge will decide whether your appeal can continue without paying the tax first.
   activemodel:
     errors:
       models:
@@ -52,3 +56,5 @@ en:
           granted: Granted
           pending: Pending HMRC decision
           refused: Refused
+      steps_hardship_hardship_reason_form:
+        hardship_reason: Enter your reasons for financial hardship

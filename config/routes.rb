@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       edit_step :disputed_tax_paid
       edit_step :hardship_review_requested
       edit_step :hardship_review_status
+      edit_step :hardship_reason
     end
 
     namespace :lateness do
