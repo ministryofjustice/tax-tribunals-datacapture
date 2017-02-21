@@ -5,8 +5,11 @@ en:
       heading: No tribunal case in session
       start_again: Start again
     case_submitted:
-      heading: Case already submitted
-      start_again: Start new case
+      heading: Case already submitted - COPY NEEDED
+      start_again: Start again
+      case_reference: "Your case reference number is:"
+      note_number: Please make a note of this number in case you need to contact us.
+      save_or_print_pdf: Save or print your case details
     unhandled:
       heading: Sorry, something went wrong
       start_again: Start again
