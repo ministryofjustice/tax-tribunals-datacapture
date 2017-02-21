@@ -7,6 +7,8 @@ class ErrorsController < ApplicationController
   end
 
   def case_submitted
+    @tribunal_case = current_tribunal_case
+
     respond_to do |format|
       format.html
       format.json { head :unprocessable_entity }
