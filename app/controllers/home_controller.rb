@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    reset_session
     @link_sections = link_sections
   end
 
