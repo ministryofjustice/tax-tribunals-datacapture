@@ -63,7 +63,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to appeal_path
+    redirect_to params[:survey] ? Rails.configuration.survey_link : root_path
   end
 
   private
