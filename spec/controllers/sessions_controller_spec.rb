@@ -13,7 +13,7 @@ RSpec.describe SessionsController, type: :controller do
     end
 
     context 'when survey param is provided' do
-      it 'redirects to the home page' do
+      it 'redirects to the survey page' do
         get :destroy, params: {survey: true}
         expect(response.location).to match(/goo\.gl\/forms/)
       end
