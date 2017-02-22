@@ -31,12 +31,8 @@ class TribunalCase < ApplicationRecord
     MappingCodeDeterminer.new(self).mapping_code
   end
 
-  def documents(filter: default_documents_filter)
-    Document.for_collection(files_collection_ref, filter: filter)
-  end
-
-  def default_documents_filter
-    [grounds_for_appeal_file_name]
+  def documents(document_key)
+    Document.for_collection(files_collection_ref, document_key: document_key)
   end
 
   def taxpayer_is_organisation?

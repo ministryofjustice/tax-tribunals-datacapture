@@ -29,7 +29,8 @@ module DocumentUploadHelper
     render(
       partial: 'steps/shared/document_upload/current_document',
       locals: {
-        current_document: uploaded_document(document_key)
+        current_document: uploaded_document(document_key),
+        document_key: document_key
       }
     )
   end

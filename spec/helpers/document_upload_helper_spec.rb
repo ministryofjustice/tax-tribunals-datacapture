@@ -57,7 +57,8 @@ RSpec.describe DocumentUploadHelper do
         expect(helper).to receive(:render).with(
           partial: 'steps/shared/document_upload/current_document',
           locals: {
-            current_document: document
+            current_document: document,
+            document_key: :some_step
           }
         )
         subject

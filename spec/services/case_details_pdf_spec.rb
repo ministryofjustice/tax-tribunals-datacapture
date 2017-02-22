@@ -91,6 +91,7 @@ RSpec.describe CaseDetailsPdf do
       expect(controller_ctx).to receive(:render_to_string).and_return('rendered pdf')
       expect(DocumentUpload).to receive(:new).with(
         an_instance_of(File),
+        document_key: :case_details,
         filename: 'TC_2016_12345_HMRC_FirstnameLastname.pdf',
         content_type: 'application/pdf',
         collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687'

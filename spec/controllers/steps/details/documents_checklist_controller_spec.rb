@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Steps::Details::DocumentsChecklistController, type: :controller do
-  let(:uploaded_files) { {collection: '12345', files: [
-    {key: '12345/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:20:02.000Z'},
-  ]} }
-  let(:response_double) { instance_double(MojFileUploaderApiClient::Response, code: 200, body: uploaded_files) }
-
   before do
-    allow(MojFileUploaderApiClient::ListFiles).to receive(:new).and_return(double(call: response_double))
+    allow(controller).to receive(:current_tribunal_case).and_return(tribunal_case)
+    allow(tribunal_case).to receive(:documents).with(:supporting_documents).and_return([document])
   end
+
+  let(:tribunal_case) { TribunalCase.new }
+  let(:document) { Document.new(title: 'test.doc', collection_ref: '123') }
 
   it_behaves_like 'an intermediate step controller', Steps::Details::DocumentsChecklistForm, DetailsDecisionTree
 

@@ -17,7 +17,7 @@ module Steps::Closure
     private
 
     def set_documents_list
-      @document_list = current_tribunal_case&.documents || []
+      @document_list = current_tribunal_case&.documents(:supporting_documents) || []
     end
   end
 end

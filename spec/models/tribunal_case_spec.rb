@@ -14,23 +14,13 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
-  describe '#default_documents_filter' do
-    let(:attributes) { {grounds_for_appeal_file_name: 'test.doc'} }
-
-    it 'defaults to grounds_for_appeal_file_name' do
-      expect(subject.default_documents_filter).to eq(['test.doc'])
-    end
-  end
-
   describe '#documents' do
     let(:collection_ref) { SecureRandom.uuid }
-    let(:attributes) { {files_collection_ref: collection_ref, grounds_for_appeal_file_name: 'test.doc'} }
+    let(:attributes) { { files_collection_ref: collection_ref } }
 
-    context 'with default filtering' do
-      it 'should return the uploaded documents for this tribunal case' do
-        expect(Document).to receive(:for_collection).with(collection_ref, filter: ['test.doc'])
-        subject.documents
-      end
+    it 'should delegate to Document' do
+      expect(Document).to receive(:for_collection).with(collection_ref, document_key: :foo)
+      subject.documents(:foo)
     end
   end
 

@@ -8,7 +8,7 @@ RSpec.describe DocumentsSubmittedPresenter do
 
   describe '#list' do
     it 'should retrieve any uploaded file' do
-      expect(tribunal_case).to receive(:documents).with(filter: [])
+      expect(tribunal_case).to receive(:documents).with(:supporting_documents)
       subject.list
     end
   end

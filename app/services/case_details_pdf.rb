@@ -59,7 +59,7 @@ class CaseDetailsPdf
     Tempfile.create('tmpfile') do |file|
       File.binwrite(file, @pdf)
 
-      uploader = DocumentUpload.new(file, filename: filename, content_type: 'application/pdf', collection_ref: collection_ref)
+      uploader = DocumentUpload.new(file, document_key: :case_details, filename: filename, content_type: 'application/pdf', collection_ref: collection_ref)
       uploader.upload! if uploader.valid?
 
       raise "Failed to upload file #{file}: #{uploader.errors.inspect}" if uploader.errors?

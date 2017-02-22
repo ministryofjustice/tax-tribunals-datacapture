@@ -6,13 +6,14 @@ RSpec.describe DocumentUpload do
   let(:file_path) { 'files/image.jpg' }
   let(:content_type) { 'image/jpeg' }
   let(:file) { fixture_file_upload(file_path, content_type) }
+  let(:document_key) { 'doc_key' }
 
-  subject { described_class.new(file) }
+  subject { described_class.new(file, document_key: document_key) }
 
   context 'for a tempfile' do
     let(:file) { Tempfile.new }
 
-    subject { described_class.new(file, content_type: 'image/jpeg', filename: 'image.jpg') }
+    subject { described_class.new(file, document_key: document_key, content_type: 'image/jpeg', filename: 'image.jpg') }
 
     context '#file_name' do
       it 'should have a file name' do
@@ -67,7 +68,7 @@ RSpec.describe DocumentUpload do
 
   context '#collection_ref' do
     it 'should have a collection_ref if provided' do
-      instance = described_class.new(file, collection_ref: '12345')
+      instance = described_class.new(file, document_key: document_key, collection_ref: '12345')
       expect(instance.collection_ref).to eq('12345')
     end
   end
@@ -110,24 +111,39 @@ RSpec.describe DocumentUpload do
 
   context '#upload!' do
     before do
-      expect_any_instance_of(MojFileUploaderApiClient::AddFile).to receive(:call).and_return(response)
       expect(file.tempfile).to receive(:read).and_call_original
     end
 
     context 'no error' do
       let(:response) { double('Response', error?: false) }
 
-      it 'should upload the document' do
-        subject.upload!(collection_ref: '123')
-        expect(subject.errors?).to eq(false)
+      context 'when the document_key was provided in the initializer' do
+        subject { described_class.new(file, document_key: 'foo') }
+
+        it 'should upload the document with that key' do
+          expect(Uploader).to receive(:add_file).with(hash_including(document_key: 'foo')).and_return({})
+
+          subject.upload!(collection_ref: '123')
+          expect(subject.errors?).to eq(false)
+        end
+      end
+
+      context 'when the document_key was provided in the upload! params' do
+        subject { described_class.new(file) }
+
+        it 'should upload the document with that key' do
+          expect(Uploader).to receive(:add_file).with(hash_including(document_key: 'bar')).and_return({})
+
+          subject.upload!(collection_ref: '123', document_key: 'bar')
+          expect(subject.errors?).to eq(false)
+        end
       end
     end
 
     context 'with error' do
       context 'response error' do
-        let(:response) { double('Response', error?: true, body: 'an error') }
-
         it 'should upload the document' do
+          expect(Uploader).to receive(:add_file).and_raise(Uploader::UploaderError)
           expect(subject).to receive(:add_error).with(:response_error).and_call_original
           subject.upload!(collection_ref: '123')
           expect(subject.errors?).to eq(true)
@@ -135,9 +151,8 @@ RSpec.describe DocumentUpload do
       end
 
       context 'virus detected error' do
-        let(:response) { double('Response', error?: true, body: 'Virus scan failed') }
-
         it 'should upload the document' do
+          expect(Uploader).to receive(:add_file).and_raise(Uploader::InfectedFileError)
           expect(subject).to receive(:add_error).with(:virus_detected).and_call_original
           subject.upload!(collection_ref: '123')
           expect(subject.errors?).to eq(true)

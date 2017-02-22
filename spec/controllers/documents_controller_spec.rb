@@ -3,8 +3,8 @@ require 'rails_helper'
 include ActionDispatch::TestProcess
 
 RSpec.describe DocumentsController, type: :controller do
-
   let(:collection_ref) { '12345' }
+  let(:document_key) { 'some_step' }
   let(:filename) { 'dGVzdCBmaWxlLnR4dA==\n' } # 'test file.txt' - base64 encoded
   let(:another_filename) { 'YW5vdGhlcg==\n' } # 'another' - base64 encoded
   let(:current_tribunal_case) {
@@ -17,24 +17,26 @@ RSpec.describe DocumentsController, type: :controller do
   }
   let(:file) { fixture_file_upload('files/image.jpg', 'image/jpeg') }
 
-  let(:upload_response) { double(code: 200, body: {}, error?: false) }
+  let(:document_upload) { instance_double(DocumentUpload, upload!: {}, valid?: true, errors?: false, to_hash: {name: 'image.jpg', encoded_name: "aW1hZ2UuanBn\n", collection_ref: '12345'}) }
 
   before do
     allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-    allow(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+    allow(DocumentUpload).to receive(:new).and_return(document_upload)
     session[:current_step_path] = 'step/to/redirect'
   end
 
-  include_examples 'checks the validity of the current tribunal case on create'
+  include_examples 'checks the validity of the current tribunal case on create', { document_key: :foo_bar }
 
   describe '#create' do
     let(:format) { :html }
 
     before do
-      post :create, params: {document: file}, format: format
+      post :create, params: {document: file, document_key: 'foo'}, format: format
     end
 
     context 'document is valid' do
+      let(:document_upload) { instance_double(DocumentUpload, upload!: {}, valid?: true, errors?: false, to_hash: {name: 'image.jpg', encoded_name: "aW1hZ2UuanBn\n", collection_ref: '12345'}) }
+
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
           expect(subject).to redirect_to('step/to/redirect')
@@ -53,7 +55,7 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context 'document is valid but there were upload errors' do
-      let(:upload_response) { double(code: 500, body: {}, error?: true) }
+      let(:document_upload) { instance_double(DocumentUpload, upload!: {}, valid?: true, errors?: true, errors: ["You're doing it wrong"]) }
 
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
@@ -74,7 +76,7 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context 'document is not valid' do
-      let(:file) { fixture_file_upload('files/image.jpg', 'application/zip') }
+      let(:document_upload) { instance_double(DocumentUpload, upload!: {}, valid?: false, errors?: true, errors: ["You're doing it wrong"]) }
 
       context 'HTML format' do
         it 'should create the document and redirect back to the step' do
@@ -95,18 +97,18 @@ RSpec.describe DocumentsController, type: :controller do
     end
   end
 
-  include_examples 'checks the validity of the current tribunal case on destroy'
+  include_examples 'checks the validity of the current tribunal case on destroy', { document_key: :foo_bar }
 
   describe '#destroy' do
-    context 'deleting a different document to the grounds_for_appeal document' do
-      let(:params) {
-        {id: another_filename}
-      }
+    context 'deleting a document that has no _file_name field' do
+      let(:params) { {
+        document_key: 'supporting_documents',
+        id: another_filename
+      } }
 
       before do
-        expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
-            collection_ref: collection_ref, filename: 'another').and_return(double(call: true))
-
+        expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'supporting_documents', filename: 'another').and_return({})
+        expect(current_tribunal_case).to receive(:has_attribute?).with(:supporting_documents_file_name).and_return(false)
         expect(current_tribunal_case).not_to receive(:update).with(grounds_for_appeal_file_name: nil)
       end
 
@@ -126,15 +128,15 @@ RSpec.describe DocumentsController, type: :controller do
       end
     end
 
-    context 'deleting the grounds_for_appeal document' do
-      let(:params) {
-        {id: filename}
-      }
+    context 'deleting a document that has a _file_name attribute on the TribunalCase' do
+      let(:params) { {
+        document_key: 'grounds_for_appeal',
+        id: another_filename
+      } }
 
       before do
-        expect(MojFileUploaderApiClient::DeleteFile).to receive(:new).with(
-            collection_ref: collection_ref, filename: 'test%20file.txt').and_return(double(call: true))
-
+        expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'grounds_for_appeal', filename: 'another').and_return({})
+        expect(current_tribunal_case).to receive(:has_attribute?).with(:grounds_for_appeal_file_name).and_return(true)
         expect(current_tribunal_case).to receive(:update).with(grounds_for_appeal_file_name: nil)
       end
 

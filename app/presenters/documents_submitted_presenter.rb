@@ -1,6 +1,6 @@
 class DocumentsSubmittedPresenter < BaseAnswersPresenter
-  def list(filter: [])
-    tribunal_case.documents(filter: filter)
+  def list
+    tribunal_case.documents(:supporting_documents)
   end
 
   def grounds_for_appeal_text(default: '')
