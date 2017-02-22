@@ -7,9 +7,16 @@ RSpec.describe SessionsController, type: :controller do
       expect(session).to be_empty
     end
 
-    it 'redirects to the appeal page' do
+    it 'redirects to the home page' do
       get :destroy
-      expect(subject).to redirect_to(appeal_path)
+      expect(subject).to redirect_to(root_path)
+    end
+
+    context 'when survey param is provided' do
+      it 'redirects to the home page' do
+        get :destroy, params: {survey: true}
+        expect(response.location).to match(/goo\.gl\/forms/)
+      end
     end
   end
 

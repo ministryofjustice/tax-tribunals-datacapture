@@ -26,5 +26,6 @@ module TaxTribunalsDatacapture
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
 
     config.session_expire_after = 30 # minutes
+    config.survey_link = 'https://goo.gl/forms/5MeKnK5kGJH99Fsn2'
   end
 end
