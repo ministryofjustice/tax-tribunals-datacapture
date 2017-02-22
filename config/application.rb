@@ -24,5 +24,7 @@ Bundler.require(*Rails.groups)
 module TaxTribunalsDatacapture
   class Application < Rails::Application
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
+
+    config.session_expire_after = 30 # minutes
   end
 end

@@ -2,8 +2,10 @@
 en:
   errors:
     case_not_found:
-      heading: No tribunal case in session
+      heading: "Sorry, you'll have to start again"
       start_again: Start again
+      lead_text: "Your session automatically ends if you don't use the service for %{session_timeout} minutes."
+      more_text: "We do this for your security. We haven't saved any personal information you entered."
     case_submitted:
       heading: Case already submitted - COPY NEEDED
       start_again: Start again
