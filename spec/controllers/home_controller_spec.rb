@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe HomeController do
   describe '#index' do
+    it 'resets the session' do
+      expect(subject).to receive(:reset_session)
+      get :index
+    end
+
     it 'assigns the expected link sections' do
       get :index
 
