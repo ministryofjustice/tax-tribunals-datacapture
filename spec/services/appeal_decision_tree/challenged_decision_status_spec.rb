@@ -25,19 +25,19 @@ RSpec.describe AppealDecisionTree, '#destination' do
       let(:challenged_decision_status) { ChallengedDecisionStatus::RECEIVED }
 
       context 'for a case with disputes' do
-        let(:case_type) { CaseType::BINGO_DUTY }
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: true, ask_penalty: false) }
 
         it { is_expected.to have_destination(:dispute_type, :edit) }
       end
 
       context 'for a case with penalties' do
-        let(:case_type) { CaseType::APN_PENALTY }
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: false, ask_penalty: true) }
 
         it { is_expected.to have_destination(:penalty_amount, :edit) }
       end
 
       context 'for a case that has neither penalties or disputes' do
-        let(:case_type) { CaseType::COUNTER_TERRORISM }
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: false, ask_penalty: false) }
 
         it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
       end
