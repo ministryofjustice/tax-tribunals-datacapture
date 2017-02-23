@@ -29,21 +29,13 @@ class AppealDecisionTree < DecisionTree
     tribunal_case.challenged_decision == ChallengedDecision::YES
   end
 
-  def tribunal_case_has_penalties_but_not_disputes?
-    tribunal_case.case_type.ask_penalty? && !tribunal_case.case_type.ask_dispute_type?
-  end
-
   def after_case_type_step
     if answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
     elsif tribunal_case.case_type.ask_challenged?
       edit(:challenged_decision)
-    elsif tribunal_case.case_type.ask_dispute_type?
-      edit(:dispute_type)
-    elsif tribunal_case_has_penalties_but_not_disputes?
-      edit(:penalty_amount)
     else
-      edit('/steps/lateness/in_time')
+      dispute_or_penalties_decision
     end
   end
 
@@ -61,7 +53,7 @@ class AppealDecisionTree < DecisionTree
     if tribunal_case.challenged_decision_status.pending?
       show(:must_wait_for_challenge_decision)
     else
-      edit(:dispute_type)
+      dispute_or_penalties_decision
     end
   end
 
@@ -82,6 +74,16 @@ class AppealDecisionTree < DecisionTree
       edit('/steps/hardship/disputed_tax_paid')
     else
       edit('steps/lateness/in_time')
+    end
+  end
+
+  def dispute_or_penalties_decision
+    if tribunal_case.case_type.ask_dispute_type?
+      edit(:dispute_type)
+    elsif tribunal_case.case_type.ask_penalty?
+      edit(:penalty_amount)
+    else
+      edit('/steps/lateness/in_time')
     end
   end
 end
