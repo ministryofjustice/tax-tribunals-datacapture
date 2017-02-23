@@ -95,5 +95,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get :appeal, to: 'home#index'
   get :start_page, to: 'home#start_page'
-  get :contact, to: 'pages#contact', as: :contact_page
+  get :contact, to: 'home#contact', as: :contact_page
 end

@@ -23,3 +23,7 @@ en:
     shared:
       current_document:
         previous_document: 'Previously attached document: %{file_name}'
+  layouts:
+    footer_links:
+      contact: Contact
+      cookies: Cookies

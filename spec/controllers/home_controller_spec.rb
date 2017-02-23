@@ -21,4 +21,11 @@ RSpec.describe HomeController do
       expect(link).to eq('/steps/closure/start')
     end
   end
+
+  describe '#contact' do
+    it 'renders the expected page' do
+      get :contact
+      expect(response).to render_template(:contact)
+    end
+  end
 end
