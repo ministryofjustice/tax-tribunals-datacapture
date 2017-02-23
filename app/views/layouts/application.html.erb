@@ -37,6 +37,10 @@
   <%= javascript_include_tag 'application' %>
 <% end %>
 
+<% content_for(:footer_support_links) do %>
+    <%= render partial: 'layouts/footer_links' %>
+<% end %>
+
 <% if Rails.env.development? %>
   <%= render partial: 'developer_tools' %>
 <% end %>
