@@ -41,6 +41,7 @@ RSpec.describe CaseDetailsPdf do
   describe '#generate' do
     before do
       allow(tribunal_case).to receive(:documents).and_return([])
+      allow(controller_ctx).to receive(:current_tribunal_case).and_return(tribunal_case)
     end
 
     context 'for a tax appeal application' do

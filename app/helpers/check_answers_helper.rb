@@ -18,7 +18,8 @@ module CheckAnswersHelper
   #   en.steps.details.check_answers.show.questions.case_type
   #
   def pdf_t(key, options = {})
-    translate key, options.merge(cascade: {offset: key.count('.') + 1})
+    cascade_params = {cascade: {offset: key.count('.') + 1}}
+    translate(key, options.merge(cascade_params).merge(appeal_or_application_params))
   end
 
 end
