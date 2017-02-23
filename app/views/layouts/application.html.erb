@@ -3,8 +3,7 @@
 
 <% content_for(:head) do %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 <% end %>
 
 <% content_for(:inside_header) do %>
@@ -32,6 +31,10 @@
 
     <%= yield %>
   </main>
+<% end %>
+
+<% content_for(:body_end) do %>
+  <%= javascript_include_tag 'application' %>
 <% end %>
 
 <% if Rails.env.development? %>
