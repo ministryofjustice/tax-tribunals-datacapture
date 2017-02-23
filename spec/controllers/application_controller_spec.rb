@@ -1,11 +1,15 @@
 require 'rails_helper'
-require 'raven'
 
 RSpec.describe ApplicationController do
   controller do
     def case_not_found; raise Errors::CaseNotFound; end
     def case_submitted; raise Errors::CaseSubmitted; end
     def another_exception; raise Exception; end
+  end
+
+  # So we don't need to require the gem in these test scenarios
+  class Raven
+    def self.capture_exception(_ex); end;
   end
 
   context 'Exceptions handling' do
