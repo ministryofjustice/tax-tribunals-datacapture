@@ -3,7 +3,14 @@ require 'spec_helper'
 RSpec.describe AppealDecisionTree, '#destination' do
   let(:next_step)     { nil }
   let(:step_params)   { {challenged_decision_status: 'anything'} }
-  let(:tribunal_case) { instance_double(TribunalCase, challenged_decision_status: challenged_decision_status) }
+  let(:case_type)     { nil }
+  let(:tribunal_case) {
+    instance_double(
+      TribunalCase,
+      challenged_decision_status: challenged_decision_status,
+      case_type: case_type
+    )
+  }
 
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
@@ -17,7 +24,23 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the status is other than `pending`' do
       let(:challenged_decision_status) { ChallengedDecisionStatus::RECEIVED }
 
-      it { is_expected.to have_destination(:dispute_type, :edit) }
+      context 'for a case with disputes' do
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: true, ask_penalty: false) }
+
+        it { is_expected.to have_destination(:dispute_type, :edit) }
+      end
+
+      context 'for a case with penalties' do
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: false, ask_penalty: true) }
+
+        it { is_expected.to have_destination(:penalty_amount, :edit) }
+      end
+
+      context 'for a case that has neither penalties or disputes' do
+        let(:case_type) { CaseType.new(:anything, ask_dispute_type: false, ask_penalty: false) }
+
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
+      end
     end
   end
 end
