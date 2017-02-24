@@ -29,7 +29,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
       let(:tribunal_case)  { nil }
 
       it 'raises an error' do
-        expect { subject.save }.to raise_error(RuntimeError)
+        expect { subject.save }.to raise_exception
       end
     end
 

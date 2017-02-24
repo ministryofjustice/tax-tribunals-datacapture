@@ -12,11 +12,7 @@ module Steps::Details
 
     private
 
-    def started_by_representative?
-      raise 'No TribunalCase given' unless tribunal_case
-
-      tribunal_case.started_by_representative?
-    end
+    delegate :started_by_representative?, to: :tribunal_case
 
     def persist!(additional_attributes)
       raise 'No TribunalCase given' unless tribunal_case
