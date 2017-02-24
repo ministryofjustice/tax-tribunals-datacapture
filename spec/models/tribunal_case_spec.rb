@@ -52,6 +52,28 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
+  context 'when the user is the taxpayer' do
+    let(:attributes) { { user_type: UserType::TAXPAYER } }
+    describe '#started_by_taxpayer?' do
+      specify { expect(subject.started_by_taxpayer?).to be(true) }
+    end
+
+    describe '#started_by_representative?' do
+      specify { expect(subject.started_by_representative?).to be(false) }
+    end
+  end
+
+  context 'when the user is a representative' do
+    let(:attributes) { { user_type: UserType::REPRESENTATIVE} }
+    describe '#started_by_taxpayer?' do
+      specify { expect(subject.started_by_taxpayer?).to be(false) }
+    end
+
+    describe '#started_by_representative?' do
+      specify { expect(subject.started_by_representative?).to be(true) }
+    end
+  end
+
   describe '#appeal_or_application' do
     context 'when the intent is CLOSE_ENQUIRY' do
       let(:case_type)  { CaseType.new(:random, appeal_or_application: :whatever) }

@@ -6,10 +6,17 @@ module Steps::Details
     attribute :taxpayer_contact_phone, String
 
     validates_presence_of :taxpayer_contact_address,
-                          :taxpayer_contact_postcode,
-                          :taxpayer_contact_email
+                          :taxpayer_contact_postcode
 
-    private
+    validates_presence_of :taxpayer_contact_email, if: :started_by_taxpayer?
+
+  private
+
+    def started_by_taxpayer?
+      raise 'No TribunalCase given' unless tribunal_case
+
+      tribunal_case.started_by_taxpayer?
+    end
 
     def persist!(additional_attributes)
       raise 'No TribunalCase given' unless tribunal_case

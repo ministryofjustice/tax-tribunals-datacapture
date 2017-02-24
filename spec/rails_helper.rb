@@ -7,6 +7,8 @@ require_relative '../spec/support/view_spec_helpers'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+RSpec::Expectations.configuration.on_potential_false_positives = :nothing
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
