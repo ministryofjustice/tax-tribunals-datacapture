@@ -20,20 +20,20 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
 
     it 'returns the relevant choices' do
       expect(described_class.choices).to eq(%w(
-        apn_penalty
         aggregates_levy
         air_passenger_duty
         alcoholic_liquor_duties
-        apply_decision_enquiry
+        apn_penalty
         bingo_duty
         climate_change_levy
         construction_industry_scheme
+        counteraction_notice
         counter_terrorism
         customs_duty
         dotas_penalty
+        export_regulations_penalty
         gaming_duty
         general_betting_duty
-        export_regulations_penalty
         hydrocarbon_oil_duties
         inheritance_tax
         insurance_premium_tax
