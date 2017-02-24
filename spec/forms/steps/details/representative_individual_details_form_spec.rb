@@ -19,4 +19,34 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
   describe '#show_registration_number?' do
     specify { expect(subject.show_registration_number?).to eq(false) }
   end
+
+  context 'when the case is started by a representative' do
+    subject { described_class.new(tribunal_case: tribunal_case) }
+
+    describe '#representative_contact_email' do
+      let(:tribunal_case) { instance_double(TribunalCase, started_by_representative?: true) }
+      before do
+        subject.valid?
+      end
+
+      it 'is required' do
+        expect(subject.errors[:representative_contact_email]).not_to be_blank
+      end
+    end
+  end
+
+  context 'when the case is not started by a representative' do
+    subject { described_class.new(tribunal_case: tribunal_case) }
+
+    describe '#representative_contact_email' do
+      let(:tribunal_case) { instance_double(TribunalCase, started_by_representative?: false) }
+      before do
+        subject.valid?
+      end
+
+      it 'is not required' do
+        expect(subject.errors[:representative_contact_email]).to be_blank
+      end
+    end
+  end
 end

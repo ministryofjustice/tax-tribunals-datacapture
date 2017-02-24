@@ -53,4 +53,12 @@ class TribunalCase < ApplicationRecord
 
     case_type.appeal_or_application
   end
+
+  def started_by_taxpayer?
+    user_type.equal?(UserType::TAXPAYER)
+  end
+
+  def started_by_representative?
+    user_type.equal?(UserType::REPRESENTATIVE)
+  end
 end

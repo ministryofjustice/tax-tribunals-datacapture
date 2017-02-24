@@ -11,6 +11,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
   ].map(&:to_sym)
 
   optional_fields += [
+    "#{entity_type}_contact_email",
     "#{entity_type}_contact_phone"
   ].map(&:to_sym)
 
@@ -19,7 +20,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
 
   let(:fields_with_dummy_values) { fields.map {|k| [k, 'dummy_value'] }.to_h }
   let(:arguments) { fields_with_dummy_values.merge({ tribunal_case: tribunal_case }) }
-  let(:tribunal_case) { instance_double(TribunalCase) }
+  let(:tribunal_case) { instance_double(TribunalCase).as_null_object }
 
   subject { described_class.new(arguments) }
 
