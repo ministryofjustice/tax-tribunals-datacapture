@@ -109,7 +109,7 @@ RSpec.describe MappingCodeDeterminer do
   end
 
   context 'when the case type is to apply for a decision on an enquiry' do
-    let(:case_type) { CaseType::APPLY_DECISION_ENQUIRY }
+    let(:case_type) { CaseType::COUNTERACTION_NOTICE }
 
     it { is_expected.to have_mapping_code(:appn_decision_enqry) }
   end
