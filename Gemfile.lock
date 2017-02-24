@@ -376,7 +376,6 @@ DEPENDENCIES
   lograge
   mojfile-uploader-api-client (~> 0.1)
   mutant-rspec
-  notifications-ruby-client (~> 2.0.0)
   pg (~> 0.18)
   phonelib
   pry-byebug
