@@ -68,32 +68,19 @@ RSpec.describe DisputeType do
   end
 
   describe '#ask_hardship?' do
-    it 'returns false by default' do
-      expect(subject.ask_hardship?).to be(false)
-    end
-
     context 'when the dispute type is AMOUNT_OF_TAX_OWED_BY_HMRC' do
       let(:type) { :amount_of_tax_owed_by_hmrc }
-
-      it 'returns true' do
-        expect(subject.ask_hardship?).to be(true)
-      end
+      it { expect(subject.ask_hardship?).to be(false) }
     end
 
     context 'when the dispute type is AMOUNT_OF_TAX_OWED_BY_TAXPAYER' do
       let(:type) { :amount_of_tax_owed_by_taxpayer }
-
-      it 'returns true' do
-        expect(subject.ask_hardship?).to be(true)
-      end
+      it { expect(subject.ask_hardship?).to be(true) }
     end
 
     context 'when the dispute type is AMOUNT_AND_PENALTY' do
       let(:type) { :amount_and_penalty }
-
-      it 'returns true' do
-        expect(subject.ask_hardship?).to be(true)
-      end
+      it { expect(subject.ask_hardship?).to be(true) }
     end
   end
 end
