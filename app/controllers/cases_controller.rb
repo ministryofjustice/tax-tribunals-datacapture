@@ -6,6 +6,7 @@ class CasesController < ApplicationController
 
     result_url = if new_case.success?
                    generate_and_upload_pdf
+                   send_confirmation_email
                    confirmation_path
                  else
                    flash[:alert] = new_case.errors
@@ -20,6 +21,10 @@ class CasesController < ApplicationController
   def generate_and_upload_pdf
     tribunal_case = presenter_class.new(current_tribunal_case)
     CaseDetailsPdf.new(tribunal_case, self).generate_and_upload
+  end
+
+  def send_confirmation_email
+    NotifyMailer.case_submitted(current_tribunal_case).deliver_later
   end
 
   # :nocov:

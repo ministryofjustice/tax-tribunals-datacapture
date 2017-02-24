@@ -4,6 +4,7 @@ RSpec.describe ClosureCasesController, type: :controller do
 
   let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil) }
   let(:case_creator_double) { instance_double(CaseCreator, call: case_creator_result) }
+  let(:mailer_double) { double(deliver_later: true) }
 
   include_examples 'checks the validity of the current tribunal case on create'
 
@@ -15,6 +16,10 @@ RSpec.describe ClosureCasesController, type: :controller do
 
     context 'for a successful result' do
       let(:case_creator_result) { instance_double(CaseCreator, success?: true, errors: []) }
+
+      before do
+        expect(NotifyMailer).to receive(:case_submitted).with(current_tribunal_case).and_return(mailer_double)
+      end
 
       it 'should generate and upload the case details PDF' do
         expect_any_instance_of(CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
