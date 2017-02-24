@@ -6,10 +6,14 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
 <% end %>
 
-<% content_for(:inside_header) do %>
+<% content_for(:header_class) do %>with-proposition<% end %>
+
+<% content_for(:proposition_header) do %>
   <div class="header-proposition">
     <div class="content">
-      <a href="/" id="proposition-name">Appeal to the tax tribunal</a>
+      <nav id="proposition-menu">
+        <a href="/" id="proposition-name">Appeal to the tax tribunal</a>
+      </nav>
     </div>
   </div>
 <% end %>
