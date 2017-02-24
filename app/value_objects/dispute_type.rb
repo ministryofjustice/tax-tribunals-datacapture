@@ -17,15 +17,15 @@ class DisputeType < ValueObject
     self == PENALTY
   end
 
-  def ask_tax?
-    [AMOUNT_OF_TAX_OWED_BY_HMRC, AMOUNT_OF_TAX_OWED_BY_TAXPAYER].include?(self)
-  end
-
   def ask_penalty_and_tax?
     self == AMOUNT_AND_PENALTY
   end
 
+  def ask_tax?
+    [AMOUNT_OF_TAX_OWED_BY_HMRC, AMOUNT_OF_TAX_OWED_BY_TAXPAYER].include?(self)
+  end
+
   def ask_hardship?
-    ask_tax? || ask_penalty_and_tax?
+    [AMOUNT_OF_TAX_OWED_BY_TAXPAYER, AMOUNT_AND_PENALTY].include?(self)
   end
 end
