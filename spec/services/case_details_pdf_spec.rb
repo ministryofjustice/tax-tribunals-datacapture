@@ -7,6 +7,8 @@ RSpec.describe CaseDetailsPdf do
 
   let(:intent) { Intent::TAX_APPEAL }
   let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
+  let(:having_problems_uploading_documents) { false }
+
   let(:case_attributes) do
     {
       case_type: CaseType::OTHER,
@@ -23,6 +25,7 @@ RSpec.describe CaseDetailsPdf do
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
       case_reference: 'TC/2016/12345',
       outcome: 'my desired outcome',
+      having_problems_uploading_documents: having_problems_uploading_documents,
       intent: intent
     }
   end
@@ -56,8 +59,19 @@ RSpec.describe CaseDetailsPdf do
         expect(decorated_tribunal_case).to receive(:appeal_type_answers).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).not_to receive(:having_problems_uploading_details)
 
         expect(subject.generate).to match(/%PDF/)
+      end
+
+      context 'when user had problems uploading documents' do
+        let(:having_problems_uploading_documents) { true }
+
+        it 'should not show previously uploaded documents' do
+          expect(decorated_tribunal_case).not_to receive(:documents)
+          expect(decorated_tribunal_case).to receive(:having_problems_uploading_details)
+          expect(subject.generate).to match(/%PDF/)
+        end
       end
     end
 

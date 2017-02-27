@@ -169,6 +169,7 @@ en:
             documents_submitted: Documents submitted
             legal_representative: Legal representative
             desired_outcome: Desired outcome
+            problems_uploading_documents: Problems uploading documents
           answers:
             challenged_decision:
               'yes': 'Yes'
@@ -258,6 +259,11 @@ en:
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
+      documents_upload_problems:
+        show:
+          heading: Having problems uploading documents?
+          lead_text: You need to do the following - COPY NEEDED
+          save_or_print_pdf: Save or print your case details
   activemodel:
     errors:
       models:

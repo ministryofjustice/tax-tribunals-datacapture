@@ -144,7 +144,17 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `documents_checklist`' do
       let(:step_params) { { documents_checklist: 'anything'  } }
 
-      it { is_expected.to have_destination(:check_answers, :show) }
+      context 'and user had no problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading_documents?: false) }
+
+        it { is_expected.to have_destination(:check_answers, :show) }
+      end
+
+      context 'and user had problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading_documents?: true) }
+
+        it { is_expected.to have_destination(:documents_upload_problems, :show) }
+      end
     end
 
     context 'when the step is `check_answers`' do
