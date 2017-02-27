@@ -27,5 +27,6 @@ module TaxTribunalsDatacapture
 
     config.session_expire_after = 30 # minutes
     config.survey_link = 'https://goo.gl/forms/5MeKnK5kGJH99Fsn2'
+    config.feedback_email = 'taxtribunals_helpdesk@digital.justice.gov.uk'
   end
 end

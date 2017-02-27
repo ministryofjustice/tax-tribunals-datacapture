@@ -20,12 +20,7 @@
 
 <% content_for(:content) do %>
   <main id="content" role="main">
-    <div class="phase-banner-alpha">
-      <p>
-        <strong class="phase-tag">ALPHA</strong>
-        <span>This is a trial service &ndash; your feedback will help us to improve it.</span>
-      </p>
-    </div>
+    <%= render partial: 'layouts/phase_banner' %>
 
     <% if flash[:alert] %>
       <div class="error-summary">
@@ -42,7 +37,7 @@
 <% end %>
 
 <% content_for(:footer_support_links) do %>
-    <%= render partial: 'layouts/footer_links' %>
+  <%= render partial: 'layouts/footer_links' %>
 <% end %>
 
 <% if Rails.env.development? %>
