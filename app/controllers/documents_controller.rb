@@ -4,7 +4,9 @@ class DocumentsController < ApplicationController
   respond_to :html, :json, :js
 
   def create
-    uploader = DocumentUpload.new(document_param, collection_ref: collection_ref)
+    # document_key is always :supporting_documents for this action because only the multi-upload POSTs end up here
+    # (the other places with upload functionality post to their own controllers)
+    uploader = DocumentUpload.new(document_param, document_key: :supporting_documents, collection_ref: collection_ref)
     uploader.upload! if uploader.valid?
 
     respond_with(uploader, location: current_step_path) do |format|
@@ -21,12 +23,14 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    MojFileUploaderApiClient::DeleteFile.new(
+    Uploader.delete_file(
       collection_ref: collection_ref,
+      document_key: document_key_param,
       filename: filename
-    ).call
+    )
 
-    current_tribunal_case.update(grounds_for_appeal_file_name: nil) if grounds_for_appeal_filename?
+    document_key_field_name = :"#{document_key_param}_file_name"
+    current_tribunal_case.update(document_key_field_name => nil) if current_tribunal_case.has_attribute?(document_key_field_name)
 
     respond_to do |format|
       format.html { redirect_to current_step_path }
@@ -39,10 +43,6 @@ class DocumentsController < ApplicationController
 
   def collection_ref
     current_tribunal_case.files_collection_ref
-  end
-
-  def grounds_for_appeal_filename?
-    decoded_filename == current_tribunal_case.grounds_for_appeal_file_name
   end
 
   def filename
@@ -61,7 +61,11 @@ class DocumentsController < ApplicationController
     document_params[:document]
   end
 
+  def document_key_param
+    params[:document_key]
+  end
+
   def document_params
-    params.permit(:_method, :id, :document, :authenticity_token)
+    params.permit(:_method, :id, :document, :document_key, :authenticity_token)
   end
 end

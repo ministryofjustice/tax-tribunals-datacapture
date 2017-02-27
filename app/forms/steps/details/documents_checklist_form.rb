@@ -25,7 +25,7 @@ module Steps::Details
     end
 
     def documents_uploaded
-      tribunal_case.documents.any? || errors.add(:original_notice_provided, :no_documents)
+      tribunal_case.documents(:supporting_documents).any? || errors.add(:original_notice_provided, :no_documents)
     end
 
     def letter_checkboxes_ticked

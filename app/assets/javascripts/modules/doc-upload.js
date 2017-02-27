@@ -27,7 +27,7 @@ moj.Modules.docUpload = {
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
     dzOptions = {
-      url: '/documents',
+      url: '/uploader/supporting_documents/documents',
       paramName: 'document',
       maxFilesize: parseInt(self.config.maxFilesize),
       acceptedFiles: self.config.acceptedFiles,
@@ -68,7 +68,7 @@ moj.Modules.docUpload = {
     if (name) {
       $.ajax({
         type: 'DELETE',
-        url: '/documents/' + name,
+        url: '/uploader/supporting_documents/documents/' + name,
         contentType: 'application/json',
         dataType: 'json',
 

@@ -70,7 +70,6 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
       context 'when providing an attached document' do
         let(:grounds_for_appeal) { nil }
         let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
-        let(:upload_response) { double(code: 200, body: {}, error?: false) }
 
         context 'document upload successful' do
           it 'saves the record' do
@@ -79,7 +78,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
               grounds_for_appeal_file_name: 'image.jpg'
             ).and_return(true)
 
-            expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+            expect(Uploader).to receive(:add_file).with(hash_including(document_key: :grounds_for_appeal)).and_return({})
 
             expect(subject.save).to be(true)
           end
@@ -105,7 +104,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
             grounds_for_appeal_file_name: 'image.jpg'
           ).and_return(true)
 
-          expect(MojFileUploaderApiClient::AddFile).to receive(:new).and_return(double(call: upload_response))
+          expect(Uploader).to receive(:add_file).and_return({})
 
           expect(subject.save).to be(true)
         end

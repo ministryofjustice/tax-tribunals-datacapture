@@ -34,7 +34,7 @@ module Steps::Details
     def upload_document_if_present
       return true if grounds_for_appeal_document.nil?
 
-      grounds_for_appeal_document.upload!(collection_ref: tribunal_case.files_collection_ref)
+      grounds_for_appeal_document.upload!(document_key: :grounds_for_appeal, collection_ref: tribunal_case.files_collection_ref)
       retrieve_document_errors
 
       errors.empty?

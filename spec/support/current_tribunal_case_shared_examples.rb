@@ -18,22 +18,24 @@ RSpec.shared_examples 'checks the validity of the current tribunal case' do
   end
 end
 
-RSpec.shared_examples 'checks the validity of the current tribunal case on create' do
+RSpec.shared_examples 'checks the validity of the current tribunal case on create' do |additional_params|
   describe 'tribunal case checks on create' do
     before do
+      additional_params ||= {}
       allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-      post :create
+      post :create, params: additional_params
     end
 
     include_examples 'checks the validity of the current tribunal case'
   end
 end
 
-RSpec.shared_examples 'checks the validity of the current tribunal case on destroy' do
+RSpec.shared_examples 'checks the validity of the current tribunal case on destroy' do |additional_params|
   describe 'tribunal case checks on destroy' do
     before do
+      additional_params ||= {}
       allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-      delete :destroy, params: {id: 'anything'}
+      delete :destroy, params: {id: 'anything'}.merge(additional_params)
     end
 
     include_examples 'checks the validity of the current tribunal case'

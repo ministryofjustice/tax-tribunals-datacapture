@@ -69,10 +69,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :documents, only: [:create] do
-    member do
-      delete :destroy
-    end
+  scope 'uploader/:document_key' do
+    resources :documents, only: [:create, :destroy]
   end
 
   resources :appeal_cases, :closure_cases, only: [:create]

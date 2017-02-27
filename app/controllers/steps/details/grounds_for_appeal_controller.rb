@@ -3,7 +3,7 @@ module Steps::Details
     def edit
       @form_object = GroundsForAppealForm.new(
         tribunal_case: current_tribunal_case,
-        grounds_for_appeal: current_tribunal_case.grounds_for_appeal,
+        grounds_for_appeal: current_tribunal_case.grounds_for_appeal
       )
     end
 

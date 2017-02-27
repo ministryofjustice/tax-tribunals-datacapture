@@ -9,7 +9,7 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
       having_problems_uploading_details: having_problems_uploading_details
   } }
 
-  let(:tribunal_case) { instance_double(TribunalCase, documents: documents) }
+  let(:tribunal_case) { instance_double(TribunalCase) }
 
   let(:original_notice_provided) { true }
   let(:review_conclusion_provided) { true }
@@ -29,6 +29,10 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
     end
 
     context 'validations on checkboxes' do
+      before do
+        allow(tribunal_case).to receive(:documents).with(:supporting_documents).and_return(documents)
+      end
+
       context 'when no checkboxes are selected' do
         let(:original_notice_provided) { false }
         let(:review_conclusion_provided) { false }
@@ -96,6 +100,10 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
     end
 
     context 'when valid' do
+      before do
+        allow(tribunal_case).to receive(:documents).with(:supporting_documents).and_return(documents)
+      end
+
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           original_notice_provided:             original_notice_provided,

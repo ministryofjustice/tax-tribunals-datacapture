@@ -8,13 +8,11 @@ class Document
     self.last_modified = attrs[:last_modified]
   end
 
-  def self.for_collection(collection_ref, options = {})
-    filtered_files = options.fetch(:filter, [])
-
-    result = MojFileUploaderApiClient::ListFiles.new(collection_ref: collection_ref).call
-    result.body.fetch(:files, []).
-        reject { |file| filtered_files.include?(file[:title]) }.
-        map { |file| new(file.merge(collection_ref: collection_ref)) }
+  def self.for_collection(collection_ref, document_key:)
+    Uploader.list_files(
+      collection_ref: collection_ref,
+      document_key: document_key
+    ).map {|file| new(file.merge(collection_ref: collection_ref)) }
   end
 
   def encoded_name

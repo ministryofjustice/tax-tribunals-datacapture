@@ -5,6 +5,7 @@ class DocumentUpload
   attribute :content_type, String
   attribute :original_filename, String
   attribute :collection_ref, String
+  attribute :document_key, String
 
   attr_accessor :errors
 
@@ -30,26 +31,28 @@ class DocumentUpload
     image/x-bitmap
   ).freeze
 
-  def initialize(obj, content_type: nil, filename: nil, collection_ref: nil)
+  def initialize(obj, document_key: nil, content_type: nil, filename: nil, collection_ref: nil)
     raise ArgumentError.new('Must receive an IO object') unless obj.respond_to?(:read)
 
     self.tempfile = obj.respond_to?(:tempfile) ? obj.tempfile : obj
     self.content_type = content_type || obj.content_type
     self.original_filename = filename || obj.original_filename
     self.collection_ref = collection_ref
+    self.document_key = document_key
     self.errors = []
   end
 
-  def upload!(collection_ref: nil)
-    response = MojFileUploaderApiClient::AddFile.new(
+  def upload!(collection_ref: nil, document_key: nil)
+    Uploader.add_file(
       collection_ref: collection_ref || self.collection_ref,
-      title: file_name,
+      document_key: document_key || self.document_key,
       filename: file_name,
       data: file_data
-    ).call
-
-    parse_response_errors(response)
-    response
+    )
+  rescue Uploader::InfectedFileError
+    add_error(:virus_detected)
+  rescue Uploader::UploaderError
+    add_error(:response_error)
   end
 
   def file_name
@@ -93,16 +96,6 @@ class DocumentUpload
 
   def add_error(code)
     errors << translate(code) unless errors.include?(code)
-  end
-
-  def parse_response_errors(response)
-    return unless response.error?
-
-    if response.body.to_s =~ /Virus scan failed/
-      add_error(:virus_detected)
-    else
-      add_error(:response_error)
-    end
   end
 
   def translate(key)
