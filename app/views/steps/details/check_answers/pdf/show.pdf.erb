@@ -88,33 +88,35 @@
   </tbody>
 </table>
 
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
-    <td class="content">
-      <%= tribunal_case.documents.grounds_for_appeal_text(default: pdf_t('.answers.no_grounds_for_appeal_text')) %>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<% unless tribunal_case.having_problems_uploading_documents? %>
+  <hr/>
+  <table>
+    <tbody>
+    <tr>
+      <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
+      <td class="content">
+        <%= tribunal_case.documents.grounds_for_appeal_text(default: pdf_t('.answers.no_grounds_for_appeal_text')) %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
-    <td class="content">
-      <ul class="documents">
-        <% tribunal_case.documents.list.each do |document| %>
-            <li><%= document.title %></li>
-        <% end %>
-      </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+  <hr/>
+  <table>
+    <tbody>
+    <tr>
+      <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
+      <td class="content">
+        <ul class="documents">
+          <% tribunal_case.documents.list.each do |document| %>
+              <li><%= document.title %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
 
 <div class="newpage"></div>
 

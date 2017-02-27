@@ -24,7 +24,7 @@ class DetailsDecisionTree < DecisionTree
     when :outcome
       edit(:documents_checklist)
     when :documents_checklist
-      show(:check_answers)
+      after_documents_checklist
     when :check_answers
       home_path
     else
@@ -85,6 +85,14 @@ class DetailsDecisionTree < DecisionTree
       edit(:grounds_for_appeal)
     when Intent::CLOSE_ENQUIRY
       edit('/steps/closure/enquiry_details')
+    end
+  end
+
+  def after_documents_checklist
+    if tribunal_case.having_problems_uploading_documents?
+      show(:documents_upload_problems)
+    else
+      show(:check_answers)
     end
   end
 end

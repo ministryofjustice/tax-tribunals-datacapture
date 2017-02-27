@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       edit_step :grounds_for_appeal
       edit_step :outcome
       edit_step :documents_checklist
+      show_step :documents_upload_problems
       show_step :check_answers
       show_step :confirmation
       edit_step :user_type
