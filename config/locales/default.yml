@@ -27,3 +27,8 @@ en:
     footer_links:
       contact: Contact
       cookies: Cookies
+    phase_banner:
+      phase_info_html: |
+        This is a trial service &ndash; your
+        <a href="mailto:%{feedback_email}?subject=Feedback">feedback</a>
+        will help us to improve it.
