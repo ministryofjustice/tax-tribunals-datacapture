@@ -21,7 +21,7 @@ module ApplicationHelper
 
   # Renders a back link without the progress information, as kickout pages are not
   # really question pages, but the end of a journey
-  def kickout_step_header
+  def endpoint_step_header
     step_header(nil, nil)
   end
 
