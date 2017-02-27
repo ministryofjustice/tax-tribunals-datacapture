@@ -59,6 +59,7 @@ RSpec.describe CaseDetailsPdf do
         expect(decorated_tribunal_case).to receive(:appeal_type_answers).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:appeal_lateness_answers).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:outcome).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).not_to receive(:having_problems_uploading_details)
 
         expect(subject.generate).to match(/%PDF/)
       end
@@ -68,6 +69,7 @@ RSpec.describe CaseDetailsPdf do
 
         it 'should not show previously uploaded documents' do
           expect(decorated_tribunal_case).not_to receive(:documents)
+          expect(decorated_tribunal_case).to receive(:having_problems_uploading_details)
           expect(subject.generate).to match(/%PDF/)
         end
       end

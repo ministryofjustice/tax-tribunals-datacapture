@@ -88,7 +88,21 @@
   </tbody>
 </table>
 
-<% unless tribunal_case.having_problems_uploading_documents? %>
+<% if tribunal_case.having_problems_uploading_documents? %>
+  <hr/>
+  <table>
+    <tbody>
+    <tr>
+      <td class="section"><%= pdf_t '.questions.problems_uploading_documents' %></td>
+    </tr>
+    <tr>
+      <td class="content with-padding">
+        <%= simple_format(tribunal_case.having_problems_uploading_details) %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% else %>
   <hr/>
   <table>
     <tbody>
