@@ -44,14 +44,14 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#kickout_step_header' do
+  describe '#endpoint_step_header' do
     it 'renders the expected content' do
       expect(helper).to receive(:render).with(partial: 'step_header', locals: {
         task:        nil,
         step_number: nil,
         path:        '/foo/bar'
       })
-      helper.kickout_step_header
+      helper.endpoint_step_header
     end
   end
 
