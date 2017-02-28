@@ -8,6 +8,7 @@ ENV PAYMENT_ENDPOINT             replace_this_at_build_time
 ENV MOJ_FILE_UPLOADER_ENDPOINT   replace_this_at_build_time
 ENV TAX_TRIBUNALS_DOWNLOADER_URL replace_this_at_build_time
 ENV SENTRY_DSN                   replace_this_at_build_time
+ENV GOVUK_NOTIFY_API_KEY         replace_this_at_build_time
 
 RUN touch /etc/inittab
 
