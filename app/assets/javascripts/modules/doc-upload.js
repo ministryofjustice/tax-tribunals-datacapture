@@ -7,11 +7,6 @@ moj.Modules.docUpload = {
   $form: null,
   $fileList: null,
 
-  config: {
-    maxFilesize: null,
-    acceptedFiles: null
-  },
-
   init: function() {
     var self = this,
         previewTemplate,
@@ -29,8 +24,8 @@ moj.Modules.docUpload = {
     dzOptions = {
       url: '/documents',
       paramName: 'document',
-      maxFilesize: parseInt(self.config.maxFilesize),
-      acceptedFiles: self.config.acceptedFiles,
+      maxFilesize: parseInt(self.$form.data('max-filesize')),
+      acceptedFiles: self.$form.data('accepted-files'),
       autoProcessQueue: true,
       addRemoveLinks: true,
       createImageThumbnails: false,
