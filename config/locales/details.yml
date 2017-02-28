@@ -28,7 +28,6 @@ en:
     finish: Finish
   steps:
     details:
-      step_header: Question %{step} of ?
       user_type:
         edit:
           heading: Are you the taxpayer making the %{appeal_or_application}?
