@@ -64,6 +64,7 @@ en:
             representative_email: "Email:"
             documents_submitted: Documents submitted
             legal_representative: Legal representative
+            problems_uploading_documents: Problems uploading documents
           answers:
             case_type:
               personal_return: Personal return
@@ -97,6 +98,11 @@ en:
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
+      documents_upload_problems:
+        show:
+          heading: Having problems uploading documents?
+          lead_text: You need to do the following - COPY NEEDED
+          save_or_print_pdf: Save or print your case details
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
@@ -122,7 +128,7 @@ en:
       steps_closure_additional_info_form:
         closure_additional_info: Additional information
       steps_closure_support_documents_form:
-        closure_problems_uploading_details: Reasons you can't upload
+        having_problems_uploading_details: Reasons you can't upload
   activemodel:
     errors:
       models:
@@ -134,5 +140,5 @@ en:
               blank: Enter the years under enquiry
         steps/closure/support_documents_form:
           attributes:
-            closure_problems_uploading_details:
+            having_problems_uploading_details:
               too_short: You must give a reason why you can't upload your documents

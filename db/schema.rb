@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220162444) do
+ActiveRecord::Schema.define(version: 20170227164610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 20170220162444) do
     t.string   "closure_hmrc_officer"
     t.string   "closure_years_under_enquiry"
     t.text     "closure_additional_info"
-    t.boolean  "closure_problems_uploading_documents",            default: false
-    t.text     "closure_problems_uploading_details"
     t.string   "taxpayer_individual_first_name"
     t.string   "taxpayer_individual_last_name"
     t.string   "has_representative"
