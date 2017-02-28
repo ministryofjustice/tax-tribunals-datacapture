@@ -6,13 +6,13 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <div id="gfa_main_container" class="uploaded_doc_<%= uploaded_document?(:grounds_for_appeal) %>">
+    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:grounds_for_appeal) %>">
       <%= step_form @form_object do |f| %>
         <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control form-control-3-4 form-control-large' %>
 
         <%= document_upload_field(f, :grounds_for_appeal, label_text: t('.attach_document_html')) %>
 
-        <%= f.submit class: 'button gfa_continue' %>
+        <%= f.submit class: 'button document_upload_continue' %>
       <% end %>
 
       <%= display_current_document(:grounds_for_appeal) %>
