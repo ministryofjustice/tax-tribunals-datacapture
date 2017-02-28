@@ -2,16 +2,23 @@
 
 moj.Modules.customRadioToggles = {
   config: {
+    toggleableClass: 'toggleable',
     $targetElement: null, // the element to be shown or to hide
     $showElements: [],    // collection of elements that triggers the showing of the target element
     $hideElements: []     // collection of elements that triggers the hiding of the target element
   },
 
   init: function () {
-    if (!this.config.$targetElement) { return }
+    var self = this;
 
-    this.hideElementUnlessRelevant();
-    this.bindEvents();
+    if($('.' + self.config.toggleableClass).length) {
+      self.config.$targetElement = $('.' + self.config.toggleableClass).eq(0);
+      self.config.$showElements = $(self.config.$targetElement.data('show-elements'));
+      self.config.$hideElements = $(self.config.$targetElement.data('hide-elements'));
+
+      this.hideElementUnlessRelevant();
+      this.bindEvents();
+    }
   },
 
   bindEvents: function () {

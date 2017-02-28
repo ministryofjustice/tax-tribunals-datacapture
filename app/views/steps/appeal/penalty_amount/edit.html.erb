@@ -10,21 +10,12 @@
       <%= f.radio_button_fieldset :penalty_level,
         choices: Steps::Appeal::PenaltyAmountForm.choices %>
 
-      <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true">
+      <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true" data-show-elements="form input:radio:not(:first)" data-hide-elements="form input:radio:first">
         <%= f.text_field :penalty_amount, class: 'form-control' %>
       </div>
 
       <%= f.submit class: 'button' %>
     <% end %>
 
-    <%= javascript_tag do %>
-      //
-      // This is a hack because we want two out of three radio buttons to show the amount field,
-      // and that is not possible to do with the current gov.uk elements form builder version.
-      //
-      moj.Modules.customRadioToggles.config.$targetElement = $('#penalty_amount_detail');
-      moj.Modules.customRadioToggles.config.$showElements  = $('form input:radio:not(:first)');
-      moj.Modules.customRadioToggles.config.$hideElements  = $('form input:radio:first');
-    <% end %>
   </div>
 </div>

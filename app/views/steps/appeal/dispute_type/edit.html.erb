@@ -10,21 +10,12 @@
       <%= f.radio_button_fieldset :dispute_type,
         choices: @form_object.choices %>
 
-      <div class="panel toggleable" id="dispute_type_other_value" aria-hidden="true">
+      <div class="panel toggleable" id="dispute_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= f.text_field :dispute_type_other_value, class: 'form-control' %>
       </div>
 
       <%= f.submit class: 'button' %>
     <% end %>
 
-    <%= javascript_tag do %>
-      //
-      // This is a hack because we want just the last of the radio buttons to show a text field,
-      // and that is not possible to do with the current gov.uk elements form builder version.
-      //
-      moj.Modules.customRadioToggles.config.$targetElement = $('#dispute_type_other_value');
-      moj.Modules.customRadioToggles.config.$showElements  = $('form input:radio:last');
-      moj.Modules.customRadioToggles.config.$hideElements  = $('form input:radio:not(:last)');
-    <% end %>
   </div>
 </div>

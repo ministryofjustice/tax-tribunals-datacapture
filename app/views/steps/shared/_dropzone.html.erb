@@ -1,9 +1,3 @@
-<!-- Some configuration -->
-<%= javascript_tag do %>
-  moj.Modules.docUpload.config.acceptedFiles = '<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>';
-  moj.Modules.docUpload.config.maxFilesize = '<%= DocumentUpload::MAX_FILE_SIZE %>';
-<% end %>
-
 <!-- This is used as the file preview template -->
 <div class="dz-preview dz-file-preview">
   <div class="dz-details">
@@ -15,7 +9,7 @@
   <div class="dz-error-mark js-hidden show-when-js-is-loaded"><span>✘</span></div>
 </div>
 
-<div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0">
+<div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>">
   <div class="dz-default dz-message grid-row">
     <div class="column-one-third arrow-icon">
       <p></p>
