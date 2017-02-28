@@ -86,8 +86,19 @@ RSpec.describe CaseDetailsPdf do
         expect(decorated_tribunal_case).to receive(:representative).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:documents).at_least(:once).and_call_original
         expect(decorated_tribunal_case).to receive(:enquiry_answers).at_least(:once).and_call_original
+        expect(decorated_tribunal_case).not_to receive(:having_problems_uploading_details)
 
         expect(subject.generate).to match(/%PDF/)
+      end
+
+      context 'when user had problems uploading documents' do
+        let(:having_problems_uploading_documents) { true }
+
+        it 'should not show previously uploaded documents' do
+          expect(decorated_tribunal_case).not_to receive(:documents)
+          expect(decorated_tribunal_case).to receive(:having_problems_uploading_details)
+          expect(subject.generate).to match(/%PDF/)
+        end
       end
     end
 

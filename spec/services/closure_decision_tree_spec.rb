@@ -29,7 +29,17 @@ RSpec.describe ClosureDecisionTree do
     context 'when the step is `support_documents`' do
       let(:step_params) { { support_documents: 'anything' } }
 
-      it { is_expected.to have_destination(:check_answers, :show) }
+      context 'and user had no problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading_documents?: false) }
+
+        it { is_expected.to have_destination(:check_answers, :show) }
+      end
+
+      context 'and user had problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading_documents?: true) }
+
+        it { is_expected.to have_destination(:documents_upload_problems, :show) }
+      end
     end
 
     context 'when the step is `check_answers`' do
