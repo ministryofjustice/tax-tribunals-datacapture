@@ -9,10 +9,14 @@ class GlimrNewCase
   end
 
   def call!
-    response = GlimrApiClient::RegisterNewCase.call(params)
-    @case_reference = response.response_body[:tribunalCaseNumber]
-    @confirmation_code = response.response_body[:confirmationCode]
+    GlimrApiClient::RegisterNewCase.call(params).tap { |api|
+      @case_reference = api.response_body[:tribunalCaseNumber]
+      @confirmation_code = api.response_body[:confirmationCode]
+    }
     self
+  rescue => e
+    Rails.logger.info({ caller: self.class.name, method: __callee__, error: e }.to_json)
+
   end
 
   def params

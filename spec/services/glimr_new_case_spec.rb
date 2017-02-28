@@ -24,10 +24,6 @@ RSpec.describe GlimrNewCase do
 
   subject { described_class.new(tribunal_case) }
 
-  before do
-    allow(ENV).to receive(:fetch).with('TAX_TRIBUNALS_DOWNLOADER_URL').and_return('http://downloader.com')
-  end
-
   describe '.new' do
     it 'accepts a tribunal case' do
       expect(subject.tribunal_case).to eq(tribunal_case)
@@ -36,7 +32,13 @@ RSpec.describe GlimrNewCase do
 
   describe '#call!' do
     let(:glimr_response_double) {
-      double('Response', response_body: {tribunalCaseNumber: 'TC/12345', confirmationCode: 'ABCDEF'})
+      instance_double(
+        GlimrApiClient::RegisterNewCase,
+        response_body: {
+          tribunalCaseNumber: 'TC/12345',
+          confirmationCode: 'ABCDEF'
+         }
+      )
     }
 
     # TODO: add all the params once we know what to send
@@ -44,7 +46,7 @@ RSpec.describe GlimrNewCase do
       {
         jurisdictionId: 8,
         onlineMappingCode: 'APPEAL_PENALTY_LOW',
-        documentsURL: 'http://downloader.com/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
+        documentsURL: 'http://downloader.dsd.io/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
         contactFirstName: 'Filomena',
         contactLastName: 'Keebler',
         contactStreet1: '769 Eleanore Landing',
@@ -64,8 +66,7 @@ RSpec.describe GlimrNewCase do
 
       context 'registering the case into glimr' do
         it 'returns a GlimrNewCase instance' do
-          result = subject.call!
-          expect(result).to be_an_instance_of(described_class)
+          expect(subject.call!).to be_an_instance_of(described_class)
         end
 
         it 'retrieves the tc_number and conf_code' do
@@ -125,13 +126,27 @@ RSpec.describe GlimrNewCase do
           subject.call!
         end
       end
+    end
 
+    describe 'Error cases' do
+      # The original spec positied a nil response body from GlimrApiClient.
+      # Although there are currently some edge cases (see
+      # https://www.pivotaltracker.com/story/show/140766861), this should not
+      # acutally happen.  Instead, it should raise a
+      # GlimrApiClient::Unavailable exception.
+      context 'GlimrApiClient::Unavailable' do
+        before do
+          allow(GlimrApiClient::RegisterNewCase).to receive(:call).and_raise(GlimrApiClient::Unavailable)
+          allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPEAL_PENALTY_LOW)
+        end
 
-      context 'when there are errors' do
-        let(:glimr_response_double) { double('Response', response_body: nil) }
+        it 'is trapped' do
+          expect { subject.call! }.not_to raise_exception
+        end
 
-        it 'should raise an exception' do
-          expect { subject.call }.to raise_exception(Exception)
+        it 'is logged' do
+          expect(Rails.logger).to receive(:info)
+          subject.call!
         end
       end
     end
