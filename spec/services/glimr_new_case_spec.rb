@@ -35,9 +35,9 @@ RSpec.describe GlimrNewCase do
       instance_double(
         GlimrApiClient::RegisterNewCase,
         response_body: {
-          tribunalCaseNumber: 'TC/12345',
-          confirmationCode: 'ABCDEF'
-         }
+        tribunalCaseNumber: 'TC/12345',
+        confirmationCode: 'ABCDEF'
+      }
       )
     }
 
@@ -129,6 +129,10 @@ RSpec.describe GlimrNewCase do
     end
 
     describe 'Error cases' do
+      before do
+        allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPEAL_PENALTY_LOW)
+      end
+
       # The original spec positied a nil response body from GlimrApiClient.
       # Although there are currently some edge cases (see
       # https://www.pivotaltracker.com/story/show/140766861), this should not
@@ -137,7 +141,6 @@ RSpec.describe GlimrNewCase do
       context 'GlimrApiClient::Unavailable' do
         before do
           allow(GlimrApiClient::RegisterNewCase).to receive(:call).and_raise(GlimrApiClient::Unavailable)
-          allow(tribunal_case).to receive(:mapping_code).and_return(MappingCode::APPEAL_PENALTY_LOW)
         end
 
         it 'is trapped' do
@@ -147,6 +150,29 @@ RSpec.describe GlimrNewCase do
         it 'is logged' do
           expect(Rails.logger).to receive(:info)
           subject.call!
+        end
+
+        it 'marks the case as submitted' do
+          expect { subject.call! }.to change { tribunal_case.case_status }.to(CaseStatus::SUBMITTED)
+        end
+      end
+
+      context 'Other Errors' do
+        before do
+          allow(GlimrApiClient::RegisterNewCase).to receive(:call).and_raise(NoMethodError)
+        end
+
+        it 'is not trapped' do
+          expect { subject.call! }.to raise_exception(NoMethodError)
+        end
+
+        it 'is logged' do
+          expect(Rails.logger).to receive(:info)
+          expect { subject.call! }.to raise_exception(NoMethodError)
+        end
+
+        it 'does not mark the case as submitted' do
+          expect { subject.call! }.to raise_exception(NoMethodError).and not_change(tribunal_case, :case_status)
         end
       end
     end

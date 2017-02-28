@@ -17,6 +17,12 @@ class GlimrNewCase
   rescue => e
     Rails.logger.info({ caller: self.class.name, method: __callee__, error: e }.to_json)
 
+    case e
+    when GlimrApiClient::Unavailable
+      tribunal_case.update(case_status: CaseStatus::SUBMITTED)
+    else
+      raise e
+    end
   end
 
   def params
