@@ -6,13 +6,13 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <div id="gfa_main_container" class="uploaded_doc_<%= uploaded_document?(:hardship_reason) %>">
+    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:hardship_reason) %>">
       <%= step_form @form_object do |f| %>
         <%= f.text_area :hardship_reason, size: '60x10', class: 'form-control form-control-3-4 form-control-large' %>
 
         <%= document_upload_field(f, :hardship_reason, label_text: t('.attach_document_html')) %>
 
-        <%= f.submit class: 'button' %>
+        <%= f.submit class: 'button document_upload_continue' %>
       <% end %>
 
       <%= display_current_document(:hardship_reason) %>
