@@ -1,7 +1,6 @@
 en:
   steps:
     lateness:
-      step_header: Question %{step} of 2
       in_time:
         edit:
           heading: Do you think you're in time to appeal to the tax tribunal?

@@ -1,7 +1,6 @@
 en:
   steps:
     hardship:
-      step_header: Question %{step} of 8
       disputed_tax_paid:
         edit:
           heading: Have you paid the amount of tax under dispute?

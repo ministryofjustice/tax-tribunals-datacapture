@@ -35,23 +35,8 @@ RSpec.describe ApplicationHelper do
 
   describe '#step_header' do
     it 'renders the expected content' do
-      expect(helper).to receive(:render).with(partial: 'step_header', locals: {
-        task:        :my_task,
-        step_number: 999,
-        path:        '/foo/bar'
-      })
-      helper.step_header(:my_task, 999)
-    end
-  end
-
-  describe '#endpoint_step_header' do
-    it 'renders the expected content' do
-      expect(helper).to receive(:render).with(partial: 'step_header', locals: {
-        task:        nil,
-        step_number: nil,
-        path:        '/foo/bar'
-      })
-      helper.endpoint_step_header
+      expect(helper).to receive(:render).with(partial: 'step_header', locals: {path: '/foo/bar'})
+      helper.step_header
     end
   end
 

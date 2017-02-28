@@ -1,7 +1,6 @@
 en:
   steps:
     appeal:
-      step_header: Question %{step} of 8
       start:
         show:
           impartial_decision: Get an impartial decision on your dispute

@@ -1,7 +1,6 @@
 en:
   steps:
     closure:
-      step_header: Question %{step} of ?
       start:
         show:
           continue: Continue

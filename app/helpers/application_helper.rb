@@ -9,20 +9,11 @@ module ApplicationHelper
     form_for record, opts, &block
   end
 
-  # Render a back link pointing to a controller-defined previous step, and a step
-  # header to show the user how far they have come in the task
-  def step_header(task, step_number)
+  # Render a back link pointing to a controller-defined previous step
+  def step_header
     render partial: 'step_header', locals: {
-      task:        task,
-      step_number: step_number,
-      path:        controller.previous_step_path
+      path: controller.previous_step_path
     }
-  end
-
-  # Renders a back link without the progress information, as kickout pages are not
-  # really question pages, but the end of a journey
-  def endpoint_step_header
-    step_header(nil, nil)
   end
 
   def translate_for_user_type(key, params={})
