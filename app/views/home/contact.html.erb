@@ -5,7 +5,9 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%=t '.description_html' %>
+    <%= t('.description_html',
+          tax_tribunal_email: Rails.configuration.tax_tribunal_email,
+          tax_tribunal_phone: Rails.configuration.tax_tribunal_phone) %>
 
   </div>
 </div>
