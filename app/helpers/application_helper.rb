@@ -9,7 +9,7 @@ module ApplicationHelper
     form_for record, opts, &block
   end
 
-  # Render a back link pointing to a controller-defined previous step
+  # Render a back link pointing to the user's previous step
   def step_header
     render partial: 'step_header', locals: {
       path: controller.previous_step_path
