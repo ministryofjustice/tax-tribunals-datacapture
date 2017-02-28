@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227164610) do
+ActiveRecord::Schema.define(version: 20170228104207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170227164610) do
     t.string   "dispute_type_other_value"
     t.string   "case_status"
     t.string   "hardship_reason"
+    t.string   "hardship_reason_file_name"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 

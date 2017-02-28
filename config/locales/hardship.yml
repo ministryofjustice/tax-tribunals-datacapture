@@ -18,6 +18,7 @@ en:
         edit:
           heading: Why will paying the tax under dispute cause financial hardship?
           lead_text: The judge will decide whether your appeal can continue without paying the tax first.
+          attach_document_html: <strong>Attach reasons as a document</strong>
   activemodel:
     errors:
       models:
@@ -33,6 +34,15 @@ en:
           attributes:
             hardship_review_status:
               inclusion: Select the status of your hardship application
+        steps/hardship/hardship_reason_form:
+          attributes:
+            hardship_reason:
+              too_short: You must enter the reasons (at least %{count} characters) or attach a document
+            hardship_reason_document:
+              blank: You must enter the reasons or attach a document
+              file_size: The attached file exceeds the maximum allowed size
+              content_type: The attached file is not a supported type
+              response_error: There was an error uploading the file. Please try again
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
