@@ -12,4 +12,10 @@ en:
       link_time_estimate: "%{minutes} minutes to complete"
     contact:
       heading: Contact us
-      lead_text: Copy needed
+      lead_text: Contact the tax tribunal helpline if you have any questions about completing the form or any other queries about the process.
+      description_html: |
+        <p class="lede">The helpline can't give you legal advice.</p>
+        <p>Tax tribunal helpline <a href="mailto:%{tax_tribunal_email}">%{tax_tribunal_email}</a></p>
+        <p>Telephone: %{tax_tribunal_phone}</p>
+        <p>Monday to Friday, 8:30am to 5pm</p>
+        <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
