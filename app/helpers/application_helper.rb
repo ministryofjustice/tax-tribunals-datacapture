@@ -28,4 +28,8 @@ module ApplicationHelper
   def appeal_or_application_params
     {appeal_or_application: I18n.translate("generic.appeal_or_application.#{current_tribunal_case.appeal_or_application}")}
   end
+
+  def analytics_tracking_id
+    ENV['GA_TRACKING_ID']
+  end
 end

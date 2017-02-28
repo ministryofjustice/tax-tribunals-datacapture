@@ -18,6 +18,10 @@
   </div>
 <% end %>
 
+<% content_for(:body_start) do %>
+  <%= render partial: 'layouts/analytics' if analytics_tracking_id.present? %>
+<% end %>
+
 <% content_for(:content) do %>
   <main id="content" role="main">
     <%= render partial: 'layouts/phase_banner' %>
