@@ -72,4 +72,11 @@ RSpec.describe ApplicationHelper do
       expect(helper.translate_with_appeal_or_application('.foobar', random_param: 'something')).to eq('Yay!')
     end
   end
+
+  describe '#analytics_tracking_id' do
+    it 'retrieves the environment variable' do
+      expect(ENV).to receive(:[]).with('GA_TRACKING_ID')
+      helper.analytics_tracking_id
+    end
+  end
 end
