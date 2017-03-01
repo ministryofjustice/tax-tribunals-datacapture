@@ -2,12 +2,9 @@
   <div class="column-two-thirds">
     <h1 class="heading-large"><%= t '.heading' %></h1>
 
-    <h1 class="heading-large">
-      <span class="heading-secondary"><%= t '.case_reference' %></span>
-      <span><%= @tribunal_case.case_reference %></span>
-    </h1>
-
-    <p><%= t '.note_number' %></p>
+    <% if @tribunal_case.case_reference.present? %>
+      <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>
+    <% end %>
 
     <h2 class="heading-medium">
       <%= link_to t('.save_or_print_pdf'), steps_details_check_answers_path(format: :pdf), target: '_blank' %>

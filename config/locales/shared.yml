@@ -1,0 +1,5 @@
+en:
+  shared:
+    confirmation_case_reference:
+      case_reference: 'Your case reference number is:'
+      note_number: Please make a note of this number in case you need to contact us.
