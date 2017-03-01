@@ -8,7 +8,7 @@
 
     <p><%=t 'shared.file_upload.technical_info' %></p>
 
-    <%= form_tag documents_url, multipart: true, class: 'hide-when-js-is-loaded' do %>
+    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'hide-when-js-is-loaded' do %>
       <%= file_field_tag :document %>
       <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
