@@ -29,18 +29,18 @@ class CaseType < ValueObject
     { direct_tax: false, ask_dispute_type: true, ask_penalty: true, ask_hardship: true, ask_challenged: true, appeal_or_application: :appeal }
   end
 
-  # TODO: we need to do an audit of the following case types to make sure they follow the correct path in the decision tree
+  # This list is sorted alphabetically by what we actually call the case types in the UI
   VALUES = [
+    APN_PENALTY                  = new(:apn_penalty,                  direct_tax: false, ask_dispute_type: false, ask_penalty: true, ask_hardship: false, appeal_or_application: :appeal),
     AGGREGATES_LEVY              = new(:aggregates_levy,              indirect_tax_properties),
     AIR_PASSENGER_DUTY           = new(:air_passenger_duty,           indirect_tax_properties),
     ALCOHOLIC_LIQUOR_DUTIES      = new(:alcoholic_liquor_duties,      indirect_tax_properties),
-    APN_PENALTY                  = new(:apn_penalty,                  direct_tax: false, ask_dispute_type: false, ask_penalty: true, ask_hardship: false, appeal_or_application: :appeal),
+    COUNTERACTION_NOTICE         = new(:counteraction_notice,         direct_tax_properties),
     BINGO_DUTY                   = new(:bingo_duty,                   indirect_tax_properties),
     CAPITAL_GAINS_TAX            = new(:capital_gains_tax,            direct_tax_properties),
     CLIMATE_CHANGE_LEVY          = new(:climate_change_levy,          indirect_tax_properties),
     CONSTRUCTION_INDUSTRY_SCHEME = new(:construction_industry_scheme, direct_tax_properties),
     CORPORATION_TAX              = new(:corporation_tax,              direct_tax_properties),
-    COUNTERACTION_NOTICE         = new(:counteraction_notice,         direct_tax_properties),
     COUNTER_TERRORISM            = new(:counter_terrorism,            direct_tax: true, ask_dispute_type: false, ask_penalty: false, ask_hardship: false, appeal_or_application: :appeal),
     CUSTOMS_DUTY                 = new(:customs_duty,                 indirect_tax_properties),
     DOTAS_PENALTY                = new(:dotas_penalty,                direct_tax_properties),
