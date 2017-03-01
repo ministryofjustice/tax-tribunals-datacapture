@@ -1,4 +1,6 @@
-<p>
-  <span class="case-reference"><%= tribunal_case.case_reference || 'NO REF' %></span>
-</p>
-<br/>
+<% if tribunal_case.case_reference.present? %>
+  <p>
+    <span class="case-reference"><%= tribunal_case.case_reference %></span>
+  </p>
+  <br/>
+<% end %>
