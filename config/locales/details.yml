@@ -104,6 +104,7 @@ en:
               </div>
             </div>
           download_button_text: Download PDF
+          attach_document_html: <strong>Attach approval as a document</strong>
       representative_type:
         edit:
           heading:

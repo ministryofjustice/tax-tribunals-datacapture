@@ -2,9 +2,11 @@ require 'spec_helper'
 
 RSpec.describe Steps::Details::RepresentativeApprovalForm do
   let(:arguments) { {
-    tribunal_case: tribunal_case
+    tribunal_case: tribunal_case,
+    representative_approval_document: representative_approval_document
   } }
-  let(:tribunal_case) { instance_double(TribunalCase) }
+  let(:tribunal_case) { instance_double(TribunalCase, representative_approval_file_name: nil, files_collection_ref: 'ABC123') }
+  let(:representative_approval_document) { nil }
 
   subject { described_class.new(arguments) }
 
@@ -17,9 +19,47 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
       end
     end
 
-    context 'when it is called' do
-      it 'does nothing yet' do
-        expect(subject.save).to be(true)
+    context 'when no document has been provided' do
+      let(:representative_approval_document) { nil }
+
+      it 'returns true' do
+        expect(tribunal_case).to receive(:update).with(representative_approval_file_name: nil).and_return(true)
+        expect(subject.save).to eq(true)
+      end
+    end
+
+    context 'when a document has been provided' do
+      context 'and it is not valid' do
+        let(:representative_approval_document) { fixture_file_upload('files/image.jpg', 'application/zip') }
+
+        it 'should retrieve the errors from the uploader' do
+          expect(subject.errors).to receive(:add).with(:representative_approval_document, String).and_call_original
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context 'and it is valid' do
+        let(:representative_approval_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
+
+        context 'document upload successful' do
+          it 'saves the record' do
+            expect(tribunal_case).to receive(:update).with(
+              representative_approval_file_name: 'image.jpg'
+            ).and_return(true)
+
+            expect(Uploader).to receive(:add_file).with(hash_including(document_key: :representative_approval)).and_return({})
+
+            expect(subject.save).to be(true)
+          end
+        end
+
+        context 'document upload unsuccessful' do
+          it 'doesn\'t save the record' do
+            expect(tribunal_case).not_to receive(:update)
+            expect(subject).to receive(:upload_document_if_present).and_return(false)
+            expect(subject.save).to be(false)
+          end
+        end
       end
     end
   end
