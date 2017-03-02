@@ -31,7 +31,7 @@ class CaseType < ValueObject
 
   # This list is sorted alphabetically by what we actually call the case types in the UI
   VALUES = [
-    APN_PENALTY                  = new(:apn_penalty,                  ask_penalty: true, appeal_or_application: :appeal),
+    APN_PENALTY                  = new(:apn_penalty,                  direct_tax: true, ask_penalty: true, ask_challenged: true, appeal_or_application: :appeal),
     AGGREGATES_LEVY              = new(:aggregates_levy,              indirect_tax_properties),
     AIR_PASSENGER_DUTY           = new(:air_passenger_duty,           indirect_tax_properties),
     ALCOHOLIC_LIQUOR_DUTIES      = new(:alcoholic_liquor_duties,      indirect_tax_properties),
