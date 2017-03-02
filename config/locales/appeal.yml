@@ -24,61 +24,67 @@ en:
           continue: Continue
       challenged_decision:
         edit:
-          heading: Did you challenge the original decision in writing?
+          heading: Did you appeal the original decision with HMRC?
           help_panel:
             heading: Help with challenging a tax decision
             content_html: >
-              <p>The original notice letter will say how you can query or challenge a tax decision.</p>
-              <p>You can still appeal to the tax tribunal after you have challenged the decision.</p>
-              <p>If you accepted or asked for a review, you can only appeal to the tribunal once you receive a review conclusion letter, or wait 45 days without receiving one. Your appeal risks being rejected if a review is ongoing.</p>
-              <p>You can find out more information using the following:</p>
+              <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
+              <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
+              <p>Find out about:</p>
               <ul class="list list-bullet">
-                <li><a href="https://www.gov.uk/tax-appeals">challenge a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
                 <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
                 <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
               </ul>
       case_type:
         edit:
           heading: What is your appeal about?
-          lead_text: You will find this information on either the original notice letter or review conclusion letter.
+          lead_text: Check the original notice letter or review conclusion letter.
       case_type_show_more:
         edit:
           heading: What is your appeal about?
-          lead_text: You will find this information on either the original notice letter or review conclusion letter.
+          lead_text: Check the original notice letter or review conclusion letter.
       dispute_type:
         edit:
           heading: What is your dispute about?
-          lead_text: You will find this information on either the original notice letter or review conclusion letter from HMRC.
+          lead_text: Check the original notice letter or review conclusion letter.
       penalty_amount:
         edit:
-          heading: What is the penalty or surcharge amount?
-          lead_text: Select an option below based on the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+          heading: How much is the penalty or surcharge you are disputing?
+          lead_text: Check the original notice letter or review conclusion letter for this information.
           penalty_level_1: £100 or less
           penalty_level_2: over £100 – £20,000
           penalty_level_3: over £20,000
       tax_amount:
         edit:
-          heading: What amount of tax is under dispute?
-          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+          heading: How much tax is under dispute?
+          lead_text: Check the original notice letter or review conclusion letter for this information.
       penalty_and_tax_amounts:
         edit:
-          heading: What is the tax amount and penalty or surcharge amount?
-          lead_text: Enter the amount shown on the original notice letter or review conclusion letter you received from HMRC.
+          heading: What are the tax and penalty or surcharge amounts under dispute?
+          lead_text: Both figures must be shown on the same letter, either the original notice or review conclusion letter.
       must_challenge_hmrc:
         show:
-          heading: You must challenge the decision before you can appeal
-          lead_text: The original notice letter will say how you can query or challenge a tax decision.
-          free_to_challenge_hmrc_heading: You will be able to appeal to the tax tribunal once you have written to challenge the decision.
-          free_to_challenge_hmrc_guidance_html: See the guidance on what to do when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.
+          heading: You must appeal the original decision with HMRC
+          lead_text: The original notice letter will explain what to do. 
+          free_to_challenge_hmrc_heading: You will only be able to appeal to the tax tribunal once you have written to HMRC.
+          free_to_challenge_hmrc_guidance_html: Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.
           contact_hmrc_button: Contact HMRC
           start_again: Start again
       must_wait_for_challenge_decision:
         show:
-          heading: You must wait for a decision - Copy needed
-          lead_text: Copy needed
+          heading: You must wait before you can appeal
+          lead_text_html: >
+            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
+            <ul class="list list-bullet">
+              <li>received a review conclusion letter</li>
+              <li>waited 45 days and not received a letter</li>
+            </ul>
+
       challenged_decision_status:
         edit:
-          heading: Did you receive a response to your challenge?
+          heading: What response did you receive?
+
   activemodel:
     errors:
       models:
@@ -128,11 +134,11 @@ en:
           'no': 'No'
       steps_appeal_challenged_decision_status_form:
         challenged_decision_status:
-          received: Yes, I have a review conclusion letter
-          pending: 'No'
-          overdue: No, I've been waiting for 45 days or more
-          refused: 'Refused due to being "out of time"'
-          not_required: Did not require a review
+          received: I have a review conclusion letter
+          pending: I have been waiting less than 45 days for a review to finish
+          overdue: I have been waiting for 45 days or more for a review to finish
+          refused: I was refused a review as I was outside the time limit
+          not_required: I was offered a review but didn’t accept
       steps_appeal_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment
@@ -150,7 +156,7 @@ en:
           aggregates_levy_html: <strong>Aggregates Levy</strong>
           air_passenger_duty_html: <strong>Air Passenger Duty</strong>
           alcoholic_liquor_duties_html: <strong>Alcoholic Liquor Duties</strong>
-          counteraction_notice_html: <strong>Apply for a decision on an enquiry</strong><br>force HMRC to issue a counteraction notice
+          counteraction_notice_html: <strong>Counteraction notice</strong><br>request HMRC issue a counteraction notice or no counteraction notice
           bingo_duty_html: <strong>Bingo Duty</strong>
           climate_change_levy_html: <strong>Climate Change Levy</strong>
           construction_industry_scheme_html: <strong>Construction Industry Scheme (CIS)</strong>
@@ -180,21 +186,21 @@ en:
       steps_appeal_dispute_type_form:
         dispute_type_other_value: What is your dispute about?
         dispute_type:
-          penalty_html: <strong>Penalty or surcharge</strong>
-          amount_of_tax_owed_by_hmrc_html: <strong>HMRC should repay tax to you</strong>
+          penalty_html: <strong>Penalty or surcharge</strong><br>for example late payment, inaccurate returns or failure to notify tax liability
+          amount_of_tax_owed_by_hmrc_html: <strong>You want HMRC to repay tax to you</strong>
           amount_of_tax_owed_by_taxpayer_html: <strong>HMRC claim you owe tax</strong>
-          amount_and_penalty_html: <strong>HMRC claim you owe tax and a penalty or surcharge</strong><br>both must be shown on the same letter
+          amount_and_penalty_html: <strong>HMRC claim you owe tax and a penalty or surcharge</strong><br>both disputes must be shown on the original notice or review conclusion letter
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
           information_notice_html: <strong>Appeal against an information notice</strong>
           other_html: <strong>None of the above</strong>
       steps_appeal_penalty_amount_form:
-        penalty_amount: What is the penalty or surcharge amount? (Optional)
+        penalty_amount: Enter the penalty or surcharge amount (optional)
         penalty_level:
           penalty_level_1: £100 or less
           penalty_level_2: over £100 – £20,000
           penalty_level_3: over £20,000
       steps_appeal_tax_amount_form:
-        tax_amount: The amount of tax under dispute (optional)
+        tax_amount: Enter the amount of tax under dispute (optional)
       steps_appeal_penalty_and_tax_amounts_form:
-        tax_amount: The amount of tax you are disputing (optional)
-        penalty_amount: The penalty or surcharge amount you are disputing (optional)
+        tax_amount: Enter the amount of tax under dispute (optional)
+        penalty_amount: Enter the penalty or surcharge amount (optional)
