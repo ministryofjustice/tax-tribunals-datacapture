@@ -30,7 +30,7 @@
         <% document_list.each do |doc| %>
             <li class="file hide-when-js-is-loaded">
               <%= doc.name %>
-              <%= button_to 'Remove', document_path(doc), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+              <%= button_to 'Remove', document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
             </li>
 
             <li class="file js-hidden show-when-js-is-loaded">

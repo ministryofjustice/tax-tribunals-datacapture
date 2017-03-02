@@ -43,7 +43,7 @@ class AppealDecisionTree < DecisionTree
     if tribunal_case_is_challenged?
       edit(:challenged_decision_status)
     elsif tribunal_case_is_unchallenged_indirect_tax?
-      edit(:dispute_type)
+      dispute_or_penalties_decision
     else
       show(:must_challenge_hmrc)
     end

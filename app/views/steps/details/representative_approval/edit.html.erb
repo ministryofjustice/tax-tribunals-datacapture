@@ -17,9 +17,14 @@
       </div>
     </details>
 
-    <%= step_form @form_object do |f| %>
-      <!-- TODO: Add form fields here -->
-      <%= f.submit class: 'button' %>
-    <% end %>
+    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:representative_approval) %>">
+      <%= step_form @form_object do |f| %>
+        <%= document_upload_field(f, :representative_approval, label_text: t('.attach_document_html')) %>
+
+        <%= f.submit class: 'button document_upload_continue' %>
+      <% end %>
+
+      <%= display_current_document(:representative_approval) %>
+    </div>
   </div>
 </div>

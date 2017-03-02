@@ -28,4 +28,11 @@ RSpec.describe HomeController do
       expect(response).to render_template(:contact)
     end
   end
+
+  describe '#terms_and_conditions' do
+    it 'renders the expected page' do
+      get :terms_and_conditions
+      expect(response).to render_template(:terms_and_conditions)
+    end
+  end
 end

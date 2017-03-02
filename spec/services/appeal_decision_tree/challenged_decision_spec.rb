@@ -27,15 +27,30 @@ RSpec.describe AppealDecisionTree, '#destination' do
   end
 
   context 'for an indirect tax' do
-    let(:case_type) { CaseType.new(:dummy, direct_tax: false) }
-
     context 'and the case has not been challenged' do
       let(:challenged_decision) { ChallengedDecision::NO }
 
-      it { is_expected.to have_destination(:dispute_type, :edit) }
+      context 'and the case type asks dispute type' do
+        let(:case_type) { CaseType.new(:dummy, direct_tax: false, ask_dispute_type: true) }
+
+        it { is_expected.to have_destination(:dispute_type, :edit) }
+      end
+
+      context 'and the case type asks penalty' do
+        let(:case_type) { CaseType.new(:dummy, direct_tax: false, ask_penalty: true) }
+
+        it { is_expected.to have_destination(:penalty_amount, :edit) }
+      end
+
+      context 'and the case type does not ask dispute type or penalty' do
+        let(:case_type) { CaseType.new(:dummy, direct_tax: false) }
+
+        it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
+      end
     end
 
     context 'and the case has been challenged' do
+      let(:case_type) { CaseType.new(:dummy, direct_tax: false) }
       let(:challenged_decision) { ChallengedDecision::YES }
 
       it { is_expected.to have_destination(:challenged_decision_status, :edit) }
