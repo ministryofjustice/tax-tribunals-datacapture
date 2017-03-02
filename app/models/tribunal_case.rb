@@ -51,10 +51,10 @@ class TribunalCase < ApplicationRecord
   end
 
   def started_by_taxpayer?
-    user_type.equal?(UserType::TAXPAYER)
+    user_type.eql?(UserType::TAXPAYER)
   end
 
   def started_by_representative?
-    user_type.equal?(UserType::REPRESENTATIVE)
+    user_type.eql?(UserType::REPRESENTATIVE)
   end
 end

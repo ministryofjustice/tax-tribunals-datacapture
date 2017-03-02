@@ -2,14 +2,9 @@ require 'rails_helper'
 
 RSpec.shared_examples 'a Notify mail' do |options|
   let(:template_id) { options.fetch(:template_id) }
-  let(:recipient)   { options.fetch(:recipient) }
 
   it 'is a govuk_notify delivery' do
     expect(mail.delivery_method).to be_a(GovukNotifyRails::Delivery)
-  end
-
-  it 'sets the recipient' do
-    expect(mail.to).to eq([recipient])
   end
 
   it 'sets the template' do
