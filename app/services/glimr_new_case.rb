@@ -8,7 +8,7 @@ class GlimrNewCase
     @tribunal_case = tribunal_case
   end
 
-  def call!
+  def call
     GlimrApiClient::RegisterNewCase.call(params).tap { |api|
       @case_reference = api.response_body[:tribunalCaseNumber]
       @confirmation_code = api.response_body[:confirmationCode]
@@ -16,13 +16,8 @@ class GlimrNewCase
     self
   rescue => e
     Rails.logger.info({ caller: self.class.name, method: __callee__, error: e }.to_json)
-
-    case e
-    when GlimrApiClient::Unavailable
-      tribunal_case.update(case_status: CaseStatus::SUBMITTED)
-    else
-      raise e
-    end
+    Raven.capture_exception(e)
+    self
   end
 
   def params

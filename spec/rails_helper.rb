@@ -23,3 +23,8 @@ RSpec.configure do |config|
 end
 
 RSpec::Matchers.define_negated_matcher :not_change, :change
+
+# So we don't need to require the gem in test scenarios
+class Raven
+  def self.capture_exception(_ex); end;
+end
