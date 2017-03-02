@@ -47,6 +47,19 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       end
     end
 
+    context 'when the appeal is about money laundering' do
+      let(:case_type) { CaseType::MONEY_LAUNDERING_DECISIONS }
+
+      it 'shows only the relevant choices' do
+        expect(subject.choices).to eq(%w(
+          penalty
+          refusal_to_register_applicant
+          cancellation_of_registration
+          other
+        ))
+      end
+    end
+
     context 'when the appeal is about anything else' do
       let(:case_type) { CaseType.new(:anything) }
 

@@ -9,32 +9,55 @@ module Steps::Appeal
     def choices
       case tribunal_case&.case_type
       when CaseType::INFORMATION_NOTICE
-        [
-          DisputeType::PENALTY,
-          DisputeType::INFORMATION_NOTICE,
-          DisputeType::OTHER
-        ]
+        information_notice_choices
       when CaseType::INCOME_TAX
-        [
-          DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
-          DisputeType::AMOUNT_AND_PENALTY,
-          DisputeType::PAYE_CODING_NOTICE,
-          DisputeType::OTHER
-        ]
+        income_tax_choices
+      when CaseType::MONEY_LAUNDERING_DECISIONS
+        money_laundering_choices
       else
-        [
-          DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
-          DisputeType::AMOUNT_AND_PENALTY,
-          DisputeType::OTHER
-        ]
+        default_choices
       end.map(&:to_s)
     end
 
     private
+
+    def information_notice_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::INFORMATION_NOTICE,
+        DisputeType::OTHER
+     ]
+    end
+
+    def income_tax_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
+        DisputeType::AMOUNT_AND_PENALTY,
+        DisputeType::PAYE_CODING_NOTICE,
+        DisputeType::OTHER
+      ]
+    end
+
+    def money_laundering_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::REFUSAL_TO_REGISTER_APPLICANT,
+        DisputeType::CANCELLATION_OF_REGISTRATION,
+        DisputeType::OTHER
+      ]
+    end
+
+    def default_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
+        DisputeType::AMOUNT_AND_PENALTY,
+        DisputeType::OTHER
+      ]
+    end
 
     def dispute_type_value
       DisputeType.new(dispute_type)

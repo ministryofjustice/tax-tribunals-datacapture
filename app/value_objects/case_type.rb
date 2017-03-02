@@ -55,7 +55,7 @@ class CaseType < ValueObject
     INSURANCE_PREMIUM_TAX        = new(:insurance_premium_tax,        indirect_tax_properties),
     LANDFILL_TAX                 = new(:landfill_tax,                 indirect_tax_properties),
     LOTTERY_DUTY                 = new(:lottery_duty,                 indirect_tax_properties),
-    MONEY_LAUNDERING_DECISIONS   = new(:money_laundering_decisions,   direct_tax: true, ask_hardship: true, appeal_or_application: :appeal),
+    MONEY_LAUNDERING_DECISIONS   = new(:money_laundering_decisions,   ask_dispute_type: true, ask_challenged: true, appeal_or_application: :appeal),
     NI_CONTRIBUTIONS             = new(:ni_contributions,             direct_tax_properties),
     PETROLEUM_REVENUE_TAX        = new(:petroleum_revenue_tax,        direct_tax_properties),
     POOL_BETTING_DUTY            = new(:pool_betting_duty,            indirect_tax_properties),
