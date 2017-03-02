@@ -4,7 +4,10 @@
 
     <h1 class="heading-large"><%=t '.heading' %></h1>
     <p class="lede">
-      <%=t '.lead_text' %>
+      <%=t '.lead_text_html' %>
     </p>
+
+<%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.finish')} %>
+
   </div>
 </div>
