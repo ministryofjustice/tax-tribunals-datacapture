@@ -7,11 +7,6 @@ RSpec.describe ApplicationController do
     def another_exception; raise Exception; end
   end
 
-  # So we don't need to require the gem in these test scenarios
-  class Raven
-    def self.capture_exception(_ex); end;
-  end
-
   context 'Exceptions handling' do
     before do
       allow(Rails).to receive(:env).and_return('production'.inquiry)
