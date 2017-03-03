@@ -43,7 +43,7 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   context 'when the user is the taxpayer' do
-    let(:attributes) { { user_type: UserType::TAXPAYER } }
+    let(:attributes) { { user_type: UserType.new(:taxpayer) } }
     describe '#started_by_taxpayer?' do
       specify { expect(subject.started_by_taxpayer?).to be(true) }
     end
@@ -54,7 +54,7 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   context 'when the user is a representative' do
-    let(:attributes) { { user_type: UserType::REPRESENTATIVE} }
+    let(:attributes) { { user_type: UserType.new(:representative)} }
     describe '#started_by_taxpayer?' do
       specify { expect(subject.started_by_taxpayer?).to be(false) }
     end
