@@ -3,8 +3,7 @@ module Steps::Closure
     attribute :having_problems_uploading_documents, Boolean
     attribute :having_problems_uploading_details, String
 
-    validates_length_of :having_problems_uploading_details, minimum: 2,
-                        if: :having_problems_uploading_documents
+    validates_presence_of :having_problems_uploading_details, if: :having_problems_uploading_documents
 
     private
 

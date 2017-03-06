@@ -25,7 +25,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     end
 
     context 'when validations fail' do
-      context 'when grounds_for_appeal and grounds_for_appeal_document are not present' do
+      context 'when grounds_for_appeal nor grounds_for_appeal_document are present' do
         let(:grounds_for_appeal) { nil }
 
         it 'returns false' do
@@ -35,11 +35,6 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         it 'has a validation error on the grounds_for_appeal field' do
           expect(subject).to_not be_valid
           expect(subject.errors[:grounds_for_appeal]).to eq(['You must enter the reasons or attach a document'])
-        end
-
-        it 'has a validation error on the grounds_for_appeal_document field' do
-          expect(subject).to_not be_valid
-          expect(subject.errors[:grounds_for_appeal_document]).to eq(['You must enter the reasons or attach a document'])
         end
       end
 

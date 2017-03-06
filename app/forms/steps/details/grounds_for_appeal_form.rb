@@ -3,8 +3,7 @@ module Steps::Details
     attribute :grounds_for_appeal, String
     attribute :grounds_for_appeal_document, DocumentUpload
 
-    validates_presence_of :grounds_for_appeal, if: :requires_appeal_text?
-    validates_presence_of :grounds_for_appeal_document, if: :requires_appeal_document?
+    validates_presence_of :grounds_for_appeal, unless: :document_provided?
     validate :valid_uploaded_file
 
     private
@@ -23,12 +22,8 @@ module Steps::Details
       retrieve_document_errors
     end
 
-    def requires_appeal_text?
-      tribunal_case&.grounds_for_appeal_file_name.blank? && grounds_for_appeal_document.blank?
-    end
-
-    def requires_appeal_document?
-      grounds_for_appeal.blank? && requires_appeal_text?
+    def document_provided?
+      (tribunal_case&.grounds_for_appeal_file_name || grounds_for_appeal_document).present?
     end
 
     def upload_document_if_present

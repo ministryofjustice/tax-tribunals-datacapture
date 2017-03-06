@@ -70,32 +70,14 @@ RSpec.describe Steps::Details::DocumentsChecklistForm do
         end
       end
 
+      context 'when having_problems_uploading_documents is not selected' do
+        let(:having_problems_uploading_documents) { false }
+        it { should_not validate_presence_of(:having_problems_uploading_details) }
+      end
+
       context 'when having_problems_uploading_documents is selected' do
         let(:having_problems_uploading_documents) { true }
-
-        context 'no explanation provided' do
-          it 'has a validation error' do
-            expect(subject).to_not be_valid
-            expect(subject.errors[:having_problems_uploading_details]).to_not be_empty
-          end
-        end
-
-        context 'explanation provided is too short' do
-          let(:having_problems_uploading_details) { 'x' }
-
-          it 'has a validation error' do
-            expect(subject).to_not be_valid
-            expect(subject.errors[:having_problems_uploading_details]).to_not be_empty
-          end
-        end
-
-        context 'explanation provided is long enough' do
-          let(:having_problems_uploading_details) { 'xx' }
-
-          it 'has no validation errors' do
-            expect(subject).to be_valid
-          end
-        end
+        it { should validate_presence_of(:having_problems_uploading_details) }
       end
     end
 

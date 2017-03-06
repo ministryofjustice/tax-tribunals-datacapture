@@ -2,7 +2,7 @@ module Steps::Lateness
   class LatenessReasonForm < BaseForm
     attribute :lateness_reason, String
 
-    validates_length_of :lateness_reason, minimum: 5
+    validates_presence_of :lateness_reason
 
     def lateness_unknown?
       tribunal_case.in_time == InTime::UNSURE

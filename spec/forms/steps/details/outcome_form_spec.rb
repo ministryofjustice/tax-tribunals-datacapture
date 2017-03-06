@@ -11,36 +11,14 @@ RSpec.describe Steps::Details::OutcomeForm do
   subject { described_class.new(arguments) }
 
   describe '#save' do
+    it { should validate_presence_of(:outcome) }
+
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)  { nil }
       let(:outcome) { 'my desired outcome' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
-      end
-    end
-
-    context 'when outcome is not given' do
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:outcome]).to_not be_empty
-      end
-    end
-
-    context 'when outcome is not valid' do
-      let(:outcome) { 'too short' }
-
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:outcome]).to_not be_empty
       end
     end
 

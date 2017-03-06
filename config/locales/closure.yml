@@ -129,12 +129,6 @@ en:
   activemodel:
     errors:
       models:
-        steps/closure/enquiry_details_form:
-          attributes:
-            closure_hmrc_reference:
-              blank: Enter the reference number
-            closure_years_under_enquiry:
-              blank: Enter the years under enquiry
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_details:

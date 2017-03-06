@@ -29,26 +29,9 @@ RSpec.describe Steps::Closure::EnquiryDetailsForm do
       end
     end
 
-    context 'when enquiry details are not given' do
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the closure_hmrc_reference field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:closure_hmrc_reference]).to_not be_empty
-      end
-
-      it 'has a validation error on the closure_years_under_enquiry field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:closure_years_under_enquiry]).to_not be_empty
-      end
-
-      it 'does not have a validation error on the closure_hmrc_officer field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:closure_hmrc_officer]).to be_empty
-      end
-    end
+    it { should validate_presence_of(:closure_hmrc_reference) }
+    it { should validate_presence_of(:closure_years_under_enquiry) }
+    it { should_not validate_presence_of(:closure_hmrc_officer) }
 
     context 'when enquiry details are valid' do
       let(:closure_hmrc_reference) { 'hmrc reference' }

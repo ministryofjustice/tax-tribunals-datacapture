@@ -8,8 +8,7 @@ module Steps::Details
     validate :documents_uploaded, :letter_checkboxes_ticked,
              if: :tribunal_case, unless: :having_problems_uploading_documents
 
-    validates_length_of :having_problems_uploading_details,
-                        if: :having_problems_uploading_documents, minimum: 2
+    validates_presence_of :having_problems_uploading_details, if: :having_problems_uploading_documents
 
     private
 
