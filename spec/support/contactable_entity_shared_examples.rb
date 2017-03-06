@@ -48,7 +48,20 @@ RSpec.shared_examples 'a contactable entity form' do |params|
       end
     end
 
+    default_fields.each do |field|
+      context "when #{field} contains spaces" do
+        let(:fields_with_dummy_values) { super().merge(field => '  dummy value  ') }
+
+        it 'should trim the field' do
+          value = subject.send(field)
+          expect(value).to eq('dummy value')
+        end
+      end
+    end
+
     context 'when the details are valid' do
+      let(:fields_with_dummy_values) { super().merge(:"#{entity_type}_contact_email" => 'a@b.com') }
+
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(fields_with_dummy_values).and_return(true)
         expect(subject.save).to be(true)

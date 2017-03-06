@@ -273,6 +273,14 @@ en:
           attributes:
             taxpayer_type:
               inclusion: Select whether the appeal is for an individual, company or organisation
+        steps/details/taxpayer_details_form:
+          attributes:
+            taxpayer_contact_email:
+              invalid: You must type a valid email address
+        steps/details/representative_details_form:
+          attributes:
+            representative_contact_email:
+              invalid: You must type a valid email address
         steps/details/representative_is_legal_professional_form:
           attributes:
             representative_is_legal_professional:

@@ -25,13 +25,7 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
 
     describe '#representative_contact_email' do
       let(:tribunal_case) { instance_double(TribunalCase, started_by_representative?: true) }
-      before do
-        subject.valid?
-      end
-
-      it 'is required' do
-        expect(subject.errors[:representative_contact_email]).not_to be_blank
-      end
+      it { should validate_email(:representative_contact_email) }
     end
   end
 
@@ -40,12 +34,14 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
 
     describe '#representative_contact_email' do
       let(:tribunal_case) { instance_double(TribunalCase, started_by_representative?: false) }
-      before do
+
+      it 'email is not required' do
         subject.valid?
+        expect(subject.errors[:representative_contact_email]).to be_blank
       end
 
-      it 'is not required' do
-        expect(subject.errors[:representative_contact_email]).to be_blank
+      it 'email is validated if filled' do
+        should validate_email(:representative_contact_email)
       end
     end
   end

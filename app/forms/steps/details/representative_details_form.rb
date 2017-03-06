@@ -1,18 +1,22 @@
 module Steps::Details
   class RepresentativeDetailsForm < BaseForm
-    attribute :representative_contact_address, String
-    attribute :representative_contact_postcode, String
-    attribute :representative_contact_email, String
-    attribute :representative_contact_phone, String
+    attribute :representative_contact_address, StrippedString
+    attribute :representative_contact_postcode, StrippedString
+    attribute :representative_contact_email, StrippedString
+    attribute :representative_contact_phone, StrippedString
 
     validates_presence_of :representative_contact_address,
                           :representative_contact_postcode
 
-    validates_presence_of :representative_contact_email, if: :started_by_representative?
+    validates :representative_contact_email, email: true, if: :started_by_representative_or_present?
 
     private
 
     delegate :started_by_representative?, to: :tribunal_case
+
+    def started_by_representative_or_present?
+      started_by_representative? || representative_contact_email.present?
+    end
 
     def persist!(additional_attributes)
       raise 'No TribunalCase given' unless tribunal_case
