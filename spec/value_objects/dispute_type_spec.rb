@@ -12,7 +12,10 @@ RSpec.describe DisputeType do
         amount_of_tax_owed_by_taxpayer
         amount_and_penalty
         paye_coding_notice
-        information_notice other
+        information_notice
+        refusal_to_register_applicant
+        cancellation_of_registration
+        other
       ))
     end
   end

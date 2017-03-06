@@ -192,6 +192,8 @@ en:
           amount_and_penalty_html: <strong>HMRC claim you owe tax and a penalty or surcharge</strong><br>both disputes must be shown on the original notice or review conclusion letter
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
           information_notice_html: <strong>Appeal against an information notice</strong>
+          refusal_to_register_applicant_html: <strong>Refusal to register an applicant</strong>
+          cancellation_of_registration_html: <strong>Cancellation of registration</strong>
           other_html: <strong>None of the above</strong>
       steps_appeal_penalty_amount_form:
         penalty_amount: Enter the penalty or surcharge amount (optional)
