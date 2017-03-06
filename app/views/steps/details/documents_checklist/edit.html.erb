@@ -17,7 +17,7 @@
 
     <%= render partial: 'steps/shared/dropzone', locals: { document_list: @document_list } %>
 
-    <%= step_form @form_object do |f| %>
+    <%= step_form @form_object, html: { class: 'cf' } do |f| %>
         <div class="form-group supplied_letters_checkboxes">
           <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
             <%= f.check_box :original_notice_provided, form: 'new_steps_details_documents_checklist_form' %>
