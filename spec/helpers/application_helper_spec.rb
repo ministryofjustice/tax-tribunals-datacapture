@@ -8,13 +8,16 @@ class ActionView::TestCase::TestController
 end
 
 RSpec.describe ApplicationHelper do
-  let(:record) { double('Record') }
+  let(:record) { TribunalCase.new }
 
   describe '#step_form' do
     let(:expected_defaults) { {
       url: {
         controller: "application",
         action: :update
+      },
+      html: {
+        class: 'edit_tribunal_case'
       },
       method: :put
     } }
@@ -30,6 +33,11 @@ RSpec.describe ApplicationHelper do
     it 'accepts additional options like FormHelper#form_for would' do
       expect(helper).to receive(:form_for).with(record, expected_defaults.merge(foo: 'bar'))
       helper.step_form(record, { foo: 'bar' })
+    end
+
+    it 'appends optional css classes if provided' do
+      expect(helper).to receive(:form_for).with(record, expected_defaults.merge(html: {class: %w(test edit_tribunal_case)}))
+      helper.step_form(record, html: {class: 'test'})
     end
   end
 
