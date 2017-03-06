@@ -1,0 +1,19 @@
+<script id="extend-session" type="text/x-handlebars-template">
+  <div class="modal" id="session-modal" role="dialog" aria-labelledby="aria-label">
+    <span class="visuallyhidden" id="aria-label">
+      <%= t('session.expiring.aria-warning',
+              passed: Rails.configuration.x.session.expires_in_minutes - Rails.configuration.x.session.warning_when_remaining,
+              remain: Rails.configuration.x.session.warning_when_remaining,
+              session_length: Rails.configuration.x.session.expires_in_minutes) %>
+    </span>
+    <h2><%= t('session.expiring.heading') %></h2>
+    <p>
+      <%= t('session.expiring.in') %><span id="timeRemaining">{{remainingString}}&nbsp;</span>.
+    </p>
+    <p><%= t('session.expiring.security') %></p>
+    <p>
+      <button class="button secondary cancel" id="extend" href="#"><%= t('session.expiring.extend') %></button>
+      <button class="button secondary abort" id="destroy" href="#"><%= t('session.expiring.destroy') %></button>
+    </p>
+  </div>
+</script>

@@ -43,6 +43,10 @@
 
     <%= yield %>
   </main>
+  <% if current_tribunal_case %>
+    <%= render partial: 'shared/hbtemplates' %>
+    <div id="activateModalSessionTimer"></div>
+  <% end %>
 <% end %>
 
 <% content_for(:body_end) do %>

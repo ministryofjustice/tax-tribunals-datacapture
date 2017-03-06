@@ -10,10 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
+
 //= require dropzone
 //= require details.polyfill
+//= require handlebars-v1.3.0
+//= require jquery.simplemodal-1.4.5
+
 //= require_tree .
 
 //= require govuk_toolkit

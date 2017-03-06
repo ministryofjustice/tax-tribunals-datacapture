@@ -1,0 +1,30 @@
+@import "_colours";
+
+#session-modal {
+  width: 520px;
+  h2 {
+    background-color: #df3034;
+    background-image: image-url('icon-important-red-inverse.png');
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    color: $white;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 60px;
+    padding-left: 60px;
+  }
+  #timeRemaining {
+    padding-left: 5px;
+  }
+  p {
+    margin: 15px;
+    font-size: 19px;
+    a {
+      margin-left: 5px;
+      &:focus {
+        background-color: transparent;
+        border: 3px solid $yellow;
+      }
+    }
+  }
+}

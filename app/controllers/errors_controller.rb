@@ -21,4 +21,11 @@ class ErrorsController < ApplicationController
       format.json { head :internal_server_error }
     end
   end
+
+  def expired
+    respond_to do |format|
+      format.html
+      format.json { head :unauthorized }
+    end
+  end
 end
