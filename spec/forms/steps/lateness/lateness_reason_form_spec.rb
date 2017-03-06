@@ -38,36 +38,14 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
   end
 
   describe '#save' do
+    it { should validate_presence_of(:lateness_reason) }
+
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)  { nil }
       let(:lateness_reason) { 'I am a gummy bear' }
 
       it 'raises an error' do
         expect { subject.save }.to raise_error(RuntimeError)
-      end
-    end
-
-    context 'when lateness_reason is not given' do
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:lateness_reason]).to_not be_empty
-      end
-    end
-
-    context 'when lateness_reason is too short' do
-      let(:lateness_reason) { 'meh' }
-
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:lateness_reason]).to_not be_empty
       end
     end
 

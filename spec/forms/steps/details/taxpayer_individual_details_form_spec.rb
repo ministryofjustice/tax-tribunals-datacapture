@@ -25,13 +25,7 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
 
     describe '#taxpayer_contact_email' do
       let(:tribunal_case) { instance_double(TribunalCase, started_by_taxpayer?: true) }
-      before do
-        subject.valid?
-      end
-
-      it 'is required' do
-        expect(subject.errors[:taxpayer_contact_email]).not_to be_blank
-      end
+      it { should validate_presence_of(:taxpayer_contact_email) }
     end
   end
 
@@ -40,13 +34,7 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
 
     describe '#taxpayer_contact_email' do
       let(:tribunal_case) { instance_double(TribunalCase, started_by_taxpayer?: false) }
-      before do
-        subject.valid?
-      end
-
-      it 'is not required' do
-        expect(subject.errors[:taxpayer_contact_email]).to be_blank
-      end
+      it { should_not validate_presence_of(:taxpayer_contact_email) }
     end
   end
 end

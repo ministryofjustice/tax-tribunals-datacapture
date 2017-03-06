@@ -26,7 +26,7 @@ RSpec.describe Steps::Hardship::HardshipReasonForm do
     end
 
     context 'when validations fail' do
-      context 'when hardship_reason and hardship_reason_document are not present' do
+      context 'when hardship_reason nor hardship_reason_document are present' do
         let(:hardship_reason) { nil }
 
         it 'returns false' do
@@ -35,12 +35,7 @@ RSpec.describe Steps::Hardship::HardshipReasonForm do
 
         it 'has a validation error on the hardship_reason field' do
           expect(subject).to_not be_valid
-          expect(subject.errors[:hardship_reason]).to eq(['You must enter the reasons (at least 5 characters) or attach a document'])
-        end
-
-        it 'has a validation error on the hardship_reason_document field' do
-          expect(subject).to_not be_valid
-          expect(subject.errors[:hardship_reason_document]).to eq(['You must enter the reasons or attach a document'])
+          expect(subject.errors[:hardship_reason]).to eq(['You must enter the reasons or attach a document'])
         end
       end
 

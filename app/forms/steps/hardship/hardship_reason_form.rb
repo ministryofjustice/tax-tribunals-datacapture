@@ -3,8 +3,7 @@ module Steps::Hardship
     attribute :hardship_reason, String
     attribute :hardship_reason_document, DocumentUpload
 
-    validates_length_of :hardship_reason, minimum: 5, if: :requires_hardship_reason_text?
-    validates_presence_of :hardship_reason_document, if: :requires_hardship_reason_document?
+    validates_presence_of :hardship_reason, unless: :document_provided?
     validate :valid_uploaded_file
 
     private
@@ -22,12 +21,8 @@ module Steps::Hardship
       retrieve_document_errors
     end
 
-    def requires_hardship_reason_text?
-      tribunal_case&.hardship_reason_file_name.blank? && hardship_reason_document.blank?
-    end
-
-    def requires_hardship_reason_document?
-      hardship_reason.blank? && requires_hardship_reason_text?
+    def document_provided?
+      (tribunal_case&.hardship_reason_file_name || hardship_reason_document).present?
     end
 
     def upload_document_if_present

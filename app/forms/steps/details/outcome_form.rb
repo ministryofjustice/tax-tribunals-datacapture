@@ -2,7 +2,7 @@ module Steps::Details
   class OutcomeForm < BaseForm
     attribute :outcome, String
 
-    validates_length_of :outcome, minimum: 10
+    validates_presence_of :outcome
 
     private
 

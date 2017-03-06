@@ -126,16 +126,3 @@ en:
         closure_additional_info: Additional information
       steps_closure_support_documents_form:
         having_problems_uploading_details: Reasons you can't upload
-  activemodel:
-    errors:
-      models:
-        steps/closure/enquiry_details_form:
-          attributes:
-            closure_hmrc_reference:
-              blank: Enter the reference number
-            closure_years_under_enquiry:
-              blank: Enter the years under enquiry
-        steps/closure/support_documents_form:
-          attributes:
-            having_problems_uploading_details:
-              too_short: You must give a reason why you can't upload your documents

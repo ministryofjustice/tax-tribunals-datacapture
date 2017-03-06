@@ -114,6 +114,8 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
         let(:case_type) { 'other' }
         let(:case_type_object) { instance_double(CaseType) }
 
+        it { should validate_presence_of(:case_type_other_value) }
+
         context 'when other value entered' do
           let(:case_type_other_value) { 'my tax issue' }
 
@@ -131,19 +133,6 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
                 tax_amount: nil
             ).and_return(true)
             expect(subject.save).to be(true)
-          end
-        end
-
-        context 'when other value not entered' do
-          let(:case_type_other_value) { nil }
-
-          it 'returns false' do
-            expect(subject.save).to be(false)
-          end
-
-          it 'has a validation error on the field' do
-            expect(subject).to_not be_valid
-            expect(subject.errors[:case_type_other_value]).to_not be_empty
           end
         end
       end

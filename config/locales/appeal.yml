@@ -100,14 +100,10 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
-            case_type_other_value:
-              blank: Enter the type
         steps/appeal/dispute_type_form:
           attributes:
             dispute_type:
               inclusion: Select what your dispute is about
-            dispute_type_other_value:
-              blank: Enter the dispute
         steps/appeal/penalty_amount_form:
           attributes:
             penalty_level:

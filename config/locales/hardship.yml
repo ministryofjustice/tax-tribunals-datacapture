@@ -36,9 +36,8 @@ en:
         steps/hardship/hardship_reason_form:
           attributes:
             hardship_reason:
-              too_short: You must enter the reasons (at least %{count} characters) or attach a document
-            hardship_reason_document:
               blank: You must enter the reasons or attach a document
+            hardship_reason_document:
               file_size: The attached file exceeds the maximum allowed size
               content_type: The attached file is not a supported type
               response_error: There was an error uploading the file. Please try again

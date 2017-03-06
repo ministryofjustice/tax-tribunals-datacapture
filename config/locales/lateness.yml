@@ -20,10 +20,6 @@ en:
           attributes:
             in_time:
               inclusion: Select whether you think you are in time to appeal to the tax tribunal
-        steps/lateness/lateness_reason_form:
-          attributes:
-            lateness_reason:
-              too_short: You must explain why you are late. Use at least %{count} characters.
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend

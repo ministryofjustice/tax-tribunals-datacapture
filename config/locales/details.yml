@@ -290,27 +290,14 @@ en:
             grounds_for_appeal:
               blank: You must enter the reasons or attach a document
             grounds_for_appeal_document:
-              blank: You must enter the reasons or attach a document
               file_size: The attached file exceeds the maximum allowed size
               content_type: The attached file is not a supported type
               response_error: There was an error uploading the file. Please try again
-        steps/details/outcome_form:
-          attributes:
-            outcome:
-              too_short: You must outline the result you want. Use at least %{count} characters.
-        steps/details/taxpayer_individual_details_form:
-          blank: You must enter the taxpayer's %{attribute}
-        steps/details/taxpayer_company_details_form:
-          blank: You must enter the taxpayer's %{attribute}
-        steps/details/taxpayer_organisation_details_form:
-          blank: You must enter the taxpayer's %{attribute}
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:
               blank: You must select the letter(s) you have uploaded
               no_documents: You must upload a file
-            having_problems_uploading_details:
-              too_short: You must give a reason why you can't upload your documents
   helpers:
     fieldset:
       steps_details_user_type_form:
