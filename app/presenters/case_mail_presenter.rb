@@ -18,17 +18,21 @@ class CaseMailPresenter < SimpleDelegator
     started_by_representative? ? representative_contact_email : taxpayer_contact_email
   end
 
-  # Same logic as recipient email
-  def recipient_first_name
-    started_by_representative? ? representative_individual_first_name : taxpayer_individual_first_name
-  end
-
-  # Same logic as recipient email
-  def recipient_last_name
-    started_by_representative? ? representative_individual_last_name : taxpayer_individual_last_name
+  def recipient_name
+    started_by_representative? ? representative_contact_name : taxpayer_contact_name
   end
 
   private
+
+  def representative_contact_name
+    return representative_organisation_fao if representative_is_organisation?
+    [representative_individual_first_name, representative_individual_last_name].join(' ')
+  end
+
+  def taxpayer_contact_name
+    return taxpayer_organisation_fao if taxpayer_is_organisation?
+    [taxpayer_individual_first_name, taxpayer_individual_last_name].join(' ')
+  end
 
   def tribunal_case
     __getobj__
