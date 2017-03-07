@@ -49,6 +49,8 @@ end
 group :test do
   gem 'brakeman'
   gem 'capybara'
+  gem 'cucumber'
+  gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
