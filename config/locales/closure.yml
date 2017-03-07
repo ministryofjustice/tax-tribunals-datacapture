@@ -5,7 +5,7 @@ en:
         show:
           continue: Continue
           heading: Apply to close an enquiry
-          lead_text: Ask the judge to close an HMRC enquiry if you think it has gone on too long.
+          lead_text: Ask the judge to close a tax enquiry if you think it has gone on too long.
           description_html: |
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
@@ -16,31 +16,31 @@ en:
             </ul>
       case_type:
         edit:
-          heading: What type of tax return is under enquiry?
-          lead_text: The tax tribunal can only receive applications to close the following types of enquiry.
+          heading: What type of enquiry do you want to close?
+          lead_text: The tax tribunal can only deal with applications to close the following enquiries.
       enquiry_details:
         edit:
-          heading: Enter details for the enquiry you want to close
-          lead_text: You will find this information on any letters you have received from HMRC about the enquiry.
+          heading: Details of the enquiry you want closed
+          lead_text: Check letters about the enquiry for this information.
       additional_info:
         edit:
           heading: Say why you think the enquiry should close (optional)
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
-          lead_text: The tax tribunal is independent and doesn't have access to files from HMRC.
+          lead_text: The tax tribunal is independent and doesn't have access to any information you may have sent to HMRC.
           having_problems_uploading_documents_html: I am having trouble uploading my documents
       check_answers:
         show:
-          submit_and_continue: Submit and continue
+          submit_and_continue: Submit
           change: Change
           heading: Check your answers
           warning: Warning
-          warning_message: "Once you click 'Submit and continue', you cannot change your answers"
+          warning_message: "Once you click 'Submit', you cannot change your answers"
           declaration_of_truth: Declaration and statement of truth
           declaration_of_truth_message: |
-            By completing this Application to Close an Enquiry and clicking the ‘Submit and
-            continue’ button, I believe the information I have given in this
+            By completing this Application to Close an Enquiry to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit 
+            ’ button, I believe the information I have given in this
             form is true to the best of my knowledge. If I am found to have
             been deliberately untruthful or dishonest, criminal proceedings for
             fraud can be brought against me. I understand that if I have given
@@ -83,13 +83,13 @@ en:
           confirmation_email: We will send confirmation by email
           save_or_print_pdf: Save or print your case details
           what_happens_next_html: |
-            <p>We will also send your case details by email.</p>
+            <p>Please save or print your case details for your records.</p>
             <h2 class="heading-medium">What happens next?</h2>
+            <p>The tax tribunal will:</p>
             <ul class="list list-bullet">
-              <li>we will review your details</li>
-              <li>we may ask for more information before your case can proceed</li>
-              <li>we will write to let you know the next steps and if your case needs a hearing</li>
-              <li>we will notify other parties involved and ask for their response</li>
+              <li>check your details and may ask you for more information</li>
+              <li>write to confirm the next steps and if there will be a hearing</li>
+              <li>contact any other parties and ask them to respond</li>
             </ul>
             <p>
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
@@ -121,7 +121,7 @@ en:
       steps_closure_enquiry_details_form:
         closure_hmrc_reference: HMRC reference number
         closure_years_under_enquiry: Years under enquiry
-        closure_hmrc_officer: Name of HMRC officer conducting the enquiry (optional)
+        closure_hmrc_officer: Name of the tax officer running the enquiry (optional)
       steps_closure_additional_info_form:
         closure_additional_info: Additional information
       steps_closure_support_documents_form:
