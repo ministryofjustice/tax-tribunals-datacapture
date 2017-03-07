@@ -11,8 +11,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
     set_template(CASE_CONFIRMATION_TEMPLATE_ID)
 
     set_personalisation(
-      first_name: mail_presenter.recipient_first_name,
-      last_name: mail_presenter.recipient_last_name,
+      recipient_name: mail_presenter.recipient_name,
       case_reference: mail_presenter.case_reference,
       show_case_reference: mail_presenter.show_case_reference?,
       appeal_or_application: mail_presenter.appeal_or_application
