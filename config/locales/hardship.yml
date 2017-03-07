@@ -7,12 +7,12 @@ en:
           lead_text: If you can't pay because it will cause you financial hardship, you can still continue your appeal.
       hardship_review_requested:
         edit:
-          heading: Did you apply for financial hardship?
-          lead_text: You can still continue if you select 'No'. The tax tribunal will keep your appeal as pending until you ask HMRC to defer paying the tax because of financial hardship.
+          heading: Did you ask HMRC if you could appeal without paying the tax first?
+          lead_text: Your appeal will be kept pending until you write to HMRC and explain why paying might cause financial hardship.
       hardship_review_status:
         edit:
-          heading: What is the status of your hardship application?
-          lead_text: If hardship is refused, you can still continue your appeal and ask the judge to consider your reasons.
+          heading: Did HMRC allow you to defer paying because of financial hardship?
+          lead_text: If HMRC said no, you can give reasons for the judge to consider as part of this appeal.
       hardship_reason:
         edit:
           heading: Why will paying the tax under dispute cause financial hardship?
@@ -48,9 +48,9 @@ en:
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid_html: ""
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested: Did you apply for financial hardship?
+        hardship_review_requested_html: ""
       steps_hardship_hardship_review_status_form:
-        hardship_review_status: What is the status of your hardship application?
+        hardship_review_status_html: ""
     label:
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid:
@@ -62,8 +62,8 @@ en:
           'no': 'No'
       steps_hardship_hardship_review_status_form:
         hardship_review_status:
-          granted: Granted
-          pending: Pending HMRC decision
-          refused: Refused
+          granted: 'Yes'
+          pending: I am waiting for a decision
+          refused: 'No'
       steps_hardship_hardship_reason_form:
         hardship_reason: Enter your reasons for financial hardship

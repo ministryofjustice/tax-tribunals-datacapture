@@ -187,7 +187,7 @@ en:
         dispute_type_other_value: What is your dispute about?
         dispute_type:
           penalty_html: <strong>Penalty or surcharge</strong><br>for example late payment, inaccurate returns or failure to notify tax liability
-          amount_of_tax_owed_by_hmrc_html: <strong>You want HMRC to repay tax to you</strong>
+          amount_of_tax_owed_by_hmrc_html: <strong>You want HMRC to repay tax</strong>
           amount_of_tax_owed_by_taxpayer_html: <strong>HMRC claim you owe tax</strong>
           amount_and_penalty_html: <strong>HMRC claim you owe tax and a penalty or surcharge</strong><br>both disputes must be shown on the original notice or review conclusion letter
           paye_coding_notice_html: <strong>Pay As You Earn (PAYE) coding notice</strong><br>the code used to work out how much tax is taken from your pay
