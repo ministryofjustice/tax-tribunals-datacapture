@@ -32,11 +32,11 @@ Feature: Income Tax Happy Paths
     Given I choose "Individual"
     Then I should see "Enter taxpayer's details"
 
-    Given I fill in "First name" with "Andrew"
-    And I fill in "Last name" with "Sachs"
-    And I fill in "Address" with "Fawlty Towers\n16 Elwood Avenue\nTorquay"
-    And I fill in "Postcode" with "W1A 1AA"
-    And I fill in "Email address" with "manuel@fawlty-towers.co.uk"
+    Given I fill in "First name" with "MoJ Digital"
+    And I fill in "Last name" with "Smoketest"
+    And I fill in "Address" with "102 Petty France"
+    And I fill in "Postcode" with "SW1H 9AJ"
+    And I fill in "Email address" with "do-not-email@digital.justice.gov"
     And I click the "Continue" button
     Then I should see "Do you have someone to represent you?"
 
