@@ -48,3 +48,7 @@ When(/^I choose "([^"]*)"$/) do |text|
   step %[I click the radio button "#{text}"]
   click_button("Continue")
 end
+
+Then(/^I see a case reference number$/) do
+  expect(page).to have_text(/TC\/#{Date.today.year}\/\d{5}/)
+end

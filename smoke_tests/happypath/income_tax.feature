@@ -84,4 +84,10 @@ Feature: Income Tax Happy Paths
 		Then I should see "Check your answers"
 		And I should see "Appeal details"
 		And I should see "original_notice.docx"
-		And I should see "review_conclusion.docx"
+    And I should see "review_conclusion.docx"
+
+    Given I click the "Submit" button
+    Then I should see "Case submitted"
+    And I should see "Your case reference number is:"
+    And I see a case reference number
+
