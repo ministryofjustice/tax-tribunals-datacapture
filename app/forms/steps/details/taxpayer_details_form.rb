@@ -1,16 +1,20 @@
 module Steps::Details
   class TaxpayerDetailsForm < BaseForm
-    attribute :taxpayer_contact_address, String
-    attribute :taxpayer_contact_postcode, String
-    attribute :taxpayer_contact_email, String
-    attribute :taxpayer_contact_phone, String
+    attribute :taxpayer_contact_address, StrippedString
+    attribute :taxpayer_contact_postcode, StrippedString
+    attribute :taxpayer_contact_email, StrippedString
+    attribute :taxpayer_contact_phone, StrippedString
 
     validates_presence_of :taxpayer_contact_address,
                           :taxpayer_contact_postcode
 
-    validates_presence_of :taxpayer_contact_email, if: :started_by_taxpayer?
+    validates :taxpayer_contact_email, email: true, if: :started_by_taxpayer_or_present?
 
-  private
+    private
+
+    def started_by_taxpayer_or_present?
+      started_by_taxpayer? || taxpayer_contact_email.present?
+    end
 
     def started_by_taxpayer?
       raise 'No TribunalCase given' unless tribunal_case
