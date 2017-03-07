@@ -8,20 +8,14 @@ en:
           <li>File size: up to 20 megabytes (MB)</li>
           <li>Files cannot be password protected</li>
         </ul>
-      footer: You can’t upload executable (.exe) and other zip, archive or compressed files due to virus risks.
+      footer: You can’t upload executable (.exe), zip or other archive files due to virus risks.
       technical_info: We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
       having_problems_explanation_html: |
-        <strong>What to do next</strong>
-        <ul class="list list-bullet">
-          <li>enter reasons why you can't upload documents</li>
-          <li>continue your %{appeal_or_application} online</li>
-          <li>print out your case details</li>
-          <li>post your documents and case details</li>
-        </ul>
+        
     service_help:
       need_help: Need help using the online service?
       contact_us: Contact us
@@ -33,11 +27,13 @@ en:
           heading: Are you the taxpayer making the %{appeal_or_application}?
           representative_heading: What is a representative and what can they do?
           representative_content_html: |
-            <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
-            <p>You may want to use one if you need help or advice, or need assistance submitting an %{appeal_or_application}.</p>
-            <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
-            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an %{appeal_or_application}.</p>
-            <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
+            <p>A representative can be a:</p>
+            <ul class="list list-bullet">
+                <li>professional lawyer, tax adviser, accountant</li>
+                <li>friend or family relative</li>
+              </ul>
+            <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
+            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href=""> approval form</a>.</p>
       taxpayer_type:
         edit:
           heading:
@@ -49,14 +45,16 @@ en:
       has_representative:
         edit:
           heading: Do you have someone to represent you?
-          lead_text: A representative can receive correspondence on your behalf or represent you if you need a hearing.
+          lead_text: A representative can receive correspondence on your behalf or go to any hearing for you.
           details_heading: What is a representative and what can they do?
           details_content_html: |
-            <p>A representative is someone who can act on your behalf when dealing with the tax tribunal.</p>
-            <p>You may want to use one if you need help or advice, or need assistance submitting an %{appeal_or_application}.</p>
-            <p>A representative could be a lawyer, tax adviser or accountant. It could also be a friend or family relative who you approve to act on your behalf.</p>
-            <p>If a representative is not a certified legal professional they will need to be authorised by the taxpayer to act on their behalf to handle any matters related to an %{appeal_or_application}.</p>
-            <p>An authorised representative will be able to receive any correspondence from the tax tribunal and can represent the taxpayer at a hearing with the judge.</p>
+            <p>A representative can be a:</p>
+            <ul class="list list-bullet">
+                <li>professional lawyer, tax adviser, accountant</li>
+                <li>friend or family relative</li>
+              </ul>
+            <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
+            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href=""> approval form</a>.</p>
       representative_is_legal_professional:
         edit:
           heading:
@@ -65,30 +63,33 @@ en:
       representative_approval:
         edit:
           heading:
-            as_taxpayer: Approve a representative (optional)
-            as_representative: Provide approval from the taxpayer (optional)
+            as_taxpayer: Authorise a representative to act for you (optional)
+            as_representative: Add authorisation to act for the taxpayer (optional)
           lead_text:
-            as_taxpayer: You will need to provide approval for your representative before they can receive correspondence or represent you at a hearing.
-            as_representative: You will need approval from the taxpayer if you want to receive correspondence or represent the taxpayer at a hearing.
+            as_taxpayer: If you want your representative to receive letters from the tribunal or go to any hearings, you'll need to authorise them to act for you.
+
+            as_representative: Before you can receive letters from the tribunal or go to a hearing, you will need authorisation from the taxpayer to act on their behalf.
           details_heading:
-            as_taxpayer: How to approve a representative
-            as_representative: How to get approval from the taxpayer
+            as_taxpayer: How to authorise your representative
+            as_representative: How to get authorisation from the taxpayer
           details_info_html:
             as_taxpayer_html: |
-              <ul class="list list-bullet">
-                 <li>copy and paste the text below into a document or download as a PDF</li>
-                 <li>complete and sign the form</li>
-                 <li>if your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company you will need the signature of a company director</li>
-                 <li>upload the form in digital format below</li>
-               </ul>
+              <ol class="list list-number">
+                 <li>Copy and paste the text below into a document or download as a PDF.</li>
+                 <li>Complete and sign the form.</li>
+                 <li>Upload the form in digital format below.</li>
+               </ol>
+               <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+
             as_representative_html: |
-              <ul class="list list-bullet">
-                <li>copy and paste the text below into an email, document or download as a PDF</li>
-                <li>send to the taxpayer to complete</li>
-                <li>if you are acting on behalf of a company you will need approval from a company director</li>
-                <li>ask the taxpayer to email back the information from their email account or return a signed form</li>
-                <li>upload a copy of the email or signed form in digital format below</li>
-              </ul>
+              <ol class="list list-number">
+                <li>Copy and paste the text below into an email, document or download as a PDF.</li>
+                <li>Send to the taxpayer to complete.</li>
+                <li>Ask the taxpayer to email back the information from their email account or attach a signed form.</li>
+                <li>Upload a copy of the email or signed form.</li>
+              </ol>
+              <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+
           details_example_html: |
             <h2 class="heading-medium">Example text</h2>
             <div class="panel">
@@ -104,7 +105,8 @@ en:
               </div>
             </div>
           download_button_text: Download PDF
-          attach_document_html: <strong>Attach approval as a document</strong>
+          attach_document_html: <strong>Upload authorisation form</strong>
+                                <p>You can send scanned images of the form or a good quality photo.</p>
       representative_type:
         edit:
           heading:
@@ -114,8 +116,8 @@ en:
         edit:
           heading: Representative's details
           lead_text:
-            as_taxpayer: If you have approved your representative to act on your behalf, all correspondence will be sent to the address, or email address, you enter below.
-            as_representative: If you are approved to act on behalf of the taxpayer all correspondence will be sent to the address, or email address, you enter below.
+            as_taxpayer: If you have authorised your representative to act on your behalf, all correspondence will be sent to the address or email address, you enter below.
+            as_representative: If the taxpayer has authorised you to act on their behalf, all correspondence will be sent to the address and email address, you enter below.
       grounds_for_appeal:
         edit:
           heading: Grounds for %{appeal_or_application}
@@ -132,15 +134,15 @@ en:
           review_conclusion_provided_html: <strong>Review conclusion letter</strong><br>you will only have this if your case was reviewed
       check_answers:
         show:
-          submit_and_continue: Submit and continue
+          submit_and_continue: Submit
           change: Change
           heading: Check your answers
           warning: Warning
-          warning_message: "Once you click 'Submit and continue', you cannot change your answers"
+          warning_message: "Once you click 'Submit', you cannot change your answers"
           declaration_of_truth: Declaration and statement of truth
           declaration_of_truth_message: |
-            By completing this Notice of Appeal and clicking the ‘Submit and
-            continue’ button, I believe the information I have given in this
+            By completing this Notice of Appeal to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit
+            ’ button, I believe the information I have given in this
             form is true to the best of my knowledge. If I am found to have
             been deliberately untruthful or dishonest, criminal proceedings for
             fraud can be brought against me. I understand that if I have given
@@ -235,23 +237,23 @@ en:
               unsure: Unknown
             no_grounds_for_appeal_text: No text entered
             no_representative: I don't have a representative
-      outcome:
+      outcome: 
         edit:
           heading: What outcome do you want from your %{appeal_or_application}?
-          lead_text: Give a summary of the decisions you think should be made in regards to your %{appeal_or_application}. Write no more than 2-3 sentences which clearly outline the result you want.
+          lead_text: Give a summary of the decisions you think should be made in regards to your %{appeal_or_application}. Write no more than 2-3 sentences which clearly outline the result you want.          
       confirmation:
         show:
           case_submitted: Case submitted
           confirmation_email: We will send confirmation by email
           save_or_print_pdf: Save or print your case details
           what_happens_next_html: |
-            <p>We will also send your case details by email.</p>
+            <p>Please save or print your case details for your records.</p>
             <h2 class="heading-medium">What happens next?</h2>
+            <p>The tax tribunal will:</p>
             <ul class="list list-bullet">
-              <li>we will review your details</li>
-              <li>we may ask for more information before your case can proceed</li>
-              <li>we will write to let you know the next steps and if your case needs a hearing</li>
-              <li>we will notify other parties involved and ask for their response</li>
+              <li>check your details and may ask you for more information</li>
+              <li>write to confirm the next steps and if there will be a hearing</li>
+              <li>contact any other parties and ask them to respond</li>
             </ul>
             <p>
               If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
@@ -259,9 +261,24 @@ en:
             </p>
       documents_upload_problems:
         show:
-          heading: Having problems uploading documents?
-          lead_text: You need to do the following - COPY NEEDED
+          heading: Complete your appeal by post
+          lead_text: Send everything so that it arrives within the 30 day deadline, unless you are appealing late.
+          post_text_html:
+          
+           <p><strong>1. Print out your appeal using the following link</strong></p>
           save_or_print_pdf: Save or print your case details
+          post_address_html: 
+           <p><strong>2. Make copies of all documents you want to upload</strong></p>
+           <p>You must include a copy of either the original notice or review conclusion letter.</p>
+           <p><strong>3. Send everything by post</strong></p>
+           <p>Put your printed case details and documents in one envelope and post to:</p>
+           <p>First-tier Tribunal (Tax Chamber)<br>
+           PO Box 16972<br>
+           Birmingham<br>
+           B16 6TZ</p>
+           <p>Once the tax tribunal has received your appeal they will write to you with confirmation and details of the next steps.</p>
+
+
   activemodel:
     errors:
       models:
@@ -319,7 +336,7 @@ en:
         taxpayer_type:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
-          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership, trust, club or association
+          other_organisation_html: <strong>Other type of organisation</strong><br>for example a partnership, LLP, trust, club or association
       steps_details_has_representative_form:
         has_representative:
           'yes': 'Yes'
@@ -332,11 +349,11 @@ en:
         representative_type:
           individual_html: <strong>Individual</strong>
           company_html: <strong>Company</strong>
-          other_organisation_html: <strong>Other type of organisation</strong><br>for example partnership (LLP)
+          other_organisation_html: <strong>Other type of organisation</strong><br>for example a partnership or LLP
       generic_taxpayer_contact_labels: &generic_taxpayer_contact_labels
         taxpayer_contact_address: Address
         taxpayer_contact_postcode: Postcode
-        taxpayer_contact_email: Email address (to receive confirmation by email)
+        taxpayer_contact_email: Email address
         taxpayer_contact_phone: Contact phone number (optional)
       steps_details_taxpayer_individual_details_form:
         <<: *generic_taxpayer_contact_labels
@@ -354,7 +371,7 @@ en:
       generic_representative_contact_labels: &generic_representative_contact_labels
         representative_contact_address: Address
         representative_contact_postcode: Postcode
-        representative_contact_email: Email address (to receive confirmation by email)
+        representative_contact_email: Email address
         representative_contact_phone: Contact phone number (optional)
       steps_details_representative_individual_details_form:
         <<: *generic_representative_contact_labels
@@ -373,4 +390,4 @@ en:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_documents_checklist_form:
-        having_problems_uploading_details: Reasons you can't upload
+        having_problems_uploading_details: Enter reasons why you can't upload and 'continue'

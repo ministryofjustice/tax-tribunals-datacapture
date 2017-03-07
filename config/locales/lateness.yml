@@ -3,16 +3,16 @@ en:
     lateness:
       in_time:
         edit:
-          heading: Do you think you're in time to appeal to the tax tribunal?
-          lead_text: Use the date shown on either the original notice letter or review conclusion letter.
+          heading: Are you in time to appeal to the tax tribunal?
+          lead_text: You have 30 calendar days from the date of the original notice or review conclusion letter. If you appeal any later, you’ll need to explain why.
       lateness_reason:
         edit:
           heading: Why are you late with your %{appeal_or_application}?
           heading_unsure: Are there reasons why your %{appeal_or_application} might be late?
-          lead_text: You must provide reasonable grounds for appealing late. If the judge rejects your reasons, your %{appeal_or_application} will not proceed.
-          lead_text_unsure: To help us process your case quickly, you should give reasons why your %{appeal_or_application} might be late. The judge will look at your reasons and decide whether to accept your %{appeal_or_application} if it is late.
-          details_title: Help with late %{appeal_or_application}
-          details_content: You must provide reasonable grounds for submitting your %{appeal_or_application} late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the tax tribunal deadlines.
+          lead_text: The judge will consider your reasons and any response from HMRC. There may be a hearing to decide if your %{appeal_or_application} can go ahead. If you are not allowed to appeal late, you will be told why not.
+          lead_text_unsure: To help process your case quickly, you should give reasons why your %{appeal_or_application} might be late. The judge will decide whether your %{appeal_or_application} can go ahead if it is late.
+          details_title: Help with a late %{appeal_or_application}
+          details_content: You must provide reasonable grounds for submitting your %{appeal_or_application} late. These are usually unforeseen circumstances or events beyond your control which meant you weren't able to meet the tax tribunal deadline.
   activemodel:
     errors:
       models:
