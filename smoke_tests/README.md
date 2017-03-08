@@ -14,7 +14,7 @@ bundle exec cucumber
 
 ### Running on CI
 
-The script for running the Docker contain on MoJ's CI is as follows:
+The script for running the Docker container on MoJ's CI is as follows:
 
 ```bash
 #!/bin/bash
