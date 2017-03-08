@@ -34,7 +34,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
 
         it 'has a validation error on the grounds_for_appeal field' do
           expect(subject).to_not be_valid
-          expect(subject.errors[:grounds_for_appeal]).to eq(['You must enter the reasons or attach a document'])
+          expect(subject.errors[:grounds_for_appeal]).to eq(['You must enter reasons or attach a document'])
         end
       end
 

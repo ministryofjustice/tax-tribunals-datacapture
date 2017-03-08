@@ -35,7 +35,7 @@ RSpec.describe Steps::Hardship::HardshipReasonForm do
 
         it 'has a validation error on the hardship_reason field' do
           expect(subject).to_not be_valid
-          expect(subject.errors[:hardship_reason]).to eq(['You must enter the reasons or attach a document'])
+          expect(subject.errors[:hardship_reason]).to eq(['You must enter reasons or attach a document'])
         end
       end
 
