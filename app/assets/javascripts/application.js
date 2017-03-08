@@ -160,10 +160,6 @@ $(document).ready(function() {
   // trigger stickAtTopWhenScrolling
   GOVUK.stickAtTopWhenScrolling.init();
 
-  // Hide the non-js uploader and show the dropzone one
-  $('.show-when-js-is-loaded').removeClass('js-hidden');
-  $('.hide-when-js-is-loaded').addClass('js-hidden');
-
   // Initialize JS in /modules (this includes the Dropzone custom setup)
   window.moj.init();
 });

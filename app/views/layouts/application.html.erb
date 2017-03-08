@@ -20,6 +20,15 @@
 
 <% content_for(:body_start) do %>
   <%= render partial: 'layouts/analytics' if analytics_tracking_id.present? %>
+
+  <!--
+    it's easier to trigger the non-js dropzone solution than to style and tweak
+    the dropzone fallback to work properly in IE9 and below and the upshot is
+    the same, so add a class to the html element to enable IE9 detection
+  -->
+  <!--[if lte IE 9]>
+  <script>document.documentElement.className = [document.documentElement.className, 'lte-ie9'].join(' ');</script>
+  <![endif]-->
 <% end %>
 
 <% content_for(:content) do %>
