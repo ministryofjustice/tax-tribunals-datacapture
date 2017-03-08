@@ -59,7 +59,7 @@ RSpec.describe GlimrNewCase do
     end
 
     before do
-      allow(ENV).to receive(:fetch).with('TAX_TRIBUNALS_DOWNLOADER_URL').and_return('http://downloader.com')
+      allow(tribunal_case).to receive(:documents_url).and_return('http://downloader.com/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687')
       expect(GlimrApiClient::RegisterNewCase).to receive(:call).
           with(hash_including(glimr_params)).and_return(glimr_response_double)
     end

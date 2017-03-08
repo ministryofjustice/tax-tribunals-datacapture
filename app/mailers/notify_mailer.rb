@@ -20,14 +20,18 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: mail_presenter.recipient_email)
   end
 
-  def ftt_new_case_notification(_tribunal_case)
+  def ftt_new_case_notification(tribunal_case)
+    mail_presenter = CaseMailPresenter.new(tribunal_case)
+
     set_template(FTT_CASE_NOTIFICATION_TEMPLATE_ID)
 
-    # TODO: waiting for template to be completed
-    # set_personalisation(
-    # )
+    set_personalisation(
+      recipient_name: mail_presenter.recipient_name,
+      company_name: mail_presenter.company_name,
+      show_company_name: mail_presenter.show_company_name?,
+      documents_url: mail_presenter.documents_url
+    )
 
-    # TODO: once we open the beta, change to: Rails.configuration.tax_tribunal_email
-    mail(to: 'jesus.laiz+ftt@digital.justice.gov.uk')
+    mail(to: mail_presenter.ftt_recipient_email)
   end
 end

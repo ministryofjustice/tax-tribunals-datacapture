@@ -35,6 +35,10 @@ class TribunalCase < ApplicationRecord
     Document.for_collection(files_collection_ref, document_key: document_key)
   end
 
+  def documents_url
+    [ENV.fetch('TAX_TRIBUNALS_DOWNLOADER_URL'), files_collection_ref].join('/')
+  end
+
   def taxpayer_is_organisation?
     taxpayer_type.organisation?
   end
