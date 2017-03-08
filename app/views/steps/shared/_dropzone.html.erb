@@ -6,10 +6,10 @@
     </div>
   </div>
   <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-  <div class="dz-error-mark js-hidden show-when-js-is-loaded"><span>✘</span></div>
+  <div class="dz-error-mark js-only"><span>✘</span></div>
 </div>
 
-<div class="dropzone dz-clickable js-hidden show-when-js-is-loaded" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>">
+<div class="dropzone dz-clickable js-only" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>">
   <div class="dz-default dz-message grid-row">
     <div class="column-one-third arrow-icon">
       <p></p>
@@ -28,12 +28,12 @@
   <ol class="list uploaded-files">
     <% if document_list&.any? %>
         <% document_list.each do |doc| %>
-            <li class="file hide-when-js-is-loaded">
+            <li class="file no-js-only">
               <%= doc.name %>
               <%= button_to 'Remove', document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
             </li>
 
-            <li class="file js-hidden show-when-js-is-loaded">
+            <li class="file js-only">
               <%= doc.name %>
               <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name %>
             </li>

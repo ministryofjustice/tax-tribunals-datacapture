@@ -55,8 +55,34 @@
 @import 'dropzone';
 @import 'local/dropzone';
 
-.js-hidden {
+.js-enabled {
+  .js-hidden {
+    display: none !important;
+  }
+}
+
+.no-js-only {
+  display: block;
+
+  .js-enabled & {
+    display: none !important;
+  }
+}
+
+li.no-js-only {
+  display: list-item;
+}
+
+.js-only {
   display: none !important;
+
+  .js-enabled & {
+    display: block !important;
+  }
+}
+
+.js-enabled li.js-only {
+  display: list-item !important;
 }
 
 

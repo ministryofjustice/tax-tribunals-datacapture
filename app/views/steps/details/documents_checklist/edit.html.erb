@@ -10,7 +10,7 @@
 
     <div id="supplied_letters_placeholder"></div>
 
-    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'hide-when-js-is-loaded' do %>
+    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'js-hidden' do %>
         <%= file_field_tag :document %>
         <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
