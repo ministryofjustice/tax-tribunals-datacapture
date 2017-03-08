@@ -14,7 +14,7 @@ en:
     #  English sentence because the attribute name won't be prepended!
     format: "%{message}"
     messages:
-      blank: You must type something
+      blank: Please enter an answer
   helpers:
     submit:
       # These are defaults applicable to most steps, override them for

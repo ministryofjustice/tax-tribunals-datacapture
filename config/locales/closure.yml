@@ -126,3 +126,11 @@ en:
         closure_additional_info: Additional information
       steps_closure_support_documents_form:
         having_problems_uploading_details: Reasons you can't upload
+
+  activemodel:
+    errors:
+      models:
+        steps/closure/case_type_form:
+          attributes:
+            closure_case_type:
+              inclusion: Select the type of enquiry you want to close

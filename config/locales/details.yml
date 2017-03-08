@@ -285,23 +285,23 @@ en:
         steps/details/user_type_form:
           attributes:
             user_type:
-              inclusion: Select whether you are the taxpayer involved
+              inclusion: Select whether you are the taxpayer or acting for them
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
-              inclusion: Select whether the appeal is for an individual, company or organisation
+              inclusion: Select whether you're entering details for an individual, company or organisation
         steps/details/taxpayer_details_form:
           attributes:
             taxpayer_contact_email:
-              invalid: You must type a valid email address
+              invalid: Please enter a valid email address
         steps/details/representative_details_form:
           attributes:
             representative_contact_email:
-              invalid: You must type a valid email address
+              invalid: Please enter a valid email address
         steps/details/representative_is_legal_professional_form:
           attributes:
             representative_is_legal_professional:
-              inclusion: Select whether the representative is a practising solicitor or barrister in England, Wales or Northern Ireland, or a practicising solicitor or advocate in Scotland
+              inclusion: Please select an answer
         steps/details/has_representative_form:
           attributes:
             has_representative:
@@ -309,15 +309,15 @@ en:
         steps/details/representative_type_form:
           attributes:
             representative_type:
-              inclusion: Select whether the representative is an individual, company or organisation
+              inclusion: Select whether you're entering details for an individual, company or organisation
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
-              blank: You must enter the reasons or attach a document
+              blank: You must enter reasons or attach a document
             grounds_for_appeal_document:
-              file_size: The attached file exceeds the maximum allowed size
-              content_type: The attached file is not a supported type
-              response_error: There was an error uploading the file. Please try again
+              file_size: Your file exceeds the maximum file size of 20 megabytes
+              content_type: Your file is not in a format we can accept
+              response_error: There was an error uploading your file. Please try again
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:

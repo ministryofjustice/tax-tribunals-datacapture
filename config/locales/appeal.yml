@@ -91,7 +91,11 @@ en:
         steps/appeal/challenged_decision_form:
           attributes:
             challenged_decision:
-              inclusion: Select whether you have challenged the decision with HMRC first
+              inclusion: Select whether you made an appeal to HMRC
+        steps/appeal/challenged_decision_status_form:
+          attributes:
+            challenged_decision_status:
+              inclusion: Select what response you received
         steps/appeal/case_type_form:
           attributes:
             case_type:
@@ -107,7 +111,7 @@ en:
         steps/appeal/penalty_amount_form:
           attributes:
             penalty_level:
-              inclusion: Select what the penalty or surcharge amount is
+              inclusion: Select a penalty or surcharge amount
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
