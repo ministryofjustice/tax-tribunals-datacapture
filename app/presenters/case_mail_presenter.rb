@@ -2,9 +2,8 @@ class CaseMailPresenter < SimpleDelegator
   # Initialise with a TribunalCase instance and any method not
   # defined in this class will be forwarded automatically to that instance.
 
-  # GOV.UK Notify expects this to be literals
   def show_case_reference?
-    case_reference.present? ? 'yes' : 'no'
+    notify_presence_for(case_reference)
   end
 
   # GOV.UK Notify does not accept `nil` values, instead use empty strings
@@ -22,6 +21,20 @@ class CaseMailPresenter < SimpleDelegator
     started_by_representative? ? representative_contact_name : taxpayer_contact_name
   end
 
+  def show_company_name?
+    notify_presence_for(company_name)
+  end
+
+  # GOV.UK Notify does not accept `nil` values, instead use empty strings
+  def company_name
+    (started_by_representative? ? representative_organisation_name : taxpayer_organisation_name).to_s
+  end
+
+  # Email address to use for `GLiMR is down` notifications
+  def ftt_recipient_email
+    ENV.fetch('TAX_TRIBUNAL_EMAIL')
+  end
+
   private
 
   def representative_contact_name
@@ -32,6 +45,11 @@ class CaseMailPresenter < SimpleDelegator
   def taxpayer_contact_name
     return taxpayer_organisation_fao if taxpayer_is_organisation?
     [taxpayer_individual_first_name, taxpayer_individual_last_name].join(' ')
+  end
+
+  # GOV.UK Notify expects this to be literals
+  def notify_presence_for(field)
+    field.present? ? 'yes' : 'no'
   end
 
   def tribunal_case

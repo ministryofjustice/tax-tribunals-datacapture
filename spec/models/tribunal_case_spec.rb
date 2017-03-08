@@ -24,6 +24,16 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
+  describe '#documents_url' do
+    let(:collection_ref) { SecureRandom.uuid }
+    let(:attributes) { { files_collection_ref: collection_ref } }
+
+    it 'should retrieve the base url from the ENV and append the files collection ref' do
+      expect(ENV).to receive(:fetch).with('TAX_TRIBUNALS_DOWNLOADER_URL').and_return('http://downloader.com')
+      expect(subject.documents_url).to eq("http://downloader.com/#{collection_ref}")
+    end
+  end
+
   describe '#taxpayer_is_organisation?' do
     let(:taxpayer_type) { OpenStruct.new(organisation?: true, value: :anything) }
     let(:attributes) { { taxpayer_type: taxpayer_type } }

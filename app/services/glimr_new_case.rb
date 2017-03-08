@@ -27,7 +27,7 @@ class GlimrNewCase
       contactPhone: tc.taxpayer_contact_phone,
       contactEmail: tc.taxpayer_contact_email,
       contactPostalCode: tc.taxpayer_contact_postcode,
-      documentsURL: documents_url
+      documentsURL: tc.documents_url
     }
 
     params.merge!(taxpayer_street_params)
@@ -49,10 +49,6 @@ class GlimrNewCase
 
   def jurisdiction_id
     GlimrApiClient::Case::TRIBUNAL_JURISDICTION_ID
-  end
-
-  def documents_url
-    [ENV.fetch('TAX_TRIBUNALS_DOWNLOADER_URL'), tc.files_collection_ref].join('/')
   end
 
   # contactStreetX are indexed 1 to 4, so if there are more lines than available
