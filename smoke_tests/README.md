@@ -21,7 +21,7 @@ The script for running the Docker container on MoJ's CI is as follows:
 
 set -euo pipefail
 
-docker build -f Dockerfile.smoketests -t smoketests .;
+docker build -f Dockerfile.smoketests -t smoketests .
 docker run smoketests
 ```
 
