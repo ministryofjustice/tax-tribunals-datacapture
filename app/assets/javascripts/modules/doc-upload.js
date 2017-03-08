@@ -10,14 +10,19 @@ moj.Modules.docUpload = {
   init: function() {
     var self = this,
         previewTemplate,
-        dzOptions;
+        dzOptions,
+        isLowIE = $('html').hasClass('lte-ie9');
 
     Dropzone.autoDiscover = false;
 
     self.$form = $('#' + self.form_id);
     self.$fileList = $(self.uploaded_files);
 
-    if (!self.$form.length) { return; }
+    if (!self.$form.length || isLowIE) { return; }
+
+    // Hide the non-js uploader and show the dropzone one
+    $('.show-when-js-is-loaded').removeClass('js-hidden');
+    $('.hide-when-js-is-loaded').addClass('js-hidden');
 
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
