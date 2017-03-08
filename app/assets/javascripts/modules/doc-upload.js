@@ -20,10 +20,6 @@ moj.Modules.docUpload = {
 
     if (!self.$form.length || isLowIE) { return; }
 
-    // Hide the non-js uploader and show the dropzone one
-    $('.show-when-js-is-loaded').removeClass('js-hidden');
-    $('.hide-when-js-is-loaded').addClass('js-hidden');
-
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
     dzOptions = {
