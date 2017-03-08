@@ -213,6 +213,7 @@ GEM
     parser (2.3.2.0)
       ast (~> 2.2)
     pg (0.19.0)
+    phantomjs (2.1.1.0)
     poltergeist (1.11.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -395,6 +396,7 @@ DEPENDENCIES
   mojfile-uploader-api-client (~> 0.1)
   mutant-rspec
   pg (~> 0.18)
+  phantomjs
   poltergeist
   pry-byebug
   pry-rails
