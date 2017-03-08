@@ -24,23 +24,23 @@ en:
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
-              inclusion: Select whether you have paid the amount of tax involved in the dispute
+              inclusion: Select whether you paid the amount of tax under dispute
         steps/hardship/hardship_review_requested_form:
           attributes:
             hardship_review_requested:
-              inclusion: Select whether you have applied for financial hardship
+              inclusion: Select whether you asked to appeal without paying the tax first
         steps/hardship/hardship_review_status_form:
           attributes:
             hardship_review_status:
-              inclusion: Select the status of your hardship application
+              inclusion: Select whether you could defer paying because of financial hardship
         steps/hardship/hardship_reason_form:
           attributes:
             hardship_reason:
-              blank: You must enter the reasons or attach a document
+              blank: You must enter reasons or attach a document
             hardship_reason_document:
-              file_size: The attached file exceeds the maximum allowed size
-              content_type: The attached file is not a supported type
-              response_error: There was an error uploading the file. Please try again
+              file_size: Your file exceeds the maximum file size of 20 megabytes
+              content_type: Your file is not in a format we can accept
+              response_error: There was an error uploading your file. Please try again
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend

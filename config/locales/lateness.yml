@@ -19,7 +19,7 @@ en:
         steps/lateness/in_time_form:
           attributes:
             in_time:
-              inclusion: Select whether you think you are in time to appeal to the tax tribunal
+              inclusion: Select whether you are in time to appeal to the tax tribunal
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
