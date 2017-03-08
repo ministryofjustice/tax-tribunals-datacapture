@@ -20,10 +20,15 @@ RSpec.describe NotifyMailer, type: :mailer do
   let(:representative_type) { ContactableEntityType::INDIVIDUAL }
   let(:case_reference) { 'TC/2017/00001' }
 
+  before do
+    allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
+  end
+
   describe 'taxpayer_case_confirmation' do
     let(:mail) { described_class.taxpayer_case_confirmation(tribunal_case) }
 
-    it_behaves_like 'a Notify mail', template_id: 'e64e9db9-d344-4041-a7df-135fbd39fa56'
+    it_behaves_like 'a Notify mail', template_id: 'confirmation-template'
 
     context 'personalisation' do
       it 'sets the personalisation' do
@@ -50,7 +55,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       allow(ENV).to receive(:fetch).with('TAX_TRIBUNAL_EMAIL').and_return('ftt@email.com')
     end
 
-    it_behaves_like 'a Notify mail', template_id: '50d09d1e-4e61-4ad3-9697-836b8cbb9f1f'
+    it_behaves_like 'a Notify mail', template_id: 'ftt-notification-template'
 
     context 'recipient' do
       it { expect(mail.to).to eq(['ftt@email.com']) }

@@ -12,6 +12,9 @@ ENV GOVUK_NOTIFY_API_KEY         replace_this_at_build_time
 ENV GA_TRACKING_ID               replace_this_at_build_time
 ENV TAX_TRIBUNAL_EMAIL           replace_this_at_build_time
 
+ENV NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID        replace_this_at_build_time
+ENV NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID    replace_this_at_build_time
+
 RUN touch /etc/inittab
 
 RUN apt-get update && apt-get install -y

@@ -1,14 +1,11 @@
 class NotifyMailer < GovukNotifyRails::Mailer
-  CASE_CONFIRMATION_TEMPLATE_ID = 'e64e9db9-d344-4041-a7df-135fbd39fa56'.freeze
-  FTT_CASE_NOTIFICATION_TEMPLATE_ID = '50d09d1e-4e61-4ad3-9697-836b8cbb9f1f'.freeze
-
   # Define methods as usual, and set the template and personalisation, if needed,
   # then just use mail() as with any other ActionMailer, with the recipient email
   #
   def taxpayer_case_confirmation(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(CASE_CONFIRMATION_TEMPLATE_ID)
+    set_template(ENV.fetch('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID'))
 
     set_personalisation(
       recipient_name: mail_presenter.recipient_name,
@@ -23,7 +20,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def ftt_new_case_notification(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(FTT_CASE_NOTIFICATION_TEMPLATE_ID)
+    set_template(ENV.fetch('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID'))
 
     set_personalisation(
       recipient_name: mail_presenter.recipient_name,
