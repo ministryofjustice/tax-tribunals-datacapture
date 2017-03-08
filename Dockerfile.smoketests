@@ -1,0 +1,8 @@
+FROM ruby:2.3.1-onbuild
+
+RUN touch /etc/inittab
+
+ENV DATACAPTURE_URI https://tax-tribunals-datacapture-dev.dsd.io
+RUN apt-get update && apt-get install -y
+
+CMD bundle exec cucumber

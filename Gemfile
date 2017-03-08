@@ -51,6 +51,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'rails-controller-testing'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
@@ -58,3 +59,4 @@ group :test do
   gem 'simplecov-rcov'
   gem 'webmock'
 end
+
