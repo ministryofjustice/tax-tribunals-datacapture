@@ -18,7 +18,14 @@ moj.Modules.docUpload = {
     self.$form = $('#' + self.form_id);
     self.$fileList = $(self.uploaded_files);
 
-    if (!self.$form.length || isLowIE) { return; }
+    if (!self.$form.length) {
+      return;
+    }
+    if(isLowIE) {
+      $('.js-only').remove();
+      $('.no-js-only').removeClass('no-js-only');
+      return;
+    }
 
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
