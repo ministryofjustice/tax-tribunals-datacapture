@@ -142,8 +142,9 @@ RSpec.describe DocumentUpload do
 
     context 'with error' do
       context 'response error' do
+        let(:error) { double("Upstream error", code: 418, body: "Is it coffee you're looking for?") }
         it 'should upload the document' do
-          expect(Uploader).to receive(:add_file).and_raise(Uploader::UploaderError)
+          expect(Uploader).to receive(:add_file).and_raise(Uploader::UploaderError, error)
           expect(subject).to receive(:add_error).with(:response_error).and_call_original
           subject.upload!(collection_ref: '123')
           expect(subject.errors?).to eq(true)
