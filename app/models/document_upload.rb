@@ -51,7 +51,10 @@ class DocumentUpload
     )
   rescue Uploader::InfectedFileError
     add_error(:virus_detected)
-  rescue Uploader::UploaderError
+  rescue Uploader::UploaderError => e
+    # For generic upload errors (other than infected), we want to keep track of what happened
+    Raven.capture_exception(e)
+
     add_error(:response_error)
   end
 
