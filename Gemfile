@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.3'
+
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.2'
 gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
