@@ -1,4 +1,14 @@
 class NotifyMailer < GovukNotifyRails::Mailer
+  rescue_from Exception, with: :log_errors
+
+  # When logging exceptions, filter the following keys from the personalisation hash
+  FILTERED = '[FILTERED]'.freeze
+  PERSONALISATION_ERROR_FILTER = [
+    :recipient_name,
+    :company_name,
+    :documents_url
+  ].freeze
+
   # Define methods as usual, and set the template and personalisation, if needed,
   # then just use mail() as with any other ActionMailer, with the recipient email
   #
@@ -30,5 +40,28 @@ class NotifyMailer < GovukNotifyRails::Mailer
     )
 
     mail(to: mail_presenter.ftt_recipient_email)
+  end
+
+  private
+
+  def log_errors(exception)
+    Rails.logger.info({caller: self.class.name, method: self.action_name, error: exception}.to_json)
+
+    Raven.extra_context(
+      template_id: self.govuk_notify_template,
+      personalisation: filtered_personalisation
+    )
+    Raven.capture_exception(exception)
+  end
+
+  def filtered_personalisation
+    personalisation = self.govuk_notify_personalisation&.dup || {}
+    personalisation.each_key do |key|
+      personalisation[key] = FILTERED if filter_key?(key)
+    end
+  end
+
+  def filter_key?(key)
+    PERSONALISATION_ERROR_FILTER.include?(key)
   end
 end
