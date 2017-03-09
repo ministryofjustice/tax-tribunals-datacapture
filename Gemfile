@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.3.1'
 
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.2'
