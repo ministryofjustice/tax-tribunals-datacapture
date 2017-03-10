@@ -49,6 +49,10 @@
 <% end %>
 
 <% content_for(:body_end) do %>
+  <% if current_tribunal_case %>
+    <%= render partial: 'layouts/timeout_modal' %>
+  <% end %>
+
   <!--[if lte IE 8]>
   <script>
     document.body.className = document.body.className.replace("js-enabled","")

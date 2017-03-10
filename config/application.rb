@@ -25,10 +25,12 @@ module TaxTribunalsDatacapture
   class Application < Rails::Application
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
 
-    config.session_expire_after = 30 # minutes
     config.survey_link = 'https://goo.gl/forms/5MeKnK5kGJH99Fsn2'
     config.feedback_email = 'taxtribunals_helpdesk@digital.justice.gov.uk'
     config.tax_tribunal_email = 'taxappeals@hmcts.gsi.gov.uk'
     config.tax_tribunal_phone = '0300 123 1024'
+
+    config.x.session.expires_in_minutes = 30 # minutes
+    config.x.session.warning_when_remaining = 5 # minutes
   end
 end

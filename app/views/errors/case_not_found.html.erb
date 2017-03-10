@@ -2,7 +2,7 @@
   <div class="column-two-thirds">
     <h1 class="heading-large"><%= t '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text', session_timeout: Rails.configuration.session_expire_after %></p>
+    <p class="lede"><%=t '.lead_text', session_timeout: Rails.configuration.x.session.expires_in_minutes %></p>
 
     <p class="lede"><%=t '.more_text' %></p>
 
