@@ -14,8 +14,6 @@ en:
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
-      having_problems_explanation_html: |
-        
     service_help:
       need_help: Need help using the online service?
       contact_us: Contact us
@@ -160,6 +158,10 @@ en:
             penalty_level: What is the penalty or surcharge amount?
             penalty_amount: What is the penalty or surcharge amount?
             tax_amount: What is the amount of tax?
+            disputed_tax_paid: Have you paid the amount of tax under dispute?
+            hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
+            hardship_review_status: Did HMRC allow you to defer paying because of financial hardship?
+            hardship_reason: Reasons for financial hardship
             in_time: Is the %{appeal_or_application} late?
             lateness_reason: Reason(s) for late %{appeal_or_application}
             appellant_details: "Taxpayer's details"
@@ -232,11 +234,20 @@ en:
               penalty_level_1: £100 or less
               penalty_level_2: over £100 – £20,000
               penalty_level_3: over £20,000
+            disputed_tax_paid:
+              'yes': 'Yes'
+              'no': 'No'
+            hardship_review_requested:
+              'yes': 'Yes'
+              'no': 'No'
+            hardship_review_status:
+              granted: 'Yes'
+              pending: I am waiting for a decision
+              refused: 'No'
             in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
               'yes': 'No'
               'no': 'Yes'
               unsure: Unknown
-            no_grounds_for_appeal_text: No text entered
             no_representative: I don't have a representative
       outcome: 
         edit:

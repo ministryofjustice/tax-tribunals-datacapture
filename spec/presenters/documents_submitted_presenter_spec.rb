@@ -3,35 +3,39 @@ require 'spec_helper'
 RSpec.describe DocumentsSubmittedPresenter do
   subject { described_class.new(tribunal_case) }
 
-  let(:tribunal_case) { instance_double(TribunalCase, grounds_for_appeal: grounds_for_appeal) }
-  let(:grounds_for_appeal) { 'foo' }
-
   describe '#list' do
-    it 'should retrieve any uploaded file for the given documents prefix' do
-      expect(tribunal_case).to receive(:documents).with(:prefix)
-      subject.list(:prefix)
+    let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading_documents?: having_problems) }
+
+    context 'when no problems uploading documents' do
+      let(:having_problems) { false }
+
+      it 'should retrieve any uploaded file for the given documents prefix' do
+        expect(tribunal_case).to receive(:documents).with(:prefix)
+        subject.list(:prefix)
+      end
+    end
+
+    context 'when user was having problems uploading documents' do
+      let(:having_problems) { true }
+
+      it 'should return an empty collection' do
+        expect(tribunal_case).not_to receive(:documents).with(:prefix)
+        expect(subject.list(:prefix)).to eq([])
+      end
     end
   end
 
-  describe '#grounds_for_appeal_text' do
-    context 'when grounds_for_appeal text provided' do
-      it 'should return the grounds_for_appeal text' do
-        expect(subject.grounds_for_appeal_text).to eq('foo')
-      end
+  describe '#show_hardship_reason?' do
+    let(:tribunal_case) { instance_double(TribunalCase, hardship_review_status: hardship_review_status) }
+
+    context 'when the hardship status is refused' do
+      let(:hardship_review_status) { HardshipReviewStatus::REFUSED }
+      it { expect(subject.show_hardship_reason?).to eq(true) }
     end
 
-    context 'when grounds_for_appeal text is not present' do
-      let(:grounds_for_appeal) { nil }
-
-      it 'should return a default text if provided' do
-        text = subject.grounds_for_appeal_text(default: 'default text')
-        expect(text).to eq('default text')
-      end
-
-      it 'should return nil if no default text is provided' do
-        text = subject.grounds_for_appeal_text
-        expect(text).to be_nil
-      end
+    context 'when the hardship status is other than refused' do
+      let(:hardship_review_status) { HardshipReviewStatus::GRANTED }
+      it { expect(subject.show_hardship_reason?).to eq(false) }
     end
   end
 end
