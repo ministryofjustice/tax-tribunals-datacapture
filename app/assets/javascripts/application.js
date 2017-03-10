@@ -16,7 +16,7 @@
 
 //= require dropzone
 //= require details.polyfill
-//= require handlebars-v1.3.0
+//= require handlebars-v4.0.5
 //= require jquery.simplemodal-1.4.5
 
 //= require_tree .
