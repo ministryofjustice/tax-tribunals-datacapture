@@ -77,7 +77,7 @@
       <th><%= t '.questions.documents_submitted' %></th>
       <td>
         <ul class="list-bullet uploaded-docs">
-          <% @tribunal_case.documents.list.each do |document| %>
+          <% @tribunal_case.documents.list(:supporting_documents).each do |document| %>
             <li><%= document.title %></li>
           <% end %>
         </ul>

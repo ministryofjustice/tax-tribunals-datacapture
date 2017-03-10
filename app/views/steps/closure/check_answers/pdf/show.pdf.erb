@@ -96,7 +96,7 @@
       <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
       <td class="content">
         <ul class="documents">
-          <% tribunal_case.documents.list.each do |document| %>
+          <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
               <li><%= document.title %></li>
           <% end %>
         </ul>

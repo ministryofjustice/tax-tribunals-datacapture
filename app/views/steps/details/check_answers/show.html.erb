@@ -78,9 +78,12 @@
   <tr>
     <th><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></th>
     <td>
-      <span>
-        <%= @tribunal_case.documents.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
-      </span>
+      <span><%= @tribunal_case.documents.grounds_for_appeal_text %></span>
+      <ul class="list-bullet uploaded-docs">
+        <% @tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>
@@ -103,7 +106,7 @@
     <th><%= t '.questions.documents_submitted' %></th>
     <td>
       <ul class="list-bullet uploaded-docs">
-        <% @tribunal_case.documents.list.each do |document| %>
+        <% @tribunal_case.documents.list(:supporting_documents).each do |document| %>
           <li><%= document.title %></li>
         <% end %>
       </ul>

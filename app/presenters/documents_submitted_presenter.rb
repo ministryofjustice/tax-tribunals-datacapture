@@ -1,9 +1,9 @@
 class DocumentsSubmittedPresenter < BaseAnswersPresenter
-  def list
-    tribunal_case.documents(:supporting_documents)
+  def list(document_key)
+    tribunal_case.documents(document_key)
   end
 
-  def grounds_for_appeal_text(default: '')
+  def grounds_for_appeal_text(default: nil)
     tribunal_case.grounds_for_appeal.present? ? tribunal_case.grounds_for_appeal : default
   end
 end

@@ -7,9 +7,9 @@ RSpec.describe DocumentsSubmittedPresenter do
   let(:grounds_for_appeal) { 'foo' }
 
   describe '#list' do
-    it 'should retrieve any uploaded file' do
-      expect(tribunal_case).to receive(:documents).with(:supporting_documents)
-      subject.list
+    it 'should retrieve any uploaded file for the given documents prefix' do
+      expect(tribunal_case).to receive(:documents).with(:prefix)
+      subject.list(:prefix)
     end
   end
 
@@ -20,21 +20,17 @@ RSpec.describe DocumentsSubmittedPresenter do
       end
     end
 
-    context 'when grounds_for_appeal text is nil' do
+    context 'when grounds_for_appeal text is not present' do
       let(:grounds_for_appeal) { nil }
 
-      it 'should return a default text' do
+      it 'should return a default text if provided' do
         text = subject.grounds_for_appeal_text(default: 'default text')
         expect(text).to eq('default text')
       end
-    end
 
-    context 'when grounds_for_appeal text is blank' do
-      let(:grounds_for_appeal) { '' }
-
-      it 'should return a default text' do
-        text = subject.grounds_for_appeal_text(default: 'default text')
-        expect(text).to eq('default text')
+      it 'should return nil if no default text is provided' do
+        text = subject.grounds_for_appeal_text
+        expect(text).to be_nil
       end
     end
   end
