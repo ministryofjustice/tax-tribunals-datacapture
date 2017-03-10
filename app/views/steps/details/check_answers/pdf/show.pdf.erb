@@ -88,6 +88,23 @@
   </tbody>
 </table>
 
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
+    <td class="content">
+      <span><%= tribunal_case.documents.text_value_for(:grounds_for_appeal) %></span>
+      <ul class="documents">
+        <% tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
 <% if tribunal_case.having_problems_uploading_documents? %>
   <hr/>
   <table>
@@ -107,28 +124,11 @@
   <table>
     <tbody>
     <tr>
-      <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
-      <td class="content">
-        <span><%= tribunal_case.documents.grounds_for_appeal_text %></span>
-        <ul class="documents">
-          <% tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
-            <li><%= document.title %></li>
-          <% end %>
-        </ul>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
       <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
       <td class="content">
         <ul class="documents">
           <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
-              <li><%= document.title %></li>
+            <li><%= document.title %></li>
           <% end %>
         </ul>
       </td>
@@ -153,6 +153,20 @@
     </tr>
     <tr>
       <td colspan="2"></td>
+    </tr>
+  <% end %>
+
+  <% if tribunal_case.documents.show_hardship_reason? %>
+    <tr>
+      <td><%= pdf_t '.questions.hardship_reason' %></td>
+      <td>
+        <span><%= tribunal_case.documents.text_value_for(:hardship_reason) %></span>
+        <ul class="documents">
+          <% tribunal_case.documents.list(:hardship_reason).each do |document| %>
+            <li><%= document.title %></li>
+          <% end %>
+        </ul>
+      </td>
     </tr>
   <% end %>
   </tbody>
