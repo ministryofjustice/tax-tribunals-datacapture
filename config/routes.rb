@@ -47,7 +47,6 @@ Rails.application.routes.draw do
       edit_step :enquiry_details
       edit_step :additional_info
       edit_step :support_documents
-      show_step :documents_upload_problems
       show_step :check_answers
       show_step :confirmation
     end

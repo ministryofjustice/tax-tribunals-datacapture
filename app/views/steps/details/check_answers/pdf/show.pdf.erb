@@ -18,7 +18,7 @@
     <td class="content">
       <div><%= tribunal_case.taxpayer.name %></div>
       <div>
-        <%= simple_format(tribunal_case.taxpayer.address) %>
+        <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
         <%= pdf_t '.questions.appellant_phone' %>
@@ -42,7 +42,7 @@
       <% if tribunal_case.representative.present? %>
         <div><%= tribunal_case.representative.name %></div>
         <div>
-          <%= simple_format(tribunal_case.representative.address) %>
+          <%= simple_format(tribunal_case.representative.address, class: 'simple-format') %>
         </div>
         <div>
           <%= pdf_t '.questions.representative_phone' %>
@@ -82,7 +82,7 @@
   </tr>
   <tr>
     <td class="content with-padding">
-      <%= simple_format(tribunal_case.outcome) %>
+      <%= simple_format(tribunal_case.outcome, class: 'simple-format') %>
     </td>
   </tr>
   </tbody>
@@ -105,37 +105,25 @@
   </tbody>
 </table>
 
-<% if tribunal_case.having_problems_uploading_documents? %>
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
-      <td class="section"><%= pdf_t '.questions.problems_uploading_documents' %></td>
-    </tr>
-    <tr>
-      <td class="content with-padding">
-        <%= simple_format(tribunal_case.having_problems_uploading_details) %>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<% else %>
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
-      <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
-      <td class="content">
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
+    <td class="content">
+      <% if tribunal_case.having_problems_uploading_documents? %>
+        <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
+      <% else %>
         <ul class="documents">
           <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
             <li><%= document.title %></li>
           <% end %>
         </ul>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<% end %>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="newpage"></div>
 
