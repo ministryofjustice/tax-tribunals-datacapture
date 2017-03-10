@@ -25,19 +25,17 @@ RSpec.describe DocumentsSubmittedPresenter do
     end
   end
 
-  describe '#text_value_for' do
-    context 'when text is present for the given document prefix' do
-      let(:tribunal_case) { instance_double(TribunalCase, grounds_for_appeal: 'foo', hardship_reason: 'bar') }
+  describe '#show_hardship_reason?' do
+    let(:tribunal_case) { instance_double(TribunalCase, hardship_review_status: hardship_review_status) }
 
-      it { expect(subject.text_value_for(:grounds_for_appeal)).to eq('foo') }
-      it { expect(subject.text_value_for(:hardship_reason)).to eq('bar') }
+    context 'when the hardship status is refused' do
+      let(:hardship_review_status) { HardshipReviewStatus::REFUSED }
+      it { expect(subject.show_hardship_reason?).to eq(true) }
     end
 
-    context 'when text is not present for the given document prefix' do
-      let(:tribunal_case) { instance_double(TribunalCase, grounds_for_appeal: nil, hardship_reason: nil) }
-
-      it { expect(subject.text_value_for(:grounds_for_appeal)).to be_nil }
-      it { expect(subject.text_value_for(:hardship_reason)).to be_nil }
+    context 'when the hardship status is other than refused' do
+      let(:hardship_review_status) { HardshipReviewStatus::GRANTED }
+      it { expect(subject.show_hardship_reason?).to eq(false) }
     end
   end
 end

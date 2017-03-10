@@ -22,7 +22,7 @@
     <tr>
       <td><%= t '.questions.hardship_reason' %></td>
       <td>
-        <span><%= @tribunal_case.documents.text_value_for(:hardship_reason) %></span>
+        <span><%= @tribunal_case.hardship_reason %></span>
         <ul class="list-bullet uploaded-docs">
           <% @tribunal_case.documents.list(:hardship_reason).each do |document| %>
             <li><%= document.title %></li>
@@ -92,7 +92,7 @@
   <tr>
     <th><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></th>
     <td>
-      <span><%= @tribunal_case.documents.text_value_for(:grounds_for_appeal) %></span>
+      <span><%= @tribunal_case.grounds_for_appeal %></span>
       <ul class="list-bullet uploaded-docs">
         <% @tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
           <li><%= document.title %></li>

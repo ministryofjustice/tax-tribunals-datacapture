@@ -10,10 +10,6 @@ class DocumentsSubmittedPresenter < BaseAnswersPresenter
     tribunal_case.documents(document_key)
   end
 
-  def text_value_for(document_key)
-    tribunal_case.send(document_key)
-  end
-
   def show_hardship_reason?
     tribunal_case.hardship_review_status == HardshipReviewStatus::REFUSED
   end
