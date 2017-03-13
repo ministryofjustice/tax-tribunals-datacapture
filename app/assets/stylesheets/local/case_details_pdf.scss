@@ -4,6 +4,10 @@
   width: 70%;
   margin: 0 auto;
 
+  p.simple-format {
+    margin-top: 0;
+  }
+
   div.newpage {
     page-break-before: always;
   }

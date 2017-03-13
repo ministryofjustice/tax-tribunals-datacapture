@@ -8,7 +8,7 @@
 
     <p><%=t 'shared.file_upload.technical_info' %></p>
 
-    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'js-hidden' do %>
+    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
       <%= file_field_tag :document %>
       <%= submit_tag 'Upload', class: 'button' %>
     <% end %>
@@ -23,7 +23,6 @@
         <% end %>
 
         <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
-          <p><%= translate_with_appeal_or_application('shared.file_upload.having_problems_explanation_html') %></p>
           <%= f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
         </div>
       </div>

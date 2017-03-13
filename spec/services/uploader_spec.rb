@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Uploader do
   let(:result) { double('result') }
+  let(:error) { MojFileUploaderApiClient::RequestError.new('message', 'code', 'body') }
 
   describe '.add_file' do
     let(:params) { {
@@ -39,7 +40,7 @@ RSpec.describe Uploader do
         folder: 'doc_key',
         filename: 'file_name.doc',
         data: 'data'
-      ).and_raise(MojFileUploaderApiClient::RequestError)
+      ).and_raise(error)
 
       expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
     end
@@ -67,7 +68,7 @@ RSpec.describe Uploader do
         collection_ref: '123',
         folder: 'doc_key',
         filename: 'file_name.doc'
-      ).and_raise(MojFileUploaderApiClient::RequestError)
+      ).and_raise(error)
 
       expect { described_class.delete_file(params) }.to raise_error(Uploader::UploaderError)
     end
@@ -103,7 +104,7 @@ RSpec.describe Uploader do
       expect(MojFileUploaderApiClient).to receive(:list_files).with(
         collection_ref: '123',
         folder: 'doc_key',
-      ).and_raise(MojFileUploaderApiClient::RequestError)
+      ).and_raise(error)
 
       expect { described_class.list_files(params) }.to raise_error(Uploader::UploaderError)
     end

@@ -18,6 +18,20 @@
       </tr>
   <% end %>
 
+  <% if @tribunal_case.documents.show_hardship_reason? %>
+    <tr>
+      <td><%= t '.questions.hardship_reason' %></td>
+      <td>
+        <span><%= @tribunal_case.hardship_reason %></span>
+        <ul class="list-bullet uploaded-docs">
+          <% @tribunal_case.documents.list(:hardship_reason).each do |document| %>
+            <li><%= document.title %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+
   <tr>
     <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_timeliness_heading' %></h2></th>
   </tr>
@@ -39,7 +53,7 @@
     <td>
       <div><%= @tribunal_case.taxpayer.name %></div>
       <div class="js_breaklines">
-        <%= simple_format(@tribunal_case.taxpayer.address) %>
+        <%= simple_format(@tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
         <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
@@ -58,7 +72,7 @@
         <% if @tribunal_case.representative.present? %>
           <div><%= @tribunal_case.representative.name %></div>
           <div class="js_breaklines">
-            <%= simple_format(@tribunal_case.representative.address) %>
+            <%= simple_format(@tribunal_case.representative.address, class: 'simple-format') %>
           </div>
           <div>
             <%= t '.questions.representative_phone' %> <span><%= @tribunal_case.representative.phone %></span>
@@ -78,9 +92,12 @@
   <tr>
     <th><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></th>
     <td>
-      <span>
-        <%= @tribunal_case.documents.grounds_for_appeal_text(default: t('.answers.no_grounds_for_appeal_text')) %>
-      </span>
+      <span><%= @tribunal_case.grounds_for_appeal %></span>
+      <ul class="list-bullet uploaded-docs">
+        <% @tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>
@@ -91,7 +108,7 @@
     <th><%= t '.questions.desired_outcome' %></th>
     <td>
       <span>
-        <%= simple_format(@tribunal_case.outcome) %>
+        <%= simple_format(@tribunal_case.outcome, class: 'simple-format') %>
       </span>
     </td>
     <td class="change-answer">
@@ -103,7 +120,7 @@
     <th><%= t '.questions.documents_submitted' %></th>
     <td>
       <ul class="list-bullet uploaded-docs">
-        <% @tribunal_case.documents.list.each do |document| %>
+        <% @tribunal_case.documents.list(:supporting_documents).each do |document| %>
           <li><%= document.title %></li>
         <% end %>
       </ul>

@@ -37,7 +37,7 @@
     <td>
       <div><%= @tribunal_case.taxpayer.name %></div>
       <div class="js_breaklines">
-        <%= simple_format(@tribunal_case.taxpayer.address) %>
+        <%= simple_format(@tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
         <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
@@ -56,7 +56,7 @@
         <% if @tribunal_case.representative.present? %>
           <div><%= @tribunal_case.representative.name %></div>
           <div class="js_breaklines">
-            <%= simple_format(@tribunal_case.representative.address) %>
+            <%= simple_format(@tribunal_case.representative.address, class: 'simple-format') %>
           </div>
           <div>
             <%= t '.questions.representative_phone' %> <span><%= @tribunal_case.representative.phone %></span>
@@ -76,14 +76,18 @@
     <tr>
       <th><%= t '.questions.documents_submitted' %></th>
       <td>
-        <ul class="list-bullet uploaded-docs">
-          <% @tribunal_case.documents.list.each do |document| %>
-            <li><%= document.title %></li>
-          <% end %>
-        </ul>
+        <% if @tribunal_case.having_problems_uploading_documents? %>
+          <%= simple_format(@tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
+        <% else %>
+          <ul class="list-bullet uploaded-docs">
+            <% @tribunal_case.documents.list(:supporting_documents).each do |document| %>
+              <li><%= document.title %></li>
+            <% end %>
+          </ul>
+        <% end %>
       </td>
       <td class="change-answer">
-        <%= link_to t('.change'), edit_steps_details_documents_checklist_path %>
+        <%= link_to t('.change'), edit_steps_closure_support_documents_path %>
       </td>
     </tr>
   </tbody>

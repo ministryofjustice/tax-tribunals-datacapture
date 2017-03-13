@@ -45,6 +45,30 @@ RSpec.describe NotifyMailer, type: :mailer do
         expect(mail.govuk_notify_personalisation).to include(case_reference: '', show_case_reference: 'no')
       end
     end
+
+    context 'capturing unexpected errors' do
+      before do
+        allow(tribunal_case).to receive(:taxpayer_contact_email).and_raise('boom')
+      end
+
+      it 'should report the exception' do
+        expect(Rails.logger).to receive(:info)
+        expect(Raven).to receive(:capture_exception)
+        expect(Raven).to receive(:extra_context).with(
+          {
+            template_id: 'confirmation-template',
+            personalisation: {
+              recipient_name: '[FILTERED]',
+              case_reference: 'TC/2017/00001',
+              show_case_reference: 'yes',
+              appeal_or_application: :appeal
+            }
+          }
+        )
+
+        mail.deliver_now
+      end
+    end
   end
 
   describe 'ftt_new_case_notification' do

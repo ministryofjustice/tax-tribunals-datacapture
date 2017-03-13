@@ -18,7 +18,7 @@
     <td class="content">
       <div><%= tribunal_case.taxpayer.name %></div>
       <div>
-        <%= simple_format(tribunal_case.taxpayer.address) %>
+        <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
         <%= pdf_t '.questions.appellant_phone' %>
@@ -42,7 +42,7 @@
       <% if tribunal_case.representative.present? %>
         <div><%= tribunal_case.representative.name %></div>
         <div>
-          <%= simple_format(tribunal_case.representative.address) %>
+          <%= simple_format(tribunal_case.representative.address, class: 'simple-format') %>
         </div>
         <div>
           <%= pdf_t '.questions.representative_phone' %>
@@ -82,55 +82,48 @@
   </tr>
   <tr>
     <td class="content with-padding">
-      <%= simple_format(tribunal_case.outcome) %>
+      <%= simple_format(tribunal_case.outcome, class: 'simple-format') %>
     </td>
   </tr>
   </tbody>
 </table>
 
-<% if tribunal_case.having_problems_uploading_documents? %>
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
-      <td class="section"><%= pdf_t '.questions.problems_uploading_documents' %></td>
-    </tr>
-    <tr>
-      <td class="content with-padding">
-        <%= simple_format(tribunal_case.having_problems_uploading_details) %>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<% else %>
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
-      <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
-      <td class="content">
-        <%= tribunal_case.documents.grounds_for_appeal_text(default: pdf_t('.answers.no_grounds_for_appeal_text')) %>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
+    <td class="content">
+      <span><%= tribunal_case.grounds_for_appeal %></span>
+      <ul class="documents">
+        <% tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
-  <hr/>
-  <table>
-    <tbody>
-    <tr>
-      <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
-      <td class="content">
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
+    <td class="content">
+      <% if tribunal_case.having_problems_uploading_documents? %>
+        <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
+      <% else %>
         <ul class="documents">
-          <% tribunal_case.documents.list.each do |document| %>
-              <li><%= document.title %></li>
+          <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
+            <li><%= document.title %></li>
           <% end %>
         </ul>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<% end %>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="newpage"></div>
 
@@ -148,6 +141,20 @@
     </tr>
     <tr>
       <td colspan="2"></td>
+    </tr>
+  <% end %>
+
+  <% if tribunal_case.documents.show_hardship_reason? %>
+    <tr>
+      <td><%= pdf_t '.questions.hardship_reason' %></td>
+      <td>
+        <span><%= tribunal_case.hardship_reason %></span>
+        <ul class="documents">
+          <% tribunal_case.documents.list(:hardship_reason).each do |document| %>
+            <li><%= document.title %></li>
+          <% end %>
+        </ul>
+      </td>
     </tr>
   <% end %>
   </tbody>
