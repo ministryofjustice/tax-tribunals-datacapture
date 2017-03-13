@@ -30,6 +30,9 @@ moj.Modules.sessionTimeout = {
   // The timeout timer when the session expires, (re-)set in startTimer()
   endOfSessionTimeoutTimer: null,
 
+  // The last focused element before the modal is shown
+  lastFocus: null,
+
   init: function() {
     var self = this;
 
@@ -49,12 +52,14 @@ moj.Modules.sessionTimeout = {
   },
 
   showModal: function() {
+    this.lastFocus = document.activeElement;
     $(this.config.$modalContainer).show();
     $(this.config.$modalContainer).find("button.extend").focus();
   },
 
   hideModal: function() {
     $(this.config.$modalContainer).hide();
+    this.lastFocus.focus();
   },
 
   startTimer: function() {
