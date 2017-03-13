@@ -31,7 +31,7 @@ en:
                 <li>friend or family relative</li>
               </ul>
             <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
-            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href=""> approval form</a>.</p>
+            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="">authorisation form</a>.</p>
       taxpayer_type:
         edit:
           heading:
@@ -151,8 +151,8 @@ en:
           appeal_timeliness_heading: Appeal deadline
           appeal_details_heading: Appeal details
           questions:
-            challenged_decision: Did you challenge the original decision?
-            challenged_decision_status: What is the status of the challenge?
+            challenged_decision: Did you appeal the original decision with HMRC?
+            challenged_decision_status: What reponse did you receive?
             case_type: What is your %{appeal_or_application} about?
             dispute_type: What is your dispute about?
             penalty_level: What is the penalty or surcharge amount?
@@ -174,15 +174,31 @@ en:
             documents_submitted: Documents submitted
             legal_representative: Legal representative
             desired_outcome: Desired outcome
+
+            problems_uploading_documents: Problems uploading documents
+            disputed_tax_paid: Have you paid the amount of tax under dispute?
+            hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
+            hardship_review_status: Did HMRC allow you to defer paying because of financial hardship?
+            hardship_reason: Why will paying the tax under dispute cause financial hardship?
           answers:
             challenged_decision:
               'yes': 'Yes'
               'no': 'No'
+            disputed_tax_paid:
+              'yes': 'Yes'
+              'no': 'No'
+            hardship_review_requested:
+              'yes': 'Yes'
+              'no': 'No'
+            hardship_review_status:
+              'granted': 'Yes'
+              'pending': 'I am waiting for a decision'
+              'refused': 'No'
             challenged_decision_status:
               received: I have a review conclusion letter
-              overdue: I've been waiting for 45 days or more
-              refused: 'Refused due to being "out of time"'
-              not_required: Did not require a review
+              overdue: I have been waiting for 45 days or more for a review to finish
+              refused: I was refused a review as I was outside the time limit
+              not_required: I was offered a review but didn’t accept
             case_type:
               income_tax: Income Tax
               vat: Value Added Tax (VAT)
@@ -195,7 +211,7 @@ en:
               aggregates_levy: Aggregates Levy
               air_passenger_duty: Air Passenger Duty
               alcoholic_liquor_duties: Alcoholic Liquor Duties
-              counteraction_notice: Apply for a decision on an enquiry
+              counteraction_notice: Counteraction notice
               bingo_duty: Bingo Duty
               climate_change_levy: Climate Change Levy
               construction_industry_scheme: Construction Industry Scheme (CIS)
@@ -243,6 +259,7 @@ en:
               granted: 'Yes'
               pending: I am waiting for a decision
               refused: 'No'
+            no_grounds_for_appeal_text: No text entered
             in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
               'yes': 'No'
               'no': 'Yes'
