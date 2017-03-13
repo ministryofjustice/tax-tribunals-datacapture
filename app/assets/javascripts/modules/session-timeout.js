@@ -89,10 +89,10 @@ moj.Modules.sessionTimeout = {
 
     if(diffSeconds > 60) {
       var diffMinutes = Math.round(diffSeconds / 60);
-      var word = diffMinutes == 1 ? this.config.minutesSingularString : this.config.minutesPluralString;
+      var word = diffMinutes === 1 ? this.config.minutesSingularString : this.config.minutesPluralString;
       return this.config.inString + " " + diffMinutes + " " + word;
     } else {
-      var word = diffSeconds == 1 ? this.config.secondsSingularString : this.config.secondsPluralString;
+      var word = diffSeconds === 1 ? this.config.secondsSingularString : this.config.secondsPluralString;
       return this.config.inString + " " + diffSeconds + " " + word;
     }
   },
