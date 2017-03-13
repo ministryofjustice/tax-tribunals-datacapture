@@ -30,7 +30,7 @@ module TaxTribunalsDatacapture
     config.tax_tribunal_email = 'taxappeals@hmcts.gsi.gov.uk'
     config.tax_tribunal_phone = '0300 123 1024'
 
-    config.x.session.expires_in_minutes = 30 # minutes
-    config.x.session.warning_when_remaining = 5 # minutes
+    config.x.session.expires_in_minutes = ENV.fetch('SESSION_EXPIRES_IN_MINUTES', 30).to_i
+    config.x.session.warning_when_remaining = ENV.fetch('SESSION_WARNING_WHEN_REMAINING', 5).to_i
   end
 end
