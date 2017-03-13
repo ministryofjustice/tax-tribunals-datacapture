@@ -28,7 +28,7 @@ class DecisionTree
     { controller: step_controller, action: :edit }
   end
 
-  def home_path
-    { controller: '/home', action: :index }
+  def start_path
+    { controller: '/home', action: :start }
   end
 end

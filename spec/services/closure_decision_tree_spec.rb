@@ -35,7 +35,7 @@ RSpec.describe ClosureDecisionTree do
     context 'when the step is `check_answers`' do
       let(:step_params) { {check_answers: 'anything'} }
 
-      it { is_expected.to have_destination('/home', :index) }
+      it { is_expected.to have_destination('/home', :start) }
     end
 
     context 'when the step is invalid' do
