@@ -1,7 +1,22 @@
-machine:
-  ruby:
-    version: 2.3.1
-
-test:
-  override:
-    - bundle exec rake
+version: 2
+jobs:
+  build:
+    working_directory: ~/tt-datacapture-test
+    environment:
+      - DATABASE_URL: postgresql://postgres@localhost:5432/tax-tribunals-datacapture
+    docker:
+      - image: ruby:2.3.3
+      - image: postgres:9.6.2
+    steps:
+      - run: apt-get -qq update; apt-get -y install git nodejs
+      - checkout
+      - run: gem install bundler
+      - run: bundle install --path vendor/bundle
+      - run:
+          environment:
+            RAILS_ENV: test
+          command: bundle exec rails db:setup
+      - run:
+          environment:
+            RAILS_ENV: test
+          command: bundle exec rake

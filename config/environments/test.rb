@@ -1,3 +1,7 @@
+Rails.application.config.before_configuration do
+  Raven.configuration.silence_ready = true
+end
+
 Rails.application.configure do
 
   config.cache_classes = true
