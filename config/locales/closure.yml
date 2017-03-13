@@ -54,13 +54,13 @@ en:
             hmrc_reference: HMRC reference number
             years_under_enquiry: Years under enquiry
             hmrc_officer: HMRC officer conducting enquiry
-            additional_info: Additional information
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
             appellant_email: "Email:"
             representative_details: "Representative's details"
             representative_phone: "Tel:"
             representative_email: "Email:"
+            additional_info: Additional information
             documents_submitted: Documents submitted
             legal_representative: Legal representative
             problems_uploading_documents: Problems uploading documents
