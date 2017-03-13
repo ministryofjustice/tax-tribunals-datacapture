@@ -174,8 +174,6 @@ en:
             documents_submitted: Documents submitted
             legal_representative: Legal representative
             desired_outcome: Desired outcome
-
-            problems_uploading_documents: Problems uploading documents
             disputed_tax_paid: Have you paid the amount of tax under dispute?
             hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
             hardship_review_status: Did HMRC allow you to defer paying because of financial hardship?
@@ -259,7 +257,6 @@ en:
               granted: 'Yes'
               pending: I am waiting for a decision
               refused: 'No'
-            no_grounds_for_appeal_text: No text entered
             in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
               'yes': 'No'
               'no': 'Yes'
