@@ -162,7 +162,7 @@ en:
             hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
             hardship_review_status: Did HMRC allow you to defer paying because of financial hardship?
             hardship_reason: Reasons for financial hardship
-            in_time: Is the %{appeal_or_application} late?
+            in_time: Is the %{appeal_or_application} in time?
             lateness_reason: Reason(s) for late %{appeal_or_application}
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
@@ -257,10 +257,10 @@ en:
               granted: 'Yes'
               pending: I am waiting for a decision
               refused: 'No'
-            in_time: # The question we are answering is if we are late, thus if YES, we are NOT on time, and vice versa
-              'yes': 'No'
-              'no': 'Yes'
-              unsure: Unknown
+            in_time:
+              'yes': 'Yes'
+              'no': 'No'
+              unsure: I am not sure
             no_representative: I don't have a representative
       outcome: 
         edit:
