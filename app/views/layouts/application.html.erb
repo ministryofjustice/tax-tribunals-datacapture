@@ -4,6 +4,9 @@
 <% content_for(:head) do %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <!--[if lt IE 9]>
+  <%= stylesheet_link_tag 'ie8', media: 'all' %>
+  <![endif]-->
 <% end %>
 
 <% content_for(:header_class) do %>with-proposition<% end %>
