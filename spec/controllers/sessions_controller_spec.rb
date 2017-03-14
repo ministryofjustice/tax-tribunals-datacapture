@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
+  describe '#ping' do
+    it 'does nothing' do
+      get :ping
+      expect(response).to have_http_status(:no_content)
+    end
+  end
+
   describe '#destroy' do
     it 'resets the session' do
       get :destroy, session: { foo: 'BAR' }

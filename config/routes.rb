@@ -77,6 +77,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:destroy] do
     member do
+      get :ping
       post :create_and_fill_appeal
       post :create_and_fill_appeal_and_lateness
       post :create_and_fill_appeal_and_lateness_and_appellant
@@ -89,6 +90,7 @@ Rails.application.routes.draw do
     get :case_not_found
     get :case_submitted
     get :unhandled
+    get :expired
   end
 
   root to: 'home#index'

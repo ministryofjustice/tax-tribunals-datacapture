@@ -30,5 +30,8 @@ module TaxTribunalsDatacapture
     config.feedback_email = 'taxtribunals_helpdesk@digital.justice.gov.uk'
     config.tax_tribunal_email = 'taxappeals@hmcts.gsi.gov.uk'
     config.tax_tribunal_phone = '0300 123 1024'
+
+    config.x.session.expires_in_minutes = 2 #minutes
+    config.x.session.warning_when_remaining = 1
   end
 end

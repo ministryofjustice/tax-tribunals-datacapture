@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def ping
+    head :no_content
+  end
+
   def create_and_fill_appeal
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
@@ -63,7 +67,10 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to params[:survey] ? Rails.configuration.survey_link : root_path
+    respond_to do |format|
+      format.html { redirect_to params[:survey] ? Rails.configuration.survey_link : root_path }
+      format.json { render json: {} }
+    end
   end
 
   private
