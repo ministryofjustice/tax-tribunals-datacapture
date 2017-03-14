@@ -2,7 +2,7 @@
   <div class="column-two-thirds">
     <h1 class="heading-large"><%= t '.heading' %></h1>
 
-    <p class="heading-medium"><%= t '.lead_text_html' %></p>
+    <p class="heading-medium"><%= t '.lead_text_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone %></p>
 
     <% if @tribunal_case.case_reference.present? %>
       <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>
