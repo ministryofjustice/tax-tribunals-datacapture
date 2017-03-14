@@ -6,7 +6,7 @@
 
     <p class="lede"><%= translate_for_user_type '.lead_text' %></p>
 
-    <p class="lede"><%= t '.anytime_text' %></p>    
+    <p class="lede"><%= t '.anytime_text' %></p>
 
     <details role="group">
       <summary role="button" aria-controls="details-content-0">
@@ -20,7 +20,7 @@
     </details>
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:representative_approval) %>">
-      <%= step_form @form_object do |f| %>
+      <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'representative approval', ga_label: 'representative approval'} do |f| %>
         <%= document_upload_field(f, :representative_approval, label_text: t('.attach_document_html')) %>
 
         <%= f.submit class: 'button document_upload_continue' %>

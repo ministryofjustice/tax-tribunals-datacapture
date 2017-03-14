@@ -7,7 +7,7 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:grounds_for_appeal) %>">
-      <%= step_form @form_object do |f| %>
+      <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'grounds', ga_label: 'grounds for appeal'} do |f| %>
         <%= f.text_area :grounds_for_appeal, size: '40x4', class: 'form-control form-control-3-4 form-control-large' %>
 
         <%= document_upload_field(f, :grounds_for_appeal, label_text: t('.attach_document_html')) %>

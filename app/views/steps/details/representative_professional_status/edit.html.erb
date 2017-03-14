@@ -4,7 +4,7 @@
 
     <h1 class="heading-large"><%= translate_for_user_type '.heading' %></h1>
 
-    <%= step_form @form_object do |f| %>
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :representative_professional_status,
         choices: Steps::Details::RepresentativeProfessionalStatusForm.choices %>
       <%= f.submit class: 'button' %>
