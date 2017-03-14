@@ -11,6 +11,6 @@
   <%= link_to t('.save_or_print_pdf'), steps_closure_check_answers_path(format: :pdf), target: '_blank' %>
 </h2>
 
-<%= t '.what_happens_next_html' %>
+<%= t '.what_happens_next_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone  %>
 
 <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.finish')} %>

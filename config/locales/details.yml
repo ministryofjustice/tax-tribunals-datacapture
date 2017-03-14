@@ -14,6 +14,16 @@ en:
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
+
+      explanation_html:
+        <p><strong>What to do next</strong></p>
+        <ul class="list list-bullet">
+          <li>Call the tax tribunal on %{tax_tribunal_phone} for help (see <a href="https://www.gov.uk/call-charges">call charges</a>).</li>
+          <li>If you're still having trouble, enter reasons and 'continue' to complete your appeal by post.</li>
+        </ul>
+    having_problems_uploading_details:
+      having_problems_explanation_html: |
+
     service_help:
       need_help: Need help using the online service?
       contact_us: Contact us
@@ -262,10 +272,10 @@ en:
               'no': 'No'
               unsure: I am not sure
             no_representative: I don't have a representative
-      outcome: 
+      outcome:
         edit:
           heading: What outcome do you want from your %{appeal_or_application}?
-          lead_text: Give a summary of the decisions you think should be made in regards to your %{appeal_or_application}. Write no more than 2-3 sentences which clearly outline the result you want.          
+          lead_text: Give a summary of the decisions you think should be made in regards to your %{appeal_or_application}. Write no more than 2-3 sentences which clearly outline the result you want.
       confirmation:
         show:
           case_submitted: Case submitted
@@ -281,7 +291,7 @@ en:
               <li>contact any other parties and ask them to respond</li>
             </ul>
             <p>
-              If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
+              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
       documents_upload_problems:
@@ -289,20 +299,31 @@ en:
           heading: Complete your appeal by post
           lead_text: Send everything so that it arrives within the 30 day deadline, unless you are appealing late.
           post_text_html:
-          
-           <p><strong>1. Print out your appeal using the following link</strong></p>
-          save_or_print_pdf: Save or print your case details
-          post_address_html: 
-           <p><strong>2. Make copies of all documents you want to upload</strong></p>
-           <p>You must include a copy of either the original notice or review conclusion letter.</p>
-           <p><strong>3. Send everything by post</strong></p>
-           <p>Put your printed case details and documents in one envelope and post to:</p>
-           <p>First-tier Tribunal (Tax Chamber)<br>
-           PO Box 16972<br>
-           Birmingham<br>
-           B16 6TZ</p>
-           <p>Once the tax tribunal has received your appeal they will write to you with confirmation and details of the next steps.</p>
+            <div class="letter">
+              <h2 class="heading-medium">What you will need to do</h2>
+              <ol class="list list-number">
+                 <strong><li>Print out your appeal details</li></strong>
+                  <p>Use the following link to print your details:</p>
 
+                  <p><strong><a href="%{download_pdf_url}" target="_blank">Print your appeal details</a></strong></p>
+
+                  <strong><li>Make copies of all documents you wanted to upload</li></strong>
+                  <p>You must include:</p>
+                  <ul class="list list-bullet">
+                  <li>the original notice or review conclusion letter</li>
+                  <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
+                  </ul>
+
+                 <strong><li>Send everything by post</li></strong>
+                   <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
+                  <p>First-tier Tribunal (Tax Chamber)<br>
+                  PO Box 16972<br>
+                  Birmingham<br>
+                  B16 6TZ</p>
+               </ol>
+            </div>
+          post_address_html:
+           <p>Once the tax tribunal has received your appeal they will write to you with confirmation and details of the next steps.</p>
 
   activemodel:
     errors:
@@ -423,4 +444,6 @@ en:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_documents_checklist_form:
-        having_problems_uploading_details: Enter reasons why you can't upload and 'continue'
+        having_problems_uploading_details: Enter reasons why you can't upload documents
+      steps_details_outcome_form:
+        outcome: Enter the outcome you want

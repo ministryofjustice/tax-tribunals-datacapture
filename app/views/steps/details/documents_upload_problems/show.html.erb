@@ -6,12 +6,8 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-	<p class="lede"><%=t '.post_text_html' %></p>
-    
-    <h2 class="heading-medium">
-      <%= link_to t('.save_or_print_pdf'), steps_details_check_answers_path(format: :pdf), target: '_blank' %>
-    </h2>
-    
+	<p class="lede"><%=t '.post_text_html', download_pdf_url: steps_details_check_answers_path(format: :pdf) %></p>
+
 	<p class="lede"><%=t '.post_address_html' %></p>
 
     <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.finish')} %>

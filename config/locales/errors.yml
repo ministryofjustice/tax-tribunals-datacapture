@@ -8,8 +8,8 @@ en:
       more_text: "We do this for your security. We haven't saved any personal information you entered."
     case_submitted:
       heading: You have already submitted this case
-      lead_text_html: To make changes to your case, please contact the tax tribunal on 0300 123 1024 (find out about
-              <a href="https://www.gov.uk/call-charges">call charges</a>). 
+      lead_text_html: To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone} (find out about
+              <a href="https://www.gov.uk/call-charges">call charges</a>).
       start_again: Start again
       case_reference: "Your case reference number is:"
       note_number: Please make a note of this number in case you need to contact us.

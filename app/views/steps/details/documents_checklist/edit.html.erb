@@ -36,7 +36,10 @@
               <%= t 'shared.file_upload.having_problems' %>
           <% end %>
 
+
+
           <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
+            <%= t 'shared.file_upload.explanation_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone %>
             <%= f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
           </div>
         </div>

@@ -39,7 +39,7 @@ en:
           warning_message: "Once you click 'Submit', you cannot change your answers"
           declaration_of_truth: Declaration and statement of truth
           declaration_of_truth_message: |
-            By completing this Application to Close an Enquiry to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit 
+            By completing this Application to Close an Enquiry to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit
             ’ button, I believe the information I have given in this
             form is true to the best of my knowledge. If I am found to have
             been deliberately untruthful or dishonest, criminal proceedings for
@@ -91,7 +91,7 @@ en:
               <li>contact any other parties and ask them to respond</li>
             </ul>
             <p>
-              If you have any questions, you can contact the tax tribunal on 0300 123 1024 (find out about
+              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
               <a href="https://www.gov.uk/call-charges">call charges</a>).
             </p>
   helpers:
