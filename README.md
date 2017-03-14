@@ -19,6 +19,26 @@ docker-compose run web rails db:create db:migrate
 docker-compose up
 ```
 
+## Heroku demo environment
+
+Can be found at: https://tax-tribunals-demo.herokuapp.com/
+
+It automatically tracks `master`, and deploys after each successful
+CircleCI run.
+
+It depends on the heroku apps:
+
+ https://glimr-api-emulator.herokuapp.com/
+
+and
+
+ https://mojfile-uploader-emulator.herokuapp.com/
+
+Which also track their respective master branches.
+
+It is running on a free dyno, so there may be a short delay while it
+starts up.
+
 ### Running the app directly on your machine
 
 You are of course free to run the app directly too, in which case you will need to bring your own Ruby-ready environment and PostgreSQL server. You will also need to tweak the `DATABASE_URL` environment variable in `.env`.

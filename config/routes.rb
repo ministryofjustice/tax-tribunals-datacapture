@@ -92,8 +92,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
-  get :appeal, to: 'home#index'
-  get :start_page, to: 'home#start_page'
+  get :start, to: 'home#start'
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
 end

@@ -12,7 +12,7 @@ class ClosureDecisionTree < DecisionTree
     when :support_documents
       show(:check_answers)
     when :check_answers
-      home_path
+      start_path
     else
       raise "Invalid step '#{step_params}'"
     end

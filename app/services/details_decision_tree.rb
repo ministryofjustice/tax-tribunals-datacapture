@@ -26,7 +26,7 @@ class DetailsDecisionTree < DecisionTree
     when :documents_checklist
       after_documents_checklist
     when :check_answers
-      home_path
+      start_path
     else
       raise "Invalid step '#{step_params}'"
     end

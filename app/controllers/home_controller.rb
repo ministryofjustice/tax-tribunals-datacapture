@@ -1,12 +1,10 @@
 class HomeController < ApplicationController
-  def index
+  def start
     reset_session
     @link_sections = link_sections
   end
 
-  # TODO: This page is only used for user research. It should be removed
-  # before the service goes live.
-  def start_page
+  def index
   end
 
   def contact
