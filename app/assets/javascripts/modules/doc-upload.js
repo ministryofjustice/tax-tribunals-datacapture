@@ -46,6 +46,10 @@ moj.Modules.docUpload = {
       success: function (file, response) {
         self.removeDropzonePreview(file);
         self.addFileToList(response);
+      },
+
+      renameFilename: function (filename) {
+        return self.uniqueFilename(filename);
       }
     };
 
@@ -92,7 +96,9 @@ moj.Modules.docUpload = {
     var self = this;
 
     self.$fileList.find('.no-files').hide();
-    self.$fileList.append('<li class="file">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'">Remove</a></li>');
+    self.$fileList.append('<li class="file js-only">'
+      + file.name + ' <a href="#" data-name="'+file.name+'" data-delete-name="'+file.encoded_name+'">Remove</a></li>'
+    );
   },
 
   removeDropzonePreview: function(file) {
@@ -104,5 +110,29 @@ moj.Modules.docUpload = {
         self.$form.removeClass('dz-started dz-drag-hover');
       }
     });
+  },
+
+  uniqueFilename: function(filename) {
+    var self = this;
+    var fileList = self.$fileList.find('li.js-only a').map(function() {
+      return $(this).data('name');
+    });
+
+    while ($.inArray(filename, fileList) !== -1) {
+      // A duplicate uploaded filename (case-sensitive) was found
+      filename = self.appendToFilename(filename, '(1)');
+    }
+
+    return filename;
+  },
+
+  appendToFilename: function(filename, string) {
+    var dotIndex = filename.lastIndexOf('.');
+
+    if (dotIndex !== -1) {
+      return filename.substring(0, dotIndex) + string + filename.substring(dotIndex);
+    }
+
+    return filename + string;
   }
 };
