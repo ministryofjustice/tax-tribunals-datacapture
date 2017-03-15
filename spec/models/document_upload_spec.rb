@@ -137,6 +137,18 @@ RSpec.describe DocumentUpload do
       it { expect(subject.file_name).to eq('image(2).jpg') }
     end
 
+    context 'existing `image.jpg`, `image(1).jpg` and `image(2).jpg`, uploading `image.jpg`' do
+      let(:new_filename) { 'image.jpg' }
+      let(:uploaded_files) {
+        [
+          {collection_ref: '123', name: 'image.jpg'},
+          {collection_ref: '123', name: 'image(1).jpg'},
+          {collection_ref: '123', name: 'image(2).jpg'}
+        ]
+      }
+      it { expect(subject.file_name).to eq('image(3).jpg') }
+    end
+
     # Although we are filtering out by extension and do not allow files without extension, the following tests cover a
     # theoretical situation uploading files without an extension.
     describe 'files without an extension' do
