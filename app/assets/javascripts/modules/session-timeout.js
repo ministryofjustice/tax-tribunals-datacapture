@@ -39,6 +39,9 @@ moj.Modules.sessionTimeout = {
     // Return if there is no container (the container is only shown if there is an active session)
     if(!$(self.config.$modalContainer).length) return;
 
+    // Do not initialise if the timeout variables haven't been set properly
+    if(isNaN(moj.Modules.sessionLength) || isNaN(moj.Modules.sessionWarnWhenRemaining)) return;
+
     // Bind buttons in modal
     $(self.config.$modalContainer + " .extend").click(function() {
       self.extend();
