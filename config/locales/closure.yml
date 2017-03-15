@@ -5,15 +5,15 @@ en:
         show:
           continue: Continue
           heading: Apply to close an enquiry
-          lead_text: Ask the judge to close a tax enquiry if you think it has gone on too long.
+          lead_text: Ask the judge to close an enquiry into your tax affairs.
           description_html: |
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
-              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and years under enquiry</li>
-              <li><strong>further information (optional)</strong> saying why you think the enquiry should close</li>
-              <li><strong>any supporting documents (optional)</strong> ready to upload in digital format</li>
-              <li><strong><a href="https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28">signed approval (PDF, 58Kb)</a></strong> if you want someone to act on your behalf and receive letters from the tax tribunal or attend a hearing</li>
+              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and tax years under enquiry</li>
             </ul>
+            <p>You can also provide further information and supporting documents saying why you think the enquiry should close.</p>
+            <p>You'll need to download and fill in an <a href="https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28">authorisation form (PDF, 241KB)</a></strong> if you want someone to represent you.</p>
+
       case_type:
         edit:
           heading: What type of enquiry do you want to close?
@@ -117,7 +117,7 @@ en:
         closure_years_under_enquiry: Years under enquiry
         closure_hmrc_officer: Name of the tax officer running the enquiry (optional)
       steps_closure_additional_info_form:
-        closure_additional_info: Additional information
+        closure_additional_info: Enter reasons why the enquiry should close (optional)
       steps_closure_support_documents_form:
         having_problems_uploading_details: Reasons you can't upload
 

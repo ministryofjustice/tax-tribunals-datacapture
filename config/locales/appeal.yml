@@ -7,16 +7,13 @@ en:
           heading: Appeal against a tax decision
           lead_text_html: You have 30 calendar days to appeal. This begins from the date of the original notice or review conclusion letter.
           description_html: |
-            <p>You can appeal late by giving reasons. The judge will decide if your appeal can continue.</p>
+            <p>You can appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
-              <li><strong>a scan or photo</strong> of the original notice letter, or review conclusion letter, so it's ready to upload in a digital format</li>
-              <li><strong>written reasons for your appeal</strong> to copy and paste or attach as a document</li>
-              <li>
-                <strong><a href="%{approval_form_href}">signed approval (%{approval_form_format_and_size})</a></strong>
-                if you want someone to act on your behalf and receive letters from the tax tribunal or attend a hearing
-               </li>
+              <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
+              <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
             </ul>
+            <p>You'll also need to download and fill in an <a href="https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28">authorisation form (PDF, 241KB)</a></strong> if you want someone to represent you.</p>
             <p class="notice util_mt-large">
               <i class="icon icon-important"> <span class="visuallyhidden">Warning</span> </i>
               <strong class="bold-small">You can’t save details so get everything ready before you start </strong>
