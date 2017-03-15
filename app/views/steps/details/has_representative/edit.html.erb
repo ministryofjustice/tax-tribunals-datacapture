@@ -17,7 +17,11 @@
         <%=t '.details_heading' %>
       </summary>
       <div class="panel" id="details-content-0" aria-hidden="false">
-        <%= translate_with_appeal_or_application '.details_content_html' %>
+        <%= translate_with_appeal_or_application('.details_content_html',
+              approval_form_href: asset_path('proforma.pdf'),
+              approval_form_format_and_size: 'PDF, 241KB'
+            )
+        %>
       </div>
     </details>
   </div>

@@ -12,7 +12,7 @@ en:
               <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and tax years under enquiry</li>
             </ul>
             <p>You can also provide further information and supporting documents saying why you think the enquiry should close.</p>
-            <p>You'll need to download and fill in an <a href="https://drive.google.com/open?id=0B-4PgEZDV9SBczhkbGNDanJEa28">authorisation form (PDF, 241KB)</a></strong> if you want someone to represent you.</p>
+            <p>You'll need to download and fill in an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
 
       case_type:
         edit:
