@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  moj.Modules.sessionLength = <%= Rails.configuration.x.session.expires_in_minutes %>;
+  moj.Modules.sessionWarnWhenRemaining = <%= Rails.configuration.x.session.warning_when_remaining %>;
+</script>
+
+<div id="timeout-dialog" class="modal-dialog">
+  <div class="modal-dialog_container">
+    <div class="modal-dialog_box" role="dialog" aria-labelledby="aria-timeout-label">
+      <span class="visuallyhidden" id="aria-timeout-label">
+        <%= t('session.expiring.aria-warning',
+                passed: Rails.configuration.x.session.expires_in_minutes - Rails.configuration.x.session.warning_when_remaining,
+                remain: Rails.configuration.x.session.warning_when_remaining,
+                session_length: Rails.configuration.x.session.expires_in_minutes) %>
+      </span>
+      <h2><%= t('session.expiring.heading') %></h2>
+      <p>
+        <%= t('session.expiring.in') %> <span id="timeout-dialog-remaining"></span>.
+      </p>
+      <p><%= t('session.expiring.security') %></p>
+      <p>
+        <button class="button secondary extend" id="extend" href="#"><%= t('session.expiring.extend') %></button>
+        <button class="button secondary abort" id="destroy" href="#"><%= t('session.expiring.destroy') %></button>
+      </p>
+    </div>
+  </div>
+</div>

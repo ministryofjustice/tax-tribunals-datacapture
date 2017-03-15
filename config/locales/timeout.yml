@@ -1,0 +1,24 @@
+en:
+  session:
+    note:
+      heading: 'Security time-out'
+      text: 'After %{session_length} minutes of inactivity, we’ll check if you need more time or automatically delete your application for security reasons.'
+    expiring:
+      aria-warning: 'Your application has been inactive for over %{passed} minutes. Your session will time out in less than %{remain} minutes. Hit space bar to continue for another %{session_length} minutes.'
+      heading: 'Want more time to continue?'
+      in: 'Your application will be deleted'
+      security: 'For security reasons, any information will not be saved.'
+      extend: 'Yes, continue my application'
+      destroy: 'No, delete my details'
+    expired:
+      title: 'Session expired'
+      heading: 'Your application has been cancelled'
+      description: 'For your security, the information you’ve entered has automatically been deleted.'
+      restart: 'You can start again below.'
+      restart_button: 'Start again'
+    canceled_message: "Your application has been deleted. Please start again."
+    expired_message: "You've been inactive for 30 minutes. Your application has been automatically deleted. Please start again."
+    minute_single: 'minute'
+    second_single: 'second'
+    minutes_plural: 'minutes'
+    seconds_plural: 'seconds'
