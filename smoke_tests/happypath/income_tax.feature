@@ -64,7 +64,7 @@ Feature: Income Tax Happy Paths
     And I click the "Continue" button
     Then I should see "What outcome do you want from your appeal?"
 
-    Given I fill in "Outcome" with "Drive my enemies before me, hear the lament of their women"
+    Given I fill in "Enter the outcome you want" with "Drive my enemies before me, hear the lament of their women"
     And I click the "Continue" button
     Then I should see "Upload your letter(s)"
 
