@@ -35,7 +35,7 @@
 
             <li class="file js-only">
               <%= doc.name %>
-              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name %>
+              <%= link_to 'Remove', '#', 'data-name': doc.name, 'data-delete-name': doc.encoded_name %>
             </li>
         <% end %>
     <% else %>
