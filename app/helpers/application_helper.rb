@@ -18,9 +18,21 @@ module ApplicationHelper
 
   # Render a back link pointing to the user's previous step
   def step_header
-    render partial: 'step_header', locals: {
-      path: controller.previous_step_path
-    }
+    capture do
+      render partial: 'step_header', locals: {
+        path: controller.previous_step_path
+      }
+    end + error_summary(@form_object)
+  end
+
+  def error_summary(form_object)
+    return if form_object.nil?
+
+    GovukElementsErrorsHelper.error_summary(
+      form_object,
+      translate('errors.error_summary.heading'),
+      translate('errors.error_summary.text')
+    )
   end
 
   def translate_for_user_type(key, params={})

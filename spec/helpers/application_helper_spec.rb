@@ -42,9 +42,36 @@ RSpec.describe ApplicationHelper do
   end
 
   describe '#step_header' do
+    let(:form_object) { double('Form object') }
+
     it 'renders the expected content' do
-      expect(helper).to receive(:render).with(partial: 'step_header', locals: {path: '/foo/bar'})
-      helper.step_header
+      expect(helper).to receive(:render).with(partial: 'step_header', locals: {path: '/foo/bar'}).and_return('foo')
+
+      assign(:form_object, form_object)
+      expect(helper).to receive(:error_summary).with(form_object).and_return('bar')
+
+      expect(helper.step_header).to eq('foobar')
+    end
+  end
+
+  describe '#error_summary' do
+    context 'when no form object is given' do
+      let(:form_object) { nil }
+
+      it 'returns nil' do
+        expect(helper.error_summary(form_object)).to be_nil
+      end
+    end
+
+    context 'when a form object is given' do
+      let(:form_object) { double('form object') }
+      let(:summary) { double('error summary') }
+
+      it 'delegates to GovukElementsErrorsHelper' do
+        expect(GovukElementsErrorsHelper).to receive(:error_summary).with(form_object, anything, anything).and_return(summary)
+
+        expect(helper.error_summary(form_object)).to eq(summary)
+      end
     end
   end
 
