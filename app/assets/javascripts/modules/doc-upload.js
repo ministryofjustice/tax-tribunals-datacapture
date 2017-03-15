@@ -92,7 +92,7 @@ moj.Modules.docUpload = {
     var self = this;
 
     self.$fileList.find('.no-files').hide();
-    self.$fileList.append('<li class="file">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'">Remove</a></li>');
+    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'">Remove</a></li>');
   },
 
   removeDropzonePreview: function(file) {

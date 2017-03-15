@@ -12,7 +12,7 @@ class Document
     Uploader.list_files(
       collection_ref: collection_ref,
       document_key: document_key
-    ).map {|file| new(file.merge(collection_ref: collection_ref)) }
+    ).map {|file| new(file.merge(collection_ref: collection_ref)) }.sort
   end
 
   def encoded_name
@@ -24,5 +24,13 @@ class Document
   #
   def to_param
     encoded_name
+  end
+
+  def <=>(other)
+    last_modified <=> other.last_modified
+  end
+
+  def ==(other)
+    other.collection_ref == collection_ref && other.name == name
   end
 end

@@ -8,7 +8,11 @@ RSpec.describe DocumentUpload do
   let(:file) { fixture_file_upload(file_path, content_type) }
   let(:document_key) { 'doc_key' }
 
-  subject { described_class.new(file, document_key: document_key) }
+  subject { described_class.new(file, collection_ref: '123', document_key: document_key) }
+
+  before do
+    allow(Uploader).to receive(:list_files).and_return([])
+  end
 
   context 'for a tempfile' do
     let(:file) { Tempfile.new }
@@ -75,7 +79,7 @@ RSpec.describe DocumentUpload do
 
   context '#to_hash' do
     it 'should expose an attributes hash' do
-      expect(subject.to_hash).to eq({name: 'image.jpg', encoded_name: "aW1hZ2UuanBn\n", collection_ref: nil})
+      expect(subject.to_hash).to eq({name: 'image.jpg', encoded_name: "aW1hZ2UuanBn\n", collection_ref: '123'})
     end
   end
 
@@ -105,6 +109,53 @@ RSpec.describe DocumentUpload do
         expect(subject).to receive(:add_error).with(:content_type).and_call_original
         expect(subject.valid?).to eq(false)
         expect(subject.errors).not_to be_empty
+      end
+    end
+  end
+
+  context '#file_name' do
+    before do
+      allow(subject).to receive(:original_filename).and_return(new_filename)
+      allow(Uploader).to receive(:list_files).and_return(uploaded_files)
+    end
+
+    context 'existing `image.jpg`, uploading `image.jpg`' do
+      let(:new_filename) { 'image.jpg' }
+      let(:uploaded_files) { [{collection_ref: '123', name: 'image.jpg'}] }
+      it { expect(subject.file_name).to eq('image(1).jpg') }
+    end
+
+    context 'existing `image(1).jpg`, uploading `image(1).jpg`' do
+      let(:new_filename) { 'image(1).jpg' }
+      let(:uploaded_files) { [{collection_ref: '123', name: 'image(1).jpg'}] }
+      it { expect(subject.file_name).to eq('image(1)(1).jpg') }
+    end
+
+    context 'existing `image.jpg` and `image(1).jpg`, uploading `image.jpg`' do
+      let(:new_filename) { 'image.jpg' }
+      let(:uploaded_files) { [{collection_ref: '123', name: 'image.jpg'}, {collection_ref: '123', name: 'image(1).jpg'}] }
+      it { expect(subject.file_name).to eq('image(2).jpg') }
+    end
+
+    # Although we are filtering out by extension and do not allow files without extension, the following tests cover a
+    # theoretical situation uploading files without an extension.
+    describe 'files without an extension' do
+      context 'existing `image`, uploading `image`' do
+        let(:new_filename) { 'image' }
+        let(:uploaded_files) { [{collection_ref: '123', name: 'image'}] }
+        it { expect(subject.file_name).to eq('image(1)') }
+      end
+
+      context 'existing `image.`, uploading `image.`' do
+        let(:new_filename) { 'image.' }
+        let(:uploaded_files) { [{collection_ref: '123', name: 'image.'}] }
+        it { expect(subject.file_name).to eq('image.(1)') }
+      end
+
+      context 'existing `.image`, uploading `.image`' do
+        let(:new_filename) { '.image' }
+        let(:uploaded_files) { [{collection_ref: '123', name: '.image'}] }
+        it { expect(subject.file_name).to eq('.image(1)') }
       end
     end
   end

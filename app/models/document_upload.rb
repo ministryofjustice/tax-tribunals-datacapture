@@ -59,7 +59,7 @@ class DocumentUpload
   end
 
   def file_name
-    original_filename
+    @file_name ||= unique_filename(suffix: '(%d)')
   end
 
   def encoded_file_name
@@ -90,6 +90,40 @@ class DocumentUpload
   #
   def file_data
     Base64.encode64(tempfile.read)
+  end
+
+  def uploaded_documents
+    @uploaded_documents ||= Document.for_collection(collection_ref, document_key: document_key)
+  end
+
+  def unique_filename(suffix:)
+    new_filename = original_filename
+    found_copies = 0
+    previous_suffix = ''
+
+    while uploaded_documents.include?(Document.new(name: new_filename, collection_ref: collection_ref))
+      current_suffix = suffix % (found_copies += 1)
+
+      basename  = Pathname(new_filename).sub_ext('').to_s
+      extension = File.extname(new_filename)
+
+      # Given a basename `image`, extension `.jpg` and previous_suffix `''`, it returns:
+      #   name: image
+      #   _sep: ''
+      #   new_filename: image(1).jpg
+      #
+      # Given a basename `image`, extension `.jpg` and previous_suffix `(1)`, it returns:
+      #   name: image
+      #   _sep: '(1)'
+      #   new_filename: image(2).jpg
+      #
+      name, _sep = basename.rpartition(previous_suffix)
+      new_filename = [name, current_suffix, extension].join
+
+      previous_suffix = current_suffix
+    end
+
+    new_filename
   end
 
   def validate

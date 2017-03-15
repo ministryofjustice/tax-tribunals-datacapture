@@ -10,7 +10,7 @@ RSpec.describe Document do
     }
   end
   let(:result) { [
-      { key: '12345/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:20:02.000Z' },
+      { key: '12345/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
       { key: '12345/another.doc', title: 'another.doc', last_modified: '2016-12-05T12:20:02.000Z' }
     ] }
 
@@ -65,10 +65,10 @@ RSpec.describe Document do
       ).and_return(result)
     end
 
-    it 'returns the documents' do
+    it 'returns the sorted documents' do
       documents = described_class.for_collection('12345', document_key: :foo)
       expect(documents.size).to eq(2)
-      expect(documents.map(&:name).sort).to eq(%w(another.doc test.doc))
+      expect(documents.map(&:name)).to eq(%w(another.doc test.doc))
     end
   end
 end
