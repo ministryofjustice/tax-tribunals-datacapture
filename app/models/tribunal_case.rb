@@ -27,10 +27,16 @@ class TribunalCase < ApplicationRecord
   # Closure task
   has_value_object :closure_case_type
 
+
+ 
+# Stores results of documents fetched from uploader so they don't get fetched twice
   after_initialize do
-    # Stores results of documents fetched from uploader so they don't get fetched twice
     @_documents_cache = {}
   end
+
+
+#      Do not store unsanitized user input that may get sent through to third-party APIs.
+  before_save :sanitize
 
   def mapping_code
     MappingCodeDeterminer.new(self).mapping_code
@@ -65,5 +71,29 @@ class TribunalCase < ApplicationRecord
 
   def started_by_representative?
     user_type.eql?(UserType::REPRESENTATIVE)
+  end
+
+  private
+
+  def sanitize
+    self.class.columns.each do |col|
+      # Skip uuids, integers, datetimes, et al.
+      next unless [:string, :text].include?(col.type)
+      value = public_send(col.name)
+      # Do not attempt to sanitize nils or value object.
+      if value.instance_of?(String)
+        public_send("#{col.name}=", sanitizer(value))
+      end
+    end
+  end
+
+  def sanitizer(value)
+    CGI.escapeHTML(Sanitize.fragment(value, Sanitize::Config::RESTRICTED)).
+      gsub('*', '&#42;').
+      gsub('=', '&#61;').
+      gsub('-', '&dash;').
+      gsub('%', '&#37;').
+      gsub(/drop\s+table/i, '').
+      gsub(/insert\s+into/i, '')
   end
 end
