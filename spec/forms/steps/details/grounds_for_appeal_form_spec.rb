@@ -14,6 +14,11 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
 
   subject { described_class.new(arguments) }
 
+  before do
+    # Used to retrieve already uploaded files and detect duplicates, but not part of these tests, so stubbing it
+    allow(Uploader).to receive(:list_files).and_return([])
+  end
+
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
       let(:tribunal_case)  { nil }
