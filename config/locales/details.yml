@@ -160,6 +160,8 @@ en:
           appeal_type_heading: Appeal type
           appeal_timeliness_heading: Appeal deadline
           appeal_details_heading: Appeal details
+          grounds_for_appeal_heading: Grounds for appeal
+          hardship_heading: Hardship application
           questions:
             challenged_decision: Did you appeal the original decision with HMRC?
             challenged_decision_status: What reponse did you receive?
@@ -177,12 +179,8 @@ en:
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
             appellant_email: "Email:"
-            representative_details: "Representative's details"
-            representative_phone: "Tel:"
-            representative_email: "Email:"
             grounds_for_appeal: Grounds for %{appeal_or_application}
             documents_submitted: Documents submitted
-            legal_representative: Legal representative
             desired_outcome: Desired outcome
             disputed_tax_paid: Have you paid the amount of tax under dispute?
             hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
@@ -271,7 +269,7 @@ en:
               'yes': 'Yes'
               'no': 'No'
               unsure: I am not sure
-            no_representative: I don't have a representative
+            document_attached_html: '<strong>Document attached:</strong> %{filename}'
       outcome:
         edit:
           heading: What outcome do you want from your %{appeal_or_application}?

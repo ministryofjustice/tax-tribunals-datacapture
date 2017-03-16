@@ -1,6 +1,6 @@
-<% if tribunal_case.case_reference.present? %>
-  <p>
-    <span class="case-reference"><%= tribunal_case.case_reference %></span>
-  </p>
+<p>
+  <%= t('.tax_chamber') %>
   <br/>
-<% end %>
+  <strong><%= [t('.notice'), tribunal_case.case_reference].compact.join(' – ') %></strong>
+</p>
+<br/>

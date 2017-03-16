@@ -14,10 +14,7 @@ RSpec.describe AppealTypeAnswersPresenter do
       dispute_type_other_value: dispute_type_other_value,
       penalty_level: penalty_level,
       penalty_amount: penalty_amount,
-      tax_amount: tax_amount,
-      disputed_tax_paid: disputed_tax_paid,
-      hardship_review_requested: hardship_review_requested,
-      hardship_review_status: hardship_review_status
+      tax_amount: tax_amount
     )
   }
 
@@ -32,9 +29,6 @@ RSpec.describe AppealTypeAnswersPresenter do
   let(:penalty_level)              { nil }
   let(:penalty_amount)             { nil }
   let(:tax_amount)                 { nil }
-  let(:disputed_tax_paid)          { nil }
-  let(:hardship_review_requested)  { nil }
-  let(:hardship_review_status)     { nil }
 
   let(:declared_rows) {
     [
@@ -44,10 +38,7 @@ RSpec.describe AppealTypeAnswersPresenter do
         :dispute_type_question,
         :penalty_level_question,
         :penalty_amount_question,
-        :tax_amount_question,
-        :disputed_tax_paid_question,
-        :hardship_review_requested_question,
-        :hardship_review_status_question
+        :tax_amount_question
     ].freeze
   }
 
@@ -240,72 +231,6 @@ RSpec.describe AppealTypeAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.tax_amount')
         expect(row.answer).to      eq('about 12345')
-        expect(row.change_path).to be_nil
-      end
-    end
-  end
-
-  describe '`disputed_tax_paid` question' do
-    let(:row) { subject.disputed_tax_paid_question }
-
-    context 'when `disputed_tax_paid` is nil' do
-      let(:disputed_tax_paid) { nil }
-
-      it 'is not included' do
-        expect(row).to be_nil
-      end
-    end
-
-    context 'when `disputed_tax_paid` is given' do
-      let(:disputed_tax_paid)  { 'foo' }
-
-      it 'has the correct attributes' do
-        expect(row.question).to    eq('.questions.disputed_tax_paid')
-        expect(row.answer).to      eq('.answers.disputed_tax_paid.foo')
-        expect(row.change_path).to be_nil
-      end
-    end
-  end
-
-  describe '`hardship_review_requested` question' do
-    let(:row) { subject.hardship_review_requested_question }
-
-    context 'when `hardship_review_requested` is nil' do
-      let(:hardship_review_requested) { nil }
-
-      it 'is not included' do
-        expect(row).to be_nil
-      end
-    end
-
-    context 'when `hardship_review_requested` is given' do
-      let(:hardship_review_requested)  { 'foo' }
-
-      it 'has the correct attributes' do
-        expect(row.question).to    eq('.questions.hardship_review_requested')
-        expect(row.answer).to      eq('.answers.hardship_review_requested.foo')
-        expect(row.change_path).to be_nil
-      end
-    end
-  end
-
-  describe '`hardship_review_status` row' do
-    let(:row) { subject.hardship_review_status_question }
-
-    context 'when `hardship_review_status` is nil' do
-      let(:hardship_review_status) { nil }
-
-      it 'is not included' do
-        expect(row).to be_nil
-      end
-    end
-
-    context 'when `hardship_review_status` is given' do
-      let(:hardship_review_status) { 'foo' }
-
-      it 'has the correct attributes' do
-        expect(row.question).to    eq('.questions.hardship_review_status')
-        expect(row.answer).to      eq('.answers.hardship_review_status.foo')
         expect(row.change_path).to be_nil
       end
     end

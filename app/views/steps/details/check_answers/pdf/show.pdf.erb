@@ -8,7 +8,7 @@
 <body id="case-details-pdf">
 <%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
 
-<h3><%= pdf_t '.appeal_details_heading' %></h3>
+<h4><%= t '.taxpayer_details_heading' %></h4>
 
 <hr/>
 <table>
@@ -21,42 +21,115 @@
         <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
-        <%= pdf_t '.questions.appellant_phone' %>
-        <span><%= tribunal_case.taxpayer.phone %></span>
-      </div>
-      <div>
         <%= pdf_t '.questions.appellant_email' %>
         <span><%= tribunal_case.taxpayer.email %></span>
       </div>
+      <div>
+        <%= pdf_t '.questions.appellant_phone' %>
+        <span><%= tribunal_case.taxpayer.phone %></span>
+      </div>
     </td>
   </tr>
   </tbody>
 </table>
 
+<%= render partial: 'steps/shared/representative_details', locals: { tribunal_case: tribunal_case } %>
+
+<hr/>
+<h4><%= pdf_t '.appeal_type_heading' %></h4>
+
 <hr/>
 <table>
   <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.representative_details' %></td>
-    <td class="content">
-      <% if tribunal_case.representative.present? %>
-        <div><%= tribunal_case.representative.name %></div>
-        <div>
-          <%= simple_format(tribunal_case.representative.address, class: 'simple-format') %>
-        </div>
-        <div>
-          <%= pdf_t '.questions.representative_phone' %>
-          <span><%= tribunal_case.representative.phone %></span>
-        </div>
-        <div>
-          <%= pdf_t '.questions.representative_email' %>
-          <span><%= tribunal_case.representative.email %></span>
-        </div>
-      <% else %>
-        <div>
-          <%= pdf_t '.answers.no_representative' %>
-        </div>
+  <% tribunal_case.appeal_type_answers.rows.each do |row| %>
+    <tr>
+      <td class="section"><%= pdf_t row.question %></td>
+      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% if tribunal_case.hardship_answers.rows.any? %>
+  <hr/>
+  <h4><%= pdf_t '.hardship_heading' %></h4>
+  <hr/>
+  <table>
+    <tbody>
+    <% tribunal_case.hardship_answers.rows.each do |row| %>
+      <tr>
+        <td class="section"><%= pdf_t row.question %></td>
+        <td class="content"><%= pdf_t row.answer %></td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+      </tr>
+    <% end %>
+
+    <% if tribunal_case.hardship_answers.show_reason? %>
+      <tr>
+        <td colspan="2"><%= pdf_t '.questions.hardship_reason' %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><hr/></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="content">
+          <%= simple_format(tribunal_case.hardship_reason, class: 'simple-format') %>
+          <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.hardship_reason_file_name %></p>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<div class="newpage"></div>
+<%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
+
+<% if (in_time_row = tribunal_case.appeal_lateness_answers.in_time_question) %>
+  <h4><%= pdf_t '.appeal_timeliness_heading' %></h4>
+  <hr/>
+  <table>
+    <tbody>
+      <tr>
+        <td class="section"><%= pdf_t in_time_row.question %></td>
+        <td class="content">
+          <%= pdf_t in_time_row.answer %>
+        </td>
+      </tr>
+      <% if (lateness_reason = tribunal_case.appeal_lateness_answers.lateness_reason_question) %>
+        <tr>
+          <td colspan="2"><hr/></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= pdf_t lateness_reason.question %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="content with-padding">
+            <%= simple_format(tribunal_case.lateness_reason, class: 'simple-format') %>
+          </td>
+        </tr>
       <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<h4><%= pdf_t '.grounds_for_appeal_heading' %></h4>
+
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td colspan="2"><%= pdf_t '.questions.grounds_for_appeal' %></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="content with-padding">
+      <%= simple_format(tribunal_case.grounds_for_appeal, class: 'simple-format') %>
+      <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.grounds_for_appeal_file_name %></p>
     </td>
   </tr>
   </tbody>
@@ -66,40 +139,11 @@
 <table>
   <tbody>
   <tr>
-    <td class="section"><%= pdf_t '.questions.legal_representative' %></td>
-    <td class="content">
-      Not yet implemented in data capture.
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.desired_outcome' %></td>
+    <td colspan="2"><%= pdf_t '.questions.desired_outcome' %></td>
   </tr>
   <tr>
-    <td class="content with-padding">
+    <td colspan="2" class="content with-padding">
       <%= simple_format(tribunal_case.outcome, class: 'simple-format') %>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.grounds_for_appeal' %></td>
-    <td class="content">
-      <span><%= tribunal_case.grounds_for_appeal %></span>
-      <ul class="documents">
-        <% tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
-          <li><%= document.title %></li>
-        <% end %>
-      </ul>
     </td>
   </tr>
   </tbody>
@@ -122,58 +166,6 @@
       <% end %>
     </td>
   </tr>
-  </tbody>
-</table>
-
-<div class="newpage"></div>
-
-<%= render partial: 'steps/details/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
-
-<h3><%= pdf_t '.appeal_type_heading' %></h3>
-
-<hr/>
-<table>
-  <tbody>
-  <% tribunal_case.appeal_type_answers.rows.each do |row| %>
-    <tr>
-      <td class="section"><%= pdf_t row.question %></td>
-      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
-    </tr>
-    <tr>
-      <td colspan="2"></td>
-    </tr>
-  <% end %>
-
-  <% if tribunal_case.documents.show_hardship_reason? %>
-    <tr>
-      <td><%= pdf_t '.questions.hardship_reason' %></td>
-      <td>
-        <span><%= tribunal_case.hardship_reason %></span>
-        <ul class="documents">
-          <% tribunal_case.documents.list(:hardship_reason).each do |document| %>
-            <li><%= document.title %></li>
-          <% end %>
-        </ul>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<h3><%= pdf_t '.appeal_timeliness_heading' %></h3>
-
-<hr/>
-<table>
-  <tbody>
-  <% tribunal_case.appeal_lateness_answers.rows.each do |row| %>
-    <tr>
-      <td class="section"><%= pdf_t row.question %></td>
-      <td class="content"><%= row.i18n_value ? pdf_t(row.answer) : row.answer %></td>
-    </tr>
-    <tr>
-      <td colspan="2"></td>
-    </tr>
-  <% end %>
   </tbody>
 </table>
 

@@ -4,21 +4,17 @@
 #
 en:
   steps:
-    details:
+    closure:
       check_answers:
         pdf:
           header:
             tax_chamber: First-tier Tribunal (Tax Chamber)
-            notice: Notice of appeal
+            notice: Application to close enquiry
           show:
             taxpayer_details_heading: Taxpayer details
             questions:
-              challenged_decision: Decision challenged with HMRC?
-              tax_amount: Amount of tax under dispute
-              penalty_level: Penalty or surcharge amount
-              penalty_amount: Penalty or surcharge amount
-              in_time: Are you in time?
-              lateness_reason: Reason(s) for late %{appeal_or_application}
+              # Insert here custom translations for questions
+              placeholder: placeholder
             answers:
               # Insert here custom translations for answers
               placeholder: placeholder

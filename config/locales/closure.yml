@@ -57,12 +57,8 @@ en:
             appellant_details: "Taxpayer's details"
             appellant_phone: "Tel:"
             appellant_email: "Email:"
-            representative_details: "Representative's details"
-            representative_phone: "Tel:"
-            representative_email: "Email:"
             additional_info: Additional information
             documents_submitted: Documents submitted
-            legal_representative: Legal representative
           answers:
             case_type:
               personal_return: Personal return
@@ -75,7 +71,6 @@ en:
               stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction return'
               stamp_duty_land_tax_claim: 'Stamp Duty Land Tax (SDLT): claim or amendment of a claim'
               transactions_in_securities: 'Transactions in securities: issue of counteraction or no-counteraction notice'
-            no_representative: I don't have a representative
       confirmation:
         show:
           case_submitted: Case submitted

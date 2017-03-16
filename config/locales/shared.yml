@@ -3,3 +3,15 @@ en:
     confirmation_case_reference:
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
+  steps:
+    shared:
+      representative_details:
+        change: Change
+        questions:
+          legal_representative: Type of representative
+          representative_approval: Representative approval
+          representative_details: "Representative's details"
+          representative_phone: "Tel:"
+          representative_email: "Email:"
+        answers:
+          no_representative: "I don't have a representative"

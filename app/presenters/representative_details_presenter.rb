@@ -23,4 +23,8 @@ class RepresentativeDetailsPresenter < BaseAnswersPresenter
   def email
     tribunal_case.representative_contact_email
   end
+
+  def proforma_present?
+    tribunal_case.representative_approval_file_name.present?
+  end
 end

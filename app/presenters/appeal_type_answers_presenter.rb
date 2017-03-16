@@ -7,10 +7,7 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
       dispute_type_question,
       penalty_level_question,
       penalty_amount_question,
-      tax_amount_question,
-      disputed_tax_paid_question,
-      hardship_review_requested_question,
-      hardship_review_status_question
+      tax_amount_question
     ].compact
   end
 
@@ -84,27 +81,6 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
       tribunal_case.tax_amount,
       as: :tax_amount,
       i18n_value: false
-    )
-  end
-
-  def disputed_tax_paid_question
-    row(
-      tribunal_case.disputed_tax_paid,
-      as: :disputed_tax_paid
-    )
-  end
-
-  def hardship_review_requested_question
-    row(
-      tribunal_case.hardship_review_requested,
-      as: :hardship_review_requested
-    )
-  end
-
-  def hardship_review_status_question
-    row(
-      tribunal_case.hardship_review_status,
-      as: :hardship_review_status
     )
   end
 end
