@@ -38,7 +38,7 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
         let(:representative_approval_document) { fixture_file_upload('files/image.jpg', 'application/zip') }
 
         it 'should retrieve the errors from the uploader' do
-          expect(subject.errors).to receive(:add).with(:representative_approval_document, String).and_call_original
+          expect(subject.errors).to receive(:add).with(:representative_approval_document, :content_type).and_call_original
           expect(subject).to_not be_valid
         end
       end

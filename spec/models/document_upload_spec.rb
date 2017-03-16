@@ -66,7 +66,7 @@ RSpec.describe DocumentUpload do
 
   context '#errors' do
     it 'should be empty upon initialization' do
-      expect(subject.errors).to eq([])
+      expect(subject.errors).to be_empty
     end
   end
 
