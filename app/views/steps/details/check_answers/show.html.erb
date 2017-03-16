@@ -18,31 +18,43 @@
       </tr>
   <% end %>
 
-  <% if @tribunal_case.documents.show_hardship_reason? %>
+  <% @tribunal_case.hardship_answers.rows.each do |row| %>
     <tr>
-      <td><%= t '.questions.hardship_reason' %></td>
-      <td>
-        <span><%= @tribunal_case.hardship_reason %></span>
-        <ul class="list-bullet uploaded-docs">
-          <% @tribunal_case.documents.list(:hardship_reason).each do |document| %>
-            <li><%= document.title %></li>
-          <% end %>
-        </ul>
+      <td class="section"><%= pdf_t row.question %></td>
+      <td class="content"><%= pdf_t row.answer %></td>
+      <td class="change-answer"></td>
+    </tr>
+  <% end %>
+
+  <% if @tribunal_case.hardship_answers.show_reason? %>
+    <tr>
+      <td colspan="2" class="with-padding">
+        <p><%= t '.questions.hardship_reason' %></p>
+        <%= simple_format(@tribunal_case.hardship_reason, class: 'simple-format') %>
+        <p><%= t('.answers.document_attached_html', filename: @tribunal_case.hardship_reason_file_name) %></p>
       </td>
     </tr>
   <% end %>
 
-  <tr>
-    <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_timeliness_heading' %></h2></th>
-  </tr>
-  <% @tribunal_case.appeal_lateness_answers.rows.each do |row| %>
+  <% if (in_time_row = @tribunal_case.appeal_lateness_answers.in_time_question) %>
+    <tr>
+      <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_timeliness_heading' %></h2></th>
+    </tr>
+    <tr>
+      <td><%= translate_with_appeal_or_application in_time_row.question %></td>
+      <td><%= t(in_time_row.answer) %></td>
+      <td class="change-answer">
+        <%= in_time_row.change_link t('.change') %>
+      </td>
+    </tr>
+    <% if (lateness_reason = @tribunal_case.appeal_lateness_answers.lateness_reason_question) %>
       <tr>
-        <td><%= translate_with_appeal_or_application row.question %></td>
-        <td><%= row.i18n_value ? t(row.answer) : row.answer %></td>
-        <td class="change-answer">
-          <%= row.change_link t('.change') %>
+        <td colspan="2" class="with-padding">
+          <p><%= translate_with_appeal_or_application lateness_reason.question %></p>
+          <%= simple_format(@tribunal_case.lateness_reason, class: 'simple-format') %>
         </td>
       </tr>
+    <% end %>
   <% end %>
 
   <tr>
@@ -56,48 +68,24 @@
         <%= simple_format(@tribunal_case.taxpayer.address, class: 'simple-format') %>
       </div>
       <div>
-        <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
+        <%= t '.questions.appellant_email' %> <span><%= @tribunal_case.taxpayer.email %></span>
       </div>
       <div>
-        <%= t '.questions.appellant_email' %> <span><%= @tribunal_case.taxpayer.email %></span>
+        <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
       </div>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_taxpayer_type_path %>
     </td>
   </tr>
-    <tr>
-      <th><%= t '.questions.representative_details' %></th>
-      <td>
-        <% if @tribunal_case.representative.present? %>
-          <div><%= @tribunal_case.representative.name %></div>
-          <div class="js_breaklines">
-            <%= simple_format(@tribunal_case.representative.address, class: 'simple-format') %>
-          </div>
-          <div>
-            <%= t '.questions.representative_phone' %> <span><%= @tribunal_case.representative.phone %></span>
-          </div>
-          <div>
-            <%= t '.questions.representative_email' %> <span><%= @tribunal_case.representative.email %></span>
-          </div>
-        <% else %>
-          <%= t '.answers.no_representative' %>
-        <% end %>
-      </td>
-      <td class="change-answer">
-        <%= link_to t('.change'), edit_steps_details_has_representative_path %>
-      </td>
-    </tr>
+
+  <%= render partial: 'steps/shared/representative_details', locals: { tribunal_case: @tribunal_case } %>
 
   <tr>
-    <th><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></th>
-    <td>
-      <span><%= @tribunal_case.grounds_for_appeal %></span>
-      <ul class="list-bullet uploaded-docs">
-        <% @tribunal_case.documents.list(:grounds_for_appeal).each do |document| %>
-          <li><%= document.title %></li>
-        <% end %>
-      </ul>
+    <td colspan="2" class="with-padding">
+      <p><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></p>
+      <%= simple_format(@tribunal_case.grounds_for_appeal, class: 'simple-format') %>
+      <p><%= t('.answers.document_attached_html', filename: @tribunal_case.grounds_for_appeal_file_name) %></p>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>
@@ -105,11 +93,9 @@
   </tr>
 
   <tr>
-    <th><%= t '.questions.desired_outcome' %></th>
-    <td>
-      <span>
-        <%= simple_format(@tribunal_case.outcome, class: 'simple-format') %>
-      </span>
+    <td colspan="2" class="with-padding">
+      <p><%= t '.questions.desired_outcome' %></p>
+      <%= simple_format(@tribunal_case.outcome, class: 'simple-format') %>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_outcome_path %>

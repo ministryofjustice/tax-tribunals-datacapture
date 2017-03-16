@@ -9,8 +9,4 @@ class DocumentsSubmittedPresenter < BaseAnswersPresenter
     return [] if tribunal_case.having_problems_uploading_documents?
     tribunal_case.documents(document_key)
   end
-
-  def show_hardship_reason?
-    tribunal_case.hardship_review_status == HardshipReviewStatus::REFUSED
-  end
 end

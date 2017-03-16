@@ -6,8 +6,6 @@ class AppealLatenessAnswersPresenter < BaseAnswersPresenter
     ].compact
   end
 
-  private
-
   def in_time_question
     row(
       tribunal_case.in_time,

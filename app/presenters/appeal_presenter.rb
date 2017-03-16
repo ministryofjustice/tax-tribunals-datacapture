@@ -29,6 +29,10 @@ class AppealPresenter < SimpleDelegator
     @appeal_lateness_answers ||= AppealLatenessAnswersPresenter.new(tribunal_case)
   end
 
+  def hardship_answers
+    @hardship_answers ||= HardshipAnswersPresenter.new(tribunal_case)
+  end
+
   private
 
   def tribunal_case

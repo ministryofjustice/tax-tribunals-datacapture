@@ -34,4 +34,10 @@ RSpec.describe AppealPresenter do
       expect(subject.appeal_lateness_answers).to be_an_instance_of(AppealLatenessAnswersPresenter)
     end
   end
+
+  context '#hardship_answers' do
+    it 'returns a hardship answers presenter instance' do
+      expect(subject.hardship_answers).to be_an_instance_of(HardshipAnswersPresenter)
+    end
+  end
 end

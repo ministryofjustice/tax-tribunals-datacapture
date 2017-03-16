@@ -94,4 +94,18 @@ RSpec.describe RepresentativeDetailsPresenter do
       end
     end
   end
+
+  describe '#proforma_present?' do
+    let(:tribunal_case) { instance_double(TribunalCase, representative_approval_file_name: file_name) }
+
+    context 'when a document was uploaded' do
+      let(:file_name) { 'document.txt' }
+      it { expect(subject.proforma_present?).to eq(true) }
+    end
+
+    context 'when no document was uploaded' do
+      let(:file_name) { nil }
+      it { expect(subject.proforma_present?).to eq(false) }
+    end
+  end
 end

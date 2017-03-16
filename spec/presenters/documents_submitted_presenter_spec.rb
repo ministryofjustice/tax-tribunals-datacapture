@@ -24,18 +24,4 @@ RSpec.describe DocumentsSubmittedPresenter do
       end
     end
   end
-
-  describe '#show_hardship_reason?' do
-    let(:tribunal_case) { instance_double(TribunalCase, hardship_review_status: hardship_review_status) }
-
-    context 'when the hardship status is refused' do
-      let(:hardship_review_status) { HardshipReviewStatus::REFUSED }
-      it { expect(subject.show_hardship_reason?).to eq(true) }
-    end
-
-    context 'when the hardship status is other than refused' do
-      let(:hardship_review_status) { HardshipReviewStatus::GRANTED }
-      it { expect(subject.show_hardship_reason?).to eq(false) }
-    end
-  end
 end
