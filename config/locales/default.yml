@@ -16,8 +16,8 @@ en:
     messages:
       blank: Please enter an answer
     error_summary:
-      heading: Message to alert the user to a problem goes here
-      text: More help about errors goes here
+      heading: There's a problem. You need to fix this error.
+      text: ""
   helpers:
     submit:
       # These are defaults applicable to most steps, override them for
