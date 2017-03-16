@@ -252,6 +252,7 @@ en:
               amount_of_tax_owed_by_hmrc: HMRC should repay tax to you
               amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
               amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
+              information_notice: Information notice
               other: Other
             penalty_level:
               penalty_level_1: £100 or less
