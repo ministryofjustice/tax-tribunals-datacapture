@@ -47,7 +47,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         let(:grounds_for_appeal_document) { fixture_file_upload('files/image.jpg', 'application/zip') }
 
         it 'should retrieve the errors from the uploader' do
-          expect(subject.errors).to receive(:add).with(:grounds_for_appeal_document, String).and_call_original
+          expect(subject.errors).to receive(:add).with(:grounds_for_appeal_document, :content_type).and_call_original
           expect(subject).to_not be_valid
         end
       end

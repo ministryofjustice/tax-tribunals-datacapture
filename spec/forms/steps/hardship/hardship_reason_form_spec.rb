@@ -48,7 +48,7 @@ RSpec.describe Steps::Hardship::HardshipReasonForm do
         let(:hardship_reason_document) { fixture_file_upload('files/image.jpg', 'application/zip') }
 
         it 'should retrieve the errors from the uploader' do
-          expect(subject.errors).to receive(:add).with(:hardship_reason_document, String).and_call_original
+          expect(subject.errors).to receive(:add).with(:hardship_reason_document, :content_type).and_call_original
           expect(subject).to_not be_valid
         end
       end

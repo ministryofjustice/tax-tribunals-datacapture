@@ -1,5 +1,7 @@
 class DocumentUpload
   include Virtus.model
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
 
   attribute :tempfile, Object
   attribute :content_type, String
@@ -39,7 +41,7 @@ class DocumentUpload
     self.original_filename = filename || obj.original_filename
     self.collection_ref = collection_ref
     self.document_key = document_key
-    self.errors = []
+    self.errors = ActiveModel::Errors.new(self)
   end
 
   def upload!(collection_ref: nil, document_key: nil)
@@ -132,7 +134,7 @@ class DocumentUpload
   end
 
   def add_error(code)
-    errors << translate(code) unless errors.include?(code)
+    errors.add(code, translate(code)) unless errors.has_key?(code)
   end
 
   def translate(key)
