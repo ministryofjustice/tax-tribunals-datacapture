@@ -1,6 +1,7 @@
 class DocumentUpload
   include Virtus.model
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
 
   attribute :tempfile, Object
   attribute :content_type, String
@@ -75,22 +76,6 @@ class DocumentUpload
     validate
     errors.empty?
   end
-
-  # Required for ActiveModel::Errors
-
-  def read_attribute_for_validation(attr)
-    send(attr)
-  end
-
-  def self.human_attribute_name(attr, options = {})
-    attr
-  end
-
-  def self.lookup_ancestors
-    [self]
-  end
-
-  # Required for ActiveModel::Errors
 
   def errors?
     errors.any?
