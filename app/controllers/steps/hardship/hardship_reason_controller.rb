@@ -3,7 +3,7 @@ module Steps::Hardship
     def edit
       @form_object = HardshipReasonForm.new(
         tribunal_case: current_tribunal_case,
-        hardship_review_status: current_tribunal_case.hardship_review_status
+        hardship_reason: current_tribunal_case.hardship_reason
       )
     end
 
