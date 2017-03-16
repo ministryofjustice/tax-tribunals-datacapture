@@ -15,6 +15,9 @@ en:
     format: "%{message}"
     messages:
       blank: Please enter an answer
+    error_summary:
+      heading: There's a problem. You need to fix this error.
+      text: ""
   helpers:
     submit:
       # These are defaults applicable to most steps, override them for
