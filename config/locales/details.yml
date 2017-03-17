@@ -66,14 +66,13 @@ en:
       representative_professional_status:
         edit:
           heading:
-            as_taxpayer: "Is your representative a:"
-            as_representative: "Are you a:"
+            as_taxpayer: "Who is representing you?"
+            as_representative: "Who are you?"
       representative_approval:
         edit:
           heading:
             as_taxpayer: Do you want to authorise your representative now? (optional)
             as_representative: Do you want to start receiving information from the tribunal? (optional)
-
           lead_text:
             as_taxpayer: If you want your representative to start receiving information from the tax tribunal, you can authorise them now.
             as_representative: Upload authorisation to let the tax tribunal know you’re acting for the taxpayer.
@@ -89,7 +88,6 @@ en:
                  <li>Upload the form in digital format below.</li>
                </ol>
                <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
-
             as_representative_html: |
               <ol class="list list-number">
                 <li>Copy and paste the text below into an email, document or download as a PDF.</li>
@@ -98,7 +96,6 @@ en:
                 <li>Upload a copy of the email or signed form.</li>
               </ol>
               <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
-
           details_example_html: |
             <h2 class="heading-medium">Example text</h2>
             <div class="panel">
