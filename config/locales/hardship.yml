@@ -37,11 +37,6 @@ en:
           attributes:
             hardship_reason:
               blank: You must enter reasons or attach a document
-            hardship_reason_document:
-              file_size: Your file exceeds the maximum file size of 20 megabytes
-              content_type: Your file is not in a format we can accept
-              response_error: There was an error uploading your file. Please try again
-              virus_detected: Virus detected
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
