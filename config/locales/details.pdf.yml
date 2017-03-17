@@ -11,7 +11,6 @@ en:
             tax_chamber: First-tier Tribunal (Tax Chamber)
             notice: Notice of appeal
           show:
-            taxpayer_details_heading: Taxpayer details
             questions:
               challenged_decision: Decision challenged with HMRC?
               tax_amount: Amount of tax under dispute

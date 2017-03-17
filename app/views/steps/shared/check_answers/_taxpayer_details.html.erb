@@ -1,0 +1,21 @@
+<tr>
+  <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_details_heading' %></h2></th>
+</tr>
+<tr>
+  <th><%= t '.questions.appellant_details' %></th>
+  <td>
+    <div><%= tribunal_case.taxpayer.name %></div>
+    <div class="js_breaklines">
+      <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
+    </div>
+    <div>
+      <%= t '.questions.appellant_email' %> <span><%= tribunal_case.taxpayer.email %></span>
+    </div>
+    <div>
+      <%= t '.questions.appellant_phone' %> <span><%= tribunal_case.taxpayer.phone %></span>
+    </div>
+  </td>
+  <td class="change-answer">
+    <%= link_to t('steps.shared.check_answers.change'), edit_steps_details_taxpayer_type_path %>
+  </td>
+</tr>

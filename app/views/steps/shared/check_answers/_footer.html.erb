@@ -1,0 +1,16 @@
+<h2 class="heading-medium"><%= t '.declaration_of_truth' %></h2>
+
+<p><%= translate_with_appeal_or_application '.declaration_of_truth_message' %></p>
+
+<p class="notice util_mt-large">
+  <i class="icon icon-important">
+    <span class="visuallyhidden"><%= t '.warning' %></span>
+  </i>
+  <strong class="bold-small">
+    <%= t '.warning_message' %>
+  </strong>
+</p>
+
+<p>
+  <%= button_to t('.submit_and_continue'), submit_link, class: 'button' %>
+</p>

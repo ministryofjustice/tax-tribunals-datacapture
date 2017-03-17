@@ -143,23 +143,10 @@ en:
           review_conclusion_provided_html: <strong>Review conclusion letter</strong><br>you will only have this if your case was reviewed
       check_answers:
         show:
-          submit_and_continue: Submit
           change: Change
           heading: Check your answers
-          warning: Warning
-          warning_message: "Once you click 'Submit', you cannot change your answers"
-          declaration_of_truth: Declaration and statement of truth
-          declaration_of_truth_message: |
-            By completing this Notice of Appeal to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit
-            ’ button, I believe the information I have given in this
-            form is true to the best of my knowledge. If I am found to have
-            been deliberately untruthful or dishonest, criminal proceedings for
-            fraud can be brought against me. I understand that if I have given
-            false information or I do not provide further evidence if
-            requested, my %{appeal_or_application} may be rejected.
           appeal_type_heading: Appeal type
           appeal_timeliness_heading: Appeal deadline
-          appeal_details_heading: Appeal details
           grounds_for_appeal_heading: Grounds for appeal
           hardship_heading: Hardship application
           questions:
@@ -176,11 +163,7 @@ en:
             hardship_reason: Reasons for financial hardship
             in_time: Is the %{appeal_or_application} in time?
             lateness_reason: Reason(s) for late %{appeal_or_application}
-            appellant_details: "Taxpayer's details"
-            appellant_phone: "Tel:"
-            appellant_email: "Email:"
             grounds_for_appeal: Grounds for %{appeal_or_application}
-            documents_submitted: Documents submitted
             desired_outcome: Desired outcome
             disputed_tax_paid: Have you paid the amount of tax under dispute?
             hardship_review_requested: Did you ask HMRC if you could appeal without paying the tax first?
