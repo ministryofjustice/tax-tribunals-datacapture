@@ -338,22 +338,10 @@ en:
           attributes:
             representative_type:
               inclusion: Select whether you're entering details for an individual, company or organisation
-        steps/details/representative_approval_form:
-          attributes:
-            representative_approval_document:
-              file_size: Your file exceeds the maximum file size of 20 megabytes
-              content_type: Your file is not in a format we can accept
-              response_error: There was an error uploading your file. Please try again
-              virus_detected: Virus detected
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
               blank: You must enter reasons or attach a document
-            grounds_for_appeal_document:
-              file_size: Your file exceeds the maximum file size of 20 megabytes
-              content_type: Your file is not in a format we can accept
-              response_error: There was an error uploading your file. Please try again
-              virus_detected: Virus detected
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:

@@ -15,6 +15,10 @@ en:
     format: "%{message}"
     messages:
       blank: Please enter an answer
+      file_size: File too big
+      content_type: Unsupported file type
+      response_error: Response error
+      virus_detected: Virus detected
     error_summary:
       heading: There's a problem. You need to fix this error.
       text: ""
