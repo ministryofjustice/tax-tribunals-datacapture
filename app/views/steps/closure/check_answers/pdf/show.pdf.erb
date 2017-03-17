@@ -8,52 +8,11 @@
 <body id="case-details-pdf">
 <%= render partial: 'steps/closure/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
 
-<h3><%= pdf_t '.taxpayer_details_heading' %></h3>
+<%= render partial: 'steps/shared/check_answers/taxpayer_details', locals: { tribunal_case: tribunal_case } %>
 
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.appellant_details' %></td>
-    <td class="content">
-      <div><%= tribunal_case.taxpayer.name %></div>
-      <div>
-        <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
-      </div>
-      <div>
-        <%= pdf_t '.questions.appellant_phone' %>
-        <span><%= tribunal_case.taxpayer.phone %></span>
-      </div>
-      <div>
-        <%= pdf_t '.questions.appellant_email' %>
-        <span><%= tribunal_case.taxpayer.email %></span>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<%= render partial: 'steps/shared/check_answers/representative_details', locals: { tribunal_case: tribunal_case } %>
 
-<%= render partial: 'steps/shared/representative_details', locals: { tribunal_case: tribunal_case } %>
-
-<hr/>
-<table>
-  <tbody>
-  <tr>
-    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
-    <td class="content">
-      <% if tribunal_case.having_problems_uploading_documents? %>
-        <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
-      <% else %>
-        <ul class="documents">
-          <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
-            <li><%= document.title %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<%= render partial: 'steps/shared/check_answers/documents_submitted', locals: { tribunal_case: tribunal_case } %>
 
 <div class="newpage"></div>
 

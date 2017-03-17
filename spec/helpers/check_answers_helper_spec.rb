@@ -5,7 +5,7 @@ RSpec.describe CheckAnswersHelper do
     # These are just a few keys to perform a quick sanity check of the method.
     # If ever changed or removed, any other keys can be used instead.
     let(:found_key) { '.questions.penalty_level' }
-    let(:cascaded_key) { '.questions.documents_submitted' }
+    let(:cascaded_key) { '.questions.desired_outcome' }
     let(:interpolation_key) { '.questions.case_type' }
 
     before do
@@ -23,7 +23,7 @@ RSpec.describe CheckAnswersHelper do
 
     it 'cascades a not found key' do
       result = helper.pdf_t(cascaded_key)
-      expect(result).to eq('Documents submitted')
+      expect(result).to eq('Desired outcome')
     end
 
     it 'interpolates the appeal_or_application params' do

@@ -1,0 +1,17 @@
+<tr>
+  <th><%= t '.questions.documents_submitted' %></th>
+  <td>
+    <% if tribunal_case.having_problems_uploading_documents? %>
+      <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
+    <% else %>
+      <ul class="list-bullet uploaded-docs">
+        <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
+          <li><%= document.title %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </td>
+  <td class="change-answer">
+    <%= link_to t('steps.shared.check_answers.change'), change_link %>
+  </td>
+</tr>

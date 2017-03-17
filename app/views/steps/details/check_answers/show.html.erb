@@ -57,29 +57,9 @@
     <% end %>
   <% end %>
 
-  <tr>
-    <th colspan="3"><h2 class="heading-medium"><%= t '.appeal_details_heading' %></h2></th>
-  </tr>
-  <tr>
-    <th><%= t '.questions.appellant_details' %></th>
-    <td>
-      <div><%= @tribunal_case.taxpayer.name %></div>
-      <div class="js_breaklines">
-        <%= simple_format(@tribunal_case.taxpayer.address, class: 'simple-format') %>
-      </div>
-      <div>
-        <%= t '.questions.appellant_email' %> <span><%= @tribunal_case.taxpayer.email %></span>
-      </div>
-      <div>
-        <%= t '.questions.appellant_phone' %> <span><%= @tribunal_case.taxpayer.phone %></span>
-      </div>
-    </td>
-    <td class="change-answer">
-      <%= link_to t('.change'), edit_steps_details_taxpayer_type_path %>
-    </td>
-  </tr>
+  <%= render partial: 'steps/shared/check_answers/taxpayer_details', locals: { tribunal_case: @tribunal_case } %>
 
-  <%= render partial: 'steps/shared/representative_details', locals: { tribunal_case: @tribunal_case } %>
+  <%= render partial: 'steps/shared/check_answers/representative_details', locals: { tribunal_case: @tribunal_case } %>
 
   <tr>
     <td colspan="2" class="with-padding">
@@ -102,36 +82,12 @@
     </td>
   </tr>
 
-  <tr>
-    <th><%= t '.questions.documents_submitted' %></th>
-    <td>
-      <ul class="list-bullet uploaded-docs">
-        <% @tribunal_case.documents.list(:supporting_documents).each do |document| %>
-          <li><%= document.title %></li>
-        <% end %>
-      </ul>
-    </td>
-    <td class="change-answer">
-      <%= link_to t('.change'), edit_steps_details_documents_checklist_path %>
-    </td>
-  </tr>
+  <%= render partial: 'steps/shared/check_answers/documents_submitted', locals: {
+      tribunal_case: @tribunal_case,
+      change_link: edit_steps_details_documents_checklist_path
+  } %>
 
   </tbody>
 </table>
 
-<h2 class="heading-medium"><%= t '.declaration_of_truth' %></h2>
-
-<p><%= translate_with_appeal_or_application '.declaration_of_truth_message' %></p>
-
-<p class="notice util_mt-large">
-  <i class="icon icon-important">
-    <span class="visuallyhidden"><%= t '.warning' %></span>
-  </i>
-  <strong class="bold-small">
-    <%= t '.warning_message' %>
-  </strong>
-</p>
-
-<p>
-  <%= button_to t('.submit_and_continue'), appeal_cases_path, class: 'button' %>
-</p>
+<%= render partial: 'steps/shared/check_answers/footer', locals: { submit_link: appeal_cases_path } %>

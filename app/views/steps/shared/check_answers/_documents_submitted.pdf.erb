@@ -1,0 +1,19 @@
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.documents_submitted' %></td>
+    <td class="content">
+      <% if tribunal_case.having_problems_uploading_documents? %>
+        <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
+      <% else %>
+        <ul class="documents">
+          <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
+            <li><%= document.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<h3><%= pdf_t '.taxpayer_details_heading' %></h3>
+<hr/>
+<table>
+  <tbody>
+  <tr>
+    <td class="section"><%= pdf_t '.questions.appellant_details' %></td>
+    <td class="content">
+      <div><%= tribunal_case.taxpayer.name %></div>
+      <div>
+        <%= simple_format(tribunal_case.taxpayer.address, class: 'simple-format') %>
+      </div>
+      <div>
+        <%= pdf_t '.questions.appellant_phone' %>
+        <span><%= tribunal_case.taxpayer.phone %></span>
+      </div>
+      <div>
+        <%= pdf_t '.questions.appellant_email' %>
+        <span><%= tribunal_case.taxpayer.email %></span>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
