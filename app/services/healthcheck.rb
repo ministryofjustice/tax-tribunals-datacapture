@@ -7,6 +7,7 @@ class Healthcheck
   def check
     {
       service_status: service_status,
+      version: version,
       dependencies: {
         glimr_status: glimr_status,
         database_status: database_status,
@@ -16,6 +17,15 @@ class Healthcheck
   end
 
   private
+
+  def version
+    # This has been manually checked in a demo app in a docker container running
+    # ruby:latest with Docker 1.12. Ymmv, however; in particular it may not
+    # work on alpine-based containers. It is mocked at the method level in the
+    # specs, so it is possible to simply comment the call out if there are
+    # issues with it.
+    `git rev-parse HEAD`.chomp
+  end
 
   def uploader_status
     @uploader_status ||=

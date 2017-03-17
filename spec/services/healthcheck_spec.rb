@@ -11,6 +11,7 @@ RSpec.describe Healthcheck do
   let(:status) do
     {
       service_status: service_status,
+      version: 'ABC123',
       dependencies: {
         glimr_status: glimr_status,
         database_status: database_status,
@@ -29,6 +30,16 @@ RSpec.describe Healthcheck do
     allow(GlimrApiClient::Available).to receive(:call).and_return(glimr_available)
     allow(ActiveRecord::Base).to receive(:connection).and_return(double)
     allow(MojFileUploaderApiClient::Status).to receive(:new).and_return(uploader_client)
+    allow_any_instance_of(described_class).to receive(:`).with('git rev-parse HEAD').and_return('ABC123')
+  end
+
+  describe '.version' do
+    # Necessary evil for coverage purposes.
+    it 'calls `git rev-parse HEAD`' do
+      # See above
+      expect_any_instance_of(described_class).to receive(:`).with('git rev-parse HEAD').and_return('ABC123')
+      described_class.check
+    end
   end
 
   describe '#check' do
