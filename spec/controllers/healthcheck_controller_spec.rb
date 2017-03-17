@@ -4,6 +4,7 @@ RSpec.describe HealthcheckController do
   let(:status) do
     {
       service_status: 'ok',
+      version: 'ABC123',
       dependencies: {
         glimr_status: 'ok',
         database_status: 'ok',
@@ -20,6 +21,7 @@ RSpec.describe HealthcheckController do
     stub_request(:get, /healthcheck/).
       to_return(status: 200, body: { service_status: 'ok' }.to_json)
     expect(ActiveRecord::Base).to receive(:connection).and_return(double)
+    allow_any_instance_of(Healthcheck).to receive(:version).and_return('ABC123')
   end
 
   # This is very-happy-path to ensure the controller responds.  The bulk of the
