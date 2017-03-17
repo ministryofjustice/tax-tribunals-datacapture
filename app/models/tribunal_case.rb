@@ -20,7 +20,7 @@ class TribunalCase < ApplicationRecord
   # Details task
   has_value_object :user_type
   has_value_object :has_representative
-  has_value_object :representative_is_legal_professional
+  has_value_object :representative_professional_status
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
   has_value_object :representative_type, class_name: 'ContactableEntityType'
 

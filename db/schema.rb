@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228170205) do
+ActiveRecord::Schema.define(version: 20170317113728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170228170205) do
     t.text     "having_problems_uploading_details"
     t.string   "user_type"
     t.string   "navigation_stack",                                default: [],                                       array: true
-    t.string   "representative_is_legal_professional"
+    t.string   "representative_professional_status"
     t.string   "dispute_type_other_value"
     t.string   "case_status"
     t.string   "hardship_reason"

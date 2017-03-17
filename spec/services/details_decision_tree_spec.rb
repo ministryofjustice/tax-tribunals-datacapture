@@ -19,7 +19,7 @@ RSpec.describe DetailsDecisionTree do
       context 'and the user is a representative' do
         let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::REPRESENTATIVE) }
 
-        it { is_expected.to have_destination(:representative_is_legal_professional, :edit) }
+        it { is_expected.to have_destination(:representative_professional_status, :edit) }
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe DetailsDecisionTree do
       context 'and the answer is yes' do
         let(:tribunal_case) { instance_double(TribunalCase, has_representative: HasRepresentative::YES) }
 
-        it { is_expected.to have_destination(:representative_is_legal_professional, :edit) }
+        it { is_expected.to have_destination(:representative_professional_status, :edit) }
       end
 
       context 'and the answer is no' do
@@ -77,17 +77,23 @@ RSpec.describe DetailsDecisionTree do
       end
     end
 
-    context 'when the step is `representative_is_legal_professional`' do
-      let(:step_params) { { representative_is_legal_professional: 'anything'  } }
+    context 'when the step is `representative_professional_status`' do
+      let(:step_params) { { representative_professional_status: 'anything'  } }
 
-      context 'when the representative is a legal professional' do
-        let(:tribunal_case) { instance_double(TribunalCase, representative_is_legal_professional: RepresentativeIsLegalProfessional::YES) }
+      context 'when the representative is an English/Welsh/NIsh legal professional' do
+        let(:tribunal_case) { instance_double(TribunalCase, representative_professional_status: RepresentativeProfessionalStatus::ENGLAND_OR_WALES_OR_NI_LEGAL_REP) }
+
+        it { is_expected.to have_destination(:representative_type, :edit) }
+      end
+
+      context 'when the representative is a Scottish legal professional' do
+        let(:tribunal_case) { instance_double(TribunalCase, representative_professional_status: RepresentativeProfessionalStatus::SCOTLAND_LEGAL_REP) }
 
         it { is_expected.to have_destination(:representative_type, :edit) }
       end
 
       context 'when the representative is not a legal professional' do
-        let(:tribunal_case) { instance_double(TribunalCase, representative_is_legal_professional: RepresentativeIsLegalProfessional::NO) }
+        let(:tribunal_case) { instance_double(TribunalCase, representative_professional_status: RepresentativeProfessionalStatus::FRIEND_OR_FAMILY) }
 
         it { is_expected.to have_destination(:representative_approval, :edit) }
       end

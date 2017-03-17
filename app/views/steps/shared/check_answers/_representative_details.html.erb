@@ -23,13 +23,12 @@
 
 <% if tribunal_case.representative.present? %>
   <tr>
-    <th><%= t '.questions.legal_representative' %></th>
+    <th><%= t '.questions.representative_professional_status' %></th>
     <td>
-      <!-- TODO: We only have a Yes/No value at the moment, there is a ticket to change that, this is temporal -->
-      Tax Agent
+      <%= t ".answers.representative_professional_status.#{@tribunal_case.representative_professional_status}" %>
     </td>
     <td class="change-answer">
-      <%= link_to t('steps.shared.check_answers.change'), edit_steps_details_representative_is_legal_professional_path %>
+      <%= link_to t('steps.shared.check_answers.change'), edit_steps_details_representative_professional_status_path %>
     </td>
   </tr>
 

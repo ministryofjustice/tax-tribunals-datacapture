@@ -32,10 +32,11 @@
   <table>
     <tbody>
     <tr>
-      <td class="section"><%= pdf_t '.questions.legal_representative' %></td>
-      <!-- TODO: We only have a Yes/No value at the moment, there is a ticket to change that, this is temporal -->
+      <td class="section"><%= pdf_t '.questions.representative_professional_status' %></td>
       <td class="content">
-        <span>Tax Agent</span>
+        <span>
+          <%= t ".answers.representative_professional_status.#{tribunal_case.representative_professional_status}" %>
+        </span>
       </td>
     </tr>
     </tbody>
