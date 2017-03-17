@@ -55,7 +55,7 @@ Rails.application.routes.draw do
       edit_step :taxpayer_type
       edit_step :taxpayer_details
       edit_step :has_representative
-      edit_step :representative_is_legal_professional
+      edit_step :representative_professional_status
       edit_step :representative_type
       edit_step :representative_details
       edit_step :grounds_for_appeal

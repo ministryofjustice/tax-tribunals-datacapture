@@ -16,13 +16,20 @@ en:
             appellant_phone: "Tel:"
         representative_details:
           questions:
-            legal_representative: Type of representative
+            representative_professional_status: The representative is
             representative_approval: Representative approval
             representative_details: "Representative's details"
             representative_phone: "Tel:"
             representative_email: "Email:"
           answers:
             no_representative: "I don't have a representative"
+            representative_professional_status:
+              england_or_wales_or_ni_legal_rep: a practising solicitor or barrister in England, Wales or Northern Ireland
+              scotland_legal_rep: a practising solicitor or advocate in Scotland
+              tax_agent: a tax agent
+              accountant: an accountant
+              friend_or_family: a friend or family member
+              other: a non-legal representative
         documents_submitted:
           questions:
             documents_submitted: Documents submitted

@@ -63,11 +63,11 @@ en:
               </ul>
             <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
             <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
-      representative_is_legal_professional:
+      representative_professional_status:
         edit:
           heading:
-            as_taxpayer: Is your representative a practising solicitor or barrister in England, Wales or Northern Ireland, or a practising solicitor or advocate in Scotland?
-            as_representative: Are you a practising solicitor or barrister in England, Wales or Northern Ireland, or a practising solicitor or advocate in Scotland?
+            as_taxpayer: "Is your representative a:"
+            as_representative: "Are you a:"
       representative_approval:
         edit:
           heading:
@@ -326,9 +326,9 @@ en:
           attributes:
             representative_contact_email:
               invalid: Please enter a valid email address
-        steps/details/representative_is_legal_professional_form:
+        steps/details/representative_professional_status_form:
           attributes:
-            representative_is_legal_professional:
+            representative_professional_status:
               inclusion: Please select an answer
         steps/details/has_representative_form:
           attributes:
@@ -353,8 +353,8 @@ en:
         user_type_html: ""
       steps_details_taxpayer_type_form:
         taxpayer_type_html: ""
-      steps_details_representative_is_legal_professional_form:
-        representative_is_legal_professional_html: ""
+      steps_details_representative_professional_status_form:
+        representative_professional_status_html: ""
       steps_details_has_representative_form:
         has_representative_html: ""
       steps_details_representative_type_form:
@@ -373,10 +373,14 @@ en:
         has_representative:
           'yes': 'Yes'
           'no': 'No'
-      steps_details_representative_is_legal_professional_form:
-        representative_is_legal_professional:
-          'yes': 'Yes'
-          'no': 'No'
+      steps_details_representative_professional_status_form:
+        representative_professional_status:
+          england_or_wales_or_ni_legal_rep_html: <strong>Practising solicitor or barrister in England, Wales or Northern Ireland</strong>
+          scotland_legal_rep_html: <strong>Practising solicitor or advocate in Scotland</strong>
+          tax_agent_html: <strong>Tax agent</strong>
+          accountant_html: <strong>Accountant</strong>
+          friend_or_family_html: <strong>Friend or family member</strong>
+          other_html: <strong>None of the above</strong>
       steps_details_representative_type_form:
         representative_type:
           individual_html: <strong>Individual</strong>

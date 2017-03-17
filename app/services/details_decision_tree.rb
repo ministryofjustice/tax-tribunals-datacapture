@@ -11,8 +11,8 @@ class DetailsDecisionTree < DecisionTree
       after_taxpayer_details_step
     when :has_representative
       after_has_representative_step
-    when :representative_is_legal_professional
-      after_representative_is_legal_professional_step
+    when :representative_professional_status
+      after_representative_professional_status_step
     when :representative_approval
       edit(:representative_type)
     when :representative_type
@@ -39,7 +39,7 @@ class DetailsDecisionTree < DecisionTree
     when UserType::TAXPAYER
       edit(:taxpayer_type)
     when UserType::REPRESENTATIVE
-      edit(:representative_is_legal_professional)
+      edit(:representative_professional_status)
     end
   end
 
@@ -55,17 +55,18 @@ class DetailsDecisionTree < DecisionTree
   def after_has_representative_step
     case tribunal_case.has_representative
     when HasRepresentative::YES
-      edit(:representative_is_legal_professional)
+      edit(:representative_professional_status)
     when HasRepresentative::NO
       after_details_step
     end
   end
 
-  def after_representative_is_legal_professional_step
-    case tribunal_case.representative_is_legal_professional
-    when RepresentativeIsLegalProfessional::YES
+  def after_representative_professional_status_step
+    case tribunal_case.representative_professional_status
+    when RepresentativeProfessionalStatus::ENGLAND_OR_WALES_OR_NI_LEGAL_REP,
+         RepresentativeProfessionalStatus::SCOTLAND_LEGAL_REP
       edit(:representative_type)
-    when RepresentativeIsLegalProfessional::NO
+    else
       edit(:representative_approval)
     end
   end
