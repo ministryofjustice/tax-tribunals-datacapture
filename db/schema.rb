@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317113728) do
+ActiveRecord::Schema.define(version: 20170320133224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20170317113728) do
     t.string   "taxpayer_organisation_fao"
     t.string   "taxpayer_organisation_registration_number"
     t.text     "grounds_for_appeal"
-    t.string   "grounds_for_appeal_file_name"
     t.uuid     "files_collection_ref",                            default: -> { "uuid_generate_v4()" }
     t.boolean  "original_notice_provided",                        default: false
     t.boolean  "review_conclusion_provided",                      default: false
@@ -74,8 +73,6 @@ ActiveRecord::Schema.define(version: 20170317113728) do
     t.string   "dispute_type_other_value"
     t.string   "case_status"
     t.string   "hardship_reason"
-    t.string   "hardship_reason_file_name"
-    t.string   "representative_approval_file_name"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 

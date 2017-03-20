@@ -68,7 +68,7 @@ RSpec.describe CaseDetailsPdf do
         let(:having_problems_uploading_documents) { true }
 
         it 'should not show previously uploaded documents' do
-          expect(tribunal_case).not_to receive(:documents)
+          expect(tribunal_case).not_to receive(:documents).with(:supporting_documents)
           expect(decorated_tribunal_case).to receive(:having_problems_uploading_details)
           expect(subject.generate).to match(/%PDF/)
         end

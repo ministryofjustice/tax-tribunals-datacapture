@@ -31,7 +31,7 @@
       <td colspan="2" class="with-padding">
         <p><%= t '.questions.hardship_reason' %></p>
         <%= simple_format(@tribunal_case.hardship_reason, class: 'simple-format') %>
-        <p><%= t('.answers.document_attached_html', filename: @tribunal_case.hardship_reason_file_name) %></p>
+        <p><%= t('.answers.document_attached_html', filename: @tribunal_case.documents.hardship_reason_file_name) %></p>
       </td>
     </tr>
   <% end %>
@@ -65,7 +65,7 @@
     <td colspan="2" class="with-padding">
       <p><%= translate_with_appeal_or_application '.questions.grounds_for_appeal' %></p>
       <%= simple_format(@tribunal_case.grounds_for_appeal, class: 'simple-format') %>
-      <p><%= t('.answers.document_attached_html', filename: @tribunal_case.grounds_for_appeal_file_name) %></p>
+      <p><%= t('.answers.document_attached_html', filename: @tribunal_case.documents.grounds_for_appeal_file_name) %></p>
     </td>
     <td class="change-answer">
       <%= link_to t('.change'), edit_steps_details_grounds_for_appeal_path %>

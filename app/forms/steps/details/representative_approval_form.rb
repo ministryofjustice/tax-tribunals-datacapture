@@ -7,9 +7,7 @@ module Steps::Details
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      upload_document_if_present && tribunal_case.update(
-        representative_approval_file_name: file_name
-      )
+      upload_document_if_present
     end
 
     def valid_uploaded_file
@@ -30,12 +28,6 @@ module Steps::Details
       representative_approval_document.errors.each do |error|
         errors.add(:representative_approval_document, error)
       end
-    end
-
-    # If there is a file upload, store the name of the file, otherwise, retrieve any previously
-    # uploaded file name from the tribunal_case object (or none if nil).
-    def file_name
-      representative_approval_document&.file_name || tribunal_case&.representative_approval_file_name
     end
   end
 end

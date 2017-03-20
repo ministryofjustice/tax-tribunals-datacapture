@@ -11,8 +11,7 @@ module Steps::Hardship
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
       upload_document_if_present && tribunal_case.update(
-        hardship_reason: hardship_reason,
-        hardship_reason_file_name: file_name
+        hardship_reason: hardship_reason
       )
     end
 
@@ -22,7 +21,7 @@ module Steps::Hardship
     end
 
     def document_provided?
-      (tribunal_case&.hardship_reason_file_name || hardship_reason_document).present?
+      tribunal_case&.documents(:hardship_reason)&.any? || hardship_reason_document.present?
     end
 
     def upload_document_if_present
@@ -38,12 +37,6 @@ module Steps::Hardship
       hardship_reason_document.errors.each do |error|
         errors.add(:hardship_reason_document, error)
       end
-    end
-
-    # If there is a file upload, store the name of the file, otherwise, retrieve any previously
-    # uploaded file name from the tribunal_case object (or none if nil).
-    def file_name
-      hardship_reason_document&.file_name || tribunal_case&.hardship_reason_file_name
     end
   end
 end

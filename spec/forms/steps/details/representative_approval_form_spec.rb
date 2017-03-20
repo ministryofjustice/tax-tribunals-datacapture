@@ -5,7 +5,7 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
     tribunal_case: tribunal_case,
     representative_approval_document: representative_approval_document
   } }
-  let(:tribunal_case) { instance_double(TribunalCase, representative_approval_file_name: nil, files_collection_ref: 'ABC123') }
+  let(:tribunal_case) { instance_double(TribunalCase, files_collection_ref: 'ABC123') }
   let(:representative_approval_document) { nil }
 
   subject { described_class.new(arguments) }
@@ -28,7 +28,6 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
       let(:representative_approval_document) { nil }
 
       it 'returns true' do
-        expect(tribunal_case).to receive(:update).with(representative_approval_file_name: nil).and_return(true)
         expect(subject.save).to eq(true)
       end
     end
@@ -47,13 +46,8 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
         let(:representative_approval_document) { fixture_file_upload('files/image.jpg', 'image/jpeg')  }
 
         context 'document upload successful' do
-          it 'saves the record' do
-            expect(tribunal_case).to receive(:update).with(
-              representative_approval_file_name: 'image.jpg'
-            ).and_return(true)
-
+          it 'uploads the file' do
             expect(Uploader).to receive(:add_file).with(hash_including(document_key: :representative_approval)).and_return({})
-
             expect(subject.save).to be(true)
           end
         end

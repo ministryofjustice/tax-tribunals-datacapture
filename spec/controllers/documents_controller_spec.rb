@@ -10,7 +10,6 @@ RSpec.describe DocumentsController, type: :controller do
   let(:current_tribunal_case) {
     instance_double(
       TribunalCase,
-      grounds_for_appeal_file_name: 'test file.txt',
       files_collection_ref: collection_ref,
       case_status: nil
     )
@@ -100,59 +99,27 @@ RSpec.describe DocumentsController, type: :controller do
   include_examples 'checks the validity of the current tribunal case on destroy', { document_key: :foo_bar }
 
   describe '#destroy' do
-    context 'deleting a document that has no _file_name field' do
-      let(:params) { {
-        document_key: 'supporting_documents',
-        id: another_filename
-      } }
+    let(:params) { {
+      document_key: 'supporting_documents',
+      id: another_filename
+    } }
 
-      before do
-        expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'supporting_documents', filename: 'another').and_return({})
-        expect(current_tribunal_case).to receive(:has_attribute?).with(:supporting_documents_file_name).and_return(false)
-        expect(current_tribunal_case).not_to receive(:update).with(grounds_for_appeal_file_name: nil)
-      end
+    before do
+      expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'supporting_documents', filename: 'another').and_return({})
+    end
 
-      context 'HTML format' do
-        it 'should delete the file and redirect to the documents_checklist step' do
-          delete :destroy, params: params
-          expect(subject).to redirect_to('step/to/redirect')
-        end
-      end
-
-      context 'JSON format' do
-        it 'should respond with an empty body and success status code' do
-          delete :destroy, params: params, format: :json
-          expect(response.status).to eq(204)
-          expect(response.body).to eq('')
-        end
+    context 'HTML format' do
+      it 'should delete the file and redirect to the documents_checklist step' do
+        delete :destroy, params: params
+        expect(subject).to redirect_to('step/to/redirect')
       end
     end
 
-    context 'deleting a document that has a _file_name attribute on the TribunalCase' do
-      let(:params) { {
-        document_key: 'grounds_for_appeal',
-        id: another_filename
-      } }
-
-      before do
-        expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'grounds_for_appeal', filename: 'another').and_return({})
-        expect(current_tribunal_case).to receive(:has_attribute?).with(:grounds_for_appeal_file_name).and_return(true)
-        expect(current_tribunal_case).to receive(:update).with(grounds_for_appeal_file_name: nil)
-      end
-
-      context 'HTML format' do
-        it 'should nil the document name and redirect to the same step' do
-          delete :destroy, params: params
-          expect(subject).to redirect_to('step/to/redirect')
-        end
-      end
-
-      context 'JSON format' do
-        it 'should respond with an empty body and success status code' do
-          delete :destroy, params: params, format: :json
-          expect(response.status).to eq(204)
-          expect(response.body).to eq('')
-        end
+    context 'JSON format' do
+      it 'should respond with an empty body and success status code' do
+        delete :destroy, params: params, format: :json
+        expect(response.status).to eq(204)
+        expect(response.body).to eq('')
       end
     end
   end
