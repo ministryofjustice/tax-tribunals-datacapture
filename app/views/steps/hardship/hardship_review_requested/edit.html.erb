@@ -4,7 +4,7 @@
 
     <h1 class="heading-large"><%=t '.heading' %></h1>
 
-    <%= step_form @form_object do |f| %>
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :hardship_review_requested,
         choices: Steps::Hardship::HardshipReviewRequestedForm.choices %>
       <%= f.submit class: 'button' %>

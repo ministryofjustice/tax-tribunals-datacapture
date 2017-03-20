@@ -6,7 +6,7 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= step_form @form_object do |f| %>
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :dispute_type,
         choices: @form_object.choices %>
 

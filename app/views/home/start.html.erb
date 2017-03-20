@@ -8,7 +8,7 @@
     <ul class="list task-list">
       <% @link_sections.each do |(name, minutes, path)| %>
         <li>
-          <%= link_to t('.link_titles.%s' % name), path, class: 'task-link' %>
+          <%= link_to t('.link_titles.%s' % name), path, class: 'task-link ga-pageLink', data: {ga_category: 'Type_app', ga_label: name} %>
           <p><%= t('.link_descriptions.%s' % name) %></p>
           <p>(<%= t('.link_time_estimate', minutes: minutes) %>)</p>
         </li>

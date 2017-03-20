@@ -46,6 +46,7 @@ moj.Modules.docUpload = {
       success: function (file, response) {
         self.removeDropzonePreview(file);
         self.addFileToList(response);
+        self.fileGAEvent('upload');
       }
     };
 
@@ -82,6 +83,8 @@ moj.Modules.docUpload = {
             if(!self.$fileList.find('.file').length) {
               self.$fileList.find('.no-files').show();
             }
+
+            self.fileGAEvent('delete');
           });
         }
       });
@@ -104,5 +107,16 @@ moj.Modules.docUpload = {
         self.$form.removeClass('dz-started dz-drag-hover');
       }
     });
+  },
+
+  fileGAEvent: function(eventAction) {
+    var eventData = {
+      hitType: 'event',
+      eventCategory: 'document upload',
+      eventAction: eventAction,
+      eventLabel: 'supporting document'
+    };
+
+    ga('send', eventData);
   }
 };

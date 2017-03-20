@@ -6,7 +6,7 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= step_form @form_object do |f| %>
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :has_representative,
         choices: Steps::Details::HasRepresentativeForm.choices %>
       <%= f.submit class: 'button' %>
