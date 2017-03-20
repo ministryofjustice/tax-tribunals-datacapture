@@ -101,7 +101,7 @@ RSpec.describe ApplicationHelper do
 
     it 'adds appeal_or_application to params and calls the original implementation' do
       expect(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
-      expect(I18n).to receive(:translate).with('generic.appeal_or_application.whatever').and_return('wibble')
+      expect(helper).to receive(:translate).with('generic.appeal_or_application.whatever').and_return('wibble')
       expect(helper).to receive(:translate).with('.foobar', random_param: 'something', appeal_or_application: 'wibble').and_return('Yay!')
 
       expect(helper.translate_with_appeal_or_application('.foobar', random_param: 'something')).to eq('Yay!')
@@ -112,6 +112,24 @@ RSpec.describe ApplicationHelper do
     it 'retrieves the environment variable' do
       expect(ENV).to receive(:[]).with('GA_TRACKING_ID')
       helper.analytics_tracking_id
+    end
+  end
+
+  describe 'capture missing translations' do
+    before do
+      ActionView::Base.raise_on_missing_translations = false
+    end
+
+    it 'should not raise an exception, and capture in Sentry the missing translation' do
+      expect(Raven).to receive(:capture_exception).with(an_instance_of(I18n::MissingTranslationData))
+      expect(Raven).to receive(:extra_context).with(
+        {
+          locale: :en,
+          scope: nil,
+          key: 'a_missing_key_here'
+        }
+      )
+      helper.translate('a_missing_key_here')
     end
   end
 end

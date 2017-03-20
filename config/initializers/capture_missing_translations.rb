@@ -17,6 +17,8 @@ module I18n
         key: key
       )
       Raven.capture_exception(self)
+
+      self
     end
   end
 end
