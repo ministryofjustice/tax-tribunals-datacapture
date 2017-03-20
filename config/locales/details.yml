@@ -18,8 +18,8 @@ en:
       explanation_html:
         <p><strong>What to do next</strong></p>
         <ul class="list list-bullet">
-          <li>Call the tax tribunal on %{tax_tribunal_phone} for help (see <a href="https://www.gov.uk/call-charges">call charges</a>).</li>
-          <li>If you're still having trouble, enter reasons and 'continue' to complete your appeal by post.</li>
+          <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
+          <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
     having_problems_uploading_details:
       having_problems_explanation_html: |
