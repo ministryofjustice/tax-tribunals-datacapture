@@ -29,9 +29,6 @@ class DocumentsController < ApplicationController
       filename: filename
     )
 
-    document_key_field_name = :"#{document_key_param}_file_name"
-    current_tribunal_case.update(document_key_field_name => nil) if current_tribunal_case.has_attribute?(document_key_field_name)
-
     respond_to do |format|
       format.html { redirect_to current_step_path }
       format.json { head :no_content }

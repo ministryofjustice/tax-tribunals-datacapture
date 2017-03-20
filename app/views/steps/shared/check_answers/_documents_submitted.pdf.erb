@@ -8,7 +8,7 @@
         <%= simple_format(tribunal_case.having_problems_uploading_details, class: 'simple-format') %>
       <% else %>
         <ul class="documents">
-          <% tribunal_case.documents.list(:supporting_documents).each do |document| %>
+          <% tribunal_case.documents.supporting_documents.each do |document| %>
             <li><%= document.title %></li>
           <% end %>
         </ul>

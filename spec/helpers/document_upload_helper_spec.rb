@@ -6,14 +6,14 @@ RSpec.describe DocumentUploadHelper do
 
   before do
     allow(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
-    allow(tribunal_case).to receive(:[]).with(:some_step_file_name).and_return(file_name)
+    allow(tribunal_case).to receive(:documents).with(:some_step).and_return(documents)
   end
 
   describe '#document_upload_field' do
     subject { helper.document_upload_field(form, :some_step, label_text: 'A file') }
 
     context 'when there is no document uploaded' do
-      let(:file_name) { nil }
+      let(:documents) { [] }
 
       it 'renders the upload field' do
         expect(helper).to receive(:render).with(
@@ -29,7 +29,7 @@ RSpec.describe DocumentUploadHelper do
     end
 
     context 'when there is an uploaded document' do
-      let(:file_name) { 'shopping_list.pdf' }
+      let(:documents) { [double(Document, name: 'shopping_list.pdf')] }
 
       it { is_expected.to be_nil }
     end
@@ -39,25 +39,19 @@ RSpec.describe DocumentUploadHelper do
     subject { helper.display_current_document(:some_step) }
 
     context 'when there is no document uploaded' do
-      let(:file_name) { nil }
+      let(:documents) { [] }
 
       it { is_expected.to be_nil }
     end
 
     context 'when there is an uploaded document' do
-      let(:file_name) { 'shopping_list.pdf' }
-      let(:document) { instance_double(Document) }
+      let(:documents) { [instance_double(Document, name: 'shopping_list.pdf')] }
 
       it 'renders the uploaded document partial' do
-        expect(Document).to receive(:new).with(
-          collection_ref: 'r3f3r3nc3',
-          name: 'shopping_list.pdf'
-        ).and_return(document)
-
         expect(helper).to receive(:render).with(
           partial: 'steps/shared/document_upload/current_document',
           locals: {
-            current_document: document,
+            current_document: documents.first,
             document_key: :some_step
           }
         )

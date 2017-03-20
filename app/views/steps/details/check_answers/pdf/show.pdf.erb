@@ -53,7 +53,7 @@
       <tr>
         <td colspan="2" class="content with-padding">
           <%= simple_format(tribunal_case.hardship_reason, class: 'simple-format') %>
-          <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.hardship_reason_file_name %></p>
+          <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.documents.hardship_reason_file_name %></p>
         </td>
       </tr>
     <% end %>
@@ -100,7 +100,7 @@
   <tr>
     <td colspan="2" class="content with-padding">
       <%= simple_format(tribunal_case.grounds_for_appeal, class: 'simple-format') %>
-      <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.grounds_for_appeal_file_name %></p>
+      <p><%= pdf_t '.answers.document_attached_html', filename: tribunal_case.documents.grounds_for_appeal_file_name %></p>
     </td>
   </tr>
   </tbody>

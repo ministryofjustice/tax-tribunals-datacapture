@@ -27,12 +27,17 @@ class TribunalCase < ApplicationRecord
   # Closure task
   has_value_object :closure_case_type
 
+  after_initialize do
+    # Stores results of documents fetched from uploader so they don't get fetched twice
+    @_documents_cache = {}
+  end
+
   def mapping_code
     MappingCodeDeterminer.new(self).mapping_code
   end
 
   def documents(document_key)
-    Document.for_collection(files_collection_ref, document_key: document_key)
+    @_documents_cache[document_key] ||= Document.for_collection(files_collection_ref, document_key: document_key)
   end
 
   def documents_url

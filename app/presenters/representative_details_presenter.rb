@@ -25,6 +25,6 @@ class RepresentativeDetailsPresenter < BaseAnswersPresenter
   end
 
   def proforma_present?
-    tribunal_case.representative_approval_file_name.present?
+    tribunal_case.documents(:representative_approval).any?
   end
 end

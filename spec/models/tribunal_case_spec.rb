@@ -18,9 +18,16 @@ RSpec.describe TribunalCase, type: :model do
     let(:collection_ref) { SecureRandom.uuid }
     let(:attributes) { { files_collection_ref: collection_ref } }
 
-    it 'should delegate to Document' do
+    it 'delegates to Document' do
       expect(Document).to receive(:for_collection).with(collection_ref, document_key: :foo)
       subject.documents(:foo)
+    end
+
+    it 'memoizes for a given key' do
+      expect(Document).to receive(:for_collection).with(collection_ref, document_key: :bar).once.and_return([])
+
+      subject.documents(:bar)
+      subject.documents(:bar)
     end
   end
 

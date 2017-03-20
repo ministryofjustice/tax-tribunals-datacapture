@@ -8,9 +8,10 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     grounds_for_appeal: grounds_for_appeal,
     grounds_for_appeal_document: grounds_for_appeal_document,
   } }
-  let(:tribunal_case) { instance_double(TribunalCase, files_collection_ref: '12345', grounds_for_appeal: nil, grounds_for_appeal_file_name: nil) }
+  let(:tribunal_case) { instance_double(TribunalCase, files_collection_ref: '12345', grounds_for_appeal: nil) }
   let(:grounds_for_appeal) { nil }
   let(:grounds_for_appeal_document) { nil }
+  let(:documents) { [] }
 
   subject { described_class.new(arguments) }
 
@@ -30,6 +31,10 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     end
 
     context 'when validations fail' do
+      before do
+        allow(tribunal_case).to receive(:documents).with(:grounds_for_appeal).and_return(documents)
+      end
+
       context 'when grounds_for_appeal nor grounds_for_appeal_document are present' do
         let(:grounds_for_appeal) { nil }
 
@@ -54,14 +59,17 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
     end
 
     context 'when grounds_for_appeal is valid' do
+      before do
+        allow(tribunal_case).to receive(:documents).with(:grounds_for_appeal).and_return(documents)
+      end
+
       context 'when providing appeal text' do
         let(:grounds_for_appeal) { 'I disagree with HMRC.' }
         let(:grounds_for_appeal_document) { nil }
 
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: 'I disagree with HMRC.',
-            grounds_for_appeal_file_name: nil
+            grounds_for_appeal: 'I disagree with HMRC.'
           ).and_return(true)
           expect(subject.save).to be(true)
         end
@@ -74,8 +82,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
         context 'document upload successful' do
           it 'saves the record' do
             expect(tribunal_case).to receive(:update).with(
-              grounds_for_appeal: nil,
-              grounds_for_appeal_file_name: 'image.jpg'
+              grounds_for_appeal: nil
             ).and_return(true)
 
             expect(Uploader).to receive(:add_file).with(hash_including(document_key: :grounds_for_appeal)).and_return({})
@@ -100,8 +107,7 @@ RSpec.describe Steps::Details::GroundsForAppealForm do
 
         it 'saves the record' do
           expect(tribunal_case).to receive(:update).with(
-            grounds_for_appeal: 'I disagree with HMRC.',
-            grounds_for_appeal_file_name: 'image.jpg'
+            grounds_for_appeal: 'I disagree with HMRC.'
           ).and_return(true)
 
           expect(Uploader).to receive(:add_file).and_return({})
