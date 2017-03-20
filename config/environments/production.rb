@@ -34,5 +34,5 @@ Rails.application.configure do
   # gov.uk elements formbuilder, exceptions will not be raised for
   # missing translations of model attribute names. The form will
   # get the constantized attribute name itself, in form labels.
-  config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = false
 end
