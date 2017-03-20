@@ -27,10 +27,21 @@ moj.Modules.gaEvents = {
     var self = this,
         $form = $(self.radioFormClass);
 
+    // submitting GA tracked radio groups is intercepted[1] until the GA event
+    // has been sent, by sending target to make a callback[2]
     $form.on('submit', function(e) {
-      e.preventDefault();
+      var eventData,
+          options;
 
-      self.getRadioChoiceData($form);
+      e.preventDefault(); // [1]
+
+      eventData = self.getRadioChoiceData($form);
+      options = {
+        actionType: 'form',
+        actionValue: $form // [2]
+      };
+
+      self.sendAnalyticsEvent(eventData, options);
     });
   },
 
@@ -38,16 +49,37 @@ moj.Modules.gaEvents = {
     var self = this,
         $checkboxes = $(self.checkboxClass);
 
+    // submitting forms containing a GA tracked checkbox is intercepted[1]
+    // until the GA event has been send, by sending target to make a
+    // callback[2], unless no GA checkboxes in the form are checked, in which
+    // case unbind and submit the form directly[3]
     $checkboxes.each(function(n, $checkbox) {
       var $form = $($checkbox.closest('form'));
 
       $form.on('submit', function(e) {
-        e.preventDefault();
+        var eventDataArray,
+            options = {};
+
+        e.preventDefault(); // [1]
 
         if($form.find(self.checkboxClass + ':checked').length) {
-          self.getCheckboxData($form);
+          eventDataArray = self.getCheckboxFormData($form);
+
+          // there could be multiple GA checkboxes that are checked and need a
+          // GA event firing, but we only want to submit the form after sending
+          // the last one
+          eventDataArray.forEach(function(eventData, n) {
+            if(n === eventDataArray.length - 1) {
+              options = {
+                actionType: 'form',
+                actionValue: $form // [2]
+              };
+            }
+
+            self.sendAnalyticsEvent(eventData, options);
+          });
         } else {
-          $form.unbind('submit').trigger('submit');
+          $form.unbind('submit').trigger('submit'); // [3]
         }
       });
     });
@@ -57,9 +89,22 @@ moj.Modules.gaEvents = {
     var self = this,
         $links = $(self.linkClass);
 
+    // following GA tracked links is intercepted[1] until the GA event has
+    // been sent, by sending target to make a callback[2]
     $links.on('click', function(e) {
-      e.preventDefault();
-      self.getLinkData($(e.target));
+      var $link = $(e.target),
+          eventData,
+          options;
+
+      e.preventDefault(); // [1]
+
+      eventData = self.getLinkData($link);
+      options = {
+        actionType: 'link',
+        actionValue: $link // [2]
+      };
+
+      self.sendAnalyticsEvent(eventData, options);
     });
   },
 
@@ -68,14 +113,14 @@ moj.Modules.gaEvents = {
         $fileEls = $(self.fileUploadFormClass).find('[type="file"]');
 
     $fileEls.on('click', function(e) {
-      self.getFileUploadData($(e.target));
+      var eventData = self.getFileUploadData($(e.target));
+
+      self.sendAnalyticsEvent(eventData);
     });
   },
 
   getLinkData: function($link) {
-    var self = this,
-        eventData,
-        options;
+    var eventData;
 
     eventData = {
       eventCategory: $link.data('ga-category'),
@@ -83,22 +128,14 @@ moj.Modules.gaEvents = {
       eventLabel: $link.data('ga-label')
     };
 
-    options = {
-      hitCallback: self.createFunctionWithTimeout(function() {
-        document.location = $link.attr('href');
-      })
-    };
-
-    self.sendAnalyticsEvent(eventData, options);
+    return eventData;
   },
 
   getRadioChoiceData: function($form) {
-    var self = this,
-        $selectedRadio = $form.find('input[type="radio"]:checked'),
+    var $selectedRadio = $form.find('input[type="radio"]:checked'),
         stepName = $selectedRadio.attr('name'),
         selectedValue = $selectedRadio.val(),
-        eventData,
-        options;
+        eventData;
 
     eventData = {
       eventCategory: stepName,
@@ -106,18 +143,13 @@ moj.Modules.gaEvents = {
       eventLabel: selectedValue
     };
 
-    options = {
-      hitCallback: self.createFunctionWithTimeout(function() {
-        $form.unbind('submit').trigger('submit');
-      })
-    };
-
-    self.sendAnalyticsEvent(eventData, options);
+    return eventData;
   },
 
-  getCheckboxData: function($form) {
+  getCheckboxFormData: function($form) {
     var self = this,
-        checkedCheckboxes = $form.find(self.checkboxClass + ':checked');
+        checkedCheckboxes = $form.find(self.checkboxClass + ':checked'),
+        eventDataArray = [];
 
     checkedCheckboxes.each(function(n, checkbox) {
       var $checkbox = $(checkbox),
@@ -130,12 +162,10 @@ moj.Modules.gaEvents = {
         eventLabel: $checkbox.data('ga-label')
       };
 
-      ga('send', eventData);
+      eventDataArray.push(eventData);
     });
 
-    self.createFunctionWithTimeout(function() {
-      $form.unbind('submit').trigger('submit');
-    });
+    return eventDataArray;
   },
 
   getFileUploadData: function($el) {
@@ -149,14 +179,24 @@ moj.Modules.gaEvents = {
       eventLabel: $form.data('ga-label')
     };
 
-    self.sendAnalyticsEvent(eventData);
+    return eventData;
   },
 
   sendAnalyticsEvent: function(eventData, opts) {
-    var opts = opts || {};
+    var self = this,
+        opts = opts || {};
 
-    eventData.hitType = 'event';
-    ga('send', eventData, opts);
+    ga('send', 'event', eventData.eventCategory, eventData.eventAction, eventData.eventLabel, {
+      hitCallback: self.createFunctionWithTimeout(function() {
+        if(opts.actionType) {
+          if(opts.actionType === 'form') {
+            opts.actionValue.unbind('submit').trigger('submit');
+          } else if(opts.actionType === 'link') {
+            document.location = opts.actionValue.attr('href');
+          }
+        }
+      })
+    });
   },
 
   createFunctionWithTimeout: function(callback, opt_timeout) {
