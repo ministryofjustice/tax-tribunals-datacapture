@@ -112,14 +112,20 @@ RSpec.describe TribunalCase, type: :model do
   describe '#documents' do
     let(:collection_ref) { SecureRandom.uuid }
     let(:attributes) { { files_collection_ref: collection_ref } }
+    let(:documents) { double('Documents') }
 
     it 'delegates to Document' do
-      expect(Document).to receive(:for_collection).with(collection_ref, document_key: :foo)
-      subject.documents(:foo)
+      expect(Document).to receive(:all_for_collection).with(collection_ref).and_return({foo: documents})
+      expect(subject.documents(:foo)).to eq(documents)
     end
 
-    it 'memoizes for a given key' do
-      expect(Document).to receive(:for_collection).with(collection_ref, document_key: :bar).once.and_return([])
+    it 'returns empty array if no documents found' do
+      expect(Document).to receive(:all_for_collection).with(collection_ref).and_return({foo: documents})
+      expect(subject.documents(:bar)).to eq([])
+    end
+
+    it 'memoizes' do
+      expect(Document).to receive(:all_for_collection).with(collection_ref).once.and_return({bar: documents})
 
       subject.documents(:bar)
       subject.documents(:bar)
