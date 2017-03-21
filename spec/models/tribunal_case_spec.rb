@@ -1,8 +1,103 @@
 require 'spec_helper'
 
+RSpec.shared_examples 'sanitizing actions' do
+  let(:value) { double.as_null_object }
+
+  specify 'have html escaped' do
+    expect(CGI).to receive(:escapeHTML).and_return(value)
+    subject.save
+  end
+
+  specify 'are sanitized' do
+    expect(Sanitize).to receive(:fragment).with('some text', anything).and_return(value)
+    subject.save
+  end
+
+  specify 'scrub *' do
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with('*', anything)
+    subject.save
+  end
+
+  specify 'scrub =' do
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with('=', anything)
+    subject.save
+  end
+
+  specify 'scrub -' do # kills SQL comments
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with('-', anything)
+    subject.save
+  end
+
+  specify 'scrub %' do
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with('%', anything)
+    subject.save
+  end
+
+  specify 'remove `drop table` case-insensitively'do
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with(/drop\s+table/i, anything)
+    subject.save
+  end
+
+  specify 'remove `insert into` case-insensitively'do
+    allow(CGI).to receive(:escapeHTML).and_return(value)
+    expect(value).to receive(:gsub).with(/insert\s+into/i, anything)
+    subject.save
+  end
+end
+
 RSpec.describe TribunalCase, type: :model do
   subject { described_class.new(attributes) }
   let(:attributes) { {} }
+
+  describe '#save' do
+    context 'columns that store strings' do
+      let(:attributes) { { outcome: 'some text' } }
+      include_examples 'sanitizing actions'
+    end
+
+    context 'columns that store text' do
+      let(:attributes) { { grounds_for_appeal: 'some text' } }
+      include_examples 'sanitizing actions'
+    end
+
+    context 'columns that store value objects' do
+      # Didn't use a double here as it kept getting seralized into a string.
+      let(:attributes) { { in_time: InTime::YES } }
+
+      specify 'do not have html escaped' do
+        expect(CGI).not_to receive(:escapeHTML)
+        subject.save
+      end
+
+      specify 'are not sanitized' do
+        expect(Sanitize).not_to receive(:fragment)
+        subject.save
+      end
+    end
+
+    context 'columns that do not store text or strings' do
+      # Didn't use a double here as it kept getting seralized into a string.
+      let(:attributes) { { outcome: 'otherwise sanitized' } }
+      before do
+        allow_any_instance_of(ActiveRecord::ConnectionAdapters::PostgreSQLColumn).to receive(:type).and_return(double)
+      end
+
+      specify 'do not have html escaped' do
+        expect(CGI).not_to receive(:escapeHTML)
+        subject.save
+      end
+
+      specify 'are not sanitized' do
+        expect(Sanitize).not_to receive(:fragment)
+        subject.save
+      end
+    end
+  end
 
   describe '#mapping_code' do
     let(:mapping_code) { MappingCode.new(:hmrc_stole_my_cookies) }
@@ -112,3 +207,4 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 end
+
