@@ -37,7 +37,7 @@ RSpec.describe ClosureEnquiryAnswersPresenter do
       it 'has the correct attributes' do
         expect(row.question).to    eq('.questions.years_under_enquiry')
         expect(row.answer).to      eq('2 years')
-        expect(row.change_path).to eq(paths.edit_steps_closure_enquiry_details_path)
+        expect(row.change_path).to be_nil
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe ClosureEnquiryAnswersPresenter do
         it 'has the correct attributes' do
           expect(row.question).to    eq('.questions.hmrc_officer')
           expect(row.answer).to      eq('officer')
-          expect(row.change_path).to eq(paths.edit_steps_closure_enquiry_details_path)
+          expect(row.change_path).to be_nil
         end
       end
 
@@ -60,25 +60,24 @@ RSpec.describe ClosureEnquiryAnswersPresenter do
         end
       end
     end
+  end
 
-    describe '`closure_additional_info` row' do
-      let(:row) { subject.rows[3] }
-      let(:closure_hmrc_officer) { 'officer' }
+  describe '#additional_info' do
+    context 'when present' do
+      let(:closure_additional_info) { 'more info' }
 
-      context 'when present' do
-        let(:closure_additional_info) { 'more info' }
-
-        it 'has the correct attributes' do
-          expect(row.question).to    eq('.questions.additional_info')
-          expect(row.answer).to      eq('more info')
-          expect(row.change_path).to eq(paths.edit_steps_closure_additional_info_path)
-        end
+      it 'has the correct attributes' do
+        expect(subject.additional_info.question).to    eq('.questions.additional_info')
+        expect(subject.additional_info.answer).to      eq('more info')
+        expect(subject.additional_info.change_path).to eq(paths.edit_steps_closure_additional_info_path)
       end
+    end
 
-      context 'when no present' do
-        it 'has no row' do
-          expect(row).to be_nil
-        end
+    context 'when no present' do
+      let(:closure_additional_info) { nil }
+
+      it 'has no row' do
+        expect(subject.additional_info).to be_nil
       end
     end
   end

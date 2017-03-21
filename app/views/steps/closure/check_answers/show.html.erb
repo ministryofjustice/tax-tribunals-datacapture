@@ -28,6 +28,17 @@
       </td>
     </tr>
   <% end %>
+  <% if (additional_info = @tribunal_case.enquiry_answers.additional_info) %>
+    <tr>
+      <td colspan="2" class="with-padding">
+        <p><%= t additional_info.question %></p>
+        <%= simple_format(additional_info.answer, class: 'simple-format') %>
+      </td>
+      <td class="change-answer">
+        <%= additional_info.change_link t('.change') %>
+      </td>
+    </tr>
+  <% end %>
 
   <%= render partial: 'steps/shared/check_answers/taxpayer_details', locals: { tribunal_case: @tribunal_case } %>
 

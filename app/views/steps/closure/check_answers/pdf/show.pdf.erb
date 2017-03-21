@@ -14,10 +14,6 @@
 
 <%= render partial: 'steps/shared/check_answers/documents_submitted', locals: { tribunal_case: tribunal_case } %>
 
-<div class="newpage"></div>
-
-<%= render partial: 'steps/closure/check_answers/pdf/header', locals: { tribunal_case: tribunal_case } %>
-
 <h3><%= pdf_t '.application_type_heading' %></h3>
 
 <hr/>
@@ -33,7 +29,6 @@
   </tbody>
 </table>
 
-
 <h3><%= pdf_t '.enquiry_details_heading' %></h3>
 
 <hr/>
@@ -46,6 +41,16 @@
     </tr>
     <tr>
       <td colspan="2"></td>
+    </tr>
+  <% end %>
+  <% if (additional_info = tribunal_case.enquiry_answers.additional_info) %>
+    <tr>
+      <td colspan="2"><%= pdf_t additional_info.question %></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="content with-padding">
+        <%= simple_format(additional_info.answer, class: 'simple-format') %>
+      </td>
     </tr>
   <% end %>
   </tbody>
