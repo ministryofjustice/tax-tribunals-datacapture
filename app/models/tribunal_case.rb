@@ -27,15 +27,14 @@ class TribunalCase < ApplicationRecord
   # Closure task
   has_value_object :closure_case_type
 
-
- 
-# Stores results of documents fetched from uploader so they don't get fetched twice
+  # Stores results of documents fetched from uploader so they don't get fetched
+  # twice
   after_initialize do
     @_documents_cache = {}
   end
 
-
-#      Do not store unsanitized user input that may get sent through to third-party APIs.
+  # Do not store unsanitized user input that may get sent through to
+  # third-party APIs.
   before_save :sanitize
 
   def mapping_code
