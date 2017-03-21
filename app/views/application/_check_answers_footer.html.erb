@@ -1,0 +1,16 @@
+<h2 class="heading-medium"><%= t 'check_answers.footer..declaration_of_truth' %></h2>
+
+<p><%= translate_with_appeal_or_application 'check_answers.footer..declaration_of_truth_message' %></p>
+
+<p class="notice util_mt-large">
+  <i class="icon icon-important">
+    <span class="visuallyhidden"><%= t 'check_answers.footer..warning' %></span>
+  </i>
+  <strong class="bold-small">
+    <%= t 'check_answers.footer..warning_message' %>
+  </strong>
+</p>
+
+<p>
+  <%= button_to t('check_answers.footer..submit_and_continue'), submit_link, class: 'button js-debounce' %>
+</p>

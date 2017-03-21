@@ -2,6 +2,7 @@ class CasesController < ApplicationController
   before_action :check_tribunal_case_presence, :check_tribunal_case_status
 
   def create
+    @presenter = presenter_class.new(current_tribunal_case, format: :pdf)
     CaseCreator.new(current_tribunal_case).call
 
     generate_and_upload_pdf
@@ -13,8 +14,7 @@ class CasesController < ApplicationController
   private
 
   def generate_and_upload_pdf
-    tribunal_case = presenter_class.new(current_tribunal_case)
-    CaseDetailsPdf.new(tribunal_case, self).generate_and_upload
+    CaseDetailsPdf.new(current_tribunal_case, self).generate_and_upload
   end
 
   def send_emails

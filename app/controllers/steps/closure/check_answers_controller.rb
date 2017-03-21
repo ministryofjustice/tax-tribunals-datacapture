@@ -3,19 +3,12 @@ module Steps::Closure
     respond_to :html, :pdf
 
     def show
-      @tribunal_case = ClosurePresenter.new(current_tribunal_case)
+      @presenter = CheckAnswers::ClosureAnswersPresenter.new(current_tribunal_case, format: request.format.symbol)
 
       respond_to do |format|
         format.html
-        format.pdf { download_case_pdf(@tribunal_case) and return }
+        format.pdf { render pdf: 'check_answers' }
       end
-    end
-
-    private
-
-    def download_case_pdf(tribunal_case)
-      pdf = CaseDetailsPdf.new(tribunal_case, self)
-      send_data pdf.generate, filename: pdf.filename, type: 'application/pdf', disposition: 'inline'
     end
   end
 end

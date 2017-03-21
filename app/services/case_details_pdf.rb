@@ -19,7 +19,7 @@ class CaseDetailsPdf
   end
 
   def generate_and_upload
-    generate && upload!
+    generate && upload
   end
 
   def filename
@@ -27,6 +27,10 @@ class CaseDetailsPdf
   end
 
   private
+
+  def render_options
+    PDF_CONFIG.merge(template: controller_ctx.pdf_template)
+  end
 
   def collection_ref
     tribunal_case.files_collection_ref
@@ -37,25 +41,14 @@ class CaseDetailsPdf
   end
 
   def taxpayer_name
-    tribunal_case.taxpayer.name.gsub(/\s+/, '')
+    [
+      tribunal_case.taxpayer_individual_first_name,
+      tribunal_case.taxpayer_individual_last_name,
+      tribunal_case.taxpayer_organisation_name
+    ].compact.join.gsub(/\s+/, '')
   end
 
-  def render_options
-    {template: template, locals: {tribunal_case: tribunal_case}}.merge(PDF_CONFIG)
-  end
-
-  def template
-    case tribunal_case.intent
-    when Intent::TAX_APPEAL
-      'steps/details/check_answers/pdf/show'
-    when Intent::CLOSE_ENQUIRY
-      'steps/closure/check_answers/pdf/show'
-    else
-      raise "Invalid intent '#{tribunal_case.intent}'"
-    end
-  end
-
-  def upload!
+  def upload
     Tempfile.create('tmpfile') do |file|
       File.binwrite(file, @pdf)
 

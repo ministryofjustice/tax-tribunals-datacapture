@@ -1,0 +1,13 @@
+<tr>
+  <td class="question">
+    <%= pdf_t "check_answers.#{row.question}.question" %>
+  </td>
+
+  <td class="answer answer-value">
+    <% if row.raw? %>
+      <%= row.value %>
+    <% else %>
+      <%= pdf_t "check_answers.#{row.question}.answers.#{row.value}" %>
+    <% end %>
+  </td>
+</tr>

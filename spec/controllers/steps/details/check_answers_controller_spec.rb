@@ -3,33 +3,31 @@ require 'rails_helper'
 RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
   it_behaves_like 'an end point step controller'
 
-  context 'case details presenter' do
-    let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
+  let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
+  let(:presenter) { instance_double(CheckAnswers::AppealAnswersPresenter) }
 
+  context 'HTML format' do
     it 'assigns the presenter' do
-      get :show, session: {tribunal_case_id: tribunal_case.id}
+      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :html).and_return(presenter)
 
-      presenter = assigns[:tribunal_case]
-      expect(presenter).to be_an_instance_of(AppealPresenter)
+      get :show, session: { tribunal_case_id: tribunal_case.id }
+
+      expect(subject).to render_template(:show)
+      expect(assigns[:presenter]).to eq(presenter)
     end
   end
 
   context 'PDF format' do
-    let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
-    let(:pdf_creator_double) { instance_double(CaseDetailsPdf, generate: 'some pdf content', filename: 'filename123.pdf') }
-
-    before do
-      expect(CaseDetailsPdf).to receive(:new).with(
-        an_instance_of(AppealPresenter),
-        an_instance_of(described_class)
-      ).and_return(pdf_creator_double)
-    end
+    let(:format) { :pdf }
 
     it 'generates and sends the case details PDF' do
-      get :show, format: :pdf, session: {tribunal_case_id: tribunal_case.id}
-      expect(response).to have_http_status(:ok)
-      expect(response.headers['Content-Disposition']).to eq('inline; filename="filename123.pdf"')
-      expect(response.body).to eq('some pdf content')
+      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :pdf).and_return(presenter)
+
+      get :show, format: :pdf, session: { tribunal_case_id: tribunal_case.id }
+
+      expect(subject).to render_template(:show)
+      expect(assigns[:presenter]).to eq(presenter)
+      expect(response.headers['Content-Disposition']).to eq('inline; filename="check_answers.pdf"')
     end
   end
 end

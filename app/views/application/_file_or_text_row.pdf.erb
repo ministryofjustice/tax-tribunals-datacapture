@@ -1,0 +1,20 @@
+<tr>
+  <td class="question">
+    <%= pdf_t "check_answers.#{file_or_text_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-file-or-text">
+    <% if file_or_text_row.value? %>
+      <div class="user-text">
+        <%= simple_format(file_or_text_row.value) %>
+      </div>
+    <% end %>
+
+    <% if file_or_text_row.file? %>
+      <div class="attached-file">
+        <h4><%= pdf_t 'check_answers.attached_document' %></h4>
+        <p><%= file_or_text_row.file.name %></p>
+      </div>
+    <% end %>
+  </td>
+</tr>

@@ -102,7 +102,7 @@ RSpec.describe ApplicationHelper do
     it 'adds appeal_or_application to params and calls the original implementation' do
       expect(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
       expect(helper).to receive(:translate).with('generic.appeal_or_application.whatever').and_return('wibble')
-      expect(helper).to receive(:translate).with('.foobar', random_param: 'something', appeal_or_application: 'wibble').and_return('Yay!')
+      expect(helper).to receive(:translate).with('.foobar', random_param: 'something', appeal_or_application: 'wibble', appeal_or_application_capitalised: 'Wibble').and_return('Yay!')
 
       expect(helper.translate_with_appeal_or_application('.foobar', random_param: 'something')).to eq('Yay!')
     end

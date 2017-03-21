@@ -1,0 +1,24 @@
+<div>
+  <dt class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{file_or_text_row.question}.question" %>
+  </dt>
+  <dd class="answer">
+    <% if file_or_text_row.value? %>
+      <div class="freetext-user-content">
+        <%= simple_format(file_or_text_row.value) %>
+      </div>
+    <% end %>
+
+    <% if file_or_text_row.file? %>
+      <h4 class="heading-small"><%=t 'check_answers.attached_document' %></h4>
+      <p><%= file_or_text_row.file.name %></p>
+    <% end %>
+  </dd>
+  <dd class="change">
+    <% if file_or_text_row.show_change_link? %>
+      <%= link_to file_or_text_row.change_path do %>
+        <%=t 'check_answers.change' %><span class="visuallyhidden"> <%=t "check_answers.#{file_or_text_row.question}.accessible_change_text" %></span>
+      <% end %>
+    <% end %>
+  </dd>
+</div>

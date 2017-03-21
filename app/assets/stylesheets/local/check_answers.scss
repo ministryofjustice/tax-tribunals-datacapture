@@ -1,0 +1,68 @@
+.heading-bottom-border {
+  border-bottom: 1px solid $border-colour;
+  padding-bottom: $gutter/6;
+  margin-bottom: 0;
+}
+
+.check-your-answers {
+  > * {
+    position: relative;
+    border-bottom: 1px solid $border-colour;
+
+    > * {
+      display: block;
+    }
+  }
+
+  .question {
+    font-weight: bold;
+    margin: em(12, 19) 4em $gutter/6 0;
+    // top: from Elements' td
+    // right: due to length of "change" link (adjust if you change the link to be much longer)
+    // bottom: by eye (~4-5px)
+    // using margin instead of padding because of easier absolutely positioning of .change
+  }
+
+  .answer {
+    padding-bottom: em(9, 19); // from Elements' td
+  }
+
+  .change {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+  @include media(desktop) {
+    display: table;
+
+    > * {
+      display: table-row;
+      border-bottom-width: 0;
+
+      > * {
+        display: table-cell;
+        border-bottom: 1px solid $border-colour;
+        padding: em(12, 19) em(20, 19) em(9, 19) 0; // copied from Elements' td padding
+        margin: 0;
+      }
+    }
+
+    // to make multiple sections' items line up horizontally
+    &.multiple-sections {
+      width: 100%;
+
+      // depending on length of keys and values, services might need to override this value
+      .question {
+        width: 30%;
+      }
+    }
+
+    .change {
+      position: static;
+      padding-right: 0;
+    }
+  }
+}
