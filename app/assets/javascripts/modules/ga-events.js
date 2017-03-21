@@ -9,17 +9,20 @@ moj.Modules.gaEvents = {
   init: function() {
     var self = this;
 
-    if($(self.radioFormClass).length) {
-      self.trackRadioForms();
-    }
-    if($(self.checkboxClass).length) {
-      self.trackCheckboxes();
-    }
-    if($(self.linkClass).length) {
-      self.trackLinks();
-    }
-    if($(self.fileUploadFormClass).length) {
-      self.trackFileUploads();
+    // don't bind anything if the GA object isn't defined
+    if(typeof window.ga !== 'undefined') {
+      if($(self.radioFormClass).length) {
+        self.trackRadioForms();
+      }
+      if($(self.checkboxClass).length) {
+        self.trackCheckboxes();
+      }
+      if($(self.linkClass).length) {
+        self.trackLinks();
+      }
+      if($(self.fileUploadFormClass).length) {
+        self.trackFileUploads();
+      }
     }
   },
 
