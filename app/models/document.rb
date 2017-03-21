@@ -1,11 +1,16 @@
 class Document
-  attr_accessor :collection_ref, :name, :last_modified
+  attr_reader :collection_ref, :full_name, :name, :last_modified
   alias_attribute :title, :name
 
   def initialize(attrs)
-    self.collection_ref = attrs.fetch(:collection_ref)
-    self.name = attrs[:name] || attrs.fetch(:title)
-    self.last_modified = attrs[:last_modified]
+    @collection_ref = attrs.fetch(:collection_ref)
+    @full_name = attrs[:name] || attrs.fetch(:title)
+    @name = @full_name.split('/').last
+    @last_modified = attrs[:last_modified]
+  end
+
+  def self.all_for_collection(collection_ref)
+    for_collection(collection_ref, document_key: nil).group_by { |f| f.full_name.split('/').first.to_sym }
   end
 
   def self.for_collection(collection_ref, document_key:)
@@ -16,7 +21,7 @@ class Document
   end
 
   def encoded_name
-    Base64.encode64(name)
+    Base64.encode64(full_name)
   end
 
   # We use the encoded file name in the route path for DELETE (or fallback POST)
@@ -31,6 +36,6 @@ class Document
   end
 
   def ==(other)
-    other.collection_ref == collection_ref && other.name == name
+    other.collection_ref == collection_ref && other.full_name == full_name
   end
 end

@@ -27,12 +27,6 @@ class TribunalCase < ApplicationRecord
   # Closure task
   has_value_object :closure_case_type
 
-  # Stores results of documents fetched from uploader so they don't get fetched
-  # twice
-  after_initialize do
-    @_documents_cache = {}
-  end
-
   # Do not store unsanitized user input that may get sent through to
   # third-party APIs.
   before_save :sanitize
@@ -42,7 +36,8 @@ class TribunalCase < ApplicationRecord
   end
 
   def documents(document_key)
-    @_documents_cache[document_key] ||= Document.for_collection(files_collection_ref, document_key: document_key)
+    @_documents_cache ||= Document.all_for_collection(files_collection_ref)
+    @_documents_cache.fetch(document_key, [])
   end
 
   def documents_url

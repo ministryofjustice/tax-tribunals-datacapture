@@ -9,10 +9,6 @@ RSpec.describe Document do
         last_modified: '2016-12-05T12:20:02.000Z'
     }
   end
-  let(:result) { [
-      { key: '12345/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
-      { key: '12345/another.doc', title: 'another.doc', last_modified: '2016-12-05T12:20:02.000Z' }
-    ] }
 
   subject { described_class.new(attrs) }
 
@@ -57,18 +53,50 @@ RSpec.describe Document do
     end
   end
 
-  describe '.for_collection' do
+  describe 'collection fetching' do
     before do
       expect(Uploader).to receive(:list_files).with(
         collection_ref: '12345',
-        document_key: :foo
+        document_key: document_key
       ).and_return(result)
     end
 
-    it 'returns the sorted documents' do
-      documents = described_class.for_collection('12345', document_key: :foo)
-      expect(documents.size).to eq(2)
-      expect(documents.map(&:name)).to eq(%w(another.doc test.doc))
+    describe '.for_collection' do
+      let(:documents) { described_class.for_collection('12345', document_key: :foo) }
+      let(:document_key) { :foo }
+
+      let(:result) { [
+        { key: '12345/foo/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
+        { key: '12345/foo/another.doc', title: 'another.doc', last_modified: '2016-12-05T12:20:02.000Z' }
+      ] }
+
+      it 'returns the sorted documents' do
+        expect(documents.size).to eq(2)
+        expect(documents.map(&:name)).to eq(%w(another.doc test.doc))
+      end
+    end
+
+    describe '.all_for_collection' do
+      let(:documents) { described_class.all_for_collection('12345') }
+      let(:document_key) { nil }
+
+      let(:result) { [
+        { key: '12345/supporting_documents/test.doc', title: 'supporting_documents/test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
+        { key: '12345/supporting_documents/another.doc', title: 'supporting_documents/another.doc', last_modified: '2016-12-05T12:20:02.000Z' },
+        { key: '12345/other/test.doc', title: 'other/test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
+        { key: '12345/foo/test.doc', title: 'foo/test.doc', last_modified: '2016-12-05T12:24:02.000Z' }
+      ] }
+
+      it 'returns the sorted documents' do
+        expect(documents.keys).to match_array(%i(foo other supporting_documents))
+
+        expect(documents[:foo].size).to eq(1)
+        expect(documents[:foo].map(&:name)).to eq(%w(test.doc))
+        expect(documents[:other].size).to eq(1)
+        expect(documents[:other].map(&:name)).to eq(%w(test.doc))
+        expect(documents[:supporting_documents].size).to eq(2)
+        expect(documents[:supporting_documents].map(&:name)).to eq(%w(another.doc test.doc))
+      end
     end
   end
 end
