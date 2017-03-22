@@ -21,7 +21,7 @@ class Document
   end
 
   def encoded_name
-    Base64.encode64(full_name)
+    Base64.encode64(name)
   end
 
   # We use the encoded file name in the route path for DELETE (or fallback POST)
