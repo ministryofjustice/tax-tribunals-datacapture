@@ -171,7 +171,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
-    mojfile-uploader-api-client (0.5)
+    mojfile-uploader-api-client (0.6)
       rest-client (~> 2.0.0)
     morpher (0.2.6)
       abstract_type (~> 0.0.7)
@@ -400,7 +400,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   lograge
-  mojfile-uploader-api-client (~> 0.1)
+  mojfile-uploader-api-client (~> 0.6)
   mutant-rspec
   pg (~> 0.18)
   phantomjs
