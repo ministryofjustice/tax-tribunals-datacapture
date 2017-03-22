@@ -34,7 +34,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'sets the personalisation' do
         expect(
           mail.govuk_notify_personalisation.keys
-        ).to eq([:recipient_name, :case_reference, :show_case_reference, :appeal_or_application])
+        ).to eq([:recipient_name, :case_reference, :case_reference_present, :case_reference_absent, :appeal_or_application])
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       let(:case_reference) { nil }
 
       it 'sets the personalisation' do
-        expect(mail.govuk_notify_personalisation).to include(case_reference: '', show_case_reference: 'no')
+        expect(mail.govuk_notify_personalisation).to include(case_reference: '', case_reference_present: 'no', case_reference_absent: 'yes')
       end
     end
 
@@ -60,7 +60,8 @@ RSpec.describe NotifyMailer, type: :mailer do
             personalisation: {
               recipient_name: '[FILTERED]',
               case_reference: 'TC/2017/00001',
-              show_case_reference: 'yes',
+              case_reference_present: 'yes',
+              case_reference_absent: 'no',
               appeal_or_application: :appeal
             }
           }

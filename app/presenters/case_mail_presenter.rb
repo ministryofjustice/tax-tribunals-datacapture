@@ -2,8 +2,12 @@ class CaseMailPresenter < SimpleDelegator
   # Initialise with a TribunalCase instance and any method not
   # defined in this class will be forwarded automatically to that instance.
 
-  def show_case_reference?
+  def case_reference_present?
     notify_presence_for(case_reference)
+  end
+
+  def case_reference_absent?
+    notify_absence_for(case_reference)
   end
 
   # GOV.UK Notify does not accept `nil` values, instead use empty strings
@@ -50,6 +54,11 @@ class CaseMailPresenter < SimpleDelegator
   # GOV.UK Notify expects this to be literals
   def notify_presence_for(field)
     field.present? ? 'yes' : 'no'
+  end
+
+  # GOV.UK Notify expects this to be literals
+  def notify_absence_for(field)
+    field.blank? ? 'yes' : 'no'
   end
 
   def tribunal_case

@@ -20,7 +20,8 @@ class NotifyMailer < GovukNotifyRails::Mailer
     set_personalisation(
       recipient_name: mail_presenter.recipient_name,
       case_reference: mail_presenter.case_reference,
-      show_case_reference: mail_presenter.show_case_reference?,
+      case_reference_present: mail_presenter.case_reference_present?,
+      case_reference_absent: mail_presenter.case_reference_absent?,
       appeal_or_application: mail_presenter.appeal_or_application
     )
 

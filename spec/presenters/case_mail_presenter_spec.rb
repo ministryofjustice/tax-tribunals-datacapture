@@ -35,14 +35,25 @@ RSpec.describe CaseMailPresenter do
     end
   end
 
-  describe '#show_case_reference?' do
+  describe '#case_reference_present?' do
     context 'for a case with reference number' do
-      it { expect(subject.show_case_reference?).to eq('yes') }
+      it { expect(subject.case_reference_present?).to eq('yes') }
     end
 
     context 'for a case without reference number' do
       let(:case_reference) { nil }
-      it { expect(subject.show_case_reference?).to eq('no') }
+      it { expect(subject.case_reference_present?).to eq('no') }
+    end
+  end
+
+  describe '#case_reference_absent?' do
+    context 'for a case with reference number' do
+      it { expect(subject.case_reference_absent?).to eq('no') }
+    end
+
+    context 'for a case without reference number' do
+      let(:case_reference) { nil }
+      it { expect(subject.case_reference_absent?).to eq('yes') }
     end
   end
 
