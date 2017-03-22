@@ -2,6 +2,8 @@ en:
   shared:
     confirmation_case_reference:
       case_reference: 'Your case reference number is:'
+      case_submitted_successfully: Your case was submitted successfully.
+      case_reference_pending: You will be sent a case reference number shortly.
       note_number: Please make a note of this number in case you need to contact us.
   steps:
     shared:
