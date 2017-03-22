@@ -1,5 +1,6 @@
 class CaseStatus < ValueObject
   VALUES = [
-    SUBMITTED = new(:submitted)
+    IN_PROGRESS = new(:in_progress),
+    SUBMITTED   = new(:submitted)
   ].freeze
 end

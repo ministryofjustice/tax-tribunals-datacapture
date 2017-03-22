@@ -6,6 +6,10 @@ class CaseCreator
   end
 
   def call
+    tribunal_case.update(
+      case_status: CaseStatus::IN_PROGRESS
+    )
+
     glimr_case = GlimrNewCase.new(tribunal_case).call
     case_reference = glimr_case.case_reference
 
