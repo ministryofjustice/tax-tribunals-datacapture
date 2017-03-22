@@ -9,6 +9,14 @@ RSpec.shared_examples 'checks the validity of the current tribunal case' do
     end
   end
 
+  context 'when there is a case with submission in progress in the session' do
+    let(:current_tribunal_case) { instance_double(TribunalCase, case_status: CaseStatus::IN_PROGRESS) }
+
+    it 'redirects to the case already submitted error page' do
+      expect(response).to redirect_to(case_submitted_errors_path)
+    end
+  end
+
   context 'when there is an already submitted case in the session' do
     let(:current_tribunal_case) { instance_double(TribunalCase, case_status: CaseStatus::SUBMITTED) }
 
