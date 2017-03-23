@@ -14,19 +14,12 @@ en:
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
-
       explanation_html:
         <p><strong>What to do next</strong></p>
         <ul class="list list-bullet">
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
-    having_problems_uploading_details:
-      having_problems_explanation_html: |
-
-    service_help:
-      need_help: Need help using the online service?
-      contact_us: Contact us
     finish: Finish
   steps:
     details:
