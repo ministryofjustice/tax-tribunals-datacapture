@@ -90,10 +90,17 @@ Rails.application.routes.draw do
     get :case_not_found
     get :case_submitted
     get :unhandled
+    get :not_found
   end
 
   root to: 'home#index'
   get :start, to: 'home#start'
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
+
+  # catch-all route
+  # :nocov:
+  match '*path', to: 'errors#not_found', via: :all, constraints:
+    lambda { |_request| !Rails.application.config.consider_all_requests_local }
+  # :nocov:
 end

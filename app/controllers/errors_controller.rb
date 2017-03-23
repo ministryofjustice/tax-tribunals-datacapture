@@ -1,24 +1,27 @@
 class ErrorsController < ApplicationController
-  def case_not_found
-    respond_to do |format|
-      format.html
-      format.json { head :not_found }
-    end
-  end
-
   def case_submitted
     @tribunal_case = current_tribunal_case
+    respond_with_status(:unprocessable_entity)
+  end
 
-    respond_to do |format|
-      format.html
-      format.json { head :unprocessable_entity }
-    end
+  def case_not_found
+    respond_with_status(:not_found)
+  end
+
+  def not_found
+    respond_with_status(:not_found)
   end
 
   def unhandled
+    respond_with_status(:internal_server_error)
+  end
+
+  private
+
+  def respond_with_status(status)
     respond_to do |format|
       format.html
-      format.json { head :internal_server_error }
+      format.json { head status }
     end
   end
 end
