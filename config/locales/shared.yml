@@ -46,3 +46,13 @@ en:
             against me. I understand that if I have given false information or I do not provide further evidence if
             requested, my %{appeal_or_application} may be rejected.
           submit_and_continue: "Submit"
+      representative_explanation:
+        heading: What is a representative and what can they do?
+        content_html: |
+          <p>A representative can be a:</p>
+          <ul class="list list-bullet">
+              <li>professional lawyer, tax adviser, accountant</li>
+              <li>friend or family relative</li>
+            </ul>
+          <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
+          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
