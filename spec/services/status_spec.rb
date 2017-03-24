@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Healthcheck do
+RSpec.describe Status do
   let(:glimr_available) {
     instance_double(GlimrApiClient::Available, available?: true)
   }

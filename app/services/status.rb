@@ -1,5 +1,5 @@
 require 'glimr_api_client'
-class Healthcheck
+class Status
   def self.check
     new.check
   end

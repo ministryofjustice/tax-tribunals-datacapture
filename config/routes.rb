@@ -84,7 +84,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :healthcheck, only: [:index]
+  resources :status, only: [:index]
 
   resource :errors, only: [] do
     get :case_not_found
