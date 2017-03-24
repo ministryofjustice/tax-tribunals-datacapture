@@ -26,15 +26,6 @@ en:
       user_type:
         edit:
           heading: Are you the taxpayer making the %{appeal_or_application}?
-          representative_heading: What is a representative and what can they do?
-          representative_content_html: |
-            <p>A representative can be a:</p>
-            <ul class="list list-bullet">
-                <li>professional lawyer, tax adviser, accountant</li>
-                <li>friend or family relative</li>
-              </ul>
-            <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
-            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
       taxpayer_type:
         edit:
           heading:
@@ -47,15 +38,6 @@ en:
         edit:
           heading: Do you have someone to represent you?
           lead_text: A representative is anyone you want to receive tribunal letters or go to a hearing for you. You can authorise a representative at any time during your appeal.
-          details_heading: What is a representative and what can they do?
-          details_content_html: |
-            <p>A representative can be a:</p>
-            <ul class="list list-bullet">
-                <li>professional lawyer, tax adviser, accountant</li>
-                <li>friend or family relative</li>
-              </ul>
-            <p>You can use a representative if you feel you need help or advice. A representative is able to receive letters from the tax tribunal and go to any hearings for you.</p>
-            <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
       representative_professional_status:
         edit:
           heading:

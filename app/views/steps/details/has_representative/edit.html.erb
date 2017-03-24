@@ -12,17 +12,6 @@
       <%= f.submit class: 'button' %>
     <% end %>
 
-    <details role="group">
-      <summary role="button" aria-controls="details-content-0" aria-expanded="true">
-        <%=t '.details_heading' %>
-      </summary>
-      <div class="panel" id="details-content-0" aria-hidden="false">
-        <%= translate_with_appeal_or_application('.details_content_html',
-              approval_form_href: asset_path('proforma.pdf'),
-              approval_form_format_and_size: 'PDF, 241KB'
-            )
-        %>
-      </div>
-    </details>
+    <%= render partial: 'steps/shared/representative_explanation' %>
   </div>
 </div>
