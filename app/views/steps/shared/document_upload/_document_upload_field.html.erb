@@ -2,6 +2,6 @@
   <%= form.label(field_name, label_text) %>
 </p>
 
-<%= form.file_field(field_name) %>
+<%= form.file_field(field_name, accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
 
 <%= render partial: 'steps/shared/file_upload_requirements' %>
