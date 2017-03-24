@@ -274,24 +274,30 @@ en:
             <div class="letter">
               <h2 class="heading-medium">What you will need to do</h2>
               <ol class="list list-number">
-                 <strong><li>Print out your appeal details</li></strong>
+                <li>
+                  <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
 
                   <p><strong><a href="%{download_pdf_url}" target="_blank">Print your appeal details</a></strong></p>
-
-                  <strong><li>Make copies of all documents you wanted to upload</li></strong>
+                </li>
+                <li>
+                  <strong>Make copies of all documents you wanted to upload</strong>
                   <p>You must include:</p>
                   <ul class="list list-bullet">
-                  <li>the original notice or review conclusion letter</li>
-                  <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
+                    <li>the original notice or review conclusion letter</li>
+                    <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
                   </ul>
-
-                 <strong><li>Send everything by post</li></strong>
-                   <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
-                  <p>First-tier Tribunal (Tax Chamber)<br>
-                  PO Box 16972<br>
-                  Birmingham<br>
-                  B16 6TZ</p>
+                </li>
+                <li>
+                  <strong>Send everything by post</strong>
+                  <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
+                  <address>
+                    First-tier Tribunal (Tax Chamber)<br>
+                    PO Box 16972<br>
+                    Birmingham<br>
+                    B16 6TZ
+                  </address>
+                </li>
                </ol>
             </div>
           post_address_html:
