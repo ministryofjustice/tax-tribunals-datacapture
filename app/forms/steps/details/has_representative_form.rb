@@ -24,6 +24,7 @@ module Steps::Details
       tribunal_case.update(
         has_representative: has_representative_value,
         # The following are dependent attributes that need to be reset
+        representative_professional_status: nil,
         representative_individual_first_name: nil,
         representative_individual_last_name: nil,
         representative_organisation_name: nil,

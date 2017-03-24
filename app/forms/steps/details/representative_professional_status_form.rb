@@ -22,6 +22,7 @@ module Steps::Details
       return true unless changed?
 
       tribunal_case.update(
+        has_representative: HasRepresentative::YES,
         representative_professional_status: representative_professional_status_value
       )
     end

@@ -22,7 +22,10 @@ module Steps::Details
       return true unless changed?
 
       tribunal_case.update(
-        user_type: user_type_value
+        user_type: user_type_value,
+        # The following are dependent attributes that need to be reset
+        has_representative: nil,
+        representative_professional_status: nil
       )
     end
   end

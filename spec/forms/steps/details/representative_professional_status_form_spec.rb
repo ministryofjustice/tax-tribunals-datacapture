@@ -49,6 +49,7 @@ RSpec.describe Steps::Details::RepresentativeProfessionalStatusForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
+          has_representative: HasRepresentative::YES,
           representative_professional_status: RepresentativeProfessionalStatus::ACCOUNTANT
         ).and_return(true)
         expect(subject.save).to be(true)
