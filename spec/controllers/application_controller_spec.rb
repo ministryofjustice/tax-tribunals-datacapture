@@ -9,7 +9,7 @@ RSpec.describe ApplicationController do
 
   context 'Exceptions handling' do
     before do
-      allow(Rails).to receive(:env).and_return('production'.inquiry)
+      allow(Rails).to receive_message_chain(:application, :config, :consider_all_requests_local).and_return(false)
     end
 
     context 'Errors::CaseNotFound' do

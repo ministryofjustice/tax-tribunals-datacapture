@@ -20,3 +20,8 @@ en:
       start_again: Start again
       lead_text: "To keep this service secure, any information you've entered hasn't been saved."
       more_text: "You'll need to start again."
+    not_found:
+      heading: Page not found
+      lead_text: If you entered a web address please check if it was correct.
+      more_text: You can also try starting from the homepage to find the information you need.
+      start_again: Start again

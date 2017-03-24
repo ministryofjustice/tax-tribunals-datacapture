@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when Errors::CaseSubmitted
       redirect_to case_submitted_errors_path
     else
-      raise unless Rails.env.production?
+      raise if Rails.application.config.consider_all_requests_local
 
       Raven.capture_exception(exception)
       redirect_to unhandled_errors_path
