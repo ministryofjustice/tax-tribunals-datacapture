@@ -50,6 +50,7 @@ RSpec.describe Steps::Details::HasRepresentativeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           has_representative: HasRepresentative::YES,
+          representative_professional_status: nil,
           representative_individual_first_name: nil,
           representative_individual_last_name: nil,
           representative_organisation_name: nil,

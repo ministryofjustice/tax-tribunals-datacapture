@@ -49,7 +49,9 @@ RSpec.describe Steps::Details::UserTypeForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          user_type: UserType::REPRESENTATIVE
+          user_type: UserType::REPRESENTATIVE,
+          has_representative: nil,
+          representative_professional_status: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end
