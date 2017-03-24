@@ -18,7 +18,7 @@ RSpec.describe StatusController do
     # GlimrApiClient does not work here for some reason that isn't clear.
     stub_request(:post, /glimravailable/).
       to_return(body: { glimrAvailable: 'yes' }.to_json)
-    stub_request(:get, /healthcheck/).
+    stub_request(:get, /status/).
       to_return(status: 200, body: { service_status: 'ok' }.to_json)
     expect(ActiveRecord::Base).to receive(:connection).and_return(double)
     allow_any_instance_of(Status).to receive(:version).and_return('ABC123')
