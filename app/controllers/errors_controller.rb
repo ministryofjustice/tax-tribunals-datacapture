@@ -21,7 +21,7 @@ class ErrorsController < ApplicationController
   def respond_with_status(status)
     respond_to do |format|
       format.html
-      format.json { head status }
+      format.all { head status }
     end
   end
 end
