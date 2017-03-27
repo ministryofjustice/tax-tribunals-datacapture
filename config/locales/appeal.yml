@@ -21,7 +21,8 @@ en:
           continue: Continue
       challenged_decision:
         edit:
-          heading: Did you appeal the original decision with HMRC?
+          heading_direct_tax: Did you appeal the original decision with HMRC?
+          heading_indirect_tax: Did you ask for a review of the original decision?
           help_panel:
             heading: Help with challenging a tax decision
             content_html: >
@@ -88,7 +89,7 @@ en:
         steps/appeal/challenged_decision_form:
           attributes:
             challenged_decision:
-              inclusion: Select whether you made an appeal to HMRC
+              inclusion: Select an option
         steps/appeal/challenged_decision_status_form:
           attributes:
             challenged_decision_status:

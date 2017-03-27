@@ -12,7 +12,6 @@ en:
             notice: Notice of appeal
           show:
             questions:
-              challenged_decision: Decision challenged with HMRC?
               tax_amount: Amount of tax under dispute
               penalty_level: Penalty or surcharge amount
               penalty_amount: Penalty or surcharge amount

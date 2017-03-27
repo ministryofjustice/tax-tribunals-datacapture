@@ -57,22 +57,49 @@ RSpec.describe AppealTypeAnswersPresenter do
   describe '`challenged_decision` question' do
     let(:row) { subject.challenged_decision_question }
     let(:challenged_decision) { true }
+    let(:case_type) { instance_double(CaseType, direct_tax?: direct_tax) }
 
-    context 'when appeal is challenged' do
-      it 'has the correct attributes' do
-        expect(row.question).to    eq('.questions.challenged_decision')
-        expect(row.answer).to      eq('.answers.challenged_decision.true')
-        expect(row.change_path).to be_nil
+    context 'for a direct tax' do
+      let(:direct_tax) { true }
+
+      context 'when appeal is challenged' do
+        it 'has the correct attributes' do
+          expect(row.question).to eq('.questions.challenged_decision.direct_tax')
+          expect(row.answer).to eq('.answers.challenged_decision.direct_tax.true')
+          expect(row.change_path).to be_nil
+        end
+      end
+
+      context 'when appeal is unchallenged' do
+        let(:challenged_decision) { false }
+
+        it 'has the correct attributes' do
+          expect(row.question).to eq('.questions.challenged_decision.direct_tax')
+          expect(row.answer).to eq('.answers.challenged_decision.direct_tax.false')
+          expect(row.change_path).to be_nil
+        end
       end
     end
 
-    context 'when appeal is unchallenged' do
-      let(:challenged_decision) { false }
+    context 'for an indirect tax' do
+      let(:direct_tax) { false }
 
-      it 'has the correct attributes' do
-        expect(row.question).to    eq('.questions.challenged_decision')
-        expect(row.answer).to      eq('.answers.challenged_decision.false')
-        expect(row.change_path).to be_nil
+      context 'when appeal is challenged' do
+        it 'has the correct attributes' do
+          expect(row.question).to eq('.questions.challenged_decision.indirect_tax')
+          expect(row.answer).to eq('.answers.challenged_decision.indirect_tax.true')
+          expect(row.change_path).to be_nil
+        end
+      end
+
+      context 'when appeal is unchallenged' do
+        let(:challenged_decision) { false }
+
+        it 'has the correct attributes' do
+          expect(row.question).to eq('.questions.challenged_decision.indirect_tax')
+          expect(row.answer).to eq('.answers.challenged_decision.indirect_tax.false')
+          expect(row.change_path).to be_nil
+        end
       end
     end
   end
