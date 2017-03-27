@@ -48,7 +48,6 @@ class CaseType < ValueObject
     GAMING_DUTY                  = new(:gaming_duty,                  indirect_tax_properties),
     GENERAL_BETTING_DUTY         = new(:general_betting_duty,         indirect_tax_properties),
     HYDROCARBON_OIL_DUTIES       = new(:hydrocarbon_oil_duties,       indirect_tax_properties),
-    INACCURATE_RETURN_PENALTY    = new(:inaccurate_return_penalty,    ask_penalty: true, appeal_or_application: :appeal),
     INCOME_TAX                   = new(:income_tax,                   direct_tax_properties),
     INFORMATION_NOTICE           = new(:information_notice,           ask_dispute_type: true, ask_penalty: true, appeal_or_application: :appeal),
     INHERITANCE_TAX              = new(:inheritance_tax,              direct_tax_properties),

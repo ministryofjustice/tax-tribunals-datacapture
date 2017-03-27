@@ -142,7 +142,6 @@ en:
           vat_html: <strong>Value Added Tax (VAT)</strong>
           capital_gains_tax_html: <strong>Capital Gains Tax</strong>
           corporation_tax_html: <strong>Corporation Tax</strong>
-          inaccurate_return_penalty_html: <strong>Inaccurate return penalty</strong>
           information_notice_html: <strong>Information notice</strong><br>a request for further information about your tax position
           ni_contributions_html: <strong>National Insurance (NI) contributions</strong>
           _show_more_html: <strong>Other type of tax, appeal or application</strong>

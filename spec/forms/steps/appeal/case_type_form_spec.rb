@@ -17,9 +17,8 @@ RSpec.describe Steps::Appeal::CaseTypeForm do
         vat
         capital_gains_tax
         corporation_tax
-        inaccurate_return_penalty
-        information_notice
         ni_contributions
+        information_notice
         _show_more
       ))
     end
