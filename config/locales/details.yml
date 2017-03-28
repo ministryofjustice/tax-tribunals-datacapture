@@ -21,6 +21,7 @@ en:
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
     finish: Finish
+    start_again: Start again
   steps:
     details:
       user_type:
@@ -205,6 +206,8 @@ en:
               amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
               amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
               information_notice: Information notice
+              refusal_to_register_applicant: Refusal to register an applicant
+              cancellation_of_registration: Cancellation of registration
               other: Other
             penalty_level:
               penalty_level_1: £100 or less
