@@ -5,7 +5,7 @@ en:
       heading: "Sorry, you'll have to start again"
       start_again: Start again
       lead_text: "Your session automatically ends if you don't use the service for %{session_timeout} minutes."
-      more_text: "We do this for your security. We haven't saved any personal information you entered."
+      more_text: "We do this for your security. We haven't saved any information you have entered."
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone} (find out about
@@ -18,7 +18,7 @@ en:
     unhandled:
       heading: Sorry, something went wrong
       start_again: Start again
-      lead_text: "To keep this service secure, any information you've entered hasn't been saved."
+      lead_text: "To keep this service secure, any information you have entered hasn't been saved."
       more_text: "You'll need to start again."
     not_found:
       heading: Page not found
