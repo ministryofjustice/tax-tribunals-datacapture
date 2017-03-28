@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     respond_to do |format|
-      format.html { redirect_to params[:survey] ? Rails.configuration.survey_link : root_path }
+      format.html { redirect_to params[:survey] == 'true' ? Rails.configuration.survey_link : root_path }
       format.json { render json: {} }
     end
   end
