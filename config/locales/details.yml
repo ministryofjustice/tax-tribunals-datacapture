@@ -37,7 +37,7 @@ en:
       has_representative:
         edit:
           heading: Do you have someone to represent you?
-          lead_text: A representative is anyone you want to receive tribunal letters or go to a hearing for you. You can authorise a representative at any time during your appeal.
+          lead_text: A representative is anyone you want to receive correspondence or go to a hearing for you. You can authorise a representative at any time during your appeal.
       representative_professional_status:
         edit:
           heading:
@@ -47,9 +47,9 @@ en:
         edit:
           heading:
             as_taxpayer: Do you want to authorise your representative now? (optional)
-            as_representative: Do you want to start receiving information from the tribunal? (optional)
+            as_representative: Do you want to start receiving correspondence from the tribunal? (optional)
           lead_text:
-            as_taxpayer: If you want your representative to start receiving information from the tax tribunal, you can authorise them now.
+            as_taxpayer: If you want your representative to start receiving correspondence from the tax tribunal, you can authorise them now.
             as_representative: Upload authorisation to let the tax tribunal know you’re acting for the taxpayer.
           anytime_text: You can also send the authorisation later at any point during the appeal.
           details_heading:

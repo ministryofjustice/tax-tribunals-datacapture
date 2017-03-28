@@ -22,6 +22,7 @@ en:
       more_text: "You'll need to start again."
     not_found:
       heading: Page not found
-      lead_text: If you entered a web address please check if it was correct.
-      more_text: You can also try starting from the homepage to find the information you need.
+      lead_text: If you entered a web address, please check it’s correct.
+      more_text_html: <p>You can also try starting from the homepage to find the information you need.</p>
+                      <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
       start_again: Start again
