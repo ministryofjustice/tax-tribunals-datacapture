@@ -2,7 +2,8 @@
   <div class="column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <% i18n_heading_key = current_tribunal_case.case_type.direct_tax? ? '.heading_direct_tax' : '.heading_indirect_tax' %>
+    <h1 class="heading-large"><%=t i18n_heading_key %></h1>
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :challenged_decision, choices: Steps::Appeal::ChallengedDecisionForm.choices %>

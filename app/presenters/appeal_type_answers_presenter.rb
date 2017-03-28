@@ -14,7 +14,7 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
   def challenged_decision_question
     row(
       tribunal_case.challenged_decision,
-      as: :challenged_decision
+      as: direct_tax? ? 'challenged_decision.direct_tax' : 'challenged_decision.indirect_tax'
     )
   end
 
@@ -82,5 +82,11 @@ class AppealTypeAnswersPresenter < BaseAnswersPresenter
       as: :tax_amount,
       i18n_value: false
     )
+  end
+
+  private
+
+  def direct_tax?
+    tribunal_case.case_type.direct_tax?
   end
 end

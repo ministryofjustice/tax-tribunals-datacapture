@@ -122,7 +122,9 @@ en:
           grounds_for_appeal_heading: Grounds for appeal
           hardship_heading: Hardship application
           questions:
-            challenged_decision: Did you appeal the original decision with HMRC?
+            challenged_decision:
+              direct_tax: Did you appeal the original decision with HMRC?
+              indirect_tax: Did you ask for a review of the original decision?
             challenged_decision_status: What reponse did you receive?
             case_type: What is your %{appeal_or_application} about?
             dispute_type: What is your dispute about?
@@ -143,8 +145,12 @@ en:
             hardship_reason: Why will paying the tax under dispute cause financial hardship?
           answers:
             challenged_decision:
-              'yes': 'Yes'
-              'no': 'No'
+              direct_tax:
+                'yes': 'Yes'
+                'no': 'No'
+              indirect_tax:
+                'yes': 'Yes'
+                'no': 'No'
             disputed_tax_paid:
               'yes': 'Yes'
               'no': 'No'
