@@ -372,12 +372,12 @@ en:
           'no': 'No'
       steps_details_representative_professional_status_form:
         representative_professional_status:
-          england_or_wales_or_ni_legal_rep_html: <strong>Practising solicitor or barrister in England, Wales or Northern Ireland</strong>
-          scotland_legal_rep_html: <strong>Practising solicitor or advocate in Scotland</strong>
-          tax_agent_html: <strong>Tax agent</strong>
-          accountant_html: <strong>Accountant</strong>
-          friend_or_family_html: <strong>Friend or family member</strong>
-          other_html: <strong>None of the above</strong>
+          england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister in England, Wales or Northern Ireland
+          scotland_legal_rep_html: Practising solicitor or advocate in Scotland
+          tax_agent_html: Tax agent
+          accountant_html: Accountant
+          friend_or_family_html: Friend or family member
+          other_html: None of the above
       steps_details_representative_type_form:
         representative_type:
           individual_html: <strong>Individual</strong>
