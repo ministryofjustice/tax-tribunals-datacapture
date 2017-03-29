@@ -69,10 +69,15 @@ en:
         student_loans: Student loans
         tobacco_products_duty: Tobacco Products Duty
         vat: Value Added Tax (VAT)
-    challenged_decision:
+    challenged_decision_direct:
       question: Did you appeal the original decision with HMRC?
-      question_pdf: Decision challenged with HMRC?
       accessible_change_text: whether you appealed the original decision with HMRC
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+    challenged_decision_indirect:
+      question: Did you ask for a review of the original decision?
+      accessible_change_text: whether you asked for a review of the original decision
       answers:
         'yes': 'Yes'
         'no': 'No'

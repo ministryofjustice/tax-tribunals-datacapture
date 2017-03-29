@@ -8,6 +8,14 @@ module Steps::Appeal
 
     validates_inclusion_of :challenged_decision, in: choices
 
+    def heading_translation_key
+      if tribunal_case.case_type.direct_tax?
+        '.heading_direct'
+      else
+        '.heading_indirect'
+      end
+    end
+
     private
 
     def challenged_decision_value

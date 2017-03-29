@@ -21,7 +21,8 @@ en:
           continue: Continue
       challenged_decision:
         edit:
-          heading: Did you appeal the original decision with HMRC?
+          heading_direct: Did you appeal the original decision with HMRC?
+          heading_indirect: Did you ask for a review of the original decision?
           help_panel:
             heading: Help with challenging a tax decision
             content_html: >
@@ -63,8 +64,8 @@ en:
       must_challenge_hmrc:
         show:
           heading: You must appeal the original decision with HMRC
-          lead_text: The original notice letter will explain what to do. 
-          free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal once you have written to HMRC. 
+          lead_text: The original notice letter will explain what to do.
+          free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal once you have written to HMRC.
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think you are late. HMRC will decide whether to accept your appeal or explain what you can do next.</p>
                                                 <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.</p>
           contact_hmrc_button: Contact HMRC
@@ -89,7 +90,7 @@ en:
         steps/appeal/challenged_decision_form:
           attributes:
             challenged_decision:
-              inclusion: Select whether you made an appeal to HMRC
+              inclusion: Select an option
         steps/appeal/challenged_decision_status_form:
           attributes:
             challenged_decision_status:

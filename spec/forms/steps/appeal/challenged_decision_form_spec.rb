@@ -5,10 +5,29 @@ RSpec.describe Steps::Appeal::ChallengedDecisionForm do
     tribunal_case:      tribunal_case,
     challenged_decision: challenged_decision
   } }
-  let(:tribunal_case)      { instance_double(TribunalCase, challenged_decision: nil) }
+  let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type, challenged_decision: nil) }
+  let(:case_type) { nil }
   let(:challenged_decision) { nil }
 
   subject { described_class.new(arguments) }
+
+  describe '#heading_translation_key' do
+    context 'when the case type is direct' do
+      let(:case_type) { CaseType.new(:foo, direct_tax: true) }
+
+      it 'returns the correct key' do
+        expect(subject.heading_translation_key).to eq('.heading_direct')
+      end
+    end
+
+    context 'when the case type is indirect' do
+      let(:case_type) { CaseType.new(:bar, direct_tax: false) }
+
+      it 'returns the correct key' do
+        expect(subject.heading_translation_key).to eq('.heading_indirect')
+      end
+    end
+  end
 
   describe '#save' do
     context 'when no tribunal_case is associated with the form' do
