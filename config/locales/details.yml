@@ -21,6 +21,7 @@ en:
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
     finish: Finish
+    start_again: Start again
   steps:
     details:
       user_type:
