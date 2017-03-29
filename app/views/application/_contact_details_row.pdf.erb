@@ -1,0 +1,23 @@
+<tr>
+  <td class="question">
+    <%= pdf_t "check_answers.#{contact_details_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-contact-details">
+    <%= simple_format(contact_details_row.contact_address) %>
+
+    <% if contact_details_row.extra_details? %>
+      <p>
+        <% if contact_details_row.phone? %>
+          <%= pdf_t 'check_answers.phone' %>: <%= contact_details_row.phone %><br>
+        <% end %>
+        <% if contact_details_row.email? %>
+          <%= pdf_t 'check_answers.email' %>: <%= contact_details_row.email %><br>
+        <% end %>
+        <% if contact_details_row.organisation_registration_number? %>
+          <%= pdf_t 'check_answers.organisation_registration_number' %>: <%= contact_details_row.organisation_registration_number %>
+        <% end %>
+      </p>
+    <% end %>
+  </td>
+</tr>

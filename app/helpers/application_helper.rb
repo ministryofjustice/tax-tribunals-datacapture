@@ -45,7 +45,12 @@ module ApplicationHelper
   end
 
   def appeal_or_application_params
-    {appeal_or_application: translate("generic.appeal_or_application.#{current_tribunal_case.appeal_or_application}")}
+    appeal_or_application = translate("generic.appeal_or_application.#{current_tribunal_case.appeal_or_application}")
+
+    {
+      appeal_or_application: appeal_or_application,
+      appeal_or_application_capitalised: appeal_or_application.upcase_first
+    }
   end
 
   def analytics_tracking_id

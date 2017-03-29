@@ -130,6 +130,15 @@ RSpec.describe TribunalCase, type: :model do
       subject.documents(:bar)
       subject.documents(:bar)
     end
+
+    context 'when having_problems_uploading_documents is given' do
+      let(:attributes) { super().merge(having_problems_uploading_documents: 'Oh noes') }
+
+      it 'does not return any documents' do
+        expect(Document).to_not receive(:all_for_collection)
+        expect(subject.documents(:foo)).to be_empty
+      end
+    end
   end
 
   describe '#documents_url' do

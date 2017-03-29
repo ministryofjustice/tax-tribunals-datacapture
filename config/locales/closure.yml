@@ -32,40 +32,7 @@ en:
           having_problems_uploading_documents_html: I am having trouble uploading my documents
       check_answers:
         show:
-          change: Change
           heading: Check your answers
-          warning: Warning
-          warning_message: "Once you click 'Submit', you cannot change your answers"
-          declaration_of_truth: Declaration and statement of truth
-          declaration_of_truth_message: |
-            By completing this Application to Close an Enquiry to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit
-            ’ button, I believe the information I have given in this
-            form is true to the best of my knowledge. If I am found to have
-            been deliberately untruthful or dishonest, criminal proceedings for
-            fraud can be brought against me. I understand that if I have given
-            false information or I do not provide further evidence if
-            requested, my application may be rejected.
-          application_type_heading: Application type
-          application_details_heading: Application details
-          enquiry_details_heading: Enquiry details
-          questions:
-            case_type: What type of enquiry do you want to close?
-            hmrc_reference: HMRC reference number
-            years_under_enquiry: Years under enquiry
-            hmrc_officer: HMRC officer conducting enquiry
-            additional_info: Additional information
-          answers:
-            case_type:
-              personal_return: Personal return
-              company_return: Company return
-              partnership_return: Partnership return
-              trustee_return: Trustee return
-              claim_or_amendment: Claim or amendment of a claim
-              enterprise_mgmt_incentives: 'Enterprise Management Incentives (EMIs): qualifying options'
-              non_resident_capital_gains_tax: 'Non-resident Capital Gains Tax (NRCGT) return'
-              stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction return'
-              stamp_duty_land_tax_claim: 'Stamp Duty Land Tax (SDLT): claim or amendment of a claim'
-              transactions_in_securities: 'Transactions in securities: issue of counteraction or no-counteraction notice'
       confirmation:
         show:
           case_submitted: Case submitted

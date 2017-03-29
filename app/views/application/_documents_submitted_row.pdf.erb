@@ -1,0 +1,13 @@
+<tr>
+  <td class="question">
+    <%= pdf_t "check_answers.#{documents_submitted_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-documents-submitted">
+    <ul>
+      <% documents_submitted_row.documents.each do |document| %>
+        <li><%= document.name %></li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

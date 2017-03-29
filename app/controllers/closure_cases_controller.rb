@@ -1,8 +1,12 @@
 class ClosureCasesController < CasesController
+  def pdf_template
+    'steps/closure/check_answers/show'
+  end
+
   private
 
   def presenter_class
-    ClosurePresenter
+    CheckAnswers::ClosureAnswersPresenter
   end
 
   def confirmation_path

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('local/case_details_pdf') -%>
+  </head>
+
+  <body id="case-details-pdf">
+    <div class="pdf-header">
+      <h2><%= pdf_t 'check_answers.pdf.header.tax_chamber' %></h2>
+      <h1>
+        <%= pdf_t 'check_answers.pdf.header.appeal_heading' %>
+        <% if @presenter.case_reference? %>
+          &ndash; <%= @presenter.case_reference %>
+        <% end %>
+      </h1>
+    </div>
+
+    <%= render @presenter.sections %>
+  </body>
+</html>

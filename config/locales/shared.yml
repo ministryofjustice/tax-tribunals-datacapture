@@ -1,51 +1,6 @@
 en:
-  shared:
-    confirmation_case_reference:
-      case_reference: 'Your case reference number is:'
-      case_submitted_successfully: Your case was submitted successfully.
-      case_reference_pending: You will be sent a case reference number shortly.
-      note_number: Please make a note of this number in case you need to contact us.
   steps:
     shared:
-      check_answers:
-        change: Change
-        taxpayer_details:
-          appeal_details_heading: Appeal details
-          taxpayer_details_heading: Taxpayer details
-          questions:
-            appellant_details: "Taxpayer's details"
-            appellant_email: "Email:"
-            appellant_phone: "Tel:"
-        representative_details:
-          questions:
-            representative_professional_status: The representative is
-            representative_approval: Representative approval
-            representative_details: "Representative's details"
-            representative_phone: "Tel:"
-            representative_email: "Email:"
-          answers:
-            no_representative: "I don't have a representative"
-            representative_professional_status:
-              england_or_wales_or_ni_legal_rep: a practising solicitor or barrister in England, Wales or Northern Ireland
-              scotland_legal_rep: a practising solicitor or advocate in Scotland
-              tax_agent: a tax agent
-              accountant: an accountant
-              friend_or_family: a friend or family member
-              other: a non-legal representative
-        documents_submitted:
-          questions:
-            documents_submitted: Documents submitted
-        footer:
-          warning: Warning
-          warning_message: "Once you click 'Submit', you cannot change your answers"
-          declaration_of_truth: Declaration and statement of truth
-          declaration_of_truth_message: |
-            By completing this Notice of Appeal to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit’
-            button, I believe the information I have given in this form is true to the best of my knowledge. If I am
-            found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought
-            against me. I understand that if I have given false information or I do not provide further evidence if
-            requested, my %{appeal_or_application} may be rejected.
-          submit_and_continue: "Submit"
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |

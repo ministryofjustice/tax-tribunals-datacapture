@@ -1,0 +1,19 @@
+<div>
+  <dt class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{row.question}.question" %>
+  </dt>
+  <dd class="answer">
+    <% if row.raw? %>
+      <%= row.value %>
+    <% else %>
+      <%=t "check_answers.#{row.question}.answers.#{row.value}" %>
+    <% end %>
+  </dd>
+  <dd class="change">
+    <% if row.show_change_link? %>
+      <%= link_to row.change_path do %>
+        Change <span class="visuallyhidden"><%=t "check_answers.#{row.question}.accessible_change_text" %></span>
+      <% end %>
+    <% end %>
+  </dd>
+</div>
