@@ -56,4 +56,20 @@ RSpec.describe AppealDecisionTree, '#destination' do
       it { is_expected.to have_destination(:challenged_decision_status, :edit) }
     end
   end
+
+  context 'for a restoration case' do
+    let(:case_type) { CaseType::RESTORATION_CASE }
+
+    context 'and the case has not been challenged' do
+      let(:challenged_decision) { ChallengedDecision::NO }
+
+      it { is_expected.to have_destination(:must_challenge_hmrc, :show) }
+    end
+
+    context 'and the case has been challenged' do
+      let(:challenged_decision) { ChallengedDecision::YES }
+
+      it { is_expected.to have_destination(:challenged_decision_status, :edit) }
+    end
+  end
 end

@@ -20,9 +20,8 @@ class AppealDecisionTree < DecisionTree
 
   private
 
-  def tribunal_case_is_unchallenged_indirect_tax?
-    !tribunal_case.case_type.direct_tax? &&
-      tribunal_case.challenged_decision == ChallengedDecision::NO
+  def direct_tax_or_restoration?
+    tribunal_case.case_type.direct_tax? || tribunal_case.case_type == CaseType::RESTORATION_CASE
   end
 
   def tribunal_case_is_challenged?
@@ -42,10 +41,10 @@ class AppealDecisionTree < DecisionTree
   def after_challenged_decision_step
     if tribunal_case_is_challenged?
       edit(:challenged_decision_status)
-    elsif tribunal_case_is_unchallenged_indirect_tax?
-      dispute_or_penalties_decision
-    else
+    elsif direct_tax_or_restoration?
       show(:must_challenge_hmrc)
+    else
+      dispute_or_penalties_decision
     end
   end
 
