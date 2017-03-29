@@ -7,7 +7,7 @@ module Steps::Details
 
       respond_to do |format|
         format.html
-        format.pdf { render pdf: 'check_answers' }
+        format.pdf { render pdf: @presenter.pdf_filename }
       end
     end
   end
