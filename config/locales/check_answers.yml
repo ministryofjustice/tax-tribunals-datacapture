@@ -95,6 +95,8 @@ en:
         amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
         amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
         information_notice: Information notice
+        refusal_to_register_applicant: Refusal to register an applicant
+        cancellation_of_registration: Cancellation of registration
     penalty_level:
       question: What is the penalty or surcharge amount?
       question_pdf: Penalty or surcharge amount
