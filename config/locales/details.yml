@@ -122,7 +122,7 @@ en:
           grounds_for_appeal_heading: Grounds for appeal
           hardship_heading: Hardship application
           questions:
-            challenged_decision: Did you appeal the original decision with HMRC?
+            challenged_decision: Did you appeal the original decision to HMRC?
             challenged_decision_status: What reponse did you receive?
             case_type: What is your %{appeal_or_application} about?
             dispute_type: What is your dispute about?

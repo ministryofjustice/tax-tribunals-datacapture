@@ -8,7 +8,7 @@ en:
         close: Apply to close an enquiry
       link_descriptions:
         appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force or the National Crime Agency.
-        close: Ask the judge to order the closure of an ongoing tax enquiry.
+        close: Ask the judge for a closure, counteraction or no-counteraction notice.
       link_time_estimate: "%{minutes} minutes to complete"
     contact:
       heading: Contact

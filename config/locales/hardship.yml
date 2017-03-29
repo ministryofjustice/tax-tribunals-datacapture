@@ -4,10 +4,10 @@ en:
       disputed_tax_paid:
         edit:
           heading: Have you paid the amount of tax under dispute?
-          lead_text: If you can't pay because it will cause you financial hardship, you can still continue your appeal.
+          lead_text: You must pay any tax under dispute, unless it will cause financial hardship. You do not have to pay a penalty or surcharge before you can appeal.
       hardship_review_requested:
         edit:
-          heading: Did you ask HMRC if you could appeal without paying the tax first?
+          heading: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
           lead_text: Your appeal will be kept pending until you write to HMRC and explain why paying might cause financial hardship.
       hardship_review_status:
         edit:

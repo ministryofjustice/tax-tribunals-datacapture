@@ -5,14 +5,14 @@ en:
         show:
           continue: Continue
           heading: Apply to close an enquiry
-          lead_text: Ask the judge to close an enquiry into your tax affairs.
+          lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
           description_html: |
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
-              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and tax years under enquiry</li>
+              <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
             </ul>
-            <p>You can also provide further information and supporting documents saying why you think the enquiry should close.</p>
-            <p>You'll need to download and fill in an <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
+            <p>You can provide further information and supporting documents saying why you think the enquiry should end.</p>
+            <p>You can also add details for someone to receive correspondence or go to a hearing for you. If they are not a legal representative, you will need to give <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation (%{approval_form_format_and_size})</a> they can act for you.</p>
 
       case_type:
         edit:

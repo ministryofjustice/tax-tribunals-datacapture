@@ -21,7 +21,7 @@ en:
           continue: Continue
       challenged_decision:
         edit:
-          heading: Did you appeal the original decision with HMRC?
+          heading: Did you appeal the original decision to HMRC?
           help_panel:
             heading: Help with challenging a tax decision
             content_html: >
@@ -62,7 +62,7 @@ en:
           lead_text: Both figures must be shown on the same letter, either the original notice or review conclusion letter.
       must_challenge_hmrc:
         show:
-          heading: You must appeal the original decision with HMRC
+          heading: You must appeal the original decision to HMRC
           lead_text: The original notice letter will explain what to do. 
           free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal once you have written to HMRC. 
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think you are late. HMRC will decide whether to accept your appeal or explain what you can do next.</p>
