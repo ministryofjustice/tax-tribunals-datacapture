@@ -104,7 +104,6 @@ en:
         cancellation_of_registration: Cancellation of registration
     penalty_level:
       question: What is the penalty or surcharge amount?
-      question_pdf: Penalty or surcharge amount
       accessible_change_text: what the penalty or surcharge amount is
       answers:
         penalty_level_1: £100 or less
@@ -112,11 +111,9 @@ en:
         penalty_level_3: over £20,000
     penalty_amount:
       question: What is the penalty or surcharge amount?
-      question_pdf: Penalty or surcharge amount
       accessible_change_text: what the penalty or surcharge amount is
     tax_amount:
       question: What is the amount of tax?
-      question_pdf: Amount of tax under dispute
       accessible_change_text: what the amount of tax is
     disputed_tax_paid:
       question: Have you paid the amount of tax under dispute?
