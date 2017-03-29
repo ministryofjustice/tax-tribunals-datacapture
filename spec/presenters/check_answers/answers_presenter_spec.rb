@@ -29,4 +29,28 @@ describe CheckAnswers::AnswersPresenter do
       end
     end
   end
+
+  describe '#pdf_filename' do
+    let(:case_reference) { 'TC/2016/12345' }
+
+    context 'for an organisation' do
+      it 'should generate an appropriate file name' do
+        expect(tribunal_case).to receive(:taxpayer_individual_first_name).and_return(nil)
+        expect(tribunal_case).to receive(:taxpayer_individual_last_name).and_return(nil)
+        expect(tribunal_case).to receive(:taxpayer_organisation_name).and_return('CPS')
+
+        expect(subject.pdf_filename).to eq('TC_2016_12345_CPS')
+      end
+    end
+
+    context 'for an individual' do
+      it 'should generate an appropriate file name' do
+        expect(tribunal_case).to receive(:taxpayer_individual_first_name).and_return('Shirley')
+        expect(tribunal_case).to receive(:taxpayer_individual_last_name).and_return('Schmidt')
+        expect(tribunal_case).to receive(:taxpayer_organisation_name).and_return(nil)
+
+        expect(subject.pdf_filename).to eq('TC_2016_12345_ShirleySchmidt')
+      end
+    end
+  end
 end

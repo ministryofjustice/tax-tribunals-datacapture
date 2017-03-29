@@ -17,30 +17,9 @@ RSpec.describe CaseDetailsPdf do
       current_tribunal_case: tribunal_case
     )
   }
+  let(:presenter) { instance_double(CheckAnswers::AnswersPresenter, pdf_filename: 'TC_2016_12345_FirstnameLastname') }
 
-  subject { described_class.new(tribunal_case, controller_ctx) }
-
-  describe '#filename' do
-    context 'for an organisation' do
-      it 'should generate an appropriate file name' do
-        expect(tribunal_case).to receive(:taxpayer_individual_first_name).and_return(nil)
-        expect(tribunal_case).to receive(:taxpayer_individual_last_name).and_return(nil)
-        expect(tribunal_case).to receive(:taxpayer_organisation_name).and_return('CPS')
-
-        expect(subject.filename).to eq('TC_2016_12345_HMRC_CPS.pdf')
-      end
-    end
-
-    context 'for an individual' do
-      it 'should generate an appropriate file name' do
-        expect(tribunal_case).to receive(:taxpayer_individual_first_name).and_return('Shirley')
-        expect(tribunal_case).to receive(:taxpayer_individual_last_name).and_return('Schmidt')
-        expect(tribunal_case).to receive(:taxpayer_organisation_name).and_return(nil)
-
-        expect(subject.filename).to eq('TC_2016_12345_HMRC_ShirleySchmidt.pdf')
-      end
-    end
-  end
+  subject { described_class.new(tribunal_case, controller_ctx, presenter) }
 
   describe '#generate' do
     it 'should generate the PDF' do
@@ -54,7 +33,7 @@ RSpec.describe CaseDetailsPdf do
       expect(DocumentUpload).to receive(:new).with(
         an_instance_of(File),
         document_key: :case_details,
-        filename: 'TC_2016_12345_HMRC_FirstnameLastname.pdf',
+        filename: 'TC_2016_12345_FirstnameLastname.pdf',
         content_type: 'application/pdf',
         collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687'
       ).and_return(uploader_double)
