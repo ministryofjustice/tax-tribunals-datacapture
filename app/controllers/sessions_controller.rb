@@ -14,11 +14,7 @@ class SessionsController < ApplicationController
   def create_and_fill_appeal
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(
-      intent: Intent::TAX_APPEAL,
-      case_type: CaseType::OTHER,
-      challenged_decision: ChallengedDecision::YES
-    )
+    tribunal_case.update(fake_appeal_data)
     redirect_to edit_steps_lateness_in_time_path
     # :nocov:
   end
@@ -26,12 +22,7 @@ class SessionsController < ApplicationController
   def create_and_fill_appeal_and_lateness
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(
-      intent: Intent::TAX_APPEAL,
-      case_type: CaseType::OTHER,
-      challenged_decision: ChallengedDecision::YES,
-      in_time: InTime::YES
-    )
+    tribunal_case.update(fake_appeal_data.merge(fake_lateness_data))
     redirect_to edit_steps_details_user_type_path
     # :nocov:
   end
@@ -43,11 +34,39 @@ class SessionsController < ApplicationController
   def create_and_fill_appeal_and_lateness_and_appellant
     raise 'For development use only' unless Rails.env.development?
     # :nocov:
-    tribunal_case.update(
+    tribunal_case.update(fake_appeal_data.merge(fake_lateness_data.merge(fake_details_data)))
+
+    redirect_to steps_details_check_answers_path
+    # :nocov:
+  end
+
+  private
+
+  # :nocov:
+  def fake_appeal_data
+    {
       intent: Intent::TAX_APPEAL,
-      case_type: CaseType::OTHER,
+      case_type: CaseType::VAT,
       challenged_decision: ChallengedDecision::YES,
-      in_time: InTime::YES,
+      challenged_decision_status: ChallengedDecisionStatus::OVERDUE,
+      dispute_type: DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
+      tax_amount: '£123,456.78',
+      disputed_tax_paid: DisputedTaxPaid::NO,
+      hardship_review_requested: HardshipReviewRequested::YES,
+      hardship_review_status: HardshipReviewStatus::REFUSED,
+      hardship_reason: Faker::ChuckNorris.fact
+    }
+  end
+
+  def fake_lateness_data
+    {
+      in_time: InTime::UNSURE,
+      lateness_reason: Faker::ChuckNorris.fact
+    }
+  end
+
+  def fake_details_data
+    {
       taxpayer_type: ContactableEntityType::INDIVIDUAL,
       taxpayer_contact_phone: Faker::PhoneNumber.phone_number,
       taxpayer_contact_email: Faker::Internet.email,
@@ -58,24 +77,22 @@ class SessionsController < ApplicationController
         Faker::Address.street_address, Faker::Address.city, Faker::Address.county
       ].join("\n"),
       has_representative: HasRepresentative::YES,
-      representative_type: ContactableEntityType::INDIVIDUAL,
+      representative_professional_status: RepresentativeProfessionalStatus::ENGLAND_OR_WALES_OR_NI_LEGAL_REP,
+      representative_type: ContactableEntityType::COMPANY,
+      representative_organisation_name: Faker::Company.name,
+      representative_organisation_registration_number: Faker::Company.duns_number,
+      representative_organisation_fao: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
       representative_contact_phone: Faker::PhoneNumber.phone_number,
       representative_contact_email: Faker::Internet.email,
       representative_contact_postcode: Faker::Address.postcode,
-      representative_individual_first_name: Faker::Name.first_name,
-      representative_individual_last_name: Faker::Name.last_name,
       representative_contact_address: [
         Faker::Address.street_address, Faker::Address.city, Faker::Address.county
-      ].join("\n")
-    )
-
-    redirect_to steps_details_check_answers_path
-    # :nocov:
+      ].join("\n"),
+      grounds_for_appeal: Faker::Lorem.paragraph(2),
+      outcome: Faker::ChuckNorris.fact
+    }
   end
 
-  private
-
-  # :nocov:
   def tribunal_case
     @tribunal_case ||= TribunalCase.find_by_id(session[:tribunal_case_id]) || TribunalCase.create.tap do |tribunal_case|
       session[:tribunal_case_id] = tribunal_case.id
