@@ -56,7 +56,7 @@ RSpec.describe TribunalCase, type: :model do
 
   describe '#save' do
     context 'columns that store strings' do
-      let(:attributes) { { outcome: 'some text' } }
+      let(:attributes) { { taxpayer_contact_postcode: 'some text' } }
       include_examples 'sanitizing actions'
     end
 

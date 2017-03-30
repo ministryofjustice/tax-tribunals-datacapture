@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330130111) do
+ActiveRecord::Schema.define(version: 20170330143358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170330130111) do
     t.text     "lateness_reason"
     t.string   "taxpayer_type"
     t.text     "taxpayer_contact_address"
-    t.text     "taxpayer_contact_postcode"
+    t.string   "taxpayer_contact_postcode"
     t.string   "taxpayer_contact_email"
     t.string   "taxpayer_contact_phone"
     t.string   "taxpayer_organisation_name"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170330130111) do
     t.string   "penalty_amount"
     t.string   "tax_amount"
     t.string   "challenged_decision_status"
-    t.string   "outcome"
+    t.text     "outcome"
     t.string   "case_type_other_value"
     t.string   "intent"
     t.string   "closure_case_type"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170330130111) do
     t.string   "representative_individual_first_name"
     t.string   "representative_individual_last_name"
     t.text     "representative_contact_address"
-    t.text     "representative_contact_postcode"
+    t.string   "representative_contact_postcode"
     t.string   "representative_contact_email"
     t.string   "representative_contact_phone"
     t.string   "representative_organisation_name"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20170330130111) do
     t.string   "representative_professional_status"
     t.string   "dispute_type_other_value"
     t.string   "case_status"
-    t.string   "hardship_reason"
+    t.text     "hardship_reason"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
   end
 
