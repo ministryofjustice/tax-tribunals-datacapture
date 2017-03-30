@@ -38,7 +38,7 @@ en:
     shared:
       document_upload:
         current_document:
-          previous_document: 'Previously attached document: %{file_name}'
+          previous_document_html: '<strong>Previously attached document:</strong><br>%{file_name}'
   layouts:
     footer_links:
       contact: Contact

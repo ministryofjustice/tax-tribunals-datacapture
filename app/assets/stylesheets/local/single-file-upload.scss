@@ -1,0 +1,30 @@
+.grid-row.uploader-row {
+  border-top: 1px solid $grey-3;
+  border-bottom: 1px solid $grey-3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  form {
+    padding-bottom: 0;
+    text-align: right;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+input[type="file"] {
+  line-height: 1ex;
+}
+
+.js-file-status {
+  text-align: right;
+  vertical-align: middle;
+  display: block;
+
+  img {
+    vertical-align: middle;
+  }
+}

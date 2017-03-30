@@ -1,4 +1,7 @@
-<div class="uploaded_document_container">
-  <p><%= t('.previous_document', file_name: current_document.name) %></p>
-  <%= button_to 'Remove', document_path(current_document, document_key: document_key), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' %>
+<div class="uploaded_document_container grid-row uploader-row">
+  <div class="column-two-thirds">
+    <p class="ellipses"><%= t('.previous_document_html', file_name: current_document.name) %></p>
+  </div>
+
+  <%= button_to 'Remove', document_path(current_document, document_key: document_key), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button button-secondary' %>
 </div>

@@ -53,3 +53,9 @@ fieldset + .form-group {
 address {
   font-style: normal;
 }
+
+.ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
