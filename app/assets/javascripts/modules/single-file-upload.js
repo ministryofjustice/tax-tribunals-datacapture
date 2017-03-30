@@ -2,7 +2,11 @@
 
 moj.Modules.singleFileUpload = {
   input_class: '.single-file-upload',
-  spinnerImagePath: '/assets/spinner.gif',
+  spinnerImagePath: moj.Modules.fileUploadSpinnerPath,
+  strings: {
+    selected: moj.Modules.fileUploadSelectedText,
+    uploading: moj.Modules.fileUploadUploadingText
+  },
 
   init: function() {
     var self = this;
@@ -22,14 +26,14 @@ moj.Modules.singleFileUpload = {
       var statusText = '';
 
       if($el.val()) {
-        statusText = moj.Modules.fileUploadSelectedText;
+        statusText = self.strings.selected;
       }
       $('.js-file-status').text(statusText);
     });
 
     $form.on('submit', function() {
       if($el.val()) {
-        $('.js-file-status').html('<img class="upload-spinner" src="' + self.spinnerImagePath + '" alt=""> ' + moj.Modules.fileUploadUploadingText);
+        $('.js-file-status').html('<img class="upload-spinner" src="' + self.spinnerImagePath + '" alt=""> ' + self.strings.uploading);
       }
     });
   },
