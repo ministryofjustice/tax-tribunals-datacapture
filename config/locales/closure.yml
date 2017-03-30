@@ -29,7 +29,7 @@ en:
         edit:
           heading: Add documents to support your application (optional)
           lead_text: The tax tribunal is independent and doesn't have access to any information you may have sent to HMRC.
-          having_problems_uploading_documents_html: I am having trouble uploading my documents
+          having_problems_uploading_html: I am having trouble uploading my documents
       check_answers:
         show:
           heading: Check your answers
@@ -76,7 +76,7 @@ en:
       steps_closure_additional_info_form:
         closure_additional_info: Enter reasons why the enquiry should close (optional)
       steps_closure_support_documents_form:
-        having_problems_uploading_details: Reasons you can't upload
+        having_problems_uploading_explanation: Reasons you can't upload
 
   activemodel:
     errors:

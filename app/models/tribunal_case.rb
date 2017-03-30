@@ -38,7 +38,7 @@ class TribunalCase < ApplicationRecord
   def documents(document_key)
     # We do not return uploaded documents when the user states they have trouble uploading
     # because otherwise they may believe they don't have to send them in again
-    return [] if having_problems_uploading_documents?
+    return [] if having_problems_uploading?
 
     @_documents_cache ||= Document.all_for_collection(files_collection_ref)
     @_documents_cache.fetch(document_key, [])

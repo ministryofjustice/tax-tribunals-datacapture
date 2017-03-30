@@ -31,14 +31,14 @@
       </div>
 
       <div class="form-group util_mt-large">
-        <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
-          <%= f.check_box :having_problems_uploading_documents, class: 'ga-checkbox', 'data-ga-label': 'having problems' %>
+        <%= f.label :having_problems_uploading, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
+          <%= f.check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems' %>
           <%= t 'shared.file_upload.having_problems' %>
         <% end %>
 
         <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
           <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
-          <%=f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
+          <%=f.text_area :having_problems_uploading_explanation, size: '40x4', class: 'form-control form-control-3-4' %>
         </div>
       </div>
 

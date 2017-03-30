@@ -3,14 +3,14 @@ require 'spec_helper'
 RSpec.describe Steps::Closure::SupportDocumentsForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
-    having_problems_uploading_documents: having_problems_uploading_documents,
-    having_problems_uploading_details: having_problems_uploading_details
+    having_problems_uploading: having_problems_uploading,
+    having_problems_uploading_explanation: having_problems_uploading_explanation
   } }
 
   let(:tribunal_case) { instance_double(TribunalCase, documents: documents) }
 
-  let(:having_problems_uploading_documents) { false }
-  let(:having_problems_uploading_details) { nil }
+  let(:having_problems_uploading) { false }
+  let(:having_problems_uploading_explanation) { nil }
   let(:documents) { ['test.doc'] }
 
   subject { described_class.new(arguments) }
@@ -32,21 +32,21 @@ RSpec.describe Steps::Closure::SupportDocumentsForm do
       end
     end
 
-    context 'when having_problems_uploading_documents is not selected' do
-      let(:having_problems_uploading_documents) { false }
-      it { should_not validate_presence_of(:having_problems_uploading_details) }
+    context 'when having_problems_uploading is not selected' do
+      let(:having_problems_uploading) { false }
+      it { should_not validate_presence_of(:having_problems_uploading_explanation) }
     end
 
-    context 'when having_problems_uploading_documents is selected' do
-      let(:having_problems_uploading_documents) { true }
-      it { should validate_presence_of(:having_problems_uploading_details) }
+    context 'when having_problems_uploading is selected' do
+      let(:having_problems_uploading) { true }
+      it { should validate_presence_of(:having_problems_uploading_explanation) }
     end
 
     context 'when valid' do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          having_problems_uploading_documents: having_problems_uploading_documents,
-          having_problems_uploading_details: having_problems_uploading_details
+          having_problems_uploading: having_problems_uploading,
+          having_problems_uploading_explanation: having_problems_uploading_explanation
         ).and_return(true)
         expect(subject.save).to be(true)
       end

@@ -295,6 +295,6 @@ en:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_documents_checklist_form:
-        having_problems_uploading_details: Enter reasons why you can't upload documents
+        having_problems_uploading_explanation: Enter reasons why you can't upload documents
       steps_details_outcome_form:
         outcome: Enter the outcome you want

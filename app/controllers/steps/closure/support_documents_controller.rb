@@ -5,8 +5,8 @@ module Steps::Closure
     def edit
       @form_object = SupportDocumentsForm.new(
         tribunal_case: current_tribunal_case,
-        having_problems_uploading_documents: current_tribunal_case.having_problems_uploading_documents,
-        having_problems_uploading_details: current_tribunal_case.having_problems_uploading_details
+        having_problems_uploading: current_tribunal_case.having_problems_uploading,
+        having_problems_uploading_explanation: current_tribunal_case.having_problems_uploading_explanation
       )
     end
 

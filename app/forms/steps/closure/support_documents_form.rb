@@ -1,9 +1,9 @@
 module Steps::Closure
   class SupportDocumentsForm < BaseForm
-    attribute :having_problems_uploading_documents, Boolean
-    attribute :having_problems_uploading_details, String
+    attribute :having_problems_uploading, Boolean
+    attribute :having_problems_uploading_explanation, String
 
-    validates_presence_of :having_problems_uploading_details, if: :having_problems_uploading_documents
+    validates_presence_of :having_problems_uploading_explanation, if: :having_problems_uploading
 
     private
 
@@ -11,8 +11,8 @@ module Steps::Closure
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update(
-        having_problems_uploading_documents: having_problems_uploading_documents,
-        having_problems_uploading_details: having_problems_uploading_details
+        having_problems_uploading: having_problems_uploading,
+        having_problems_uploading_explanation: having_problems_uploading_explanation
       )
     end
   end
