@@ -20,14 +20,28 @@ class AppealDecisionTree < DecisionTree
 
   private
 
-  def direct_tax_or_restoration?
-    tribunal_case.case_type.direct_tax? || tribunal_case.case_type == CaseType::RESTORATION_CASE
+  def direct_tax?
+    tribunal_case.case_type.direct_tax?
   end
 
+  # TODO: most of the following methods will be moved to ChallengeDecisionTree, de-cluttering this class
   def tribunal_case_is_challenged?
     tribunal_case.challenged_decision == ChallengedDecision::YES
   end
 
+  def pending_challenge_direct_tax?
+    tribunal_case.challenged_decision_status.pending? && direct_tax?
+  end
+
+  def pending_challenge_indirect_tax?
+    tribunal_case.challenged_decision_status.pending? && !direct_tax?
+  end
+
+  def restoration_case?
+    tribunal_case.case_type == CaseType::RESTORATION_CASE
+  end
+
+  # TODO: challenge decisions and journeys to be moved to their own decision tree
   def after_case_type_step
     if answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
@@ -38,19 +52,25 @@ class AppealDecisionTree < DecisionTree
     end
   end
 
+  # TODO: challenge decisions and journeys to be moved to their own decision tree
   def after_challenged_decision_step
     if tribunal_case_is_challenged?
       edit(:challenged_decision_status)
-    elsif direct_tax_or_restoration?
+    elsif direct_tax?
       show(:must_challenge_hmrc)
+    elsif restoration_case?
+      show('/steps/challenge/must_ask_for_review')
     else
       dispute_or_penalties_decision
     end
   end
 
+  # TODO: challenge decisions and journeys to be moved to their own decision tree
   def after_challenged_decision_status_step
-    if tribunal_case.challenged_decision_status.pending?
+    if pending_challenge_direct_tax?
       show(:must_wait_for_challenge_decision)
+    elsif pending_challenge_indirect_tax?
+      show('/steps/challenge/must_wait_for_review_decision')
     else
       dispute_or_penalties_decision
     end

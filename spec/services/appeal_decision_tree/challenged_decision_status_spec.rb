@@ -18,7 +18,17 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the status is `pending`' do
       let(:challenged_decision_status) { ChallengedDecisionStatus::PENDING }
 
-      it { is_expected.to have_destination(:must_wait_for_challenge_decision, :show) }
+      context 'for a direct tax case' do
+        let(:case_type) { CaseType.new(:anything, direct_tax: true) }
+
+        it { is_expected.to have_destination(:must_wait_for_challenge_decision, :show) }
+      end
+
+      context 'for an indirect tax case' do
+        let(:case_type) { CaseType.new(:anything, direct_tax: false) }
+
+        it { is_expected.to have_destination('/steps/challenge/must_wait_for_review_decision', :show) }
+      end
     end
 
     context 'and the status is other than `pending`' do

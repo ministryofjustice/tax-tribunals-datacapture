@@ -1,0 +1,16 @@
+en:
+  steps:
+    challenge:
+      must_ask_for_review:
+        show:
+          heading: You must ask for a review of the original decision
+          lead_text_html: The original notice letter will explain what to do.
+      must_wait_for_review_decision:
+        show:
+          heading: You must wait before you can appeal
+          lead_text_html: |
+            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
+            <ul class="list list-bullet">
+              <li>received a review conclusion letter</li>
+              <li>waited 45 days and not received a letter</li>
+            </ul>
