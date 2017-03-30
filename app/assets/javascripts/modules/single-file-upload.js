@@ -22,14 +22,14 @@ moj.Modules.singleFileUpload = {
       var statusText = '';
 
       if($el.val()) {
-        statusText = 'SELECTED';
+        statusText = moj.Modules.fileUploadSelectedText;
       }
       $('.js-file-status').text(statusText);
     });
 
     $form.on('submit', function() {
       if($el.val()) {
-        $('.js-file-status').html('<img class="upload-spinner" src="' + self.spinnerImagePath + '" alt=""> UPLOADING');
+        $('.js-file-status').html('<img class="upload-spinner" src="' + self.spinnerImagePath + '" alt=""> ' + moj.Modules.fileUploadUploadingText);
       }
     });
   },
