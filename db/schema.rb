@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320133224) do
+ActiveRecord::Schema.define(version: 20170330130111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170320133224) do
     t.uuid     "files_collection_ref",                            default: -> { "uuid_generate_v4()" }
     t.boolean  "original_notice_provided",                        default: false
     t.boolean  "review_conclusion_provided",                      default: false
-    t.boolean  "having_problems_uploading_documents",             default: false
+    t.boolean  "having_problems_uploading",                       default: false
     t.string   "challenged_decision"
     t.string   "disputed_tax_paid"
     t.string   "hardship_review_requested"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20170320133224) do
     t.string   "representative_organisation_name"
     t.string   "representative_organisation_fao"
     t.string   "representative_organisation_registration_number"
-    t.text     "having_problems_uploading_details"
+    t.text     "having_problems_uploading_explanation"
     t.string   "user_type"
     t.string   "navigation_stack",                                default: [],                                       array: true
     t.string   "representative_professional_status"

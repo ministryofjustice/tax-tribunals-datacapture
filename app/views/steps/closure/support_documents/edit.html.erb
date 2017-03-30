@@ -17,13 +17,13 @@
 
     <%= step_form @form_object do |f| %>
       <div class="form-group util_mt-large">
-        <%= f.label :having_problems_uploading_documents, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
-          <%= f.check_box :having_problems_uploading_documents, 'aria-controls': 'unable_to_upload_panel' %>
+        <%= f.label :having_problems_uploading, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
+          <%= f.check_box :having_problems_uploading, 'aria-controls': 'unable_to_upload_panel' %>
           <%= t('shared.file_upload.having_problems') %>
         <% end %>
 
         <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
-          <%= f.text_area :having_problems_uploading_details, size: '40x4', class: 'form-control form-control-3-4' %>
+          <%= f.text_area :having_problems_uploading_explanation, size: '40x4', class: 'form-control form-control-3-4' %>
         </div>
       </div>
 

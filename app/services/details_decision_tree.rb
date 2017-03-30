@@ -90,7 +90,7 @@ class DetailsDecisionTree < DecisionTree
   end
 
   def after_documents_checklist
-    if tribunal_case.having_problems_uploading_documents?
+    if tribunal_case.having_problems_uploading?
       show(:documents_upload_problems)
     else
       show(:check_answers)
