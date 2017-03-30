@@ -8,7 +8,7 @@ task :mutant => :environment do
   end
 end
 
-#task(:default).prerequisites << task(:mutant)
+task(:default).prerequisites << task(:mutant)
 
 private
 

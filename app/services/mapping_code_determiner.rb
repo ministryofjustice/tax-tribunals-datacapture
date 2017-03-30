@@ -1,9 +1,5 @@
 class MappingCodeDeterminer
-  attr_reader :tribunal_case
-
-  def initialize(tribunal_case)
-    @tribunal_case = tribunal_case
-  end
+  attr_accessor :tribunal_case
 
   def valid_for_determining_mapping_code?
     mapping_code_or_nil.present?

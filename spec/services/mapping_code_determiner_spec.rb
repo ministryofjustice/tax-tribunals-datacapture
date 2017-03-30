@@ -18,7 +18,9 @@ RSpec.describe MappingCodeDeterminer do
   let(:dispute_type)        { nil }
   let(:penalty_level)       { nil }
 
-  subject { described_class.new(tribunal_case) }
+  before do
+    subject.tribunal_case = tribunal_case
+  end
 
   context 'when there is no case_type nor closure_case_type' do
     it { is_expected.to fail_to_determine_mapping_code }

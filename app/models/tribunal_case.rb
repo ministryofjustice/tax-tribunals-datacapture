@@ -32,7 +32,9 @@ class TribunalCase < ApplicationRecord
   before_save :sanitize
 
   def mapping_code
-    MappingCodeDeterminer.new(self).mapping_code
+    mcd = MappingCodeDeterminer.new
+    mcd.tribunal_case = self
+    mcd.mapping_code
   end
 
   def documents(document_key)
