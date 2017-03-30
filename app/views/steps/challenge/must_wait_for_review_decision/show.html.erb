@@ -1,0 +1,13 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede">
+      <%=t '.lead_text_html' %>
+    </p>
+
+    <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.start_again'), show_survey: false} %>
+  </div>
+</div>

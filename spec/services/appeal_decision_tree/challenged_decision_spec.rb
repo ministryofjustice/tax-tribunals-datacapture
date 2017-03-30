@@ -63,7 +63,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the case has not been challenged' do
       let(:challenged_decision) { ChallengedDecision::NO }
 
-      it { is_expected.to have_destination(:must_challenge_hmrc, :show) }
+      it { is_expected.to have_destination('/steps/challenge/must_ask_for_review', :show) }
     end
 
     context 'and the case has been challenged' do

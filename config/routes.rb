@@ -29,6 +29,11 @@ Rails.application.routes.draw do
       edit_step :penalty_and_tax_amounts
     end
 
+    namespace :challenge do
+      show_step :must_ask_for_review
+      show_step :must_wait_for_review_decision
+    end
+
     namespace :hardship do
       edit_step :disputed_tax_paid
       edit_step :hardship_review_requested
