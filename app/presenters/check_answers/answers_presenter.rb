@@ -15,6 +15,10 @@ module CheckAnswers
       tribunal_case.case_reference
     end
 
+    def pdf_params
+      { pdf: pdf_filename, footer: { right: '[page]' } }
+    end
+
     def pdf_filename
       [tribunal_case.case_reference, taxpayer_name_for_filename].compact.join('_').tr('/', '_')
     end
