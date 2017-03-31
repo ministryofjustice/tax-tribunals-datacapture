@@ -1,4 +1,8 @@
 ---
+YESNO: &YESNO
+  'yes': 'Yes'
+  'no': 'No'
+
 en:
   steps:
     appeal:
@@ -600,8 +604,7 @@ en:
         penalty_amount: Enter the penalty or surcharge amount (optional)
       steps_challenge_decision_form:
         challenged_decision:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_challenge_decision_status_form:
         challenged_decision_status:
           received: I have a review conclusion letter
@@ -646,8 +649,7 @@ en:
             example a partnership, LLP, trust, club or association"
       steps_details_has_representative_form:
         has_representative:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_details_representative_professional_status_form:
         representative_professional_status:
           england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
@@ -728,12 +730,10 @@ en:
         outcome: Enter the outcome you want
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_hardship_hardship_review_requested_form:
         hardship_review_requested:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_hardship_hardship_review_status_form:
         hardship_review_status:
           granted: 'Yes'
@@ -825,14 +825,12 @@ en:
       question: Did you appeal the original decision with HMRC?
       accessible_change_text: whether you appealed the original decision with HMRC
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     challenged_decision_indirect:
       question: Did you ask for a review of the original decision?
       accessible_change_text: whether you asked for a review of the original decision
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     challenged_decision_status:
       question: What reponse did you receive?
       accessible_change_text: what response you received
@@ -871,15 +869,13 @@ en:
       question: Have you paid the amount of tax under dispute?
       accessible_change_text: whether you have paid the amount of tax under dispute
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     hardship_review_requested:
       question: Did you ask HMRC if you could appeal without paying the tax first?
       accessible_change_text: whether you asked HMRC if you could appeal without paying
         the tax first
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     hardship_review_status:
       question: Did HMRC allow you to defer paying because of financial hardship?
       accessible_change_text: whether HMRC allowed you to defer paying because of
@@ -896,8 +892,7 @@ en:
       question: Is the %{appeal_or_application} in time?
       accessible_change_text: whether your %{appeal_or_application} is in time
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
         unsure: I am not sure
     lateness_reason:
       question: Reason(s) for late %{appeal_or_application}
