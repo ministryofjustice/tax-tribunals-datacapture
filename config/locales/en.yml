@@ -239,8 +239,9 @@ en:
               </div>
             </div>
           download_button_text: Download PDF
-          attach_document_html: "<strong>Upload authorisation form</strong> <p>You
-            can send scanned images of the form or a good quality photo.</p>"
+          attach_document_html: |
+            <strong>Upload authorisation form</strong>
+            <p>You can send scanned images of the form or a good quality photo.</p>
       representative_type:
         edit:
           heading:
@@ -312,19 +313,35 @@ en:
           heading: Complete your appeal by post
           lead_text: Send everything so that it arrives within the 30 day deadline,
             unless you are appealing late.
-          post_text_html: <div class="letter"> <h2 class="heading-medium">What you
-            will need to do</h2> <ol class="list list-number"> <li> <strong>Print
-            out your appeal details</strong> <p>Use the following link to print your
-            details:</p> <p><strong><a href="%{download_pdf_url}" target="_blank">Print
-            your appeal details</a></strong></p> </li> <li> <strong>Make copies of
-            all documents you wanted to upload</strong> <p>You must include:</p> <ul
-            class="list list-bullet"> <li>the original notice or review conclusion
-            letter</li> <li>copies of any documents you attached such as the grounds
-            of appeal, reasons for a late appeal, or authorising a representative</li>
-            </ul> </li> <li> <strong>Send everything by post</strong> <p>Put your
-            printed appeal details and copies of your documents in one envelope and
-            post to:</p> <address> First-tier Tribunal (Tax Chamber)<br> PO Box 16972<br>
-            Birmingham<br> B16 6TZ </address> </li> </ol> </div>
+          post_text_html: |
+            <div class="letter">
+              <h2 class="heading-medium">What you will need to do</h2>
+              <ol class="list list-number">
+                <li>
+                  <strong>Print out your appeal details</strong>
+                  <p>Use the following link to print your details:</p>
+                  <p><strong><a href="%{download_pdf_url}" target="_blank">Print your appeal details</a></strong></p>
+                </li>
+                <li>
+                  <strong>Make copies of all documents you wanted to upload</strong>
+                  <p>You must include:</p>
+                  <ul class="list list-bullet">
+                    <li>the original notice or review conclusion letter</li>
+                    <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Send everything by post</strong>
+                  <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
+                  <address>
+                    First-tier Tribunal (Tax Chamber)<br>
+                    PO Box 16972<br>
+                    Birmingham<br>
+                    B16 6TZ
+                  </address>
+                </li>
+               </ol>
+            </div>
           post_address_html: "<p>Once the tax tribunal has received your appeal they
             will write to you with confirmation and details of the next steps.</p>"
     hardship:
@@ -978,10 +995,12 @@ en:
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       having_problems: I am having trouble uploading my documents
-      explanation_html: <p><strong>What to do next</strong></p> <ul class="list list-bullet">
-        <li>See <a href="%{contact_url}">useful contact information</a> for help on
-        using this service.</li> <li>If you're still having trouble, enter reasons
-        and click 'continue' to print and complete your appeal by post.</li> </ul>
+      explanation_html: |
+        <p><strong>What to do next</strong></p>
+        <ul class="list list-bullet">
+          <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
+          <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
+        </ul>
     finish: Finish
     start_again: Start again
   errors:
@@ -1004,9 +1023,9 @@ en:
         have entered.
     case_submitted:
       heading: You have already submitted this case
-      lead_text_html: To make changes to your case, please contact the tax tribunal
-        on %{tax_tribunal_phone} (find out about <a href="https://www.gov.uk/call-charges">call
-        charges</a>).
+      lead_text_html: |
+        To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
+        (find out about <a href="https://www.gov.uk/call-charges">call charges</a>).
       start_again: Start again
       finish: Finish
       case_reference: 'Your case reference number is:'
@@ -1021,10 +1040,9 @@ en:
     not_found:
       heading: Page not found
       lead_text: If you entered a web address, please check it’s correct.
-      more_text_html: <p>You can also try starting from the homepage to find the information
-        you need.</p> <p>If the problem persists, you can download and complete a
-        <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper
-        form</a> to submit an appeal or close an enquiry.</p>
+      more_text_html: |
+        <p>You can also try starting from the homepage to find the information you need.</p>
+        <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
       start_again: Start again
   layouts:
     footer_links:
