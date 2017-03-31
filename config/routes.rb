@@ -104,6 +104,7 @@ Rails.application.routes.draw do
   get :start, to: 'home#start'
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
+  get :create_account, to: 'home#create_account'
 
   # catch-all route
   # :nocov:
