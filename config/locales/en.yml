@@ -20,6 +20,11 @@ PENALTY_LEVELS: &PENALTY_LEVELS
   penalty_level_2: over £100 – £20,000
   penalty_level_3: over £20,000
 
+CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
+  edit:
+    heading: What is your appeal about?
+    lead_text: Check the original notice letter or review conclusion letter.
+
 en:
   steps:
     appeal:
@@ -43,13 +48,9 @@ en:
             </p>
           continue: Continue
       case_type:
-        edit:
-          heading: What is your appeal about?
-          lead_text: Check the original notice letter or review conclusion letter.
+        <<: *CASE_TYPE_QUESTION
       case_type_show_more:
-        edit:
-          heading: What is your appeal about?
-          lead_text: Check the original notice letter or review conclusion letter.
+        <<: *CASE_TYPE_QUESTION
       dispute_type:
         edit:
           heading: What is your dispute about?
