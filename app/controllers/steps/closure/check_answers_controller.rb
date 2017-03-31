@@ -7,7 +7,7 @@ module Steps::Closure
 
       respond_to do |format|
         format.html
-        format.pdf { render pdf: @presenter.pdf_filename }
+        format.pdf { render @presenter.pdf_params }
       end
     end
   end

@@ -30,6 +30,22 @@ describe CheckAnswers::AnswersPresenter do
     end
   end
 
+  describe '#pdf_params' do
+    let(:tribunal_case) {
+      instance_double(
+        TribunalCase,
+        case_reference: '123',
+        taxpayer_individual_first_name: nil,
+        taxpayer_individual_last_name: nil,
+        taxpayer_organisation_name: 'Foo'
+      )
+    }
+
+    it 'should have the expected parameters' do
+      expect(subject.pdf_params).to eq({pdf: '123_Foo', footer: { right: '[page]' }})
+    end
+  end
+
   describe '#pdf_filename' do
     let(:case_reference) { 'TC/2016/12345' }
 

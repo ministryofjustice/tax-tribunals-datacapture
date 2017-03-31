@@ -4,7 +4,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
   it_behaves_like 'an end point step controller'
 
   let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
-  let(:presenter) { instance_double(CheckAnswers::AppealAnswersPresenter, pdf_filename: 'check_answers') }
+  let(:presenter) { instance_double(CheckAnswers::AppealAnswersPresenter, pdf_params: { pdf: 'check_answers' }) }
 
   context 'HTML format' do
     it 'assigns the presenter' do
