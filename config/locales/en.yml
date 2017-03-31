@@ -1,0 +1,1125 @@
+---
+en:
+  steps:
+    appeal:
+      start:
+        show:
+          impartial_decision: Get an impartial decision on your dispute
+          heading: Appeal against a tax decision
+          lead_text_html: You have 30 calendar days to appeal. This begins from the
+            date of the original notice or review conclusion letter.
+          description_html: |
+            <p>You can appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+            <h2 class="heading-medium">What you will need</h2>
+            <ul class="list list-bullet">
+              <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
+              <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
+            </ul>
+            <p>You'll also need to download and fill in an <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
+            <p class="notice util_mt-large">
+              <i class="icon icon-important"> <span class="visuallyhidden">Warning</span> </i>
+              <strong class="bold-small">You can’t save details so get everything ready before you start </strong>
+            </p>
+          continue: Continue
+      case_type:
+        edit:
+          heading: What is your appeal about?
+          lead_text: Check the original notice letter or review conclusion letter.
+      case_type_show_more:
+        edit:
+          heading: What is your appeal about?
+          lead_text: Check the original notice letter or review conclusion letter.
+      dispute_type:
+        edit:
+          heading: What is your dispute about?
+          lead_text: Check the original notice letter or review conclusion letter.
+      penalty_amount:
+        edit:
+          heading: How much is the penalty or surcharge you are disputing?
+          lead_text: Check the original notice letter or review conclusion letter
+            for this information.
+          penalty_level_1: "£100 or less"
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
+      tax_amount:
+        edit:
+          heading: How much tax is under dispute?
+          lead_text: Check the original notice letter or review conclusion letter
+            for this information.
+      penalty_and_tax_amounts:
+        edit:
+          heading: What are the tax and penalty or surcharge amounts under dispute?
+          lead_text: Both figures must be shown on the same letter, either the original
+            notice or review conclusion letter.
+    challenge:
+      decision:
+        edit:
+          heading_direct: Did you appeal the original decision with HMRC?
+          heading_indirect: Did you ask for a review of the original decision?
+          help_panel:
+            heading: Help with challenging a tax decision
+            content_html: |
+              <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
+              <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
+              <p>Find out about:</p>
+              <ul class="list list-bullet">
+                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+                <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
+                <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
+              </ul>
+      decision_status:
+        edit:
+          heading: What response did you receive?
+      must_ask_for_review:
+        show:
+          heading: You must ask for a review of the original decision
+          lead_text_html: The original notice letter will explain what to do.
+      must_wait_for_review_decision:
+        show:
+          heading: You must wait before you can appeal
+          lead_text_html: |
+            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
+            <ul class="list list-bullet">
+              <li>received a review conclusion letter</li>
+              <li>waited 45 days and not received a letter</li>
+            </ul>
+      must_challenge_hmrc:
+        show:
+          heading: You must appeal the original decision with HMRC
+          lead_text: The original notice letter will explain what to do.
+          free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal
+            once you have written to HMRC.
+          free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
+            you are late. HMRC will decide whether to accept your appeal or explain
+            what you can do next.</p> <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
+            with a tax decision</a>.</p>
+          contact_hmrc_button: Contact HMRC
+          start_again: Start again
+      must_wait_for_challenge_decision:
+        show:
+          heading: You must wait before you can appeal
+          lead_text_html: |
+            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p> <ul class="list list-bullet">
+              <li>received a review conclusion letter</li>
+              <li>waited 45 days and not received a letter</li>
+            </ul>
+    closure:
+      start:
+        show:
+          continue: Continue
+          heading: Apply to close an enquiry
+          lead_text: Ask the judge to close an enquiry into your tax affairs.
+          description_html: |
+            <h2 class="heading-medium">What you will need</h2>
+            <ul class="list list-bullet">
+              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and tax years under enquiry</li>
+            </ul>
+            <p>You can also provide further information and supporting documents saying why you think the enquiry should close.</p>
+            <p>You'll need to download and fill in an <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
+      case_type:
+        edit:
+          heading: What type of enquiry do you want to close?
+          lead_text: The tax tribunal can only deal with applications to close the
+            following enquiries.
+      enquiry_details:
+        edit:
+          heading: Details of the enquiry you want closed
+          lead_text: Check letters about the enquiry for this information.
+      additional_info:
+        edit:
+          heading: Say why you think the enquiry should close (optional)
+      support_documents:
+        edit:
+          heading: Add documents to support your application (optional)
+          lead_text: The tax tribunal is independent and doesn't have access to any
+            information you may have sent to HMRC.
+          having_problems_uploading_html: I am having trouble uploading my documents
+      check_answers:
+        show:
+          heading: Check your answers
+      confirmation:
+        show:
+          case_submitted: Case submitted
+          confirmation_email: We will send confirmation by email
+          save_or_print_pdf: Save or print your case details
+          what_happens_next_html: |
+            <p>Please save or print your case details for your records.</p>
+            <h2 class="heading-medium">What happens next?</h2>
+            <p>The tax tribunal will:</p>
+            <ul class="list list-bullet">
+              <li>check your details and may ask you for more information</li>
+              <li>write to confirm the next steps and if there will be a hearing</li>
+              <li>contact any other parties and ask them to respond</li>
+            </ul>
+            <p>
+              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
+              <a href="https://www.gov.uk/call-charges">call charges</a>).
+            </p>
+    shared:
+      document_upload:
+        current_document:
+          previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
+      representative_explanation:
+        heading: What is a representative and what can they do?
+        content_html: |
+          <p>A representative can be a:</p>
+          <ul class="list list-bullet">
+              <li>professional lawyer, tax adviser, accountant</li>
+              <li>friend or family relative</li>
+            </ul>
+          <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
+          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
+    details:
+      user_type:
+        edit:
+          heading: Are you the taxpayer making the %{appeal_or_application}?
+      taxpayer_type:
+        edit:
+          heading:
+            as_taxpayer: Who is making the %{appeal_or_application}?
+            as_representative: Who is the %{appeal_or_application} for?
+      taxpayer_details:
+        edit:
+          heading: Enter taxpayer's details
+      has_representative:
+        edit:
+          heading: Do you have someone to represent you?
+          lead_text: A representative is anyone you want to receive correspondence
+            or go to a hearing for you. You can authorise a representative at any
+            time during your appeal.
+      representative_professional_status:
+        edit:
+          heading:
+            as_taxpayer: Who is representing you?
+            as_representative: Who are you?
+      representative_approval:
+        edit:
+          heading:
+            as_taxpayer: Do you want to authorise your representative now? (optional)
+            as_representative: Do you want to start receiving correspondence from
+              the tribunal? (optional)
+          lead_text:
+            as_taxpayer: If you want your representative to start receiving correspondence
+              from the tax tribunal, you can authorise them now.
+            as_representative: Upload authorisation to let the tax tribunal know you’re
+              acting for the taxpayer.
+          anytime_text: You can also send the authorisation later at any point during
+            the appeal.
+          details_heading:
+            as_taxpayer: How to authorise your representative
+            as_representative: How to get authorisation from the taxpayer
+          details_info_html:
+            as_taxpayer_html: |
+              <ol class="list list-number">
+                 <li>Copy and paste the text below into a document or download as a PDF.</li>
+                 <li>Complete and sign the form.</li>
+                 <li>Upload the form in digital format below.</li>
+               </ol>
+               <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+            as_representative_html: |
+              <ol class="list list-number">
+                <li>Copy and paste the text below into an email, document or download as a PDF.</li>
+                <li>Send to the taxpayer to complete.</li>
+                <li>Ask the taxpayer to email back the information from their email account or attach a signed form.</li>
+                <li>Upload a copy of the email or signed form.</li>
+              </ol>
+              <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+          details_example_html: |
+            <h2 class="heading-medium">Example text</h2>
+            <div class="panel">
+              <div class="letter">
+                <p>Taxpayer's name:</p>
+                <p>I authorise my representative to act on my behalf in this <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure"> application</span>.</p>
+                <p>Name of representative:</p>
+                <p>Address of representative:</p>
+                <p>Signed by taxpayer:</p>
+                <p>Name of signatory (printed):</p>
+                <p>Position held:</p>
+                <p>Date:</p>
+              </div>
+            </div>
+          download_button_text: Download PDF
+          attach_document_html: |
+            <strong>Upload authorisation form</strong>
+            <p>You can send scanned images of the form or a good quality photo.</p>
+      representative_type:
+        edit:
+          heading:
+            as_taxpayer: Is your representative an individual, company or other type
+              of organisation?
+            as_representative: Are you representing the taxpayer as an individual,
+              company or other type of organisation?
+      representative_details:
+        edit:
+          heading: Representative's details
+          lead_text:
+            as_taxpayer: If you have authorised your representative to act on your
+              behalf, all correspondence will be sent to the address or email address,
+              you enter below.
+            as_representative: If the taxpayer has authorised you to act on their
+              behalf, all correspondence will be sent to the address and email address,
+              you enter below.
+      grounds_for_appeal:
+        edit:
+          heading: Grounds for %{appeal_or_application}
+          lead_text: Clearly explain why you are appealing, giving reasons for each
+            decision you dispute. The judge will want to hear things from your side.
+          description_text: Clearly explain in your own words. The judge will want
+            to know things from your side and understand how any evidence you provide
+            supports your case.
+          footer_description_text: You will next have to upload any supporting documents
+            including any correspondence with HMRC and evidence to support your case.
+          attach_document_html: "<strong>Attach reasons as a document</strong>"
+      documents_checklist:
+        edit:
+          heading: Upload your letter(s)
+          lead_text: The tax tribunal is independent and doesn't have access to files
+            from HMRC.
+          documents_check_heading: 'You must upload the following (select the items
+            you have uploaded):'
+          original_notice_provided_html: "<strong>Original notice letter</strong><br>including
+            the explanation for any decision(s)"
+          review_conclusion_provided_html: "<strong>Review conclusion letter</strong><br>you
+            will only have this if your case was reviewed"
+      outcome:
+        edit:
+          heading: What outcome do you want from your %{appeal_or_application}?
+          lead_text: Give a summary of the decisions you think should be made in regards
+            to your %{appeal_or_application}. Write no more than 2-3 sentences which
+            clearly outline the result you want.
+      check_answers:
+        show:
+          heading: Check your answers
+      confirmation:
+        show:
+          case_submitted: Case submitted
+          confirmation_email: We will send confirmation by email
+          save_or_print_pdf: Save or print your case details
+          what_happens_next_html: |
+            <p>Please save or print your case details for your records.</p>
+            <h2 class="heading-medium">What happens next?</h2>
+            <p>The tax tribunal will:</p>
+            <ul class="list list-bullet">
+              <li>check your details and may ask you for more information</li>
+              <li>write to confirm the next steps and if there will be a hearing</li>
+              <li>contact any other parties and ask them to respond</li>
+            </ul>
+            <p>
+              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
+              <a href="https://www.gov.uk/call-charges">call charges</a>).
+            </p>
+      documents_upload_problems:
+        show:
+          heading: Complete your appeal by post
+          lead_text: Send everything so that it arrives within the 30 day deadline,
+            unless you are appealing late.
+          post_text_html: |
+            <div class="letter">
+              <h2 class="heading-medium">What you will need to do</h2>
+              <ol class="list list-number">
+                <li>
+                  <strong>Print out your appeal details</strong>
+                  <p>Use the following link to print your details:</p>
+                  <p><strong><a href="%{download_pdf_url}" target="_blank">Print your appeal details</a></strong></p>
+                </li>
+                <li>
+                  <strong>Make copies of all documents you wanted to upload</strong>
+                  <p>You must include:</p>
+                  <ul class="list list-bullet">
+                    <li>the original notice or review conclusion letter</li>
+                    <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Send everything by post</strong>
+                  <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
+                  <address>
+                    First-tier Tribunal (Tax Chamber)<br>
+                    PO Box 16972<br>
+                    Birmingham<br>
+                    B16 6TZ
+                  </address>
+                </li>
+               </ol>
+            </div>
+          post_address_html: "<p>Once the tax tribunal has received your appeal they
+            will write to you with confirmation and details of the next steps.</p>"
+    hardship:
+      disputed_tax_paid:
+        edit:
+          heading: Have you paid the amount of tax under dispute?
+          lead_text: If you can't pay because it will cause you financial hardship,
+            you can still continue your appeal.
+      hardship_review_requested:
+        edit:
+          heading: Did you ask HMRC if you could appeal without paying the tax first?
+          lead_text: Your appeal will be kept pending until you write to HMRC and
+            explain why paying might cause financial hardship.
+      hardship_review_status:
+        edit:
+          heading: Did HMRC allow you to defer paying because of financial hardship?
+          lead_text: If HMRC said no, you can give reasons for the judge to consider
+            as part of this appeal.
+      hardship_reason:
+        edit:
+          heading: Why will paying the tax under dispute cause financial hardship?
+          lead_text: The judge will decide whether your appeal can continue without
+            paying the tax first.
+          attach_document_html: "<strong>Attach reasons as a document</strong>"
+    lateness:
+      in_time:
+        edit:
+          heading: Are you in time to appeal to the tax tribunal?
+          lead_text: You have 30 calendar days from the date of the original notice
+            or review conclusion letter. If you appeal any later, you’ll need to explain
+            why.
+      lateness_reason:
+        edit:
+          heading: Why are you late with your %{appeal_or_application}?
+          heading_unsure: Are there reasons why your %{appeal_or_application} might
+            be late?
+          lead_text: The judge will consider your reasons and any response from HMRC.
+            There may be a hearing to decide if your %{appeal_or_application} can
+            go ahead. If you are not allowed to appeal late, you will be told why
+            not.
+          lead_text_unsure: To help process your case quickly, you should give reasons
+            why your %{appeal_or_application} might be late. The judge will decide
+            whether your %{appeal_or_application} can go ahead if it is late.
+          details_title: Help with a late %{appeal_or_application}
+          details_content: You must provide reasonable grounds for submitting your
+            %{appeal_or_application} late. These are usually unforeseen circumstances
+            or events beyond your control which meant you weren't able to meet the
+            tax tribunal deadline.
+  activemodel:
+    errors:
+      models:
+        steps/appeal/case_type_form:
+          attributes:
+            case_type:
+              inclusion: Select what your appeal is about
+        steps/appeal/case_type_show_more_form:
+          attributes:
+            case_type:
+              inclusion: Select what your appeal is about
+        steps/appeal/dispute_type_form:
+          attributes:
+            dispute_type:
+              inclusion: Select what your dispute is about
+        steps/appeal/penalty_amount_form:
+          attributes:
+            penalty_level:
+              inclusion: Select a penalty or surcharge amount
+        steps/challenge/decision_form:
+          attributes:
+            challenged_decision:
+              inclusion: Select an option
+        steps/challenge/decision_status_form:
+          attributes:
+            challenged_decision_status:
+              inclusion: Select what response you received
+        steps/closure/case_type_form:
+          attributes:
+            closure_case_type:
+              inclusion: Select the type of enquiry you want to close
+        steps/details/user_type_form:
+          attributes:
+            user_type:
+              inclusion: Select whether you are the taxpayer or acting for them
+        steps/details/taxpayer_type_form:
+          attributes:
+            taxpayer_type:
+              inclusion: Select whether you're entering details for an individual,
+                company or organisation
+        steps/details/taxpayer_details_form:
+          attributes:
+            taxpayer_contact_email:
+              invalid: Please enter a valid email address
+        steps/details/representative_details_form:
+          attributes:
+            representative_contact_email:
+              invalid: Please enter a valid email address
+        steps/details/representative_professional_status_form:
+          attributes:
+            representative_professional_status:
+              inclusion: Please select an answer
+        steps/details/has_representative_form:
+          attributes:
+            has_representative:
+              inclusion: Select whether you have someone to represent you
+        steps/details/representative_type_form:
+          attributes:
+            representative_type:
+              inclusion: Select whether you're entering details for an individual,
+                company or organisation
+        steps/details/grounds_for_appeal_form:
+          attributes:
+            grounds_for_appeal:
+              blank: You must enter reasons or attach a document
+        steps/details/documents_checklist_form:
+          attributes:
+            original_notice_provided:
+              blank: You must select the letter(s) you have uploaded
+              no_documents: You must upload a file
+        steps/hardship/disputed_tax_paid_form:
+          attributes:
+            disputed_tax_paid:
+              inclusion: Select whether you paid the amount of tax under dispute
+        steps/hardship/hardship_review_requested_form:
+          attributes:
+            hardship_review_requested:
+              inclusion: Select whether you asked to appeal without paying the tax
+                first
+        steps/hardship/hardship_review_status_form:
+          attributes:
+            hardship_review_status:
+              inclusion: Select whether you could defer paying because of financial
+                hardship
+        steps/hardship/hardship_reason_form:
+          attributes:
+            hardship_reason:
+              blank: You must enter reasons or attach a document
+        steps/lateness/in_time_form:
+          attributes:
+            in_time:
+              inclusion: Select whether you are in time to appeal to the tax tribunal
+  helpers:
+    fieldset:
+      steps_appeal_case_type_form:
+        case_type_html: ''
+      steps_appeal_case_type_show_more_form:
+        case_type_html: ''
+      steps_appeal_dispute_type_form:
+        dispute_type_html: ''
+      steps_appeal_penalty_amount_form:
+        penalty_level_html: ''
+      steps_challenge_decision_form:
+        challenged_decision_html: ''
+      steps_challenge_decision_status_form:
+        challenged_decision_status_html: ''
+      steps_closure_case_type_form:
+        closure_case_type_html: ''
+      steps_details_user_type_form:
+        user_type_html: ''
+      steps_details_taxpayer_type_form:
+        taxpayer_type_html: ''
+      steps_details_representative_professional_status_form:
+        representative_professional_status_html: ''
+      steps_details_has_representative_form:
+        has_representative_html: ''
+      steps_details_representative_type_form:
+        representative_type_html: ''
+      steps_hardship_disputed_tax_paid_form:
+        disputed_tax_paid_html: ''
+      steps_hardship_hardship_review_requested_form:
+        hardship_review_requested_html: ''
+      steps_hardship_hardship_review_status_form:
+        hardship_review_status_html: ''
+      steps_lateness_in_time_form:
+        in_time_html: ''
+    label:
+      steps_appeal_case_type_form:
+        case_type:
+          income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
+            Pay As You Earn (PAYE) and Self Assessment"
+          vat_html: "<strong>Value Added Tax (VAT)</strong>"
+          capital_gains_tax_html: "<strong>Capital Gains Tax</strong>"
+          corporation_tax_html: "<strong>Corporation Tax</strong>"
+          information_notice_html: "<strong>Information notice</strong><br>a request
+            for further information about your tax position"
+          ni_contributions_html: "<strong>National Insurance (NI) contributions</strong>"
+          _show_more_html: "<strong>Other type of tax, appeal or application</strong>"
+      steps_appeal_case_type_show_more_form:
+        case_type_other_value: Enter the type of tax or dispute involved in your case
+        case_type:
+          apn_penalty_html: "<strong>Accelerated Payment Notice (APN) penalty</strong>"
+          aggregates_levy_html: "<strong>Aggregates Levy</strong>"
+          air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"
+          alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong>"
+          counteraction_notice_html: "<strong>Counteraction notice</strong><br>request
+            HMRC issue a counteraction notice or no counteraction notice"
+          bingo_duty_html: "<strong>Bingo Duty</strong>"
+          climate_change_levy_html: "<strong>Climate Change Levy</strong>"
+          construction_industry_scheme_html: "<strong>Construction Industry Scheme
+            (CIS)</strong>"
+          counter_terrorism_html: "<strong>Counter-terrorism decision</strong>"
+          customs_duty_html: "<strong>Customs Duty</strong>"
+          dotas_penalty_html: "<strong>Disclosure Of Tax Avoidance Schemes (DOTAS)
+            penalty</strong>"
+          gaming_duty_html: "<strong>Gaming Duty</strong>"
+          general_betting_duty_html: "<strong>General Betting Duty</strong>"
+          export_regulations_penalty_html: "<strong>Export (Penalty) Regulations /
+            FA 2003 decision</strong>"
+          hydrocarbon_oil_duties_html: "<strong>Hydrocarbon Oil Duties</strong>"
+          inheritance_tax_html: "<strong>Inheritance Tax</strong>"
+          insurance_premium_tax_html: "<strong>Insurance Premium Tax</strong>"
+          landfill_tax_html: "<strong>Landfill Tax</strong>"
+          lottery_duty_html: "<strong>Lottery Duty</strong>"
+          ni_contributions_html: "<strong>National Insurance (NI) contributions</strong>"
+          money_laundering_decisions_html: "<strong>Money laundering decisions</strong>"
+          petroleum_revenue_tax_html: "<strong>Petroleum Revenue Tax</strong>"
+          pool_betting_duty_html: "<strong>Pool Betting Duty</strong>"
+          remote_gaming_duty_html: "<strong>Remote Gaming Duty</strong>"
+          request_late_review_html: "<strong>Request permission for a late review</strong><br>apply
+            to get a late review accepted by HMRC, UK Border Force (UKBF) or National
+            Crime Authority (NCA)"
+          restoration_case_html: "<strong>Restoration case</strong><br>apply for the
+            return of seized goods or equivalent compensation"
+          stamp_duties_html: "<strong>Stamp duties</strong><br>includes Stamp Duty
+            Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)"
+          statutory_payments_html: "<strong>Statutory payments</strong><br>for example
+            statutory sick pay, maternity pay, paternity pay or adoption pay"
+          student_loans_html: "<strong>Student loans</strong>"
+          tobacco_products_duty_html: "<strong>Tobacco Products Duty</strong>"
+          other_html: "<strong>None of the above</strong>"
+      steps_appeal_dispute_type_form:
+        dispute_type_other_value: What is your dispute about?
+        dispute_type:
+          penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
+            payment, inaccurate returns or failure to notify tax liability"
+          amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay tax</strong>"
+          amount_of_tax_owed_by_taxpayer_html: "<strong>HMRC claim you owe tax</strong>"
+          amount_and_penalty_html: "<strong>HMRC claim you owe tax and a penalty or
+            surcharge</strong><br>both disputes must be shown on the original notice
+            or review conclusion letter"
+          paye_coding_notice_html: "<strong>Pay As You Earn (PAYE) coding notice</strong><br>the
+            code used to work out how much tax is taken from your pay"
+          information_notice_html: "<strong>Appeal against an information notice</strong>"
+          refusal_to_register_applicant_html: "<strong>Refusal to register an applicant</strong>"
+          cancellation_of_registration_html: "<strong>Cancellation of registration</strong>"
+          other_html: "<strong>None of the above</strong>"
+      steps_appeal_penalty_amount_form:
+        penalty_amount: Enter the penalty or surcharge amount (optional)
+        penalty_level:
+          penalty_level_1: "£100 or less"
+          penalty_level_2: over £100 – £20,000
+          penalty_level_3: over £20,000
+      steps_appeal_tax_amount_form:
+        tax_amount: Enter the amount of tax under dispute (optional)
+      steps_appeal_penalty_and_tax_amounts_form:
+        tax_amount: Enter the amount of tax under dispute (optional)
+        penalty_amount: Enter the penalty or surcharge amount (optional)
+      steps_challenge_decision_form:
+        challenged_decision:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_challenge_decision_status_form:
+        challenged_decision_status:
+          received: I have a review conclusion letter
+          pending: I have been waiting less than 45 days for a review to finish
+          overdue: I have been waiting for 45 days or more for a review to finish
+          refused: I was refused a review as I was outside the time limit
+          not_required: I was offered a review but didn’t accept
+      steps_closure_case_type_form:
+        closure_case_type:
+          personal_return_html: Personal return
+          company_return_html: Company return
+          partnership_return_html: Partnership return
+          trustee_return_html: Trustee return
+          claim_or_amendment_html: Claim or amendment of a claim
+          enterprise_mgmt_incentives_html: 'Enterprise Management Incentives (EMIs):
+            qualifying options'
+          non_resident_capital_gains_tax_html: Non-resident Capital Gains Tax (NRCGT)
+            return
+          stamp_duty_land_tax_return_html: 'Stamp Duty Land Tax (SDLT): land transaction
+            return'
+          stamp_duty_land_tax_claim_html: 'Stamp Duty Land Tax (SDLT): claim or amendment
+            of a claim'
+          transactions_in_securities_html: 'Transactions in securities: issue of counteraction
+            or no-counteraction notice'
+      steps_closure_enquiry_details_form:
+        closure_hmrc_reference: HMRC reference number
+        closure_years_under_enquiry: Years under enquiry
+        closure_hmrc_officer: Name of the tax officer running the enquiry (optional)
+      steps_closure_additional_info_form:
+        closure_additional_info: Enter reasons why the enquiry should close (optional)
+      steps_closure_support_documents_form:
+        having_problems_uploading_explanation: Reasons you can't upload
+      steps_details_user_type_form:
+        user_type:
+          taxpayer: 'Yes'
+          representative: No, I am acting on behalf of the taxpayer
+      steps_details_taxpayer_type_form:
+        taxpayer_type:
+          individual_html: "<strong>Individual</strong>"
+          company_html: "<strong>Company</strong>"
+          other_organisation_html: "<strong>Other type of organisation</strong><br>for
+            example a partnership, LLP, trust, club or association"
+      steps_details_has_representative_form:
+        has_representative:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_details_representative_professional_status_form:
+        representative_professional_status:
+          england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
+            in England, Wales or Northern Ireland
+          scotland_legal_rep_html: Practising solicitor or advocate in Scotland
+          tax_agent_html: Tax agent
+          accountant_html: Accountant
+          friend_or_family_html: Friend or family member
+          other_html: None of the above
+      steps_details_representative_type_form:
+        representative_type:
+          individual_html: "<strong>Individual</strong>"
+          company_html: "<strong>Company</strong>"
+          other_organisation_html: "<strong>Other type of organisation</strong><br>for
+            example a partnership or LLP"
+      generic_taxpayer_contact_labels:
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Contact phone number (optional)
+      steps_details_taxpayer_individual_details_form:
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Contact phone number (optional)
+        taxpayer_individual_first_name: First name
+        taxpayer_individual_last_name: Last name
+      steps_details_taxpayer_company_details_form:
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Contact phone number (optional)
+        taxpayer_organisation_name: Company name
+        taxpayer_organisation_registration_number: Company registration number (optional)
+        taxpayer_organisation_fao: Contact name
+      steps_details_taxpayer_organisation_details_form:
+        taxpayer_contact_address: Address
+        taxpayer_contact_postcode: Postcode
+        taxpayer_contact_email: Email address
+        taxpayer_contact_phone: Contact phone number (optional)
+        taxpayer_organisation_name: Organisation name
+        taxpayer_organisation_fao: Contact name
+      generic_representative_contact_labels:
+        representative_contact_address: Address
+        representative_contact_postcode: Postcode
+        representative_contact_email: Email address
+        representative_contact_phone: Contact phone number (optional)
+      steps_details_representative_individual_details_form:
+        representative_contact_address: Address
+        representative_contact_postcode: Postcode
+        representative_contact_email: Email address
+        representative_contact_phone: Contact phone number (optional)
+        representative_individual_first_name: First name
+        representative_individual_last_name: Last name
+      steps_details_representative_company_details_form:
+        representative_contact_address: Address
+        representative_contact_postcode: Postcode
+        representative_contact_email: Email address
+        representative_contact_phone: Contact phone number (optional)
+        representative_organisation_name: Company name
+        representative_organisation_registration_number: Company registration number
+          (optional)
+        representative_organisation_fao: Contact name
+      steps_details_representative_organisation_details_form:
+        representative_contact_address: Address
+        representative_contact_postcode: Postcode
+        representative_contact_email: Email address
+        representative_contact_phone: Contact phone number (optional)
+        representative_organisation_name: Organisation name
+        representative_organisation_fao: Contact name
+      steps_details_grounds_for_appeal_form:
+        grounds_for_appeal: Enter reasons below or attach as a document
+        grounds_for_appeal_document: Attach reasons as a document
+      steps_details_documents_checklist_form:
+        having_problems_uploading_explanation: Enter reasons why you can't upload
+          documents
+      steps_details_outcome_form:
+        outcome: Enter the outcome you want
+      steps_hardship_disputed_tax_paid_form:
+        disputed_tax_paid:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_hardship_hardship_review_requested_form:
+        hardship_review_requested:
+          'yes': 'Yes'
+          'no': 'No'
+      steps_hardship_hardship_review_status_form:
+        hardship_review_status:
+          granted: 'Yes'
+          pending: I am waiting for a decision
+          refused: 'No'
+      steps_hardship_hardship_reason_form:
+        hardship_reason: Enter your reasons for financial hardship
+      steps_lateness_in_time_form:
+        in_time:
+          'yes': Yes, I am in time
+          'no': No, I am late
+          unsure: I am not sure
+      steps_lateness_lateness_reason_form:
+        lateness_reason: Reason(s) for late appeal
+    submit:
+      create: Continue
+      update: Continue
+  check_answers:
+    attached_document: Attached document
+    change: Change
+    phone: Tel
+    email: Email
+    organisation_registration_number: Registration Number
+    sections:
+      appeal: "%{appeal_or_application_capitalised} type"
+      hardship: Hardship application
+      lateness: "%{appeal_or_application_capitalised} deadline"
+      details: "%{appeal_or_application_capitalised} details"
+      taxpayer: Taxpayer details
+      closure_type: Application type
+      closure_details: Enquiry details
+    footer:
+      warning: Warning
+      warning_message: Once you click 'Submit', you cannot change your answers
+      declaration_of_truth: Declaration and statement of truth
+      declaration_of_truth_message: |
+        By completing this Notice of Appeal to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit’
+        button, I believe the information I have given in this form is true to the best of my knowledge. If I am
+        found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought
+        against me. I understand that if I have given false information or I do not provide further evidence if
+        requested, my %{appeal_or_application} may be rejected.
+      submit_and_continue: Submit
+    pdf:
+      header:
+        tax_chamber: First-tier Tribunal (Tax Chamber)
+        appeal_heading: Notice of %{appeal_or_application}
+        closure_heading: Application to close enquiry
+    case_type:
+      question: What is your %{appeal_or_application} about?
+      accessible_change_text: what your %{appeal_or_application} is about
+      answers:
+        aggregates_levy: Aggregates Levy
+        air_passenger_duty: Air Passenger Duty
+        alcoholic_liquor_duties: Alcoholic Liquor Duties
+        apn_penalty: Accelerated Payment Notice (APN) penalty
+        bingo_duty: Bingo Duty
+        capital_gains_tax: Capital Gains Tax
+        climate_change_levy: Climate Change Levy
+        construction_industry_scheme: Construction Industry Scheme (CIS)
+        corporation_tax: Corporation Tax
+        counter_terrorism: Counter-terrorism decision
+        counteraction_notice: Counteraction notice
+        customs_duty: Customs Duty
+        dotas_penalty: Disclosure Of Tax Avoidance Schemes (DOTAS) penalty
+        export_regulations_penalty: Export (Penalty) Regulations / FA 2003 decision
+        gaming_duty: Gaming Duty
+        general_betting_duty: General Betting Duty
+        hydrocarbon_oil_duties: Hydrocarbon Oil Duties
+        inaccurate_return_penalty: Inaccurate return penalty
+        income_tax: Income Tax
+        information_notice: Information notice
+        inheritance_tax: Inheritance Tax
+        insurance_premium_tax: Insurance Premium Tax
+        landfill_tax: Landfill Tax
+        lottery_duty: Lottery Duty
+        money_laundering_decisions: Money laundering decisions
+        ni_contributions: National Insurance (NI) contributions
+        petroleum_revenue_tax: Petroleum Revenue Tax
+        pool_betting_duty: Pool Betting Duty
+        remote_gaming_duty: Remote Gaming Duty
+        request_late_review: Request permission for a late review
+        restoration_case: Restoration case
+        stamp_duties: Stamp duties
+        statutory_payments: Statutory payments
+        student_loans: Student loans
+        tobacco_products_duty: Tobacco Products Duty
+        vat: Value Added Tax (VAT)
+    challenged_decision_direct:
+      question: Did you appeal the original decision with HMRC?
+      accessible_change_text: whether you appealed the original decision with HMRC
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+    challenged_decision_indirect:
+      question: Did you ask for a review of the original decision?
+      accessible_change_text: whether you asked for a review of the original decision
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+    challenged_decision_status:
+      question: What reponse did you receive?
+      accessible_change_text: what response you received
+      answers:
+        received: I have a review conclusion letter
+        pending: I have been waiting less than 45 days for a review to finish
+        overdue: I have been waiting for 45 days or more for a review to finish
+        refused: I was refused a review as I was outside the time limit
+        not_required: I was offered a review but didn’t accept
+    dispute_type:
+      question: What is your dispute about?
+      accessible_change_text: what your dispute is about
+      answers:
+        paye_coding_notice: Pay As You Earn (PAYE) coding notice
+        penalty: Penalty or surcharge
+        amount_of_tax_owed_by_hmrc: HMRC should repay tax to you
+        amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
+        amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
+        information_notice: Information notice
+        refusal_to_register_applicant: Refusal to register an applicant
+        cancellation_of_registration: Cancellation of registration
+    penalty_level:
+      question: What is the penalty or surcharge amount?
+      accessible_change_text: what the penalty or surcharge amount is
+      answers:
+        penalty_level_1: "£100 or less"
+        penalty_level_2: over £100 – £20,000
+        penalty_level_3: over £20,000
+    penalty_amount:
+      question: What is the penalty or surcharge amount?
+      accessible_change_text: what the penalty or surcharge amount is
+    tax_amount:
+      question: What is the amount of tax?
+      accessible_change_text: what the amount of tax is
+    disputed_tax_paid:
+      question: Have you paid the amount of tax under dispute?
+      accessible_change_text: whether you have paid the amount of tax under dispute
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+    hardship_review_requested:
+      question: Did you ask HMRC if you could appeal without paying the tax first?
+      accessible_change_text: whether you asked HMRC if you could appeal without paying
+        the tax first
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+    hardship_review_status:
+      question: Did HMRC allow you to defer paying because of financial hardship?
+      accessible_change_text: whether HMRC allowed you to defer paying because of
+        financial hardship
+      answers:
+        granted: 'Yes'
+        pending: I am waiting for a decision
+        refused: 'No'
+    hardship_reason:
+      question: Why will paying the tax under dispute cause financial hardship?
+      accessible_change_text: why paying the tax under dispute will cause financial
+        hardship
+    in_time:
+      question: Is the %{appeal_or_application} in time?
+      accessible_change_text: whether your %{appeal_or_application} is in time
+      answers:
+        'yes': 'Yes'
+        'no': 'No'
+        unsure: I am not sure
+    lateness_reason:
+      question: Reason(s) for late %{appeal_or_application}
+      accessible_change_text: reasons for late %{appeal_or_application}
+    grounds_for_appeal:
+      question: Grounds for %{appeal_or_application}
+      accessible_change_text: grounds for %{appeal_or_application}
+    outcome:
+      question: Desired outcome
+      accessible_change_text: desired outcome
+    documents_submitted:
+      question: Documents submitted
+      accessible_change_text: documents submitted
+    representative_professional_status:
+      question: The representative is
+      accessible_change_text: who your representative is
+      answers:
+        england_or_wales_or_ni_legal_rep: a practising solicitor or barrister in England,
+          Wales or Northern Ireland
+        scotland_legal_rep: a practising solicitor or advocate in Scotland
+        tax_agent: a tax agent
+        accountant: an accountant
+        friend_or_family: a friend or family member
+        other: a non-legal representative
+    representative_approval:
+      question: Representative approval
+      accessible_change_text: representative approval
+    taxpayer_details:
+      question: Taxpayer details
+      accessible_change_text: taxpayer details
+    representative_details:
+      question: Representative details
+      accessible_change_text: representative details
+      answers:
+        no_representative: I don't have a representative
+    closure_case_type:
+      question: What type of enquiry do you want to close?
+      accessible_change_text: what type of enquiry you want to close
+      answers:
+        personal_return: Personal return
+        company_return: Company return
+        partnership_return: Partnership return
+        trustee_return: Trustee return
+        claim_or_amendment: Claim or amendment of a claim
+        enterprise_mgmt_incentives: 'Enterprise Management Incentives (EMIs): qualifying
+          options'
+        non_resident_capital_gains_tax: Non-resident Capital Gains Tax (NRCGT) return
+        stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction
+          return'
+        stamp_duty_land_tax_claim: 'Stamp Duty Land Tax (SDLT): claim or amendment
+          of a claim'
+        transactions_in_securities: 'Transactions in securities: issue of counteraction
+          or no-counteraction notice'
+    closure_hmrc_reference:
+      question: HMRC reference number
+      accessible_change_text: HMRC reference number
+    closure_years_under_enquiry:
+      question: Years under enquiry
+    closure_hmrc_officer:
+      question: HMRC officer conducting enquiry
+    closure_additional_info:
+      question: Additional information
+      accessible_change_text: additional information
+  number:
+    currency:
+      format:
+        unit: "£"
+        precision: 0
+  generic:
+    back_link: Back
+    appeal_or_application:
+      appeal: appeal
+      application: application
+  shared:
+    confirmation_case_reference:
+      case_reference: 'Your case reference number is:'
+      case_submitted_successfully: Your case was submitted successfully.
+      case_reference_pending: You will be sent a case reference number shortly.
+      note_number: Please make a note of this number in case you need to contact us.
+    file_upload:
+      header: File upload requirements
+      file_list_html: |
+        <ul class="list list-bullet">
+          <li>File formats: Word, PDF, Excel, JPG, GIF, PNG</li>
+          <li>File size: up to 20 megabytes (MB)</li>
+          <li>Files cannot be password protected</li>
+        </ul>
+      footer: You can’t upload executable (.exe), zip or other archive files due to
+        virus risks.
+      technical_info: We accept scanned images or good quality pictures, for example
+        via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file
+        size of 20MB.
+      dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
+        class="faux-link" tabindex="-1">click to choose a file</span>
+      uploaded_files_header: Uploaded files
+      no_uploaded_files: No files uploaded
+      having_problems: I am having trouble uploading my documents
+      explanation_html: |
+        <p><strong>What to do next</strong></p>
+        <ul class="list list-bullet">
+          <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
+          <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
+        </ul>
+    finish: Finish
+    start_again: Start again
+  errors:
+    format: "%{message}"
+    messages:
+      blank: Please enter an answer
+      file_size: File too big
+      content_type: Unsupported file type
+      response_error: Response error
+      virus_detected: Virus detected
+    error_summary:
+      heading: There's a problem. You need to fix this error.
+      text: ''
+    case_not_found:
+      heading: Sorry, you'll have to start again
+      start_again: Start again
+      lead_text: Your session automatically ends if you don't use the service for
+        %{session_timeout} minutes.
+      more_text: We do this for your security. We haven't saved any information you
+        have entered.
+    case_submitted:
+      heading: You have already submitted this case
+      lead_text_html: |
+        To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
+        (find out about <a href="https://www.gov.uk/call-charges">call charges</a>).
+      start_again: Start again
+      finish: Finish
+      case_reference: 'Your case reference number is:'
+      note_number: Please make a note of this number in case you need to contact us.
+      save_or_print_pdf: Save or print your case details
+    unhandled:
+      heading: Sorry, something went wrong
+      start_again: Start again
+      lead_text: To keep this service secure, any information you have entered hasn't
+        been saved.
+      more_text: You'll need to start again.
+    not_found:
+      heading: Page not found
+      lead_text: If you entered a web address, please check it’s correct.
+      more_text_html: |
+        <p>You can also try starting from the homepage to find the information you need.</p>
+        <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
+      start_again: Start again
+  layouts:
+    footer_links:
+      contact: Contact
+      cookies: Cookies
+      terms_and_conditions: Terms and Conditions
+    phase_banner:
+      phase_info_html: |
+        This is a trial service &ndash; your
+        <a href="mailto:%{feedback_email}?subject=Feedback">feedback</a>
+        will help us to improve it.
+  document_upload:
+    errors:
+      file_size: "%{file_name} is too big. You will need to resubmit a smaller version,
+        less than %{max_size} megabytes (MB)"
+      content_type: "%{file_name} is in a format we don't accept. You can upload JPG,
+        PNG, GIF, PDF, Word or Excel files"
+      virus_detected: "%{file_name} has a virus. You will need to resubmit a virus
+        free copy"
+      response_error: "%{file_name} failed to upload. Please try again"
+    file_selected: SELECTED
+    file_uploading: UPLOADING
+  home:
+    start:
+      heading: What do you want to do?
+      lead_text: Use this service to settle a tax dispute by getting an impartial
+        ruling from a judge.
+      link_titles:
+        appeal: Appeal against a tax decision
+        close: Apply to close an enquiry
+      link_descriptions:
+        appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force
+          or the National Crime Agency.
+        close: Ask the judge to order the closure of an ongoing tax enquiry.
+      link_time_estimate: "%{minutes} minutes to complete"
+    contact:
+      heading: Contact
+      lead_text: Useful information if you need help using this service.
+      description_html: |
+        <p><strong>Tax tribunal helpline</strong></p>
+        <p>Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges">find out about call charges)</a></p>
+        <p>Monday to Friday, 8:30am to 5pm</p>
+        <p>Please note: the helpline can't give you legal advice.</p>
+        <p><strong>Other ways to get help</strong></p>
+        <ul class="list list-bullet">
+           <li><a href="https://www.citizensadvice.org.uk" target="_blank">Citizens Advice</a></li>
+           <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
+           <li><a href="http://www.litrg.org.uk" target="_blank">Low Incomes Tax Reform Group</a></li>
+           <li><a href="http://taxaid.org.uk" target="_blank">TaxAid</a></li>
+           <li><a href="http://www.taxvol.org.uk" target="_blank">Tax Help for Older People</a></li>
+           <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk">taxvol@taxvol.org.uk</a>)</p>
+        </ul>
+  session:
+    note:
+      heading: Security time-out
+      text: After %{session_length} minutes of inactivity, we’ll check if you need
+        more time or automatically delete your application for security reasons.
+    expiring:
+      aria-warning: Your application has been inactive for over %{passed} minutes.
+        Your session will time out in less than %{remain} minutes. Hit space bar to
+        continue for another %{session_length} minutes.
+      heading: Want more time to continue?
+      in: Your application will be deleted
+      security: For security reasons, any information will not be saved.
+      extend: Yes, continue my application
+      destroy: No, delete my details
+    expired:
+      title: Session expired
+      heading: Your application has been cancelled
+      description: For your security, the information you’ve entered has automatically
+        been deleted.
+      restart: You can start again below.
+      restart_button: Start again
+    canceled_message: Your application has been deleted. Please start again.
+    expired_message: You've been inactive for 30 minutes. Your application has been
+      automatically deleted. Please start again.
+    minute_single: minute
+    second_single: second
+    minutes_plural: minutes
+    seconds_plural: seconds
