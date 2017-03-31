@@ -9,6 +9,10 @@ merge_yaml_files:
 	./bin/merge_yaml $(SOURCE_YAML_FILES) > $(COMBINED_YAML_FILE)
 	ls -1 $(SOURCE_YAML_FILES) | grep -v $(COMBINED_YAML_FILE) | xargs rm
 
+find_duplicate_strings:
+	# WARNING: There is a tab inside the [] of the sed command
+	cat $(COMBINED_YAML_FILE) | sed 's/^[ 	]*//' | sort | uniq -c | sort -n
+
 clean_yaml_files:
 	make remove_blank_lines
 	make remove_trailing_whitespace
