@@ -25,8 +25,9 @@ CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
     heading: What is your appeal about?
     lead_text: Check the original notice letter or review conclusion letter.
 
-START_AGAIN: &START_AGAIN
+START_FINISH: &START_FINISH
   start_again: Start again
+  finish: Finish
 
 en:
   steps:
@@ -117,7 +118,7 @@ en:
             what you can do next.</p> <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
             with a tax decision</a>.</p>
           contact_hmrc_button: Contact HMRC
-          <<: *START_AGAIN
+          <<: *START_FINISH
       must_wait_for_challenge_decision:
         show:
           heading: You must wait before you can appeal
@@ -987,8 +988,7 @@ en:
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
-    finish: Finish
-    <<: *START_AGAIN
+    <<: *START_FINISH
   errors:
     format: "%{message}"
     messages:
@@ -1002,7 +1002,7 @@ en:
       text: ''
     case_not_found:
       heading: Sorry, you'll have to start again
-      <<: *START_AGAIN
+      <<: *START_FINISH
       lead_text: Your session automatically ends if you don't use the service for
         %{session_timeout} minutes.
       more_text: We do this for your security. We haven't saved any information you
@@ -1012,14 +1012,13 @@ en:
       lead_text_html: |
         To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
         (find out about <a href="https://www.gov.uk/call-charges">call charges</a>).
-      <<: *START_AGAIN
-      finish: Finish
+      <<: *START_FINISH
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
       save_or_print_pdf: Save or print your case details
     unhandled:
       heading: Sorry, something went wrong
-      <<: *START_AGAIN
+      <<: *START_FINISH
       lead_text: To keep this service secure, any information you have entered hasn't
         been saved.
       more_text: You'll need to start again.
@@ -1029,7 +1028,7 @@ en:
       more_text_html: |
         <p>You can also try starting from the homepage to find the information you need.</p>
         <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
-      <<: *START_AGAIN
+      <<: *START_FINISH
   layouts:
     footer_links:
       contact: Contact
