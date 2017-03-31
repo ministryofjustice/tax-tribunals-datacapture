@@ -55,7 +55,7 @@ class TribunalCase < ApplicationRecord
   end
 
   def appeal_or_application
-    return :application if intent.eql?(Intent::CLOSE_ENQUIRY)
+    return :application if intent.equal?(Intent::CLOSE_ENQUIRY)
     return :appeal      unless case_type
 
     case_type.appeal_or_application

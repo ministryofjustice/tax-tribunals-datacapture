@@ -188,29 +188,39 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   describe '#appeal_or_application' do
-    let(:case_type) { instance_double(CaseType).as_null_object }
-    let(:intent) { instance_double(Intent).as_null_object }
-    let(:attributes) { { intent: intent, case_type: case_type } }
+    context 'Intent::CLOSE_ENQUIRY' do
+      let(:intent) { Intent::CLOSE_ENQUIRY }
+      let(:attributes) { { intent: intent } }
 
-    before do
-      allow(subject).to receive(:case_type).and_return(case_type)
-      allow(subject).to receive(:intent).and_return(intent)
-      allow(intent).to receive(:eql?).with(Intent::CLOSE_ENQUIRY).and_return(false)
+      specify 'returns :application' do
+        expect(subject.appeal_or_application).to eq(:application)
+      end
     end
 
-    specify 'return :application if intent is to CLOSE_ENQUIRY' do
-      expect(intent).to receive(:eql?).with(Intent::CLOSE_ENQUIRY).and_return(true)
-      expect(subject.appeal_or_application).to eq(:application)
+    context 'Intent::TAX_APPEAL and no case type' do
+      let(:intent) { Intent::TAX_APPEAL }
+      let(:attributes) { { intent: intent } }
+
+      specify do
+        expect(subject.appeal_or_application).to eq(:appeal)
+      end
     end
 
-    specify 'return :appeal if case_type is not set' do
-      allow(subject).to receive(:case_type).and_return(nil)
-      expect(subject.appeal_or_application).to eq(:appeal)
+    context 'no intent no case type' do
+      let(:attributes) { { } }
+
+      specify do
+        expect(subject.appeal_or_application).to eq(:appeal)
+      end
     end
 
-    it 'delegates :appeal_or_application to case_type by default' do
-      expect(case_type).to receive(:appeal_or_application)
-      subject.appeal_or_application
+    context 'delegates to CaseType' do
+      let(:case_type) { CaseType.new(:foo, appeal_or_application: :bar) }
+      let(:attributes) { { case_type: case_type } }
+
+      specify do
+        expect(subject.appeal_or_application).to eq(:bar)
+      end
     end
   end
 end
