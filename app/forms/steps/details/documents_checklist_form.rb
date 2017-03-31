@@ -15,7 +15,7 @@ module Steps::Details
       # which may erroneously return an empty array if the user previously ticked
       # "I'm having trouble" but then unticked it again.
       # This ensures having_problems_uploading is the correct value before validation.
-      tribunal_case.having_problems_uploading = having_problems_uploading
+      tribunal_case&.having_problems_uploading = having_problems_uploading
 
       super
     end
