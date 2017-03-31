@@ -100,13 +100,8 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   describe '#mapping_code' do
-    let(:mapping_code_determiner) { instance_double(MappingCodeDeterminer) }
-
-    it 'queries MappingCodeDeterminer for the mapping code' do
-      expect(MappingCodeDeterminer).to receive(:new).and_return(mapping_code_determiner)
-      expect(mapping_code_determiner).to receive(:tribunal_case=).with(subject)
-      expect(mapping_code_determiner).to receive(:mapping_code)
-      subject.mapping_code
+    specify do
+      expect(subject).to respond_to(:mapping_code)
     end
   end
 
