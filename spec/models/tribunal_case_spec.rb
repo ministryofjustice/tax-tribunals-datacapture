@@ -5,48 +5,48 @@ RSpec.shared_examples 'sanitizing actions' do
 
   specify 'have html escaped' do
     expect(CGI).to receive(:escapeHTML).and_return(value)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'are sanitized' do
     expect(Sanitize).to receive(:fragment).with('some text', anything).and_return(value)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'scrub *' do
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with('*', anything)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'scrub =' do
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with('=', anything)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'scrub -' do # kills SQL comments
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with('-', anything)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'scrub %' do
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with('%', anything)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'remove `drop table` case-insensitively'do
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with(/drop\s+table/i, anything)
-    subject.save
+    subject.send(:sanitize)
   end
 
   specify 'remove `insert into` case-insensitively'do
     allow(CGI).to receive(:escapeHTML).and_return(value)
     expect(value).to receive(:gsub).with(/insert\s+into/i, anything)
-    subject.save
+    subject.send(:sanitize)
   end
 end
 
@@ -71,12 +71,12 @@ RSpec.describe TribunalCase, type: :model do
 
       specify 'do not have html escaped' do
         expect(CGI).not_to receive(:escapeHTML)
-        subject.save
+        subject.send(:sanitize)
       end
 
       specify 'are not sanitized' do
         expect(Sanitize).not_to receive(:fragment)
-        subject.save
+        subject.send(:sanitize)
       end
     end
 
@@ -89,23 +89,19 @@ RSpec.describe TribunalCase, type: :model do
 
       specify 'do not have html escaped' do
         expect(CGI).not_to receive(:escapeHTML)
-        subject.save
+        subject.send(:sanitize)
       end
 
       specify 'are not sanitized' do
         expect(Sanitize).not_to receive(:fragment)
-        subject.save
+        subject.send(:sanitize)
       end
     end
   end
 
   describe '#mapping_code' do
-    let(:mapping_code) { MappingCode.new(:hmrc_stole_my_cookies) }
-    let(:determiner) { instance_double(MappingCodeDeterminer, mapping_code: mapping_code) }
-
-    it 'queries MappingCodeDeterminer for the mapping code' do
-      expect(MappingCodeDeterminer).to receive(:new).with(subject).and_return(determiner)
-      expect(subject.mapping_code).to eq(mapping_code)
+    specify do
+      expect(subject).to respond_to(:mapping_code)
     end
   end
 
@@ -192,33 +188,29 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   describe '#appeal_or_application' do
-    context 'when the intent is CLOSE_ENQUIRY' do
-      let(:case_type)  { CaseType.new(:random, appeal_or_application: :whatever) }
-      let(:attributes) { { intent: Intent.new(:close_enquiry), case_type: case_type } }
+    let(:case_type) { instance_double(CaseType).as_null_object }
+    let(:intent) { instance_double(Intent).as_null_object }
+    let(:attributes) { { intent: intent, case_type: case_type } }
 
-      it 'returns application regardless of case type' do
-        expect(subject.appeal_or_application).to eq(:application)
-      end
+    before do
+      allow(subject).to receive(:case_type).and_return(case_type)
+      allow(subject).to receive(:intent).and_return(intent)
+      allow(intent).to receive(:eql?).with(Intent::CLOSE_ENQUIRY).and_return(false)
     end
 
-    context 'when the intent is TAX_APPEAL' do
-      let(:attributes) { { intent: Intent.new(:tax_appeal), case_type: case_type } }
+    specify 'return :application if intent is to CLOSE_ENQUIRY' do
+      expect(intent).to receive(:eql?).with(Intent::CLOSE_ENQUIRY).and_return(true)
+      expect(subject.appeal_or_application).to eq(:application)
+    end
 
-      context 'when there is no case type' do
-        let(:case_type) { nil }
+    specify 'return :appeal if case_type is not set' do
+      allow(subject).to receive(:case_type).and_return(nil)
+      expect(subject.appeal_or_application).to eq(:appeal)
+    end
 
-        it 'returns appeal by default' do
-          expect(subject.appeal_or_application).to eq(:appeal)
-        end
-      end
-
-      context 'when there is a case type' do
-        let(:case_type)  { CaseType.new(:random, appeal_or_application: :whatever) }
-
-        it 'delegates to the case type' do
-          expect(subject.appeal_or_application).to eq(:whatever)
-        end
-      end
+    it 'delegates :appeal_or_application to case_type by default' do
+      expect(case_type).to receive(:appeal_or_application)
+      subject.appeal_or_application
     end
   end
 end

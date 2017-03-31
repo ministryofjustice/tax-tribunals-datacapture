@@ -1,24 +1,33 @@
 require 'spec_helper'
 
-RSpec.describe MappingCodeDeterminer do
-  let(:case_attrs)    { {} }
-  let(:tribunal_case) {
-    instance_double(TribunalCase,
-      challenged_decision: challenged_decision,
-      case_type:           case_type,
-      closure_case_type:   closure_case_type,
-      dispute_type:        dispute_type,
-      penalty_level:       penalty_level
-    )
-  }
+class DeterminerExample
+  include MappingCodeDeterminer
+  def penalty_level; end
+  def dispute_type; end
+  def case_type; end
+  def closure_case_type; end
+end
 
+RSpec.describe MappingCodeDeterminer do
+  subject { DeterminerExample.new }
+  let(:penalty_level) { }
+  let(:dispute_type) { }
+  let(:case_type) { }
+  let(:closure_case_type) { }
+
+  before do
+    allow(subject).to receive(:penalty_level).and_return(penalty_level)
+    allow(subject).to receive(:dispute_type).and_return(dispute_type)
+    allow(subject).to receive(:case_type).and_return(case_type)
+    allow(subject).to receive(:closure_case_type).and_return(closure_case_type)
+  end
+
+  let(:case_attrs)    { {} }
   let(:challenged_decision) { nil }
   let(:case_type)           { nil }
   let(:closure_case_type)   { nil }
   let(:dispute_type)        { nil }
   let(:penalty_level)       { nil }
-
-  subject { described_class.new(tribunal_case) }
 
   context 'when there is no case_type nor closure_case_type' do
     it { is_expected.to fail_to_determine_mapping_code }

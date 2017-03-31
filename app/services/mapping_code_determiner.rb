@@ -1,10 +1,4 @@
-class MappingCodeDeterminer
-  attr_reader :tribunal_case
-
-  def initialize(tribunal_case)
-    @tribunal_case = tribunal_case
-  end
-
+module MappingCodeDeterminer
   def valid_for_determining_mapping_code?
     mapping_code_or_nil.present?
   end
@@ -17,19 +11,19 @@ class MappingCodeDeterminer
   private
 
   def mapping_code_or_nil
-    if tribunal_case.penalty_level
+    if penalty_level
       penalty_mapping_code
-    elsif tribunal_case.dispute_type
+    elsif dispute_type
       dispute_type_mapping_code
-    elsif tribunal_case.closure_case_type
+    elsif closure_case_type
       closure_case_type_mapping_code
-    elsif tribunal_case.case_type
+    elsif case_type
       case_type_mapping_code
     end
   end
 
   def penalty_mapping_code
-    case tribunal_case.penalty_level
+    case penalty_level
     when PenaltyLevel::PENALTY_LEVEL_1
       MappingCode::APPEAL_PENALTY_LOW
     when PenaltyLevel::PENALTY_LEVEL_2
@@ -40,7 +34,7 @@ class MappingCodeDeterminer
   end
 
   def dispute_type_mapping_code
-    case tribunal_case.dispute_type
+    case dispute_type
     when DisputeType::PAYE_CODING_NOTICE
       MappingCode::APPEAL_PAYECODING
     when DisputeType::INFORMATION_NOTICE
@@ -55,7 +49,7 @@ class MappingCodeDeterminer
 
   def case_type_mapping_code
     # TODO: Add further when-branches once we have additional case types
-    case tribunal_case.case_type
+    case case_type
     when CaseType::COUNTERACTION_NOTICE
       MappingCode::APPN_DECISION_ENQRY
     when CaseType::REQUEST_LATE_REVIEW

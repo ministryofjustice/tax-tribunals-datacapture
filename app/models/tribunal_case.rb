@@ -1,4 +1,6 @@
 class TribunalCase < ApplicationRecord
+  include MappingCodeDeterminer
+
   has_value_object :intent
   has_value_object :case_status
 
@@ -30,10 +32,6 @@ class TribunalCase < ApplicationRecord
   # Do not store unsanitized user input that may get sent through to
   # third-party APIs.
   before_save :sanitize
-
-  def mapping_code
-    MappingCodeDeterminer.new(self).mapping_code
-  end
 
   def documents(document_key)
     # We do not return uploaded documents when the user states they have trouble uploading
