@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe AppealDecisionTree, '#destination' do
+RSpec.describe ChallengeDecisionTree, '#destination' do
   let(:next_step)     { nil }
   let(:step_params)   { {challenged_decision_status: 'anything'} }
   let(:case_type)     { nil }
@@ -27,7 +27,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
       context 'for an indirect tax case' do
         let(:case_type) { CaseType.new(:anything, direct_tax: false) }
 
-        it { is_expected.to have_destination('/steps/challenge/must_wait_for_review_decision', :show) }
+        it { is_expected.to have_destination(:must_wait_for_review_decision, :show) }
       end
     end
 
@@ -37,13 +37,13 @@ RSpec.describe AppealDecisionTree, '#destination' do
       context 'for a case with disputes' do
         let(:case_type) { CaseType.new(:anything, ask_dispute_type: true, ask_penalty: false) }
 
-        it { is_expected.to have_destination(:dispute_type, :edit) }
+        it { is_expected.to have_destination('/steps/appeal/dispute_type', :edit) }
       end
 
       context 'for a case with penalties' do
         let(:case_type) { CaseType.new(:anything, ask_dispute_type: false, ask_penalty: true) }
 
-        it { is_expected.to have_destination(:penalty_amount, :edit) }
+        it { is_expected.to have_destination('/steps/appeal/penalty_amount', :edit) }
       end
 
       context 'for a case that has neither penalties or disputes' do

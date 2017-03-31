@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Appeal::ChallengedDecisionForm do
+RSpec.describe Steps::Challenge::DecisionForm do
   let(:arguments) { {
     tribunal_case:      tribunal_case,
     challenged_decision: challenged_decision

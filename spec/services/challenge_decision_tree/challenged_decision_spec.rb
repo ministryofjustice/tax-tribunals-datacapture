@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe AppealDecisionTree, '#destination' do
+RSpec.describe ChallengeDecisionTree, '#destination' do
   let(:step_params)   { double('Step') }
   let(:next_step)     { nil }
   let(:step_params)   { {challenged_decision: 'anything'} }
@@ -22,7 +22,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the case has been challenged' do
       let(:challenged_decision) { ChallengedDecision::YES }
 
-      it { is_expected.to have_destination(:challenged_decision_status, :edit) }
+      it { is_expected.to have_destination(:decision_status, :edit) }
     end
   end
 
@@ -33,13 +33,13 @@ RSpec.describe AppealDecisionTree, '#destination' do
       context 'and the case type asks dispute type' do
         let(:case_type) { CaseType.new(:dummy, direct_tax: false, ask_dispute_type: true) }
 
-        it { is_expected.to have_destination(:dispute_type, :edit) }
+        it { is_expected.to have_destination('/steps/appeal/dispute_type', :edit) }
       end
 
       context 'and the case type asks penalty' do
         let(:case_type) { CaseType.new(:dummy, direct_tax: false, ask_penalty: true) }
 
-        it { is_expected.to have_destination(:penalty_amount, :edit) }
+        it { is_expected.to have_destination('/steps/appeal/penalty_amount', :edit) }
       end
 
       context 'and the case type does not ask dispute type or penalty' do
@@ -53,7 +53,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
       let(:case_type) { CaseType.new(:dummy, direct_tax: false) }
       let(:challenged_decision) { ChallengedDecision::YES }
 
-      it { is_expected.to have_destination(:challenged_decision_status, :edit) }
+      it { is_expected.to have_destination(:decision_status, :edit) }
     end
   end
 
@@ -63,13 +63,13 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'and the case has not been challenged' do
       let(:challenged_decision) { ChallengedDecision::NO }
 
-      it { is_expected.to have_destination('/steps/challenge/must_ask_for_review', :show) }
+      it { is_expected.to have_destination(:must_ask_for_review, :show) }
     end
 
     context 'and the case has been challenged' do
       let(:challenged_decision) { ChallengedDecision::YES }
 
-      it { is_expected.to have_destination(:challenged_decision_status, :edit) }
+      it { is_expected.to have_destination(:decision_status, :edit) }
     end
   end
 end

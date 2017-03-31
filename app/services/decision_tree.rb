@@ -31,4 +31,14 @@ class DecisionTree
   def start_path
     { controller: '/home', action: :start }
   end
+
+  def dispute_or_penalties_decision
+    if tribunal_case.case_type.ask_dispute_type?
+      edit('/steps/appeal/dispute_type')
+    elsif tribunal_case.case_type.ask_penalty?
+      edit('/steps/appeal/penalty_amount')
+    else
+      edit('/steps/lateness/in_time')
+    end
+  end
 end

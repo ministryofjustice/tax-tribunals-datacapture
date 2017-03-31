@@ -1,5 +1,5 @@
-module Steps::Appeal
-  class ChallengedDecisionForm < BaseForm
+module Steps::Challenge
+  class DecisionForm < BaseForm
     attribute :challenged_decision, String
 
     def self.choices
