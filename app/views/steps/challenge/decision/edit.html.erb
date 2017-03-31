@@ -7,7 +7,7 @@
     </h1>
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
-      <%= f.radio_button_fieldset :challenged_decision, choices: Steps::Appeal::ChallengedDecisionForm.choices %>
+      <%= f.radio_button_fieldset :challenged_decision, choices: Steps::Challenge::DecisionForm.choices %>
       <%= f.submit class: 'button' %>
     <% end %>
 

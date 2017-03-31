@@ -16,7 +16,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
     let(:step_params) { {case_type: 'anything'} }
     let(:case_type)   { CaseType.new(:dummy, ask_challenged: true) }
 
-    it { is_expected.to have_destination(:challenged_decision, :edit) }
+    it { is_expected.to have_destination('/steps/challenge/decision', :edit) }
   end
 
   context 'for a case not asking `challenged question`' do
@@ -25,13 +25,13 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'when the case type is one that should ask dispute type' do
       let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: true) }
 
-      it { is_expected.to have_destination(:dispute_type, :edit) }
+      it { is_expected.to have_destination('/steps/appeal/dispute_type', :edit) }
     end
 
     context 'when the case type is one that should only ask penalty' do
       let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: false, ask_penalty: true) }
 
-      it { is_expected.to have_destination(:penalty_amount, :edit) }
+      it { is_expected.to have_destination('/steps/appeal/penalty_amount', :edit) }
     end
 
     context 'when the case type is OTHER' do

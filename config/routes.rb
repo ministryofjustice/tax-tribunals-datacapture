@@ -19,10 +19,6 @@ Rails.application.routes.draw do
       show_step :start
       edit_step :case_type
       edit_step :case_type_show_more
-      edit_step :challenged_decision
-      edit_step :challenged_decision_status
-      show_step :must_challenge_hmrc
-      show_step :must_wait_for_challenge_decision
       edit_step :dispute_type
       edit_step :penalty_amount
       edit_step :tax_amount
@@ -30,7 +26,11 @@ Rails.application.routes.draw do
     end
 
     namespace :challenge do
+      edit_step :decision
+      edit_step :decision_status
+      show_step :must_challenge_hmrc
       show_step :must_ask_for_review
+      show_step :must_wait_for_challenge_decision
       show_step :must_wait_for_review_decision
     end
 

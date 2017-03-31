@@ -8,7 +8,7 @@ module CheckAnswers
       [
         case_type_answer,
         challenged_decision_answer,
-        Answer.new(:challenged_decision_status, tribunal_case.challenged_decision_status, change_path: edit_steps_appeal_challenged_decision_status_path),
+        Answer.new(:challenged_decision_status, tribunal_case.challenged_decision_status, change_path: edit_steps_challenge_decision_status_path),
         dispute_type_answer,
         Answer.new(:penalty_level, tribunal_case.penalty_level, change_path: edit_steps_appeal_penalty_amount_path),
         Answer.new(:penalty_amount, tribunal_case.penalty_amount, raw: true),
@@ -36,9 +36,9 @@ module CheckAnswers
 
     def challenged_decision_answer
       if tribunal_case.case_type.direct_tax?
-        Answer.new(:challenged_decision_direct, tribunal_case.challenged_decision, change_path: edit_steps_appeal_challenged_decision_path)
+        Answer.new(:challenged_decision_direct, tribunal_case.challenged_decision, change_path: edit_steps_challenge_decision_path)
       else
-        Answer.new(:challenged_decision_indirect, tribunal_case.challenged_decision, change_path: edit_steps_appeal_challenged_decision_path)
+        Answer.new(:challenged_decision_indirect, tribunal_case.challenged_decision, change_path: edit_steps_challenge_decision_path)
       end
     end
   end

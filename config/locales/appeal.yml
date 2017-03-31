@@ -19,21 +19,6 @@ en:
               <strong class="bold-small">You can’t save details so get everything ready before you start </strong>
             </p>
           continue: Continue
-      challenged_decision:
-        edit:
-          heading_direct: Did you appeal the original decision with HMRC?
-          heading_indirect: Did you ask for a review of the original decision?
-          help_panel:
-            heading: Help with challenging a tax decision
-            content_html: >
-              <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
-              <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
-              <p>Find out about:</p>
-              <ul class="list list-bullet">
-                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
-                <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
-                <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
-              </ul>
       case_type:
         edit:
           heading: What is your appeal about?
@@ -61,40 +46,10 @@ en:
         edit:
           heading: What are the tax and penalty or surcharge amounts under dispute?
           lead_text: Both figures must be shown on the same letter, either the original notice or review conclusion letter.
-      must_challenge_hmrc:
-        show:
-          heading: You must appeal the original decision with HMRC
-          lead_text: The original notice letter will explain what to do.
-          free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal once you have written to HMRC.
-          free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think you are late. HMRC will decide whether to accept your appeal or explain what you can do next.</p>
-                                                <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree with a tax decision</a>.</p>
-          contact_hmrc_button: Contact HMRC
-          start_again: Start again
-      must_wait_for_challenge_decision:
-        show:
-          heading: You must wait before you can appeal
-          lead_text_html: >
-            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
-            <ul class="list list-bullet">
-              <li>received a review conclusion letter</li>
-              <li>waited 45 days and not received a letter</li>
-            </ul>
-
-      challenged_decision_status:
-        edit:
-          heading: What response did you receive?
 
   activemodel:
     errors:
       models:
-        steps/appeal/challenged_decision_form:
-          attributes:
-            challenged_decision:
-              inclusion: Select an option
-        steps/appeal/challenged_decision_status_form:
-          attributes:
-            challenged_decision_status:
-              inclusion: Select what response you received
         steps/appeal/case_type_form:
           attributes:
             case_type:
@@ -114,10 +69,6 @@ en:
   helpers:
     fieldset:
       # Use an empty string in _html keys to not show the fieldset legend
-      steps_appeal_challenged_decision_form:
-        challenged_decision_html: ""
-      steps_appeal_challenged_decision_status_form:
-        challenged_decision_status_html: ""
       steps_appeal_case_type_form:
         case_type_html: ""
       steps_appeal_case_type_show_more_form:
@@ -127,17 +78,6 @@ en:
       steps_appeal_penalty_amount_form:
         penalty_level_html: ""
     label:
-      steps_appeal_challenged_decision_form:
-        challenged_decision:
-          'yes': 'Yes'
-          'no': 'No'
-      steps_appeal_challenged_decision_status_form:
-        challenged_decision_status:
-          received: I have a review conclusion letter
-          pending: I have been waiting less than 45 days for a review to finish
-          overdue: I have been waiting for 45 days or more for a review to finish
-          refused: I was refused a review as I was outside the time limit
-          not_required: I was offered a review but didn’t accept
       steps_appeal_case_type_form:
         case_type:
           income_tax_html: <strong>Income Tax</strong><br>including tax paid through Pay As You Earn (PAYE) and Self Assessment

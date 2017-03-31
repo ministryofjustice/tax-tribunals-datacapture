@@ -1,5 +1,5 @@
-module Steps::Appeal
-  class ChallengedDecisionStatusForm < BaseForm
+module Steps::Challenge
+  class DecisionStatusForm < BaseForm
     attribute :challenged_decision_status, String
 
     validates_inclusion_of :challenged_decision_status, in: proc { |record| record.choices }, if: :tribunal_case
