@@ -15,6 +15,11 @@ TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
   taxpayer_contact_email: Email address
   taxpayer_contact_phone: Contact phone number (optional)
 
+PENALTY_LEVELS: &PENALTY_LEVELS
+  penalty_level_1: "£100 or less"
+  penalty_level_2: over £100 – £20,000
+  penalty_level_3: over £20,000
+
 en:
   steps:
     appeal:
@@ -54,9 +59,7 @@ en:
           heading: How much is the penalty or surcharge you are disputing?
           lead_text: Check the original notice letter or review conclusion letter
             for this information.
-          penalty_level_1: "£100 or less"
-          penalty_level_2: over £100 – £20,000
-          penalty_level_3: over £20,000
+          <<: *PENALTY_LEVELS
       tax_amount:
         edit:
           heading: How much tax is under dispute?
@@ -606,9 +609,7 @@ en:
       steps_appeal_penalty_amount_form:
         penalty_amount: Enter the penalty or surcharge amount (optional)
         penalty_level:
-          penalty_level_1: "£100 or less"
-          penalty_level_2: over £100 – £20,000
-          penalty_level_3: over £20,000
+          <<: *PENALTY_LEVELS
       steps_appeal_tax_amount_form:
         tax_amount: Enter the amount of tax under dispute (optional)
       steps_appeal_penalty_and_tax_amounts_form:
@@ -844,9 +845,7 @@ en:
       question: What is the penalty or surcharge amount?
       accessible_change_text: what the penalty or surcharge amount is
       answers:
-        penalty_level_1: "£100 or less"
-        penalty_level_2: over £100 – £20,000
-        penalty_level_3: over £20,000
+        <<: *PENALTY_LEVELS
     penalty_amount:
       question: What is the penalty or surcharge amount?
       accessible_change_text: what the penalty or surcharge amount is
