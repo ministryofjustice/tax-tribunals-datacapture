@@ -1,4 +1,57 @@
 ---
+YESNO: &YESNO
+  'yes': 'Yes'
+  'no': 'No'
+
+REP_ADDRESS: &REP_ADDRESS
+  representative_contact_address: Address
+  representative_contact_postcode: Postcode
+  representative_contact_email: Email address
+  representative_contact_phone: Contact phone number (optional)
+
+TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
+  taxpayer_contact_address: Address
+  taxpayer_contact_postcode: Postcode
+  taxpayer_contact_email: Email address
+  taxpayer_contact_phone: Contact phone number (optional)
+
+PENALTY_LEVELS: &PENALTY_LEVELS
+  penalty_level_1: "£100 or less"
+  penalty_level_2: over £100 – £20,000
+  penalty_level_3: over £20,000
+
+CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
+  edit:
+    heading: What is your appeal about?
+    lead_text: Check the original notice letter or review conclusion letter.
+
+START_FINISH: &START_FINISH
+  start_again: Start again
+  finish: Finish
+
+CYA_CONFIRMATION: &CYA_CONFIRMATION
+  check_answers:
+    show:
+      heading: Check your answers
+  confirmation:
+    show:
+      case_submitted: Case submitted
+      confirmation_email: We will send confirmation by email
+      save_or_print_pdf: Save or print your case details
+      what_happens_next_html: |
+        <p>Please save or print your case details for your records.</p>
+        <h2 class="heading-medium">What happens next?</h2>
+        <p>The tax tribunal will:</p>
+        <ul class="list list-bullet">
+          <li>check your details and may ask you for more information</li>
+          <li>write to confirm the next steps and if there will be a hearing</li>
+          <li>contact any other parties and ask them to respond</li>
+        </ul>
+        <p>
+          If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
+          <a href="https://www.gov.uk/call-charges">call charges</a>).
+        </p>
+
 en:
   steps:
     appeal:
@@ -22,13 +75,9 @@ en:
             </p>
           continue: Continue
       case_type:
-        edit:
-          heading: What is your appeal about?
-          lead_text: Check the original notice letter or review conclusion letter.
+        <<: *CASE_TYPE_QUESTION
       case_type_show_more:
-        edit:
-          heading: What is your appeal about?
-          lead_text: Check the original notice letter or review conclusion letter.
+        <<: *CASE_TYPE_QUESTION
       dispute_type:
         edit:
           heading: What is your dispute about?
@@ -38,9 +87,7 @@ en:
           heading: How much is the penalty or surcharge you are disputing?
           lead_text: Check the original notice letter or review conclusion letter
             for this information.
-          penalty_level_1: "£100 or less"
-          penalty_level_2: over £100 – £20,000
-          penalty_level_3: over £20,000
+          <<: *PENALTY_LEVELS
       tax_amount:
         edit:
           heading: How much tax is under dispute?
@@ -94,7 +141,7 @@ en:
             what you can do next.</p> <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
             with a tax decision</a>.</p>
           contact_hmrc_button: Contact HMRC
-          start_again: Start again
+          <<: *START_FINISH
       must_wait_for_challenge_decision:
         show:
           heading: You must wait before you can appeal
@@ -134,27 +181,7 @@ en:
           lead_text: The tax tribunal is independent and doesn't have access to any
             information you may have sent to HMRC.
           having_problems_uploading_html: I am having trouble uploading my documents
-      check_answers:
-        show:
-          heading: Check your answers
-      confirmation:
-        show:
-          case_submitted: Case submitted
-          confirmation_email: We will send confirmation by email
-          save_or_print_pdf: Save or print your case details
-          what_happens_next_html: |
-            <p>Please save or print your case details for your records.</p>
-            <h2 class="heading-medium">What happens next?</h2>
-            <p>The tax tribunal will:</p>
-            <ul class="list list-bullet">
-              <li>check your details and may ask you for more information</li>
-              <li>write to confirm the next steps and if there will be a hearing</li>
-              <li>contact any other parties and ask them to respond</li>
-            </ul>
-            <p>
-              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-              <a href="https://www.gov.uk/call-charges">call charges</a>).
-            </p>
+      <<: *CYA_CONFIRMATION
     shared:
       document_upload:
         current_document:
@@ -287,27 +314,7 @@ en:
           lead_text: Give a summary of the decisions you think should be made in regards
             to your %{appeal_or_application}. Write no more than 2-3 sentences which
             clearly outline the result you want.
-      check_answers:
-        show:
-          heading: Check your answers
-      confirmation:
-        show:
-          case_submitted: Case submitted
-          confirmation_email: We will send confirmation by email
-          save_or_print_pdf: Save or print your case details
-          what_happens_next_html: |
-            <p>Please save or print your case details for your records.</p>
-            <h2 class="heading-medium">What happens next?</h2>
-            <p>The tax tribunal will:</p>
-            <ul class="list list-bullet">
-              <li>check your details and may ask you for more information</li>
-              <li>write to confirm the next steps and if there will be a hearing</li>
-              <li>contact any other parties and ask them to respond</li>
-            </ul>
-            <p>
-              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-              <a href="https://www.gov.uk/call-charges">call charges</a>).
-            </p>
+      <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
           heading: Complete your appeal by post
@@ -590,9 +597,7 @@ en:
       steps_appeal_penalty_amount_form:
         penalty_amount: Enter the penalty or surcharge amount (optional)
         penalty_level:
-          penalty_level_1: "£100 or less"
-          penalty_level_2: over £100 – £20,000
-          penalty_level_3: over £20,000
+          <<: *PENALTY_LEVELS
       steps_appeal_tax_amount_form:
         tax_amount: Enter the amount of tax under dispute (optional)
       steps_appeal_penalty_and_tax_amounts_form:
@@ -600,8 +605,7 @@ en:
         penalty_amount: Enter the penalty or surcharge amount (optional)
       steps_challenge_decision_form:
         challenged_decision:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_challenge_decision_status_form:
         challenged_decision_status:
           received: I have a review conclusion letter
@@ -646,8 +650,7 @@ en:
             example a partnership, LLP, trust, club or association"
       steps_details_has_representative_form:
         has_representative:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_details_representative_professional_status_form:
         representative_professional_status:
           england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
@@ -664,58 +667,34 @@ en:
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
             example a partnership or LLP"
       generic_taxpayer_contact_labels:
-        taxpayer_contact_address: Address
-        taxpayer_contact_postcode: Postcode
-        taxpayer_contact_email: Email address
-        taxpayer_contact_phone: Contact phone number (optional)
+        <<: *TAXPAYER_ADDRESS
       steps_details_taxpayer_individual_details_form:
-        taxpayer_contact_address: Address
-        taxpayer_contact_postcode: Postcode
-        taxpayer_contact_email: Email address
-        taxpayer_contact_phone: Contact phone number (optional)
+        <<: *TAXPAYER_ADDRESS
         taxpayer_individual_first_name: First name
         taxpayer_individual_last_name: Last name
       steps_details_taxpayer_company_details_form:
-        taxpayer_contact_address: Address
-        taxpayer_contact_postcode: Postcode
-        taxpayer_contact_email: Email address
-        taxpayer_contact_phone: Contact phone number (optional)
+        <<: *TAXPAYER_ADDRESS
         taxpayer_organisation_name: Company name
         taxpayer_organisation_registration_number: Company registration number (optional)
         taxpayer_organisation_fao: Contact name
       steps_details_taxpayer_organisation_details_form:
-        taxpayer_contact_address: Address
-        taxpayer_contact_postcode: Postcode
-        taxpayer_contact_email: Email address
-        taxpayer_contact_phone: Contact phone number (optional)
+        <<: *TAXPAYER_ADDRESS
         taxpayer_organisation_name: Organisation name
         taxpayer_organisation_fao: Contact name
       generic_representative_contact_labels:
-        representative_contact_address: Address
-        representative_contact_postcode: Postcode
-        representative_contact_email: Email address
-        representative_contact_phone: Contact phone number (optional)
+        <<: *REP_ADDRESS
       steps_details_representative_individual_details_form:
-        representative_contact_address: Address
-        representative_contact_postcode: Postcode
-        representative_contact_email: Email address
-        representative_contact_phone: Contact phone number (optional)
+        <<: *REP_ADDRESS
         representative_individual_first_name: First name
         representative_individual_last_name: Last name
       steps_details_representative_company_details_form:
-        representative_contact_address: Address
-        representative_contact_postcode: Postcode
-        representative_contact_email: Email address
-        representative_contact_phone: Contact phone number (optional)
+        <<: *REP_ADDRESS
         representative_organisation_name: Company name
         representative_organisation_registration_number: Company registration number
           (optional)
         representative_organisation_fao: Contact name
       steps_details_representative_organisation_details_form:
-        representative_contact_address: Address
-        representative_contact_postcode: Postcode
-        representative_contact_email: Email address
-        representative_contact_phone: Contact phone number (optional)
+        <<: *REP_ADDRESS
         representative_organisation_name: Organisation name
         representative_organisation_fao: Contact name
       steps_details_grounds_for_appeal_form:
@@ -728,12 +707,10 @@ en:
         outcome: Enter the outcome you want
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_hardship_hardship_review_requested_form:
         hardship_review_requested:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_hardship_hardship_review_status_form:
         hardship_review_status:
           granted: 'Yes'
@@ -825,14 +802,12 @@ en:
       question: Did you appeal the original decision with HMRC?
       accessible_change_text: whether you appealed the original decision with HMRC
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     challenged_decision_indirect:
       question: Did you ask for a review of the original decision?
       accessible_change_text: whether you asked for a review of the original decision
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     challenged_decision_status:
       question: What reponse did you receive?
       accessible_change_text: what response you received
@@ -858,9 +833,7 @@ en:
       question: What is the penalty or surcharge amount?
       accessible_change_text: what the penalty or surcharge amount is
       answers:
-        penalty_level_1: "£100 or less"
-        penalty_level_2: over £100 – £20,000
-        penalty_level_3: over £20,000
+        <<: *PENALTY_LEVELS
     penalty_amount:
       question: What is the penalty or surcharge amount?
       accessible_change_text: what the penalty or surcharge amount is
@@ -871,15 +844,13 @@ en:
       question: Have you paid the amount of tax under dispute?
       accessible_change_text: whether you have paid the amount of tax under dispute
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     hardship_review_requested:
       question: Did you ask HMRC if you could appeal without paying the tax first?
       accessible_change_text: whether you asked HMRC if you could appeal without paying
         the tax first
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     hardship_review_status:
       question: Did HMRC allow you to defer paying because of financial hardship?
       accessible_change_text: whether HMRC allowed you to defer paying because of
@@ -896,8 +867,7 @@ en:
       question: Is the %{appeal_or_application} in time?
       accessible_change_text: whether your %{appeal_or_application} is in time
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
         unsure: I am not sure
     lateness_reason:
       question: Reason(s) for late %{appeal_or_application}
@@ -1001,8 +971,7 @@ en:
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
-    finish: Finish
-    start_again: Start again
+    <<: *START_FINISH
   errors:
     format: "%{message}"
     messages:
@@ -1016,7 +985,7 @@ en:
       text: ''
     case_not_found:
       heading: Sorry, you'll have to start again
-      start_again: Start again
+      <<: *START_FINISH
       lead_text: Your session automatically ends if you don't use the service for
         %{session_timeout} minutes.
       more_text: We do this for your security. We haven't saved any information you
@@ -1026,14 +995,13 @@ en:
       lead_text_html: |
         To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
         (find out about <a href="https://www.gov.uk/call-charges">call charges</a>).
-      start_again: Start again
-      finish: Finish
+      <<: *START_FINISH
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
       save_or_print_pdf: Save or print your case details
     unhandled:
       heading: Sorry, something went wrong
-      start_again: Start again
+      <<: *START_FINISH
       lead_text: To keep this service secure, any information you have entered hasn't
         been saved.
       more_text: You'll need to start again.
@@ -1043,7 +1011,7 @@ en:
       more_text_html: |
         <p>You can also try starting from the homepage to find the information you need.</p>
         <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
-      start_again: Start again
+      <<: *START_FINISH
   layouts:
     footer_links:
       contact: Contact
