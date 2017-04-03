@@ -1,8 +1,4 @@
 language: ruby
 services: postgresql
-env:
-  - DATABASE_URL=postgresql://postgres@localhost/travis_ci_test
-  - GOVUK_NOTIFY_API_KEY=deadbeef
-  - TAX_TRIBUNALS_DOWNLOADER_URL=http://downloader.dsd.io
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
