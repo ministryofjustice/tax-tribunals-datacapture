@@ -3,49 +3,44 @@ require 'spec_helper'
 RSpec.shared_examples 'sanitizing actions' do
   let(:value) { double.as_null_object }
 
-  specify 'have html escaped' do
-    expect(CGI).to receive(:escapeHTML).and_return(value)
-    subject.send(:sanitize)
-  end
-
   specify 'are sanitized' do
-    expect(Sanitize).to receive(:fragment).with('some text', anything).and_return(value)
+    expect(Sanitize).to receive(:fragment).with('some text').and_return(value)
     subject.send(:sanitize)
   end
 
   specify 'scrub *' do
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with('*', anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with('*', '&#42;')
     subject.send(:sanitize)
   end
 
   specify 'scrub =' do
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with('=', anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with('=', '&#61;')
     subject.send(:sanitize)
   end
 
   specify 'scrub -' do # kills SQL comments
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with('-', anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with('-', '&dash;')
     subject.send(:sanitize)
   end
 
   specify 'scrub %' do
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with('%', anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with('%', '&#37;')
     subject.send(:sanitize)
   end
 
   specify 'remove `drop table` case-insensitively'do
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with(/drop\s+table/i, anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with(/drop\s+table/i, '')
     subject.send(:sanitize)
   end
 
   specify 'remove `insert into` case-insensitively'do
-    allow(CGI).to receive(:escapeHTML).and_return(value)
-    expect(value).to receive(:gsub).with(/insert\s+into/i, anything)
+    allow(Sanitize).to receive(:fragment).and_return(value)
+    expect(value).to receive(:gsub).with(/insert\s+into/i, '')
     subject.send(:sanitize)
   end
 end
@@ -69,11 +64,6 @@ RSpec.describe TribunalCase, type: :model do
       # Didn't use a double here as it kept getting seralized into a string.
       let(:attributes) { { in_time: InTime::YES } }
 
-      specify 'do not have html escaped' do
-        expect(CGI).not_to receive(:escapeHTML)
-        subject.send(:sanitize)
-      end
-
       specify 'are not sanitized' do
         expect(Sanitize).not_to receive(:fragment)
         subject.send(:sanitize)
@@ -85,11 +75,6 @@ RSpec.describe TribunalCase, type: :model do
       let(:attributes) { { outcome: 'otherwise sanitized' } }
       before do
         allow_any_instance_of(ActiveRecord::ConnectionAdapters::PostgreSQLColumn).to receive(:type).and_return(double)
-      end
-
-      specify 'do not have html escaped' do
-        expect(CGI).not_to receive(:escapeHTML)
-        subject.send(:sanitize)
       end
 
       specify 'are not sanitized' do

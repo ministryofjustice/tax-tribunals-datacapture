@@ -84,7 +84,7 @@ class TribunalCase < ApplicationRecord
   end
 
   def sanitizer(value)
-    CGI.escapeHTML(Sanitize.fragment(value, Sanitize::Config::RESTRICTED)).
+    Sanitize.fragment(value).
       gsub('*', '&#42;').
       gsub('=', '&#61;').
       gsub('-', '&dash;').
