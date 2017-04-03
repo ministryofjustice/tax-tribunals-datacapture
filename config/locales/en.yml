@@ -101,7 +101,7 @@ en:
     challenge:
       decision:
         edit:
-          heading_direct: Did you appeal the original decision with HMRC?
+          heading_direct: Did you appeal the original decision to HMRC?
           heading_indirect: Did you ask for a review of the original decision?
           help_panel:
             heading: Help with challenging a tax decision
@@ -132,7 +132,7 @@ en:
             </ul>
       must_challenge_hmrc:
         show:
-          heading: You must appeal the original decision with HMRC
+          heading: You must appeal the original decision to HMRC
           lead_text: The original notice letter will explain what to do.
           free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal
             once you have written to HMRC.
@@ -155,14 +155,14 @@ en:
         show:
           continue: Continue
           heading: Apply to close an enquiry
-          lead_text: Ask the judge to close an enquiry into your tax affairs.
+          lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
           description_html: |
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
-              <li><strong>details of the enquiry you want closed</strong> including the HMRC reference number and tax years under enquiry</li>
+              <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
             </ul>
-            <p>You can also provide further information and supporting documents saying why you think the enquiry should close.</p>
-            <p>You'll need to download and fill in an <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
+            <p>You can provide further information and supporting documents saying why you think the enquiry should end.</p>
+            <p>You can also add details if you want someone to receive correspondence or go to a hearing for you. If they are not a legal professional, you will need to give your <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation (%{approval_form_format_and_size})</a> saying they can represent you.</p>
       case_type:
         edit:
           heading: What type of enquiry do you want to close?
@@ -355,11 +355,10 @@ en:
       disputed_tax_paid:
         edit:
           heading: Have you paid the amount of tax under dispute?
-          lead_text: If you can't pay because it will cause you financial hardship,
-            you can still continue your appeal.
+          lead_text: You must pay any tax under dispute, unless it will cause financial hardship. You do not have to pay a penalty or surcharge before you can appeal.
       hardship_review_requested:
         edit:
-          heading: Did you ask HMRC if you could appeal without paying the tax first?
+          heading: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
           lead_text: Your appeal will be kept pending until you write to HMRC and
             explain why paying might cause financial hardship.
       hardship_review_status:
@@ -799,8 +798,8 @@ en:
         tobacco_products_duty: Tobacco Products Duty
         vat: Value Added Tax (VAT)
     challenged_decision_direct:
-      question: Did you appeal the original decision with HMRC?
-      accessible_change_text: whether you appealed the original decision with HMRC
+      question: Did you appeal the original decision to HMRC?
+      accessible_change_text: whether you appealed the original decision to HMRC
       answers:
         <<: *YESNO
     challenged_decision_indirect:
@@ -1044,7 +1043,7 @@ en:
       link_descriptions:
         appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force
           or the National Crime Agency.
-        close: Ask the judge to order the closure of an ongoing tax enquiry.
+        close: Ask the judge for a closure, counteraction or no-counteraction notice.
       link_time_estimate: "%{minutes} minutes to complete"
     contact:
       heading: Contact
