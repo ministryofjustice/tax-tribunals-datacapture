@@ -13,7 +13,7 @@ Feature: Income Tax Happy Paths
   @happy_path
   Scenario: Individual Income Tax Happy Path
     Given I choose "Income Tax"
-    Then I should see "Did you appeal the original decision with HMRC?"
+    Then I should see "Did you appeal the original decision to HMRC?"
 
     Given I choose "Yes"
     And I choose "I have a review conclusion letter"
