@@ -403,6 +403,22 @@ en:
             %{appeal_or_application} late. These are usually unforeseen circumstances
             or events beyond your control which meant you weren't able to meet the
             tax tribunal deadline.
+  devise:
+    sessions:
+      new:
+        heading: Sign into your account
+        create_account: I need to create an account
+    registrations:
+      new:
+        heading: Create account
+        existing_account: I've already created an account
+        password_advice_heading: "Passwords should be:"
+        password_advice_html: |
+          <ul class="list list-bullet">
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+          </ul>
   activemodel:
     errors:
       models:
@@ -495,6 +511,20 @@ en:
           attributes:
             in_time:
               inclusion: Select whether you are in time to appeal to the tax tribunal
+  activerecord:
+    errors:
+      models:
+        user:
+          email: Foo
+          attributes:
+            email:
+              blank: Please enter an email address
+              invalid: Please enter a valid email address
+              taken: There is already an account with this email address. Try signing in.
+            password:
+              blank: Please enter a password
+              too_short: Your password must be at least %{count} characters
+              too_long: Your password must be no longer than %{count} characters
   helpers:
     fieldset:
       steps_appeal_case_type_form:
@@ -729,9 +759,14 @@ en:
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
         lateness_reason: Reason(s) for late appeal
+      user:
+        email: Email
+        password: Password
     submit:
       create: Continue
       update: Continue
+      create_account: Create account
+      sign_in: Sign in
   check_answers:
     attached_document: Attached document
     change: Change

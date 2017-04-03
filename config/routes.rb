@@ -14,6 +14,8 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
+  devise_for :users
+
   namespace :steps do
     namespace :appeal do
       show_step :start
