@@ -35,7 +35,6 @@ class CaseType < ValueObject
     AGGREGATES_LEVY              = new(:aggregates_levy,              indirect_tax_properties),
     AIR_PASSENGER_DUTY           = new(:air_passenger_duty,           indirect_tax_properties),
     ALCOHOLIC_LIQUOR_DUTIES      = new(:alcoholic_liquor_duties,      indirect_tax_properties),
-    COUNTERACTION_NOTICE         = new(:counteraction_notice,         direct_tax_properties),
     BINGO_DUTY                   = new(:bingo_duty,                   indirect_tax_properties),
     CAPITAL_GAINS_TAX            = new(:capital_gains_tax,            direct_tax_properties),
     CLIMATE_CHANGE_LEVY          = new(:climate_change_levy,          indirect_tax_properties),

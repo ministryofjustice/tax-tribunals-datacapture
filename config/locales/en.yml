@@ -541,8 +541,6 @@ en:
           aggregates_levy_html: "<strong>Aggregates Levy</strong>"
           air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"
           alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong>"
-          counteraction_notice_html: "<strong>Counteraction notice</strong><br>request
-            HMRC issue a counteraction notice or no counteraction notice"
           bingo_duty_html: "<strong>Bingo Duty</strong>"
           climate_change_levy_html: "<strong>Climate Change Levy</strong>"
           construction_industry_scheme_html: "<strong>Construction Industry Scheme
@@ -771,7 +769,6 @@ en:
         construction_industry_scheme: Construction Industry Scheme (CIS)
         corporation_tax: Corporation Tax
         counter_terrorism: Counter-terrorism decision
-        counteraction_notice: Counteraction notice
         customs_duty: Customs Duty
         dotas_penalty: Disclosure Of Tax Avoidance Schemes (DOTAS) penalty
         export_regulations_penalty: Export (Penalty) Regulations / FA 2003 decision
