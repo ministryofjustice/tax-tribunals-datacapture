@@ -50,8 +50,6 @@ module MappingCodeDeterminer
   def case_type_mapping_code
     # TODO: Add further when-branches once we have additional case types
     case case_type
-    when CaseType::COUNTERACTION_NOTICE
-      MappingCode::APPN_DECISION_ENQRY
     when CaseType::REQUEST_LATE_REVIEW
       MappingCode::APPN_LATE
     when CaseType::OTHER
