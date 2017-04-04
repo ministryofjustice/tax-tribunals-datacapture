@@ -1,6 +1,18 @@
+<% if ENV['HEROKU_DEMO_MODE'] %>
 <div class="phase-banner-alpha">
   <p>
-    <strong class="phase-tag">BETA</strong>
+  <strong class="phase-tag">
+    System is running in demo mode. Cases created here will NOT be submitted to the tribunal.
+  </strong>
+  </p>
+</div>
+<img src="https://glimr-api-emulator.herokuapp.com/" height="1" width="1" class="hidden">
+<img src="https://tax-tribunals-uploader-demo.herokuapp.com/" height="1" width="1" class="hidden">
+<% else %>
+<div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">beta</strong>
     <span><%= t('.phase_info_html', feedback_email: Rails.configuration.feedback_email) %></span>
   </p>
 </div>
+<% end %>
