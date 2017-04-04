@@ -121,6 +121,11 @@ en:
         show:
           heading: You must ask for a review of the original decision
           lead_text_html: The original notice letter will explain what to do.
+          review_text_html: <p>You should ask for a review even if you think
+            you are late. HMRC will decide whether to accept your review or explain
+            what you can do next.</p> 
+            <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
+            with a tax decision</a>.</p>
       must_wait_for_review_decision:
         show:
           heading: You must wait before you can appeal
