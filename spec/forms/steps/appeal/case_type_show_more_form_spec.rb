@@ -24,7 +24,6 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
         aggregates_levy
         air_passenger_duty
         alcoholic_liquor_duties
-        counteraction_notice
         bingo_duty
         climate_change_levy
         construction_industry_scheme

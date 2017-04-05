@@ -17,13 +17,13 @@ RSpec.describe CaseCreator do
     end
 
     context 'registering the case into glimr' do
-      context 'marking the tribunal case as `in_progress`' do
+      context 'marking the tribunal case as `submit_in_progress`' do
         let(:glimr_new_case_double) {
           instance_double(GlimrNewCase, call: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
         }
 
-        it 'should mark the tribunal case as `in_progress` while GLiMR call is executed' do
-          expect(tribunal_case).to receive(:update).with(case_status: CaseStatus::IN_PROGRESS)
+        it 'should mark the tribunal case as `submit_in_progress` while GLiMR call is executed' do
+          expect(tribunal_case).to receive(:update).with(case_status: CaseStatus::SUBMIT_IN_PROGRESS)
           expect(tribunal_case).to receive(:update).with(case_reference: 'TC/2017/12345', case_status: CaseStatus::SUBMITTED)
           subject.call
         end

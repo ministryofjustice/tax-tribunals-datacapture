@@ -1,58 +1,58 @@
----
-YESNO: &YESNO
-  'yes': 'Yes'
-  'no': 'No'
-
-REP_ADDRESS: &REP_ADDRESS
-  representative_contact_address: Address
-  representative_contact_postcode: Postcode
-  representative_contact_email: Email address
-  representative_contact_phone: Contact phone number (optional)
-
-TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
-  taxpayer_contact_address: Address
-  taxpayer_contact_postcode: Postcode
-  taxpayer_contact_email: Email address
-  taxpayer_contact_phone: Contact phone number (optional)
-
-PENALTY_LEVELS: &PENALTY_LEVELS
-  penalty_level_1: "£100 or less"
-  penalty_level_2: over £100 – £20,000
-  penalty_level_3: over £20,000
-
-CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
-  edit:
-    heading: What is your appeal about?
-    lead_text: Check the original notice letter or review conclusion letter.
-
-START_FINISH: &START_FINISH
-  start_again: Start again
-  finish: Finish
-
-CYA_CONFIRMATION: &CYA_CONFIRMATION
-  check_answers:
-    show:
-      heading: Check your answers
-  confirmation:
-    show:
-      case_submitted: Case submitted
-      confirmation_email: We will send confirmation by email
-      save_or_print_pdf: Save or print your case details
-      what_happens_next_html: |
-        <p>Please save or print your case details for your records.</p>
-        <h2 class="heading-medium">What happens next?</h2>
-        <p>The tax tribunal will:</p>
-        <ul class="list list-bullet">
-          <li>check your details and may ask you for more information</li>
-          <li>write to confirm the next steps and if there will be a hearing</li>
-          <li>contact any other parties and ask them to respond</li>
-        </ul>
-        <p>
-          If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-          <a href="https://www.gov.uk/call-charges">call charges</a>).
-        </p>
-
 en:
+  dictionary:
+    YESNO: &YESNO
+      'yes': 'Yes'
+      'no': 'No'
+
+    REP_ADDRESS: &REP_ADDRESS
+      representative_contact_address: Address
+      representative_contact_postcode: Postcode
+      representative_contact_email: Email address
+      representative_contact_phone: Contact phone number (optional)
+
+    TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
+      taxpayer_contact_address: Address
+      taxpayer_contact_postcode: Postcode
+      taxpayer_contact_email: Email address
+      taxpayer_contact_phone: Contact phone number (optional)
+
+    PENALTY_LEVELS: &PENALTY_LEVELS
+      penalty_level_1: "£100 or less"
+      penalty_level_2: over £100 – £20,000
+      penalty_level_3: over £20,000
+
+    CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
+      edit:
+        heading: What is your appeal about?
+        lead_text: Check the original notice letter or review conclusion letter.
+
+    START_FINISH: &START_FINISH
+      start_again: Start again
+      finish: Finish
+
+    CYA_CONFIRMATION: &CYA_CONFIRMATION
+      check_answers:
+        show:
+          heading: Check your answers
+      confirmation:
+        show:
+          case_submitted: Case submitted
+          confirmation_email: We will send confirmation by email
+          save_or_print_pdf: Save or print your case details
+          what_happens_next_html: |
+            <p>Please save or print your case details for your records.</p>
+            <h2 class="heading-medium">What happens next?</h2>
+            <p>The tax tribunal will:</p>
+            <ul class="list list-bullet">
+              <li>check your details and may ask you for more information</li>
+              <li>write to confirm the next steps and if there will be a hearing</li>
+              <li>contact any other parties and ask them to respond</li>
+            </ul>
+            <p>
+              If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
+              <a href="https://www.gov.uk/call-charges">call charges</a>).
+            </p>
+
   steps:
     appeal:
       start:
@@ -121,6 +121,13 @@ en:
         show:
           heading: You must ask for a review of the original decision
           lead_text_html: The original notice letter will explain what to do.
+          review_text_html: |
+            <p>You should ask for a review even if you think you are late.</p>
+            <p>Find out more about:</p>
+            <ul class="list list-bullet">
+              <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+              <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
+            </ul>
       must_wait_for_review_decision:
         show:
           heading: You must wait before you can appeal
@@ -541,8 +548,6 @@ en:
           aggregates_levy_html: "<strong>Aggregates Levy</strong>"
           air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"
           alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong>"
-          counteraction_notice_html: "<strong>Counteraction notice</strong><br>request
-            HMRC issue a counteraction notice or no counteraction notice"
           bingo_duty_html: "<strong>Bingo Duty</strong>"
           climate_change_levy_html: "<strong>Climate Change Levy</strong>"
           construction_industry_scheme_html: "<strong>Construction Industry Scheme
@@ -771,7 +776,6 @@ en:
         construction_industry_scheme: Construction Industry Scheme (CIS)
         corporation_tax: Corporation Tax
         counter_terrorism: Counter-terrorism decision
-        counteraction_notice: Counteraction notice
         customs_duty: Customs Duty
         dotas_penalty: Disclosure Of Tax Avoidance Schemes (DOTAS) penalty
         export_regulations_penalty: Export (Penalty) Regulations / FA 2003 decision
