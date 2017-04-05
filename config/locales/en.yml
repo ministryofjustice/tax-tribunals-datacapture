@@ -123,8 +123,11 @@ en:
           lead_text_html: The original notice letter will explain what to do.
           review_text_html: <p>You should ask for a review even if you think
             you are late.</p>
-            <p>Check the options when you <a href="https://www.gov.uk/tax-appeals" target="_blank">disagree
-            with a tax decision</a>.</p>
+            <p>Find out more about:</p>
+          <ul class="list list-bullet">
+                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+                <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
+          </ul>
       must_wait_for_review_decision:
         show:
           heading: You must wait before you can appeal
