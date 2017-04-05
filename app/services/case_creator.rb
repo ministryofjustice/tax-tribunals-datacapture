@@ -7,7 +7,7 @@ class CaseCreator
 
   def call
     tribunal_case.update(
-      case_status: CaseStatus::IN_PROGRESS
+      case_status: CaseStatus::SUBMIT_IN_PROGRESS
     )
 
     glimr_case = GlimrNewCase.new(tribunal_case).call
