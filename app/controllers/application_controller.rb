@@ -38,6 +38,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_tribunal_case_status
-    raise Errors::CaseSubmitted unless current_tribunal_case.case_status.nil?
+    raise Errors::CaseSubmitted if current_tribunal_case.case_status&.submitted?
   end
 end
