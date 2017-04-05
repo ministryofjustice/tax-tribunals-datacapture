@@ -1,0 +1,38 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <h1 class="heading-large">
+      Is your email address correct?
+    </h1>
+
+    <p class="lede">You entered: <strong>terry-example@example.com</strong></p>
+
+    <form action="">
+
+      <div class="form-group">
+        <label class="block-label">
+          <input name="email_correct" type="radio" value="yes" />
+          Yes
+        </label>
+
+        <label class="block-label" data-target="correct_email_panel">
+          <input name="email_correct" type="radio" value="no" />
+          No
+        </label>
+      </div>
+
+      <div id="correct_email_panel" class="panel toggleable" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:first">
+        <div class="form-group">
+          <label class="form-label" for="account_email">Enter your email address again</label>
+          <input class="form-control form-control-3-4" type="text" id="account_email" data-store>
+        </div>
+      </div>
+
+      <p>
+        <input class="button" type="submit" value="Continue">
+      </p>
+
+    </form>
+
+  </div>
+</div>

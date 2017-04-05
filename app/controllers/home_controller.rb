@@ -16,6 +16,9 @@ class HomeController < ApplicationController
   def create_account
   end
 
+  def check_email
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
