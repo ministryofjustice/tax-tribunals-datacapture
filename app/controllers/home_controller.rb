@@ -13,6 +13,15 @@ class HomeController < ApplicationController
   def terms_and_conditions
   end
 
+  def create_account
+  end
+
+  def check_email
+  end
+
+  def appeal_saved
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
