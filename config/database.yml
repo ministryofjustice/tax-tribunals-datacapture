@@ -1,0 +1,13 @@
+# This file is only present to fix a Jenkins
+# build error that started to occur after
+# adding devise, but which we could not
+# reproduce on our local machines
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+test:
+  <<: *default
+production:
+  <<: *default
