@@ -7,6 +7,15 @@ RSpec.describe ApplicationController do
     def another_exception; raise Exception; end
   end
 
+  describe '#after_sign_in_path_for' do
+    let(:resource) { double('resource') }
+
+    it 'returns the root path' do
+      allow(subject).to receive(:root_path).and_return('foo')
+      expect(subject.after_sign_in_path_for(resource)).to eq('foo')
+    end
+  end
+
   context 'Exceptions handling' do
     before do
       allow(Rails).to receive_message_chain(:application, :config, :consider_all_requests_local).and_return(false)
