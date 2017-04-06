@@ -59,3 +59,22 @@ address {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+p.actions {
+
+  a, input {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  a {
+    margin-left: 3em;
+  }
+}
+
+.js-toggle-password {
+  cursor: pointer;
+  color: $link-colour;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
