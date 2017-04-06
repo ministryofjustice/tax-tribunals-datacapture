@@ -39,6 +39,10 @@ class CaseMailPresenter < SimpleDelegator
     ENV.fetch('TAX_TRIBUNAL_EMAIL')
   end
 
+  def survey_link
+    Rails.configuration.survey_link
+  end
+
   private
 
   def representative_contact_name

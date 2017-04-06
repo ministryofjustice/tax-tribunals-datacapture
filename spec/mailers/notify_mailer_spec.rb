@@ -34,7 +34,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'sets the personalisation' do
         expect(
           mail.govuk_notify_personalisation.keys
-        ).to eq([:recipient_name, :case_reference, :case_reference_present, :case_reference_absent, :appeal_or_application])
+        ).to eq([:recipient_name, :case_reference, :case_reference_present, :case_reference_absent, :appeal_or_application, :survey_link])
       end
     end
 
@@ -48,6 +48,7 @@ RSpec.describe NotifyMailer, type: :mailer do
 
     context 'capturing unexpected errors' do
       before do
+        allow(Rails).to receive_message_chain(:configuration, :survey_link).and_return('www.survey.com')
         allow(tribunal_case).to receive(:taxpayer_contact_email).and_raise('boom')
       end
 
@@ -62,7 +63,8 @@ RSpec.describe NotifyMailer, type: :mailer do
               case_reference: 'TC/2017/00001',
               case_reference_present: 'yes',
               case_reference_absent: 'no',
-              appeal_or_application: :appeal
+              appeal_or_application: :appeal,
+              survey_link: 'www.survey.com'
             }
           }
         )
