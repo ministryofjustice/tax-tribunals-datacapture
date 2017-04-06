@@ -61,6 +61,7 @@ group :test do
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
+  gem 'timecop'
   gem 'webmock'
 end
 

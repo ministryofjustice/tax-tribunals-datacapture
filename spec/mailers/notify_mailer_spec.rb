@@ -96,4 +96,18 @@ RSpec.describe NotifyMailer, type: :mailer do
       end
     end
   end
+
+  describe 'incomplete_case_reminder' do
+    let(:mail) { described_class.incomplete_case_reminder(tribunal_case, 'reminder-template-id') }
+
+    it_behaves_like 'a Notify mail', template_id: 'reminder-template-id'
+
+    context 'personalisation' do
+      it 'sets the personalisation' do
+        expect(
+          mail.govuk_notify_personalisation.keys
+        ).to eq([:recipient_name, :appeal_or_application])
+      end
+    end
+  end
 end
