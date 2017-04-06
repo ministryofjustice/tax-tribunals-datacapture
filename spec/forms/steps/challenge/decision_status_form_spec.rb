@@ -21,6 +21,7 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
           pending
           overdue
           not_required
+          appealing_directly
         ))
       end
     end
