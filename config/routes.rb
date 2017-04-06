@@ -106,6 +106,7 @@ Rails.application.routes.draw do
   get :terms_and_conditions, to: 'home#terms_and_conditions'
   get :create_account, to: 'home#create_account'
   get :check_email, to: 'home#check_email'
+  get :appeal_saved, to: 'home#appeal_saved'
 
   # catch-all route
   # :nocov:
