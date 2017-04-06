@@ -174,7 +174,7 @@ RSpec.describe TribunalCase, type: :model do
 
   describe '#appeal_or_application' do
     context 'Intent::CLOSE_ENQUIRY' do
-      let(:intent) { Intent::CLOSE_ENQUIRY }
+      let(:intent) { Intent.new(:close_enquiry) }
       let(:attributes) { { intent: intent } }
 
       specify 'returns :application' do
@@ -183,7 +183,7 @@ RSpec.describe TribunalCase, type: :model do
     end
 
     context 'Intent::TAX_APPEAL and no case type' do
-      let(:intent) { Intent::TAX_APPEAL }
+      let(:intent) { Intent.new(:tax_appeal) }
       let(:attributes) { { intent: intent } }
 
       specify do
