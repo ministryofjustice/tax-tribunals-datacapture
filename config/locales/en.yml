@@ -630,6 +630,7 @@ en:
           pending: I have been waiting less than 45 days for a review to finish
           overdue: I have been waiting for 45 days or more for a review to finish
           refused: I was refused a review as I was outside the time limit
+          appealing_directly: No response. I want to appeal directly to the tribunal
           not_required: I was offered a review but didn’t accept
       steps_closure_case_type_form:
         closure_case_type:
@@ -838,6 +839,7 @@ en:
         pending: I have been waiting less than 45 days for a review to finish
         overdue: I have been waiting for 45 days or more for a review to finish
         refused: I was refused a review as I was outside the time limit
+        appealing_directly: No response. I want to appeal directly to the tribunal
         not_required: I was offered a review but didn’t accept
     dispute_type:
       question: What is your dispute about?

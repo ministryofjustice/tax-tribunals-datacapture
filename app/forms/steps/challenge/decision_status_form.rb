@@ -10,7 +10,8 @@ module Steps::Challenge
           ChallengedDecisionStatus::RECEIVED,
           ChallengedDecisionStatus::PENDING,
           ChallengedDecisionStatus::OVERDUE,
-          ChallengedDecisionStatus::NOT_REQUIRED
+          ChallengedDecisionStatus::NOT_REQUIRED,
+          ChallengedDecisionStatus::APPEALING_DIRECTLY
         ]
       else
         [
