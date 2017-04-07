@@ -23,7 +23,7 @@
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'representative approval', ga_label: 'representative approval'} do |f| %>
         <%= document_upload_field(f, :representative_approval, label_text: t('.attach_document_html')) %>
 
-        <%= f.submit class: 'button document_upload_continue' %>
+        <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>
 
       <%= display_current_document(:representative_approval) %>
