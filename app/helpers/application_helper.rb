@@ -56,4 +56,8 @@ module ApplicationHelper
   def analytics_tracking_id
     ENV['GA_TRACKING_ID']
   end
+
+  def save_and_return_enabled?
+    Rails.configuration.x.features.save_and_return_enabled
+  end
 end
