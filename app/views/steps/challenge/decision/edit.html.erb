@@ -8,10 +8,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :challenged_decision, choices: Steps::Challenge::DecisionForm.choices %>
-      <p class="actions">
-        <%= f.submit class: 'button' %>
-        <a href="/create_account" class="link">Save and come back later</a>
-      </p>
+
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>
 
     <details>

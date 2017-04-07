@@ -8,7 +8,7 @@
       <%= f.radio_button_fieldset :challenged_decision_status,
         choices: @form_object.choices %>
 
-      <%= f.submit class: 'button' %>
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>
   </div>
 </div>
