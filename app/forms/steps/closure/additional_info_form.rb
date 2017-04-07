@@ -1,18 +1,22 @@
 module Steps::Closure
   class AdditionalInfoForm < BaseForm
+    include DocumentAttachable
+
     attribute :closure_additional_info, String
+    attribute :closure_additional_info_document, DocumentUpload
+
+    def document_key
+      :closure_additional_info
+    end
 
     private
 
-    def changed?
-      tribunal_case.closure_additional_info != closure_additional_info
-    end
-
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      return true unless changed?
 
-      tribunal_case.update(closure_additional_info: closure_additional_info)
+      upload_document_if_present && tribunal_case.update(
+        closure_additional_info: closure_additional_info
+      )
     end
   end
 end

@@ -6,16 +6,16 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:hardship_reason) %>">
+    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'hardship', ga_label: 'hardship reasons'} do |f| %>
         <%= f.text_area :hardship_reason, size: '60x10', class: 'form-control form-control-3-4 form-control-large' %>
 
-        <%= document_upload_field(f, :hardship_reason, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
 
         <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>
 
-      <%= display_current_document(:hardship_reason) %>
+      <%= display_current_document(@form_object.document_key) %>
     </div>
   </div>
 </div>

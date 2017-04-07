@@ -2,12 +2,14 @@ require 'spec_helper'
 
 RSpec.describe Steps::Lateness::LatenessReasonForm do
   let(:arguments) { {
-    tribunal_case:   tribunal_case,
-    lateness_reason: lateness_reason
+    tribunal_case: tribunal_case,
+    lateness_reason: text_attribute_value,
+    lateness_reason_document: document_attribute_value,
   } }
-  let(:tribunal_case)   { instance_double(TribunalCase, lateness_reason: nil, in_time: in_time) }
-  let(:lateness_reason) { nil }
-  let(:in_time)         { nil }
+  let(:tribunal_case) { instance_double(TribunalCase, lateness_reason: text_attribute_value, in_time: in_time, files_collection_ref: '12345') }
+  let(:text_attribute_value) { nil }
+  let(:document_attribute_value) { nil }
+  let(:in_time) { nil }
 
   subject { described_class.new(arguments) }
 
@@ -38,26 +40,6 @@ RSpec.describe Steps::Lateness::LatenessReasonForm do
   end
 
   describe '#save' do
-    it { should validate_presence_of(:lateness_reason) }
-
-    context 'when no tribunal_case is associated with the form' do
-      let(:tribunal_case)  { nil }
-      let(:lateness_reason) { 'I am a gummy bear' }
-
-      it 'raises an error' do
-        expect { subject.save }.to raise_error(RuntimeError)
-      end
-    end
-
-    context 'when lateness_reason is valid' do
-      let(:lateness_reason) { 'Forgive me, dear judge' }
-
-      it 'saves the record' do
-        expect(tribunal_case).to receive(:update).with(
-          lateness_reason: lateness_reason
-        ).and_return(true)
-        expect(subject.save).to be(true)
-      end
-    end
+    it_behaves_like 'a document attachable step form', attribute_name: :lateness_reason
   end
 end
