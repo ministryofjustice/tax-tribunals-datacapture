@@ -22,7 +22,8 @@ class NotifyMailer < GovukNotifyRails::Mailer
       case_reference: mail_presenter.case_reference,
       case_reference_present: mail_presenter.case_reference_present?,
       case_reference_absent: mail_presenter.case_reference_absent?,
-      appeal_or_application: mail_presenter.appeal_or_application
+      appeal_or_application: mail_presenter.appeal_or_application,
+      survey_link: mail_presenter.survey_link
     )
 
     mail(to: mail_presenter.recipient_email)

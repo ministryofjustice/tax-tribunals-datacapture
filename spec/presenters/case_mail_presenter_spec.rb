@@ -161,4 +161,11 @@ RSpec.describe CaseMailPresenter do
       subject.ftt_recipient_email
     end
   end
+
+  describe '#survey_link' do
+    it 'should retrieve it from the Rails config' do
+      expect(Rails).to receive_message_chain(:configuration, :survey_link)
+      subject.survey_link
+    end
+  end
 end
