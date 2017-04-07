@@ -32,5 +32,8 @@ module TaxTribunalsDatacapture
 
     config.x.session.expires_in_minutes = ENV.fetch('SESSION_EXPIRES_IN_MINUTES', 30).to_i
     config.x.session.warning_when_remaining = ENV.fetch('SESSION_WARNING_WHEN_REMAINING', 5).to_i
+
+    # TODO: Feature flags - remove when no longer needed
+    config.x.features.save_and_return_enabled = (ENV['SAVE_AND_RETURN_ENABLED'] == 'true')
   end
 end
