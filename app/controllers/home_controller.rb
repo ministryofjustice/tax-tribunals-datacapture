@@ -22,6 +22,9 @@ class HomeController < ApplicationController
   def appeal_saved
   end
 
+  def sign_in
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
