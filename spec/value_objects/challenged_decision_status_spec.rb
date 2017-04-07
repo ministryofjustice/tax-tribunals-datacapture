@@ -9,6 +9,7 @@ RSpec.describe ChallengedDecisionStatus do
         overdue
         refused
         not_required
+        appealing_directly
       ))
     end
   end
