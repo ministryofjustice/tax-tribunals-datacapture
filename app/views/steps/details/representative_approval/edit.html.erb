@@ -19,14 +19,14 @@
       </div>
     </details>
 
-    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(:representative_approval) %>">
+    <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'representative approval', ga_label: 'representative approval'} do |f| %>
-        <%= document_upload_field(f, :representative_approval, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
 
         <%= f.submit class: 'button document_upload_continue' %>
       <% end %>
 
-      <%= display_current_document(:representative_approval) %>
+      <%= display_current_document(@form_object.document_key) %>
     </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 en:
   dictionary:
+    attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
+    attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
+
     YESNO: &YESNO
       'yes': 'Yes'
       'no': 'No'
@@ -182,6 +185,7 @@ en:
       additional_info:
         edit:
           heading: Say why you think the enquiry should close (optional)
+          attach_document_html: "<strong>Attach reasons as a document (optional)</strong>"
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
@@ -303,7 +307,7 @@ en:
             supports your case.
           footer_description_text: You will next have to upload any supporting documents
             including any correspondence with HMRC and evidence to support your case.
-          attach_document_html: "<strong>Attach reasons as a document</strong>"
+          attach_document_html: *attach_reasons_document
       documents_checklist:
         edit:
           heading: Upload your letter(s)
@@ -378,7 +382,7 @@ en:
           heading: Why will paying the tax under dispute cause financial hardship?
           lead_text: The judge will decide whether your appeal can continue without
             paying the tax first.
-          attach_document_html: "<strong>Attach reasons as a document</strong>"
+          attach_document_html: *attach_reasons_document
     lateness:
       in_time:
         edit:
@@ -403,6 +407,7 @@ en:
             %{appeal_or_application} late. These are usually unforeseen circumstances
             or events beyond your control which meant you weren't able to meet the
             tax tribunal deadline.
+          attach_document_html: *attach_reasons_document
   activemodel:
     errors:
       models:
@@ -467,7 +472,7 @@ en:
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
-              blank: You must enter reasons or attach a document
+              blank: *attach_reasons_blank_error
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:
@@ -490,11 +495,15 @@ en:
         steps/hardship/hardship_reason_form:
           attributes:
             hardship_reason:
-              blank: You must enter reasons or attach a document
+              blank: *attach_reasons_blank_error
         steps/lateness/in_time_form:
           attributes:
             in_time:
               inclusion: Select whether you are in time to appeal to the tax tribunal
+        steps/lateness/lateness_reason_form:
+          attributes:
+            lateness_reason:
+              blank: *attach_reasons_blank_error
   activerecord:
     errors:
       models:
