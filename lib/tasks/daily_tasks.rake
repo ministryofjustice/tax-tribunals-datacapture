@@ -1,5 +1,5 @@
 task :daily_tasks do
-  puts "I'm in ur Rakefile, running ur daily tasks"
+  puts "#{Time.now} I'm in ur Rakefile, running ur daily tasks"
 
   # TODO: to be enabled once we have save and return
   # Rake::Task['case_reminders:first_email'].invoke
