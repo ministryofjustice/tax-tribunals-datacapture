@@ -44,6 +44,20 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: mail_presenter.ftt_recipient_email)
   end
 
+  def incomplete_case_reminder(tribunal_case, template_id)
+    mail_presenter = CaseMailPresenter.new(tribunal_case)
+
+    set_template(template_id)
+
+    # TODO: decide what personalisation we might need based on the template copy
+    set_personalisation(
+      recipient_name: mail_presenter.recipient_name,
+      appeal_or_application: mail_presenter.appeal_or_application
+    )
+
+    mail(to: mail_presenter.recipient_email)
+  end
+
   private
 
   def log_errors(exception)
