@@ -6,6 +6,15 @@ tr {
   vertical-align: top;
 }
 
+td {
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+}
+
 td.details {
   font-weight: bold;
 }
@@ -49,3 +58,20 @@ table.check-your-answers {
   }
 }
 
+table.saved-appeals {
+  th {
+    @include bold-16;
+  }
+
+  td {
+    @include core-16;
+  }
+
+  tr {
+    vertical-align: middle;
+  }
+
+  .not-entered {
+    color: $grey-2;
+  }
+}
