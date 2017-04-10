@@ -60,7 +60,7 @@ address {
   text-overflow: ellipsis;
 }
 
-p.actions {
+.actions {
 
   a, input {
     vertical-align: middle;
@@ -69,6 +69,18 @@ p.actions {
 
   a {
     margin-left: 3em;
+  }
+
+  &.actions-tight {
+    a {
+      margin-left: 0;
+      margin-bottom: 5px;
+
+      @media (min-width: 641px) {
+        margin-left: 10px;
+        margin-top: 0;
+      }
+    }
   }
 }
 
