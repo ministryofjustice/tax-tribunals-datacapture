@@ -81,6 +81,7 @@ Rails.application.routes.draw do
   end
 
   resources :appeal_cases, :closure_cases, only: [:create]
+  resources :cases, only: [:destroy]
 
   resource :session, only: [:destroy] do
     member do
