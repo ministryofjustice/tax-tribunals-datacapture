@@ -1,5 +1,5 @@
 class CasesController < ApplicationController
-  before_action :check_tribunal_case_presence, :check_tribunal_case_status
+  before_action :check_tribunal_case_presence, :check_tribunal_case_status, only: [:create]
 
   def create
     @presenter = presenter_class.new(current_tribunal_case, format: :pdf)
@@ -9,6 +9,14 @@ class CasesController < ApplicationController
     send_emails
 
     redirect_to confirmation_path
+  end
+
+  def destroy
+    tribunal_case = TribunalCase.find(params[:id])
+    tribunal_case.destroy
+
+    # TODO: redirecting to the prototype portfolio for now, this might change later
+    redirect_to saved_appeals_path
   end
 
   private
