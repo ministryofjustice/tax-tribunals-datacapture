@@ -33,6 +33,8 @@ module TaxTribunalsDatacapture
     config.x.session.expires_in_minutes = ENV.fetch('SESSION_EXPIRES_IN_MINUTES', 30).to_i
     config.x.session.warning_when_remaining = ENV.fetch('SESSION_WARNING_WHEN_REMAINING', 5).to_i
 
+    config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
+
     # TODO: Feature flags - remove when no longer needed
     config.x.features.save_and_return_enabled = (ENV['SAVE_AND_RETURN_ENABLED'].to_s.downcase == 'true')
   end

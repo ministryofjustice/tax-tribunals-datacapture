@@ -23,6 +23,21 @@ RSpec.describe NotifyMailer, type: :mailer do
   before do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
+  end
+
+  describe '#reset_password_instructions' do
+    let(:mail) { described_class.reset_password_instructions(user, token) }
+    let(:user) { User.new(email: 'shirley.schmidt@cranepooleandschmidt.com') }
+    let(:token) { '0xDEADBEEF' }
+
+    it_behaves_like 'a Notify mail', template_id: 'reset-password-template'
+
+    it 'has the right keys' do
+      expect(mail.govuk_notify_personalisation).to eq({
+        reset_url: 'https://tax.justice.uk/users/password/edit?reset_password_token=0xDEADBEEF'
+      })
+    end
   end
 
   describe 'taxpayer_case_confirmation' do
