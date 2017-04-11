@@ -25,6 +25,9 @@ Rails.application.configure do
 
   config.active_support.deprecation = :stderr
 
+  # So we can always expect the same value in tests
+  config.action_mailer.default_url_options = { host: 'https://tax.justice.uk' }
+
   # NB: Because of the way the form builder works, and hence the
   # gov.uk elements formbuilder, exceptions will not be raised for
   # missing translations of model attribute names. The form will
