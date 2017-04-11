@@ -33,6 +33,10 @@ class TribunalCase < ApplicationRecord
   # third-party APIs.
   before_save :sanitize
 
+  def self.purge!(date)
+    where(['created_at < ?', date]).delete_all
+  end
+
   def documents(document_key)
     # We do not return uploaded documents when the user states they have trouble uploading
     # because otherwise they may believe they don't have to send them in again
