@@ -1,6 +1,8 @@
 class TribunalCase < ApplicationRecord
   include MappingCodeDeterminer
 
+  belongs_to :user, optional: true
+
   has_value_object :intent
   has_value_object :case_status
 
