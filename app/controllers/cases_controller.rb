@@ -1,5 +1,6 @@
 class CasesController < ApplicationController
   before_action :check_tribunal_case_presence, :check_tribunal_case_status, only: [:create]
+  before_action :authenticate_user!, except: [:create]
 
   def create
     @presenter = presenter_class.new(current_tribunal_case, format: :pdf)
@@ -12,11 +13,14 @@ class CasesController < ApplicationController
   end
 
   def destroy
-    tribunal_case = TribunalCase.find(params[:id])
+    tribunal_case = current_user.tribunal_cases.find(params[:id])
     tribunal_case.destroy
 
-    # TODO: redirecting to the prototype portfolio for now, this might change later
-    redirect_to saved_appeals_path
+    redirect_to cases_path
+  end
+
+  def index
+    @tribunal_cases = current_user.tribunal_cases
   end
 
   private
