@@ -21,6 +21,7 @@ RSpec.configure do |config|
 
   config.include(ViewSpecHelpers, type: :helper)
   config.include(ActiveSupport::Testing::TimeHelpers)
+  config.include(Devise::Test::ControllerHelpers, type: :controller)
 
   config.include(Devise::Test::ControllerHelpers, type: :view)
   config.include(Devise::Test::ControllerHelpers, type: :controller)

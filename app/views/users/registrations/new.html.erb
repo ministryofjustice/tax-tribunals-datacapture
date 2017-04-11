@@ -1,0 +1,22 @@
+<h2 class="heading-xlarge"><%=t '.heading' %></h2>
+
+<%= error_summary(@form_object) %>
+
+<p class="notice util_mt-large">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <strong class="font-small">You must create an account before we can save your details</strong>
+</p>
+<p><%= link_to t('.existing_account'), new_user_session_path %></p>
+
+<%= form_for(@form_object, url: users_registration_path) do |f| %>
+  <%= f.email_field :email, autofocus: true %>
+  <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: "off" %>
+  <%= f.text_field :user_case_reference %>
+
+  <%= f.submit t('helpers.submit.create_account'), class: 'button' %>
+<% end %>
+
+<h4 class="heading-small"><%=t '.password_advice_heading' %></h4>
+<%=t '.password_advice_html' %>

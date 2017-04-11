@@ -504,6 +504,18 @@ en:
           attributes:
             lateness_reason:
               blank: *attach_reasons_blank_error
+        users/registration_form:
+          attributes:
+            email:
+              invalid: Enter a valid email address
+              not_unique: This email address has already been used
+            password:
+              too_short: Enter a long enough password (at least %{count} characters)
+        users/email_confirmation_form:
+          attributes:
+            email:
+              invalid: Enter a valid email address
+              not_unique: This email address has already been used
   activerecord:
     errors:
       models:
@@ -552,6 +564,8 @@ en:
         hardship_review_status_html: ''
       steps_lateness_in_time_form:
         in_time_html: ''
+      users_email_confirmation_form:
+        email_correct_html: ''
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -753,12 +767,20 @@ en:
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
         lateness_reason: Reason(s) for late appeal
-      user:
-        email: Email
-        password: Password
+      users_registration_form:
+        email: Your email address
+        password: Create your password
+        user_case_reference: Your reference (optional)
+      users_email_confirmation_form:
+        email: Enter your email address again
+    hint:
+      users_registration_form:
+        password: Should be at least 8 characters
+        user_case_reference: If you are saving more than one appeal
     submit:
       create: Continue
       update: Continue
+      save_and_come_back_later: Save and come back later
       create_account: Create account
       sign_in: Sign in
   check_answers:
@@ -1136,10 +1158,6 @@ en:
     minutes_plural: minutes
     seconds_plural: seconds
   devise:
-    confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -1170,17 +1188,6 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
-    registrations:
-      new:
-        heading: Create account
-        existing_account: I've already created an account
-        password_advice_heading: "Passwords should be:"
-        password_advice_html: |
-          <ul class="list list-bullet">
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
-          </ul>
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -1225,3 +1232,19 @@ en:
       reference_not_entered: Not entered
       delete: Delete
       delete_confirmation: Are you sure you want to delete this case?
+  users:
+    registrations:
+      new:
+        heading: Create account
+        existing_account: I've already created an account
+        password_advice_heading: "Passwords should be:"
+        password_advice_html: |
+          <ul class="list list-bullet">
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+          </ul>
+    email_confirmations:
+      edit:
+        heading: Is your email address correct?
+        you_entered: "You entered:"
