@@ -59,7 +59,7 @@ RSpec.describe ReminderRuleSet do
     subject { described_class.new(dummy_config) }
 
     before do
-      Timecop.freeze(Time.now)
+      travel_to Time.now
     end
 
     it 'filters the cases' do

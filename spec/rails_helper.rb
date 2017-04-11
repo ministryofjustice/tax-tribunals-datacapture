@@ -19,6 +19,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include(ViewSpecHelpers, type: :helper)
+  config.include(ActiveSupport::Testing::TimeHelpers)
+
   config.before(:each, type: :helper) { initialize_view_helpers(helper) }
 end
 
