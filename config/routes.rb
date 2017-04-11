@@ -110,6 +110,7 @@ Rails.application.routes.draw do
   get :appeal_saved, to: 'home#appeal_saved'
   get :sign_in, to: 'home#sign_in'
   get :saved_appeals, to: 'home#saved_appeals'
+  get :example_saved_appeal, to: 'home#example_saved_appeal'
 
   # catch-all route
   # :nocov:
