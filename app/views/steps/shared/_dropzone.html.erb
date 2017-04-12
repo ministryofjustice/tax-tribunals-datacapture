@@ -30,12 +30,12 @@
         <% document_list.each do |doc| %>
             <li class="file no-js-only">
               <%= doc.name %>
-              <%= button_to 'Remove', document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+              <%= button_to 'Remove', document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-secondary' %>
             </li>
 
             <li class="file js-only">
               <%= doc.name %>
-              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name %>
+              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name, class: 'button button-secondary' %>
             </li>
         <% end %>
     <% else %>
