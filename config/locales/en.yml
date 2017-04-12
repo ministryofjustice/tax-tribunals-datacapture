@@ -1237,13 +1237,6 @@ en:
       new:
         heading: Create account
         existing_account: I've already created an account
-        password_advice_heading: "Passwords should be:"
-        password_advice_html: |
-          <ul class="list list-bullet">
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
-          </ul>
     email_confirmations:
       edit:
         heading: Is your email address correct?
