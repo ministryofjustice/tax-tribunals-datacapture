@@ -23,6 +23,7 @@ RSpec.describe CaseMailPresenter do
   let(:representative_type) { nil }
   let(:additional_attributes) { {} }
   let(:case_reference) { 'TC/2017/00001' }
+  let(:user) { instance_double(User, email: 'user@example.com') }
 
   describe '#case_reference' do
     context 'for a case with reference number' do
@@ -54,6 +55,16 @@ RSpec.describe CaseMailPresenter do
     context 'for a case without reference number' do
       let(:case_reference) { nil }
       it { expect(subject.case_reference_absent?).to eq('yes') }
+    end
+  end
+
+  describe '#account_user_email' do
+    before do
+      allow(tribunal_case).to receive(:user).and_return(user)
+    end
+
+    it 'returns the email address from the User account' do
+      expect(subject.account_user_email).to eq('user@example.com')
     end
   end
 

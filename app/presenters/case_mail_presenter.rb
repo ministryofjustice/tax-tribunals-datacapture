@@ -15,6 +15,10 @@ class CaseMailPresenter < SimpleDelegator
     tribunal_case.case_reference.to_s
   end
 
+  def account_user_email
+    tribunal_case.user.email
+  end
+
   # Email address of whoever filled the form out first. If it's the representative,
   # they would get it, otherwise the taxpayer would
   def recipient_email

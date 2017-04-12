@@ -61,11 +61,10 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
     # TODO: decide what personalisation we might need based on the template copy
     set_personalisation(
-      recipient_name: mail_presenter.recipient_name,
       appeal_or_application: mail_presenter.appeal_or_application
     )
 
-    mail(to: mail_presenter.recipient_email)
+    mail(to: mail_presenter.account_user_email)
   end
 
   private

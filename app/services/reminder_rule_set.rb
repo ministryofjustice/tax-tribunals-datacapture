@@ -31,6 +31,7 @@ class ReminderRuleSet
 
   def find_each(&block)
     TribunalCase.
+      with_owner.
       where(case_status: status_in).
       where('created_at <= ?', created_days_ago.days.ago).
       find_each(&block)

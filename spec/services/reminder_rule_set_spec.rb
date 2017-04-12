@@ -55,6 +55,7 @@ RSpec.describe ReminderRuleSet do
         email_template_id: 'test-template'
       }
     end
+    let(:finder_double) { double.as_null_object }
 
     subject { described_class.new(dummy_config) }
 
@@ -63,8 +64,9 @@ RSpec.describe ReminderRuleSet do
     end
 
     it 'filters the cases' do
-      expect(TribunalCase).to receive(:where).with(case_status: ['status']).and_return(TribunalCase)
-      expect(TribunalCase).to receive(:where).with('created_at <= ?', 3.days.ago).and_return(TribunalCase)
+      expect(TribunalCase).to receive(:with_owner).and_return(finder_double)
+      expect(finder_double).to receive(:where).with(case_status: ['status']).and_return(finder_double)
+      expect(finder_double).to receive(:where).with('created_at <= ?', 3.days.ago).and_return(finder_double)
       subject.find_each
     end
 
