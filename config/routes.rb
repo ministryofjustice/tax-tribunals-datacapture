@@ -76,6 +76,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :users do
+    resource :registration, only: [:new, :create]
+    resource :email_confirmation, only: [:edit, :update]
+  end
+
   scope 'uploader/:document_key' do
     resources :documents, only: [:create, :destroy]
   end
@@ -107,8 +112,6 @@ Rails.application.routes.draw do
   get :start, to: 'home#start'
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
-  get :create_account, to: 'home#create_account'
-  get :check_email, to: 'home#check_email'
   get :appeal_saved, to: 'home#appeal_saved'
   get :sign_in, to: 'home#sign_in'
   get :saved_appeals, to: 'home#saved_appeals'
