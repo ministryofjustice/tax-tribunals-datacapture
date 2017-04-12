@@ -1198,7 +1198,6 @@ en:
     sessions:
       new:
         heading: Sign into your account
-        create_account: I need to create an account
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
