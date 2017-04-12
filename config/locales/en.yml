@@ -1208,9 +1208,9 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   cases:
     index:
-      heading: Your saved appeals
+      heading: Your saved appeals/applications
       expire_warning_html: |
-        <p>Your appeals will be saved for %{expire_in_days} days.</p>
+        <p>Your cases will be saved for %{expire_in_days} days.</p>
         <p class="notice">
           <i class="icon icon-important">
             <span class="visuallyhidden">Warning</span>
