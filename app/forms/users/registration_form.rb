@@ -15,6 +15,7 @@ module Users
       raise 'No TribunalCase given' unless tribunal_case
 
       @user = User.create(email: email, password: password)
+      tribunal_case.update(user: @user, user_case_reference: user_case_reference)
     end
   end
 end
