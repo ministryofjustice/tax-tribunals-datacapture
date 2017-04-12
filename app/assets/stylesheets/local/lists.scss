@@ -50,8 +50,16 @@ ul.buttons {
     list-style-position: inside;
     padding-left: 20px;
 
+    &.js-only {
+      padding-bottom: 25px;
+    }
+
     a {
       float: right;
+    }
+
+    form {
+      padding-bottom: 0;
     }
   }
 }
