@@ -1,6 +1,6 @@
 <p class="actions">
   <%= f.submit class: 'button' %>
   <% if save_and_return_enabled? %>
-    <a href="/create_account" class="link">Save and come back later</a>
+    <%= link_to t('helpers.submit.save_and_come_back_later'), new_users_registration_path %>
   <% end %>
 </p>

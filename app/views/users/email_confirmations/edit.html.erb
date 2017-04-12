@@ -1,0 +1,15 @@
+<h1 class="heading-large">
+  <%=t '.heading' %>
+</h1>
+
+<p class="lede"><%=t '.you_entered' %> <strong><%= current_user.email %></strong></p>
+
+<%= form_for(@form_object, url: users_email_confirmation_path, method: :patch) do |f| %>
+  <%= f.radio_button_fieldset :email_correct, inline: true %>
+
+  <div id="correct_email_panel" class="panel toggleable" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:first">
+    <%= f.email_field :email %>
+  </div>
+
+  <%= f.submit class: 'button' %>
+<% end %>
