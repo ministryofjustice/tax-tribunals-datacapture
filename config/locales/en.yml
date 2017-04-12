@@ -1229,6 +1229,7 @@ en:
           case_actions: Case actions
     case_row:
       reference_not_entered: Not entered
+      name_not_entered: Not entered
       resume: Resume
       delete: Delete
       delete_confirmation: Are you sure you want to delete this case?
