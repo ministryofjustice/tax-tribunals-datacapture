@@ -1,0 +1,36 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <h1 class="heading-large">
+      <%=t '.heading' %>
+    </h1>
+
+    <%= t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %>
+  </div>
+</div>
+
+<table class="saved-appeals">
+  <caption class="visuallyhidden"><%=t '.table.caption' %></caption>
+  <thead>
+  <tr>
+    <th><%=t '.table.heading.date_created' %></th>
+    <th><%=t '.table.heading.your_reference' %></th>
+    <th><%=t '.table.heading.taxpayer_name' %></th>
+    <th><span class="visuallyhidden"><%=t '.table.heading.case_actions' %></span>&nbsp;</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @tribunal_cases.present_each(PortfolioCasePresenter) do |tribunal_case| %>
+      <%= render partial: 'case_row', locals: {tribunal_case: tribunal_case} %>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p>
+      <%= link_to t('.new_case'), start_path %>
+    </p>
+  </div>
+</div>

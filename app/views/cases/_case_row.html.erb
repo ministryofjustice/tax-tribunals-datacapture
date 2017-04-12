@@ -1,0 +1,11 @@
+<tr>
+  <td><%= tribunal_case.created_at %></td>
+  <td class="not-entered"><%=t '.reference_not_entered' %></td>
+  <td><%= tribunal_case.taxpayer_name %></td>
+  <td class="right">
+    <span class="right actions actions-tight">
+      <%= button_to t('.delete'), case_path(tribunal_case), method: :delete, data: {confirm: t('.delete_confirmation')}, class: 'button button-secondary' %>
+      <a href="example_saved_appeal" class="button">Resume</a>
+    </span>
+  </td>
+</tr>

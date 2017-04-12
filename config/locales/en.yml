@@ -969,6 +969,9 @@ en:
       format:
         unit: "£"
         precision: 0
+  time:
+    formats:
+      portfolio: '%d %B %Y'
   generic:
     back_link: Back
     appeal_or_application:
@@ -1196,3 +1199,29 @@ en:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  cases:
+    index:
+      heading: Your saved appeals
+      expire_warning_html: |
+        <p>Your appeals will be saved for %{expire_in_days} days.</p>
+        <p class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="font-small">
+            You have 30 calendar days from the date of the original notice or review
+            conclusion letter. If you appeal any later, you'll need to explain why.
+          </strong>
+        </p>
+      new_case: Start a new appeal or application
+      table:
+        caption: Table of saved appeals/applications
+        heading:
+          date_created: Date created
+          your_reference: Your reference
+          taxpayer_name: Taxpayer name
+          case_actions: Case actions
+    case_row:
+      reference_not_entered: Not entered
+      delete: Delete
+      delete_confirmation: Are you sure you want to delete this case?

@@ -20,7 +20,7 @@ end
 namespace :tribunal_case do
   desc "Expire cases older than ENV['EXPIRE_AFTER'] || 14 days"
   task purge: :environment do
-    expire_after = ENV.fetch('EXPIRE_AFTER', 14).to_i
+    expire_after = Rails.configuration.x.cases.expire_in_days
     puts "Purging tribunal_cases older than #{expire_after} days."
     purged = TribunalCase.purge!(expire_after.days.ago)
     puts "Purged #{purged} tribunal cases."
