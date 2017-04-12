@@ -2,8 +2,6 @@
 
 <%= error_summary(resource) %>
 
-<p><%= link_to t('.create_account'), new_user_registration_path %></p>
-
 <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
   <%= devise_error_messages! %>
 
