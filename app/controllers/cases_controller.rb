@@ -19,8 +19,15 @@ class CasesController < ApplicationController
     redirect_to cases_path
   end
 
+  def resume
+    tribunal_case = current_user.pending_tribunal_cases.find(params[:case_id])
+    session[:tribunal_case_id] = tribunal_case.id
+
+    redirect_to check_your_answers_path_for(tribunal_case)
+  end
+
   def index
-    @tribunal_cases = current_user.tribunal_cases
+    @tribunal_cases = current_user.pending_tribunal_cases
   end
 
   private
@@ -32,6 +39,14 @@ class CasesController < ApplicationController
   def send_emails
     NotifyMailer.taxpayer_case_confirmation(current_tribunal_case).deliver_later
     NotifyMailer.ftt_new_case_notification(current_tribunal_case).deliver_later if current_tribunal_case.case_reference.blank?
+  end
+
+  def check_your_answers_path_for(tribunal_case)
+    if tribunal_case.intent.eql?(Intent::TAX_APPEAL)
+      steps_details_check_answers_path
+    else
+      steps_closure_check_answers_path
+    end
   end
 
   # :nocov:
