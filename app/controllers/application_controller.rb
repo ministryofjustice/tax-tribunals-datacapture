@@ -25,8 +25,14 @@ class ApplicationController < ActionController::Base
     session[:current_step_path]
   end
 
-  def after_sign_in_path_for(_)
-    users_cases_path
+  protected
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to new_users_login_path
+    end
   end
 
   private

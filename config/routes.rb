@@ -14,7 +14,7 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, only: :passwords
 
   namespace :steps do
     namespace :appeal do
@@ -78,6 +78,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     resource :registration, only: [:new, :create]
+    resource :login, only: [:new, :create]
     resource :email_confirmation, only: [:edit, :update]
     resources :cases, only: [:index, :destroy] do
       get :resume
