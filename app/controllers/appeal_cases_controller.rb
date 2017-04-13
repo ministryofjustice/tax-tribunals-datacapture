@@ -1,4 +1,4 @@
-class AppealCasesController < CasesController
+class AppealCasesController < GlimrCasesController
   def pdf_template
     'steps/details/check_answers/show'
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CasesController, type: :controller do
+RSpec.describe Users::CasesController, type: :controller do
   let(:user) { User.new }
 
   describe '#index' do
@@ -61,7 +61,7 @@ RSpec.describe CasesController, type: :controller do
 
         it 'redirects to the cases portfolio' do
           delete :destroy, params: {id: tribunal_case.id}
-          expect(response).to redirect_to(cases_path)
+          expect(response).to redirect_to(users_cases_path)
         end
       end
     end

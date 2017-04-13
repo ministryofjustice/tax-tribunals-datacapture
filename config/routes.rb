@@ -79,6 +79,9 @@ Rails.application.routes.draw do
   namespace :users do
     resource :registration, only: [:new, :create]
     resource :email_confirmation, only: [:edit, :update]
+    resources :cases, only: [:index, :destroy] do
+      get :resume
+    end
   end
 
   scope 'uploader/:document_key' do
@@ -86,9 +89,6 @@ Rails.application.routes.draw do
   end
 
   resources :appeal_cases, :closure_cases, only: [:create]
-  resources :cases, only: [:index, :destroy] do
-    get :resume
-  end
 
   resource :session, only: [:destroy] do
     member do
