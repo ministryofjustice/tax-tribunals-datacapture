@@ -16,13 +16,6 @@ class HomeController < ApplicationController
   def appeal_saved
   end
 
-  def sign_in
-  end
-
-  # TODO: remove this (and view) once the 'real' page (CasesController#index) matches the prototype
-  def saved_appeals
-  end
-
   def example_saved_appeal
   end
 
