@@ -1,0 +1,19 @@
+<tr>
+  <td><%= tribunal_case.created_at %></td>
+  <% if tribunal_case.user_case_reference? %>
+    <td><%= tribunal_case.user_case_reference %></td>
+  <% else %>
+    <td class="not-entered"><%=t '.reference_not_entered' %></td>
+  <% end %>
+  <% if tribunal_case.taxpayer_name? %>
+    <td><%= tribunal_case.taxpayer_name %></td>
+  <% else %>
+    <td class="not-entered"><%=t '.name_not_entered' %></td>
+  <% end %>
+  <td class="right">
+    <span class="right actions actions-tight">
+      <%= button_to t('.delete'), users_case_path(tribunal_case), method: :delete, data: {confirm: t('.delete_confirmation')}, class: 'button button-secondary' %>
+      <%= link_to t('.resume'), users_case_resume_path(tribunal_case), class: 'button' %>
+    </span>
+  </td>
+</tr>

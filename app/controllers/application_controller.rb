@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_)
-    root_path
+    users_cases_path
   end
 
   private

@@ -97,8 +97,15 @@ RSpec.describe Users::RegistrationForm do
     end
 
     context 'when the registration is valid' do
+      let(:user) { instance_double(User) }
+      let(:user_case_reference) { 'FOO-BAR-BAZ' }
+
       it 'creates a user' do
-        expect(User).to receive(:create).with(email: email, password: password).and_return(true)
+        expect(User).to receive(:create).with(email: email, password: password).and_return(user)
+        expect(tribunal_case).to receive(:update).with(
+          user: user,
+          user_case_reference: user_case_reference
+        ).and_return(true)
         expect(subject.save).to eq(true)
       end
     end

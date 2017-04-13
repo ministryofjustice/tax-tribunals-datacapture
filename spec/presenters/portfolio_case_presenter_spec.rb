@@ -31,4 +31,15 @@ RSpec.describe PortfolioCasePresenter do
       it { expect(subject.taxpayer_name).to eq('TP Org Fao') }
     end
   end
+
+  describe '#taxpayer_name?' do
+    let(:taxpayer_type) { ContactableEntityType::COMPANY }
+
+    it { expect(subject.taxpayer_name?).to eq(true) }
+
+    context 'when no name is given' do
+      let(:tribunal_case_attributes) { super().merge(taxpayer_organisation_fao: '') }
+      it { expect(subject.taxpayer_name?).to eq(false) }
+    end
+  end
 end

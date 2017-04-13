@@ -79,6 +79,9 @@ Rails.application.routes.draw do
   namespace :users do
     resource :registration, only: [:new, :create]
     resource :email_confirmation, only: [:edit, :update]
+    resources :cases, only: [:index, :destroy] do
+      get :resume
+    end
   end
 
   scope 'uploader/:document_key' do
@@ -86,9 +89,6 @@ Rails.application.routes.draw do
   end
 
   resources :appeal_cases, :closure_cases, only: [:create]
-  resources :cases, only: [:index, :destroy] do
-    get :resume
-  end
 
   resource :session, only: [:destroy] do
     member do
@@ -113,8 +113,6 @@ Rails.application.routes.draw do
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
   get :appeal_saved, to: 'home#appeal_saved'
-  get :sign_in, to: 'home#sign_in'
-  get :saved_appeals, to: 'home#saved_appeals'
   get :example_saved_appeal, to: 'home#example_saved_appeal'
 
   # catch-all route

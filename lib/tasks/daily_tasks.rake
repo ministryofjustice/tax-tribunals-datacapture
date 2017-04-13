@@ -1,10 +1,14 @@
 task :daily_tasks do
-  puts "#{Time.now} I'm in ur Rakefile, running ur daily tasks"
+  puts "#{Time.now} Starting daily tasks"
 
   # TODO: to be enabled once we have save and return
   # Rake::Task['case_reminders:first_email'].invoke
   # Rake::Task['case_reminders:last_email'].invoke
-  # Rake::Task['tribunal_case:purge'].invoke
+
+  puts "#{Time.now} tribunal_case:purge"
+  Rake::Task['tribunal_case:purge'].invoke
+
+  puts "#{Time.now} Finished daily tasks"
 end
 
 namespace :case_reminders do

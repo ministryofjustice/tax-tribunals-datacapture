@@ -1,12 +1,18 @@
-<h2 class="heading-large"><%=t '.heading' %></h2>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h2 class="heading-large"><%=t '.heading' %></h2>
 
-<%= error_summary(resource) %>
+    <%= error_summary(resource) %>
 
-<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+      <%= devise_error_messages! %>
 
-  <%= f.email_field :email, autofocus: true %>
-  <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.email_field :email, autofocus: true %>
+      <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: 'off' %>
 
-  <%= f.submit t('helpers.submit.sign_in'), class: 'button' %>
-<% end %>
+      <p><%= link_to t('.forgot_password'), new_user_password_path %></p>
+
+      <%= f.submit t('helpers.submit.sign_in'), class: 'button' %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-class ClosureCasesController < CasesController
+class ClosureCasesController < GlimrCasesController
   def pdf_template
     'steps/closure/check_answers/show'
   end
