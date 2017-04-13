@@ -5,7 +5,11 @@ class PortfolioCasePresenter < SimpleDelegator
 
   def taxpayer_name
     return taxpayer_organisation_fao if taxpayer_type&.organisation?
-    [taxpayer_individual_first_name, taxpayer_individual_last_name].join(' ')
+    [taxpayer_individual_first_name, taxpayer_individual_last_name].compact.join(' ')
+  end
+
+  def taxpayer_name?
+    taxpayer_name.present?
   end
 
   private

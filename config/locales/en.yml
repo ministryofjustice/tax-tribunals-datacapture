@@ -1198,7 +1198,6 @@ en:
     sessions:
       new:
         heading: Sign into your account
-        create_account: I need to create an account
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
@@ -1230,6 +1229,7 @@ en:
           case_actions: Case actions
     case_row:
       reference_not_entered: Not entered
+      name_not_entered: Not entered
       resume: Resume
       delete: Delete
       delete_confirmation: Are you sure you want to delete this case?
