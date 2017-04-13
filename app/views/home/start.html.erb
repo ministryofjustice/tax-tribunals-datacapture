@@ -14,9 +14,10 @@
         </li>
       <% end %>
 
+      <%# TODO: Move this into the @link_sections and add i18n %>
       <% if save_and_return_enabled? %>
         <li>
-          <a href="/sign_in" class="task-link">Return to an existing appeal or application</a>
+          <%= link_to 'Return to an existing appeal or application', new_user_session_path, class: 'task-link ga-pageLink' %>
           <p>Continue completing a saved appeal or application.</p>
         </li>
       <% end %>

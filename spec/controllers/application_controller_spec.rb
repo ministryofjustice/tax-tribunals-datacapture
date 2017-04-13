@@ -11,7 +11,7 @@ RSpec.describe ApplicationController do
     let(:resource) { double('resource') }
 
     it 'returns the root path' do
-      allow(subject).to receive(:root_path).and_return('foo')
+      allow(subject).to receive(:cases_path).and_return('foo')
       expect(subject.after_sign_in_path_for(resource)).to eq('foo')
     end
   end
