@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
     session[:current_step_path]
   end
 
-  def after_sign_in_path_for(_)
-    users_cases_path
-  end
-
   private
 
   def initialize_tribunal_case(intent:)
