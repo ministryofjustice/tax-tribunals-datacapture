@@ -8,7 +8,7 @@
   </i>
   <strong class="font-small">You must create an account before we can save your details</strong>
 </p>
-<p><%= link_to t('.existing_account'), new_user_session_path %></p>
+<p><%= link_to t('.existing_account'), users_login_path %></p>
 
 <%= form_for(@form_object, url: users_registration_path) do |f| %>
   <%= f.email_field :email, autofocus: true %>

@@ -25,16 +25,6 @@ class ApplicationController < ActionController::Base
     session[:current_step_path]
   end
 
-  protected
-
-  def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      redirect_to new_users_login_path
-    end
-  end
-
   private
 
   def initialize_tribunal_case(intent:)

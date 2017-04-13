@@ -14,7 +14,9 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
-  devise_for :users, only: :passwords
+  devise_for :users,
+             controllers: { sessions: 'users/logins' },
+             path_names:  { sign_in: 'login', sign_out: 'logout' }
 
   namespace :steps do
     namespace :appeal do
