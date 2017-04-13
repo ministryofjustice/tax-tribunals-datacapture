@@ -65,17 +65,13 @@ en:
           lead_text_html: You have 30 calendar days to appeal. This begins from the
             date of the original notice or review conclusion letter.
           description_html: |
-            <p>You can appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+            <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
             <h2 class="heading-medium">What you will need</h2>
             <ul class="list list-bullet">
               <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
               <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
             </ul>
-            <p>You'll also need to download and fill in an <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you.</p>
-            <p class="notice util_mt-large">
-              <i class="icon icon-important"> <span class="visuallyhidden">Warning</span> </i>
-              <strong class="bold-small">You can’t save details so get everything ready before you start </strong>
-            </p>
+            <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
           continue: Continue
       case_type:
         <<: *CASE_TYPE_QUESTION
@@ -171,8 +167,8 @@ en:
             <ul class="list list-bullet">
               <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
             </ul>
-            <p>You can provide further information and supporting documents saying why you think the enquiry should end.</p>
-            <p>You can also add details if you want someone to receive correspondence or go to a hearing for you. If they are not a legal professional, you will need to give your <a href="%{approval_form_href}" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation (%{approval_form_format_and_size})</a> saying they can represent you.</p>
+            <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
+            <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
       case_type:
         edit:
           heading: What type of enquiry do you want to close?
@@ -510,7 +506,7 @@ en:
               invalid: Enter a valid email address
               not_unique: This email address has already been used
             password:
-              too_short: Enter a long enough password (at least %{count} characters)
+              too_short: Enter a password of at least %{count} characters
         users/email_confirmation_form:
           attributes:
             email:
@@ -770,18 +766,18 @@ en:
       users_registration_form:
         email: Your email address
         password: Create your password
-        user_case_reference: Your reference (optional)
+        user_case_reference: Add a reference (optional)
       users_email_confirmation_form:
         email: Enter your email address again
     hint:
       users_registration_form:
-        password: Should be at least 8 characters
-        user_case_reference: If you are saving more than one appeal
+        password: Must be at least 8 characters
+        user_case_reference: Help find things if you save multiple cases
     submit:
       create: Continue
       update: Continue
       save_and_come_back_later: Save and come back later
-      create_account: Create account
+      create_account: Save
       sign_in: Sign in
   check_answers:
     attached_document: Attached document
@@ -1236,8 +1232,8 @@ en:
   users:
     registrations:
       new:
-        heading: Create account
-        existing_account: I've already created an account
+        heading: Save your %{appeal_or_application}
+        existing_account: I already have an account
     email_confirmations:
       edit:
         heading: Is your email address correct?
