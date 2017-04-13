@@ -1,4 +1,4 @@
-<h2 class="heading-xlarge"><%=t '.heading' %></h2>
+<h2 class="heading-xlarge"><%= translate_with_appeal_or_application '.heading' %></h2>
 
 <%= error_summary(@form_object) %>
 
@@ -6,7 +6,7 @@
   <i class="icon icon-important">
     <span class="visuallyhidden">Warning</span>
   </i>
-  <strong class="font-small">You must create an account before we can save your details</strong>
+  <strong class="font-small">You must create an account before we can save your details.</strong>
 </p>
 <p><%= link_to t('.existing_account'), new_user_session_path %></p>
 

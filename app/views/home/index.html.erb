@@ -7,15 +7,17 @@
 
         <p class="lede">The tax tribunal is run by the Ministry of Justice.</p>
         <p>Try and settle your dispute directly first. If you can't, a judge will make an impartial decision on your case.</p>
-        <p>The tribunal is independent and uses the information you provide to hear things from your side.</p>
+        <p>Use this service to submit an appeal, apply to close an enquiry or return to a saved appeal or application.</p>
         <h2 class="heading-medium">What you will need</h2>
         <ul class="list list-bullet">
         <li>a scan or photo of your original notice or review conclusion letter</li>
-        <li>reasons for your appeal to copy and paste or attach as a document</li>
+        <li>reasons for your appeal so the judge can hear things from your side</li>
         <li data-dependent="fees=yes" class="js-hidden"><strong>a way to pay your tribunal fee</strong> such as a debit or credit card, unless you are on a <a href="https://www.gov.uk/get-help-with-court-fees">low income or certain benefits</a></li>
       </ul>
 
-      <p>You'll also need to download and fill in an <a href="<%= asset_path('proforma.pdf') %>">authorisation form (PDF, 241KB)</a></strong> if you want someone to represent you.</p>
+      <p>You'll also need to complete an <a href="<%= asset_path('proforma.pdf') %>" target="_blank">authorisation form (PDF, 241KB)</a></strong> if you want someone to represent you and they are not a legal professional.</p>
+
+      <% if !save_and_return_enabled? %>
 
       <p class="notice util_mt-large">
         <i class="icon icon-important">
@@ -25,6 +27,8 @@
           You can't save details so get everything ready before you start
         </strong>
       </p>
+
+      <% end %>
 
       <p>
         <%= link_to 'Start now', start_path, class: 'button' %>
