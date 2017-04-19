@@ -14,14 +14,18 @@
 <% content_for(:proposition_header) do %>
   <div class="header-proposition">
     <div class="content">
-      <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+      <!-- ONLY SHOW IF LOGGED IN -->
+      <!-- <a href="#proposition-links" class="js-header-toggle menu">Menu</a> -->
+      <!-- END ONLY SHOW IF LOGGED IN -->
       <nav id="proposition-menu">
         <a href="/" id="proposition-name">Appeal to the tax tribunal</a>
-        <ul id="proposition-links">
+        <!-- ONLY SHOW IF LOGGED IN -->
+        <!-- <ul id="proposition-links">
           <li>quite.long.name.actually@also-fairly-long-domain.dom</li>
           <li><a href="#">Change password</a></li>
           <li><a href="#">Sign out</a></li>
-        </ul>
+        </ul> -->
+        <!-- END ONLY SHOW IF LOGGED IN -->
       </nav>
     </div>
   </div>
