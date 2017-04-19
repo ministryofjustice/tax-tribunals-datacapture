@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Users::LoginsController do
-  let(:tribunal_case) { nil }
+  let(:tribunal_case) { double.as_null_object }
 
   before do
     allow(subject).to receive(:current_tribunal_case).and_return(tribunal_case)
+    request.env['devise.mapping'] = Devise.mappings[:user]
   end
 
   describe '#new' do
@@ -15,43 +16,41 @@ RSpec.describe Users::LoginsController do
   end
 
   describe '#create' do
-    let(:form_object) { double('form object', save: saved, user: user) }
     let(:user) { User.new }
 
-    before do
-      expect(Users::LoginForm).to receive(:new).with(
-        tribunal_case: tribunal_case,
+    def do_post
+      post :create, params: { 'user' => {
         email: 'foo@bar.com',
         password: 'passw0rd'
-      ).and_return(form_object)
+      }}
     end
 
-    context 'when the form object saves successfully' do
-      let(:saved) { true }
+    context 'when the authentication was successful' do
+      before do
+        expect(warden).to receive(:authenticate!).and_return(user)
+      end
 
-      it 'signs the user in and redirects to the email confirmation' do
-        expect(subject).to receive(:sign_in).with(user).and_return(true)
-
-        post :create, params: { 'users_login_form' => {
-          email: 'foo@bar.com',
-          password: 'passw0rd'
-        }}
-
+      it 'signs the user in and redirects to the cases portfolio' do
+        do_post
         expect(response).to redirect_to(users_cases_path)
+      end
+
+      it 'links the current tribunal case to the user' do
+        expect(tribunal_case).to receive(:update).with(
+          user: user
+        ).and_return(true)
+
+        do_post
       end
     end
 
-    context 'when the form object does not save' do
-      let(:saved) { false }
+    context 'when the authentication was unsuccessful' do
+      before do
+        expect(warden).to receive(:authenticate!).and_call_original
+      end
 
       it 'does not sign a user in and re-renders the page' do
-        expect(subject).to_not receive(:sign_in)
-
-        post :create, params: { 'users_login_form' => {
-          email: 'foo@bar.com',
-          password: 'passw0rd'
-        }}
-
+        do_post
         expect(subject).to render_template(:new)
       end
     end

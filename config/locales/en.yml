@@ -777,6 +777,9 @@ en:
         user_case_reference: Add a reference (optional)
       users_email_confirmation_form:
         email: Enter your email address again
+      user:
+        email: Your email address
+        password: Your password
     hint:
       users_registration_form:
         password: Must be at least 8 characters
