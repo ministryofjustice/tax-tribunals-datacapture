@@ -1,28 +1,17 @@
 module Users
-  class LoginsController < ApplicationController
-    def new
-      @form_object = LoginForm.new(
-        tribunal_case: current_tribunal_case
-      )
-    end
-
+  class LoginsController < Devise::SessionsController
     def create
-      @form_object = LoginForm.new(
-        permitted_params.to_h.merge(tribunal_case: current_tribunal_case)
-      )
-
-      if @form_object.save
-        sign_in(@form_object.user)
-        redirect_to users_cases_path
-      else
-        render :new
+      super do |user|
+        current_tribunal_case&.update(user: user)
       end
     end
 
-    private
+    protected
 
-    def permitted_params
-      params.fetch(:users_login_form, {}).permit(:email, :password)
+    # Devise will try to return to a previously login-protected page if available,
+    # otherwise this is the fallback route to redirect the user after login
+    def signed_in_root_path(_)
+      users_cases_path
     end
   end
 end
