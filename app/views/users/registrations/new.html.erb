@@ -1,7 +1,5 @@
 <h2 class="heading-xlarge"><%= translate_with_appeal_or_application '.heading' %></h2>
 
-<%= error_summary(@form_object) %>
-
 <p class="notice util_mt-large">
   <i class="icon icon-important">
     <span class="visuallyhidden">Warning</span>
@@ -10,10 +8,9 @@
 </p>
 <p><%= link_to t('.existing_account'), users_login_path %></p>
 
-<%= form_for(@form_object, url: users_registration_path) do |f| %>
+<%= form_for(resource, as: resource_name, url: users_registration_path) do |f| %>
   <%= f.email_field :email, autofocus: true %>
   <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: "off" %>
-  <%= f.text_field :user_case_reference %>
 
   <%= f.submit t('helpers.submit.create_account'), class: 'button' %>
 <% end %>

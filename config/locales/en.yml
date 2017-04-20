@@ -500,31 +500,10 @@ en:
           attributes:
             lateness_reason:
               blank: *attach_reasons_blank_error
-        users/registration_form:
-          attributes:
-            email:
-              invalid: Enter a valid email address
-              not_unique: This email address has already been used
-            password:
-              too_short: Enter a password of at least %{count} characters
-        users/email_confirmation_form:
-          attributes:
-            email:
-              invalid: Enter a valid email address
-              not_unique: This email address has already been used
-        users/login_form:
-          attributes:
-            base:
-              invalid_credentials: There is no account with the username and password you entered
-            email:
-              invalid: Enter a valid email address
-            password:
-              blank: Enter your password
   activerecord:
     errors:
       models:
         user:
-          email: Foo
           attributes:
             email:
               blank: Please enter an email address
@@ -568,8 +547,6 @@ en:
         hardship_review_status_html: ''
       steps_lateness_in_time_form:
         in_time_html: ''
-      users_email_confirmation_form:
-        email_correct_html: ''
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -771,19 +748,12 @@ en:
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
         lateness_reason: Reason(s) for late appeal
-      users_registration_form:
-        email: Your email address
-        password: Create your password
-        user_case_reference: Add a reference (optional)
-      users_email_confirmation_form:
-        email: Enter your email address again
       user:
         email: Your email address
         password: Your password
     hint:
-      users_registration_form:
+      user:
         password: Must be at least 8 characters
-        user_case_reference: Help find things if you save multiple cases
     submit:
       create: Continue
       update: Continue
@@ -1168,27 +1138,13 @@ en:
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
+      invalid: "Invalid email or password."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "Invalid email or password."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
-    mailer:
-      confirmation_instructions:
-        subject: "Confirmation instructions"
-      reset_password_instructions:
-        subject: "Reset password instructions"
-      unlock_instructions:
-        subject: "Unlock instructions"
-      email_changed:
-        subject: "Email Changed"
-      password_change:
-        subject: "Password Changed"
-    omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
@@ -1206,10 +1162,6 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
-    unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   users:
     logins:
       new:
@@ -1219,10 +1171,6 @@ en:
       new:
         heading: Save your %{appeal_or_application}
         existing_account: I already have an account
-    email_confirmations:
-      edit:
-        heading: Is your email address correct?
-        you_entered: "You entered:"
     cases:
       index:
         heading: Your saved appeals/applications

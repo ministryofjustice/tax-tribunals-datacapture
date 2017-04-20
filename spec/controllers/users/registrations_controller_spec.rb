@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Users::RegistrationsController do
+  let(:tribunal_case) { double.as_null_object }
+
   before do
     allow(subject).to receive(:current_tribunal_case).and_return(tribunal_case)
+    request.env['devise.mapping'] = Devise.mappings[:user]
   end
 
   describe '#new' do
@@ -16,8 +19,6 @@ RSpec.describe Users::RegistrationsController do
     end
 
     context 'when there is a case in the session' do
-      let(:tribunal_case) { instance_double(TribunalCase) }
-
       it 'responds with HTTP success' do
         get :new
         expect(response).to be_successful
@@ -36,46 +37,36 @@ RSpec.describe Users::RegistrationsController do
     end
 
     context 'when there is a case in the session' do
-      let(:tribunal_case) { instance_double(TribunalCase) }
-      let(:form_object) { double('form object', save: saved, user: user) }
-      let(:user) { User.new }
-
-      before do
-        expect(Users::RegistrationForm).to receive(:new).with(
-          tribunal_case: tribunal_case,
-          email: 'foo@bar.com',
-          password: 'passw0rd',
-          user_case_reference: 'FOO'
-        ).and_return(form_object)
-
+      def do_post
+        post :create, params: { 'user' => {
+            'email' => 'foo@bar.com',
+            'password' => 'passw0rd'
+        } }
       end
 
-      context 'when the form object saves successfully' do
-        let(:saved) { true }
+      context 'when the registration was successful' do
+        before do
+          expect(NotifyMailer).to receive(:new_account_confirmation).with(tribunal_case).and_return(double.as_null_object)
+        end
 
-        it 'signs the user in and redirects to the email confirmation' do
-          expect(subject).to receive(:sign_in).with(user).and_return(true)
+        it 'creates the user and redirects to the confirmation page' do
+          expect { do_post }.to change{ User.count }.by(1)
+          expect(response).to redirect_to(appeal_saved_path)
+        end
 
-          post :create, params: { 'users_registration_form' => {
-            'email' => 'foo@bar.com',
-            'password' => 'passw0rd',
-            'user_case_reference' => 'FOO'
-          } }
-
-          expect(response).to redirect_to(edit_users_email_confirmation_path)
+        it 'links the current tribunal case to the user' do
+          do_post
+          expect(tribunal_case).to have_received(:update).with(user: subject.current_user)
         end
       end
 
-      context 'when the form object does not save successfully' do
-        let(:saved) { false }
-
-        it 're-renders the form' do
-          post :create, params: { 'users_registration_form' => {
-            'email' => 'foo@bar.com',
-            'password' => 'passw0rd',
-            'user_case_reference' => 'FOO'
+      context 'when the registration was unsuccessful' do
+        it 'does not create the user and re-renders the page' do
+          post :create, params: { 'user' => {
+              'email' => 'foo@bar.com',
+              'password' => 'short'
           } }
-
+          expect(tribunal_case).not_to have_received(:update)
           expect(subject).to render_template(:new)
         end
       end
