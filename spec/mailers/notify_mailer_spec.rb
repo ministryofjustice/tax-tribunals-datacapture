@@ -4,6 +4,7 @@ RSpec.describe NotifyMailer, type: :mailer do
   let(:tribunal_case) { TribunalCase.new(tribunal_case_attributes) }
   let(:tribunal_case_attributes) {
     {
+      id: '4a362e1c-48eb-40e3-9458-a31ead3f30a4',
       intent: intent,
       user_type: user_type,
       taxpayer_type: taxpayer_type,
@@ -24,6 +25,25 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_NEW_ACCOUNT_TEMPLATE_ID').and_return('new-account-template')
+  end
+
+  describe '#new_account_confirmation' do
+    let(:mail) { described_class.new_account_confirmation(tribunal_case) }
+    let(:user) { instance_double(User, email: 'shirley.schmidt@cranepooleandschmidt.com') }
+
+    before do
+      allow(tribunal_case).to receive(:user).and_return(user)
+    end
+
+    it_behaves_like 'a Notify mail', template_id: 'new-account-template'
+
+    it 'has the right keys' do
+      expect(mail.govuk_notify_personalisation).to eq({
+        appeal_or_application: :appeal,
+        resume_case_link: 'https://tax.justice.uk/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume'
+      })
+    end
   end
 
   describe '#reset_password_instructions' do

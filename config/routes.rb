@@ -15,8 +15,14 @@ end
 
 Rails.application.routes.draw do
   devise_for :users,
-             controllers: { sessions: 'users/logins' },
-             path_names:  { sign_in: 'login', sign_out: 'logout' }
+             controllers: {
+               registrations: 'users/registrations',
+               sessions: 'users/logins'
+             },
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout'
+             }
 
   namespace :steps do
     namespace :appeal do
@@ -79,9 +85,11 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-    resource :registration, only: [:new, :create]
-    resource :login, only: [:new, :create]
-    resource :email_confirmation, only: [:edit, :update]
+    devise_scope :user do
+      get 'login', to: 'users/logins#new', as: :login
+      resource :registration, only: [:new, :create]
+    end
+
     resources :cases, only: [:index, :destroy] do
       get :resume
     end
