@@ -1,0 +1,11 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p><%=t('.expire_warning', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
+
+    <p><%=t '.return_info' %></p>
+
+    <p><%= link_to t('.your_cases'), users_cases_path %></p>
+  </div>
+</div>

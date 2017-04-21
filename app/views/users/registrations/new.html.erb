@@ -6,9 +6,9 @@
   </i>
   <strong class="font-small">You must create an account before we can save your details.</strong>
 </p>
-<p><%= link_to t('.existing_account'), users_login_path %></p>
+<p><%= link_to t('.existing_account'), user_session_path %></p>
 
-<%= form_for(resource, as: resource_name, url: users_registration_path) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.email_field :email, autofocus: true %>
   <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: "off" %>
 

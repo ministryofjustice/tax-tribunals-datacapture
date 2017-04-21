@@ -51,12 +51,17 @@ RSpec.describe Users::RegistrationsController do
 
         it 'creates the user and redirects to the confirmation page' do
           expect { do_post }.to change{ User.count }.by(1)
-          expect(response).to redirect_to(appeal_saved_path)
+          expect(response).to redirect_to(users_signup_save_confirmation_path)
         end
 
         it 'links the current tribunal case to the user' do
+          expect(tribunal_case).to receive(:update).with(user: an_instance_of(User))
           do_post
-          expect(tribunal_case).to have_received(:update).with(user: subject.current_user)
+        end
+
+        it 'it stores the signed up email address in the session' do
+          do_post
+          expect(session[:signed_up_user_email]).to eq('foo@bar.com')
         end
       end
 
@@ -70,6 +75,13 @@ RSpec.describe Users::RegistrationsController do
           expect(subject).to render_template(:new)
         end
       end
+    end
+  end
+
+  describe '#signup_save_confirmation' do
+    it 'renders the expected page' do
+      get :signup_save_confirmation
+      expect(response).to render_template(:signup_save_confirmation)
     end
   end
 end

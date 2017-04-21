@@ -13,9 +13,6 @@ class HomeController < ApplicationController
   def terms_and_conditions
   end
 
-  def appeal_saved
-  end
-
   def example_saved_appeal
   end
 

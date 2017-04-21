@@ -2,7 +2,7 @@
   <div class="column-two-thirds">
     <h2 class="heading-large"><%=t '.heading' %></h2>
 
-    <%= form_for(resource, as: resource_name, url: users_login_path) do |f| %>
+    <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
       <%= devise_error_messages! %>
 
       <%= f.email_field :email, autofocus: true %>
