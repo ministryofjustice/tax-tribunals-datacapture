@@ -195,7 +195,11 @@ moj.Modules.gaEvents = {
           if(opts.actionType === 'form') {
             opts.actionValue.unbind('submit').trigger('submit');
           } else if(opts.actionType === 'link') {
-            document.location = opts.actionValue.attr('href');
+            if(opts.actionValue.attr('target')) {
+              window.open(opts.actionValue.attr('href'), opts.actionValue.attr('target'));
+            } else {
+              document.location = opts.actionValue.attr('href');
+            }
           }
         }
       })
