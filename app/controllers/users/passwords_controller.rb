@@ -1,9 +1,9 @@
 module Users
   class PasswordsController < Devise::PasswordsController
 
-    # Intercept the errors and if there is a token invalid one, redirect back to the
+    # Intercept the errors and if there is an 'invalid token' error, redirect back to the
     # reset password page. Otherwise, Devise will not show the error in the edit page,
-    # as the error belongs to a hidden field.
+    # because the error belongs to a hidden field.
     def update
       super do |user|
         if user.errors.include?(:reset_password_token)
