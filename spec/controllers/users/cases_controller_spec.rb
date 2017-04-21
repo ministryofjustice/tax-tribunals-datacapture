@@ -7,7 +7,7 @@ RSpec.describe Users::CasesController, type: :controller do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
         get :index
-        expect(response).to redirect_to(users_login_path)
+        expect(response).to redirect_to(user_session_path)
       end
     end
 
@@ -29,7 +29,7 @@ RSpec.describe Users::CasesController, type: :controller do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
         delete :destroy, params: { id: 'any' }
-        expect(response).to redirect_to(users_login_path)
+        expect(response).to redirect_to(user_session_path)
       end
     end
 
@@ -71,7 +71,7 @@ RSpec.describe Users::CasesController, type: :controller do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
         get :resume, params: { case_id: 'any' }
-        expect(response).to redirect_to(users_login_path)
+        expect(response).to redirect_to(user_session_path)
       end
     end
 

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   devise_for :users,
              controllers: {
                registrations: 'users/registrations',
+               passwords: 'users/passwords',
                sessions: 'users/logins'
              },
              path_names: {
@@ -86,8 +87,10 @@ Rails.application.routes.draw do
 
   namespace :users do
     devise_scope :user do
-      get 'login', to: 'users/logins#new', as: :login
-      resource :registration, only: [:new, :create]
+      get :logged_out, to: 'logins#logged_out'
+      get :reset_sent, to: 'passwords#reset_sent'
+      get :signup_save_confirmation, to: 'registrations#signup_save_confirmation'
+      get :signin_save_confirmation, to: 'logins#signin_save_confirmation'
     end
 
     resources :cases, only: [:index, :destroy] do
@@ -123,7 +126,6 @@ Rails.application.routes.draw do
   get :start, to: 'home#start'
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
-  get :appeal_saved, to: 'home#appeal_saved'
   get :example_saved_appeal, to: 'home#example_saved_appeal'
 
   # catch-all route
