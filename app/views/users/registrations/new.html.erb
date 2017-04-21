@@ -1,11 +1,7 @@
 <h2 class="heading-xlarge"><%= translate_with_appeal_or_application '.heading' %></h2>
 
-<p class="notice util_mt-large">
-  <i class="icon icon-important">
-    <span class="visuallyhidden">Warning</span>
-  </i>
-  <strong class="font-small">You must create an account before we can save your details.</strong>
-</p>
+<%=t '.account_warning_html' %>
+
 <p><%= link_to t('.existing_account'), user_session_path %></p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
