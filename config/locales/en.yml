@@ -1104,6 +1104,8 @@ en:
           or the National Crime Agency.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
       link_time_estimate: "%{minutes} minutes to complete"
+      continue_a_case_info: "Continue completing an appeal or application you haven't submitted."
+      return_to_saved_case: Return to a saved appeal or application
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.

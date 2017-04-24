@@ -60,4 +60,8 @@ module ApplicationHelper
   def save_and_return_enabled?
     Rails.configuration.x.features.save_and_return_enabled
   end
+
+  def login_or_portfolio_path
+    user_signed_in? ? users_cases_path : user_session_path
+  end
 end

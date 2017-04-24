@@ -150,4 +150,26 @@ RSpec.describe ApplicationHelper do
       specify { expect(helper).to_not be_save_and_return_enabled }
     end
   end
+
+  describe '#login_or_portfolio_path' do
+    context 'when user is logged in' do
+      before do
+        expect(helper).to receive(:user_signed_in?).and_return(true)
+      end
+
+      it 'return the portfolio path' do
+        expect(helper.login_or_portfolio_path).to eq(users_cases_path)
+      end
+    end
+
+    context 'when user is logged out' do
+      before do
+        expect(helper).to receive(:user_signed_in?).and_return(false)
+      end
+
+      it 'returns the login path' do
+        expect(helper.login_or_portfolio_path).to eq(user_session_path)
+      end
+    end
+  end
 end
