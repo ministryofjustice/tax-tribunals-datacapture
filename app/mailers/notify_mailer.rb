@@ -12,10 +12,10 @@ class NotifyMailer < GovukNotifyRails::Mailer
   # Define methods as usual, and set the template and personalisation, if needed,
   # then just use mail() as with any other ActionMailer, with the recipient email
 
-  def new_account_confirmation(tribunal_case)
+  def new_case_saved_confirmation(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(ENV.fetch('NOTIFY_NEW_ACCOUNT_TEMPLATE_ID'))
+    set_template(ENV.fetch('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID'))
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,

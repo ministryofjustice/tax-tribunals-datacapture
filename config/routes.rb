@@ -87,10 +87,10 @@ Rails.application.routes.draw do
 
   namespace :users do
     devise_scope :user do
-      get :logged_out, to: 'logins#logged_out'
-      get :reset_sent, to: 'passwords#reset_sent'
-      get :signup_save_confirmation, to: 'registrations#signup_save_confirmation'
-      get :signin_save_confirmation, to: 'logins#signin_save_confirmation'
+      get 'login/logged_out', to: 'logins#logged_out'
+      get 'password/reset_sent', to: 'passwords#reset_sent'
+      get 'registration/save_confirmation', to: 'registrations#save_confirmation'
+      get 'login/save_confirmation', to: 'logins#save_confirmation'
     end
 
     resources :cases, only: [:index, :destroy] do

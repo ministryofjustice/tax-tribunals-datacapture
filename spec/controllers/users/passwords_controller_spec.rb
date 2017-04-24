@@ -21,7 +21,7 @@ RSpec.describe Users::PasswordsController do
 
     it 'redirects to the confirmation path' do
       do_post
-      expect(response).to redirect_to(users_reset_sent_path)
+      expect(response).to redirect_to(users_password_reset_sent_path)
     end
   end
 
