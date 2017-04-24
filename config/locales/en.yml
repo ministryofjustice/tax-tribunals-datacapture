@@ -852,7 +852,7 @@ en:
       answers:
         <<: *YESNO
     challenged_decision_status:
-      question: What reponse did you receive?
+      question: What response did you receive?
       accessible_change_text: what response you received
       answers:
         received: I have a review conclusion letter
