@@ -48,7 +48,7 @@ class GlimrNewCase
   private
 
   def jurisdiction_id
-    GlimrApiClient::Case::TRIBUNAL_JURISDICTION_ID
+    GlimrApiClient::RegisterNewCase::TRIBUNAL_JURISDICTION_ID
   end
 
   # contactStreetX are indexed 1 to 4, so if there are more lines than available
