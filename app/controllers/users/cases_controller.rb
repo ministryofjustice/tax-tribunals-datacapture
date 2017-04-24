@@ -6,6 +6,17 @@ module Users
       @tribunal_cases = current_user.pending_tribunal_cases
     end
 
+    def edit
+      @tribunal_case = current_user.pending_tribunal_cases.find(params[:id])
+    end
+
+    def update
+      @tribunal_case = current_user.pending_tribunal_cases.find(params[:id])
+      @tribunal_case.update(user_case_reference: permitted_params[:user_case_reference])
+
+      redirect_to users_cases_path
+    end
+
     def resume
       tribunal_case = current_user.pending_tribunal_cases.find(params[:case_id])
       session[:tribunal_case_id] = tribunal_case.id
@@ -28,6 +39,10 @@ module Users
       else
         steps_closure_check_answers_path
       end
+    end
+
+    def permitted_params
+      params.require(:tribunal_case).permit(:user_case_reference)
     end
   end
 end
