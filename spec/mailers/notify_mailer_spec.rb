@@ -25,6 +25,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID').and_return('change-password-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
   end
 
@@ -57,6 +58,18 @@ RSpec.describe NotifyMailer, type: :mailer do
       expect(mail.govuk_notify_personalisation).to eq({
         reset_url: 'https://tax.justice.uk/users/password/edit?reset_password_token=0xDEADBEEF'
       })
+    end
+  end
+
+  describe '#password_change' do
+    let(:mail) { described_class.password_change(user) }
+    let(:user) { User.new(email: 'shirley.schmidt@cranepooleandschmidt.com') }
+
+    it_behaves_like 'a Notify mail', template_id: 'change-password-template'
+
+    # TODO: we don't know if this email will have any personalisation, update accordingly once we have the copy
+    it 'has the right keys' do
+      expect(mail.govuk_notify_personalisation).to be_nil
     end
   end
 
