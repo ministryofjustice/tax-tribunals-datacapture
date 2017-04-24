@@ -518,6 +518,9 @@ en:
               too_short: Your password must be at least %{count} characters
               too_long: Your password must be no longer than %{count} characters
               confirmation: The password confirmation doesn't match
+            current_password:
+              blank: Please enter your current password
+              invalid: The password is not valid
   helpers:
     fieldset:
       steps_appeal_case_type_form:
@@ -759,6 +762,7 @@ en:
     hint:
       user:
         password: Must be at least 8 characters
+        current_password: We need your current password to confirm your changes
     submit:
       create: Continue
       update: Continue
@@ -1200,6 +1204,8 @@ en:
       save_confirmation:
         heading: Your appeal has been saved
         sign_in: Sign into your account
+      edit:
+        heading: Change your password
     cases:
       index:
         heading: Your saved appeals/applications

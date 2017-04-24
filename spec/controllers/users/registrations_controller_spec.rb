@@ -82,4 +82,17 @@ RSpec.describe Users::RegistrationsController do
       expect(response).to render_template(:save_confirmation)
     end
   end
+
+  describe '#edit' do
+    let(:user) { User.new }
+
+    before do
+      sign_in(user)
+    end
+
+    it 'responds with HTTP success' do
+      get :edit
+      expect(response).to be_successful
+    end
+  end
 end
