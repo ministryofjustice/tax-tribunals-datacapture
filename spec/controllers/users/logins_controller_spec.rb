@@ -16,7 +16,7 @@ RSpec.describe Users::LoginsController do
   end
 
   describe '#create' do
-    let(:user) { User.new }
+    let(:user) { User.new(email: 'foo@bar.com') }
 
     def do_post
       post :create, params: { 'user' => {
@@ -26,27 +26,40 @@ RSpec.describe Users::LoginsController do
     end
 
     context 'when the authentication was successful' do
+      let(:tribunal_case) { instance_double(TribunalCase, user: user) }
+
       before do
         expect(warden).to receive(:authenticate!).and_return(user)
       end
 
       it 'signs the user in and redirects to the confirmation page' do
         do_post
-        expect(response).to redirect_to(users_signin_save_confirmation_path)
+        expect(response).to redirect_to(users_login_save_confirmation_path)
       end
 
-      it 'links the current tribunal case to the user' do
-        expect(tribunal_case).to receive(:update).with(
-          user: user
-        ).and_return(true)
+      context 'when the case already belongs to the user (we do not send an email)' do
+        it 'does not store the signed in email address in the session' do
+          do_post
+          expect(session[:confirmation_email_address]).to be_nil
+        end
+      end
 
-        do_post
+      context 'when the case is new and we are linking it to the user (we send an email)' do
+        before do
+          expect(SaveCaseForLater).to receive(:new).with(tribunal_case, user).and_return(double(save: true, email_sent?: true))
+        end
+
+        it 'it stores the signed in email address in the session' do
+          do_post
+          expect(session[:confirmation_email_address]).to eq('foo@bar.com')
+        end
       end
     end
 
     context 'when the authentication was unsuccessful' do
       before do
         expect(warden).to receive(:authenticate!).and_call_original
+        expect(SaveCaseForLater).not_to receive(:new)
       end
 
       it 'does not sign a user in and re-renders the page' do
@@ -59,7 +72,7 @@ RSpec.describe Users::LoginsController do
   describe '#destroy' do
     it 'redirects to the logged out page' do
       delete :destroy
-      expect(subject).to redirect_to(users_logged_out_path)
+      expect(subject).to redirect_to(users_login_logged_out_path)
     end
   end
 
@@ -70,10 +83,10 @@ RSpec.describe Users::LoginsController do
     end
   end
 
-  describe '#signin_save_confirmation' do
+  describe '#save_confirmation' do
     it 'renders the expected page' do
-      get :signin_save_confirmation
-      expect(response).to render_template(:signin_save_confirmation)
+      get :save_confirmation
+      expect(response).to render_template(:save_confirmation)
     end
   end
 end

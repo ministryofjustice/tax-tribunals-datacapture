@@ -26,7 +26,7 @@ module Users
     end
 
     def after_sending_reset_password_instructions_path_for(_)
-      users_reset_sent_path
+      users_password_reset_sent_path
     end
   end
 end

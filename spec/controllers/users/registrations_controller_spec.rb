@@ -46,42 +46,40 @@ RSpec.describe Users::RegistrationsController do
 
       context 'when the registration was successful' do
         before do
-          expect(NotifyMailer).to receive(:new_account_confirmation).with(tribunal_case).and_return(double.as_null_object)
+          expect(SaveCaseForLater).to receive(:new).with(tribunal_case, an_instance_of(User)).and_return(double.as_null_object)
         end
 
         it 'creates the user and redirects to the confirmation page' do
           expect { do_post }.to change{ User.count }.by(1)
-          expect(response).to redirect_to(users_signup_save_confirmation_path)
-        end
-
-        it 'links the current tribunal case to the user' do
-          expect(tribunal_case).to receive(:update).with(user: an_instance_of(User))
-          do_post
+          expect(response).to redirect_to(users_registration_save_confirmation_path)
         end
 
         it 'it stores the signed up email address in the session' do
           do_post
-          expect(session[:signed_up_user_email]).to eq('foo@bar.com')
+          expect(session[:confirmation_email_address]).to eq('foo@bar.com')
         end
       end
 
       context 'when the registration was unsuccessful' do
+        before do
+          expect(SaveCaseForLater).not_to receive(:new)
+        end
+
         it 'does not create the user and re-renders the page' do
           post :create, params: { 'user' => {
               'email' => 'foo@bar.com',
               'password' => 'short'
           } }
-          expect(tribunal_case).not_to have_received(:update)
           expect(subject).to render_template(:new)
         end
       end
     end
   end
 
-  describe '#signup_save_confirmation' do
+  describe '#save_confirmation' do
     it 'renders the expected page' do
-      get :signup_save_confirmation
-      expect(response).to render_template(:signup_save_confirmation)
+      get :save_confirmation
+      expect(response).to render_template(:save_confirmation)
     end
   end
 end

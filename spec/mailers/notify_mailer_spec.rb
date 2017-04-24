@@ -25,18 +25,18 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_NEW_ACCOUNT_TEMPLATE_ID').and_return('new-account-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
   end
 
-  describe '#new_account_confirmation' do
-    let(:mail) { described_class.new_account_confirmation(tribunal_case) }
+  describe '#new_case_saved_confirmation' do
+    let(:mail) { described_class.new_case_saved_confirmation(tribunal_case) }
     let(:user) { instance_double(User, email: 'shirley.schmidt@cranepooleandschmidt.com') }
 
     before do
       allow(tribunal_case).to receive(:user).and_return(user)
     end
 
-    it_behaves_like 'a Notify mail', template_id: 'new-account-template'
+    it_behaves_like 'a Notify mail', template_id: 'new-case-saved-template'
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({

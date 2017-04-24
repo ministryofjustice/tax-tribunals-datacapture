@@ -767,6 +767,7 @@ en:
       sign_in: Sign in
       reset_password: Reset my password
       change_password: Change my password
+      save_and_continue: "Save and continue"
   check_answers:
     attached_document: Attached document
     change: Change
@@ -1182,11 +1183,8 @@ en:
         heading: You have signed out
         lead_text: Use the link emailed to you to return to your saved case.
         more_text_html: <a href="https://www.gov.uk/">Go to GOV.UK</a>
-      signin_save_confirmation:
+      save_confirmation:
         heading: Your appeal has been saved
-        lead_text_html: A confirmation email has been sent to:<br><strong>%{user_email}</strong>
-        expire_warning: We will keep a draft of your appeal for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
-        return_info: You can return to complete your appeal at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
         your_cases: Go to your cases
     registrations:
       new:
@@ -1199,11 +1197,8 @@ en:
             </i>
             <strong class="font-small">You must create an account before we can save your details.</strong>
           </p>
-      signup_save_confirmation:
+      save_confirmation:
         heading: Your appeal has been saved
-        lead_text_html: A confirmation email has been sent to:<br><strong>%{user_email}</strong>
-        expire_warning: We will keep a draft of your appeal for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
-        return_info: You can return to complete your appeal at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
         sign_in: Sign into your account
     cases:
       index:
@@ -1243,3 +1238,8 @@ en:
         heading: You will get an email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
         more_text_html: <a href="https://www.gov.uk/">Go to GOV.UK</a>
+    shared:
+      case_saved:
+        lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
+        expire_warning: We will keep a draft of your appeal for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
+        return_info: You can return to complete your appeal at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
