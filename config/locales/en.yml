@@ -202,7 +202,7 @@ en:
               <li>friend or family relative</li>
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}">authorisation form (%{approval_form_format_and_size})</a>.</p>
+          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}" target="_blank">authorisation form (%{approval_form_format_and_size})</a>.</p>
     details:
       user_type:
         edit:
