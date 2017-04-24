@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
+    # When redirecting to the survey, we want to logout the user. But when only taking the users to the home,
+    # we don't want to log them out but instead only reset the current case in session.
+    show_survey = params[:survey] == 'true'
+    show_survey ? reset_session : reset_tribunal_case_session
+
     respond_to do |format|
-      format.html { redirect_to params[:survey] == 'true' ? Rails.configuration.survey_link : root_path }
+      format.html { redirect_to show_survey ? Rails.configuration.survey_link : root_path }
       format.json { render json: {} }
     end
   end
