@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def start
-    reset_session
+    reset_tribunal_case_session
     @link_sections = link_sections
   end
 
