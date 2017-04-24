@@ -7,6 +7,9 @@ module Users
       @email_address = session[:confirmation_email_address]
     end
 
+    def update_confirmation
+    end
+
     protected
 
     # We want, on purpose, to not sign in the user after registration, so not calling `super` here.
@@ -18,6 +21,10 @@ module Users
 
     def after_sign_up_path_for(_)
       users_registration_save_confirmation_path
+    end
+
+    def after_update_path_for(_)
+      users_registration_update_confirmation_path
     end
 
     private

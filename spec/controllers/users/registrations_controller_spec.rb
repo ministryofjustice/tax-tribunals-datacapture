@@ -83,6 +83,13 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
+  describe '#update_confirmation' do
+    it 'renders the expected page' do
+      get :update_confirmation
+      expect(response).to render_template(:update_confirmation)
+    end
+  end
+
   describe '#edit' do
     let(:user) { User.new }
 
