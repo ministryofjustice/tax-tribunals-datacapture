@@ -1211,6 +1211,10 @@ en:
         sign_in: Sign into your account
       edit:
         heading: Change your password
+      update_confirmation:
+        heading: "We've updated your password"
+        lead_text: Your password has been updated successfully.
+        your_cases: Return to your cases
     cases:
       index:
         heading: Your saved appeals/applications
