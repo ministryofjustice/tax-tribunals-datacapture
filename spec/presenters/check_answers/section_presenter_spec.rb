@@ -12,8 +12,24 @@ module CheckAnswers
     end
 
     describe '#show?' do
-      it 'returns true' do
-        expect(subject.show?).to eq(true)
+      context 'for an empty answers collection' do
+        before do
+          expect(subject).to receive(:answers).and_return([])
+        end
+
+        it 'returns false' do
+          expect(subject.show?).to eq(false)
+        end
+      end
+
+      context 'for a not empty answers collection' do
+        before do
+          expect(subject).to receive(:answers).and_return(['blah'])
+        end
+
+        it 'returns true' do
+          expect(subject.show?).to eq(true)
+        end
       end
     end
   end

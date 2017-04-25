@@ -37,6 +37,8 @@ en:
       check_answers:
         show:
           heading: Check your answers
+        resume:
+          heading: Resume your %{appeal_or_application}
       confirmation:
         show:
           case_submitted: Case submitted
@@ -800,6 +802,7 @@ en:
         against me. I understand that if I have given false information or I do not provide further evidence if
         requested, my %{appeal_or_application} may be rejected.
       submit_and_continue: Submit
+      resume: Resume %{appeal_or_application}
     pdf:
       header:
         tax_chamber: First-tier Tribunal (Tax Chamber)

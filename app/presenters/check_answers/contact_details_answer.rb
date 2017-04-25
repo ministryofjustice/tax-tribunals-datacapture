@@ -8,7 +8,7 @@ module CheckAnswers
     end
 
     def show?
-      true
+      display_name.strip.present?
     end
 
     # Used by Rails to determine which partial to render
