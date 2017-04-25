@@ -58,6 +58,11 @@ RSpec.describe Users::RegistrationsController do
           do_post
           expect(session[:confirmation_email_address]).to eq('foo@bar.com')
         end
+
+        it 'resets the tribunal case in the session' do
+          expect(subject).to receive(:reset_tribunal_case_session)
+          do_post
+        end
       end
 
       context 'when the registration was unsuccessful' do
