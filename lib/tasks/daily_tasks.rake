@@ -1,9 +1,12 @@
 task :daily_tasks do
   puts "#{Time.now} Starting daily tasks"
 
-  # TODO: to be enabled once we have save and return
-  # Rake::Task['case_reminders:first_email'].invoke
-  # Rake::Task['case_reminders:last_email'].invoke
+  # TODO: remove this test when save & return is enabled
+  # in all environments
+  if ENV['SAVE_AND_RETURN_ENABLED']
+    Rake::Task['case_reminders:first_email'].invoke
+    Rake::Task['case_reminders:last_email'].invoke
+  end
 
   puts "#{Time.now} tribunal_case:purge"
   Rake::Task['tribunal_case:purge'].invoke
