@@ -102,4 +102,33 @@ RSpec.describe Users::RegistrationsController do
       expect(response).to be_successful
     end
   end
+
+  describe '#update' do
+    let(:user) { User.new }
+
+    before do
+      sign_in(user)
+      # Bypass Devise database find() so we don't have to persist the test user
+      allow(User.to_adapter).to receive(:get!).and_return(user)
+    end
+
+    def do_update
+      put :update, params: { 'user' => {
+          password: 'passw0rd',
+          password_confirmation: 'passw0rd',
+          current_password: 'passw0rd'
+      }}
+    end
+
+    context 'when the parameters are valid' do
+      before do
+        allow(subject).to receive(:update_resource).and_return(true)
+      end
+
+      it 'redirects to the update confirmation page' do
+        do_update
+        expect(response).to redirect_to(users_registration_update_confirmation_path)
+      end
+    end
+  end
 end
