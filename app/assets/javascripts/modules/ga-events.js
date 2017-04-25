@@ -56,8 +56,8 @@ moj.Modules.gaEvents = {
     // until the GA event has been send, by sending target to make a
     // callback[2], unless no GA checkboxes in the form are checked, in which
     // case unbind and submit the form directly[3]
-    $checkboxes.each(function(n, $checkbox) {
-      var $form = $($checkbox.closest('form'));
+    $checkboxes.each(function(n, checkbox) {
+      var $form = $(checkbox).closest('form');
 
       $form.on('submit', function(e) {
         var eventDataArray,
