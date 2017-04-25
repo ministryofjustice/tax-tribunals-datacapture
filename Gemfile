@@ -4,7 +4,7 @@ ruby '2.3.3'
 
 gem 'devise'
 gem 'email_validator'
-gem 'glimr-api-client', '~> 0.3.1'
+gem 'glimr-api-client', '~> 0.3.2'
 gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
