@@ -17,6 +17,7 @@ module Users
     def sign_up(_resource_name, user)
       SaveCaseForLater.new(current_tribunal_case, user).save
       session[:confirmation_email_address] = user.email
+      reset_tribunal_case_session  # so we redirect the user to the portfolio after login back
     end
 
     def after_sign_up_path_for(_)
