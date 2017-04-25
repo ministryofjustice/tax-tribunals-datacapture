@@ -12,10 +12,20 @@ moj.Modules.docUploadCheckboxes = {
 
   init: function () {
     var cbElement = $(this.element_class),
-        container = $(this.containerId);
+        container = $(this.containerId),
+        $form;
 
     if (cbElement.length && container.length) {
+
+      $form = $(cbElement).eq(0).closest('form');
       container.replaceWith(cbElement);
+
+      $form.on('submit', function(e) {
+        e.preventDefault();
+        cbElement.clone().hide().prependTo($form);
+        $form.unbind('submit');
+        $form.trigger('submit');
+      });
     }
   }
 };
