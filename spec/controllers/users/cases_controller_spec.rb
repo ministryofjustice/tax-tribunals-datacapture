@@ -84,7 +84,7 @@ RSpec.describe Users::CasesController, type: :controller do
 
       context 'when tribunal case exists' do
         before do
-          expect(user).to receive(:tribunal_cases).and_return(scoped_result)
+          expect(user).to receive(:pending_tribunal_cases).and_return(scoped_result)
           expect(scoped_result).to receive(:find).with(tribunal_case.id).and_return(tribunal_case)
         end
 
