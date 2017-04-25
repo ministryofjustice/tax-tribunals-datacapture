@@ -94,7 +94,7 @@ Rails.application.routes.draw do
       get 'login/save_confirmation', to: 'logins#save_confirmation'
     end
 
-    resources :cases, only: [:index, :destroy] do
+    resources :cases, only: [:index, :destroy, :edit, :update] do
       get :resume
     end
   end

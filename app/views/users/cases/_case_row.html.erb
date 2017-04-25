@@ -1,9 +1,15 @@
 <tr>
   <td><%= tribunal_case.created_at %></td>
   <% if tribunal_case.user_case_reference? %>
-    <td><%= tribunal_case.user_case_reference %></td>
+    <td>
+      <%= tribunal_case.user_case_reference %><br>
+      <%= link_to t('.edit_reference'), edit_users_case_path(tribunal_case) %>
+    </td>
   <% else %>
-    <td class="not-entered"><%=t '.reference_not_entered' %></td>
+    <td class="not-entered">
+      <%=t '.reference_not_entered' %><br>
+      <%= link_to t('.create_reference'), edit_users_case_path(tribunal_case) %>
+    </td>
   <% end %>
   <% if tribunal_case.taxpayer_name? %>
     <td><%= tribunal_case.taxpayer_name %></td>

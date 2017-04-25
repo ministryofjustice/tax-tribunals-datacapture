@@ -25,6 +25,41 @@ RSpec.describe Users::CasesController, type: :controller do
     end
   end
 
+  describe '#edit' do
+    let(:tribunal_cases) { double('tribunal cases') }
+
+    before do
+      sign_in(user)
+    end
+
+    it 'renders the edit page' do
+      expect(user).to receive(:pending_tribunal_cases).and_return(tribunal_cases)
+      expect(tribunal_cases).to receive(:find).with('124').and_return(double)
+
+      get :edit, params: { id: 124 }
+      expect(assigns[:tribunal_case]).not_to be_nil
+      expect(response).to render_template(:edit)
+    end
+  end
+
+  describe '#update' do
+    let(:tribunal_cases) { double('tribunal cases') }
+    let(:tribunal_case) { instance_double(TribunalCase) }
+
+    before do
+      sign_in(user)
+    end
+
+    it 'updates the tribunal case' do
+      expect(user).to receive(:pending_tribunal_cases).and_return(tribunal_cases)
+      expect(tribunal_cases).to receive(:find).with('124').and_return(tribunal_case)
+      expect(tribunal_case).to receive(:update).with(user_case_reference: 'lolz')
+
+      patch :update, params: { id: 124, tribunal_case: { user_case_reference: 'lolz' } }
+      expect(response).to redirect_to(users_cases_path)
+    end
+  end
+
   describe '#destroy' do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
