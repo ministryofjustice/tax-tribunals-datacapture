@@ -2,6 +2,8 @@
   <div class="column-two-thirds">
     <h2 class="heading-large"><%=t '.heading' %></h2>
 
+    <p>Enter your email address and we'll send you a link to reset your password.</p>
+
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.email_field :email, autofocus: true %>
 

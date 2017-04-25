@@ -1181,8 +1181,8 @@ en:
   users:
     logins:
       new:
-        heading: Sign into your account
-        forgot_password: "I've forgotten my password"
+        heading: Sign in to return to your case
+        forgot_password: "Forgot your password?"
       logged_out:
         heading: You have signed out
         lead_text: Use the link emailed to you to return to your saved case.
@@ -1237,7 +1237,7 @@ en:
     passwords:
       new:
         heading: Forgot your password?
-        sign_in: Sign into your account
+        sign_in: Sign in to return to your case
       edit:
         heading: Change your password
       reset_sent:
