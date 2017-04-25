@@ -13,9 +13,17 @@ module CheckAnswers
       'section'
     end
 
-    # May be overridden in subclasses to hide if appropriate
+    # May be overridden in subclasses to hide/show if appropriate
     def show?
-      true
+      answers.any?
     end
+
+    protected
+
+    # :nocov:
+    def answers
+      raise 'must be implemented in subclasses'
+    end
+    # :nocov:
   end
 end

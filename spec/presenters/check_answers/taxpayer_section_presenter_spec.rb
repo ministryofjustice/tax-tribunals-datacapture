@@ -24,6 +24,25 @@ module CheckAnswers
       end
     end
 
+    describe '#show?' do
+      context 'when the representative question have been answered' do
+        it 'returns true' do
+          expect(subject.show?).to eq(true)
+        end
+      end
+
+      context 'when the representative question have not been answered' do
+        let(:has_representative) { nil }
+        let(:contact_details_answer) { instance_double(ContactDetailsAnswer, show?: false) }
+        let(:file_or_text_answer) { instance_double(FileOrTextAnswer, show?: false) }
+        let(:answer) { instance_double(Answer, show?: false) }
+
+        it 'returns false' do
+          expect(subject.show?).to eq(false)
+        end
+      end
+    end
+
     describe '#answers' do
       context 'when there is a rep' do
         let(:has_representative) { HasRepresentative::YES }

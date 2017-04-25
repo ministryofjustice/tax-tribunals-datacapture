@@ -11,6 +11,12 @@ class ActionDispatch::Routing::Mapper
              only:       [:show],
              controller: name
   end
+
+  def collection_step(name, action)
+    resources name, only: [] do
+      get action, on: :collection
+    end
+  end
 end
 
 Rails.application.routes.draw do
@@ -64,6 +70,7 @@ Rails.application.routes.draw do
       edit_step :additional_info
       edit_step :support_documents
       show_step :check_answers
+      collection_step :check_answers, :resume
       show_step :confirmation
     end
 
@@ -79,6 +86,7 @@ Rails.application.routes.draw do
       edit_step :documents_checklist
       show_step :documents_upload_problems
       show_step :check_answers
+      collection_step :check_answers, :resume
       show_step :confirmation
       edit_step :user_type
       edit_step :representative_approval

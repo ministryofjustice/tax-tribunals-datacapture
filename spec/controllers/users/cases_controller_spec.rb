@@ -84,7 +84,7 @@ RSpec.describe Users::CasesController, type: :controller do
 
       context 'when tribunal case exists' do
         before do
-          expect(user).to receive(:tribunal_cases).and_return(scoped_result)
+          expect(user).to receive(:pending_tribunal_cases).and_return(scoped_result)
           expect(scoped_result).to receive(:find).with(tribunal_case.id).and_return(tribunal_case)
         end
 
@@ -138,19 +138,19 @@ RSpec.describe Users::CasesController, type: :controller do
           expect(session[:tribunal_case_id]).to eq(tribunal_case.id)
         end
 
-        context 'redirects to the corresponding `check your answers` page' do
+        context 'redirects to the corresponding `check your answers` resume page' do
           before do
             get :resume, params: {case_id: tribunal_case.id}
           end
 
           context 'for an appeal case' do
             let(:intent) { Intent::TAX_APPEAL }
-            it { expect(response).to redirect_to(steps_details_check_answers_path) }
+            it { expect(response).to redirect_to(resume_steps_details_check_answers_path) }
           end
 
           context 'for a closure case' do
             let(:intent) { Intent::CLOSE_ENQUIRY }
-            it { expect(response).to redirect_to(steps_closure_check_answers_path) }
+            it { expect(response).to redirect_to(resume_steps_closure_check_answers_path) }
           end
         end
       end

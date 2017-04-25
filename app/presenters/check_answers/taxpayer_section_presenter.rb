@@ -47,8 +47,11 @@ module CheckAnswers
           organisation_registration_number: tribunal_case.representative_organisation_registration_number,
           change_path: edit_steps_details_representative_type_path
         )
-      else
+      elsif tribunal_case.has_representative == HasRepresentative::NO
         Answer.new(:representative_details, :no_representative, change_path: edit_steps_details_has_representative_path)
+      else
+        # `nil` because this question has not been answered yet and should not be shown when resuming a case
+        Answer.new(:representative_details, nil)
       end
     end
   end
