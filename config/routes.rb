@@ -97,6 +97,7 @@ Rails.application.routes.draw do
     devise_scope :user do
       get 'login/logged_out', to: 'logins#logged_out'
       get 'password/reset_sent', to: 'passwords#reset_sent'
+      get 'password/reset_confirmation', to: 'passwords#reset_confirmation'
       get 'registration/update_confirmation', to: 'registrations#update_confirmation'
       get 'registration/save_confirmation', to: 'registrations#save_confirmation'
       get 'login/save_confirmation', to: 'logins#save_confirmation'
