@@ -13,8 +13,8 @@ RSpec.describe ReminderRuleSet do
       it { expect(subject.created_days_ago).to eq(8) }
     end
 
-    context '#status_in' do
-      it { expect(subject.status_in).to match_array([nil]) }
+    context '#status' do
+      it { expect(subject.status).to eq(nil) }
     end
 
     context '#status_transition_to' do
@@ -33,8 +33,8 @@ RSpec.describe ReminderRuleSet do
       it { expect(subject.created_days_ago).to eq(10) }
     end
 
-    context '#status_in' do
-      it { expect(subject.status_in).to match_array([CaseStatus::FIRST_REMINDER_SENT]) }
+    context '#status' do
+      it { expect(subject.status).to eq(CaseStatus::FIRST_REMINDER_SENT) }
     end
 
     context '#status_transition_to' do
@@ -50,7 +50,7 @@ RSpec.describe ReminderRuleSet do
     let(:dummy_config) do
       {
         created_days_ago: 3,
-        status_in: ['status'],
+        status: 'status',
         status_transition_to: 'another_status',
         email_template_id: 'test-template'
       }
@@ -65,7 +65,7 @@ RSpec.describe ReminderRuleSet do
 
     it 'filters the cases' do
       expect(TribunalCase).to receive(:with_owner).and_return(finder_double)
-      expect(finder_double).to receive(:where).with(case_status: ['status']).and_return(finder_double)
+      expect(finder_double).to receive(:where).with(case_status: 'status').and_return(finder_double)
       expect(finder_double).to receive(:where).with('created_at <= ?', 3.days.ago).and_return(finder_double)
       subject.find_each
     end
