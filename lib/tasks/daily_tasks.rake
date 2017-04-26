@@ -3,11 +3,12 @@ task :daily_tasks do
 
   Rake::Task['case_reminders:first_email'].invoke
   Rake::Task['case_reminders:last_email'].invoke
-    Rake::Task['users:purge'].invoke
-  end
 
   puts "#{Time.now} tribunal_case:purge"
   Rake::Task['tribunal_case:purge'].invoke
+
+  puts "#{Time.now} users:purge"
+  Rake::Task['users:purge'].invoke
 
   puts "#{Time.now} Finished daily tasks"
 end
@@ -39,12 +40,11 @@ namespace :tribunal_case do
 end
 
 namespace :users do
-  desc "Delete users who have not logged in for 30 days"
+  desc "Expire users who have not logged in for 30 days"
   task purge: :environment do
-    puts "Deleting users who have not logged in for 30 or more days."
-    purged = TribunalCase.purge!(expire_after.days.ago)
-    # `#last_sign_in_at` does not get set until they sign in the first time.
-    deleted = User.where(["last_sign_in_at <= :time_ago OR (updated_at <= :time_ago AND last_sign_in_at IS NULL)", time_ago: 30.seconds.ago]).destroy_all
-    puts "Deleted #{deleted.size} users."
+    expire_after = Rails.configuration.x.users.expire_in_days
+    puts "Purging users who have not logged in for #{expire_after} days."
+    purged = User.purge!(expire_after.days.ago)
+    puts "Purged #{purged.size} users."
   end
 end
