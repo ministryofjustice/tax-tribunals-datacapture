@@ -1261,6 +1261,10 @@ en:
         heading: You will get an email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
         more_text_html: <a href="https://www.gov.uk/">Go to GOV.UK</a>
+      reset_confirmation:
+        heading: Your password has been reset
+        lead_text: Your new password has been set successfully.
+        sign_in: Sign into your account
     shared:
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
