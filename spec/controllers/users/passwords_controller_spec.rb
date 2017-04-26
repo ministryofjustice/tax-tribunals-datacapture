@@ -41,7 +41,7 @@ RSpec.describe Users::PasswordsController do
         allow(User).to receive(:reset_password_by_token).and_return(user)
       end
 
-      it 'redirects to the cases portfolio' do
+      it 'redirects to the reset confirmation page' do
         do_update
         expect(response).to redirect_to(users_password_reset_confirmation_path)
       end
