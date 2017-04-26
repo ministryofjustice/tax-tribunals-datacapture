@@ -1,12 +1,8 @@
 task :daily_tasks do
   puts "#{Time.now} Starting daily tasks"
 
-  # TODO: remove this test when save & return is enabled
-  # in all environments
-  if ENV['SAVE_AND_RETURN_ENABLED']
-    Rake::Task['case_reminders:first_email'].invoke
-    Rake::Task['case_reminders:last_email'].invoke
-  end
+  Rake::Task['case_reminders:first_email'].invoke
+  Rake::Task['case_reminders:last_email'].invoke
 
   puts "#{Time.now} tribunal_case:purge"
   Rake::Task['tribunal_case:purge'].invoke
@@ -16,11 +12,17 @@ end
 
 namespace :case_reminders do
   task :first_email => :environment do
-    CaseReminders.new(rule_set: ReminderRuleSet.first_reminder).run
+    rule_set = ReminderRuleSet.first_reminder
+
+    puts "#{Time.now} case_reminders:first_email - Count: #{rule_set.count}"
+    CaseReminders.new(rule_set: rule_set).run
   end
 
   task :last_email => :environment do
-    CaseReminders.new(rule_set: ReminderRuleSet.last_reminder).run
+    rule_set = ReminderRuleSet.last_reminder
+
+    puts "#{Time.now} case_reminders:last_email  - Count: #{rule_set.count}"
+    CaseReminders.new(rule_set: rule_set).run
   end
 end
 
