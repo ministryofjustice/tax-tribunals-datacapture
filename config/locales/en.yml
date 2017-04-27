@@ -1254,6 +1254,7 @@ en:
       new:
         heading: Forgot your password?
         sign_in: Sign in to continue your saved case
+        lead_text: Enter your email address and we'll send you a link to reset your password.
       edit:
         heading: Change your password
       reset_sent:
