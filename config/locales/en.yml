@@ -510,7 +510,7 @@ en:
             email:
               blank: Please enter an email address
               invalid: Please enter a valid email address
-              taken: There is already an account with this email address. Try signing in.
+              taken: You already have an account using this email address. Try signing in.
             password:
               blank: Please enter a password
               too_short: Your password must be at least %{count} characters
@@ -1084,7 +1084,7 @@ en:
         <a href="mailto:%{feedback_email}?subject=Feedback">feedback</a>
         will help us to improve it.
     current_user_menu:
-      logout: Logout
+      logout: Sign out
       change_password: Change password
   document_upload:
     errors:
@@ -1133,25 +1133,25 @@ en:
     note:
       heading: Security time-out
       text: After %{session_length} minutes of inactivity, we’ll check if you need
-        more time or automatically delete your application for security reasons.
+        more time or automatically delete your case for security reasons.
     expiring:
-      aria-warning: Your application has been inactive for over %{passed} minutes.
+      aria-warning: You have been inactive for over %{passed} minutes.
         Your session will time out in less than %{remain} minutes. Hit space bar to
         continue for another %{session_length} minutes.
       heading: Want more time to continue?
-      in: Your application will be deleted
+      in: Your case will be deleted
       security: For security reasons, any information will not be saved.
-      extend: Yes, continue my application
+      extend: Yes, continue my case
       destroy: No, delete my details
     expired:
       title: Session expired
-      heading: Your application has been cancelled
+      heading: Your case has been cancelled
       description: For your security, the information you’ve entered has automatically
         been deleted.
       restart: You can start again below.
       restart_button: Start again
-    canceled_message: Your application has been deleted. Please start again.
-    expired_message: You've been inactive for 30 minutes. Your application has been
+    canceled_message: Your case has been deleted. Please start again.
+    expired_message: You've been inactive for 30 minutes. Your case has been
       automatically deleted. Please start again.
     minute_single: minute
     second_single: second
@@ -1161,7 +1161,7 @@ en:
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
-      invalid: "Invalid email or password."
+      invalid: "There's an error. Please enter a valid email and password."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "Invalid email or password."
@@ -1189,29 +1189,29 @@ en:
   users:
     logins:
       new:
-        heading: Sign into your account
-        forgot_password: "I've forgotten my password"
+        heading: Sign in
+        forgot_password: "Forgot your password?"
       logged_out:
         heading: You have signed out
-        lead_text: Use the link emailed to you to return to your saved case.
-        more_text_html: <a href="https://www.gov.uk/">Go to GOV.UK</a>
+        lead_text: You can return to your saved case using the link sent in the email or by returning to the start.
+        more_text_html: Your case will expire in %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
       save_confirmation:
-        heading: Your appeal has been saved
-        your_cases: Go to your cases
+        heading: Your case has been saved
+        your_cases: Go to your saved cases
     registrations:
       new:
         heading: Save your %{appeal_or_application}
-        existing_account: I already have an account
+        existing_account: Sign in to an existing account
         account_warning_html: |
           <p class="notice util_mt-large">
             <i class="icon icon-important">
               <span class="visuallyhidden">Warning</span>
             </i>
-            <strong class="font-small">You must create an account before we can save your details.</strong>
+            <strong class="font-small">You must add sign in details so you can come back to your case later.</strong>
           </p>
       save_confirmation:
         heading: Your appeal has been saved
-        sign_in: Sign into your account
+        sign_in: Sign in
       edit:
         heading: Change your password
       update_confirmation:
@@ -1220,16 +1220,15 @@ en:
         your_cases: Return to your cases
     cases:
       index:
-        heading: Your saved appeals/applications
+        heading: Your saved cases
         expire_warning_html: |
-          <p>Your cases will be saved for %{expire_in_days} days.</p>
           <p class="notice">
             <i class="icon icon-important">
               <span class="visuallyhidden">Warning</span>
             </i>
             <strong class="font-small">
               You have 30 calendar days from the date of the original notice or review
-              conclusion letter. If you appeal any later, you'll need to explain why.
+              conclusion letter to submit an appeal. If you appeal any later, you'll need to explain why.
             </strong>
           </p>
         new_case: Start a new appeal or application
@@ -1254,7 +1253,8 @@ en:
     passwords:
       new:
         heading: Forgot your password?
-        sign_in: Sign into your account
+        sign_in: Sign in to continue your saved case
+        lead_text: Enter your email address and we'll send you a link to reset your password.
       edit:
         heading: Change your password
       reset_sent:
@@ -1268,5 +1268,5 @@ en:
     shared:
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
-        expire_warning: We will keep a draft of your appeal for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
-        return_info: You can return to complete your appeal at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
+        expire_warning: We will keep a draft of your case for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
+        return_info: You can return to continue entering details at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.

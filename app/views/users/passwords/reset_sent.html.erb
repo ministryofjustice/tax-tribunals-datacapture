@@ -5,5 +5,8 @@
     <p class="lede"><%=t '.lead_text' %></p>
 
     <p class="lede"><%=t '.more_text_html' %></p>
+
+    <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.start_again'), show_survey: false} %>
+    
   </div>
 </div>
