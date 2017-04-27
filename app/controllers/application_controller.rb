@@ -27,8 +27,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def initialize_tribunal_case(intent:)
-    TribunalCase.create(intent: intent).tap do |tribunal_case|
+  def reset_tribunal_case_session
+    session.delete(:tribunal_case_id)
+  end
+
+  def initialize_tribunal_case(attributes = {})
+    TribunalCase.create(attributes).tap do |tribunal_case|
       session[:tribunal_case_id] = tribunal_case.id
     end
   end

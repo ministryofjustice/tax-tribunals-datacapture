@@ -23,7 +23,7 @@ ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 
 RUN touch /etc/inittab
 
-RUN apt-get update && apt-get install -y
+RUN apt-get update && apt-get install -y && apt-get install libcurl4-gnutls-dev -y
 
 EXPOSE $PUMA_PORT
 

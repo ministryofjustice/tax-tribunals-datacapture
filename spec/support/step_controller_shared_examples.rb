@@ -70,7 +70,9 @@ RSpec.shared_examples 'a generic step controller' do |form_class, decision_tree_
   end
 end
 
-RSpec.shared_examples 'a starting point step controller' do |_form_class, _decision_tree_class|
+RSpec.shared_examples 'a starting point step controller' do |options|
+  let(:intent) { options.fetch(:intent) }
+
   describe '#show' do
     context 'when no case exists in the session yet' do
       it 'creates a new case' do
@@ -85,6 +87,36 @@ RSpec.shared_examples 'a starting point step controller' do |_form_class, _decis
       it 'sets the case ID in the session' do
         get :show
         expect(session[:tribunal_case_id]).to eq(TribunalCase.first.id)
+      end
+
+      context 'attributes initialization' do
+        context 'for a logged in user' do
+          let(:user) { instance_double(User) }
+
+          before do
+            sign_in(user)
+          end
+
+          it 'sets the appropriate attributes' do
+            expect(TribunalCase).to receive(:create).with(
+              intent: intent,
+              user: user
+            ).at_least(:once).and_return(double.as_null_object)
+
+            get :show
+          end
+        end
+
+        context 'for a logged out user' do
+          it 'sets the appropriate attributes' do
+            expect(TribunalCase).to receive(:create).with(
+              intent: intent,
+              user: nil
+            ).at_least(:once).and_return(double.as_null_object)
+
+            get :show
+          end
+        end
       end
     end
 

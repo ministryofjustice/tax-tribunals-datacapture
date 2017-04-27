@@ -12,6 +12,9 @@ module Users
       end
     end
 
+    def reset_confirmation
+    end
+
     def reset_sent
     end
 
@@ -22,7 +25,7 @@ module Users
     end
 
     def after_resetting_password_path_for(_)
-      user_session_path
+      users_password_reset_confirmation_path
     end
 
     def after_sending_reset_password_instructions_path_for(_)

@@ -30,4 +30,26 @@ RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
       expect(response.headers['Content-Disposition']).to eq('inline; filename="check_answers.pdf"')
     end
   end
+
+  describe '#resume' do
+    let(:user) { User.new }
+
+    context 'when user is signed in' do
+      before do
+        sign_in(user)
+      end
+
+      it 'renders the expected page' do
+        get :resume, session: { tribunal_case_id: tribunal_case.id }
+        expect(response).to render_template(:resume)
+      end
+    end
+
+    context 'when user is not signed in' do
+      it 'redirects to the sign-in page' do
+        get :resume, session: { tribunal_case_id: tribunal_case.id }
+        expect(response).to redirect_to(user_session_path)
+      end
+    end
+  end
 end

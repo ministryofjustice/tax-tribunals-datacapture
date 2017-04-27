@@ -9,8 +9,8 @@ RSpec.describe HomeController do
   end
 
   describe '#start' do
-    it 'resets the session' do
-      expect(subject).to receive(:reset_session)
+    it 'resets the tribunal case in the session' do
+      expect(subject).to receive(:reset_tribunal_case_session)
       get :start
     end
 

@@ -1,8 +1,5 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-
-    <div class="breadcrumbs"></div>
-
     <h1 class="heading-large"><%= t '.heading' %></h1>
 
     <ul class="list task-list">
@@ -17,11 +14,10 @@
       <%# TODO: Move this into the @link_sections and add i18n %>
       <% if save_and_return_enabled? %>
         <li>
-          <%= link_to 'Return to a saved appeal or application', user_session_path, class: 'task-link ga-pageLink' %>
-          <p>Continue completing a case you haven't submitted.</p>
+          <%= link_to t('.return_to_saved_case'), login_or_portfolio_path, class: 'task-link ga-pageLink' %>
+          <p><%=t '.continue_a_case_info' %></p>
         </li>
       <% end %>
     </ul>
-
   </div>
 </div>

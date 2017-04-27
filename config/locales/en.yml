@@ -37,6 +37,8 @@ en:
       check_answers:
         show:
           heading: Check your answers
+        resume:
+          heading: Resume your %{appeal_or_application}
       confirmation:
         show:
           case_submitted: Case submitted
@@ -759,6 +761,8 @@ en:
       user:
         email: Your email address
         password: Your password
+      tribunal_case:
+        user_case_reference: Your reference (optional)
     hint:
       user:
         password: Must be at least 8 characters
@@ -766,6 +770,7 @@ en:
     submit:
       create: Continue
       update: Continue
+      cancel: Cancel
       save_and_come_back_later: Save and come back later
       create_account: Save
       sign_in: Sign in
@@ -797,6 +802,7 @@ en:
         against me. I understand that if I have given false information or I do not provide further evidence if
         requested, my %{appeal_or_application} may be rejected.
       submit_and_continue: Submit
+      resume: Resume %{appeal_or_application}
     pdf:
       header:
         tax_chamber: First-tier Tribunal (Tax Chamber)
@@ -852,7 +858,7 @@ en:
       answers:
         <<: *YESNO
     challenged_decision_status:
-      question: What reponse did you receive?
+      question: What response did you receive?
       accessible_change_text: what response you received
       answers:
         received: I have a review conclusion letter
@@ -1104,6 +1110,8 @@ en:
           or the National Crime Agency.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
       link_time_estimate: "%{minutes} minutes to complete"
+      continue_a_case_info: "Continue completing an appeal or application you haven't submitted."
+      return_to_saved_case: Return to a saved appeal or application
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.
@@ -1206,6 +1214,10 @@ en:
         sign_in: Sign in
       edit:
         heading: Change your password
+      update_confirmation:
+        heading: "We've updated your password"
+        lead_text: Your password has been updated successfully.
+        your_cases: Return to your cases
     cases:
       index:
         heading: Your saved cases
@@ -1227,7 +1239,12 @@ en:
             your_reference: Your reference
             taxpayer_name: Taxpayer name
             case_actions: Case actions
+      edit:
+        heading: Edit case reference
+        lead_text: You can give this case a reference so you know which one it is.
       case_row:
+        edit_reference: Edit reference
+        create_reference: Add a reference
         reference_not_entered: Not entered
         name_not_entered: Not entered
         resume: Resume
@@ -1240,9 +1257,13 @@ en:
       edit:
         heading: Change your password
       reset_sent:
-        heading: Please check your email
-        lead_text: We have sent you an email with a link to reset your password.
-        more_text_html: Please check your inbox and spam folder.
+        heading: You will get an email
+        lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
+        more_text_html: <a href="https://www.gov.uk/">Go to GOV.UK</a>
+      reset_confirmation:
+        heading: Your password has been reset
+        lead_text: Your new password has been set successfully.
+        sign_in: Sign into your account
     shared:
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>

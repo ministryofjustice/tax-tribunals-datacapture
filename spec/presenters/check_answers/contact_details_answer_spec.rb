@@ -8,8 +8,21 @@ module CheckAnswers
     subject { described_class.new(question, attributes) }
 
     describe '#show?' do
-      it 'returns true' do
-        expect(subject.show?).to eq(true)
+      context 'when contact details have been entered' do
+        let(:attributes) { {
+          individual_first_name: 'Hans',
+          individual_last_name: 'Muller'
+        } }
+
+        it 'returns true' do
+          expect(subject.show?).to eq(true)
+        end
+      end
+
+      context 'when no contact details have been entered yet' do
+        it 'returns false' do
+          expect(subject.show?).to eq(false)
+        end
       end
     end
 

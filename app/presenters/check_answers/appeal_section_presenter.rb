@@ -35,7 +35,7 @@ module CheckAnswers
     end
 
     def challenged_decision_answer
-      if tribunal_case.case_type.direct_tax?
+      if tribunal_case.case_type&.direct_tax?
         Answer.new(:challenged_decision_direct, tribunal_case.challenged_decision, change_path: edit_steps_challenge_decision_path)
       else
         Answer.new(:challenged_decision_indirect, tribunal_case.challenged_decision, change_path: edit_steps_challenge_decision_path)
