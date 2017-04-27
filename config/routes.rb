@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   namespace :steps do
     namespace :appeal do
+      root 'case_type#edit'
+
       show_step :start
       edit_step :case_type
       edit_step :case_type_show_more
@@ -64,6 +66,8 @@ Rails.application.routes.draw do
     end
 
     namespace :closure do
+      root 'case_type#edit'
+
       show_step :start
       edit_step :case_type
       edit_step :enquiry_details
@@ -104,7 +108,7 @@ Rails.application.routes.draw do
     end
 
     resources :cases, only: [:index, :destroy, :edit, :update] do
-      get :resume
+      get :resume, on: :member
     end
   end
 

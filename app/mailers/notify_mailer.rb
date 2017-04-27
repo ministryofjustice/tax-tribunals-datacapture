@@ -19,7 +19,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,
-      resume_case_link: users_case_resume_url(tribunal_case)
+      resume_case_link: resume_users_case_url(tribunal_case)
     )
 
     mail(to: tribunal_case.user.email)
