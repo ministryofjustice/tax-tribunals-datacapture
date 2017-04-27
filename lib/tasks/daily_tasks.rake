@@ -7,6 +7,9 @@ task :daily_tasks do
   puts "#{Time.now} tribunal_case:purge"
   Rake::Task['tribunal_case:purge'].invoke
 
+  puts "#{Time.now} users:purge"
+  Rake::Task['users:purge'].invoke
+
   puts "#{Time.now} Finished daily tasks"
 end
 
@@ -33,5 +36,15 @@ namespace :tribunal_case do
     puts "Purging tribunal_cases older than #{expire_after} days."
     purged = TribunalCase.purge!(expire_after.days.ago)
     puts "Purged #{purged} tribunal cases."
+  end
+end
+
+namespace :users do
+  desc "Expire users who have not logged in for 30 days"
+  task purge: :environment do
+    expire_after = Rails.configuration.x.users.expire_in_days
+    puts "Purging users who have not logged in for #{expire_after} days."
+    purged = User.purge!(expire_after.days.ago)
+    puts "Purged #{purged.size} users."
   end
 end
