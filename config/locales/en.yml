@@ -1088,6 +1088,7 @@ en:
     current_user_menu:
       logout: Sign out
       change_password: Change password
+      your_cases: Your saved cases
   document_upload:
     errors:
       file_size: "%{file_name} is too big. You will need to resubmit a smaller version,
