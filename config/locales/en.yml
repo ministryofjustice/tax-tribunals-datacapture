@@ -804,6 +804,7 @@ en:
         against me. I understand that if I have given false information or I do not provide further evidence if
         requested, my %{appeal_or_application} may be rejected.
       submit_and_continue: Submit
+      submitting: Submitting...
       resume: Resume %{appeal_or_application}
     pdf:
       header:
