@@ -12,5 +12,5 @@
 </p>
 
 <p>
-  <%= button_to t('check_answers.footer..submit_and_continue'), submit_link, class: 'button js-debounce' %>
+  <%= button_to t('check_answers.footer..submit_and_continue'), submit_link, class: 'button js-debounce js-busy', data: {busy_text: t('check_answers.footer..submitting')} %>
 </p>
