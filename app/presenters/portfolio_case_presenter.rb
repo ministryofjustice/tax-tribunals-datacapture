@@ -1,6 +1,17 @@
 class PortfolioCasePresenter < SimpleDelegator
-  def created_at
-    I18n.localize(tribunal_case.created_at, format: :portfolio)
+  def expires_in
+    I18n.translate!(:case_expires_in, scope: 'time', count: case_remaining_days)
+  end
+
+  def expires_in_class
+    case case_remaining_days
+    when 0
+      'expires-today'
+    when 1..5
+      'expires-soon'
+    else
+      ''
+    end
   end
 
   def taxpayer_name
@@ -14,7 +25,8 @@ class PortfolioCasePresenter < SimpleDelegator
 
   private
 
-  def tribunal_case
-    __getobj__
+  def case_remaining_days
+    expiration_date = created_at.days_since(Rails.configuration.x.cases.expire_in_days)
+    (DateTime.now...expiration_date).count
   end
 end

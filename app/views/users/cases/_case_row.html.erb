@@ -1,5 +1,7 @@
 <tr>
-  <td><%= tribunal_case.created_at %></td>
+  <td>
+    <%= content_tag(:span, tribunal_case.expires_in, class: tribunal_case.expires_in_class) %>
+  </td>
   <% if tribunal_case.user_case_reference? %>
     <td>
       <%= tribunal_case.user_case_reference %><br>

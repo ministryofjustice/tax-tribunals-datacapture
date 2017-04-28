@@ -90,3 +90,8 @@ address {
   text-decoration: underline;
   margin-bottom: 0;
 }
+
+// TODO: add iconography
+span.expires-today, span.expires-soon {
+  font-weight: bold;
+}
