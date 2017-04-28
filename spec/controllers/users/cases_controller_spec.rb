@@ -105,15 +105,17 @@ RSpec.describe Users::CasesController, type: :controller do
   describe '#resume' do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
-        get :resume, params: { case_id: 'any' }
+        get :resume, params: { id: 'any' }
         expect(response).to redirect_to(user_session_path)
       end
     end
 
     context 'when user is logged in' do
-      let!(:tribunal_case) { TribunalCase.create(intent: intent) }
+      let!(:tribunal_case) { TribunalCase.create(intent: intent, case_type: case_type, closure_case_type: closure_case_type) }
 
       let(:intent) { nil }
+      let(:case_type) { nil }
+      let(:closure_case_type) { nil }
       let(:scoped_result) { double('result') }
 
       before do
@@ -122,7 +124,7 @@ RSpec.describe Users::CasesController, type: :controller do
 
       it 'raises an exception if case is not found' do
         expect {
-          get :resume, params: {case_id: '123'}
+          get :resume, params: {id: '123'}
         }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
@@ -134,23 +136,39 @@ RSpec.describe Users::CasesController, type: :controller do
 
         it 'assigns the chosen tribunal case to the current session' do
           expect(session[:tribunal_case_id]).to be_nil
-          get :resume, params: {case_id: tribunal_case.id}
+          get :resume, params: {id: tribunal_case.id}
           expect(session[:tribunal_case_id]).to eq(tribunal_case.id)
         end
 
-        context 'redirects to the corresponding `check your answers` resume page' do
+        context 'redirects to the corresponding resume page' do
           before do
-            get :resume, params: {case_id: tribunal_case.id}
+            get :resume, params: {id: tribunal_case.id}
           end
 
           context 'for an appeal case' do
             let(:intent) { Intent::TAX_APPEAL }
-            it { expect(response).to redirect_to(resume_steps_details_check_answers_path) }
+
+            context 'with `case_type` question answered' do
+              let(:case_type) { CaseType.new(:anything) }
+              it {expect(response).to redirect_to(resume_steps_details_check_answers_path)}
+            end
+
+            context 'with `case_type` question not answered' do
+              it {expect(response).to redirect_to(steps_appeal_root_path)}
+            end
           end
 
           context 'for a closure case' do
             let(:intent) { Intent::CLOSE_ENQUIRY }
-            it { expect(response).to redirect_to(resume_steps_closure_check_answers_path) }
+
+            context 'with `case_type` question answered' do
+              let(:closure_case_type) { CaseType.new(:anything) }
+              it { expect(response).to redirect_to(resume_steps_closure_check_answers_path) }
+            end
+
+            context 'with `case_type` question not answered' do
+              it {expect(response).to redirect_to(steps_closure_root_path)}
+            end
           end
         end
       end
