@@ -12,15 +12,22 @@ RSpec.describe Users::CasesController, type: :controller do
     end
 
     context 'when user is logged in' do
+      let(:finder_double) { double.as_null_object }
+
       before do
         sign_in(user)
+        expect(user).to receive(:pending_tribunal_cases).and_return(finder_double)
       end
 
       it 'renders the cases portfolio page' do
-        expect(user).to receive(:pending_tribunal_cases).and_call_original
         get :index
         expect(assigns[:tribunal_cases]).not_to be_nil
         expect(response).to render_template(:index)
+      end
+
+      it 'sorts the resulting cases by ascending `created_at`' do
+        expect(finder_double).to receive(:order).with(created_at: :asc)
+        get :index
       end
     end
   end
