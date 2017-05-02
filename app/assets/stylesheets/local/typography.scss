@@ -71,6 +71,13 @@ address {
     margin-left: 3em;
   }
 
+  form {
+    vertical-align: middle;
+    display: inline-block;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+  }
+
   &.actions-tight {
     a {
       margin-left: 0;
