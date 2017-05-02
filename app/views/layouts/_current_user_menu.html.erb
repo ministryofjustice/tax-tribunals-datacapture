@@ -1,5 +1,5 @@
 <ul id="proposition-links">
-  <li><%= link_to 'Your saved cases', users_cases_path %></li>
+  <li><%= link_to t('.your_cases'), users_cases_path %></li>
   <li><%= link_to t('.change_password'), edit_user_registration_path %></li>
   <li><%= current_user.email %></li>
   <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
