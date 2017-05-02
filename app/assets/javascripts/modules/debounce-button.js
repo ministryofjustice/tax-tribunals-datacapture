@@ -24,7 +24,7 @@ moj.Modules.debounceButton = {
         $button.addClass(disableClass);
 
         if($button.hasClass('js-busy')) {
-          $button.val($button.data('busy-text'));
+          $button.val($button.data('busy-text')).after('<img class="busy-spinner" src="' + moj.Modules.singleFileUpload.spinnerImagePath + '" alt=""> ');
         }
       }
     });
