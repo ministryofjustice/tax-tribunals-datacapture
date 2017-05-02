@@ -67,9 +67,10 @@ RSpec.describe NotifyMailer, type: :mailer do
 
     it_behaves_like 'a Notify mail', template_id: 'change-password-template'
 
-    # TODO: we don't know if this email will have any personalisation, update accordingly once we have the copy
     it 'has the right keys' do
-      expect(mail.govuk_notify_personalisation).to be_nil
+      expect(mail.govuk_notify_personalisation).to eq({
+        portfolio_url: 'https://tax.justice.uk/users/cases'
+      })
     end
   end
 
@@ -163,7 +164,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'sets the personalisation' do
         expect(
           mail.govuk_notify_personalisation.keys
-        ).to eq([:appeal_or_application])
+        ).to eq([:appeal_or_application, :resume_case_link])
       end
     end
   end
