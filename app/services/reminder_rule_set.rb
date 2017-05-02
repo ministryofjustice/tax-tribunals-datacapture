@@ -15,7 +15,7 @@ class ReminderRuleSet
 
   def self.first_reminder
     new(
-      created_days_ago: 8,
+      created_days_ago: 9,
       status: nil,
       status_transition_to: CaseStatus::FIRST_REMINDER_SENT,
       email_template_id: ENV.fetch('NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID')
@@ -24,7 +24,7 @@ class ReminderRuleSet
 
   def self.last_reminder
     new(
-      created_days_ago: 10,
+      created_days_ago: 13,
       status: CaseStatus::FIRST_REMINDER_SENT,
       status_transition_to: CaseStatus::LAST_REMINDER_SENT,
       email_template_id: ENV.fetch('NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID')

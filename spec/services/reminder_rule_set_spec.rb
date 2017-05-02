@@ -10,7 +10,7 @@ RSpec.describe ReminderRuleSet do
     subject { described_class.first_reminder }
 
     context '#created_days_ago' do
-      it { expect(subject.created_days_ago).to eq(8) }
+      it { expect(subject.created_days_ago).to eq(9) }
     end
 
     context '#status' do
@@ -30,7 +30,7 @@ RSpec.describe ReminderRuleSet do
     subject { described_class.last_reminder }
 
     context '#created_days_ago' do
-      it { expect(subject.created_days_ago).to eq(10) }
+      it { expect(subject.created_days_ago).to eq(13) }
     end
 
     context '#status' do
