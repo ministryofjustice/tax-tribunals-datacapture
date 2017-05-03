@@ -84,39 +84,17 @@ RSpec.shared_examples 'a starting point step controller' do |options|
         expect(response).to be_successful
       end
 
+      it 'initialize the case with the appropriate intent' do
+        expect(TribunalCase).to receive(:create).with(
+          intent: intent
+        ).at_least(:once).and_return(double.as_null_object)
+
+        get :show
+      end
+
       it 'sets the case ID in the session' do
         get :show
         expect(session[:tribunal_case_id]).to eq(TribunalCase.first.id)
-      end
-
-      context 'attributes initialization' do
-        context 'for a logged in user' do
-          let(:user) { instance_double(User) }
-
-          before do
-            sign_in(user)
-          end
-
-          it 'sets the appropriate attributes' do
-            expect(TribunalCase).to receive(:create).with(
-              intent: intent,
-              user: user
-            ).at_least(:once).and_return(double.as_null_object)
-
-            get :show
-          end
-        end
-
-        context 'for a logged out user' do
-          it 'sets the appropriate attributes' do
-            expect(TribunalCase).to receive(:create).with(
-              intent: intent,
-              user: nil
-            ).at_least(:once).and_return(double.as_null_object)
-
-            get :show
-          end
-        end
       end
     end
 
@@ -144,6 +122,32 @@ RSpec.shared_examples 'a starting point step controller' do |options|
         existing_case.reload
 
         expect(existing_case.navigation_stack).to eq([controller.request.fullpath])
+      end
+    end
+
+    context 'saving the case for later' do
+      context 'for a signed in user' do
+        let(:user) { instance_double(User) }
+
+        before do
+          sign_in(user)
+        end
+
+        it 'saves the case for later' do
+          expect(SaveCaseForLater).to receive(:new).with(
+            an_instance_of(TribunalCase),
+            user
+          ).and_return(double.as_null_object)
+
+          get :show
+        end
+      end
+
+      context 'for a signed out user' do
+        it 'does not save the case for later' do
+          expect(SaveCaseForLater).not_to receive(:new)
+          get :show
+        end
       end
     end
   end
