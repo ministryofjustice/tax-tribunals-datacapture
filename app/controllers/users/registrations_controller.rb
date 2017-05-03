@@ -20,6 +20,14 @@ module Users
       reset_tribunal_case_session  # so we redirect the user to the portfolio after login back
     end
 
+    # Devise will not give an error when leaving blank the new password, it will just ignore the update,
+    # which is a very confusing behaviour IMO. Overriding this method to force validation on this field.
+    # https://github.com/plataformatec/devise/issues/1955
+    def update_resource(resource, params)
+      params[:password] = '*' if params[:password].blank?
+      super
+    end
+
     def after_sign_up_path_for(_)
       users_registration_save_confirmation_path
     end

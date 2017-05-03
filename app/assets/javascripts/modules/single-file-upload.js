@@ -11,9 +11,9 @@ moj.Modules.singleFileUpload = {
   init: function() {
     var self = this;
 
+    self.preloadSpinner();
     if($(self.input_class).length) {
       self.bindEvents();
-      self.preloadSpinner();
     }
   },
 
@@ -33,7 +33,7 @@ moj.Modules.singleFileUpload = {
 
     $form.on('submit', function() {
       if($el.val()) {
-        $('.js-file-status').html('<img class="upload-spinner" src="' + self.spinnerImagePath + '" alt=""> ' + self.strings.uploading);
+        $('.js-file-status').html('<img class="busy-spinner" src="' + self.spinnerImagePath + '" alt=""> ' + self.strings.uploading);
       }
     });
   },

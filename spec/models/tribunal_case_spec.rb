@@ -164,4 +164,24 @@ RSpec.describe TribunalCase, type: :model do
       end
     end
   end
+
+  describe '#blank?' do
+    let(:attributes) { { case_type: case_type, closure_case_type: closure_case_type } }
+    let(:case_type) { nil }
+    let(:closure_case_type) { nil}
+
+    context 'both `case_type` and `closure_case_type` are not set' do
+      it { expect(subject.blank?).to eq(true) }
+    end
+
+    context '`case_type` is set' do
+      let(:case_type) { CaseType.new(:anything) }
+      it { expect(subject.blank?).to eq(false) }
+    end
+
+    context '`closure_case_type` is set' do
+      let(:closure_case_type) { ClosureCaseType.new(:anything) }
+      it { expect(subject.blank?).to eq(false) }
+    end
+  end
 end

@@ -6,16 +6,7 @@
   </head>
 
   <body id="case-details-pdf">
-    <div class="pdf-header">
-      <h2><%= translate_with_appeal_or_application 'check_answers.pdf.header.tax_chamber' %></h2>
-      <h1>
-        <%= translate_with_appeal_or_application 'check_answers.pdf.header.closure_heading' %>
-        <% if @presenter.case_reference? %>
-          &ndash; <%= @presenter.case_reference %>
-        <% end %>
-      </h1>
-    </div>
-
+    <%= render partial: 'application/check_answers_header', locals: {heading_key: 'closure_heading'} %>
     <%= render @presenter.sections %>
   </body>
 </html>

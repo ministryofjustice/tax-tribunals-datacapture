@@ -22,6 +22,10 @@ moj.Modules.debounceButton = {
         e.preventDefault();
       } else {
         $button.addClass(disableClass);
+
+        if($button.hasClass('js-busy')) {
+          $button.val($button.data('busy-text')).after('<img class="busy-spinner" src="' + moj.Modules.singleFileUpload.spinnerImagePath + '" alt=""> ');
+        }
       }
     });
   }

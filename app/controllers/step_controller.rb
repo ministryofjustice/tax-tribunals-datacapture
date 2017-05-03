@@ -8,6 +8,7 @@ class StepController < ApplicationController
     # Second to last element in the array, will be nil for arrays of size 0 or 1
     current_tribunal_case&.navigation_stack&.slice(-2) || root_path
   end
+  helper_method :previous_step_path
 
   private
 

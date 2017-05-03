@@ -1,0 +1,13 @@
+<div class="pdf-header">
+  <h2><%=t 'check_answers.pdf.header.tax_chamber' %></h2>
+  <h1>
+    <%= translate_with_appeal_or_application("check_answers.pdf.header.#{heading_key}") %>
+    <% if @presenter.case_reference? %>
+      &ndash; <%= @presenter.case_reference %>
+    <% end %>
+  </h1>
+
+  <p class="generated-at">
+    <%= t('check_answers.pdf.header.generated_at', date: l(Date.today, format: :long)) %>
+  </p>
+</div>

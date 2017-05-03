@@ -119,20 +119,34 @@ RSpec.describe Users::RegistrationsController do
 
     def do_update
       put :update, params: { 'user' => {
-          password: 'passw0rd',
-          password_confirmation: 'passw0rd',
-          current_password: 'passw0rd'
+          current_password: 'passw0rd',
+          password: new_password
       }}
     end
 
     context 'when the parameters are valid' do
+      let(:new_password) { 'passw0rd' }
+
       before do
-        allow(subject).to receive(:update_resource).and_return(true)
+        expect(user).to receive(:update_with_password).with(hash_including(password: 'passw0rd')).and_return(true)
       end
 
       it 'redirects to the update confirmation page' do
         do_update
         expect(response).to redirect_to(users_registration_update_confirmation_path)
+      end
+    end
+
+    context 'when the parameters are not valid' do
+      let(:new_password) { '' }
+
+      before do
+        expect(user).to receive(:update_with_password).with(hash_including(password: '*')).and_call_original
+      end
+
+      it 'renders to the update page' do
+        do_update
+        expect(subject).to render_template(:edit)
       end
     end
   end

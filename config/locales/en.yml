@@ -762,6 +762,7 @@ en:
         email: Your email address
         password: Choose password
         password_confirmation: Confirm password
+        current_password: Old password
       tribunal_case:
         user_case_reference: Your reference (optional)
     hint:
@@ -776,7 +777,7 @@ en:
       create_account: Save
       sign_in: Sign in
       reset_password: Reset password
-      change_password: Change password
+      change_password: Change my password
       save_and_continue: "Save and continue"
   check_answers:
     attached_document: Attached document
@@ -803,12 +804,14 @@ en:
         against me. I understand that if I have given false information or I do not provide further evidence if
         requested, my %{appeal_or_application} may be rejected.
       submit_and_continue: Submit
+      submitting: Submitting...
       resume: Resume %{appeal_or_application}
     pdf:
       header:
         tax_chamber: First-tier Tribunal (Tax Chamber)
         appeal_heading: Notice of %{appeal_or_application}
         closure_heading: Application to close enquiry
+        generated_at: 'Generated: %{date}'
     case_type:
       question: What is your %{appeal_or_application} about?
       accessible_change_text: what your %{appeal_or_application} is about
@@ -987,9 +990,15 @@ en:
       format:
         unit: "£"
         precision: 0
-  time:
+  date:
     formats:
-      portfolio: '%d %B %Y'
+      compact: '%d/%m/%Y'
+      long: '%e %B %Y'
+  time:
+    case_expires_in:
+      zero: Today
+      one: '%{count} day'
+      other: '%{count} days'
   generic:
     back_link: Back
     appeal_or_application:
@@ -1087,6 +1096,7 @@ en:
     current_user_menu:
       logout: Sign out
       change_password: Change password
+      your_cases: Your saved cases
   document_upload:
     errors:
       file_size: "%{file_name} is too big. You will need to resubmit a smaller version,
@@ -1231,7 +1241,7 @@ en:
         table:
           caption: Table of saved appeals/applications
           heading:
-            date_created: Date created
+            expires_in: Expires in
             your_reference: Your reference
             taxpayer_name: Taxpayer name
             case_actions: Case actions

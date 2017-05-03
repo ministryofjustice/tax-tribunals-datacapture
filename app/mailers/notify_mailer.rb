@@ -19,7 +19,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,
-      resume_case_link: users_case_resume_url(tribunal_case)
+      resume_case_link: resume_users_case_url(tribunal_case)
     )
 
     mail(to: tribunal_case.user.email)
@@ -39,6 +39,10 @@ class NotifyMailer < GovukNotifyRails::Mailer
   # Triggered automatically by Devise when the user changes its password
   def password_change(user, _opts={})
     set_template(ENV.fetch('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID'))
+
+    set_personalisation(
+      portfolio_url: users_cases_url
+    )
 
     mail(to: user.email)
   end
@@ -80,9 +84,9 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
     set_template(template_id)
 
-    # TODO: decide what personalisation we might need based on the template copy
     set_personalisation(
-      appeal_or_application: mail_presenter.appeal_or_application
+      appeal_or_application: mail_presenter.appeal_or_application,
+      resume_case_link: resume_users_case_url(tribunal_case)
     )
 
     mail(to: mail_presenter.account_user_email)
