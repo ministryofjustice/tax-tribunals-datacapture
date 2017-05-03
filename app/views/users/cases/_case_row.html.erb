@@ -1,6 +1,6 @@
-<tr>
-  <td>
-    <%= content_tag(:span, tribunal_case.expires_in, class: tribunal_case.expires_in_class) %>
+<tr class="<%= tribunal_case.expires_in_class %>">
+  <td class="timeliness">
+    <%= content_tag(:span, tribunal_case.expires_in) %>
   </td>
   <% if tribunal_case.user_case_reference? %>
     <td>

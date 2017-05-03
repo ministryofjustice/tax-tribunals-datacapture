@@ -65,10 +65,29 @@ table.saved-appeals {
 
   td {
     @include core-16;
+    min-height: 24px;
+    vertical-align: middle;
   }
 
   tr {
     vertical-align: middle;
+
+    &.expires-today, &.expires-soon {
+      td.timeliness {
+        padding-left: 30px;
+        background: image-url('alert-red.png') left center no-repeat;
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2), not all, not all, not all, only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+          background: image-url('alert-red-2x.png') left center no-repeat;
+          background-size: 24px;
+        }
+
+        span {
+          display: inline-block;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   .not-entered {
