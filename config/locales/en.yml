@@ -811,6 +811,7 @@ en:
         tax_chamber: First-tier Tribunal (Tax Chamber)
         appeal_heading: Notice of %{appeal_or_application}
         closure_heading: Application to close enquiry
+        generated_at: 'Generated: %{date}'
     case_type:
       question: What is your %{appeal_or_application} about?
       accessible_change_text: what your %{appeal_or_application} is about
@@ -989,6 +990,9 @@ en:
       format:
         unit: "£"
         precision: 0
+  date:
+    formats:
+      compact: '%d/%m/%Y'
   time:
     case_expires_in:
       zero: Today
