@@ -7,7 +7,7 @@
     <% end %>
   </h1>
 
-  <span class="generated-at">
-    <%= t('check_answers.pdf.header.generated_at', date: l(Date.today, format: :compact)) %>
-  </span>
+  <p class="generated-at">
+    <%= t('check_answers.pdf.header.generated_at', date: l(Date.today, format: :long)) %>
+  </p>
 </div>
