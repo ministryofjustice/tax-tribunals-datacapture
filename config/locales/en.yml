@@ -126,8 +126,8 @@ en:
             <p>You should ask for a review even if you think you are late.</p>
             <p>Find out more about:</p>
             <ul class="list list-bullet">
-              <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
-              <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
+              <li><a href="https://www.gov.uk/tax-appeals" target="_blank">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+              <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank">options when UK Border Force (UKBF) seizes your things</a></li>
             </ul>
       must_wait_for_review_decision:
         show:
@@ -510,7 +510,7 @@ en:
             email:
               blank: Please enter an email address
               invalid: Please enter a valid email address
-              taken: You already have an account using this email address. Try signing in.
+              taken: You already have cases saved with this email address. Try signing in.
             password:
               blank: Please enter a password
               too_short: Your password must be at least %{count} characters
@@ -602,7 +602,7 @@ en:
             to get a late review accepted by HMRC, UK Border Force (UKBF) or National
             Crime Authority (NCA)"
           restoration_case_html: "<strong>Restoration case</strong><br>apply for the
-            return of seized goods or equivalent compensation"
+            return of seized goods"
           stamp_duties_html: "<strong>Stamp duties</strong><br>includes Stamp Duty
             Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)"
           statutory_payments_html: "<strong>Statutory payments</strong><br>for example
@@ -1111,7 +1111,7 @@ en:
           or the National Crime Agency.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
       link_time_estimate: "%{minutes} minutes to complete"
-      continue_a_case_info: "Continue completing an appeal or application you haven't submitted."
+      continue_a_case_info: "Continue completing a case you haven't submitted."
       return_to_saved_case: Return to a saved appeal or application
     contact:
       heading: Contact
@@ -1167,7 +1167,7 @@ en:
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "There's an error. Please enter a valid email and password."
       timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "You need to sign in before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
     passwords:
       no_token: "You can only change your password using a link from a password reset email. If you have come from a password reset email, please make sure you used the full URL link provided."
@@ -1194,7 +1194,7 @@ en:
         forgot_password: "Forgot your password?"
       logged_out:
         heading: You have signed out
-        lead_text: You can return to your saved case using the link sent in the email or by returning to the start.
+        lead_text: You can return to a saved case using the link sent in the email or by returning to the start of the service.
         more_text_html: Any draft cases will expire 14 days after they were first saved.
       save_confirmation:
         heading: Your case has been saved
@@ -1202,14 +1202,9 @@ en:
     registrations:
       new:
         heading: Save your %{appeal_or_application}
-        existing_account: Sign in to an existing account
+        existing_account: Sign into an existing account
         account_warning_html: |
-          <p class="notice util_mt-large">
-            <i class="icon icon-important">
-              <span class="visuallyhidden">Warning</span>
-            </i>
-            <strong class="font-small">You must add sign in details so you can come back to your case later.</strong>
-          </p>
+          <p>Choose an email address and password so you can sign in and complete your case later.</p>
       save_confirmation:
         heading: Your appeal has been saved
         sign_in: Sign in
@@ -1254,14 +1249,15 @@ en:
     passwords:
       new:
         heading: Forgot your password
-        sign_in: Sign in to continue your saved case
+        sign_in: Go back and sign in
         lead_text: Enter your email address and we'll send you a link to reset your password.
+        account_text: Remember, if you haven't signed in for 30 days we delete your email address for security reasons.
       edit:
         heading: Change your password
       reset_sent:
         heading: Please check your email
-        lead_text: We have sent you an email with a link to reset your password.
-        more_text_html: Please check your inbox and spam folder.
+        lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
+        deleted_account: If you haven't signed in for 30 days we delete your email address for security reasons. You'll need to start again and save an appeal or application.
       reset_confirmation:
         heading: Your password has been changed
         lead_text: You have set a new password successfully.
