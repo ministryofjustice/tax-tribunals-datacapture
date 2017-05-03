@@ -990,8 +990,10 @@ en:
         unit: "£"
         precision: 0
   time:
-    formats:
-      portfolio: '%d %B %Y'
+    case_expires_in:
+      zero: Today
+      one: '%{count} day'
+      other: '%{count} days'
   generic:
     back_link: Back
     appeal_or_application:
@@ -1239,7 +1241,7 @@ en:
         table:
           caption: Table of saved appeals/applications
           heading:
-            date_created: Date created
+            expires_in: Expires in
             your_reference: Your reference
             taxpayer_name: Taxpayer name
             case_actions: Case actions
