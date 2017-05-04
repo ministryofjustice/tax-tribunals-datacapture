@@ -42,6 +42,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
         appeal_or_application: :appeal,
+        show_deadline_warning: 'yes',
         resume_case_link: 'https://tax.justice.uk/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume'
       })
     end
