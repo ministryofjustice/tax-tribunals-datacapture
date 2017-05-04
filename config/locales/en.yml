@@ -1188,6 +1188,7 @@ en:
         existing_account: Sign into an existing account
         account_warning_html: |
           <p>Choose an email address and password so you can sign in and complete your case later.</p>
+        email_confirmation: "An email will be sent to:"
       save_confirmation:
         heading: Your appeal has been saved
         sign_in: Sign in
