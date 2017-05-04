@@ -1,5 +1,7 @@
 <div class="grid-row">
   <div class="column-two-thirds">
+    <%= error_summary(resource) %>
+
     <h2 class="heading-large"><%=t '.heading' %></h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :patch }) do |f| %>
