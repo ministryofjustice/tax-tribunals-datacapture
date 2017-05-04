@@ -3,8 +3,6 @@
     <h2 class="heading-large"><%=t '.heading' %></h2>
 
     <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-      <%= devise_error_messages! %>
-
       <%= f.email_field :email, autofocus: true %>
       <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: 'off' %>
 
