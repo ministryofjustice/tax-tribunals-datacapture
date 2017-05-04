@@ -21,8 +21,8 @@ class HomeController < ApplicationController
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
   def link_sections
     [
-      [:appeal, 30, steps_appeal_start_path],
-      [:close, 15, steps_closure_start_path]
+      [:appeal, 30, appeal_path],
+      [:close, 15, closure_path]
     ]
   end
 end

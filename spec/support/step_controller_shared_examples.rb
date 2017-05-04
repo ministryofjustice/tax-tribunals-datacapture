@@ -73,14 +73,14 @@ end
 RSpec.shared_examples 'a starting point step controller' do |options|
   let(:intent) { options.fetch(:intent) }
 
-  describe '#show' do
+  describe '#edit' do
     context 'when no case exists in the session yet' do
       it 'creates a new case' do
-        expect { get :show }.to change { TribunalCase.count }.by(1)
+        expect { get :edit }.to change { TribunalCase.count }.by(1)
       end
 
       it 'responds with HTTP success' do
-        get :show
+        get :edit
         expect(response).to be_successful
       end
 
@@ -89,11 +89,11 @@ RSpec.shared_examples 'a starting point step controller' do |options|
           intent: intent
         ).at_least(:once).and_return(double.as_null_object)
 
-        get :show
+        get :edit
       end
 
       it 'sets the case ID in the session' do
-        get :show
+        get :edit
         expect(session[:tribunal_case_id]).to eq(TribunalCase.first.id)
       end
     end
@@ -103,29 +103,46 @@ RSpec.shared_examples 'a starting point step controller' do |options|
 
       it 'does not create a new case' do
         expect {
-          get :show, session: { tribunal_case_id: existing_case.id }
+          get :edit, session: { tribunal_case_id: existing_case.id }
         }.to_not change { TribunalCase.count }
       end
 
       it 'responds with HTTP success' do
-        get :show, session: { tribunal_case_id: existing_case.id }
+        get :edit, session: { tribunal_case_id: existing_case.id }
         expect(response).to be_successful
       end
 
       it 'does not change the case ID in the session' do
-        get :show, session: { tribunal_case_id: existing_case.id }
+        get :edit, session: { tribunal_case_id: existing_case.id }
         expect(session[:tribunal_case_id]).to eq(existing_case.id)
       end
 
       it 'clears the navigation stack in the session' do
-        get :show, session: { tribunal_case_id: existing_case.id }
+        get :edit, session: { tribunal_case_id: existing_case.id }
         existing_case.reload
 
         expect(existing_case.navigation_stack).to eq([controller.request.fullpath])
       end
     end
 
-    context 'saving the case for later' do
+    context 'saving the case for later on `edit`' do
+      context 'for a signed in user' do
+        let(:user) { instance_double(User) }
+
+        before do
+          sign_in(user)
+        end
+
+        it 'does not save the case for later' do
+          expect(SaveCaseForLater).not_to receive(:new)
+          get :edit
+        end
+      end
+    end
+  end
+
+  describe '#update' do
+    context 'saving the case for later on `update`' do
       context 'for a signed in user' do
         let(:user) { instance_double(User) }
 
@@ -139,14 +156,14 @@ RSpec.shared_examples 'a starting point step controller' do |options|
             user
           ).and_return(double.as_null_object)
 
-          get :show
+          put :update, params: {}
         end
       end
 
       context 'for a signed out user' do
         it 'does not save the case for later' do
           expect(SaveCaseForLater).not_to receive(:new)
-          get :show
+          put :update, params: {}
         end
       end
     end

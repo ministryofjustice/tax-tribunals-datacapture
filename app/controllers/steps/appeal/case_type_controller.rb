@@ -1,5 +1,7 @@
 module Steps::Appeal
   class CaseTypeController < Steps::AppealStepController
+    include StartingPointStep
+
     def edit
       @form_object = CaseTypeForm.new(
         tribunal_case: current_tribunal_case,

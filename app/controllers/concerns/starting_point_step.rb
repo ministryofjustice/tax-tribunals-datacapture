@@ -2,7 +2,7 @@ module StartingPointStep
   extend ActiveSupport::Concern
 
   included do
-    before_action :save_case_for_later, if: :user_signed_in?
+    before_action :save_case_for_later, if: :user_signed_in?, only: [:update]
   end
 
   private

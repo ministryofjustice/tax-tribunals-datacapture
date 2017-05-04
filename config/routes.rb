@@ -35,7 +35,6 @@ Rails.application.routes.draw do
     namespace :appeal do
       root 'case_type#edit'
 
-      show_step :start
       edit_step :case_type
       edit_step :case_type_show_more
       edit_step :dispute_type
@@ -68,7 +67,6 @@ Rails.application.routes.draw do
     namespace :closure do
       root 'case_type#edit'
 
-      show_step :start
       edit_step :case_type
       edit_step :enquiry_details
       edit_step :additional_info
@@ -138,6 +136,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get :start, to: 'home#start'
+  get :appeal, to: 'appeal_home#index'
+  get :closure, to: 'closure_home#index'
+
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
   get :example_saved_appeal, to: 'home#example_saved_appeal'
