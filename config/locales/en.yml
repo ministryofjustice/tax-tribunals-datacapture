@@ -60,21 +60,6 @@ en:
 
   steps:
     appeal:
-      start:
-        show:
-          impartial_decision: Get an impartial decision on your dispute
-          heading: Appeal against a tax decision
-          lead_text_html: You have 30 calendar days to appeal. This begins from the
-            date of the original notice or review conclusion letter.
-          description_html: |
-            <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
-            <h2 class="heading-medium">What you will need</h2>
-            <ul class="list list-bullet">
-              <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
-              <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
-            </ul>
-            <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
-          continue: Continue
       case_type:
         <<: *CASE_TYPE_QUESTION
       case_type_show_more:
@@ -159,18 +144,6 @@ en:
               <li>waited 45 days and not received a letter</li>
             </ul>
     closure:
-      start:
-        show:
-          continue: Continue
-          heading: Apply to close an enquiry
-          lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
-          description_html: |
-            <h2 class="heading-medium">What you will need</h2>
-            <ul class="list list-bullet">
-              <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
-            </ul>
-            <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-            <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
       case_type:
         edit:
           heading: What type of enquiry do you want to close?
@@ -1277,3 +1250,30 @@ en:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
         expire_warning: We will keep a draft of your case for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
         return_info: You can return to continue entering details at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
+  appeal_home:
+    index:
+      impartial_decision: Get an impartial decision on your dispute
+      heading: Appeal against a tax decision
+      lead_text_html: You have 30 calendar days to appeal. This begins from the
+        date of the original notice or review conclusion letter.
+      description_html: |
+        <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <h2 class="heading-medium">What you will need</h2>
+        <ul class="list list-bullet">
+          <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
+          <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
+        </ul>
+        <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
+      continue: Continue
+  closure_home:
+    index:
+      continue: Continue
+      heading: Apply to close an enquiry
+      lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
+      description_html: |
+        <h2 class="heading-medium">What you will need</h2>
+        <ul class="list list-bullet">
+          <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
+        </ul>
+        <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
+        <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>

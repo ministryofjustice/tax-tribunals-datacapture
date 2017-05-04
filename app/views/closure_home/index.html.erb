@@ -1,0 +1,17 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large"><%= t('.heading') %></h1>
+
+    <p class="lede"><%= t('.lead_text') %></p>
+
+    <%= t('.description_html',
+          approval_form_href: asset_path('proforma.pdf'),
+          approval_form_format_and_size: 'PDF, 241KB'
+        )
+    %>
+
+    <p>
+      <%= link_to t('.continue'), edit_steps_closure_case_type_path, class: 'button button-start', role: 'button' %>
+    </p>
+  </div>
+</div>
