@@ -169,4 +169,9 @@ RSpec.describe NotifyMailer, type: :mailer do
       end
     end
   end
+
+  describe 'personalisation logging filter' do
+    let(:filter) { described_class::PERSONALISATION_ERROR_FILTER }
+    it { expect(filter).to match_array([:recipient_name, :company_name, :documents_url, :reset_url]) }
+  end
 end
