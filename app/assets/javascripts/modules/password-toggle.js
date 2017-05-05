@@ -19,7 +19,7 @@ moj.Modules.passwordToggle = {
 
     $(document).on('click', '.' + self.link_class, function(e) {
       e.preventDefault();
-      $('.' + self.link_class + ' .toggle').toggleClass('js-hidden');
+      $(e.target).find('.toggle').toggleClass('js-hidden');
       self.togglePassword($(e.target));
     });
   },
