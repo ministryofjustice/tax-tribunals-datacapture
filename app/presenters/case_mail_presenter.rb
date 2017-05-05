@@ -39,7 +39,7 @@ class CaseMailPresenter < SimpleDelegator
   end
 
   def show_deadline_warning?
-    intent.equal?(Intent::TAX_APPEAL) ? 'yes' : 'no'
+    intent.eql?(Intent::TAX_APPEAL) ? 'yes' : 'no'
   end
 
   # Email address to use for `GLiMR is down` notifications
