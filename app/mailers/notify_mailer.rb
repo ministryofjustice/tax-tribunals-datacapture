@@ -6,7 +6,8 @@ class NotifyMailer < GovukNotifyRails::Mailer
   PERSONALISATION_ERROR_FILTER = [
     :recipient_name,
     :company_name,
-    :documents_url
+    :documents_url,
+    :reset_url
   ].freeze
 
   # Define methods as usual, and set the template and personalisation, if needed,
