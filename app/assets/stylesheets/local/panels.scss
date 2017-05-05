@@ -17,3 +17,20 @@
     }
   }
 }
+
+.form-group.tight {
+  margin-bottom: 15px;
+}
+
+.email-confirmation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  strong {
+    @include core-24;
+  }
+}
