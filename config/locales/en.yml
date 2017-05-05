@@ -1032,8 +1032,7 @@ en:
       <<: *START_FINISH
       lead_text: Your session automatically ends if you don't use the service for
         %{session_timeout} minutes.
-      more_text: We do this for your security. We haven't saved any information you
-        have entered.
+      more_text: We do this for your security. Any unsaved details will be deleted.
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: |
@@ -1117,16 +1116,16 @@ en:
     note:
       heading: Security time-out
       text: After %{session_length} minutes of inactivity, we’ll check if you need
-        more time or automatically delete your case for security reasons.
+        more time or automatically delete unsaved details for security reasons.
     expiring:
       aria-warning: You have been inactive for over %{passed} minutes.
         Your session will time out in less than %{remain} minutes. Hit space bar to
         continue for another %{session_length} minutes.
       heading: Want more time to continue?
-      in: Your case will be deleted
-      security: For security reasons, any information will not be saved.
-      extend: Yes, continue my case
-      destroy: No, delete my details
+      in: Your session will expire
+      security: For security reasons, any unsaved details will be deleted.
+      extend: Yes, continue
+      destroy: No, end session
     expired:
       title: Session expired
       heading: Your case has been cancelled
@@ -1190,7 +1189,7 @@ en:
           <p>Choose an email address and password so you can sign in and complete your case later.</p>
         email_confirmation: "An email will be sent to:"
       save_confirmation:
-        heading: Your appeal has been saved
+        heading: Your case has been saved
         sign_in: Sign in
       edit:
         heading: Change your password
@@ -1207,8 +1206,7 @@ en:
               <span class="visuallyhidden">Warning</span>
             </i>
             <strong class="font-small">
-              You have 30 calendar days from the date of the original notice or review
-              conclusion letter to submit an appeal. If you appeal any later, you'll need to explain why.
+              Please check you meet the tribunal deadline when you resume. Enter reasons if you are late or this could delay your appeal.
             </strong>
           </p>
         new_case: Start a new appeal or application
@@ -1221,7 +1219,7 @@ en:
             case_actions: Case actions
       edit:
         heading: Your case reference
-        lead_text: Give the case a reference so it's easy to find if you have multiple cases.
+        lead_text: Give the case a reference so it's easy to find.
       case_row:
         edit_reference: Edit reference
         create_reference: Add a reference
@@ -1241,7 +1239,7 @@ en:
       reset_sent:
         heading: Please check your email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
-        deleted_account: If you haven't signed in for 30 days we delete your account for security reasons. You'll need to start again and save an appeal or application.
+        deleted_account: If you haven't signed in for 30 days we delete your account for security reasons.
       reset_confirmation:
         heading: Your password has been changed
         lead_text: You have set a new password successfully.
