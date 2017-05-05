@@ -6,6 +6,7 @@ RSpec.describe CaseMailPresenter do
   let(:tribunal_case) { TribunalCase.new(tribunal_case_attributes) }
   let(:tribunal_case_attributes) {
     {
+      intent: intent,
       user_type: user_type,
       taxpayer_type: taxpayer_type,
       representative_type: representative_type,
@@ -18,6 +19,8 @@ RSpec.describe CaseMailPresenter do
       representative_individual_last_name: 'Quinten'
     }.merge(additional_attributes)
   }
+
+  let(:intent) { Intent::TAX_APPEAL }
   let(:user_type) { nil }
   let(:taxpayer_type) { nil }
   let(:representative_type) { nil }
@@ -163,6 +166,18 @@ RSpec.describe CaseMailPresenter do
       end
 
       it { expect(subject.show_company_name?).to eq('no') }
+    end
+  end
+
+  describe '#show_deadline_warning?' do
+    context 'for a tax appeal case' do
+      let(:intent) { Intent::TAX_APPEAL }
+      it { expect(subject.show_deadline_warning?).to eq('yes') }
+    end
+
+    context 'for a closure case' do
+      let(:intent) { Intent::CLOSE_ENQUIRY }
+      it { expect(subject.show_deadline_warning?).to eq('no') }
     end
   end
 

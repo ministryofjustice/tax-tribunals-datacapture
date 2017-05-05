@@ -15,13 +15,26 @@ RSpec.describe Users::PasswordsController do
   describe '#create' do
     def do_post
       post :create, params: {'user' => {
-        email: 'foo@bar.com'
+        email: email
       }}
     end
 
-    it 'redirects to the confirmation path' do
-      do_post
-      expect(response).to redirect_to(users_password_reset_sent_path)
+    context 'when email field is not left empty' do
+      let(:email) { 'foo@bar.com' }
+
+      it 'redirects to the confirmation path' do
+        do_post
+        expect(response).to redirect_to(users_password_reset_sent_path)
+      end
+    end
+
+    context 'when email field is left empty' do
+      let(:email) { '' }
+
+      it 're-renders the page' do
+        do_post
+        expect(subject).to render_template(:new)
+      end
     end
   end
 

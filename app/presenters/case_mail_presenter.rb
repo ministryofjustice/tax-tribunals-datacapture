@@ -38,6 +38,10 @@ class CaseMailPresenter < SimpleDelegator
     (started_by_representative? ? representative_organisation_name : taxpayer_organisation_name).to_s
   end
 
+  def show_deadline_warning?
+    intent.equal?(Intent::TAX_APPEAL) ? 'yes' : 'no'
+  end
+
   # Email address to use for `GLiMR is down` notifications
   def ftt_recipient_email
     ENV.fetch('TAX_TRIBUNAL_EMAIL')

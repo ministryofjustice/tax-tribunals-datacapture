@@ -481,7 +481,7 @@ en:
         user:
           attributes:
             email:
-              blank: Please enter an email address
+              blank: Please enter your email address
               invalid: Please enter a valid email address
               taken: You already have cases saved with this email address. Try signing in.
             password:
