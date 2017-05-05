@@ -1,13 +1,13 @@
 'use strict';
 
 moj.Modules.checkEmail = {
-  form_class: 'new_user',
+  container: 'verify-password-form',
   input_id: 'user_email',
   confirmation_panel_class: 'email-confirmation',
 
   init: function() {
     var self = this,
-        $emailField = $('.' + self.form_class).find('#' + self.input_id);
+        $emailField = $('.' + self.container).find('#' + self.input_id);
 
     if($emailField.length) {
       self.$emailField = $emailField;
