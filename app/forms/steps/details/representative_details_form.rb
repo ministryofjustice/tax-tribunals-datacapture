@@ -2,7 +2,7 @@ module Steps::Details
   class RepresentativeDetailsForm < BaseForm
     attribute :representative_contact_address, StrippedString
     attribute :representative_contact_postcode, StrippedString
-    attribute :representative_contact_email, StrippedString
+    attribute :representative_contact_email, NormalisedEmail
     attribute :representative_contact_phone, StrippedString
 
     validates_presence_of :representative_contact_address,
