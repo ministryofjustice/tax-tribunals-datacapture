@@ -74,6 +74,12 @@ RSpec.shared_examples 'a starting point step controller' do |options|
   let(:intent) { options.fetch(:intent) }
 
   describe '#edit' do
+    before do
+      # This should not be necessary, but without it David S. was getting
+      # consistent errors when running the tests
+      TribunalCase.delete_all
+    end
+
     context 'when no case exists in the session yet' do
       it 'creates a new case' do
         expect { get :edit }.to change { TribunalCase.count }.by(1)
