@@ -1,12 +1,13 @@
 <!-- This is used as the file preview template -->
 <div class="dz-preview dz-file-preview">
-  <div class="dz-details">
-    <div class="file-container">
-      <span data-dz-errormessage></span>
-    </div>
+  <div class="dz-filename">
+    <p class="filename"><span data-dz-name></span> <span data-dz-errormessage></span></p>
+    <p class="actions">
+      <a class="dz-cancel" href="#" data-dz-remove>Cancel</a>
+      <a class="dz-removeFailedFile" href="#" data-dz-remove>Remove</a>
+    </p>
   </div>
   <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-  <div class="dz-error-mark js-only"><span>✘</span></div>
 </div>
 
 <div class="dropzone dz-clickable js-only" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>">

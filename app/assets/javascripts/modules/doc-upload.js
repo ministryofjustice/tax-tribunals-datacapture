@@ -35,13 +35,15 @@ moj.Modules.docUpload = {
       maxFilesize: parseInt(self.$form.data('max-filesize')),
       acceptedFiles: self.$form.data('accepted-files'),
       autoProcessQueue: true,
-      addRemoveLinks: true,
+      addRemoveLinks: false,
       createImageThumbnails: false,
       previewTemplate: previewTemplate,
-      dictRemoveFile: 'Remove',
       uploadMultiple: false,
       forceFallback: false,
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+
+      dictInvalidFileType: ' is in a format we don\'t accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files.',
+      dictFileTooBig: ' is too big. You will need to resubmit a smaller version, less than ' + parseInt(self.$form.data('max-filesize')) + ' megabytes (MB).',
 
       success: function (file, response) {
         self.removeDropzonePreview(file);
