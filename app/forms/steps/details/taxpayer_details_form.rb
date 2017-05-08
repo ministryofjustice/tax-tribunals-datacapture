@@ -2,7 +2,7 @@ module Steps::Details
   class TaxpayerDetailsForm < BaseForm
     attribute :taxpayer_contact_address, StrippedString
     attribute :taxpayer_contact_postcode, StrippedString
-    attribute :taxpayer_contact_email, StrippedString
+    attribute :taxpayer_contact_email, NormalisedEmail
     attribute :taxpayer_contact_phone, StrippedString
 
     validates_presence_of :taxpayer_contact_address,
