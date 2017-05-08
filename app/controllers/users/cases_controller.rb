@@ -7,25 +7,25 @@ module Users
     end
 
     def edit
-      @tribunal_case = pending_user_cases.find(params[:id])
+      @tribunal_case = pending_case_from_params
     end
 
     def update
-      @tribunal_case = pending_user_cases.find(params[:id])
+      @tribunal_case = pending_case_from_params
       @tribunal_case.update(user_case_reference: permitted_params[:user_case_reference])
 
       redirect_to users_cases_path
     end
 
     def resume
-      tribunal_case = pending_user_cases.find(params[:id])
+      tribunal_case = pending_case_from_params
       session[:tribunal_case_id] = tribunal_case.id
 
       redirect_to continue_path_for(tribunal_case.freeze)
     end
 
     def destroy
-      pending_user_cases.find(params[:id]).destroy
+      pending_case_from_params.destroy
       redirect_to users_cases_path
     end
 
@@ -33,6 +33,10 @@ module Users
 
     def pending_user_cases
       current_user.pending_tribunal_cases
+    end
+
+    def pending_case_from_params
+      pending_user_cases.find_by(id: params[:id]) || (raise Errors::CaseNotFound)
     end
 
     # If tribunal_case is blank, there is little point taking the users to the `check your answers` page as

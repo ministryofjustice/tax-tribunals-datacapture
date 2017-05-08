@@ -12,9 +12,9 @@ RSpec.describe Users::RegistrationsController do
     context 'when there is no tribunal case in the session' do
       let(:tribunal_case) { nil }
 
-      it 'redirects to case not found error' do
+      it 'redirects to the invalid session error page' do
         get :new
-        expect(response).to redirect_to(case_not_found_errors_path)
+        expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 
@@ -30,9 +30,9 @@ RSpec.describe Users::RegistrationsController do
     context 'when there is no tribunal case in the session' do
       let(:tribunal_case) { nil }
 
-      it 'redirects to case not found error' do
+      it 'redirects to the invalid session error page' do
         post :create, params: { doesnt: 'matter' }
-        expect(response).to redirect_to(case_not_found_errors_path)
+        expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 

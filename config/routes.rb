@@ -128,6 +128,7 @@ Rails.application.routes.draw do
   resources :status, only: [:index]
 
   resource :errors, only: [] do
+    get :invalid_session
     get :case_not_found
     get :case_submitted
     get :unhandled

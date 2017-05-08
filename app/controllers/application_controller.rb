@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
 
   rescue_from Exception do |exception|
     case exception
-    when Errors::CaseNotFound, ActionController::InvalidAuthenticityToken
+    when Errors::InvalidSession, ActionController::InvalidAuthenticityToken
+      redirect_to invalid_session_errors_path
+    when Errors::CaseNotFound
       redirect_to case_not_found_errors_path
     when Errors::CaseSubmitted
       redirect_to case_submitted_errors_path
@@ -38,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_tribunal_case_presence
-    raise Errors::CaseNotFound unless current_tribunal_case
+    raise Errors::InvalidSession unless current_tribunal_case
   end
 
   def check_tribunal_case_status

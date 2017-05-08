@@ -3,9 +3,9 @@ require 'spec_helper'
 RSpec.shared_examples 'an end point step controller' do
   describe '#show' do
     context 'when no case exists in the session' do
-      it 'redirects to the case not found error page' do
+      it 'redirects to the invalid session error page' do
         get :show
-        expect(response).to redirect_to(case_not_found_errors_path)
+        expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 

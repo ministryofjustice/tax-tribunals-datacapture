@@ -1027,12 +1027,16 @@ en:
     error_summary:
       heading: There's a problem. You need to fix this error.
       text: ''
-    case_not_found:
+    invalid_session:
       heading: Sorry, you'll have to start again
       <<: *START_FINISH
-      lead_text: Your session automatically ends if you don't use the service for
-        %{session_timeout} minutes.
+      lead_text: Your session automatically ends if you don't use the service for %{session_timeout} minutes.
       more_text: We do this for your security. Any unsaved details will be deleted.
+    case_not_found:
+      heading: Sorry, this case can't be found
+      <<: *START_FINISH
+      lead_text: The case you are looking for couldn't be found.
+      more_text: If you followed an email link, the case might have expired or was already submitted.
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: |
@@ -1200,13 +1204,14 @@ en:
     cases:
       index:
         heading: Your saved cases
+        cases_intro: Resume a draft case you haven't yet submitted.
         expire_warning_html: |
           <p class="notice">
             <i class="icon icon-important">
               <span class="visuallyhidden">Warning</span>
             </i>
             <strong class="font-small">
-              Please check you meet the tribunal deadline when you resume. Enter reasons if you are late or this could delay your appeal.
+              Please check you meet the tax tribunal deadline. You may be able to appeal late by giving reasons.
             </strong>
           </p>
         new_case: Start a new appeal or application
