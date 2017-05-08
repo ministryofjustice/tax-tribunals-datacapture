@@ -27,6 +27,22 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID').and_return('change-password-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
+  end
+
+  describe '#statistics_report' do
+    before do
+      allow(ENV).to receive(:fetch).with('STATISTICS_REPORT_EMAIL_ADDRESS').and_return('reporting@tax-tribunals.org')
+    end
+
+    let(:mail) { described_class.statistics_report('My Title', "foo\nbar\nbaz") }
+    it_behaves_like 'a Notify mail', template_id: 'statistics-report'
+    it 'has the right keys' do
+      expect(mail.govuk_notify_personalisation).to eq({
+        title: 'My Title',
+        data: "foo\nbar\nbaz"
+      })
+    end
   end
 
   describe '#new_case_saved_confirmation' do

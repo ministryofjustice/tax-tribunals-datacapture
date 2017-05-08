@@ -94,6 +94,12 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: mail_presenter.account_user_email)
   end
 
+  def statistics_report(title, data)
+    set_template(ENV.fetch('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID'))
+    set_personalisation(title: title, data: data)
+    mail(to: ENV.fetch('STATISTICS_REPORT_EMAIL_ADDRESS'))
+  end
+
   private
 
   def log_errors(exception)
