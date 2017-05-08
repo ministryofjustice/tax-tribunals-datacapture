@@ -4,8 +4,8 @@ RSpec.shared_examples 'checks the validity of the current tribunal case' do
   context 'when there is no case in the session' do
     let(:current_tribunal_case) { nil }
 
-    it 'redirects to the case not found error page' do
-      expect(response).to redirect_to(case_not_found_errors_path)
+    it 'redirects to the invalid session error page' do
+      expect(response).to redirect_to(invalid_session_errors_path)
     end
   end
 
