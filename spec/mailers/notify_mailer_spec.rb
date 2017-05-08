@@ -37,11 +37,22 @@ RSpec.describe NotifyMailer, type: :mailer do
 
     let(:mail) { described_class.statistics_report('My Title', "foo\nbar\nbaz") }
     it_behaves_like 'a Notify mail', template_id: 'statistics-report'
+
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
         title: 'My Title',
         data: "foo\nbar\nbaz"
       })
+    end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID')
+      mail.body
+    end
+
+    it "gets the recipient from an env var" do
+      expect(ENV).to receive(:fetch).with('STATISTICS_REPORT_EMAIL_ADDRESS')
+      mail.body
     end
   end
 
@@ -62,6 +73,11 @@ RSpec.describe NotifyMailer, type: :mailer do
         resume_case_link: 'https://tax.justice.uk/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume'
       })
     end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID')
+      mail.body
+    end
   end
 
   describe '#reset_password_instructions' do
@@ -76,6 +92,11 @@ RSpec.describe NotifyMailer, type: :mailer do
         reset_url: 'https://tax.justice.uk/users/password/edit?reset_password_token=0xDEADBEEF'
       })
     end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID')
+      mail.body
+    end
   end
 
   describe '#password_change' do
@@ -89,12 +110,22 @@ RSpec.describe NotifyMailer, type: :mailer do
         portfolio_url: 'https://tax.justice.uk/users/cases'
       })
     end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID')
+      mail.body
+    end
   end
 
   describe 'taxpayer_case_confirmation' do
     let(:mail) { described_class.taxpayer_case_confirmation(tribunal_case) }
 
     it_behaves_like 'a Notify mail', template_id: 'confirmation-template'
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID')
+      mail.body
+    end
 
     context 'personalisation' do
       it 'sets the personalisation' do
@@ -160,6 +191,11 @@ RSpec.describe NotifyMailer, type: :mailer do
           mail.govuk_notify_personalisation.keys
         ).to eq([:recipient_name, :company_name, :show_company_name, :documents_url])
       end
+    end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID')
+      mail.body
     end
   end
 
