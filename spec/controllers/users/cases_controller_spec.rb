@@ -41,11 +41,18 @@ RSpec.describe Users::CasesController, type: :controller do
 
     it 'renders the edit page' do
       expect(user).to receive(:pending_tribunal_cases).and_return(tribunal_cases)
-      expect(tribunal_cases).to receive(:find).with('124').and_return(double)
+      expect(tribunal_cases).to receive(:find_by).with(id: '124').and_return(double)
 
       get :edit, params: { id: 124 }
       expect(assigns[:tribunal_case]).not_to be_nil
       expect(response).to render_template(:edit)
+    end
+
+    context 'when tribunal case does not exist' do
+      it 'redirects to the case not found error page' do
+        get :edit, params: { id: 123 }
+        expect(response).to redirect_to(case_not_found_errors_path)
+      end
     end
   end
 
@@ -59,11 +66,18 @@ RSpec.describe Users::CasesController, type: :controller do
 
     it 'updates the tribunal case' do
       expect(user).to receive(:pending_tribunal_cases).and_return(tribunal_cases)
-      expect(tribunal_cases).to receive(:find).with('124').and_return(tribunal_case)
+      expect(tribunal_cases).to receive(:find_by).with(id: '124').and_return(tribunal_case)
       expect(tribunal_case).to receive(:update).with(user_case_reference: 'lolz')
 
       patch :update, params: { id: 124, tribunal_case: { user_case_reference: 'lolz' } }
       expect(response).to redirect_to(users_cases_path)
+    end
+
+    context 'when tribunal case does not exist' do
+      it 'redirects to the case not found error page' do
+        patch :update, params: { id: 123 }
+        expect(response).to redirect_to(case_not_found_errors_path)
+      end
     end
   end
 
@@ -83,16 +97,17 @@ RSpec.describe Users::CasesController, type: :controller do
         sign_in(user)
       end
 
-      it 'raises an exception if case is not found' do
-        expect {
+      context 'when tribunal case does not exist' do
+        it 'redirects to the case not found error page' do
           delete :destroy, params: {id: '123'}
-        }.to raise_error(ActiveRecord::RecordNotFound)
+          expect(response).to redirect_to(case_not_found_errors_path)
+        end
       end
 
       context 'when tribunal case exists' do
         before do
           expect(user).to receive(:pending_tribunal_cases).and_return(scoped_result)
-          expect(scoped_result).to receive(:find).with(tribunal_case.id).and_return(tribunal_case)
+          expect(scoped_result).to receive(:find_by).with(id: tribunal_case.id).and_return(tribunal_case)
         end
 
         it 'deletes the tribunal case by ID' do
@@ -129,16 +144,17 @@ RSpec.describe Users::CasesController, type: :controller do
         sign_in(user)
       end
 
-      it 'raises an exception if case is not found' do
-        expect {
+      context 'when tribunal case does not exist' do
+        it 'redirects to the case not found error page' do
           get :resume, params: {id: '123'}
-        }.to raise_error(ActiveRecord::RecordNotFound)
+          expect(response).to redirect_to(case_not_found_errors_path)
+        end
       end
 
       context 'when tribunal case exists' do
         before do
           expect(user).to receive(:pending_tribunal_cases).and_return(scoped_result)
-          expect(scoped_result).to receive(:find).with(tribunal_case.id).and_return(tribunal_case)
+          expect(scoped_result).to receive(:find_by).with(id: tribunal_case.id).and_return(tribunal_case)
         end
 
         it 'assigns the chosen tribunal case to the current session' do

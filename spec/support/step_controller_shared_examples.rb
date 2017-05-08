@@ -13,9 +13,9 @@ RSpec.shared_examples 'a generic step controller' do |form_class, decision_tree_
         allow(controller).to receive(:current_tribunal_case).and_return(nil)
       end
 
-      it 'redirects to the case not found error page' do
+      it 'redirects to the invalid session error page' do
         put :update, params: expected_params
-        expect(response).to redirect_to(case_not_found_errors_path)
+        expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 
@@ -181,9 +181,9 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
         allow(controller).to receive(:current_tribunal_case).and_return(nil)
       end
 
-      it 'redirects to the case not found error page' do
+      it 'redirects to the invalid session error page' do
         get :edit
-        expect(response).to redirect_to(case_not_found_errors_path)
+        expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 

@@ -13,7 +13,7 @@ moj.Modules.sessionTimeout = {
     // URLs
     pingUrl: '/session/ping',
     destroySessionUrl: '/session',
-    expiredUrl: '/errors/case_not_found',
+    expiredUrl: '/errors/invalid_session',
     abortedUrl: '/',
     // i18n for minutes/seconds/expired
     inString: "in",
