@@ -165,7 +165,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'sets the personalisation' do
         expect(
           mail.govuk_notify_personalisation.keys
-        ).to eq([:appeal_or_application, :resume_case_link])
+        ).to eq([:appeal_or_application, :show_deadline_warning, :resume_case_link])
       end
     end
   end

@@ -88,6 +88,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,
+      show_deadline_warning: mail_presenter.show_deadline_warning?,
       resume_case_link: resume_users_case_url(tribunal_case)
     )
 
