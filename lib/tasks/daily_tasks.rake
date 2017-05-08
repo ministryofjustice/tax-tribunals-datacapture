@@ -10,6 +10,9 @@ task :daily_tasks do
   puts "#{Time.now} users:purge"
   Rake::Task['users:purge'].invoke
 
+  puts "#{Time.now} reports:cases_by_date_csv"
+  Rake::Task['reports:cases_by_date_csv'].invoke
+
   puts "#{Time.now} Finished daily tasks"
 end
 
@@ -46,5 +49,15 @@ namespace :users do
     puts "Purging users who have not logged in for #{expire_after} days."
     purged = User.purge!(expire_after.days.ago)
     puts "Purged #{purged.size} users."
+  end
+end
+
+namespace :reports do
+  desc "Email CSV of cases created/submitted by date"
+  task cases_by_date_csv: :environment do
+    if ENV['STATISTICS_REPORT_EMAIL_ADDRESS']
+      csv = TaxTribs::StatisticsReport.cases_by_date_csv
+      NotifyMailer.statistics_report("Cases by Date", csv).deliver_later
+    end
   end
 end
