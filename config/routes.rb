@@ -125,7 +125,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :status, only: [:index]
+  scope module: 'tax_tribs' do
+    resources :status, only: [:index]
+  end
 
   resource :errors, only: [] do
     get :invalid_session
