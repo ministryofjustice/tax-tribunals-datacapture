@@ -1,12 +1,13 @@
 <!-- This is used as the file preview template -->
 <div class="dz-preview dz-file-preview">
-  <div class="dz-details">
-    <div class="file-container">
-      <span data-dz-errormessage></span>
-    </div>
+  <div class="dz-filename">
+    <p class="filename"><span data-dz-name></span> <span data-dz-errormessage></span></p>
+    <p class="actions">
+      <a class="dz-cancel" href="#" data-dz-remove><%= t 'shared.file_upload.cancel_upload' %></a>
+      <a class="dz-removeFailedFile" href="#" data-dz-remove><%= t 'shared.file_upload.remove_file' %></a>
+    </p>
   </div>
   <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-  <div class="dz-error-mark js-only"><span>✘</span></div>
 </div>
 
 <div class="dropzone dz-clickable js-only" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>">
@@ -30,12 +31,12 @@
         <% document_list.each do |doc| %>
             <li class="file no-js-only">
               <%= doc.name %>
-              <%= button_to 'Remove', document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-secondary' %>
+              <%= button_to t('shared.file_upload.remove_file'), document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: t('shared.file_upload.confirm_delete') }, class: 'button button-secondary' %>
             </li>
 
             <li class="file js-only">
               <%= doc.name %>
-              <%= link_to 'Remove', '#', 'data-delete-name': doc.encoded_name, class: 'button button-secondary' %>
+              <%= link_to t('shared.file_upload.remove_file'), '#', 'data-delete-name': doc.encoded_name, class: 'button button-secondary' %>
             </li>
         <% end %>
     <% else %>
