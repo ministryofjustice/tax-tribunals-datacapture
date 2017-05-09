@@ -2,6 +2,14 @@ en:
   dictionary:
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
+    blank_uploading_problems: &blank_uploading_problems "Please describe the problem"
+    blank_first_name: &blank_first_name "Please enter your first name"
+    blank_last_name: &blank_last_name "Please enter your last name"
+    blank_address: &blank_address "Please enter a contact address"
+    blank_postcode: &blank_postcode "Please enter the postcode"
+    blank_organisation_name: &blank_organisation_name "Please enter a name"
+    blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
+    invalid_email: &invalid_email "Please enter a valid email address"
 
     YESNO: &YESNO
       'yes': 'Yes'
@@ -401,7 +409,7 @@ en:
         steps/challenge/decision_form:
           attributes:
             challenged_decision:
-              inclusion: Select an option
+              inclusion: Select if you asked for a review of the original decision
         steps/challenge/decision_status_form:
           attributes:
             challenged_decision_status:
@@ -410,6 +418,16 @@ en:
           attributes:
             closure_case_type:
               inclusion: Select the type of enquiry you want to close
+        steps/closure/enquiry_details_form:
+          attributes:
+            closure_hmrc_reference:
+              blank: Please enter the HMRC reference number
+            closure_years_under_enquiry:
+              blank: Please enter the years under enquiry
+        steps/closure/support_documents_form:
+          attributes:
+            having_problems_uploading_explanation:
+              blank: *blank_uploading_problems
         steps/details/user_type_form:
           attributes:
             user_type:
@@ -421,16 +439,40 @@ en:
                 company or organisation
         steps/details/taxpayer_details_form:
           attributes:
+            taxpayer_individual_first_name:
+              blank: *blank_first_name
+            taxpayer_individual_last_name:
+              blank: *blank_last_name
+            taxpayer_contact_address:
+              blank: *blank_address
+            taxpayer_contact_postcode:
+              blank: *blank_postcode
+            taxpayer_organisation_name:
+              blank: *blank_organisation_name
+            taxpayer_organisation_fao:
+              blank: *blank_organisation_fao
             taxpayer_contact_email:
-              invalid: Please enter a valid email address
+              invalid: *invalid_email
         steps/details/representative_details_form:
           attributes:
+            representative_individual_first_name:
+              blank: *blank_first_name
+            representative_individual_last_name:
+              blank: *blank_last_name
+            representative_contact_address:
+              blank: *blank_address
+            representative_contact_postcode:
+              blank: *blank_postcode
+            representative_organisation_name:
+              blank: *blank_organisation_name
+            representative_organisation_fao:
+              blank: *blank_organisation_fao
             representative_contact_email:
-              invalid: Please enter a valid email address
+              invalid: *invalid_email
         steps/details/representative_professional_status_form:
           attributes:
             representative_professional_status:
-              inclusion: Please select an answer
+              inclusion: Select who is representing you
         steps/details/has_representative_form:
           attributes:
             has_representative:
@@ -444,11 +486,18 @@ en:
           attributes:
             grounds_for_appeal:
               blank: *attach_reasons_blank_error
+        steps/details/outcome_form:
+          attributes:
+            outcome:
+              # TODO: Josh to come up with some better error message
+              blank: Please enter some text
         steps/details/documents_checklist_form:
           attributes:
             original_notice_provided:
               blank: You must select the letter(s) you have uploaded
               no_documents: You must upload a file
+            having_problems_uploading_explanation:
+              blank: *blank_uploading_problems
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
