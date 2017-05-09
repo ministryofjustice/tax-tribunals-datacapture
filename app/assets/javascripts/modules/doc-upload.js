@@ -11,12 +11,14 @@ moj.Modules.docUpload = {
     var self = this,
         previewTemplate,
         dzOptions,
-        isLowIE = $('html').hasClass('lte-ie9');
+        isLowIE = $('html').hasClass('lte-ie9'),
+        maxFilesize;
 
     Dropzone.autoDiscover = false;
 
     self.$form = $('#' + self.form_id);
     self.$fileList = $(self.uploaded_files);
+    maxFilesize = parseInt(self.$form.data('max-filesize'))
 
     if (!self.$form.length) {
       return;
@@ -32,7 +34,7 @@ moj.Modules.docUpload = {
     dzOptions = {
       url: '/uploader/supporting_documents/documents',
       paramName: 'document',
-      maxFilesize: parseInt(self.$form.data('max-filesize')),
+      maxFilesize: maxFilesize,
       acceptedFiles: self.$form.data('accepted-files'),
       autoProcessQueue: true,
       addRemoveLinks: false,
@@ -42,8 +44,9 @@ moj.Modules.docUpload = {
       forceFallback: false,
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
 
-      dictInvalidFileType: ' is in a format we don\'t accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files.',
-      dictFileTooBig: ' is too big. You will need to resubmit a smaller version, less than ' + parseInt(self.$form.data('max-filesize')) + ' megabytes (MB).',
+      dictCancelUploadConfirmation: moj.Modules.dropzoneStrings.confirmCancelUpload,
+      dictInvalidFileType: moj.Modules.dropzoneStrings.invalidFileType,
+      dictFileTooBig: moj.Modules.dropzoneStrings.fileTooBig.replace('XXX', maxFilesize),
 
       success: function (file, response) {
         self.removeDropzonePreview(file);
@@ -104,7 +107,7 @@ moj.Modules.docUpload = {
     var self = this;
 
     self.$fileList.find('.no-files').hide();
-    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="button button-secondary">Remove</a></li>');
+    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="button button-secondary">' + moj.Modules.dropzoneStrings.docUploadRemoveFile + '</a></li>');
   },
 
   removeDropzonePreview: function(file) {

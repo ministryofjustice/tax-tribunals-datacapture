@@ -1036,14 +1036,14 @@ en:
       header: File upload requirements
       file_list_html: |
         <ul class="list list-bullet">
-          <li>File formats: Word, PDF, Excel, JPG, GIF, PNG</li>
+          <li>File formats: Word, Excel, PDF, JPG, GIF, PNG</li>
           <li>File size: up to 20 megabytes (MB)</li>
           <li>Files cannot be password protected</li>
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
       technical_info: We accept scanned images or good quality pictures, for example
-        via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file
+        via a smartphone. You can upload Word, Excel, PDF, JPG, GIF or PNG formats. Maximum file
         size of 20MB.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
@@ -1056,6 +1056,12 @@ en:
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
           <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
         </ul>
+      remove_file: Remove
+      cancel_upload: Cancel
+      confirm_cancel_upload: Are you sure you want to cancel this upload?
+      file_wrong_format: " is in a format we don't accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files."
+      file_too_big: " is too big. You will need to resubmit a smaller version, less than XXX megabytes (MB)."
+      confirm_delete: Are you sure?
     <<: *START_FINISH
   errors:
     format: "%{message}"
