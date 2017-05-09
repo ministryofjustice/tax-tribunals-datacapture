@@ -1035,8 +1035,8 @@ en:
     case_not_found:
       heading: Sorry, this case can't be found
       <<: *START_FINISH
-      lead_text: The case you are looking for couldn't be found.
-      more_text: If you followed an email link, the case might have expired or was already submitted.
+      lead_text: If you copied a web address, please check it’s correct.
+      more_text: "Please note: a draft case expires after 14 days or when you submit it to the tax tribunal."
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: |
