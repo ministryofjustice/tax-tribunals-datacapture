@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe StatusController do
+RSpec.describe TaxTribs::StatusController do
   let(:status) do
     {
       service_status: 'ok',
       version: 'ABC123',
       dependencies: {
-        glimr_status: 'ok',
-        database_status: 'ok',
-        uploader_status: 'ok'
+      glimr_status: 'ok',
+      database_status: 'ok',
+      uploader_status: 'ok'
     }
     }.to_json
   end
@@ -27,12 +27,14 @@ RSpec.describe StatusController do
   # This is very-happy-path to ensure the controller responds.  The bulk of the
   # status is tested in spec/services/status_spec.rb.
   describe '#index' do
-    describe 'happy path' do
-      specify do
-        get :index, format: :json
-        expect(response.status).to eq(200)
-        expect(response.body).to eq(status)
-      end
+    specify do
+      get :index, format: :json
+      expect(response.status).to eq(200)
+    end
+
+    it 'returns json' do
+      get :index, format: :json
+      expect(response.body).to eq(status)
     end
   end
 end
