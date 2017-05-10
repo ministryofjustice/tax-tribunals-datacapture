@@ -7,6 +7,7 @@ class TaxTribs::StatisticsReport
         count(*) AS number
       FROM #{TribunalCase.table_name}
       GROUP BY date(created_at), case_status
+      ORDER BY date(created_at)
     SQL
 
     dates = results.inject({}) do |hash, row|
