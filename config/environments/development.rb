@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.logstash.type = :file
 
   config.cache_classes = false
 
