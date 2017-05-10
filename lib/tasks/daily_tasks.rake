@@ -57,7 +57,7 @@ namespace :reports do
   task cases_by_date_csv: :environment do
     if ENV['STATISTICS_REPORT_EMAIL_ADDRESS']
       csv = TaxTribs::StatisticsReport.cases_by_date_csv
-      NotifyMailer.statistics_report("Cases by Date", csv).deliver_later
+      NotifyMailer.statistics_report("Cases by Date", csv).deliver!
     end
   end
 end
