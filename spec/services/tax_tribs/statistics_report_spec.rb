@@ -19,12 +19,17 @@ RSpec.describe TaxTribs::StatisticsReport do
         travel_to(Time.parse('2017-05-08 06:30:00')) do
           TribunalCase.create({ case_status: CaseStatus.new(:first_reminder_sent) })
         end
+
+        travel_to(Time.parse('2017-04-08 06:30:00')) do
+          TribunalCase.create({ case_status: CaseStatus.new(:first_reminder_sent) })
+        end
       end
 
       it "generates a csv report" do
         report = [
           header,
           "1970-01-01, 3, 1",
+          "2017-04-08, 1, 0",
           "2017-05-08, 1, 0"
         ].join("\n")
         expect(described_class.cases_by_date_csv).to eq(report)
