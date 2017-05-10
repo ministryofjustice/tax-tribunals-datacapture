@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.log_level = :info
 
   config.cache_classes = true
 
@@ -12,7 +13,6 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
 
   config.assets.compile = false
-  config.log_level = :info
 
   config.log_tags = [ :request_id ]
   config.action_mailer.perform_caching = false

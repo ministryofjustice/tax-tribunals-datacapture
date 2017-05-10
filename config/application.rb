@@ -8,14 +8,33 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "logstash-logger"
 
 # Ensure that when running the application through Rake the RAILS_ENV doesn't incorrectly
 # get replaced with 'development' when running the specs.
 # Adapted from `railties/lib/rails/test_unit/railtie.rb`.
 # :nocov:
 if defined?(Rake.application) &&
-  Rake.application.top_level_tasks.grep(/^(default$|spec(:|$))/).any?
-    ENV["RAILS_ENV"] ||= "test"
+    Rake.application.top_level_tasks.grep(/^(default$|spec(:|$))/).any?
+  ENV["RAILS_ENV"] ||= "test"
+end
+
+LogStashLogger.configure do |config|
+  config.customize_event do |event|
+    event['app'] = 'tt-datacapture'
+  end
+end
+
+module LogStashPrettyLogger
+  module Formatter
+    class PrettyJson < LogStashLogger::Formatter::Base
+      def call(severity, time, progname, message)
+        message&.gsub!(/\e\[(\d+)m/, '')&.strip! if message.is_a?(String)
+        super
+        "#{JSON.pretty_generate(@event)}\n"
+      end
+    end
+  end
 end
 # :nocov:
 
@@ -24,6 +43,8 @@ Bundler.require(*Rails.groups)
 module TaxTribunalsDatacapture
   class Application < Rails::Application
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
+    config.logstash.formatter = LogStashPrettyLogger::Formatter::PrettyJson
+
 
     # This automatically adds id: :uuid to create_table in all future migrations
     config.active_record.primary_key = :uuid

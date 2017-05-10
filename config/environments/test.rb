@@ -3,6 +3,7 @@ Rails.application.config.before_configuration do
 end
 
 Rails.application.configure do
+  config.logstash.type = :file
 
   config.cache_classes = true
 

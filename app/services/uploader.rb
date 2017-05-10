@@ -19,8 +19,12 @@ class Uploader
       data: data
     )
   rescue MojFileUploaderApiClient::InfectedFileError
+    Rails.logger.tagged('add_file') { Rails.logger.warn("InfectedFileError: #{filename}") }
     raise InfectedFileError
   rescue MojFileUploaderApiClient::RequestError => e
+    Rails.logger.tagged('add_file') {
+      Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
+    }
     raise UploaderError.new(e)
   end
 
@@ -31,6 +35,9 @@ class Uploader
       filename: filename
     )
   rescue MojFileUploaderApiClient::RequestError => e
+    Rails.logger.tagged('delete_file') {
+      Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
+    }
     raise UploaderError.new(e)
   end
 
@@ -40,8 +47,12 @@ class Uploader
       folder: document_key.to_s
     )[:files]
   rescue MojFileUploaderApiClient::NotFoundError
+    Rails.logger.tagged('list_files') { Rails.logger.warn("NotFoundError") }
     []
   rescue MojFileUploaderApiClient::RequestError => e
+    Rails.logger.tagged('list_files') {
+      Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
+    }
     raise UploaderError.new(e)
   end
 end
