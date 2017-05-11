@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.logstash.type = :stdout
   config.log_level = :info
 
   config.cache_classes = true
