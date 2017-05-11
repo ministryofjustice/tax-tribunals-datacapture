@@ -1,5 +1,6 @@
 en:
   dictionary:
+    default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
     blank_uploading_problems: &blank_uploading_problems "Please describe the problem"
@@ -33,9 +34,8 @@ en:
       penalty_level_3: over £20,000
 
     CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
-      edit:
-        heading: What is your appeal about?
-        lead_text: Check the original notice letter or review conclusion letter.
+      heading: What is your appeal about?
+      lead_text: Check the original notice letter or review conclusion letter.
 
     START_FINISH: &START_FINISH
       start_again: Start again
@@ -44,11 +44,14 @@ en:
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
         show:
+          page_title: Check your answers
           heading: Check your answers
         resume:
+          page_title: Resume your case
           heading: Resume your %{appeal_or_application}
       confirmation:
         show:
+          page_title: Case submitted
           case_submitted: Case submitted
           confirmation_email: We will send confirmation by email
           save_or_print_pdf: Save or print your case details
@@ -69,29 +72,40 @@ en:
   steps:
     appeal:
       case_type:
-        <<: *CASE_TYPE_QUESTION
+        edit:
+          page_title: Case type
+          <<: *CASE_TYPE_QUESTION
       case_type_show_more:
-        <<: *CASE_TYPE_QUESTION
+        edit:
+          page_title: Case type
+          <<: *CASE_TYPE_QUESTION
       dispute_type:
         edit:
           heading: What is your dispute about?
           lead_text: Check the original notice letter or review conclusion letter.
+          page_title: Dispute type
       penalty_amount:
         edit:
           heading: How much is the penalty or surcharge you are disputing?
           lead_text: Check the original notice letter or review conclusion letter
             for this information.
           <<: *PENALTY_LEVELS
+          page_title: Penalty amount
       tax_amount:
         edit:
           heading: How much tax is under dispute?
           lead_text: Check the original notice letter or review conclusion letter
             for this information.
+          page_title: Tax amount
       penalty_and_tax_amounts:
         edit:
           heading: What are the tax and penalty or surcharge amounts under dispute?
           lead_text: Both figures must be shown on the same letter, either the original
             notice or review conclusion letter.
+          page_title: Penalty and tax amounts
+      start:
+        show:
+          page_title: Start your appeal
     challenge:
       decision:
         edit:
@@ -108,9 +122,11 @@ en:
                 <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
                 <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
               </ul>
+          page_title: Did you appeal?
       decision_status:
         edit:
           heading: What response did you receive?
+          page_title: Appeal status
       must_ask_for_review:
         show:
           heading: You must ask for a review of the original decision
@@ -122,6 +138,7 @@ en:
               <li><a href="https://www.gov.uk/tax-appeals" target="_blank">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
               <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank">options when UK Border Force (UKBF) seizes your things</a></li>
             </ul>
+          page_title: Must ask for review
       must_wait_for_review_decision:
         show:
           heading: You must wait before you can appeal
@@ -131,6 +148,7 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
+          page_title: Must wait for review
       must_challenge_hmrc:
         show:
           heading: You must appeal the original decision to HMRC
@@ -143,6 +161,7 @@ en:
             with a tax decision</a>.</p>
           contact_hmrc_button: Contact HMRC
           <<: *START_FINISH
+          page_title: Must challenge HMRC
       must_wait_for_challenge_decision:
         show:
           heading: You must wait before you can appeal
@@ -151,27 +170,35 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
+          page_title: Must wait for decision
     closure:
       case_type:
         edit:
           heading: What type of enquiry do you want to close?
           lead_text: The tax tribunal can only deal with applications to close the
             following enquiries.
+          page_title: Case type
       enquiry_details:
         edit:
           heading: Details of the enquiry you want closed
           lead_text: Check letters about the enquiry for this information.
+          page_title: Enquiry details
       additional_info:
         edit:
           heading: Say why you think the enquiry should close (optional)
           attach_document_html: "<strong>Attach reasons as a document (optional)</strong>"
+          page_title: Additional information
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
           lead_text: The tax tribunal is independent and doesn't have access to any
             information you may have sent to HMRC.
           having_problems_uploading_html: I am having trouble uploading my documents
+          page_title: Documents upload
       <<: *CYA_CONFIRMATION
+      start:
+        show:
+          page_title: Start your closure
     shared:
       document_upload:
         current_document:
@@ -190,25 +217,30 @@ en:
       user_type:
         edit:
           heading: Are you the taxpayer making the %{appeal_or_application}?
+          page_title: User type
       taxpayer_type:
         edit:
           heading:
             as_taxpayer: Who is making the %{appeal_or_application}?
             as_representative: Who is the %{appeal_or_application} for?
+          page_title: Taxpayer type
       taxpayer_details:
         edit:
           heading: Enter taxpayer's details
+          page_title: Taxpayer's details
       has_representative:
         edit:
           heading: Do you have someone to represent you?
           lead_text: A representative is anyone you want to receive correspondence
             or go to a hearing for you. You can authorise a representative at any
             time during your appeal.
+          page_title: Representative selection
       representative_professional_status:
         edit:
           heading:
             as_taxpayer: Who is representing you?
             as_representative: Who are you?
+          page_title: Professional status
       representative_approval:
         edit:
           heading:
@@ -259,6 +291,7 @@ en:
           attach_document_html: |
             <strong>Upload authorisation form</strong>
             <p>You can send scanned images of the form or a good quality photo.</p>
+          page_title: Representative approval
       representative_type:
         edit:
           heading:
@@ -266,6 +299,7 @@ en:
               of organisation?
             as_representative: Are you representing the taxpayer as an individual,
               company or other type of organisation?
+          page_title: Representative type
       representative_details:
         edit:
           heading: Representative's details
@@ -276,6 +310,7 @@ en:
             as_representative: If the taxpayer has authorised you to act on their
               behalf, all correspondence will be sent to the address and email address,
               you enter below.
+          page_title: Representative's details
       grounds_for_appeal:
         edit:
           heading: Grounds for %{appeal_or_application}
@@ -287,6 +322,7 @@ en:
           footer_description_text: You will next have to upload any supporting documents
             including any correspondence with HMRC and evidence to support your case.
           attach_document_html: *attach_reasons_document
+          page_title: Grounds for appeal
       documents_checklist:
         edit:
           heading: Upload your letter(s)
@@ -298,12 +334,14 @@ en:
             the explanation for any decision(s)"
           review_conclusion_provided_html: "<strong>Review conclusion letter</strong><br>you
             will only have this if your case was reviewed"
+          page_title: "Documents upload"
       outcome:
         edit:
           heading: What outcome do you want from your %{appeal_or_application}?
           lead_text: Give a summary of the decisions you think should be made in regards
             to your %{appeal_or_application}. Write no more than 2-3 sentences which
             clearly outline the result you want.
+          page_title: Outcome
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
@@ -341,27 +379,32 @@ en:
             </div>
           post_address_html: "<p>Once the tax tribunal has received your appeal they
             will write to you with confirmation and details of the next steps.</p>"
+          page_title: Upload problems
     hardship:
       disputed_tax_paid:
         edit:
           heading: Have you paid the amount of tax under dispute?
           lead_text: You must pay any tax under dispute, unless it will cause financial hardship. You do not have to pay a penalty or surcharge before you can appeal.
+          page_title: Amount paid
       hardship_review_requested:
         edit:
           heading: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
           lead_text: Your appeal will be kept pending until you write to HMRC and
             explain why paying might cause financial hardship.
+          page_title: Hardship review requested
       hardship_review_status:
         edit:
           heading: Did HMRC allow you to defer paying because of financial hardship?
           lead_text: If HMRC said no, you can give reasons for the judge to consider
             as part of this appeal.
+          page_title: Hardship review status
       hardship_reason:
         edit:
           heading: Why will paying the tax under dispute cause financial hardship?
           lead_text: The judge will decide whether your appeal can continue without
             paying the tax first.
           attach_document_html: *attach_reasons_document
+          page_title: Hardship reason
     lateness:
       in_time:
         edit:
@@ -369,6 +412,7 @@ en:
           lead_text: You have 30 calendar days from the date of the original notice
             or review conclusion letter. If you appeal any later, you’ll need to explain
             why.
+          page_title: Lateness
       lateness_reason:
         edit:
           heading: Why are you late with your %{appeal_or_application}?
@@ -387,6 +431,7 @@ en:
             or events beyond your control which meant you weren't able to meet the
             tax tribunal deadline.
           attach_document_html: *attach_reasons_document
+          page_title: Lateness reason
   activemodel:
     errors:
       models:
@@ -1022,6 +1067,7 @@ en:
       one: '%{count} day'
       other: '%{count} days'
   generic:
+    page_title: *default_service_title
     back_link: Back
     appeal_or_application:
       appeal: appeal
@@ -1087,11 +1133,13 @@ en:
       <<: *START_FINISH
       lead_text: Your session automatically ends if you don't use the service for %{session_timeout} minutes.
       more_text: We do this for your security. Any unsaved details will be deleted.
+      page_title: Invalid session
     case_not_found:
       heading: Sorry, this case can't be found
       <<: *START_FINISH
       lead_text: If you copied a web address, please check it’s correct.
       more_text: "Please note: a draft case expires after 14 days or when you submit it to the tax tribunal."
+      page_title: Case not found
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: |
@@ -1101,12 +1149,14 @@ en:
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
       save_or_print_pdf: Save or print your case details
+      page_title: Case already submitted
     unhandled:
       heading: Sorry, something went wrong
       <<: *START_FINISH
       lead_text: To keep this service secure, any information you have entered hasn't
         been saved.
       more_text: You'll need to start again.
+      page_title: Unexpected error
     not_found:
       heading: Page not found
       lead_text: If you entered a web address, please check it’s correct.
@@ -1114,6 +1164,7 @@ en:
         <p>You can also try starting from the homepage to find the information you need.</p>
         <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
       <<: *START_FINISH
+      page_title: Not found
   layouts:
     footer_links:
       contact: Contact
@@ -1154,6 +1205,7 @@ en:
       link_time_estimate: "%{minutes} minutes to complete"
       continue_a_case_info: "Continue completing a case you haven't submitted."
       return_to_saved_case: Return to a saved appeal or application
+      page_title: Start
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.
@@ -1171,6 +1223,7 @@ en:
            <li><a href="http://www.taxvol.org.uk" target="_blank">Tax Help for Older People</a></li>
            <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk">taxvol@taxvol.org.uk</a>)</p>
         </ul>
+      page_title: Contact
   session:
     note:
       heading: Security time-out
@@ -1233,13 +1286,16 @@ en:
       new:
         heading: Sign in
         forgot_password: "Forgot your password?"
+        page_title: Sign in
       logged_out:
         heading: You have signed out
         lead_text: You can return to a saved case using the link sent in the email or by returning to the start of the service.
         more_text_html: Any draft cases will expire 14 days after they were first saved.
+        page_title: Signed out
       save_confirmation:
         heading: Your case has been saved
         your_cases: Go to your saved cases
+        page_title: Case saved
     registrations:
       new:
         heading: Save your %{appeal_or_application}
@@ -1247,15 +1303,19 @@ en:
         account_warning_html: |
           <p>Choose an email address and password so you can sign in and complete your case later.</p>
         email_confirmation: "An email will be sent to:"
+        page_title: Sign up
       save_confirmation:
         heading: Your case has been saved
         sign_in: Sign in
+        page_title: Case saved
       edit:
         heading: Change your password
+        page_title: Update password
       update_confirmation:
         heading: "Your password has been changed"
         lead_text: Your password has been updated successfully.
         your_cases: Return to your saved cases
+        page_title: Password updated
     cases:
       index:
         heading: Your saved cases
@@ -1277,9 +1337,11 @@ en:
             your_reference: Your reference
             taxpayer_name: Taxpayer name
             case_actions: Case actions
+        page_title: Your draft cases
       edit:
         heading: Your case reference
         lead_text: Give the case a reference so it's easy to find.
+        page_title: Edit reference
       case_row:
         edit_reference: Edit reference
         create_reference: Add a reference
@@ -1294,16 +1356,20 @@ en:
         sign_in: Go back and sign in
         lead_text: Enter your email address and we'll send you a link to reset your password.
         account_text: Remember, if you haven't signed in for 30 days we delete your account for security reasons.
+        page_title: Forgot password
       edit:
         heading: Change your password
+        page_title: Change password
       reset_sent:
         heading: Please check your email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
         deleted_account: If you haven't signed in for 30 days we delete your account for security reasons.
+        page_title: Reset link sent
       reset_confirmation:
         heading: Your password has been changed
         lead_text: You have set a new password successfully.
         sign_in: Sign in to see your saved cases
+        page_title: Password changed
     shared:
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
@@ -1324,6 +1390,7 @@ en:
         </ul>
         <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
       continue: Continue
+      page_title: Start an appeal
   closure_home:
     index:
       continue: Continue
@@ -1336,3 +1403,4 @@ en:
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
         <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})</a> if you want someone to represent you and they are not a legal professional.</p>
+      page_title: Start a closure
