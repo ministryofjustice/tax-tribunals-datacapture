@@ -172,4 +172,42 @@ RSpec.describe ApplicationHelper do
       end
     end
   end
+
+  describe '#title' do
+    let(:title) { helper.content_for(:page_title) }
+
+    before do
+      helper.title(value)
+    end
+
+    context 'for a blank value' do
+      let(:value) { '' }
+      it { expect(title).to eq('Appeal to the tax tribunal - GOV.UK') }
+    end
+
+    context 'for a provided value' do
+      let(:value) { 'Test page' }
+      it { expect(title).to eq('Test page - Appeal to the tax tribunal - GOV.UK') }
+    end
+  end
+
+  describe '#fallback_title' do
+    before do
+      allow(Rails).to receive_message_chain(:application, :config, :consider_all_requests_local).and_return(false)
+      allow(helper).to receive(:controller_name).and_return('my_controller')
+      allow(helper).to receive(:action_name).and_return('an_action')
+    end
+
+    it 'should notify in Sentry about the missing translation' do
+      expect(Raven).to receive(:capture_exception).with(
+        StandardError.new('page title missing: my_controller#an_action')
+      )
+      helper.fallback_title
+    end
+
+    it 'should call #title with a blank value' do
+      expect(helper).to receive(:title).with('')
+      helper.fallback_title
+    end
+  end
 end

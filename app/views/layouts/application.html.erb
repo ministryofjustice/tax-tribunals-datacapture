@@ -1,5 +1,5 @@
 <% content_for(:homepage_url) { "/" } %>
-<% content_for(:page_title) { "GOV.UK - Appeal to the tax tribunal" } %>
+<% content_for?(:page_title) ? yield(:page_title) : fallback_title %>
 
 <% content_for(:head) do %>
   <%= csrf_meta_tags %>

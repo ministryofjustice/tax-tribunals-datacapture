@@ -64,4 +64,18 @@ module ApplicationHelper
   def login_or_portfolio_path
     user_signed_in? ? users_cases_path : user_session_path
   end
+
+  def title(page_title)
+    content_for :page_title, [page_title.presence, t('generic.page_title')].compact.join(' - ')
+  end
+
+  # We send a notification to Sentry to be alerted about any missing page titles.
+  # If this happens, the title will default to: 'Appeal to the tax tribunal - GOV.UK'
+  def fallback_title
+    exception = StandardError.new("page title missing: #{controller_name}##{action_name}")
+    raise exception if Rails.application.config.consider_all_requests_local
+    Raven.capture_exception(exception)
+
+    title ''
+  end
 end
