@@ -1,3 +1,6 @@
+.dz-preview {
+  display: none;
+}
 
 .dropzone {
   border: 2px dashed $grey-1;
@@ -37,6 +40,7 @@
   }
 
   .dz-preview {
+    display: block;
     width: 100%;
     min-height: 50px;
     margin: 0 0 1em;
