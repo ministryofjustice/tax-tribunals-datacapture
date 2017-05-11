@@ -144,7 +144,6 @@ Rails.application.routes.draw do
 
   get :contact, to: 'home#contact', as: :contact_page
   get :terms_and_conditions, to: 'home#terms_and_conditions'
-  get :example_saved_appeal, to: 'home#example_saved_appeal'
 
   # catch-all route
   # :nocov:

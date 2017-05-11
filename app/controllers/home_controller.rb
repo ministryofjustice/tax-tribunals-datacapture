@@ -13,9 +13,6 @@ class HomeController < ApplicationController
   def terms_and_conditions
   end
 
-  def example_saved_appeal
-  end
-
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
