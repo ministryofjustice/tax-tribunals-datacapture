@@ -145,8 +145,8 @@ en:
             <p>You should ask for a review even if you think you are late.</p>
             <p>Find out more about:</p>
             <ul class="list list-bullet">
-              <li><a href="https://www.gov.uk/tax-appeals" target="_blank">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
-              <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/tax-appeals" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
             </ul>
           page_title: Must ask for review
       must_wait_for_review_decision:
@@ -222,7 +222,7 @@ en:
               <li>friend or family relative</li>
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}" target="_blank">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a>.</p>
+          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a>.</p>
     details:
       user_type:
         edit:
@@ -365,7 +365,7 @@ en:
                 <li>
                   <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
-                  <p><strong><a href="%{download_pdf_url}" target="_blank">Print your appeal details<span class="visuallyhidden"> (opens in new window)</span></a></strong></p>
+                  <p><strong><a href="%{download_pdf_url}" target="_blank" rel="noopener">Print your appeal details<span class="visuallyhidden"> (opens in new window)</span></a></strong></p>
                 </li>
                 <li>
                   <strong>Make copies of all documents you wanted to upload</strong>
@@ -1216,11 +1216,11 @@ en:
         <p>Please note: the helpline can't give you legal advice.</p>
         <p><strong>Other ways to get help</strong></p>
         <ul class="list list-bullet">
-           <li><a href="https://www.citizensadvice.org.uk" target="_blank">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="https://www.citizensadvice.org.uk" target="_blank" rel="noopener">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
            <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
-           <li><a href="http://www.litrg.org.uk" target="_blank">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://taxaid.org.uk" target="_blank">TaxAid<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://www.taxvol.org.uk" target="_blank">Tax Help for Older People<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://www.litrg.org.uk" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://taxaid.org.uk" target="_blank" rel="noopener">TaxAid<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://www.taxvol.org.uk" target="_blank" rel="noopener">Tax Help for Older People<span class="visuallyhidden"> (opens in new window)</span></a></li>
            <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
@@ -1388,7 +1388,7 @@ en:
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
         </ul>
-        <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
+        <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
       continue: Continue
       page_title: Start an appeal
   closure_home:
@@ -1402,5 +1402,5 @@ en:
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-        <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
+        <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
       page_title: Start a closure
