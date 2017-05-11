@@ -37,6 +37,16 @@ en:
       heading: What is your appeal about?
       lead_text: Check the original notice letter or review conclusion letter.
 
+    CHALLENGE_STATUS: &CHALLENGE_STATUS
+      received: I have a review conclusion letter
+      pending: I have been waiting less than 45 days for a review to finish
+      overdue: I have been waiting for 45 days or more for a review to finish
+      refused: I was refused a review as I was outside the time limit
+      appeal_late_rejection: My appeal was rejected for being late
+      review_late_rejection: My review was rejected for being late
+      appealing_directly: No response. I want to appeal directly to the tribunal
+      not_required: I was offered a review but didn’t accept
+
     START_FINISH: &START_FINISH
       start_again: Start again
       finish: Finish
@@ -707,12 +717,7 @@ en:
           <<: *YESNO
       steps_challenge_decision_status_form:
         challenged_decision_status:
-          received: I have a review conclusion letter
-          pending: I have been waiting less than 45 days for a review to finish
-          overdue: I have been waiting for 45 days or more for a review to finish
-          refused: I was refused a review as I was outside the time limit
-          appealing_directly: No response. I want to appeal directly to the tribunal
-          not_required: I was offered a review but didn’t accept
+          <<: *CHALLENGE_STATUS
       steps_closure_case_type_form:
         closure_case_type:
           personal_return_html: Personal return
@@ -932,12 +937,7 @@ en:
       question: What response did you receive?
       accessible_change_text: what response you received
       answers:
-        received: I have a review conclusion letter
-        pending: I have been waiting less than 45 days for a review to finish
-        overdue: I have been waiting for 45 days or more for a review to finish
-        refused: I was refused a review as I was outside the time limit
-        appealing_directly: No response. I want to appeal directly to the tribunal
-        not_required: I was offered a review but didn’t accept
+        <<: *CHALLENGE_STATUS
     dispute_type:
       question: What is your dispute about?
       accessible_change_text: what your dispute is about

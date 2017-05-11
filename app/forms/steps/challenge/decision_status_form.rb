@@ -11,7 +11,16 @@ module Steps::Challenge
           ChallengedDecisionStatus::PENDING,
           ChallengedDecisionStatus::OVERDUE,
           ChallengedDecisionStatus::NOT_REQUIRED,
+          ChallengedDecisionStatus::APPEAL_LATE_REJECTION,
           ChallengedDecisionStatus::APPEALING_DIRECTLY
+        ]
+      elsif restoration_case?
+        [
+          ChallengedDecisionStatus::RECEIVED,
+          ChallengedDecisionStatus::PENDING,
+          ChallengedDecisionStatus::OVERDUE,
+          ChallengedDecisionStatus::REFUSED,
+          ChallengedDecisionStatus::REVIEW_LATE_REJECTION
         ]
       else
         [
@@ -24,6 +33,10 @@ module Steps::Challenge
     end
 
     private
+
+    def restoration_case?
+      tribunal_case.case_type.eql?(CaseType::RESTORATION_CASE)
+    end
 
     def challenged_decision_status_value
       ChallengedDecisionStatus.new(challenged_decision_status)

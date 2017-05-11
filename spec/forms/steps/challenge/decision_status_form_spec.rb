@@ -21,12 +21,27 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
           pending
           overdue
           not_required
+          appeal_late_rejection
           appealing_directly
         ))
       end
     end
 
-    context 'when the case type is not a direct tax' do
+    context 'when the case type is restoration case' do
+      let(:case_type) { CaseType::RESTORATION_CASE }
+
+      it 'shows only the relevant choices' do
+        expect(subject.choices).to eq(%w(
+          received
+          pending
+          overdue
+          refused
+          review_late_rejection
+        ))
+      end
+    end
+
+    context 'when the case type is any other' do
       let(:case_type) { CaseType::VAT }
 
       it 'shows only the relevant choices' do
