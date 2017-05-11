@@ -10,6 +10,8 @@ RSpec.describe ChallengedDecisionStatus do
         refused
         not_required
         appealing_directly
+        appeal_late_rejection
+        review_late_rejection
       ))
     end
   end
