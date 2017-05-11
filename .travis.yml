@@ -1,4 +1,5 @@
 language: ruby
 services: postgresql
 before_script:
+  - bundle exec danger
   - psql -c 'create database travis_ci_test;' -U postgres
