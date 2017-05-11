@@ -97,3 +97,9 @@ address {
   text-decoration: underline;
   margin-bottom: 0;
 }
+
+.govuk-box-highlight {
+  p {
+    @include core-24;
+  }
+}
