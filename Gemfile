@@ -31,6 +31,7 @@ gem 'wkhtmltopdf-binary'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'danger'
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
