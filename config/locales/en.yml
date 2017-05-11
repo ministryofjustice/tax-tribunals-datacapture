@@ -264,7 +264,7 @@ en:
           heading:
             as_taxpayer: Is your representative an individual, company or other type
               of organisation?
-            as_representative: Are you representing the taxpayer as an individual,
+            as_representative: Are you an individual,
               company or other type of organisation?
       representative_details:
         edit:
@@ -772,14 +772,14 @@ en:
           pending: I am waiting for a decision
           refused: 'No'
       steps_hardship_hardship_reason_form:
-        hardship_reason: Enter your reasons for financial hardship
+        hardship_reason: Enter your reasons below or attach as a document
       steps_lateness_in_time_form:
         in_time:
           'yes': Yes, I am in time
           'no': No, I am late
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
-        lateness_reason: Reason(s) for late appeal
+        lateness_reason: Enter reasons below or attach as a document
       user:
         email: Your email address
         password: Choose password
@@ -902,7 +902,7 @@ en:
         amount_of_tax_owed_by_hmrc: HMRC should repay tax to you
         amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
         amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
-        information_notice: Information notice
+        information_notice: Appeal against an information notice
         refusal_to_register_applicant: Refusal to register an applicant
         cancellation_of_registration: Cancellation of registration
     penalty_level:
@@ -946,7 +946,7 @@ en:
         <<: *YESNO
         unsure: I am not sure
     lateness_reason:
-      question: Reason(s) for late %{appeal_or_application}
+      question: Reason for late %{appeal_or_application}
       accessible_change_text: reasons for late %{appeal_or_application}
     grounds_for_appeal:
       question: Grounds for %{appeal_or_application}
@@ -955,7 +955,7 @@ en:
       question: Desired outcome
       accessible_change_text: desired outcome
     documents_submitted:
-      question: Documents submitted
+      question: Letters uploaded
       accessible_change_text: documents submitted
     representative_professional_status:
       question: The representative is
@@ -967,7 +967,7 @@ en:
         tax_agent: a tax agent
         accountant: an accountant
         friend_or_family: a friend or family member
-        other: a non-legal representative
+        other: Other
     representative_approval:
       question: Representative approval
       accessible_change_text: representative approval
@@ -1091,7 +1091,7 @@ en:
       heading: Sorry, this case can't be found
       <<: *START_FINISH
       lead_text: If you copied a web address, please check it’s correct.
-      more_text: "Please note: a draft case expires after 14 days or when you submit it to the tax tribunal."
+      more_text: "Please note: a draft case expires 14 days after it was created or when you submit it to the tax tribunal."
     case_submitted:
       heading: You have already submitted this case
       lead_text_html: |
@@ -1236,7 +1236,7 @@ en:
       logged_out:
         heading: You have signed out
         lead_text: You can return to a saved case using the link sent in the email or by returning to the start of the service.
-        more_text_html: Any draft cases will expire 14 days after they were first saved.
+        more_text_html: A draft case expires 14 days after it was created or when you submit it to the tax tribunal.
       save_confirmation:
         heading: Your case has been saved
         your_cases: Go to your saved cases
