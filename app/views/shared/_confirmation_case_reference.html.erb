@@ -1,17 +1,17 @@
 <% if tribunal_case&.case_reference.present? %>
 
-  <h1 class="heading-large">
+  <h2 class="heading-large">
     <span class="heading-secondary"><%= t '.case_reference' %></span>
     <span><%= tribunal_case.case_reference %></span>
-  </h1>
+  </h2>
 
   <p><%= t '.note_number' %></p>
 
 <% else %>
 
-  <h1 class="heading-large">
+  <h2 class="heading-large">
     <span class="heading-secondary"><%= t '.case_submitted_successfully' %></span>
-  </h1>
+  </h2>
 
   <p><%= t '.case_reference_pending' %></p>
 
