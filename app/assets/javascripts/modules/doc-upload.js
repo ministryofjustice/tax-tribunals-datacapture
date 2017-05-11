@@ -69,7 +69,7 @@ moj.Modules.docUpload = {
     });
 
     $(document).on('keydown', 'a.faux-link, .dz-clickable', function(e) {
-      if([13, 32].includes(e.keyCode)) { // pressed RETURN or SPACE
+      if(e.keyCode === 13 || e.keyCode === 32) { // pressed RETURN or SPACE
         e.preventDefault();
         self.$form.trigger('click');
       }
