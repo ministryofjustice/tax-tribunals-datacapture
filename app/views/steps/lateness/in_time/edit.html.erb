@@ -10,7 +10,9 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :in_time,
-        choices: Steps::Lateness::InTimeForm.choices %>
+        choices: Steps::Lateness::InTimeForm.choices,
+        legend_options: {class: 'visuallyhidden'} %>
+
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>
   </div>
