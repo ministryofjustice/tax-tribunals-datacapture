@@ -18,7 +18,7 @@ moj.Modules.checkEmail = {
   bindEvents: function() {
     var self = this;
 
-    self.$emailField.on('keyup', function() {
+    self.$emailField.on('keyup change focus blur', function() {
       self.checkValue();
     });
   },
