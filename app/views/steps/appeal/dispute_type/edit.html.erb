@@ -10,7 +10,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :dispute_type,
-        choices: @form_object.choices %>
+        choices: @form_object.choices,
+        legend_options: {class: 'visuallyhidden'} %>
 
       <div class="panel toggleable" id="dispute_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= f.text_field :dispute_type_other_value, class: 'form-control' %>

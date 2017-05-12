@@ -10,7 +10,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :penalty_level,
-        choices: Steps::Appeal::PenaltyAmountForm.choices %>
+        choices: Steps::Appeal::PenaltyAmountForm.choices,
+        legend_options: {class: 'visuallyhidden'} %>
 
       <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true" data-show-elements="form input:radio:not(:first)" data-hide-elements="form input:radio:first">
         <%= f.text_field :penalty_amount, class: 'form-control' %>

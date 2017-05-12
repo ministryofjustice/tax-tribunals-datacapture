@@ -603,37 +603,37 @@ en:
   helpers:
     fieldset:
       steps_appeal_case_type_form:
-        case_type_html: ''
+        case_type_html: What is your appeal about?
       steps_appeal_case_type_show_more_form:
-        case_type_html: ''
+        case_type_html: What is your appeal about?
       steps_appeal_dispute_type_form:
-        dispute_type_html: ''
+        dispute_type_html: What is your dispute about?
       steps_appeal_penalty_amount_form:
-        penalty_level_html: ''
+        penalty_level_html: How much is the penalty or surcharge you are disputing?
       steps_challenge_decision_form:
-        challenged_decision_html: ''
+        challenged_decision_html: Did you appeal the original decision to HMRC?
       steps_challenge_decision_status_form:
-        challenged_decision_status_html: ''
+        challenged_decision_status_html: What response did you receive?
       steps_closure_case_type_form:
-        closure_case_type_html: ''
+        closure_case_type_html: What type of enquiry do you want to close?
       steps_details_user_type_form:
-        user_type_html: ''
+        user_type_html: Are you the taxpayer making the appeal?
       steps_details_taxpayer_type_form:
-        taxpayer_type_html: ''
+        taxpayer_type_html: Who is making the appeal?
       steps_details_representative_professional_status_form:
-        representative_professional_status_html: ''
+        representative_professional_status_html: Who is representing you?
       steps_details_has_representative_form:
-        has_representative_html: ''
+        has_representative_html: Do you have someone to represent you?
       steps_details_representative_type_form:
-        representative_type_html: ''
+        representative_type_html: Is your representative an individual, company or other type of organisation?
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid_html: ''
+        disputed_tax_paid_html: Have you paid the amount of tax under dispute?
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested_html: ''
+        hardship_review_requested_html: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
       steps_hardship_hardship_review_status_form:
-        hardship_review_status_html: ''
+        hardship_review_status_html: Did HMRC allow you to defer paying because of financial hardship?
       steps_lateness_in_time_form:
-        in_time_html: ''
+        in_time_html: Are you in time to appeal to the tax tribunal?
     label:
       steps_appeal_case_type_form:
         case_type:
