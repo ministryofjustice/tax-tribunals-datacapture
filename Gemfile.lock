@@ -424,7 +424,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails-controller-testing
-  rails_12factor
   responders
   rspec-rails
   rubocop
