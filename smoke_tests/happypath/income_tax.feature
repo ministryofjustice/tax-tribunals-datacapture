@@ -26,7 +26,7 @@ Feature: Income Tax Happy Paths
     Then I should see "Your case has been saved"
     Given I click the "Sign in" link
     And I fill in my email address
-    And I fill in "Choose password" with "ABCD1234"
+    And I fill in "Enter password" with "ABCD1234"
     When I click the "Sign in" button
     Then I should see "Your saved cases"
     Given I click the "Resume" link
