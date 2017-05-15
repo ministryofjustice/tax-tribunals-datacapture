@@ -11,7 +11,6 @@ gem 'govuk_frontend_toolkit', '< 6.0.0'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'govuk_template'
 gem 'jquery-rails'
-gem 'logstash-logger'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'pg', '~> 0.18'
 gem 'pry-rails'
@@ -27,6 +26,10 @@ gem 'virtus'
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
+
+group :production do
+  gem 'logstash-logger'
+end
 
 group :development do
   gem 'better_errors'
