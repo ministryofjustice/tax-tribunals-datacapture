@@ -835,6 +835,9 @@ en:
         password: Choose password
         password_confirmation: Confirm password
         current_password: Old password
+      user_signin:
+        email: Your email address
+        password: Enter password
       tribunal_case:
         user_case_reference: Your reference (optional)
     hint:
