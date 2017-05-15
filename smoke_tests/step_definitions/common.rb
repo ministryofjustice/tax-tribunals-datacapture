@@ -46,9 +46,15 @@ end
 
 When(/^I choose "([^"]*)"$/) do |text|
   step %[I click the radio button "#{text}"]
-  click_button("Continue")
+  find('[name=commit]').click
 end
 
 Then(/^I see a case reference number$/) do
   expect(page).to have_text(/TC\/#{Date.today.year}\/\d{5}/)
+end
+
+Given(/^I fill in my email address$/) do
+  @email ||= "#{SecureRandom.uuid}@test.com"
+  puts @email
+  step %[I fill in "Your email address" with "#{@email}"]
 end
