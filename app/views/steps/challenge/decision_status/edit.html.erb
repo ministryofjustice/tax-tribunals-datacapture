@@ -8,7 +8,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :challenged_decision_status,
-        choices: @form_object.choices %>
+        choices: @form_object.choices,
+        legend_options: {class: 'visuallyhidden'} %>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>

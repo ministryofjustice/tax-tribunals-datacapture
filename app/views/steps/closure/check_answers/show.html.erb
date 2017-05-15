@@ -6,4 +6,8 @@
 
 <%= render @presenter.sections %>
 
+<h2 class="heading-medium"><%=t 'check_answers.footer.closure.declaration_of_truth' %></h2>
+
+<p><%=t 'check_answers.footer.closure.declaration_of_truth_message' %></p>
+
 <%= render partial: 'check_answers_footer', locals: { submit_link: closure_cases_path }  %>

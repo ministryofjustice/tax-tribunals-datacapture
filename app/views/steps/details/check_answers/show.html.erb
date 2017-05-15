@@ -6,4 +6,8 @@
 
 <%= render @presenter.sections %>
 
+<h2 class="heading-medium"><%=t 'check_answers.footer.appeal.declaration_of_truth' %></h2>
+
+<p><%= translate_with_appeal_or_application 'check_answers.footer.appeal.declaration_of_truth_message' %></p>
+
 <%= render partial: 'check_answers_footer', locals: { submit_link: appeal_cases_path }  %>

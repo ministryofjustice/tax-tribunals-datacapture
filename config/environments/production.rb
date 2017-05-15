@@ -1,4 +1,25 @@
+require "logstash-logger"
+
+LogStashLogger.configure do |config|
+  config.customize_event do |event|
+    event['app'] = 'tt-datacapture'
+  end
+end
+
+module LogStashPrettyLogger
+  module Formatter
+    class PrettyJson < LogStashLogger::Formatter::Base
+      def call(severity, time, progname, message)
+        message&.gsub!(/\e\[(\d+)m/, '')&.strip! if message.is_a?(String)
+        super
+        "#{JSON.pretty_generate(@event)}\n"
+      end
+    end
+  end
+end
+
 Rails.application.configure do
+  config.logstash.formatter = LogStashPrettyLogger::Formatter::PrettyJson
   config.logstash.type = :stdout
   config.log_level = :info
 

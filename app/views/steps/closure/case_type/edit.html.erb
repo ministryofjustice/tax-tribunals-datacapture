@@ -10,7 +10,9 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup' } do |f| %>
       <%= f.radio_button_fieldset :closure_case_type,
-        choices: Steps::Closure::CaseTypeForm.choices %>
+        choices: Steps::Closure::CaseTypeForm.choices,
+        legend_options: {class: 'visuallyhidden'} %>
+
       <%= f.submit class: 'button' %>
     <% end %>
   </div>

@@ -5,13 +5,12 @@ ruby '2.3.3'
 gem 'devise'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_elements_form_builder', '~> 0.0.5'
-gem 'govuk_elements_rails'
-gem 'govuk_frontend_toolkit'
+gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git', branch: 'fieldset-legends'
+gem 'govuk_elements_rails', '< 3.0.0'
+gem 'govuk_frontend_toolkit', '< 6.0.0'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'govuk_template'
 gem 'jquery-rails'
-gem 'logstash-logger'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'pg', '~> 0.18'
 gem 'pry-rails'
@@ -27,6 +26,10 @@ gem 'virtus'
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
+
+group :production do
+  gem 'logstash-logger'
+end
 
 group :development do
   gem 'better_errors'

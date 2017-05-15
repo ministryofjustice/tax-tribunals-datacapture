@@ -10,7 +10,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :case_type,
-        choices: Steps::Appeal::CaseTypeShowMoreForm.choices %>
+        choices: Steps::Appeal::CaseTypeShowMoreForm.choices,
+        legend_options: {class: 'visuallyhidden'} %>
 
       <div class="panel toggleable" id="case_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= f.text_field :case_type_other_value, class: 'form-control' %>
