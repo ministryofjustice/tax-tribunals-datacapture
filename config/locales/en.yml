@@ -1089,6 +1089,7 @@ en:
       appeal: appeal
       application: application
   shared:
+    language: (English)
     confirmation_case_reference:
       case_reference: 'Your case reference number is:'
       case_submitted_successfully: Your case was submitted successfully.
