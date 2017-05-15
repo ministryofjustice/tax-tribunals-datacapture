@@ -148,6 +148,7 @@ en:
               <li><a href="https://www.gov.uk/tax-appeals" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
               <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
             </ul>
+          kick_out_must_review: Give your feedback. Help improve this service
           page_title: Must ask for review
       must_wait_for_review_decision:
         show:
@@ -158,17 +159,19 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
+          kick_out_review: Give your feedback. Help improve this service
           page_title: Must wait for review
       must_challenge_hmrc:
         show:
           heading: You must appeal the original decision to HMRC
           lead_text: The original notice letter will explain what to do.
           free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal
-            once you have written to HMRC.
+            once you have written to HMRC. Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
+            with a tax decision.</a>
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
-            what you can do next.</p> <p>Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
-            with a tax decision</a>.</p>
+            what you can do next. </p> 
+          kick_out_survey: Give your feedback. Help improve this service
           contact_hmrc_button: Contact HMRC
           <<: *START_FINISH
           page_title: Must challenge HMRC
@@ -180,6 +183,7 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
+          kick_out_challenge_wait: Give your feedback. Help improve this service
           page_title: Must wait for decision
     closure:
       case_type:
@@ -1401,7 +1405,7 @@ en:
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
         </ul>
-        <p>You will also need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
+        <p>You'll also need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       continue: Continue
       page_title: Start an appeal
   closure_home:
@@ -1415,5 +1419,6 @@ en:
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-        <p>You will need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a legal professional.</p>
+        <p>You'll need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+      
       page_title: Start a closure
