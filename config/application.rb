@@ -29,6 +29,8 @@ module TaxTribunalsDatacapture
     config.active_record.primary_key = :uuid
 
     config.survey_link = 'https://goo.gl/forms/5MeKnK5kGJH99Fsn2'
+    config.kickout_survey_link = 'https://goo.gl/forms/Ccx0sJcOs5cSVYks2'
+
     config.feedback_email = 'taxtribunals_helpdesk@digital.justice.gov.uk'
     config.tax_tribunal_email = 'taxappeals@hmcts.gsi.gov.uk'
     config.tax_tribunal_phone = '0300 123 1024'
