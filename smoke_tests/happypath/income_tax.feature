@@ -84,16 +84,25 @@ Feature: Income Tax Happy Paths
     Then I should see "Upload your letter(s)"
 
 		Given I drop "original_notice.docx"
-		Then I should see "original_notice.docx"
+    Then I should see "original_notice.docx"
+    And I should not see "format we don't accept"
+    And I should not see "Server responded with 0 code"
+    And I should not see "No files uploaded"
 
 		Given I click the "Remove" link
 		Then I should not see "original_notice.docx"
 
 		Given I drop "original_notice.docx"
 		Then I should see "original_notice.docx"
+    And I should not see "format we don't accept"
+    And I should not see "Server responded with 0 code"
+    And I should not see "No files uploaded"
 
 		Given I drop "review_conclusion.docx"
 		Then I should see "review_conclusion.docx"
+    And I should not see "format we don't accept"
+    And I should not see "Server responded with 0 code"
+    And I should not see "No files uploaded"
 
 		Given I check "Original notice letter"
     And I check "Review conclusion letter"
