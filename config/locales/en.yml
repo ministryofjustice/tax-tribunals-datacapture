@@ -148,7 +148,6 @@ en:
               <li><a href="https://www.gov.uk/tax-appeals" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
               <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
             </ul>
-          kick_out_must_review: Give your feedback. Help improve this service
           page_title: Must ask for review
       must_wait_for_review_decision:
         show:
@@ -159,7 +158,6 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
-          kick_out_review: Give your feedback. Help improve this service
           page_title: Must wait for review
       must_challenge_hmrc:
         show:
@@ -171,7 +169,6 @@ en:
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
             what you can do next. </p> 
-          kick_out_survey: Give your feedback. Help improve this service
           contact_hmrc_button: Contact HMRC
           <<: *START_FINISH
           page_title: Must challenge HMRC
@@ -183,7 +180,6 @@ en:
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
-          kick_out_challenge_wait: Give your feedback. Help improve this service
           page_title: Must wait for decision
     closure:
       case_type:
@@ -227,6 +223,7 @@ en:
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
           <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a>.</p>
+      kickout_feedback: Give your feedback. Help improve this service
     details:
       user_type:
         edit:
