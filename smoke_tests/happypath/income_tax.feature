@@ -66,7 +66,7 @@ Feature: Income Tax Happy Paths
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
     And I click the "Remove" button
-		Then I should not see "grounds_for_appeal.docx"
+    Then I should not see "grounds_for_appeal.docx"
 
     Given I attach a file with a virus
     And I click the "Save and continue" button
@@ -83,33 +83,37 @@ Feature: Income Tax Happy Paths
     And I click the "Save and continue" button
     Then I should see "Upload your letter(s)"
 
-		Given I drop "original_notice.docx"
+    Given I drop "original_notice.docx"
     Then I should see "original_notice.docx"
     And I should not see "format we don't accept"
     And I should not see "Server responded with 0 code"
     And I should not see "No files uploaded"
 
-		Given I click the "Remove" link
-		Then I should not see "original_notice.docx"
+    Given I click the "Remove" link
+    Then I should not see "original_notice.docx"
 
-		Given I drop "original_notice.docx"
-		Then I should see "original_notice.docx"
+    Given I drop "original_notice.docx"
+    Then I should see "original_notice.docx"
     And I should not see "format we don't accept"
     And I should not see "Server responded with 0 code"
     And I should not see "No files uploaded"
 
-		Given I drop "review_conclusion.docx"
-		Then I should see "review_conclusion.docx"
+    Given I drop "review_conclusion.docx"
+    Then I should see "review_conclusion.docx"
     And I should not see "format we don't accept"
     And I should not see "Server responded with 0 code"
     And I should not see "No files uploaded"
 
-		Given I check "Original notice letter"
+    # There is an intermittent S3 race condition where the last upload before
+    # 'Check your answers' does not get stored in time to make it into the list
+    # call of 'Check your answers'.
+    Given I pause for "2" seconds
+    And I check "Original notice letter"
     And I check "Review conclusion letter"
     When I click the "Save and continue" button
-		Then I should see "Check your answers"
-		And I should see "Appeal details"
-		And I should see "original_notice.docx"
+    Then I should see "Check your answers"
+    And I should see "Appeal details"
+    And I should see "original_notice.docx"
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button

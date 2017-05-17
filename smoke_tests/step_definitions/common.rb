@@ -58,3 +58,7 @@ Given(/^I fill in my email address$/) do
   puts @email
   step %[I fill in "Your email address" with "#{@email}"]
 end
+
+When(/^I pause for "([^"]*)" seconds$/) do |seconds|
+  sleep seconds.to_i
+end
