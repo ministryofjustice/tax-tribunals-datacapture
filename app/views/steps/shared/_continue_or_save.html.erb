@@ -1,12 +1,8 @@
 <p class="actions">
-  <% if save_and_return_enabled? %>
-    <% if user_signed_in? %>
-      <%= f.submit t('helpers.submit.save_and_continue'), class: 'button' %>
-    <% else %>
-      <%= f.submit class: 'button' %>
-      <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path %>
-    <% end %>
+  <% if user_signed_in? %>
+    <%= f.submit t('helpers.submit.save_and_continue'), class: 'button' %>
   <% else %>
     <%= f.submit class: 'button' %>
+    <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path %>
   <% end %>
 </p>

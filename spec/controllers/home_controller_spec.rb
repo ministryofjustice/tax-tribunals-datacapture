@@ -26,6 +26,28 @@ RSpec.describe HomeController do
       expect(name).to eq(:close)
       expect(time).to eq(15)
       expect(link).to eq('/closure')
+
+      name, time, link = assigns[:link_sections][2]
+      expect(name).to eq(:home_login)
+      expect(time).to eq(0)
+      expect(link).to eq('/users/login')
+    end
+
+    context 'when user is logged in' do
+      let(:user) { instance_double(User) }
+
+      before do
+        sign_in(user)
+      end
+
+      it 'the link to login points to the cases portfolio' do
+        get :start
+
+        name, time, link = assigns[:link_sections][2]
+        expect(name).to eq(:home_login)
+        expect(time).to eq(0)
+        expect(link).to eq('/users/cases')
+      end
     end
   end
 

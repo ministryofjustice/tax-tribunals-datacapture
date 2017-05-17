@@ -8,16 +8,8 @@
       <% @link_sections.each do |(name, minutes, path)| %>
         <li>
           <%= link_to t('.link_titles.%s' % name), path, class: 'task-link ga-pageLink', data: {ga_category: 'Type_app', ga_label: name} %>
-          <p><%= t('.link_descriptions.%s' % name) %></p>
-          <p>(<%= t('.link_time_estimate', minutes: minutes) %>)</p>
-        </li>
-      <% end %>
-
-      <%# TODO: Move this into the @link_sections and add i18n %>
-      <% if save_and_return_enabled? %>
-        <li>
-          <%= link_to t('.return_to_saved_case'), login_or_portfolio_path, class: 'task-link ga-pageLink' %>
-          <p><%=t '.continue_a_case_info' %></p>
+          <%= content_tag(:p, t('.link_descriptions.%s' % name)) %>
+          <%= content_tag(:p, t('.link_time_estimate', minutes: minutes)) unless minutes.zero? %>
         </li>
       <% end %>
     </ul>

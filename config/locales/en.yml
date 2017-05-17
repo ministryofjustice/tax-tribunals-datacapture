@@ -1212,13 +1212,13 @@ en:
       link_titles:
         appeal: Appeal against a tax decision
         close: Apply to close an enquiry
+        home_login: Return to a saved appeal or application
       link_descriptions:
         appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force
           or the National Crime Agency.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
-      link_time_estimate: "%{minutes} minutes to complete"
-      continue_a_case_info: "Continue completing a case you haven't submitted."
-      return_to_saved_case: Return to a saved appeal or application
+        home_login: Continue completing a case you haven't submitted.
+      link_time_estimate: (%{minutes} minutes to complete)
       page_title: Start
     contact:
       heading: Contact

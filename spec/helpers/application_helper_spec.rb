@@ -133,24 +133,6 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#save_and_return_enabled?' do
-    before do
-      expect(Rails.configuration.x.features).to receive(:save_and_return_enabled).and_return(enabled)
-    end
-
-    context 'when the feature flag is set' do
-      let(:enabled) { true }
-
-      specify { expect(helper).to be_save_and_return_enabled }
-    end
-
-    context 'when the feature flag is not set' do
-      let(:enabled) { false }
-
-      specify { expect(helper).to_not be_save_and_return_enabled }
-    end
-  end
-
   describe '#login_or_portfolio_path' do
     context 'when user is logged in' do
       before do
