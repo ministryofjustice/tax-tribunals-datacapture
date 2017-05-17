@@ -3,6 +3,8 @@ require "logstash-logger"
 LogStashLogger.configure do |config|
   config.customize_event do |event|
     event['tags'] << 'taxtribs-datacapture'
+    # Because `host` on Docker returns a hash.
+    event['tags'] << ENV['CONTAINER_NAME']
   end
 end
 
