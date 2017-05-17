@@ -10,7 +10,9 @@ class Document
   end
 
   def self.all_for_collection(collection_ref)
-    for_collection(collection_ref, document_key: nil).group_by { |f| f.full_name.split('/').first.to_sym }
+    for_collection(collection_ref, document_key: nil).group_by { |f| f.full_name.split('/').first.to_sym }.tap { |docs|
+      Rails.logger.info(docs)
+    }
   end
 
   def self.for_collection(collection_ref, document_key:)
