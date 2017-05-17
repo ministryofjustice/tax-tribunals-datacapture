@@ -42,8 +42,5 @@ module TaxTribunalsDatacapture
     config.x.users.expire_in_days = ENV.fetch('USERS_EXPIRE_AFTER', 30).to_i
 
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
-
-    # TODO: Feature flags - remove when no longer needed
-    config.x.features.save_and_return_enabled = (ENV['SAVE_AND_RETURN_ENABLED'].to_s.downcase == 'true')
   end
 end
