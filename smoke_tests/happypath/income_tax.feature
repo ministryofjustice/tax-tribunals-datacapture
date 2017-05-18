@@ -63,6 +63,7 @@ Feature: Income Tax Happy Paths
     Given I attach a file explaining my grounds
     And I should not see "failed to upload"
     When I click the "Save and continue" button
+    And I pause for "2" seconds
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
     And I click the "Remove" button
@@ -74,6 +75,7 @@ Feature: Income Tax Happy Paths
 
     Given I attach a file explaining my grounds
     Then I click the "Save and continue" button
+    And I pause for "2" seconds
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
     And I click the "Save and continue" button
