@@ -38,6 +38,7 @@ group :development do
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
+  gem 'ministryofjustice-danger'
   gem 'web-console'
 end
 
