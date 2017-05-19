@@ -1,4 +1,6 @@
 class Uploader
+  UPLOAD_RETRIES = 2
+
   class UploaderError < RuntimeError
     attr_reader :caused_by
 
@@ -11,7 +13,7 @@ class Uploader
 
   class InfectedFileError < RuntimeError; end
 
-  def self.add_file(collection_ref: nil, document_key:, filename:, data:)
+  def self.add_file(collection_ref: nil, document_key:, filename:, data:, retry_counter: 0)
     MojFileUploaderApiClient.add_file(
       collection_ref: collection_ref,
       folder: document_key.to_s,
@@ -21,11 +23,23 @@ class Uploader
   rescue MojFileUploaderApiClient::InfectedFileError
     Rails.logger.tagged('add_file') { Rails.logger.warn("InfectedFileError: #{filename}") }
     raise InfectedFileError
-  rescue MojFileUploaderApiClient::RequestError => e
-    Rails.logger.tagged('add_file') {
-      Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
-    }
-    raise UploaderError.new(e)
+  rescue => e
+    if retry_counter <= UPLOAD_RETRIES
+      sleep retry_counter
+      Rails.logger.tagged('add_file') {
+        Rails.logger.warn('MojFileUploaderApiClient::RequestError::Retry': {retry_counter: retry_counter})
+      }
+      self.add_file(collection_ref: collection_ref,
+                    document_key: document_key,
+                    filename: filename,
+                    data: data,
+                    retry_counter: retry_counter + 1)
+    else
+      Rails.logger.tagged('add_file') {
+        Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
+      }
+      raise UploaderError.new(e)
+    end
   end
 
   def self.delete_file(collection_ref:, document_key:, filename:)
