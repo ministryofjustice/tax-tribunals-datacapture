@@ -1,0 +1,19 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h2 class="heading-xlarge"><%=t '.heading' %></h2>
+
+    <%= error_summary(@form_object) %>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= form_for(@form_object, url: feedback_path) do |f| %>
+      <%= f.hidden_field :referrer %>
+      <%= f.radio_button_fieldset :rating, inline: true, choices: Feedback::FeedbackForm.rating_choices %>
+      <%= f.text_area :comment, size: '40x6', class: 'form-control form-control-3-4' %>
+
+      <%= f.submit t('.submit'), class: 'button' %>
+    <% end %>
+  </div>
+</div>
