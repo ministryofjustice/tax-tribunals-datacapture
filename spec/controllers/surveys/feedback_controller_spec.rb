@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FeedbackController, type: :controller do
+RSpec.describe Surveys::FeedbackController, type: :controller do
   describe '#new' do
     it 'responds with HTTP success' do
       get :new
@@ -25,7 +25,7 @@ RSpec.describe FeedbackController, type: :controller do
     before do
       request.env['HTTP_USER_AGENT'] = 'Safari'
 
-      expect(Feedback::FeedbackForm).to receive(:new).with(
+      expect(Surveys::FeedbackForm).to receive(:new).with(
         rating: rating,
         comment: 'my feedback here',
         referrer: '/my/step',
@@ -38,13 +38,13 @@ RSpec.describe FeedbackController, type: :controller do
       let(:saved) { true }
 
       it 'redirects to thanks page' do
-        post :create, params: {feedback_feedback_form: {
+        post :create, params: {surveys_feedback_form: {
           referrer: '/my/step',
           rating: rating,
           comment: 'my feedback here'
         }}
 
-        expect(response).to redirect_to(thanks_feedback_path)
+        expect(response).to redirect_to(thanks_surveys_feedback_path)
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe FeedbackController, type: :controller do
       let(:saved) { false }
 
       it 're-renders the form' do
-        post :create, params: {feedback_feedback_form: {
+        post :create, params: {surveys_feedback_form: {
           referrer: '/my/step',
           rating: rating,
           comment: 'my feedback here'

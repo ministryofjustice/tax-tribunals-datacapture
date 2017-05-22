@@ -580,7 +580,7 @@ en:
           attributes:
             lateness_reason:
               blank: *attach_reasons_blank_error
-        feedback/feedback_form:
+        surveys/feedback_form:
           attributes:
             rating:
               inclusion: Choose a rating
@@ -641,7 +641,7 @@ en:
         hardship_review_status_html: Did HMRC allow you to defer paying because of financial hardship?
       steps_lateness_in_time_form:
         in_time_html: Are you in time to appeal to the tax tribunal?
-      feedback_feedback_form:
+      surveys_feedback_form:
         rating_html: How helpful was this service?
     label:
       steps_appeal_case_type_form:
@@ -849,13 +849,13 @@ en:
         password: Enter password
       tribunal_case:
         user_case_reference: Your reference (optional)
-      feedback_feedback_form:
+      surveys_feedback_form:
         comment: Do you have any ideas for how this service could be improved?
     hint:
       user:
         password: Must be at least 8 characters
         current_password: We need your current password to confirm your changes
-      feedback_feedback_form:
+      surveys_feedback_form:
         rating_html: 1 being not helpful and 5 being very helpful
         comment_html: Don't include any personal or sensitive information
     submit:
@@ -1431,14 +1431,15 @@ en:
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
         <p>You'll need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       page_title: Start a closure
-  feedback:
-    new:
-      page_title: Feedback
-      heading: Help us improve this service
-      submit: Submit
-      lead_text: Please take this quick survey and help us keep improving (your answers will be anonymous).
-    thanks:
-      page_title: Feedback submitted
-      heading: Thank you for your feedback
-      lead_text: Your feedback helps us to improve this service.
-      continue: Continue
+  surveys:
+    feedback:
+      new:
+        page_title: Feedback
+        heading: Help us improve this service
+        submit: Submit
+        lead_text: Please take this quick survey and help us keep improving (your answers will be anonymous).
+      thanks:
+        page_title: Feedback submitted
+        heading: Thank you for your feedback
+        lead_text: Your feedback helps us to improve this service.
+        continue: Continue

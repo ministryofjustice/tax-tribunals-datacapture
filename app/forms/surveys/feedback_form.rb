@@ -1,4 +1,4 @@
-module Feedback
+module Surveys
   class FeedbackForm < BaseForm
     attribute :rating, Integer
     attribute :comment, String

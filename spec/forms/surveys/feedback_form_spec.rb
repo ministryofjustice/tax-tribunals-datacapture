@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Feedback::FeedbackForm do
+RSpec.describe Surveys::FeedbackForm do
   let(:arguments) { {
     rating: rating,
     comment: comment,
