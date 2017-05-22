@@ -8,9 +8,9 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= form_for(@form_object, url: feedback_path) do |f| %>
+    <%= form_for(@form_object, url: surveys_feedback_path) do |f| %>
       <%= f.hidden_field :referrer %>
-      <%= f.radio_button_fieldset :rating, inline: true, choices: Feedback::FeedbackForm.rating_choices %>
+      <%= f.radio_button_fieldset :rating, inline: true, choices: Surveys::FeedbackForm.rating_choices %>
       <%= f.text_area :comment, size: '40x6', class: 'form-control form-control-3-4' %>
 
       <%= f.submit t('.submit'), class: 'button' %>

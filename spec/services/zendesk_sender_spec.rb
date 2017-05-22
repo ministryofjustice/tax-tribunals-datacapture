@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ZendeskSender do
   let(:form_object) {
-    Feedback::FeedbackForm.new(
+    Surveys::FeedbackForm.new(
       rating: 5, comment: 'very nice service', referrer: '/whatever', user_agent: 'Safari'
     )
   }
