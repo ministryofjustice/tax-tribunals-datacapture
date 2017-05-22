@@ -8,7 +8,7 @@
       to be different in this form. Because of this, we also need to specify the `name`,
       otherwise it would become `user_signin[email] and user_signin[password]`
     %>
-    <%= form_for(resource, as: 'user_signin', url: user_session_path) do |f| %>
+    <%= form_for(resource, as: 'user_signin', url: user_session_path, html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'login'}}) do |f| %>
       <%= f.email_field :email, name: 'user[email]', autofocus: true %>
       <%= f.password_field :password, name: 'user[password]', class: 'js-toggleable-password', autocomplete: 'off' %>
 
