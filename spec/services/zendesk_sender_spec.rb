@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ZendeskSender do
   let(:form_object) {
     Surveys::FeedbackForm.new(
-      rating: 5, comment: 'very nice service', referrer: '/whatever', user_agent: 'Safari'
+      rating: 5, comment: 'very nice service', email: 'test@example.com', referrer: '/whatever', user_agent: 'Safari'
     )
   }
 
@@ -19,6 +19,7 @@ RSpec.describe ZendeskSender do
             {id: '23757677', value: 'tax_tribunal'},
             {id: '23791776', value: 'Safari'},
             {id: '26047167', value: '/whatever'},
+            {id: '30769508', value: 'test@example.com'},
             {id: '114094159771', value: 5}
           ]
         }}.to_json

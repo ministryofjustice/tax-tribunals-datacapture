@@ -11,6 +11,7 @@ class ZendeskSender
   SERVICE_TICKET_FIELD_ID  = '23757677'.freeze
   BROWSER_TICKET_FIELD_ID  = '23791776'.freeze
   REFERRER_TICKET_FIELD_ID = '26047167'.freeze
+  CONTACT_TICKET_FIELD_ID  = '30769508'.freeze
   RATING_TICKET_FIELD_ID   = '114094159771'.freeze
 
 
@@ -27,6 +28,7 @@ class ZendeskSender
         { id: SERVICE_TICKET_FIELD_ID,  value: SERVICE_NAME },
         { id: BROWSER_TICKET_FIELD_ID,  value: form_object.user_agent },
         { id: REFERRER_TICKET_FIELD_ID, value: form_object.referrer },
+        { id: CONTACT_TICKET_FIELD_ID,  value: form_object.email },
         { id: RATING_TICKET_FIELD_ID,   value: form_object.rating }
       ]
     )
