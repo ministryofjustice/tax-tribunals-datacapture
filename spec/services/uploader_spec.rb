@@ -24,23 +24,28 @@ RSpec.describe Uploader do
     end
 
     it 'raises InfectedFileError if the uploader raises its own InfectedFileError' do
-      expect(MojFileUploaderApiClient).to receive(:add_file).with(
-        collection_ref: '123',
-        folder: 'doc_key',
-        filename: 'file_name.doc',
-        data: 'data'
-      ).and_raise(MojFileUploaderApiClient::InfectedFileError)
+      expect(MojFileUploaderApiClient).to receive(:add_file).and_raise(MojFileUploaderApiClient::InfectedFileError)
 
       expect { described_class.add_file(params) }.to raise_error(Uploader::InfectedFileError)
     end
 
     it 'raises UploaderError if the uploader raises its own RequestError' do
-      expect(MojFileUploaderApiClient).to receive(:add_file).with(
-        collection_ref: '123',
-        folder: 'doc_key',
-        filename: 'file_name.doc',
-        data: 'data'
-      ).and_raise(error)
+      expect(MojFileUploaderApiClient).to receive(:add_file).at_least(:once).and_raise(error)
+
+      expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
+    end
+
+    it 'if it receives UploaderError, it retries the error a configurable number of times before re-raising' do
+      expect(MojFileUploaderApiClient).to receive(:add_file).at_least(described_class::UPLOAD_RETRIES).and_raise(error)
+
+      expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
+    end
+
+    it 'it it retries an upload, it sleeps once second longer between each retry' do
+      allow(MojFileUploaderApiClient).to receive(:add_file).and_raise(error)
+      expect(described_class).to receive(:sleep).once.with(0)
+      expect(described_class).to receive(:sleep).once.with(1)
+      expect(described_class).to receive(:sleep).once.with(2)
 
       expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
     end

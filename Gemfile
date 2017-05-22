@@ -22,6 +22,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
+gem 'zendesk_api', '~> 1.14.4'
 
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
@@ -37,6 +38,7 @@ group :development do
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
+  gem 'ministryofjustice-danger'
   gem 'web-console'
 end
 

@@ -137,6 +137,12 @@ Rails.application.routes.draw do
     get :not_found
   end
 
+  namespace :surveys do
+    resource :feedback, only: [:new, :create], controller: :feedback do
+      get :thanks
+    end
+  end
+
   root to: 'home#index'
   get :start, to: 'home#start'
   get :appeal, to: 'appeal_home#index'
