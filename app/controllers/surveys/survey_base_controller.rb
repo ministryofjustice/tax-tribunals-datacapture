@@ -41,7 +41,7 @@ module Surveys
       params_key = form_object_class.name.underscore.tr('/'.freeze, '_'.freeze)
 
       params.require(params_key).permit(
-        :rating, :comment, :referrer
+        :rating, :comment, :email, :referrer
       ).to_h
     end
   end
