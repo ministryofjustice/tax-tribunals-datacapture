@@ -2,16 +2,14 @@ class ZendeskSender
   attr_accessor :form_object
 
   # This needs to match the value in the `Service` ticket field.
-  SERVICE_NAME = 'tax_tribunal'.freeze
+  SERVICE_NAME = 'datacapture_app'.freeze
 
   # The following `custom_fields` are created in the Zendesk admin panel,
-  # `Manage` section, `Ticket Fields` sub-section. Please note all created
-  # fields will show in other service tickets too, so use wisely.
-  #
-  SERVICE_TICKET_FIELD_ID  = '23757677'.freeze
-  BROWSER_TICKET_FIELD_ID  = '23791776'.freeze
-  REFERRER_TICKET_FIELD_ID = '26047167'.freeze
-  RATING_TICKET_FIELD_ID   = '114094159771'.freeze
+  # `Manage` section, `Ticket Fields` sub-section.
+  SERVICE_FIELD_ID    = '79094767'.freeze
+  USER_AGENT_FIELD_ID = '79531628'.freeze
+  REFERRER_FIELD_ID   = '79094927'.freeze
+  RATING_FIELD_ID     = '79096207'.freeze
 
 
   def initialize(form_object)
@@ -21,14 +19,26 @@ class ZendeskSender
   def send!
     ZendeskAPI::Ticket.create!(
       ZENDESK_CLIENT,
+      requester: requester_details,
       subject: form_object.subject,
       comment: { body: form_object.comment },
       custom_fields: [
-        { id: SERVICE_TICKET_FIELD_ID,  value: SERVICE_NAME },
-        { id: BROWSER_TICKET_FIELD_ID,  value: form_object.user_agent },
-        { id: REFERRER_TICKET_FIELD_ID, value: form_object.referrer },
-        { id: RATING_TICKET_FIELD_ID,   value: form_object.rating }
+        { id: SERVICE_FIELD_ID,    value: SERVICE_NAME },
+        { id: USER_AGENT_FIELD_ID, value: form_object.user_agent },
+        { id: REFERRER_FIELD_ID,   value: form_object.referrer },
+        { id: RATING_FIELD_ID,     value: form_object.rating }
       ]
     )
+  end
+
+  private
+
+  def requester_details
+    {name: requester_name, email: form_object.email} if requester_name
+  end
+
+  # We are not asking for a name, so we default to the first part of the user email
+  def requester_name
+    form_object.email.to_s.split('@').first
   end
 end

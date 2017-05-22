@@ -2,16 +2,16 @@ require 'spec_helper'
 
 RSpec.describe Surveys::FeedbackForm do
   let(:arguments) { {
-    rating: rating,
     comment: comment,
+    email: email,
     referrer: referrer,
     user_agent: user_agent
   } }
 
   subject { described_class.new(arguments) }
 
-  let(:rating) { 5 }
   let(:comment) { 'my feedback here' }
+  let(:email) { 'email@example.com' }
   let(:referrer) { '/path' }
   let(:user_agent) { 'Safari' }
 
@@ -20,32 +20,6 @@ RSpec.describe Surveys::FeedbackForm do
   end
 
   describe '#save' do
-    context 'when rating is not given' do
-      let(:rating) { nil }
-
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:rating]).to_not be_empty
-      end
-    end
-
-    context 'when rating is not valid' do
-      let(:rating) { 10 }
-
-      it 'returns false' do
-        expect(subject.save).to be(false)
-      end
-
-      it 'has a validation error on the field' do
-        expect(subject).to_not be_valid
-        expect(subject.errors[:rating]).to_not be_empty
-      end
-    end
-
     context 'when comment is not given' do
       let(:comment) { nil }
 
@@ -56,6 +30,27 @@ RSpec.describe Surveys::FeedbackForm do
       it 'has a validation error on the field' do
         expect(subject).to_not be_valid
         expect(subject.errors[:comment]).to_not be_empty
+      end
+    end
+
+    context 'when email is not valid' do
+      let(:email) { 'blah' }
+
+      it 'returns false' do
+        expect(subject.save).to be(false)
+      end
+
+      it 'has a validation error on the field' do
+        expect(subject).to_not be_valid
+        expect(subject.errors[:email]).to_not be_empty
+      end
+    end
+
+    context 'allows blank email' do
+      let(:email) { '' }
+
+      it 'has no validation errors' do
+        expect(subject).to be_valid
       end
     end
 
