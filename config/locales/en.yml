@@ -35,8 +35,7 @@ en:
 
     CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
       heading: What is your appeal about?
-      lead_text: Check the original notice letter or review conclusion letter.
-
+      lead_text: Choose the most relevant option based on the original notice or review conclusion letter.
     CHALLENGE_STATUS: &CHALLENGE_STATUS
       received: I have a review conclusion letter
       pending: I have been waiting less than 45 days for a review to finish
@@ -190,12 +189,12 @@ en:
           page_title: Case type
       enquiry_details:
         edit:
-          heading: Details of the enquiry you want closed
+          heading: Enquiry details
           lead_text: Check letters about the enquiry for this information.
           page_title: Enquiry details
       additional_info:
         edit:
-          heading: Say why you think the enquiry should close (optional)
+          heading: Why should the enquiry close? (optional)
           attach_document_html: "<strong>Attach reasons as a document (optional)</strong>"
           page_title: Additional information
       support_documents:
@@ -348,10 +347,8 @@ en:
           page_title: "Documents upload"
       outcome:
         edit:
-          heading: What outcome do you want from your %{appeal_or_application}?
-          lead_text: Give a summary of the decisions you think should be made in regards
-            to your %{appeal_or_application}. Write no more than 2-3 sentences which
-            clearly outline the result you want.
+          heading: Briefly say what outcome you'd like
+          lead_text: ""
           page_title: Outcome
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
@@ -749,7 +746,7 @@ en:
         closure_years_under_enquiry: Years under enquiry
         closure_hmrc_officer: Name of the tax officer running the enquiry (optional)
       steps_closure_additional_info_form:
-        closure_additional_info: Enter reasons why the enquiry should close (optional)
+        closure_additional_info: Enter reasons (optional)
       steps_closure_support_documents_form:
         having_problems_uploading_explanation: Reasons you can't upload
       steps_details_user_type_form:
@@ -818,7 +815,7 @@ en:
         having_problems_uploading_explanation: Enter reasons why you can't upload
           documents
       steps_details_outcome_form:
-        outcome: Enter the outcome you want
+        outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid:
           <<: *YESNO
@@ -1413,7 +1410,7 @@ en:
         <h2 class="heading-medium">What you will need</h2>
         <ul class="list list-bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
-          <li><strong>reasons for your appeal</strong> to copy and paste or attach as a document</li>
+          <li><strong>reasons for your appeal</strong> so the judge can hear things from your side</li>
         </ul>
         <p>You'll also need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener" class="ga-pageLink" data-ga-category="Proforma" data-ga-label="rep auth">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       continue: Continue
