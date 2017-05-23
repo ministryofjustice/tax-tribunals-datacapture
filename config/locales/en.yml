@@ -167,7 +167,7 @@ en:
             with a tax decision.</a>
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
-            what you can do next. </p> 
+            what you can do next. </p>
           contact_hmrc_button: Contact HMRC
           <<: *START_FINISH
           page_title: Must challenge HMRC
@@ -753,7 +753,7 @@ en:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
-            example a partnership, LLP, trust, club or association"
+            example a partnership, LLP (Limited Liability Partnership), trust, club or association"
       steps_details_has_representative_form:
         has_representative:
           <<: *YESNO
@@ -771,7 +771,7 @@ en:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
-            example a partnership or LLP"
+            example a partnership or LLP (Limited Liability Partnership)"
       generic_taxpayer_contact_labels:
         <<: *TAXPAYER_ADDRESS
       steps_details_taxpayer_individual_details_form:
