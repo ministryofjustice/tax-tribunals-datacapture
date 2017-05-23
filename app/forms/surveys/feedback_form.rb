@@ -2,15 +2,12 @@ module Surveys
   class FeedbackForm < BaseForm
     attribute :rating, Integer
     attribute :comment, String
+    attribute :email, NormalisedEmail
     attribute :referrer, String
     attribute :user_agent, String
 
-    def self.rating_choices
-      (1..5)
-    end
-
-    validates_inclusion_of :rating, in: rating_choices
-    validates_presence_of  :comment
+    validates :email, email: true, allow_blank: true
+    validates_presence_of :comment
 
     # TODO: once we have at least 2 of these feedback forms, we can extract
     # the duplicated code to a superclass as all of them will have at least
