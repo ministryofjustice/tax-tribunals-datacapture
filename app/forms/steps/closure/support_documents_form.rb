@@ -12,7 +12,7 @@ module Steps::Closure
 
       tribunal_case.update(
         having_problems_uploading: having_problems_uploading,
-        having_problems_uploading_explanation: having_problems_uploading_explanation
+        having_problems_uploading_explanation: having_problems_uploading ? having_problems_uploading_explanation : nil
       )
     end
   end

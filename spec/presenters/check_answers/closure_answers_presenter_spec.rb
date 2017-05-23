@@ -23,8 +23,8 @@ module CheckAnswers
           expect(subject.sections.count).to eq(3)
 
           expect(subject.sections[0]).to eq(closure_type_section_presenter)
-          expect(subject.sections[1]).to eq(closure_details_section_presenter)
-          expect(subject.sections[2]).to eq(taxpayer_section_presenter)
+          expect(subject.sections[1]).to eq(taxpayer_section_presenter)
+          expect(subject.sections[2]).to eq(closure_details_section_presenter)
         end
       end
 

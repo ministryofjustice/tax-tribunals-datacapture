@@ -1019,7 +1019,13 @@ en:
       accessible_change_text: desired outcome
     documents_submitted:
       question: Letters uploaded
-      accessible_change_text: documents submitted
+      accessible_change_text: letters uploaded
+    problems_uploading_documents:
+      question: Problems uploading documents
+      accessible_change_text: problems uploading documents
+    problems_uploading_letters:
+      question: Problems uploading letters
+      accessible_change_text: problems uploading letters
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is
