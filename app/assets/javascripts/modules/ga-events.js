@@ -4,6 +4,7 @@ moj.Modules.gaEvents = {
   radioFormClass: '.ga-radioButtonGroup',
   checkboxClass: '.ga-checkbox',
   linkClass: '.ga-pageLink',
+  submitFormClass: '.ga-submitForm',
   fileUploadFormClass: '.ga-fileUpload',
 
   init: function() {
@@ -19,6 +20,9 @@ moj.Modules.gaEvents = {
       }
       if($(self.linkClass).length) {
         self.trackLinks();
+      }
+      if($(self.submitFormClass).length) {
+        self.trackSubmitForms();
       }
       if($(self.fileUploadFormClass).length) {
         self.trackFileUploads();
@@ -111,6 +115,28 @@ moj.Modules.gaEvents = {
     });
   },
 
+  trackSubmitForms: function() {
+    var self = this,
+        $form = $(self.submitFormClass);
+
+    // submitting GA tracked forms is intercepted[1] until the GA event has
+    // been sent, by sending target to make a callback[2]
+    $form.on('submit', function(e) {
+      var eventData,
+          options;
+
+      e.preventDefault(); // [1]
+
+      eventData = self.getFormData($form);
+      options = {
+        actionType: 'form',
+        actionValue: $form // [2]
+      };
+
+      self.sendAnalyticsEvent(eventData, options);
+    });
+  },
+
   trackFileUploads: function() {
     var self = this,
         $fileEls = $(self.fileUploadFormClass).find('[type="file"]');
@@ -169,6 +195,20 @@ moj.Modules.gaEvents = {
     });
 
     return eventDataArray;
+  },
+
+  getFormData: function($form) {
+    var category = $form.data('ga-category'),
+        label = $form.data('ga-label'),
+        eventData;
+
+    eventData = {
+      eventCategory: category,
+      eventAction: 'submit_form',
+      eventLabel: label
+    };
+
+    return eventData;
   },
 
   getFileUploadData: function($el) {
