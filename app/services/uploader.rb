@@ -14,6 +14,10 @@ class Uploader
   class InfectedFileError < RuntimeError; end
 
   def self.add_file(collection_ref: nil, document_key:, filename:, data:, retry_counter: 0)
+    Rails.logger.tagged('add_file') {
+      Rails.logger.info({filename: filename, collection_ref: collection_ref, folder: document_key.to_s})
+    }
+
     MojFileUploaderApiClient.add_file(
       collection_ref: collection_ref,
       folder: document_key.to_s,
@@ -43,6 +47,10 @@ class Uploader
   end
 
   def self.delete_file(collection_ref:, document_key:, filename:)
+    Rails.logger.tagged('delete_file') {
+      Rails.logger.info({filename: filename, collection_ref: collection_ref, folder: document_key.to_s})
+    }
+
     MojFileUploaderApiClient.delete_file(
       collection_ref: collection_ref,
       folder: document_key.to_s,
