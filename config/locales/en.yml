@@ -679,9 +679,6 @@ en:
           petroleum_revenue_tax_html: "<strong>Petroleum Revenue Tax</strong>"
           pool_betting_duty_html: "<strong>Pool Betting Duty</strong>"
           remote_gaming_duty_html: "<strong>Remote Gaming Duty</strong>"
-          request_late_review_html: "<strong>Request permission for a late review</strong><br>apply
-            to get a late review accepted by HMRC, UK Border Force (UKBF) or National
-            Crime Authority (NCA)"
           restoration_case_html: "<strong>Restoration case</strong><br>apply for the
             return of seized goods"
           stamp_duties_html: "<strong>Stamp duties</strong><br>includes Stamp Duty
@@ -938,7 +935,6 @@ en:
         petroleum_revenue_tax: Petroleum Revenue Tax
         pool_betting_duty: Pool Betting Duty
         remote_gaming_duty: Remote Gaming Duty
-        request_late_review: Request permission for a late review
         restoration_case: Restoration case
         stamp_duties: Stamp duties
         statutory_payments: Statutory payments
