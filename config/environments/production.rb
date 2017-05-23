@@ -1,5 +1,17 @@
 require "logstash-logger"
 
+module LogStashLogger
+  module Formatter
+    class RemoveEscapeSequences < LogStashLogger::Formatter::Base
+      def call(severity, time, progname, message)
+        message&.gsub!(/\e\[(\d+)m/, '')&.strip! if message.is_a?(String)
+        super
+        "#{@event.to_json}\n"
+      end
+    end
+  end
+end
+
 LogStashLogger.configure do |config|
   config.customize_event do |event|
     event['tags'] << 'taxtribs-datacapture'
@@ -8,7 +20,9 @@ end
 
 Rails.application.configure do
   config.logstash.type = :stdout
+  config.logstash.formatter = LogStashLogger::Formatter::RemoveEscapeSequences
   config.log_level = :info
+  config.action_view.logger = nil
 
   config.cache_classes = true
 
