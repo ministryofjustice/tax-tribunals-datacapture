@@ -1,4 +1,4 @@
-class HardshipDecisionTree < DecisionTree
+class HardshipDecisionTree < TaxTribs::DecisionTree
   def destination
     return next_step if next_step
 
