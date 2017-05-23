@@ -42,7 +42,6 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
         petroleum_revenue_tax
         pool_betting_duty
         remote_gaming_duty
-        request_late_review
         restoration_case
         stamp_duties
         statutory_payments

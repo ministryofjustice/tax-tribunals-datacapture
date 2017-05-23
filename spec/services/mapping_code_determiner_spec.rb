@@ -111,12 +111,6 @@ RSpec.describe MappingCodeDeterminer do
     it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
-  context 'when the case type is to request permission for a late review' do
-    let(:case_type) { CaseType::REQUEST_LATE_REVIEW }
-
-    it { is_expected.to have_mapping_code(:appn_late) }
-  end
-
   context 'when there is a case type but it is an unhandled value' do
     let(:case_type) { CaseType.new(:anything_else) }
 
