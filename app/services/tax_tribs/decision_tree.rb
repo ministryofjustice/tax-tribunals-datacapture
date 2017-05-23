@@ -1,4 +1,4 @@
-class DecisionTree
+class TaxTribs::DecisionTree
   include ApplicationHelper
 
   attr_reader :tribunal_case, :step_params, :as, :next_step
