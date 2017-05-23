@@ -79,9 +79,9 @@ Feature: Income Tax Happy Paths
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
     And I click the "Save and continue" button
-    Then I should see "What outcome do you want from your appeal?"
+    Then I should see "Briefly say what outcome you'd like"
 
-    Given I fill in "Enter the outcome you want" with "Drive my enemies before me, hear the lament of their women"
+    Given I fill in "Clearly explain in 2-3 sentences" with "Drive my enemies before me, hear the lament of their women"
     And I click the "Save and continue" button
     Then I should see "Upload your letter(s)"
 
