@@ -37,6 +37,19 @@ RSpec.describe Steps::Closure::SupportDocumentsForm do
       it { should_not validate_presence_of(:having_problems_uploading_explanation) }
     end
 
+    context 'when having_problems_uploading is not selected but an explanation is provided' do
+      let(:having_problems_uploading) { false }
+      let(:having_problems_uploading_explanation) { 'explanation here' }
+
+      it 'clears the explanation value' do
+        expect(tribunal_case).to receive(:update).with(
+          having_problems_uploading: false,
+          having_problems_uploading_explanation: nil
+        ).and_return(true)
+        expect(subject.save).to be(true)
+      end
+    end
+
     context 'when having_problems_uploading is selected' do
       let(:having_problems_uploading) { true }
       it { should validate_presence_of(:having_problems_uploading_explanation) }

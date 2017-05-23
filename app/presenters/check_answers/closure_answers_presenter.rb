@@ -10,8 +10,8 @@ module CheckAnswers
       else
         [
           ClosureTypeSectionPresenter.new(tribunal_case),
+          TaxpayerSectionPresenter.new(tribunal_case),
           ClosureDetailsSectionPresenter.new(tribunal_case),
-          TaxpayerSectionPresenter.new(tribunal_case)
         ]
       end.select(&:show?)
     end
