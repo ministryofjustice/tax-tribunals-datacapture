@@ -17,12 +17,11 @@ RSpec.describe Steps::Closure::CaseTypeForm do
         company_return
         partnership_return
         trustee_return
-        claim_or_amendment
         enterprise_mgmt_incentives
         non_resident_capital_gains_tax
         stamp_duty_land_tax_return
-        stamp_duty_land_tax_claim
         transactions_in_securities
+        claim_or_amendment
       ))
     end
   end

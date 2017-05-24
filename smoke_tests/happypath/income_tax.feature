@@ -79,7 +79,7 @@ Feature: Income Tax Happy Paths
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
     And I click the "Save and continue" button
-    Then I should see "Briefly say what outcome you'd like"
+    Then I should see "Briefly say what outcome you would like"
 
     Given I fill in "Clearly explain in 2-3 sentences" with "Drive my enemies before me, hear the lament of their women"
     And I click the "Save and continue" button
