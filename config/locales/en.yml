@@ -732,8 +732,6 @@ en:
             return
           stamp_duty_land_tax_return_html: 'Stamp Duty Land Tax (SDLT): land transaction
             return'
-          stamp_duty_land_tax_claim_html: 'Stamp Duty Land Tax (SDLT): claim or amendment
-            of a claim'
           transactions_in_securities_html: 'Transactions in securities: issue of counteraction
             or no-counteraction notice'
       steps_closure_enquiry_details_form:
@@ -1062,8 +1060,6 @@ en:
         non_resident_capital_gains_tax: Non-resident Capital Gains Tax (NRCGT) return
         stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction
           return'
-        stamp_duty_land_tax_claim: 'Stamp Duty Land Tax (SDLT): claim or amendment
-          of a claim'
         transactions_in_securities: 'Transactions in securities: issue of counteraction
           or no-counteraction notice'
     closure_hmrc_reference:
