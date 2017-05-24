@@ -29,7 +29,8 @@ gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
 
 group :production do
-  gem 'logstash-logger'
+  gem 'lograge'
+  gem 'logstash-event'
 end
 
 group :development do

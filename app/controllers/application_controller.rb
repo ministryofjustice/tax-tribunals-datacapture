@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  # This is required to get request attributes in to the production logs.
+  # See the various lograge configurations in `production.rb`.
+  def append_info_to_payload(payload)
+    super
+    payload[:host] = request&.host
+    payload[:referrer] = request&.referrer
+    payload[:session_id] = request&.session&.id
+    payload[:user_agent] = request&.user_agent
+  end
+
   rescue_from Exception do |exception|
     case exception
     when Errors::InvalidSession, ActionController::InvalidAuthenticityToken
