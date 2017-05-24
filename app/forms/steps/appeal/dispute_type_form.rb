@@ -8,6 +8,8 @@ module Steps::Appeal
 
     def choices
       case tribunal_case&.case_type
+      when CaseType::DOTAS_PENALTY
+        dotas_penalty_choices
       when CaseType::INFORMATION_NOTICE
         information_notice_choices
       when CaseType::INCOME_TAX
@@ -20,6 +22,13 @@ module Steps::Appeal
     end
 
     private
+
+    def dotas_penalty_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::OTHER
+      ]
+    end
 
     def information_notice_choices
       [
