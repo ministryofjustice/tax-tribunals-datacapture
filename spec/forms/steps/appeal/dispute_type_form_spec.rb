@@ -73,6 +73,17 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
         ))
       end
     end
+
+    context 'when the appeal is `Disclosure Of Tax Avoidance Schemes (DOTAS)`' do
+      let(:case_type) { CaseType::DOTAS_PENALTY }
+
+      it 'shows only the relevant choices' do
+        expect(subject.choices).to eq(%w(
+          penalty
+          other
+        ))
+      end
+    end
   end
 
   describe '#save' do

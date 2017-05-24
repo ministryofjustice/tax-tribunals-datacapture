@@ -1,7 +1,7 @@
 require 'zendesk_api'
 
 ZENDESK_CLIENT = ZendeskAPI::Client.new do |config|
-  config.url = 'https://ministryofjustice.zendesk.com/api/v2'
+  config.url = 'https://tax-tribunals.zendesk.com/api/v2'
   config.username = ENV['ZENDESK_USERNAME']
   config.token = ENV['ZENDESK_TOKEN']
 

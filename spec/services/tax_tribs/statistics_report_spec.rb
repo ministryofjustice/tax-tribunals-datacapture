@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe TaxTribs::StatisticsReport do
+
+  before do
+    # On my system, a record from 2017-05-17 gets hung.  I'm uncertain where it
+    # is being created, but it reappears consistently on my system-even after a
+    # test db drop.
+    TribunalCase.destroy_all
+  end
+
   describe '#cases_by_date_csv' do
     let(:header) { "Date, Started, Submitted" }
 

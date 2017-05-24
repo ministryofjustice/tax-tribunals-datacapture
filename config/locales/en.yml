@@ -167,7 +167,7 @@ en:
             with a tax decision.</a>
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
-            what you can do next. </p> 
+            what you can do next. </p>
           contact_hmrc_button: Contact HMRC
           <<: *START_FINISH
           page_title: Must challenge HMRC
@@ -579,10 +579,10 @@ en:
               blank: *attach_reasons_blank_error
         surveys/feedback_form:
           attributes:
-            rating:
-              inclusion: Choose a rating
             comment:
               blank: Please enter some text
+            email:
+              invalid: *invalid_email
   activerecord:
     errors:
       models:
@@ -638,8 +638,6 @@ en:
         hardship_review_status_html: Did HMRC allow you to defer paying because of financial hardship?
       steps_lateness_in_time_form:
         in_time_html: Are you in time to appeal to the tax tribunal?
-      surveys_feedback_form:
-        rating_html: How helpful was this service?
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -681,9 +679,6 @@ en:
           petroleum_revenue_tax_html: "<strong>Petroleum Revenue Tax</strong>"
           pool_betting_duty_html: "<strong>Pool Betting Duty</strong>"
           remote_gaming_duty_html: "<strong>Remote Gaming Duty</strong>"
-          request_late_review_html: "<strong>Request permission for a late review</strong><br>apply
-            to get a late review accepted by HMRC, UK Border Force (UKBF) or National
-            Crime Authority (NCA)"
           restoration_case_html: "<strong>Restoration case</strong><br>apply for the
             return of seized goods"
           stamp_duties_html: "<strong>Stamp duties</strong><br>includes Stamp Duty
@@ -758,7 +753,7 @@ en:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
-            example a partnership, LLP, trust, club or association"
+            example a partnership, LLP (Limited Liability Partnership), trust, club or association"
       steps_details_has_representative_form:
         has_representative:
           <<: *YESNO
@@ -776,7 +771,7 @@ en:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
-            example a partnership or LLP"
+            example a partnership or LLP (Limited Liability Partnership)"
       generic_taxpayer_contact_labels:
         <<: *TAXPAYER_ADDRESS
       steps_details_taxpayer_individual_details_form:
@@ -847,14 +842,15 @@ en:
       tribunal_case:
         user_case_reference: Your reference (optional)
       surveys_feedback_form:
-        comment: Do you have any ideas for how this service could be improved?
+        comment: Describe any service improvement or problems you are having
+        email: Email (optional)
     hint:
       user:
         password: Must be at least 8 characters
         current_password: We need your current password to confirm your changes
       surveys_feedback_form:
-        rating_html: 1 being not helpful and 5 being very helpful
         comment_html: Don't include any personal or sensitive information
+        email_html: Provide an email if you wish to receive an update on your comment
     submit:
       create: Continue
       update: Continue
@@ -939,7 +935,6 @@ en:
         petroleum_revenue_tax: Petroleum Revenue Tax
         pool_betting_duty: Pool Betting Duty
         remote_gaming_duty: Remote Gaming Duty
-        request_late_review: Request permission for a late review
         restoration_case: Restoration case
         stamp_duties: Stamp duties
         statutory_payments: Statutory payments
@@ -1024,7 +1019,13 @@ en:
       accessible_change_text: desired outcome
     documents_submitted:
       question: Letters uploaded
-      accessible_change_text: documents submitted
+      accessible_change_text: letters uploaded
+    problems_uploading_documents:
+      question: Problems uploading documents
+      accessible_change_text: problems uploading documents
+    problems_uploading_letters:
+      question: Problems uploading letters
+      accessible_change_text: problems uploading letters
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is
@@ -1197,7 +1198,7 @@ en:
     phase_banner:
       phase_info_html: |
         This is a trial service &ndash; your
-        <a href="mailto:%{feedback_email}?subject=Feedback">feedback</a>
+        <a href="%{feedback_url}" target="_blank" rel="noopener">comments</a>
         will help us to improve it.
     current_user_menu:
       logout: Sign out
@@ -1434,7 +1435,7 @@ en:
         page_title: Feedback
         heading: Help us improve this service
         submit: Submit
-        lead_text: Please take this quick survey and help us keep improving (your answers will be anonymous).
+        lead_text: Please tell us how to improve the service or report a problem below (your feedback will be anonymous).
       thanks:
         page_title: Feedback submitted
         heading: Thank you for your feedback
