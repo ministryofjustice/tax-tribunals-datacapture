@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require dropzone
-//= require details.polyfill
 //= require_tree .
 
 //= require govuk_toolkit
