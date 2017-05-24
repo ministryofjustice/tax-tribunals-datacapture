@@ -1,4 +1,6 @@
 class ErrorsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def case_submitted
     @tribunal_case = current_tribunal_case
     respond_with_status(:unprocessable_entity)
