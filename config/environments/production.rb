@@ -1,28 +1,21 @@
-require "logstash-logger"
-
-module LogStashLogger
-  module Formatter
-    class RemoveEscapeSequences < LogStashLogger::Formatter::Base
-      def call(severity, time, progname, message)
-        message&.gsub!(/\e\[(\d+)m/, '')&.strip! if message.is_a?(String)
-        super
-        "#{@event.to_json}\n"
-      end
-    end
-  end
-end
-
-LogStashLogger.configure do |config|
-  config.customize_event do |event|
-    event['tags'] << 'taxtribs-datacapture'
-  end
-end
-
 Rails.application.configure do
-  config.logstash.type = :stdout
-  config.logstash.formatter = LogStashLogger::Formatter::RemoveEscapeSequences
+  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Logstash.new
   config.log_level = :info
   config.action_view.logger = nil
+
+  config.lograge.custom_options = lambda do |event|
+    exceptions = %w(controller action format id)
+    {
+      host: event.payload[:host],
+      params: event.payload[:params].except(*exceptions),
+      referrer: event.payload[:referrer],
+      session_id: event.payload[:session_id],
+      tags: %w{taxtribs-datacapture},
+      user_agent: event.payload[:user_agent]
+    }
+  end
 
   config.cache_classes = true
 
