@@ -347,7 +347,7 @@ en:
           page_title: "Documents upload"
       outcome:
         edit:
-          heading: Briefly say what outcome you'd like
+          heading: Briefly say what outcome you would like
           lead_text: ""
           page_title: Outcome
       <<: *CYA_CONFIRMATION
@@ -698,9 +698,9 @@ en:
         dispute_type:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
-          amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay tax</strong>"
-          amount_of_tax_owed_by_taxpayer_html: "<strong>HMRC claim you owe tax</strong>"
-          amount_and_penalty_html: "<strong>HMRC claim you owe tax and a penalty or
+          amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay money</strong>"
+          amount_of_tax_owed_by_taxpayer_html: "<strong>HMRC claim you owe money</strong>"
+          amount_and_penalty_html: "<strong>HMRC claim you owe money and a penalty or
             surcharge</strong><br>both disputes must be shown on the original notice
             or review conclusion letter"
           paye_coding_notice_html: "<strong>Pay As You Earn (PAYE) coding notice</strong><br>the
@@ -967,9 +967,9 @@ en:
       answers:
         paye_coding_notice: Pay As You Earn (PAYE) coding notice
         penalty: Penalty or surcharge
-        amount_of_tax_owed_by_hmrc: HMRC should repay tax to you
-        amount_of_tax_owed_by_taxpayer: HMRC claim you owe tax
-        amount_and_penalty: HMRC claim you owe tax and a penalty or surcharge
+        amount_of_tax_owed_by_hmrc: HMRC should repay money to you
+        amount_of_tax_owed_by_taxpayer: HMRC claim you owe money
+        amount_and_penalty: HMRC claim you owe money and a penalty or surcharge
         information_notice: Appeal against an information notice
         refusal_to_register_applicant: Refusal to register an applicant
         cancellation_of_registration: Cancellation of registration
@@ -1397,7 +1397,7 @@ en:
     shared:
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
-        expire_warning: We will keep a draft of your case for %{expire_in_days} days. Any information will be automatically deleted for your security after this time.
+        expire_warning_html: We will keep a draft for <strong>%{expire_in_days} days</strong> or until you submit your case. Any information will be automatically deleted for your security after this time.
         return_info: You can return to continue entering details at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
   appeal_home:
     index:
