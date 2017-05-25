@@ -1159,7 +1159,7 @@ en:
       heading: Sorry, this case can't be found
       <<: *START_FINISH
       lead_text: If you copied a web address, please check it’s correct.
-      more_text: "Please note: a draft case expires 14 days after it was created or when you submit it to the tax tribunal."
+      more_text: "Please note: a draft case expires %{expire_in_days} days after it was created or when you submit it to the tax tribunal."
       page_title: Case not found
     case_submitted:
       heading: You have already submitted this case
@@ -1311,7 +1311,7 @@ en:
       logged_out:
         heading: You have signed out
         lead_text: You can return to a saved case using the link sent in the email or by returning to the start of the service.
-        more_text_html: A draft case expires 14 days after it was created or when you submit it to the tax tribunal.
+        more_text_html: A draft case expires %{expire_in_days} days after it was created or when you submit it to the tax tribunal.
         page_title: Signed out
       save_confirmation:
         heading: Your case has been saved

@@ -6,7 +6,7 @@
 
     <p class="lede"><%=t '.lead_text', session_timeout: Rails.configuration.x.session.expires_in_minutes %></p>
 
-    <p class="lede"><%=t '.more_text' %></p>
+    <p class="lede"><%= t('.more_text', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
 
     <div class="form-group">
       <%= link_to t('.start_again'), start_path, class: 'button' %>
