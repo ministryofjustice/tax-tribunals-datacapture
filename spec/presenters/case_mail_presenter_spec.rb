@@ -194,4 +194,11 @@ RSpec.describe CaseMailPresenter do
       subject.survey_link
     end
   end
+
+  describe '#draft_expire_in_days' do
+    it 'should retrieve it from the Rails config' do
+      expect(Rails).to receive_message_chain(:configuration, :x, :cases, :expire_in_days)
+      subject.draft_expire_in_days
+    end
+  end
 end

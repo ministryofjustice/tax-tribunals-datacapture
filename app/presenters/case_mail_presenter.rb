@@ -51,6 +51,10 @@ class CaseMailPresenter < SimpleDelegator
     Rails.configuration.survey_link
   end
 
+  def draft_expire_in_days
+    Rails.configuration.x.cases.expire_in_days
+  end
+
   private
 
   def representative_contact_name
