@@ -5,9 +5,13 @@ class Uploader
     attr_reader :caused_by
 
     def initialize(caused_by)
-      body, code = caused_by.body, caused_by.code
       @caused_by = caused_by
-      super("(#{code}) #{body}")
+
+      if caused_by.is_a?(MojFileUploaderApiClient::RequestError)
+        super("#{caused_by.message} - (#{caused_by.code}) #{caused_by.body}")
+      else
+        super
+      end
     end
   end
 
@@ -56,7 +60,7 @@ class Uploader
       folder: document_key.to_s,
       filename: filename
     )
-  rescue MojFileUploaderApiClient::RequestError => e
+  rescue => e
     Rails.logger.tagged('delete_file') {
       Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
     }
@@ -71,7 +75,7 @@ class Uploader
   rescue MojFileUploaderApiClient::NotFoundError
     Rails.logger.tagged('list_files') { Rails.logger.warn("NotFoundError") }
     []
-  rescue MojFileUploaderApiClient::RequestError => e
+  rescue => e
     Rails.logger.tagged('list_files') {
       Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
     }

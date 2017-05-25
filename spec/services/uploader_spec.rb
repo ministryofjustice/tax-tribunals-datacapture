@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Uploader do
   let(:result) { double('result') }
   let(:error) { MojFileUploaderApiClient::RequestError.new('message', 'code', 'body') }
+  let(:another_error) { StandardError.new('boom!') }
 
   describe '.add_file' do
     let(:params) { {
@@ -29,10 +30,16 @@ RSpec.describe Uploader do
       expect { described_class.add_file(params) }.to raise_error(Uploader::InfectedFileError)
     end
 
-    it 'raises UploaderError if the uploader raises its own RequestError' do
+    it 'raises UploaderError if the uploader raises an unrecognized exception' do
+      expect(MojFileUploaderApiClient).to receive(:add_file).at_least(:once).and_raise(another_error)
+
+      expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError, 'boom!')
+    end
+
+    it 'raises UploaderError with body and code if the uploader raises its own RequestError' do
       expect(MojFileUploaderApiClient).to receive(:add_file).at_least(:once).and_raise(error)
 
-      expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
+      expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError, 'message - (code) body')
     end
 
     it 'if it receives UploaderError, it retries the error a configurable number of times before re-raising' do
