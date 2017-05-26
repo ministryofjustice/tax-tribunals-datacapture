@@ -116,7 +116,7 @@ Rails.application.routes.draw do
 
   resources :appeal_cases, :closure_cases, only: [:create]
 
-  resource :session, only: [:destroy] do
+  resource :session, only: [:destroy, :show] do
     member do
       get :ping
       post :create_and_fill_appeal
