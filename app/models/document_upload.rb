@@ -27,6 +27,7 @@ class DocumentUpload
     text/csv
     image/gif
     image/jpeg
+    image/pjpeg
     image/png
     image/tiff
     image/bmp
