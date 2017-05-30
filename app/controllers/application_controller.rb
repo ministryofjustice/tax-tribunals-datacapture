@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   # See the various lograge configurations in `production.rb`.
   def append_info_to_payload(payload)
     super
-    payload[:host] = request&.host
     payload[:referrer] = request&.referrer
     payload[:session_id] = request&.session&.id
     payload[:user_agent] = request&.user_agent
