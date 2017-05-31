@@ -21,7 +21,7 @@ module Surveys
     private
 
     def persist!
-      ZendeskSender.new(self).send!
+      TaxTribs::ZendeskSender.new(self).send!
     end
   end
 end
