@@ -15,7 +15,7 @@ module Users
     # We want, on purpose, to not sign in the user after registration, so not calling `super` here.
     # Also due to this, we need to store somewhere the email of the created account, to show in the confirmation.
     def sign_up(_resource_name, user)
-      SaveCaseForLater.new(current_tribunal_case, user).save
+      TaxTribs::SaveCaseForLater.new(current_tribunal_case, user).save
       session[:confirmation_email_address] = user.email
       reset_tribunal_case_session  # so we redirect the user to the portfolio after login back
     end

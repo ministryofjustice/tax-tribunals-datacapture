@@ -50,7 +50,7 @@ RSpec.describe Users::LoginsController do
 
       context 'when the case is new and we are linking it to the user (we send an email)' do
         before do
-          expect(SaveCaseForLater).to receive(:new).with(tribunal_case, user).and_return(double(save: true, email_sent?: true))
+          expect(TaxTribs::SaveCaseForLater).to receive(:new).with(tribunal_case, user).and_return(double(save: true, email_sent?: true))
         end
 
         it 'it stores the signed in email address in the session' do
@@ -63,7 +63,7 @@ RSpec.describe Users::LoginsController do
     context 'when the authentication was unsuccessful' do
       before do
         expect(warden).to receive(:authenticate!).and_call_original
-        expect(SaveCaseForLater).not_to receive(:new)
+        expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
       end
 
       it 'does not sign a user in and re-renders the page' do

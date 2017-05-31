@@ -21,6 +21,6 @@ module StartingPointStep
   end
 
   def save_case_for_later
-    SaveCaseForLater.new(current_tribunal_case, current_user).save
+    TaxTribs::SaveCaseForLater.new(current_tribunal_case, current_user).save
   end
 end

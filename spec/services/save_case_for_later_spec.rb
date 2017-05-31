@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SaveCaseForLater do
+RSpec.describe TaxTribs::SaveCaseForLater do
   let(:user) { instance_double(User) }
 
   subject { described_class.new(tribunal_case, user) }
@@ -8,6 +8,10 @@ RSpec.describe SaveCaseForLater do
   describe '#save' do
     context 'for a `nil` tribunal case' do
       let(:tribunal_case) { nil }
+
+      it 'returns true' do
+        expect(subject.save).to eq(true)
+      end
 
       it 'does not send any email' do
         expect(NotifyMailer).not_to receive(:new_case_saved_confirmation)
@@ -22,6 +26,10 @@ RSpec.describe SaveCaseForLater do
 
     context 'for a tribunal case already saved before (belongs to a user)' do
       let(:tribunal_case) { instance_double(TribunalCase, user: user, update: true) }
+
+      it 'returns true' do
+        expect(subject.save).to eq(true)
+      end
 
       it 'does not trigger any update in the tribunal case' do
         expect(tribunal_case).not_to receive(:update)
@@ -41,9 +49,14 @@ RSpec.describe SaveCaseForLater do
 
     context 'for a never saved before tribunal case' do
       let(:tribunal_case) { instance_double(TribunalCase, user: nil, update: true) }
+      let(:mailer_double) { double.as_null_object }
 
       before do
-        allow(NotifyMailer).to receive(:new_case_saved_confirmation).with(tribunal_case).and_return(double.as_null_object)
+        allow(NotifyMailer).to receive(:new_case_saved_confirmation).with(tribunal_case).and_return(mailer_double)
+      end
+
+      it 'returns true' do
+        expect(subject.save).to eq(true)
       end
 
       it 'links the tribunal case to the user' do
@@ -53,7 +66,7 @@ RSpec.describe SaveCaseForLater do
 
       it 'sends a confirmation email' do
         subject.save
-        expect(NotifyMailer).to have_received(:new_case_saved_confirmation)
+        expect(mailer_double).to have_received(:deliver_later)
       end
 
       it 'email_sent? is true' do
