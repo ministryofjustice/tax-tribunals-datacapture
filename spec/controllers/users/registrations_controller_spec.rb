@@ -46,7 +46,7 @@ RSpec.describe Users::RegistrationsController do
 
       context 'when the registration was successful' do
         before do
-          expect(SaveCaseForLater).to receive(:new).with(tribunal_case, an_instance_of(User)).and_return(double.as_null_object)
+          expect(TaxTribs::SaveCaseForLater).to receive(:new).with(tribunal_case, an_instance_of(User)).and_return(double.as_null_object)
         end
 
         it 'creates the user and redirects to the confirmation page' do
@@ -67,7 +67,7 @@ RSpec.describe Users::RegistrationsController do
 
       context 'when the registration was unsuccessful' do
         before do
-          expect(SaveCaseForLater).not_to receive(:new)
+          expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
         end
 
         it 'does not create the user and re-renders the page' do

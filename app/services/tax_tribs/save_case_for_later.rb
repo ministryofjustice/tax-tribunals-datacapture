@@ -1,4 +1,4 @@
-class SaveCaseForLater
+class TaxTribs::SaveCaseForLater
   attr_reader :tribunal_case, :user
 
   def initialize(tribunal_case, user)

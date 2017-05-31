@@ -140,7 +140,7 @@ RSpec.shared_examples 'a starting point step controller' do |options|
         end
 
         it 'does not save the case for later' do
-          expect(SaveCaseForLater).not_to receive(:new)
+          expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
           get :edit
         end
       end
@@ -157,7 +157,7 @@ RSpec.shared_examples 'a starting point step controller' do |options|
         end
 
         it 'saves the case for later' do
-          expect(SaveCaseForLater).to receive(:new).with(
+          expect(TaxTribs::SaveCaseForLater).to receive(:new).with(
             an_instance_of(TribunalCase),
             user
           ).and_return(double.as_null_object)
@@ -168,7 +168,7 @@ RSpec.shared_examples 'a starting point step controller' do |options|
 
       context 'for a signed out user' do
         it 'does not save the case for later' do
-          expect(SaveCaseForLater).not_to receive(:new)
+          expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
           put :update, params: {}
         end
       end

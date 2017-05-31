@@ -11,7 +11,7 @@ module Users
 
     def sign_in(_resource_name, user)
       super
-      save_for_later = SaveCaseForLater.new(current_tribunal_case, user)
+      save_for_later = TaxTribs::SaveCaseForLater.new(current_tribunal_case, user)
       save_for_later.save
       session[:confirmation_email_address] = user.email if save_for_later.email_sent?
     end
