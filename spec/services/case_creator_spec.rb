@@ -13,13 +13,13 @@ RSpec.describe TaxTribs::CaseCreator do
 
   describe '#call' do
     before do
-      allow(GlimrNewCase).to receive(:new).with(tribunal_case).and_return(glimr_new_case_double)
+      allow(TaxTribs::GlimrNewCase).to receive(:new).with(tribunal_case).and_return(glimr_new_case_double)
     end
 
     context 'registering the case into glimr' do
       context 'marking the tribunal case as `submit_in_progress`' do
         let(:glimr_new_case_double) {
-          instance_double(GlimrNewCase, call: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
+          instance_double(TaxTribs::GlimrNewCase, call: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
         }
 
         it 'should mark the tribunal case as `submit_in_progress` while GLiMR call is executed' do
@@ -31,7 +31,7 @@ RSpec.describe TaxTribs::CaseCreator do
 
       context 'when glimr call was success' do
         let(:glimr_new_case_double) {
-          instance_double(GlimrNewCase, call: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
+          instance_double(TaxTribs::GlimrNewCase, call: double(case_reference: 'TC/2017/12345', confirmation_code: 'ABCDEF'))
         }
 
         it 'should store the case reference in the DB entry' do
@@ -47,7 +47,7 @@ RSpec.describe TaxTribs::CaseCreator do
 
       context 'when glimr call fails' do
         let(:glimr_new_case_double) {
-          instance_double(GlimrNewCase, call: double(case_reference: nil, confirmation_code: nil))
+          instance_double(TaxTribs::GlimrNewCase, call: double(case_reference: nil, confirmation_code: nil))
         }
 
         it 'should remain with a nil case reference in the DB entry' do

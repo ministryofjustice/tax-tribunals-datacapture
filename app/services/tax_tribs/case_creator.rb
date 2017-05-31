@@ -10,7 +10,7 @@ class TaxTribs::CaseCreator
       case_status: CaseStatus::SUBMIT_IN_PROGRESS
     )
 
-    glimr_case = GlimrNewCase.new(tribunal_case).call
+    glimr_case = TaxTribs::GlimrNewCase.new(tribunal_case).call
     case_reference = glimr_case.case_reference
 
     # case_reference could be nil, if GLiMR call failed, but despite this,
