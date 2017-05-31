@@ -1,18 +1,16 @@
 require 'spec_helper'
 
-RSpec.describe GlimrNewCase do
+RSpec.describe TaxTribs::GlimrNewCase do
   let!(:tribunal_case)      { TribunalCase.create(case_attributes) }
   let(:taxpayer_type)       { ContactableEntityType::INDIVIDUAL }
-  let(:taxpayer_first_name) { 'Filomena' }
-  let(:taxpayer_last_name)  { 'Keebler' }
   let(:taxpayer_address)    { "769 Eleanore Landing\nSuite 225" }
 
   let(:case_attributes) do
     {
       case_type: CaseType::INCOME_TAX,
       taxpayer_type: taxpayer_type,
-      taxpayer_individual_first_name: taxpayer_first_name,
-      taxpayer_individual_last_name: taxpayer_last_name,
+      taxpayer_individual_first_name: 'Filomena',
+      taxpayer_individual_last_name: 'Keebler',
       taxpayer_contact_address: taxpayer_address,
       taxpayer_contact_postcode: 'SW1H 9AJ',
       taxpayer_contact_phone: '0700 12345678',
@@ -42,7 +40,6 @@ RSpec.describe GlimrNewCase do
       )
     }
 
-    # TODO: add all the params once we know what to send
     let(:glimr_params) do
       {
         jurisdictionId: 8,
@@ -61,11 +58,11 @@ RSpec.describe GlimrNewCase do
     before do
       allow(tribunal_case).to receive(:documents_url).and_return('http://downloader.com/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687')
       expect(GlimrApiClient::RegisterNewCase).to receive(:call).
-          with(hash_including(glimr_params)).and_return(glimr_response_double)
+          with(glimr_params).and_return(glimr_response_double)
     end
 
     context 'registering the case into glimr' do
-      it 'returns a GlimrNewCase instance' do
+      it 'returns a TaxTribs::GlimrNewCase instance' do
         expect(subject.call).to be_an_instance_of(described_class)
       end
 
@@ -74,15 +71,46 @@ RSpec.describe GlimrNewCase do
         expect(subject.case_reference).to eq('TC/12345')
         expect(subject.confirmation_code).to eq('ABCDEF')
       end
+
+      context 'when tribunalCaseNumber or confirmationCode are not returned' do
+        let(:glimr_response_double) {
+          instance_double(
+            GlimrApiClient::RegisterNewCase,
+            response_body: {}
+          )
+        }
+
+        it 'returns a TaxTribs::GlimrNewCase instance' do
+          expect(subject.call).to be_an_instance_of(described_class)
+        end
+
+        it 'logs the exception' do
+          expect(Rails.logger).to receive(:info).with(
+            "{\"caller\":\"TaxTribs::GlimrNewCase\",\"method\":\"call\",\"error\":\"key not found: :tribunalCaseNumber\"}"
+          )
+          subject.call
+        end
+
+        it 'sends the exception to Raven' do
+          expect(Raven).to receive(:capture_exception).with(StandardError)
+          subject.call
+        end
+
+        it 'returns as `nil` the case_reference and the confirmation_code' do
+          subject.call
+          expect(subject.case_reference).to be_nil
+          expect(subject.confirmation_code).to be_nil
+        end
+      end
     end
 
     context 'when taxpayer_type is company' do
       let(:taxpayer_type) { ContactableEntityType::COMPANY }
       let(:glimr_params) {
-        {
+        super().merge({
           contactOrganisationName: 'Company Name',
           contactFAO: 'Destany Fritsch'
-        }
+        }).slice!(:contactFirstName, :contactLastName)
       }
 
       it { subject.call }
@@ -92,11 +120,11 @@ RSpec.describe GlimrNewCase do
       context 'several lines but less than 4' do
         let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225" }
         let(:glimr_params) do
-          {
+          super().merge({
             contactStreet1: '769 Eleanore Landing',
             contactStreet2: 'Another street',
-            contactStreet3: 'Suite 225',
-          }
+            contactStreet3: 'Suite 225'
+          })
         end
 
         it { subject.call }
@@ -105,12 +133,12 @@ RSpec.describe GlimrNewCase do
       context 'exceeding the 4 lines limit' do
         let(:taxpayer_address) { "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address" }
         let(:glimr_params) do
-          {
+          super().merge({
             contactStreet1: '769 Eleanore Landing',
             contactStreet2: 'Another street',
             contactStreet3: 'Suite 225',
             contactStreet4: 'More address, Even more address'
-          }
+          })
         end
 
         it { subject.call }

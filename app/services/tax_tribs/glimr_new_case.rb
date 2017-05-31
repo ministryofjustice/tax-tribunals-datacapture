@@ -1,6 +1,6 @@
 require 'glimr_api_client'
 
-class GlimrNewCase
+class TaxTribs::GlimrNewCase
   attr_reader :tribunal_case, :case_reference, :confirmation_code
   alias_attribute :tc, :tribunal_case
 
@@ -10,8 +10,8 @@ class GlimrNewCase
 
   def call
     GlimrApiClient::RegisterNewCase.call(params).tap { |api|
-      @case_reference = api.response_body[:tribunalCaseNumber]
-      @confirmation_code = api.response_body[:confirmationCode]
+      @case_reference = api.response_body.fetch(:tribunalCaseNumber)
+      @confirmation_code = api.response_body.fetch(:confirmationCode)
     }
     self
   rescue => e
@@ -57,11 +57,14 @@ class GlimrNewCase
   def taxpayer_street_params
     lines = tc.taxpayer_contact_address.lines.map(&:chomp)
 
+    street1, street2, street3, *remnant = lines
+    street4 = remnant.join(', ').presence
+
     {
-      contactStreet1: lines[0],
-      contactStreet2: lines[1],
-      contactStreet3: lines[2],
-      contactStreet4: lines[3..-1]&.join(', ')
+      contactStreet1: street1,
+      contactStreet2: street2,
+      contactStreet3: street3,
+      contactStreet4: street4
     }.compact
   end
 end
