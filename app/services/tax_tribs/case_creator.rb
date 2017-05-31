@@ -1,4 +1,4 @@
-class CaseCreator
+class TaxTribs::CaseCreator
   attr_reader :tribunal_case
 
   def initialize(tribunal_case)

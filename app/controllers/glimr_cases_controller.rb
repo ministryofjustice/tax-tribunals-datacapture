@@ -3,7 +3,7 @@ class GlimrCasesController < ApplicationController
 
   def create
     @presenter = presenter_class.new(current_tribunal_case, format: :pdf)
-    CaseCreator.new(current_tribunal_case).call
+    TaxTribs::CaseCreator.new(current_tribunal_case).call
 
     generate_and_upload_pdf
     send_emails
