@@ -4,7 +4,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
   let(:confirmation_path) { options.fetch(:confirmation_path) }
 
   let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil, case_reference: case_reference) }
-  let(:case_creator_double) { instance_double(CaseCreator, call: true) }
+  let(:case_creator_double) { instance_double(TaxTribs::CaseCreator, call: true) }
   let(:taxpayer_case_confirmation_mail_double) { double(deliver_later: true) }
   let(:ftt_new_case_notification_mail_double) { double(deliver_later: true) }
   let(:case_reference) { nil }
@@ -14,7 +14,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
       allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
       allow(subject).to receive(:generate_and_upload_pdf)
 
-      allow(CaseCreator).to receive(:new).with(current_tribunal_case).and_return(case_creator_double)
+      allow(TaxTribs::CaseCreator).to receive(:new).with(current_tribunal_case).and_return(case_creator_double)
 
       allow(NotifyMailer).to receive(:taxpayer_case_confirmation).with(current_tribunal_case).and_return(taxpayer_case_confirmation_mail_double)
       allow(NotifyMailer).to receive(:ftt_new_case_notification).with(current_tribunal_case).and_return(ftt_new_case_notification_mail_double)

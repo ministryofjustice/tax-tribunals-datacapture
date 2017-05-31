@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe CaseCreator do
+RSpec.describe TaxTribs::CaseCreator do
   let!(:tribunal_case) { TribunalCase.create }
 
   subject { described_class.new(tribunal_case) }
