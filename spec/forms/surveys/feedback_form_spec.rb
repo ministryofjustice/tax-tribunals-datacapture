@@ -58,7 +58,7 @@ RSpec.describe Surveys::FeedbackForm do
       let(:zendesk_sender_double) { double('zendesk_sender_double') }
 
       it 'creates the ticket' do
-        expect(ZendeskSender).to receive(:new).with(subject).and_return(zendesk_sender_double)
+        expect(TaxTribs::ZendeskSender).to receive(:new).with(subject).and_return(zendesk_sender_double)
         expect(zendesk_sender_double).to receive(:send!).and_return(true)
         expect(subject.save).to be(true)
       end

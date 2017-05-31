@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ZendeskSender do
+RSpec.describe TaxTribs::ZendeskSender do
   let(:form_object) {
     Surveys::FeedbackForm.new(
       rating: 5, comment: 'very nice service', email: email, referrer: '/whatever', user_agent: 'Safari'

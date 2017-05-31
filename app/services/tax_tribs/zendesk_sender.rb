@@ -1,4 +1,4 @@
-class ZendeskSender
+class TaxTribs::ZendeskSender
   attr_accessor :form_object
 
   # This needs to match the value in the `Service` ticket field.
@@ -34,11 +34,15 @@ class ZendeskSender
   private
 
   def requester_details
-    {name: requester_name, email: form_object.email} if requester_name
+    {name: requester_name, email: requester_email} if requester_email.present?
+  end
+
+  def requester_email
+    form_object.email
   end
 
   # We are not asking for a name, so we default to the first part of the user email
   def requester_name
-    form_object.email.to_s.split('@').first
+    requester_email.split('@').first
   end
 end
