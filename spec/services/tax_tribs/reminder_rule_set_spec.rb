@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ReminderRuleSet do
+RSpec.describe TaxTribs::ReminderRuleSet do
   before do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID').and_return('first-reminder-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID').and_return('last-reminder-template')
