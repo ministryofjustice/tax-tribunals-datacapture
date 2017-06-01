@@ -1,0 +1,26 @@
+form.button_to {
+  padding-bottom: 0;
+
+  #proposition-links & {
+    input[type="submit"] {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: $white;
+      padding: 0;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration-skip: ink;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        color: $black;
+        background-color: $yellow;
+        outline: 3px solid $yellow;
+      }
+    }
+  }
+}
