@@ -1,5 +1,5 @@
 class TribunalCase < ApplicationRecord
-  include MappingCodeDeterminer
+  include TaxTribs::MappingCodeDeterminer
 
   belongs_to :user, optional: true
 
