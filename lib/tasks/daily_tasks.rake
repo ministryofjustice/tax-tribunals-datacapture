@@ -18,17 +18,17 @@ end
 
 namespace :case_reminders do
   task :first_email => :environment do
-    rule_set = ReminderRuleSet.first_reminder
+    rule_set = TaxTribs::ReminderRuleSet.first_reminder
 
     puts "#{Time.now} case_reminders:first_email - Count: #{rule_set.count}"
-    CaseReminders.new(rule_set: rule_set).run
+    TaxTribs::CaseReminders.new(rule_set: rule_set).run
   end
 
   task :last_email => :environment do
-    rule_set = ReminderRuleSet.last_reminder
+    rule_set = TaxTribs::ReminderRuleSet.last_reminder
 
     puts "#{Time.now} case_reminders:last_email  - Count: #{rule_set.count}"
-    CaseReminders.new(rule_set: rule_set).run
+    TaxTribs::CaseReminders.new(rule_set: rule_set).run
   end
 end
 

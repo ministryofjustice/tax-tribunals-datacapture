@@ -1,4 +1,4 @@
-class ReminderRuleSet
+class TaxTribs::ReminderRuleSet
   attr_accessor :created_days_ago,
                 :status,
                 :status_transition_to,
