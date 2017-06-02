@@ -1188,6 +1188,7 @@ en:
       page_title: Not found
   layouts:
     footer_links:
+      help: Help
       contact: Contact
       cookies: Cookies
       terms_and_conditions: Terms and Conditions
