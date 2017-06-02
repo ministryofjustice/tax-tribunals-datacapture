@@ -1,4 +1,4 @@
-module MappingCodeDeterminer
+module TaxTribs::MappingCodeDeterminer
   def valid_for_determining_mapping_code?
     mapping_code_or_nil.present?
   end
