@@ -1129,6 +1129,9 @@ en:
       file_wrong_format: " is in a format we don't accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files."
       file_too_big: " is too big. You will need to resubmit a smaller version, less than XXX megabytes (MB)."
       confirm_delete: Are you sure?
+    password_toggle:
+      show_password: Show password
+      hide_password: Hide password
     <<: *START_FINISH
   errors:
     format: "%{message}"

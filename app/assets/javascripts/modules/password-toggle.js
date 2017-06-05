@@ -18,16 +18,22 @@ moj.Modules.passwordToggle = {
     var self = this;
 
     $(document).on('click', '.' + self.link_class, function(e) {
+      var $el = $(e.target),
+          tag = $el.prop('tagName').toLowerCase();
+
+      if(tag === 'span') {
+        $el = $el.closest('p');
+      }
       e.preventDefault();
-      $(e.target).find('.toggle').toggleClass('js-hidden');
-      self.togglePassword($(e.target));
+      $el.find('.toggle').toggleClass('js-hidden');
+      self.togglePassword($el);
     });
   },
 
   injectLinks: function($els) {
     var self = this;
 
-    $els.after('<p class="' + self.link_class + '"><span class="show toggle">Show</span><span class="hide toggle js-hidden">Hide</span> password</p>');
+    $els.after('<p class="' + self.link_class + '"><span class="show toggle">' + moj.Modules.showPasswordText + '</span><span class="hide toggle js-hidden">' + moj.Modules.hidePasswordText + '</span></p>');
   },
 
   togglePassword: function($link) {
