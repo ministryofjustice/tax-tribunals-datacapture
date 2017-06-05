@@ -1,4 +1,4 @@
-<% content_for(:homepage_url) { "/" } %>
+<% content_for(:homepage_url) { domain_based_homepage_url } %>
 <% content_for?(:page_title) ? yield(:page_title) : fallback_title %>
 
 <% content_for(:head) do %>
@@ -18,7 +18,7 @@
         <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
       <% end %>
       <nav id="proposition-menu">
-        <a href="/" id="proposition-name">Appeal to the tax tribunal</a>
+        <%= link_to 'Appeal to the tax tribunal', yield(:homepage_url), id: 'proposition-name' %>
         <%= render partial: 'layouts/current_user_menu' if user_signed_in? %>
       </nav>
     </div>

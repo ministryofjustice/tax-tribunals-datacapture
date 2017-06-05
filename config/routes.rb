@@ -143,6 +143,15 @@ Rails.application.routes.draw do
     end
   end
 
+  # TODO: remove root branching once the GDS domain is up and running, so we
+  # get rid of our fake start page and move our current `/start` to be `/`
+  constraints domain: 'dsd.io' do
+    get '/', to: 'home#index'
+  end
+  constraints domain: 'gov.uk' do
+    get '/', to: redirect('/start', status: 302)
+  end
+
   root to: 'home#index'
   get :start, to: 'home#start'
   get :appeal, to: 'appeal_home#index'

@@ -155,6 +155,25 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#domain_based_homepage_url' do
+    context 'for dsd.io domains' do
+      before { @request.host = 'tax-tests.dsd.io' }
+
+      it 'returns the app `root_path`' do
+        expect(helper.domain_based_homepage_url).to eq(root_path)
+      end
+    end
+
+    context 'for gov.uk domains' do
+      before { @request.host = 'tax-tests.service.gov.uk' }
+
+      it 'returns the defined `gds_service_homepage_url`' do
+        expect(Rails).to receive_message_chain(:configuration, :gds_service_homepage_url).and_return('http://whatever.com')
+        expect(helper.domain_based_homepage_url).to eq('http://whatever.com')
+      end
+    end
+  end
+
   describe '#title' do
     let(:title) { helper.content_for(:page_title) }
 
