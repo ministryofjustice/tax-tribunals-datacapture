@@ -25,7 +25,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
 
       it 'should generate and upload the case details PDF' do
         allow(subject).to receive(:generate_and_upload_pdf).and_call_original
-        expect_any_instance_of(CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
+        expect_any_instance_of(TaxTribs::CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
         post :create
       end
 
@@ -45,7 +45,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
 
       it 'should generate and upload the case details PDF' do
         allow(subject).to receive(:generate_and_upload_pdf).and_call_original
-        expect_any_instance_of(CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
+        expect_any_instance_of(TaxTribs::CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
         post :create
       end
 

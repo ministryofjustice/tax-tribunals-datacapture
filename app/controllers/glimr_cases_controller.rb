@@ -14,7 +14,7 @@ class GlimrCasesController < ApplicationController
   private
 
   def generate_and_upload_pdf
-    CaseDetailsPdf.new(current_tribunal_case, self, @presenter).generate_and_upload
+    TaxTribs::CaseDetailsPdf.new(current_tribunal_case, self, @presenter).generate_and_upload
   end
 
   def send_emails
