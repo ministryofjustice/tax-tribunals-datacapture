@@ -1,6 +1,8 @@
 require 'tempfile'
 
-class CaseDetailsPdf
+class TaxTribs::CaseDetailsPdf
+  class UploadError < StandardError; end
+
   attr_reader :tribunal_case, :controller_ctx, :presenter, :pdf
 
   PDF_CONFIG = {
@@ -39,12 +41,12 @@ class CaseDetailsPdf
 
   def upload
     Tempfile.create('tmpfile') do |file|
-      File.binwrite(file, @pdf)
+      File.binwrite(file, pdf)
 
       uploader = DocumentUpload.new(file, document_key: :case_details, filename: filename, content_type: 'application/pdf', collection_ref: collection_ref)
       uploader.upload! if uploader.valid?
 
-      raise "Failed to upload file #{file}: #{uploader.errors.inspect}" if uploader.errors?
+      raise UploadError.new(uploader.errors) if uploader.errors?
     end
   end
 end
