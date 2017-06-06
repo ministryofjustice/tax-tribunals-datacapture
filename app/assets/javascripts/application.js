@@ -157,9 +157,6 @@ $(document).ready(function() {
   toggleContent.showHideRadioToggledContent();
   toggleContent.showHideCheckboxToggledContent();
 
-  // trigger stickAtTopWhenScrolling
-  GOVUK.stickAtTopWhenScrolling.init();
-
   // Initialize JS in /modules (this includes the Dropzone custom setup)
   window.moj.init();
 });
