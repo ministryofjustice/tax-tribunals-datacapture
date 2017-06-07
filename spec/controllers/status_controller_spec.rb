@@ -21,7 +21,7 @@ RSpec.describe TaxTribs::StatusController do
     stub_request(:get, /status/).
       to_return(status: 200, body: { service_status: 'ok' }.to_json)
     expect(ActiveRecord::Base).to receive(:connection).and_return(double)
-    allow_any_instance_of(Status).to receive(:version).and_return('ABC123')
+    allow_any_instance_of(TaxTribs::Status).to receive(:version).and_return('ABC123')
   end
 
   # This is very-happy-path to ensure the controller responds.  The bulk of the

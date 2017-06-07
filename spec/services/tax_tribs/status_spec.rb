@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Status do
+RSpec.describe TaxTribs::Status do
   let(:glimr_available) {
     instance_double(GlimrApiClient::Available, available?: true)
   }
@@ -34,10 +34,13 @@ RSpec.describe Status do
   end
 
   describe '.version' do
+    let(:git_result) { double('git_result') }
+
     # Necessary evil for coverage purposes.
     it 'calls `git rev-parse HEAD`' do
       # See above
-      expect_any_instance_of(described_class).to receive(:`).with('git rev-parse HEAD').and_return('ABC123')
+      expect_any_instance_of(described_class).to receive(:`).with('git rev-parse HEAD').and_return(git_result)
+      expect(git_result).to receive(:chomp)
       described_class.check
     end
   end
@@ -45,6 +48,22 @@ RSpec.describe Status do
   describe '#check' do
     context 'service normal' do
       specify { expect(described_class.check).to eq(status) }
+
+      # Mutant kills
+      it 'calls `#available?` to check the glimr status' do
+        expect(glimr_available).to receive(:available?)
+        described_class.check
+      end
+
+      it 'calls `#available?` to check the uploader status' do
+        expect(uploader_client).to receive(:available?)
+        described_class.check
+      end
+
+      it 'calls `#call` to check the uploader status' do
+        expect(uploader_client).to receive(:call)
+        described_class.check
+      end
     end
 
     context 'glimr unavailable' do
