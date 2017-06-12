@@ -2,7 +2,7 @@ class Steps::ClosureStepController < StepController
   private
 
   def decision_tree_class
-    ClosureDecisionTree
+    TaxTribs::ClosureDecisionTree
   end
 
   def intent

@@ -1,4 +1,4 @@
-class ClosureDecisionTree < TaxTribs::DecisionTree
+class TaxTribs::ClosureDecisionTree < TaxTribs::DecisionTree
   def destination
     return next_step if next_step
 
@@ -14,7 +14,7 @@ class ClosureDecisionTree < TaxTribs::DecisionTree
     when :check_answers
       start_path
     else
-      raise "Invalid step '#{step_params}'"
+      raise InvalidStep, "Invalid step '#{step_params}'"
     end
   end
 end

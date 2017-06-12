@@ -1,4 +1,6 @@
 class TaxTribs::DecisionTree
+  class InvalidStep < RuntimeError; end
+
   include ApplicationHelper
 
   attr_reader :tribunal_case, :step_params, :as, :next_step
