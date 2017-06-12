@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ClosureDecisionTree do
+RSpec.describe TaxTribs::ClosureDecisionTree do
   let(:tribunal_case) { double('TribunalCase') }
   let(:step_params) { double('Step') }
   let(:next_step) { nil }
@@ -8,6 +8,19 @@ RSpec.describe ClosureDecisionTree do
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
   describe '#destination' do
+    context 'when `next_step` is present' do
+      let(:next_step) { { controller: '/home', action: :index } }
+
+      it { is_expected.to have_destination('/home', :index) }
+    end
+
+    # Mutant kill
+    context 'when the step_params key is a string' do
+      let(:step_params) { { 'case_type' => 'anything' } }
+
+      it { is_expected.to have_destination('/steps/details/user_type', :edit) }
+    end
+
     context 'when the step is `case_type`' do
       let(:step_params) { { case_type: 'anything' } }
 
@@ -42,7 +55,9 @@ RSpec.describe ClosureDecisionTree do
       let(:step_params) { {ungueltig: {waschmaschine: 'nein'}} }
 
       it 'raises an error' do
-        expect { subject.destination }.to raise_error(RuntimeError)
+        expect { subject.destination }.to raise_error(
+          TaxTribs::DecisionTree::InvalidStep, "Invalid step '{:ungueltig=>{:waschmaschine=>\"nein\"}}'"
+        )
       end
     end
   end

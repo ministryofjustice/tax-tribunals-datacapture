@@ -9,7 +9,7 @@ RSpec.describe Steps::Closure::SupportDocumentsController, type: :controller do
   let(:tribunal_case) { TribunalCase.new }
   let(:document) { Document.new(title: 'test.doc', collection_ref: '123') }
 
-  it_behaves_like 'an intermediate step controller', Steps::Closure::SupportDocumentsForm, ClosureDecisionTree
+  it_behaves_like 'an intermediate step controller', Steps::Closure::SupportDocumentsForm, TaxTribs::ClosureDecisionTree
 
   describe '#edit' do
     let!(:existing_case) { TribunalCase.create }
