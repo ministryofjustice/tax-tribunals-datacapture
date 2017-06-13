@@ -1,4 +1,4 @@
-class LatenessDecisionTree < TaxTribs::DecisionTree
+class TaxTribs::LatenessDecisionTree < TaxTribs::DecisionTree
   def destination
     return next_step if next_step
 
@@ -8,7 +8,7 @@ class LatenessDecisionTree < TaxTribs::DecisionTree
     when :lateness_reason
       edit('/steps/details/user_type')
     else
-      raise "Invalid step '#{step_params}'"
+      raise InvalidStep, "Invalid step '#{step_params}'"
     end
   end
 

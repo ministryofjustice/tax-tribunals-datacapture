@@ -2,6 +2,6 @@ class Steps::LatenessStepController < StepController
   private
 
   def decision_tree_class
-    LatenessDecisionTree
+    TaxTribs::LatenessDecisionTree
   end
 end
