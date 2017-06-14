@@ -31,9 +31,8 @@ module TaxTribunalsDatacapture
     config.survey_link = 'https://goo.gl/forms/5MeKnK5kGJH99Fsn2'
     config.kickout_survey_link = 'https://goo.gl/forms/Ccx0sJcOs5cSVYks2'
 
-    # TODO: change to the real URL once it is live
     # This is the GDS-hosted homepage for our service, and the one with a `start` button
-    config.gds_service_homepage_url = 'https://appeal-tax-tribunal.service.gov.uk'.freeze
+    config.gds_service_homepage_url = 'https://www.gov.uk/tax-tribunal'.freeze
 
     config.tax_tribunal_email = 'taxappeals@hmcts.gsi.gov.uk'
     config.tax_tribunal_phone = '0300 123 1024'
