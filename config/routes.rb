@@ -158,7 +158,6 @@ Rails.application.routes.draw do
   get :closure, to: 'closure_home#index'
 
   get :contact, to: 'home#contact', as: :contact_page
-  get :terms_and_conditions, to: 'home#terms_and_conditions'
 
   # catch-all route
   # :nocov:
