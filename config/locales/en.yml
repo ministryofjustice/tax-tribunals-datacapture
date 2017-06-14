@@ -221,7 +221,7 @@ en:
               <li>friend or family relative</li>
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>If your representative is not a legal professional, you’ll need to authorise them to act for you by completing an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a>.</p>
+          <p>You need to download and fill in an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
       kickout_feedback: Give your feedback. Help improve this service
     details:
       user_type:
@@ -880,18 +880,12 @@ en:
         declaration_of_truth: Declaration and statement of truth
         declaration_of_truth_message: |
           By completing this Notice of Appeal to the First-tier Tribunal (Tax Chamber) and clicking the ‘Submit’
-          button, I believe the information I have given in this form is true to the best of my knowledge. If I am
-          found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought
-          against me. I understand that if I have given false information or I do not provide further evidence if
-          requested, my %{appeal_or_application} may be rejected.
+          button, I believe the information I have given is true to the best of my knowledge.
       closure:
         declaration_of_truth: Declaration and statement of truth
         declaration_of_truth_message: |
           By completing this Application to Close an Enquiry and clicking the ‘Submit’ button, I believe the
-          information I have given in this form is true to the best of my knowledge. If I am found to have been
-          deliberately untruthful or dishonest, criminal proceedings for fraud can be brought against me. I
-          understand that if I have given false information or I do not provide further evidence if requested, my
-          application may be rejected.
+          information I have given is true to the best of my knowledge.
       submit_and_continue: Submit
       submitting: Submitting...
       resume: Resume %{appeal_or_application}
@@ -1098,7 +1092,7 @@ en:
       case_reference: 'Your case reference number is:'
       case_submitted_successfully: Your case was submitted successfully.
       case_reference_pending: You will be sent a case reference number shortly.
-      note_number: Please make a note of this number in case you need to contact us.
+      note_number: Make a note of this number in case you need to contact us. We will also email the number to you.
     file_upload:
       header: File upload requirements
       file_list_html: |
