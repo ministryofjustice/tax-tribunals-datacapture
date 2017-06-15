@@ -103,7 +103,6 @@ class TribunalCase < ApplicationRecord
     Sanitize.fragment(value).
       gsub('*', '&#42;').
       gsub('=', '&#61;').
-      gsub('-', '&dash;').
       gsub('%', '&#37;').
       gsub(/drop\s+table/i, '').
       gsub(/insert\s+into/i, '')

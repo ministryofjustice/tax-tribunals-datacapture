@@ -18,12 +18,6 @@ RSpec.shared_examples 'sanitizing actions' do
     subject.send(:sanitize)
   end
 
-  specify 'scrub -' do # kills SQL comments
-    allow(Sanitize).to receive(:fragment).and_return(value)
-    expect(value).to receive(:gsub).with('-', '&dash;')
-    subject.send(:sanitize)
-  end
-
   specify 'scrub %' do
     allow(Sanitize).to receive(:fragment).and_return(value)
     expect(value).to receive(:gsub).with('%', '&#37;')
