@@ -2,8 +2,6 @@ Feature: Income Tax Happy Paths
   Background:
     Given I show my environment
     Then I visit "/"
-    And I should see "The tax tribunal is run by the Ministry of Justice."
-    Then I click the "Start now" link
     And I should see "What do you want to do?"
     When I click the "Appeal against a tax decision" link
     Then I should see "Appeal against a tax decision"
