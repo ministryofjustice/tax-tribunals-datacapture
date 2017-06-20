@@ -48,7 +48,7 @@ class CaseType < ValueObject
     GENERAL_BETTING_DUTY         = new(:general_betting_duty,         indirect_tax_properties),
     HYDROCARBON_OIL_DUTIES       = new(:hydrocarbon_oil_duties,       indirect_tax_properties),
     INCOME_TAX                   = new(:income_tax,                   direct_tax_properties),
-    INFORMATION_NOTICE           = new(:information_notice,           ask_dispute_type: true, ask_penalty: true, appeal_or_application: :appeal),
+    INFORMATION_NOTICE           = new(:information_notice,           direct_tax_properties),
     INHERITANCE_TAX              = new(:inheritance_tax,              direct_tax_properties),
     INSURANCE_PREMIUM_TAX        = new(:insurance_premium_tax,        indirect_tax_properties),
     LANDFILL_TAX                 = new(:landfill_tax,                 indirect_tax_properties),
