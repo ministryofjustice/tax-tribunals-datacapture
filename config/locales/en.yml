@@ -1191,9 +1191,7 @@ en:
       terms_and_conditions: Terms and conditions
     phase_banner:
       phase_info_html: |
-        This is a trial service &ndash; your
-        <a href="%{feedback_url}" target="_blank" rel="noopener">comments</a>
-        will help us to improve it.
+        This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
