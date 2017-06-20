@@ -61,8 +61,8 @@ module ApplicationHelper
     user_signed_in? ? users_cases_path : user_session_path
   end
 
-  def domain_based_homepage_url
-    request.domain =~ /gov\.uk/ ? Rails.configuration.gds_service_homepage_url : root_path
+  def service_homepage_url
+    Rails.configuration.gds_service_homepage_url
   end
 
   def title(page_title)

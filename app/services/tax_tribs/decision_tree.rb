@@ -30,8 +30,8 @@ class TaxTribs::DecisionTree
     { controller: step_controller, action: :edit }
   end
 
-  def start_path
-    { controller: '/home', action: :start }
+  def root_path
+    { controller: '/home', action: :index }
   end
 
   def dispute_or_penalties_decision

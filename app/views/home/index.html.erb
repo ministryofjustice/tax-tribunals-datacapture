@@ -1,55 +1,17 @@
 <% title '' %>
 
 <div class="grid-row">
-    <div class="column-two-thirds">
+  <div class="column-two-thirds">
+    <h1 class="heading-large"><%= t '.heading' %></h1>
 
-      <form class="js_route" action="/">
-
-        <h1 class="heading-large">Appeal to the tax tribunal</h1>
-        <p>You can appeal to the tax tribunal if you dispute a tax decision.</p>
-        <p>The tax tribunal is run by the Ministry of Justice.</p>
-        <p>Try and settle your dispute directly first. If you can't, a judge will make an impartial decision on your case.</p>
-        <p>Use this service to submit an appeal or close an enquiry into your tax affairs. You can start an appeal and come back to submit your details later.</p>
-        <p>You'll need:</p>
-        <ul class="list list-bullet">
-        <li>a scan or photo of your original notice or review conclusion letter</li>
-        <li>reasons for your appeal so the judge can hear things from your side</li>
-      </ul>
-
-      <p>You'll also need to complete an <a href="<%= asset_path('proforma.pdf') %>" target="_blank" rel="noopener">authorisation form (PDF, 241KB)<span class="visuallyhidden"> (opens in new window)</span></a></strong> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
-
-      <p>
-        <%= link_to 'Start now', start_path, class: 'button' %>
-      </p>
-      <h2 class="heading-medium">Other ways to apply</h2>
-      <p>You can apply by post. Download and fill in:</p>
-      <ul class="list list-bullet">
-        <li>a <a class="external" rel="external" href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=3015">notice of appeal (T240)</a> to submit an appeal</li>
-        <li>an <a class="external" rel="external" href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=3019">application to close an enquiry (T245)</a></li>
-      </ul>
-      <p>The address is on the form.</p>
-      </form>
-
-    </div>
-
-    <div class="column-one-third">
-      <aside class="govuk-related-items">
-
-        <h2 class="heading-medium">Courts, sentencing and tribunals</h2>
-        <nav role="navigation">
-          <ul class="font-xsmall">
-              <li><a href="https://www.gov.uk/tax-tribunal">Guide to tax tribunals</a></li>
-          </ul>
-        </nav>
-
-        <h2 class="heading-medium">Elsewhere on GOV.UK</h2>
-        <nav role="navigation">
-          <ul class="font-xsmall">
-            <li><a href="https://www.gov.uk/tax-appeals">Disagree with a tax decision</a></li>
-            <li><a href="https://www.gov.uk/government/publications/tax-chamber-tribunal-procedure-rules">Tax tribunal procedure rules</a></li>
-          </ul>
-        </nav>
-
-      </aside>
-    </div>
+    <ul class="list task-list">
+      <% @link_sections.each do |(name, minutes, path)| %>
+          <li>
+            <%= link_to t('.link_titles.%s' % name), path, class: 'task-link ga-pageLink', data: {ga_category: 'Type_app', ga_label: name} %>
+            <%= content_tag(:p, t('.link_descriptions.%s' % name)) %>
+            <%= content_tag(:p, t('.link_time_estimate', minutes: minutes)) unless minutes.zero? %>
+          </li>
+      <% end %>
+    </ul>
   </div>
+</div>

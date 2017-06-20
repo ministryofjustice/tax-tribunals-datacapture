@@ -1208,7 +1208,7 @@ en:
     file_selected: SELECTED
     file_uploading: UPLOADING
   home:
-    start:
+    index:
       heading: What do you want to do?
       lead_text: Use this service to settle a tax dispute by getting an impartial
         ruling from a judge.
@@ -1222,7 +1222,6 @@ en:
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
         home_login: Continue completing a case you haven't submitted.
       link_time_estimate: (%{minutes} minutes to complete)
-      page_title: Start
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.
