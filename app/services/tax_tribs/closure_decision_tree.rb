@@ -12,7 +12,7 @@ class TaxTribs::ClosureDecisionTree < TaxTribs::DecisionTree
     when :support_documents
       show(:check_answers)
     when :check_answers
-      start_path
+      root_path
     else
       raise InvalidStep, "Invalid step '#{step_params}'"
     end

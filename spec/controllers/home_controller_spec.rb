@@ -2,20 +2,13 @@ require 'rails_helper'
 
 RSpec.describe HomeController do
   describe '#index' do
-    it 'renders the expected page' do
-      get :index
-      expect(response).to render_template(:index)
-    end
-  end
-
-  describe '#start' do
     it 'resets the tribunal case in the session' do
       expect(subject).to receive(:reset_tribunal_case_session)
-      get :start
+      get :index
     end
 
     it 'assigns the expected link sections' do
-      get :start
+      get :index
 
       name, time, link = assigns[:link_sections][0]
       expect(name).to eq(:appeal)
@@ -41,7 +34,7 @@ RSpec.describe HomeController do
       end
 
       it 'the link to login points to the cases portfolio' do
-        get :start
+        get :index
 
         name, time, link = assigns[:link_sections][2]
         expect(name).to eq(:home_login)

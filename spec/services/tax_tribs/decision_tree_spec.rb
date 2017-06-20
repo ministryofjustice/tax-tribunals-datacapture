@@ -61,9 +61,9 @@ RSpec.describe TaxTribs::DecisionTree do
     end
   end
 
-  describe '.start_path' do
+  describe '.root_path' do
     specify do
-      expect(subject.send(:start_path)).to eq({ controller: '/home', action: :start })
+      expect(subject.send(:root_path)).to eq({ controller: '/home', action: :index })
     end
   end
 

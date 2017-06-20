@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
-  def start
+  def index
     reset_tribunal_case_session
     @link_sections = link_sections
-  end
-
-  def index
   end
 
   def contact

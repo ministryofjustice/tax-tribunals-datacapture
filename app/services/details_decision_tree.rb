@@ -26,7 +26,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :documents_checklist
       after_documents_checklist
     when :check_answers
-      start_path
+      root_path
     else
       raise "Invalid step '#{step_params}'"
     end
