@@ -10,6 +10,8 @@
 
     <p><%=t 'shared.file_upload.technical_info' %></p>
 
+    <%= render partial: 'steps/shared/file_upload_requirements' %>
+
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
       <%= file_field_tag :document %>
       <%= submit_tag 'Upload', class: 'button' %>

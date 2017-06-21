@@ -10,6 +10,8 @@
 
     <p><%=t 'shared.file_upload.technical_info' %></p>
 
+    <%= render partial: 'steps/shared/file_upload_requirements' %>
+
     <div id="supplied_letters_placeholder"></div>
 
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
@@ -21,6 +23,8 @@
 
     <%= step_form @form_object, html: { class: 'cf' } do |f| %>
       <div class="form-group supplied_letters_checkboxes">
+        <%=t '.letters_heading_html' %>
+
         <%= f.label :original_notice_provided, class: 'block-label selection-button-checkbox' do %>
           <%= f.check_box :original_notice_provided, form: 'new_steps_details_documents_checklist_form' %>
           <%= t '.original_notice_provided_html' %>
