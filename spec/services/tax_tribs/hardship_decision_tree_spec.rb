@@ -1,12 +1,25 @@
 require 'spec_helper'
 
-RSpec.describe HardshipDecisionTree do
+RSpec.describe TaxTribs::HardshipDecisionTree do
   let(:tribunal_case) { double('TribunalCase') }
   let(:step_params)   { double('Step') }
   let(:next_step)     { nil }
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
   describe '#destination' do
+    context 'when `next_step` is present' do
+      let(:next_step) {{controller: '/home', action: :index}}
+
+      it {is_expected.to have_destination('/home', :index)}
+    end
+
+    # Mutant kill
+    context 'when the step_params key is a string' do
+      let(:step_params) {{'hardship_reason' => 'anything'}}
+
+      it {is_expected.to have_destination('/steps/lateness/in_time', :edit)}
+    end
+
     context 'when the step is `disputed_tax_paid`' do
       let(:step_params)   { { disputed_tax_paid: 'anything' } }
       let(:tribunal_case) { instance_double(TribunalCase, disputed_tax_paid: disputed_tax_paid) }
@@ -74,7 +87,9 @@ RSpec.describe HardshipDecisionTree do
       let(:step_params) { { ungueltig: { waschmaschine: 'nein' } } }
 
       it 'raises an error' do
-        expect { subject.destination }.to raise_error(RuntimeError)
+        expect { subject.destination }.to raise_error(
+          TaxTribs::DecisionTree::InvalidStep, "Invalid step '{:ungueltig=>{:waschmaschine=>\"nein\"}}'"
+        )
       end
     end
   end
