@@ -1,4 +1,4 @@
-class HardshipDecisionTree < TaxTribs::DecisionTree
+class TaxTribs::HardshipDecisionTree < TaxTribs::DecisionTree
   def destination
     return next_step if next_step
 
@@ -12,7 +12,7 @@ class HardshipDecisionTree < TaxTribs::DecisionTree
     when :hardship_reason
       { controller: '/steps/lateness/in_time', action: :edit }
     else
-      raise "Invalid step '#{step_params}'"
+      raise InvalidStep, "Invalid step '#{step_params}'"
     end
   end
 
