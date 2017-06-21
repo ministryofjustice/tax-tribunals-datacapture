@@ -1,6 +1,7 @@
 en:
   dictionary:
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
+    tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
     blank_uploading_problems: &blank_uploading_problems "Please describe the problem"
@@ -200,8 +201,7 @@ en:
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
-          lead_text: The tax tribunal is independent and doesn't have access to any
-            information you may have sent to HMRC.
+          lead_text: *tax_tribunal_independent
           having_problems_uploading_html: I am having trouble uploading my documents
           page_title: Documents upload
       <<: *CYA_CONFIRMATION
@@ -336,10 +336,8 @@ en:
       documents_checklist:
         edit:
           heading: Upload your letter(s)
-          lead_text: The tax tribunal is independent and doesn't have access to files
-            from HMRC.
-          documents_check_heading: 'You must upload the following (select the items
-            you have uploaded):'
+          lead_text: *tax_tribunal_independent
+          letters_heading_html: "<p><strong>Upload at least one letter</strong></p>"
           original_notice_provided_html: "<strong>Original notice letter</strong><br>including
             the explanation for any decision(s)"
           review_conclusion_provided_html: "<strong>Review conclusion letter</strong><br>you
@@ -1103,9 +1101,7 @@ en:
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
-      technical_info: We accept scanned images or good quality pictures, for example
-        via a smartphone. You can upload Word, Excel, PDF, JPG, GIF or PNG formats. Maximum file
-        size of 20MB.
+      technical_info: We accept scanned images or good quality pictures, for example via a smartphone.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
