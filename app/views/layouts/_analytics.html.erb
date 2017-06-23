@@ -7,4 +7,10 @@
   ga('create', '<%= analytics_tracking_id %>', 'auto');
   ga('set', 'anonymizeIp', true);
   ga('send', 'pageview');
+
+  <% if content_for?(:transaction_data) %>
+  ga('require', 'ecommerce');
+  ga('ecommerce:addItem', <%= yield(:transaction_data) %>);
+  ga('ecommerce:send');
+  <% end %>
 </script>

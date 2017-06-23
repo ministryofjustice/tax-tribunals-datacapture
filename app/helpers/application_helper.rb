@@ -65,6 +65,15 @@ module ApplicationHelper
     Rails.configuration.gds_service_homepage_url
   end
 
+  def track_transaction(attributes)
+    return if current_tribunal_case.nil?
+
+    content_for :transaction_data, {
+      id: current_tribunal_case.id,
+      quantity: '1',
+    }.merge(attributes).to_json.html_safe
+  end
+
   def title(page_title)
     content_for :page_title, [page_title.presence, t('generic.page_title')].compact.join(' - ')
   end
