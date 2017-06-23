@@ -70,6 +70,7 @@ module ApplicationHelper
 
     content_for :transaction_data, {
       id: current_tribunal_case.id,
+      sku: current_tribunal_case.intent_case_type.to_s,
       quantity: '1',
     }.merge(attributes).to_json.html_safe
   end
