@@ -166,22 +166,39 @@ RSpec.describe TribunalCase, type: :model do
   end
 
   describe '#blank?' do
-    let(:attributes) { { case_type: case_type, closure_case_type: closure_case_type } }
-    let(:case_type) { nil }
-    let(:closure_case_type) { nil}
-
-    context 'both `case_type` and `closure_case_type` are not set' do
-      it { expect(subject.blank?).to eq(true) }
+    it 'calls `#intent_case_type`' do
+      expect(subject).to receive(:intent_case_type)
+      subject.blank?
     end
 
-    context '`case_type` is set' do
-      let(:case_type) { CaseType.new(:anything) }
-      it { expect(subject.blank?).to eq(false) }
+    it 'returns true if no case type is set' do
+      expect(subject).to receive(:intent_case_type).and_return(nil)
+      expect(subject.blank?).to eq(true)
     end
 
-    context '`closure_case_type` is set' do
-      let(:closure_case_type) { ClosureCaseType.new(:anything) }
-      it { expect(subject.blank?).to eq(false) }
+    it 'returns false if a case type is set' do
+      expect(subject).to receive(:intent_case_type).and_return(CaseType::INCOME_TAX)
+      expect(subject.blank?).to eq(false)
+    end
+  end
+
+  describe '#intent_case_type' do
+    context 'for an appeal intent' do
+      let(:attributes) { { intent: Intent.new(:tax_appeal) } }
+
+      it 'retrieves the `case_type`' do
+        expect(subject).to receive(:case_type)
+        subject.intent_case_type
+      end
+    end
+
+    context 'for a closure intent' do
+      let(:attributes) { { intent: Intent.new(:close_enquiry) } }
+
+      it 'retrieves the `closure_case_type`' do
+        expect(subject).to receive(:closure_case_type)
+        subject.intent_case_type
+      end
     end
   end
 end

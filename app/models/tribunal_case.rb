@@ -78,11 +78,15 @@ class TribunalCase < ApplicationRecord
     user_type.eql?(UserType::REPRESENTATIVE)
   end
 
+  def intent_case_type
+    intent.eql?(Intent::TAX_APPEAL) ? case_type : closure_case_type
+  end
+
   # With our current implementation, we consider a case as `blank` if
   # case_type (appeals) nor closure_case_type (closure) have been set,
   # as this is the first question the user is asked.
   def blank?
-    case_type.nil? && closure_case_type.nil?
+    intent_case_type.nil?
   end
 
   private

@@ -204,6 +204,7 @@ RSpec.describe ApplicationHelper do
     let(:tribunal_case) { instance_double(TribunalCase, id: '12345') }
 
     before do
+      allow(tribunal_case).to receive(:intent_case_type).and_return(CaseType::INCOME_TAX)
       allow(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
     end
 
@@ -212,7 +213,7 @@ RSpec.describe ApplicationHelper do
 
       expect(
         helper.content_for(:transaction_data)
-      ).to eq("{\"id\":\"12345\",\"quantity\":\"1\",\"name\":\"whatever\"}")
+      ).to eq("{\"id\":\"12345\",\"sku\":\"income_tax\",\"quantity\":\"1\",\"name\":\"whatever\"}")
     end
   end
 end
