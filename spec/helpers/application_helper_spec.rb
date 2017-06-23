@@ -199,4 +199,20 @@ RSpec.describe ApplicationHelper do
       helper.fallback_title
     end
   end
+
+  describe '#track_transaction' do
+    let(:tribunal_case) { instance_double(TribunalCase, id: '12345') }
+
+    before do
+      allow(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
+    end
+
+    it 'sets the transaction attributes to track' do
+      helper.track_transaction(name: 'whatever')
+
+      expect(
+        helper.content_for(:transaction_data)
+      ).to eq("{\"id\":\"12345\",\"quantity\":\"1\",\"name\":\"whatever\"}")
+    end
+  end
 end
