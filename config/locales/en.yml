@@ -42,8 +42,8 @@ en:
       pending: I have been waiting less than 45 days for a review to finish
       overdue: I have been waiting for 45 days or more for a review to finish
       refused: I was refused a review as I was outside the time limit
-      appeal_late_rejection: My appeal was rejected for being late
-      review_late_rejection: My review was rejected for being late
+      appeal_late_rejection: I missed the deadline. I am applying to get a late appeal accepted
+      review_late_rejection: I missed the deadline. I am applying to get a late review accepted
       appealing_directly: No response. I want to appeal directly to the tribunal
       not_required: I was offered a review but didn’t accept
 

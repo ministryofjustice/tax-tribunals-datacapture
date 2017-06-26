@@ -19,7 +19,6 @@ module Steps::Challenge
           ChallengedDecisionStatus::RECEIVED,
           ChallengedDecisionStatus::PENDING,
           ChallengedDecisionStatus::OVERDUE,
-          ChallengedDecisionStatus::REFUSED,
           ChallengedDecisionStatus::REVIEW_LATE_REJECTION
         ]
       else
