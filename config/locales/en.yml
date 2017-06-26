@@ -1188,6 +1188,8 @@ en:
     phase_banner:
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
+      phase_info_email_html: |
+        This is a new service. <a href="mailto:taxtribunals_helpdesk@digital.justice.gov.uk?subject=Feedback">Report a problem</a> and help improve it for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
