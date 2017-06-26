@@ -35,7 +35,6 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
           received
           pending
           overdue
-          refused
           review_late_rejection
         ))
       end
