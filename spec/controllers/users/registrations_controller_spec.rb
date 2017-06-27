@@ -53,16 +53,6 @@ RSpec.describe Users::RegistrationsController do
           expect { do_post }.to change{ User.count }.by(1)
           expect(response).to redirect_to(users_registration_save_confirmation_path)
         end
-
-        it 'it stores the signed up email address in the session' do
-          do_post
-          expect(session[:confirmation_email_address]).to eq('foo@bar.com')
-        end
-
-        it 'resets the tribunal case in the session' do
-          expect(subject).to receive(:reset_tribunal_case_session)
-          do_post
-        end
       end
 
       context 'when the registration was unsuccessful' do
@@ -82,9 +72,25 @@ RSpec.describe Users::RegistrationsController do
   end
 
   describe '#save_confirmation' do
-    it 'renders the expected page' do
-      get :save_confirmation
-      expect(response).to render_template(:save_confirmation)
+    context 'when there is no tribunal case in the session' do
+      let(:tribunal_case) { nil }
+
+      it 'redirects to the invalid session error page' do
+        get :save_confirmation
+        expect(response).to redirect_to(invalid_session_errors_path)
+      end
+    end
+
+    context 'when there is a case in the session' do
+      it 'renders the expected page' do
+        get :save_confirmation
+        expect(response).to render_template(:save_confirmation)
+      end
+
+      it 'resets the session after rendering the page' do
+        expect(subject).to receive(:reset_tribunal_case_session)
+        get :save_confirmation
+      end
     end
   end
 

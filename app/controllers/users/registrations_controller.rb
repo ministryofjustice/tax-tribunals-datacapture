@@ -1,10 +1,13 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
     # We are allowing to create new accounts only as part of saving a case in progress
-    before_action :check_tribunal_case_presence, only: [:new, :create]
+    before_action :check_tribunal_case_presence, only: [:new, :create, :save_confirmation]
+
+    # Using an after filter so we maintain the session for analytics purposes when rendering the view
+    after_action :reset_tribunal_case_session, only: [:save_confirmation]
 
     def save_confirmation
-      @email_address = session[:confirmation_email_address]
+      @email_address = current_tribunal_case.user.email
     end
 
     def update_confirmation
@@ -13,11 +16,8 @@ module Users
     protected
 
     # We want, on purpose, to not sign in the user after registration, so not calling `super` here.
-    # Also due to this, we need to store somewhere the email of the created account, to show in the confirmation.
     def sign_up(_resource_name, user)
       TaxTribs::SaveCaseForLater.new(current_tribunal_case, user).save
-      session[:confirmation_email_address] = user.email
-      reset_tribunal_case_session  # so we redirect the user to the portfolio after login back
     end
 
     # Devise will not give an error when leaving blank the new password, it will just ignore the update,
