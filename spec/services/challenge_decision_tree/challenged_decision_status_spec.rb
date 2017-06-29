@@ -15,6 +15,20 @@ RSpec.describe ChallengeDecisionTree, '#destination' do
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
   context 'when the step is `challenged_decision_status`' do
+    context 'and the status is a late appeal/review' do
+      let(:case_type) {CaseType.new(:anything)}
+
+      context '`appeal_late_rejection`' do
+        let(:challenged_decision_status) {ChallengedDecisionStatus::APPEAL_LATE_REJECTION}
+        it {is_expected.to have_destination('/steps/lateness/in_time', :edit)}
+      end
+
+      context '`review_late_rejection`' do
+        let(:challenged_decision_status) {ChallengedDecisionStatus::REVIEW_LATE_REJECTION}
+        it {is_expected.to have_destination('/steps/lateness/in_time', :edit)}
+      end
+    end
+
     context 'and the status is `pending`' do
       let(:challenged_decision_status) { ChallengedDecisionStatus::PENDING }
 

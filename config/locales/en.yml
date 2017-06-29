@@ -42,9 +42,9 @@ en:
       pending: I have been waiting less than 45 days for a review to finish
       overdue: I have been waiting for 45 days or more for a review to finish
       refused: I was refused a review as I was outside the time limit
-      appeal_late_rejection: I missed the deadline. I am applying to get a late appeal accepted
-      review_late_rejection: I missed the deadline. I am applying to get a late review accepted
-      appealing_directly: No response. I want to appeal directly to the tribunal
+      appeal_late_rejection: My appeal to HMRC was late. I am applying to be allowed to make a late appeal to HMRC
+      review_late_rejection: My request was late. I am applying to be able to request a late review
+      appealing_directly: I am appealing direct to the tribunal before receiving a response from HMRC
       not_required: I was offered a review but didn’t accept
 
     START_FINISH: &START_FINISH

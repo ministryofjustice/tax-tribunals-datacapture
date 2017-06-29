@@ -17,4 +17,8 @@ class ChallengedDecisionStatus < ValueObject
   def pending?
     self == PENDING
   end
+
+  def late_rejection?
+    [APPEAL_LATE_REJECTION, REVIEW_LATE_REJECTION].include?(self)
+  end
 end
