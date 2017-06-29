@@ -51,6 +51,8 @@ class ChallengeDecisionTree < TaxTribs::DecisionTree
       show(:must_wait_for_challenge_decision)
     elsif pending_challenge_indirect_tax?
       show(:must_wait_for_review_decision)
+    elsif tribunal_case.challenged_decision_status.late_rejection?
+      edit('/steps/lateness/in_time')
     else
       dispute_or_penalties_decision
     end
