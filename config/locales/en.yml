@@ -1430,3 +1430,15 @@ en:
         heading: Thank you for your feedback
         lead_text: Your feedback helps us to improve this service.
         continue: Continue
+  admin:
+    upload_problems_report:
+      index:
+        page_title: Upload problems report
+        heading: Problems reported by users while uploading documents
+        table:
+          heading:
+            updated_at: Case date
+            case_type: Case type
+            problems: Problems
+        explanation_html: |
+          <p>List of cases where users reported having problems uploading documents.<br>The list doesn't include purged cases.</p>
