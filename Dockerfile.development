@@ -15,6 +15,9 @@ ENV TAX_TRIBUNAL_EMAIL           replace_this_at_build_time
 ENV ZENDESK_USERNAME             replace_this_at_build_time
 ENV ZENDESK_TOKEN                replace_this_at_build_time
 
+ENV UPLOAD_PROBLEMS_REPORT_AUTH_USER            replace_this_at_build_time
+ENV UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST          replace_this_at_build_time
+
 ENV NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID        replace_this_at_build_time
 ENV NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID    replace_this_at_build_time
 ENV NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID      replace_this_at_build_time

@@ -123,6 +123,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :upload_problems_report, only: [:index]
+  end
+
   scope 'uploader/:document_key' do
     resources :documents, only: [:create, :destroy]
   end

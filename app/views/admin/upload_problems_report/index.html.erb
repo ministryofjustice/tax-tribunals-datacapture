@@ -1,0 +1,30 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large">
+      <%=t '.heading' %>
+    </h1>
+    <p class="lede"><%=t '.explanation_html' %></p>
+  </div>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th width="25%"><%=t '.table.heading.updated_at' %></th>
+    <th width="25%"><%=t '.table.heading.case_type' %></th>
+    <th><%=t '.table.heading.problems' %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @cases_with_upload_problems.each do |tribunal_case| %>
+      <tr>
+        <td><%= l(tribunal_case.updated_at, format: :long) %></td>
+        <td><%= tribunal_case.case_type.to_s %></td>
+        <td><%= tribunal_case.having_problems_uploading_explanation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
