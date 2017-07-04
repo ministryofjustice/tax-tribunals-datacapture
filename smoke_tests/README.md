@@ -11,7 +11,7 @@ generally NOT be run against the production enviroment.**
 ## Running
 
 ```
-export DATACAPTURE_URI=https://tax-tribunals-datacapture-staging.dsd.io
+export DATACAPTURE_URI=https://tax-tribunals-datacapture-dev.dsd.io
 bundle exec cucumber
 ```
 
@@ -27,7 +27,7 @@ set -euo pipefail
 docker build -f Dockerfile.smoketests -t smoketests .
 docker run smoketests
 ```
-The default target environment is staging.  You can change this at run
+The default target environment is dev.  You can change this at run
 time by overriding the DATACAPTURE_URI environment variable:
 
 ```bash
@@ -36,7 +36,7 @@ time by overriding the DATACAPTURE_URI environment variable:
 set -euo pipefail
 
 docker build -f Dockerfile.smoketests -t smoketests .
-docker run -e "DATACAPTURE_URI=https://tax-tribunals-datacapture-dev.dsd.io" smoketests
+docker run -e "DATACAPTURE_URI=https://tax-tribunals-datacapture-staging.dsd.io" smoketests
 ```
 
 ### Containerisation Rationale/Why not docker-compose?
