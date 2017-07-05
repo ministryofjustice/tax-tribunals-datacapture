@@ -2,6 +2,10 @@
   <%= form.label(field_name, label_text) %>
 </p>
 
+<p>
+  <%=t '.upload_explanation_html' %>
+</p>
+
 <div class="grid-row uploader-row">
   <div class="column-two-thirds">
     <%= form.file_field(field_name, class: 'single-file-upload', accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
