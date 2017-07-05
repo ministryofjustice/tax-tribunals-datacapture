@@ -212,6 +212,8 @@ en:
       document_upload:
         current_document:
           previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
+        document_upload_field:
+          upload_explanation_html: "Choose a file. Your document will upload when you click 'Continue'."
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |
@@ -431,11 +433,6 @@ en:
           lead_text_unsure: To help process your case quickly, you should give reasons
             why your %{appeal_or_application} might be late. The judge will decide
             whether your %{appeal_or_application} can go ahead if it is late.
-          details_title: Help with a late %{appeal_or_application}
-          details_content: You must provide reasonable grounds for submitting your
-            %{appeal_or_application} late. These are usually unforeseen circumstances
-            or events beyond your control which meant you weren't able to meet the
-            tax tribunal deadline.
           attach_document_html: *attach_reasons_document
           page_title: Lateness reason
   activemodel:
