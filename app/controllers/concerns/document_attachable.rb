@@ -25,6 +25,10 @@ module DocumentAttachable
     tribunal_case&.documents(document_key)&.any? || document.present?
   end
 
+  def check_document_presence
+    errors.add(document_attribute, :blank) unless document_provided?
+  end
+
   def valid_uploaded_file
     return true if document.nil? || document.valid?
     retrieve_document_errors
