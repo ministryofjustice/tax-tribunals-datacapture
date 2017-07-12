@@ -4,6 +4,7 @@ en:
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
+    blank_document: &blank_document "You must upload a file"
     blank_uploading_problems: &blank_uploading_problems "Please describe the problem"
     blank_first_name: &blank_first_name "Please enter your first name"
     blank_last_name: &blank_last_name "Please enter your last name"
@@ -202,8 +203,8 @@ en:
         edit:
           heading: Add documents to support your application (optional)
           lead_text: *tax_tribunal_independent
-          having_problems_uploading_html: I am having trouble uploading my documents
           page_title: Documents upload
+          having_problems: I am having trouble uploading my documents
       <<: *CYA_CONFIRMATION
       start:
         show:
@@ -345,6 +346,21 @@ en:
           review_conclusion_provided_html: "<strong>Review conclusion letter</strong><br>you
             will only have this if your case was reviewed"
           page_title: "Documents upload"
+      letter_upload:
+        edit:
+          page_title: Letter upload
+          lead_text: *tax_tribunal_independent
+          heading:
+            original_notice_letter: Upload the original notice or decision letter
+            review_conclusion_letter: Upload the review conclusion letter
+            late_review_refusal_letter: Upload the letter refusing your late review
+            late_appeal_refusal_letter: Upload the letter refusing your late appeal
+          attach_document:
+            original_notice_letter_html: "<strong>Attach original notice or decision letter</strong>"
+            review_conclusion_letter_html: "<strong>Attach review conclusion letter</strong>"
+            late_review_refusal_letter_html: "<strong>Attach letter refusing your late review</strong>"
+            late_appeal_refusal_letter_html: "<strong>Attach letter refusing your late appeal</strong>"
+          having_problems: I am having trouble uploading my letter
       outcome:
         edit:
           heading: Briefly say what outcome you would like
@@ -475,7 +491,7 @@ en:
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
-              blank: *blank_uploading_problems
+              blank: Please enter reasons why you can't upload documents
         steps/details/user_type_form:
           attributes:
             user_type:
@@ -546,6 +562,18 @@ en:
               no_documents: You must upload a file
             having_problems_uploading_explanation:
               blank: *blank_uploading_problems
+        steps/details/letter_upload_form:
+          attributes:
+            original_notice_letter_document:
+              blank: *blank_document
+            review_conclusion_letter_document:
+              blank: *blank_document
+            late_review_refusal_letter_document:
+              blank: *blank_document
+            late_appeal_refusal_letter_document:
+              blank: *blank_document
+            having_problems_uploading_explanation:
+              blank: Please enter reasons why you can't upload a letter
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -736,7 +764,7 @@ en:
       steps_closure_additional_info_form:
         closure_additional_info: Enter reasons (optional)
       steps_closure_support_documents_form:
-        having_problems_uploading_explanation: Reasons you can't upload
+        having_problems_uploading_explanation: Enter reasons why you can't upload documents
       steps_details_user_type_form:
         user_type:
           taxpayer: 'Yes'
@@ -1005,6 +1033,9 @@ en:
       question: Desired outcome
       accessible_change_text: desired outcome
     documents_submitted:
+      question: Documents uploaded
+      accessible_change_text: documents uploaded
+    letters_submitted:
       question: Letters uploaded
       accessible_change_text: letters uploaded
     problems_uploading_documents:
