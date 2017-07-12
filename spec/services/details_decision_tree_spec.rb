@@ -144,11 +144,11 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `outcome`' do
       let(:step_params) { { outcome: 'anything'  } }
 
-      it { is_expected.to have_destination(:documents_checklist, :edit) }
+      it { is_expected.to have_destination(:letter_upload, :edit) }
     end
 
-    context 'when the step is `documents_checklist`' do
-      let(:step_params) { { documents_checklist: 'anything'  } }
+    context 'when the step is `letter_upload`' do
+      let(:step_params) { { letter_upload: 'anything'  } }
 
       context 'and user had no problems uploading' do
         let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: false) }
