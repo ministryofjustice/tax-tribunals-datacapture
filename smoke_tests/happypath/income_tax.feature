@@ -59,7 +59,6 @@ Feature: Income Tax Happy Paths
     Then I should see "Grounds for appeal"
 
     Given I attach a file explaining my grounds
-    And I should not see "failed to upload"
     When I click the "Save and continue" button
     And I pause for "2" seconds
     And I click the "Back" link
@@ -81,43 +80,16 @@ Feature: Income Tax Happy Paths
 
     Given I fill in "Clearly explain in 2-3 sentences" with "Drive my enemies before me, hear the lament of their women"
     And I click the "Save and continue" button
-    Then I should see "Upload your letter(s)"
+    Then I should see "Upload the review conclusion letter"
 
-    Given I drop "original_notice.docx"
-    Then I should see "original_notice.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
-
-    Given I click the "Remove" link
-    Then I should not see "original_notice.docx"
-
-    Given I drop "original_notice.docx"
-    Then I should see "original_notice.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
-
-    Given I drop "review_conclusion.docx"
-    Then I should see "review_conclusion.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
-
-    # There is an intermittent S3 race condition where the last upload before
-    # 'Check your answers' does not get stored in time to make it into the list
-    # call of 'Check your answers'.
-    Given I pause for "2" seconds
-    And I check "Original notice letter"
-    And I check "Review conclusion letter"
+    Given I attach the review conclusion letter
     When I click the "Save and continue" button
     Then I should see "Check your answers"
     And I should see "Appeal details"
-    And I should see "original_notice.docx"
+    And I should see "grounds_for_appeal.docx"
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button
     Then I should see "Case submitted"
     And I should see "Your case reference number is:"
     And I see a case reference number
-

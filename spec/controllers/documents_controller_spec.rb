@@ -109,7 +109,7 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context 'HTML format' do
-      it 'should delete the file and redirect to the documents_checklist step' do
+      it 'should delete the file and redirect to the step' do
         delete :destroy, params: params
         expect(subject).to redirect_to('step/to/redirect')
       end

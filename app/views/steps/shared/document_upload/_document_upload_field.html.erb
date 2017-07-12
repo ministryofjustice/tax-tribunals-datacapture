@@ -1,5 +1,7 @@
 <p>
-  <%= form.label(field_name, label_text) %>
+  <%= form.label(field_name, label_text, id: [
+    'error', GovukElementsErrorsHelper.underscore_name(form.object), field_name
+  ].join('_')) %>
 </p>
 
 <p>

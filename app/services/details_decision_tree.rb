@@ -22,9 +22,9 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :grounds_for_appeal
       edit(:outcome)
     when :outcome
-      edit(:documents_checklist)
-    when :documents_checklist
-      after_documents_checklist
+      edit(:letter_upload)
+    when :letter_upload
+      after_letter_upload
     when :check_answers
       root_path
     else
@@ -89,7 +89,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     end
   end
 
-  def after_documents_checklist
+  def after_letter_upload
     if tribunal_case.having_problems_uploading?
       show(:documents_upload_problems)
     else

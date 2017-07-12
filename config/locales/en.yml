@@ -4,8 +4,6 @@ en:
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
-    blank_document: &blank_document "You must upload a file"
-    blank_uploading_problems: &blank_uploading_problems "Please describe the problem"
     blank_first_name: &blank_first_name "Please enter your first name"
     blank_last_name: &blank_last_name "Please enter your last name"
     blank_address: &blank_address "Please enter a contact address"
@@ -204,7 +202,7 @@ en:
           heading: Add documents to support your application (optional)
           lead_text: *tax_tribunal_independent
           page_title: Documents upload
-          having_problems: I am having trouble uploading my documents
+          having_problems_uploading: I am having trouble uploading my documents
       <<: *CYA_CONFIRMATION
       start:
         show:
@@ -214,7 +212,7 @@ en:
         current_document:
           previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
         document_upload_field:
-          upload_explanation_html: "Choose a file. Your document will upload when you click 'Continue'."
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |
@@ -336,16 +334,6 @@ en:
             including any correspondence with HMRC and evidence to support your case.
           attach_document_html: *attach_reasons_document
           page_title: Grounds for appeal
-      documents_checklist:
-        edit:
-          heading: Upload your letter(s)
-          lead_text: *tax_tribunal_independent
-          letters_heading_html: "<p><strong>Upload at least one letter</strong></p>"
-          original_notice_provided_html: "<strong>Original notice letter</strong><br>including
-            the explanation for any decision(s)"
-          review_conclusion_provided_html: "<strong>Review conclusion letter</strong><br>you
-            will only have this if your case was reviewed"
-          page_title: "Documents upload"
       letter_upload:
         edit:
           page_title: Letter upload
@@ -356,11 +344,11 @@ en:
             late_review_refusal_letter: Upload the letter refusing your late review
             late_appeal_refusal_letter: Upload the letter refusing your late appeal
           attach_document:
-            original_notice_letter_html: "<strong>Attach original notice or decision letter</strong>"
-            review_conclusion_letter_html: "<strong>Attach review conclusion letter</strong>"
-            late_review_refusal_letter_html: "<strong>Attach letter refusing your late review</strong>"
-            late_appeal_refusal_letter_html: "<strong>Attach letter refusing your late appeal</strong>"
-          having_problems: I am having trouble uploading my letter
+            original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
+            review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
+            late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
+            late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
+          having_problems_uploading: I am having trouble uploading my letter
       outcome:
         edit:
           heading: Briefly say what outcome you would like
@@ -555,23 +543,10 @@ en:
             outcome:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
-        steps/details/documents_checklist_form:
-          attributes:
-            original_notice_provided:
-              blank: You must select the letter(s) you have uploaded
-              no_documents: You must upload a file
-            having_problems_uploading_explanation:
-              blank: *blank_uploading_problems
         steps/details/letter_upload_form:
           attributes:
-            original_notice_letter_document:
-              blank: *blank_document
-            review_conclusion_letter_document:
-              blank: *blank_document
-            late_review_refusal_letter_document:
-              blank: *blank_document
-            late_appeal_refusal_letter_document:
-              blank: *blank_document
+            supporting_letter_document:
+              blank: You must choose a file to upload
             having_problems_uploading_explanation:
               blank: Please enter reasons why you can't upload a letter
         steps/hardship/disputed_tax_paid_form:
@@ -827,9 +802,8 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
-      steps_details_documents_checklist_form:
-        having_problems_uploading_explanation: Enter reasons why you can't upload
-          documents
+      steps_details_letter_upload_form:
+        having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
@@ -1035,15 +1009,15 @@ en:
     documents_submitted:
       question: Documents uploaded
       accessible_change_text: documents uploaded
-    letters_submitted:
-      question: Letters uploaded
-      accessible_change_text: letters uploaded
+    letter_submitted:
+      question: Letter uploaded
+      accessible_change_text: letter uploaded
     problems_uploading_documents:
       question: Problems uploading documents
       accessible_change_text: problems uploading documents
-    problems_uploading_letters:
-      question: Problems uploading letters
-      accessible_change_text: problems uploading letters
+    problems_uploading_letter:
+      question: Reasons why you can't upload a letter
+      accessible_change_text: reasons why you can't upload a letter
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is
@@ -1134,12 +1108,12 @@ en:
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
-      having_problems: I am having trouble uploading my documents
       explanation_html: |
         <p><strong>What to do next</strong></p>
         <ul class="list list-bullet">
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
-          <li>If you're still having trouble, enter reasons and click 'continue' to print and complete your appeal by post.</li>
+          <li>Enter reasons if you are still having trouble uploading.</li>
+          <li>Click 'continue' to print and complete your appeal by post.</li>
         </ul>
       remove_file: Remove
       cancel_upload: Cancel

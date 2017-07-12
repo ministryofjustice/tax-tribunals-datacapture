@@ -9,10 +9,16 @@ Then(/^I attach a file explaining my grounds$/) do
   )
 end
 
+Then(/^I attach the review conclusion letter$/) do
+  attach_file(
+    'steps_details_letter_upload_form[supporting_letter_document]',
+    "#{UPLOAD_EXAMPLES}/review_conclusion.docx"
+  )
+end
+
 Then(/^I attach a file with a virus$/) do
   attach_file(
     'steps_details_grounds_for_appeal_form[grounds_for_appeal_document]',
     "#{UPLOAD_EXAMPLES}/eicar.com.txt"
   )
 end
-
