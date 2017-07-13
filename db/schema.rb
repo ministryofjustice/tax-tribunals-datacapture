@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419113229) do
+ActiveRecord::Schema.define(version: 20170713091142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 20170419113229) do
     t.string   "taxpayer_organisation_registration_number"
     t.text     "grounds_for_appeal"
     t.uuid     "files_collection_ref",                            default: -> { "uuid_generate_v4()" }
-    t.boolean  "original_notice_provided",                        default: false
-    t.boolean  "review_conclusion_provided",                      default: false
     t.boolean  "having_problems_uploading",                       default: false
     t.string   "challenged_decision"
     t.string   "disputed_tax_paid"
