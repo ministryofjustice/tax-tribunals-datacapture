@@ -1440,7 +1440,23 @@ en:
         table:
           heading:
             updated_at: Case date
+            user_type: User type
             case_type: Case type
-            problems: Problems
+            text_entered: Text entered
         explanation_html: |
           <p>List of cases where users reported having problems uploading documents.<br>The list doesn't include purged cases.</p>
+    other_case_types_report:
+      index:
+        page_title: Other case types report
+        heading: Text entered in 'None of the above' for appeal type
+        table:
+          heading:
+            updated_at: Case date
+            user_type: User type
+            case_type: Case type
+            text_entered: Text entered
+        explanation_html: |
+          <p>List of cases when users couldn't select an option using the full list of taxes.<br>The list doesn't include purged cases.</p>
+    admin_menu_header:
+      upload_problems_link: Upload problems report
+      other_case_types_link: Other case types report
