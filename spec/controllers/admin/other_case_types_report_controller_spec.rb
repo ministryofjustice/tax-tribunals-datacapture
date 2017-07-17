@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::UploadProblemsReportController, type: :controller do
+RSpec.describe Admin::OtherCaseTypesReportController, type: :controller do
   before do
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_USER').and_return('admin')
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST').and_return(
@@ -35,8 +35,8 @@ RSpec.describe Admin::UploadProblemsReportController, type: :controller do
         expect(response).to have_http_status(:success)
       end
 
-      it 'retrieves the cases with document upload problems' do
-        expect(TribunalCase).to receive(:with_upload_problems).and_return(double.as_null_object)
+      it 'retrieves the cases where case type is `other`' do
+        expect(TribunalCase).to receive(:with_other_case_type).and_return(double.as_null_object)
         get :index
       end
     end
