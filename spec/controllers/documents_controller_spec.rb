@@ -99,27 +99,39 @@ RSpec.describe DocumentsController, type: :controller do
   include_examples 'checks the validity of the current tribunal case on destroy', { document_key: :foo_bar }
 
   describe '#destroy' do
-    let(:params) { {
-      document_key: 'supporting_documents',
-      id: another_filename
-    } }
+    context 'response formats' do
+      let(:params) { {
+        document_key: 'supporting_documents',
+        id: another_filename
+      } }
 
-    before do
-      expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'supporting_documents', filename: 'another').and_return({})
-    end
+      before do
+        expect(Uploader).to receive(:delete_file).with(collection_ref: collection_ref, document_key: 'supporting_documents', filename: 'another').and_return({})
+      end
 
-    context 'HTML format' do
-      it 'should delete the file and redirect to the step' do
-        delete :destroy, params: params
-        expect(subject).to redirect_to('step/to/redirect')
+      context 'HTML format' do
+        it 'should delete the file and redirect to the step' do
+          delete :destroy, params: params
+          expect(subject).to redirect_to('step/to/redirect')
+        end
+      end
+
+      context 'JSON format' do
+        it 'should respond with an empty body and success status code' do
+          delete :destroy, params: params, format: :json
+          expect(response.status).to eq(204)
+          expect(response.body).to eq('')
+        end
       end
     end
 
-    context 'JSON format' do
-      it 'should respond with an empty body and success status code' do
-        delete :destroy, params: params, format: :json
-        expect(response.status).to eq(204)
-        expect(response.body).to eq('')
+    context 'URI encode square brackets' do
+      let(:filename) {'file [name].txt'}
+      let(:base64_filename) { Base64.encode64(filename) }
+
+      it 'encode square brackets' do
+        expect(Uploader).to receive(:delete_file).with(hash_including(filename: 'file%20%5Bname%5D%2Etxt'))
+        delete :destroy, params: {document_key: 'test', id: base64_filename}
       end
     end
   end
