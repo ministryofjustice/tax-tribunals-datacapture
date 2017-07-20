@@ -42,8 +42,11 @@ class DocumentsController < ApplicationController
     current_tribunal_case.files_collection_ref
   end
 
+  # The regexp as second argument to encode() will ensure all non-word characters are encoded,
+  # and not only those included in the REGEXP::UNSAFE which is the default behaviour.
+  # Specifically we are looking to encode problematic characters like '[' and ']'
   def filename
-    URI.encode(decoded_filename)
+    URI.encode(decoded_filename, /\W/)
   end
 
   def decoded_filename

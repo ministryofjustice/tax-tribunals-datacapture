@@ -130,6 +130,7 @@ class DocumentUpload
   end
 
   def validate
+    add_error(:invalid_characters) unless file_name.ascii_only?
     add_error(:file_size) if file_size > MAX_FILE_SIZE.megabytes
     add_error(:content_type) unless content_type.downcase.in?(ALLOWED_CONTENT_TYPES)
   end
