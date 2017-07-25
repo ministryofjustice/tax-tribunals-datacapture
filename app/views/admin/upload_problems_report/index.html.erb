@@ -24,7 +24,7 @@
   <tbody>
     <% @cases_with_upload_problems.each do |tribunal_case| %>
       <tr>
-        <td><%= l(tribunal_case.updated_at, format: :long) %></td>
+        <td><%= l(tribunal_case.created_at, format: :long) %></td>
         <td><%= tribunal_case.user_type.to_s %></td>
         <td><%= tribunal_case.intent_case_type.to_s %></td>
         <td><%= tribunal_case.having_problems_uploading_explanation %></td>
