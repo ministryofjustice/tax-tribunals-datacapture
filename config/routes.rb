@@ -126,6 +126,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :upload_problems_report, only: [:index]
     resources :other_case_types_report, only: [:index]
+    resources :other_dispute_types_report, only: [:index]
   end
 
   scope 'uploader/:document_key' do

@@ -7,6 +7,7 @@ class TribunalCase < ApplicationRecord
   scope :with_owner,    -> { where.not(user: nil) }
   scope :with_upload_problems, -> { where(having_problems_uploading: true) }
   scope :with_other_case_type, -> { where(case_type: CaseType::OTHER) }
+  scope :with_other_dispute_type, -> { where(dispute_type: DisputeType::OTHER) }
 
   has_value_object :intent
   has_value_object :case_status

@@ -1,0 +1,34 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= render partial: 'admin/admin_menu_header' %>
+
+    <h1 class="heading-large">
+      <%=t '.heading' %>
+    </h1>
+    <p class="lede"><%=t '.explanation_html' %></p>
+  </div>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th width="25%"><%=t '.table.heading.created_at' %></th>
+    <th width="20%"><%=t '.table.heading.user_type' %></th>
+    <th width="20%"><%=t '.table.heading.case_type' %></th>
+    <th width="35%"><%=t '.table.heading.text_entered' %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cases_with_other_dispute_type.each do |tribunal_case| %>
+    <tr>
+      <td><%= l(tribunal_case.created_at, format: :long) %></td>
+      <td><%= tribunal_case.user_type.to_s %></td>
+      <td><%= tribunal_case.intent_case_type.to_s %></td>
+      <td><%= tribunal_case.dispute_type_other_value %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
