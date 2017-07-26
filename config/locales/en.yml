@@ -1442,7 +1442,7 @@ en:
         heading: Problems reported by users while uploading documents
         table:
           heading:
-            updated_at: Case date
+            created_at: Case date
             user_type: User type
             case_type: Case type
             text_entered: Text entered
@@ -1454,7 +1454,7 @@ en:
         heading: Text entered in 'None of the above' for appeal type
         table:
           heading:
-            updated_at: Case date
+            created_at: Case date
             user_type: User type
             case_type: Case type
             text_entered: Text entered
