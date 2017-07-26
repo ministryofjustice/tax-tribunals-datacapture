@@ -1472,7 +1472,7 @@ en:
             text_entered: Text entered
         explanation_html: |
           <p>List of cases when users couldn't select an option in the list of dispute types.<br>The list doesn't include purged cases.</p>
-    admin_menu_header:
+    menu_header:
       upload_problems_link: Upload problems
       other_case_types_link: Other case types
       other_dispute_types_link: Other dispute types
