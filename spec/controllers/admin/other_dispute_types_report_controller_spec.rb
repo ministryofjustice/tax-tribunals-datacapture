@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::OtherCaseTypesReportController, type: :controller do
+RSpec.describe Admin::OtherDisputeTypesReportController, type: :controller do
   before do
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_USER').and_return('admin')
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST').and_return(
@@ -22,7 +22,7 @@ RSpec.describe Admin::OtherCaseTypesReportController, type: :controller do
       end
 
       it 'retrieves the cases where case type is `other`' do
-        expect(TribunalCase).to receive(:with_other_case_type).and_return(double.as_null_object)
+        expect(TribunalCase).to receive(:with_other_dispute_type).and_return(double.as_null_object)
         get :index
       end
     end
