@@ -9,21 +9,7 @@ RSpec.describe Admin::OtherDisputeTypesReportController, type: :controller do
   end
 
   describe '#index' do
-    it 'requires basic auth' do
-      get :index
-      expect(response).to have_http_status(:unauthorized)
-    end
-
-    context 'wrong credentials' do
-      before do
-        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('admin', 'whatever')
-      end
-
-      it 'returns http success' do
-        get :index
-        expect(response).to have_http_status(:unauthorized)
-      end
-    end
+    it_behaves_like 'a password-protected admin controller'
 
     context 'correct credentials' do
       before do
