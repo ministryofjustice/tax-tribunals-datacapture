@@ -59,6 +59,7 @@ class CaseType < ValueObject
     POOL_BETTING_DUTY            = new(:pool_betting_duty,            indirect_tax_properties),
     REMOTE_GAMING_DUTY           = new(:remote_gaming_duty,           indirect_tax_properties),
     RESTORATION_CASE             = new(:restoration_case,             direct_tax: false, ask_challenged: true, appeal_or_application: :application),
+    SELF_ASSESSMENT_LATE_PENALTY = new(:self_assessment_late_penalty, direct_tax: true, ask_penalty: true, ask_challenged: true, appeal_or_application: :appeal),
     STAMP_DUTIES                 = new(:stamp_duties,                 direct_tax_properties),
     STATUTORY_PAYMENTS           = new(:statutory_payments,           direct_tax_properties),
     STUDENT_LOANS                = new(:student_loans,                direct_tax_properties),
