@@ -641,6 +641,7 @@ en:
         case_type:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
             Pay As You Earn (PAYE) and Self Assessment"
+          self_assessment_late_penalty_html: "<strong>Penalty for late filing of self-assessment tax return</strong>"
           vat_html: "<strong>Value Added Tax (VAT)</strong>"
           capital_gains_tax_html: "<strong>Capital Gains Tax</strong>"
           corporation_tax_html: "<strong>Corporation Tax</strong>"
@@ -925,6 +926,7 @@ en:
         pool_betting_duty: Pool Betting Duty
         remote_gaming_duty: Remote Gaming Duty
         restoration_case: Restoration case
+        self_assessment_late_penalty: Penalty for late filing of self-assessment tax return
         stamp_duties: Stamp duties
         statutory_payments: Statutory payments
         student_loans: Student loans

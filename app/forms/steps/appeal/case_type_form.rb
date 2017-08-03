@@ -7,6 +7,7 @@ module Steps::Appeal
     def self.choices
       [
         CaseType::INCOME_TAX,
+        CaseType::SELF_ASSESSMENT_LATE_PENALTY,
         CaseType::VAT,
         CaseType::CAPITAL_GAINS_TAX,
         CaseType::CORPORATION_TAX,

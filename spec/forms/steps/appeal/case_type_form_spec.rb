@@ -14,6 +14,7 @@ RSpec.describe Steps::Appeal::CaseTypeForm do
     it 'returns the relevant choices' do
       expect(described_class.choices).to eq(%w(
         income_tax
+        self_assessment_late_penalty
         vat
         capital_gains_tax
         corporation_tax
