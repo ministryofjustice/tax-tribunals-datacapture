@@ -338,16 +338,6 @@ en:
         edit:
           page_title: Letter upload
           lead_text: *tax_tribunal_independent
-          heading:
-            original_notice_letter: Upload the original notice or decision letter
-            review_conclusion_letter: Upload the review conclusion letter
-            late_review_refusal_letter: Upload the letter refusing your late review
-            late_appeal_refusal_letter: Upload the letter refusing your late appeal
-          attach_document:
-            original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
-            review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
-            late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
-            late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
           having_problems_uploading: I am having trouble uploading my letter
       outcome:
         edit:
@@ -394,8 +384,7 @@ en:
           page_title: Upload problems
       letter_upload_type:
         edit:
-          heading: "heading here"
-          lead_text: "lead text here"
+          lead_text: *tax_tribunal_independent
           page_title: Letter upload type
     hardship:
       disputed_tax_paid:
@@ -816,8 +805,10 @@ en:
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_letter_upload_type_form:
         letter_upload_type:
-          single_html: '<strong>I have a single letter file</strong>'
-          multiple_html: '<strong>I have multiple scans or picture files of my letter</strong>'
+          single_html: '<strong>I have a single file of my letter</strong><br>Use this option if you have a PDF, DOC
+          or any other document containing your letter in full.'
+          multiple_html: '<strong>I have multiple scans or image files of my letter</strong><br>Use this option if
+          you have taken photos or scanned the different sides of the letter and you ended up with several files.'
       steps_details_letter_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
@@ -1120,7 +1111,7 @@ en:
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
-      technical_info: We accept scanned images or good quality pictures, for example via a smartphone.
+      technical_info: We accept scanned documents, images or good quality pictures, for example via a smartphone.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
@@ -1138,6 +1129,17 @@ en:
       file_wrong_format: " is in a format we don't accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files."
       file_too_big: " is too big. You will need to resubmit a smaller version, less than XXX megabytes (MB)."
       confirm_delete: Are you sure?
+    letter_upload:
+      heading:
+        original_notice_letter: Upload the original notice or decision letter
+        review_conclusion_letter: Upload the review conclusion letter
+        late_review_refusal_letter: Upload the letter refusing your late review
+        late_appeal_refusal_letter: Upload the letter refusing your late appeal
+      attach_document:
+        original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
+        review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
+        late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
+        late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
     password_toggle:
       show_password: Show password
       hide_password: Hide password

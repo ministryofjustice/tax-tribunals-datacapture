@@ -4,9 +4,11 @@
   <div class="column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="heading-large"><%=t "shared.letter_upload.heading.#{i18n_letter_type}" %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
+
+    <p><%=t 'shared.file_upload.technical_info' %></p>
 
     <%= step_form @form_object, html: { class: 'ga-radioButtonGroup' } do |f| %>
       <%= f.radio_button_fieldset :letter_upload_type,

@@ -25,42 +25,6 @@ RSpec.describe Steps::Details::LetterUploadForm do
     allow(Uploader).to receive(:list_files).and_return([])
   end
 
-  describe '#document_type' do
-    before do
-      allow(tribunal_case).to receive(:challenged_decision_status).and_return(decision_status)
-    end
-
-    context 'for a challenge decision status of `received`' do
-      let(:decision_status) { ChallengedDecisionStatus::RECEIVED }
-      it { expect(subject.document_type).to eq(:review_conclusion_letter) }
-    end
-
-    context 'for a challenge decision status of `late appeal`' do
-      let(:decision_status) { ChallengedDecisionStatus::APPEAL_LATE_REJECTION }
-      it { expect(subject.document_type).to eq(:late_appeal_refusal_letter) }
-    end
-
-    context 'for a challenge decision status of `late review`' do
-      let(:decision_status) { ChallengedDecisionStatus::REVIEW_LATE_REJECTION }
-      it { expect(subject.document_type).to eq(:late_review_refusal_letter) }
-    end
-
-    context 'for a challenge decision status of `appealing directly`' do
-      let(:decision_status) { ChallengedDecisionStatus::APPEALING_DIRECTLY }
-      it { expect(subject.document_type).to eq(:original_notice_letter) }
-    end
-
-    context 'for a challenge decision status of `overdue`' do
-      let(:decision_status) { ChallengedDecisionStatus::OVERDUE }
-      it { expect(subject.document_type).to eq(:original_notice_letter) }
-    end
-
-    context 'for a challenge decision status of `refused`' do
-      let(:decision_status) { ChallengedDecisionStatus::REFUSED }
-      it { expect(subject.document_type).to eq(:original_notice_letter) }
-    end
-  end
-
   describe '#save' do
     context 'when having_problems_uploading is not selected' do
       let(:having_problems_uploading) { false }
