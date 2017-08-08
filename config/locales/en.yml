@@ -392,6 +392,11 @@ en:
           post_address_html: "<p>Once the tax tribunal has received your appeal they
             will write to you with confirmation and details of the next steps.</p>"
           page_title: Upload problems
+      letter_upload_type:
+        edit:
+          heading: "heading here"
+          lead_text: "lead text here"
+          page_title: Letter upload type
     hardship:
       disputed_tax_paid:
         edit:
@@ -543,6 +548,10 @@ en:
             outcome:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
+        steps/details/letter_upload_type_form:
+          attributes:
+            letter_upload_type:
+              inclusion: Select whether you need to upload a single file or multiple files
         steps/details/letter_upload_form:
           attributes:
             supporting_letter_document:
@@ -636,6 +645,8 @@ en:
         hardship_review_status_html: Did HMRC allow you to defer paying because of financial hardship?
       steps_lateness_in_time_form:
         in_time_html: Are you in time to appeal to the tax tribunal?
+      steps_details_letter_upload_type_form:
+        letter_upload_type_html: Do you need to upload a single file or multiple files?
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -803,6 +814,10 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
+      steps_details_letter_upload_type_form:
+        letter_upload_type:
+          single_html: '<strong>I have a single letter file</strong>'
+          multiple_html: '<strong>I have multiple scans or picture files of my letter</strong>'
       steps_details_letter_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
