@@ -144,7 +144,24 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `outcome`' do
       let(:step_params) { { outcome: 'anything'  } }
 
-      it { is_expected.to have_destination(:letter_upload, :edit) }
+      it { is_expected.to have_destination(:letter_upload_type, :edit) }
+    end
+
+    context 'when the step is `letter_upload_type`' do
+      let(:step_params) { { letter_upload_type: 'anything' } }
+
+      context 'and the answer is `single`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::SINGLE)}
+
+        it {is_expected.to have_destination(:letter_upload, :edit)}
+      end
+
+      context 'and the answer is `multiple`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::MULTIPLE)}
+
+        # TODO: change destination once new multi uploader step is created
+        it {is_expected.to have_destination(:letter_upload, :edit)}
+      end
     end
 
     context 'when the step is `letter_upload`' do
