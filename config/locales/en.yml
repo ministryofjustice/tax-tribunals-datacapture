@@ -1024,9 +1024,12 @@ en:
     documents_submitted:
       question: Documents uploaded
       accessible_change_text: documents uploaded
-    letter_submitted:
+    letter_uploaded:
       question: Letter uploaded
       accessible_change_text: letter uploaded
+    letter_files_uploaded:
+      question: Letter files uploaded
+      accessible_change_text: letter files uploaded
     problems_uploading_documents:
       question: Problems uploading documents
       accessible_change_text: problems uploading documents
