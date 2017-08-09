@@ -50,6 +50,8 @@ RSpec.describe Steps::Details::LetterUploadTypeForm do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           letter_upload_type: LetterUploadType::SINGLE,
+          having_problems_uploading: false,
+          having_problems_uploading_explanation: nil
         ).and_return(true)
         expect(subject.save).to be(true)
       end

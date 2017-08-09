@@ -337,7 +337,6 @@ en:
       letter_upload:
         edit:
           page_title: Letter upload
-          lead_text: *tax_tribunal_independent
           having_problems_uploading: I am having trouble uploading my letter
       outcome:
         edit:
@@ -384,8 +383,11 @@ en:
           page_title: Upload problems
       letter_upload_type:
         edit:
-          lead_text: *tax_tribunal_independent
           page_title: Letter upload type
+      documents_upload:
+        edit:
+          page_title: Letter files upload
+          having_problems_uploading: I am having trouble uploading my letter files
     hardship:
       disputed_tax_paid:
         edit:
@@ -547,6 +549,11 @@ en:
               blank: You must choose a file to upload
             having_problems_uploading_explanation:
               blank: Please enter reasons why you can't upload a letter
+        steps/details/documents_upload_form:
+          no_documents: You must upload at least one file
+          attributes:
+            having_problems_uploading_explanation:
+              blank: Please enter reasons why you can't upload your files
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -805,10 +812,10 @@ en:
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_letter_upload_type_form:
         letter_upload_type:
-          single_html: '<strong>I have a single file of my letter</strong><br>Use this option if you have a PDF, DOC
-          or any other document containing your letter in full.'
-          multiple_html: '<strong>I have multiple scans or image files of my letter</strong><br>Use this option if
-          you have taken photos or scanned the different sides of the letter and you ended up with several files.'
+          single_html: '<strong>I have a single file of my letter</strong><br>Select this option if you have a PDF, DOC
+            or any other document containing your letter in full.'
+          multiple_html: '<strong>I have multiple scans or image files of my letter</strong><br>Select this option if
+            you have taken photos or scanned the different sides of the letter and you ended up with several files.'
       steps_details_letter_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
@@ -1130,6 +1137,7 @@ en:
       file_too_big: " is too big. You will need to resubmit a smaller version, less than XXX megabytes (MB)."
       confirm_delete: Are you sure?
     letter_upload:
+      lead_text: *tax_tribunal_independent
       heading:
         original_notice_letter: Upload the original notice or decision letter
         review_conclusion_letter: Upload the review conclusion letter

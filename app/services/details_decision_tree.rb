@@ -25,7 +25,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       edit(:letter_upload_type)
     when :letter_upload_type
       after_letter_upload_type
-    when :letter_upload
+    when :letter_upload, :documents_upload
       after_letter_upload
     when :check_answers
       root_path
@@ -96,8 +96,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when LetterUploadType::SINGLE
       edit(:letter_upload)
     when LetterUploadType::MULTIPLE
-      # TODO: create new multi uploader step
-      edit(:letter_upload)
+      edit(:documents_upload)
     end
   end
 

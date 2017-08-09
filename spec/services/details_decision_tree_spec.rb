@@ -159,13 +159,28 @@ RSpec.describe DetailsDecisionTree do
       context 'and the answer is `multiple`' do
         let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::MULTIPLE)}
 
-        # TODO: change destination once new multi uploader step is created
-        it {is_expected.to have_destination(:letter_upload, :edit)}
+        it {is_expected.to have_destination(:documents_upload, :edit)}
       end
     end
 
     context 'when the step is `letter_upload`' do
       let(:step_params) { { letter_upload: 'anything'  } }
+
+      context 'and user had no problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: false) }
+
+        it { is_expected.to have_destination(:check_answers, :show) }
+      end
+
+      context 'and user had problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: true) }
+
+        it { is_expected.to have_destination(:documents_upload_problems, :show) }
+      end
+    end
+
+    context 'when the step is `documents_upload`' do
+      let(:step_params) { { documents_upload: 'anything'  } }
 
       context 'and user had no problems uploading' do
         let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: false) }

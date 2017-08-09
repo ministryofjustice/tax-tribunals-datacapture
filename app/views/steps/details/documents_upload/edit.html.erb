@@ -1,0 +1,35 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header %>
+
+    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
+
+    <a id="error_steps_details_documents_upload_form_base"></a>
+    <%= render partial: 'steps/shared/file_upload_requirements' %>
+
+    <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
+      <%= file_field_tag :document %>
+      <%= submit_tag 'Upload', class: 'button' %>
+    <% end %>
+
+    <%= render partial: 'steps/shared/dropzone', locals: { document_list: @documents_list } %>
+
+    <%= step_form @form_object, html: { class: 'cf' } do |f| %>
+      <div class="form-group util_mt-large">
+        <%= f.label :having_problems_uploading, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
+          <%= f.check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems multi' %>
+          <%= t '.having_problems_uploading' %>
+        <% end %>
+
+        <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
+          <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
+          <%=f.text_area :having_problems_uploading_explanation, size: '40x4', class: 'form-control form-control-3-4' %>
+        </div>
+      </div>
+
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
+    <% end %>
+  </div>
+</div>

@@ -100,6 +100,7 @@ Rails.application.routes.draw do
       edit_step :outcome
       edit_step :letter_upload_type
       edit_step :letter_upload
+      edit_step :documents_upload
       show_step :documents_upload_problems
       show_step :check_answers
       collection_step :check_answers, :resume

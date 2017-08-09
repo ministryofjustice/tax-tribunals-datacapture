@@ -22,7 +22,10 @@ module Steps::Details
       return true unless changed?
 
       tribunal_case.update(
-        letter_upload_type: letter_upload_type_value
+        letter_upload_type: letter_upload_type_value,
+        # The following are dependent attributes that need to be reset
+        having_problems_uploading: false,
+        having_problems_uploading_explanation: nil
       )
     end
   end
