@@ -18,7 +18,7 @@ module CheckAnswers
     def submitted_letter_files_answers
       if tribunal_case.letter_upload_type == LetterUploadType::MULTIPLE
         [
-          DocumentsSubmittedAnswer.new(:letter_files_uploaded, tribunal_case.documents(:supporting_documents), change_path: edit_steps_details_documents_upload_path),
+          DocumentsSubmittedAnswer.new(:letter_uploaded, tribunal_case.documents(:supporting_documents), change_path: edit_steps_details_documents_upload_path),
           Answer.new(:problems_uploading_letter, tribunal_case.having_problems_uploading_explanation, raw: true, change_path: edit_steps_details_documents_upload_path)
         ]
       else

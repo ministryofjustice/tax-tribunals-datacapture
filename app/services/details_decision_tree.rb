@@ -97,6 +97,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       edit(:letter_upload)
     when LetterUploadType::MULTIPLE
       edit(:documents_upload)
+    when LetterUploadType::NO_LETTER
+      registrations_path
     end
   end
 

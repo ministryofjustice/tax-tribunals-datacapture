@@ -6,8 +6,10 @@
 
     <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
 
-    <a id="error_steps_details_documents_upload_form_base"></a>
     <%= render partial: 'steps/shared/file_upload_requirements' %>
+
+    <a id="error_steps_details_documents_upload_form_base"></a>
+    <%= t('.other_files_info_html') %>
 
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
       <%= file_field_tag :document %>

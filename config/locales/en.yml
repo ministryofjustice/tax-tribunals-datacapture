@@ -384,10 +384,19 @@ en:
       letter_upload_type:
         edit:
           page_title: Letter upload type
+          no_letter_info_html: |
+            <p><strong>You must upload a copy of the letter for your appeal to be valid.</strong></p>
+            <ul class="list list-bullet">
+              <li>save your details and come back later when you have the letter</li>
+              <li>contact HMRC if you have lost your letter and need a replacement</li>
+            </ul>
       documents_upload:
         edit:
-          page_title: Letter files upload
-          having_problems_uploading: I am having trouble uploading my letter files
+          page_title: Letter upload
+          other_files_info_html: |
+            <p><strong>Do not upload any documents other than your letter</strong></p>
+            <p>The tribunal will contact you if further documents are needed.</p>
+          having_problems_uploading: I am having trouble uploading my letter
     hardship:
       disputed_tax_paid:
         edit:
@@ -553,7 +562,7 @@ en:
           no_documents: You must upload at least one file
           attributes:
             having_problems_uploading_explanation:
-              blank: Please enter reasons why you can't upload your files
+              blank: Please enter reasons why you can't upload a letter
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -812,11 +821,15 @@ en:
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_letter_upload_type_form:
         letter_upload_type:
-          single_html: '<strong>I have a single file of my letter</strong><br>Select this option if you have a PDF, DOC
-            or any other document containing your letter in full.'
-          multiple_html: '<strong>I have multiple scans or image files of my letter</strong><br>Select this option if
-            you have taken photos or scanned the different sides of the letter and you ended up with several files.'
+          single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
+            the letter as one file'
+          multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
+            the sides of your letter in several files'
+          no_letter_html: "<strong>I do not have the letter</strong><br>You have lost the letter or do not
+            have it handy"
       steps_details_letter_upload_form:
+        having_problems_uploading_explanation: Enter reasons why you can't upload a letter
+      steps_details_documents_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
@@ -1027,9 +1040,6 @@ en:
     letter_uploaded:
       question: Letter uploaded
       accessible_change_text: letter uploaded
-    letter_files_uploaded:
-      question: Letter files uploaded
-      accessible_change_text: letter files uploaded
     problems_uploading_documents:
       question: Problems uploading documents
       accessible_change_text: problems uploading documents

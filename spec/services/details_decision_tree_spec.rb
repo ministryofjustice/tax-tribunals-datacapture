@@ -161,6 +161,12 @@ RSpec.describe DetailsDecisionTree do
 
         it {is_expected.to have_destination(:documents_upload, :edit)}
       end
+
+      context 'and the answer is `no_letter`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::NO_LETTER)}
+
+        it {is_expected.to have_destination('/users/registrations', :new)}
+      end
     end
 
     context 'when the step is `letter_upload`' do

@@ -45,7 +45,7 @@ module CheckAnswers
 
         before do
           allow(DocumentsSubmittedAnswer).to receive(:new).with(
-            :letter_files_uploaded, [], change_path: '/steps/details/documents_upload'
+            :letter_uploaded, [], change_path: '/steps/details/documents_upload'
           ).and_return(documents_submitted_answer)
         end
 
