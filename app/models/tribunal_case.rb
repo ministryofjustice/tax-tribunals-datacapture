@@ -33,6 +33,7 @@ class TribunalCase < ApplicationRecord
   has_value_object :representative_professional_status
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
   has_value_object :representative_type, class_name: 'ContactableEntityType'
+  has_value_object :letter_upload_type
 
   # Closure task
   has_value_object :closure_case_type

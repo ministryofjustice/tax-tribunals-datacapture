@@ -22,8 +22,10 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :grounds_for_appeal
       edit(:outcome)
     when :outcome
-      edit(:letter_upload)
-    when :letter_upload
+      edit(:letter_upload_type)
+    when :letter_upload_type
+      after_letter_upload_type
+    when :letter_upload, :documents_upload
       after_letter_upload
     when :check_answers
       root_path
@@ -86,6 +88,17 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       edit(:grounds_for_appeal)
     when Intent::CLOSE_ENQUIRY
       edit('/steps/closure/enquiry_details')
+    end
+  end
+
+  def after_letter_upload_type
+    case tribunal_case.letter_upload_type
+    when LetterUploadType::SINGLE
+      edit(:letter_upload)
+    when LetterUploadType::MULTIPLE
+      edit(:documents_upload)
+    when LetterUploadType::NO_LETTER
+      registrations_path
     end
   end
 

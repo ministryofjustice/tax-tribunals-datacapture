@@ -337,17 +337,6 @@ en:
       letter_upload:
         edit:
           page_title: Letter upload
-          lead_text: *tax_tribunal_independent
-          heading:
-            original_notice_letter: Upload the original notice or decision letter
-            review_conclusion_letter: Upload the review conclusion letter
-            late_review_refusal_letter: Upload the letter refusing your late review
-            late_appeal_refusal_letter: Upload the letter refusing your late appeal
-          attach_document:
-            original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
-            review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
-            late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
-            late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
           having_problems_uploading: I am having trouble uploading my letter
       outcome:
         edit:
@@ -392,6 +381,22 @@ en:
           post_address_html: "<p>Once the tax tribunal has received your appeal they
             will write to you with confirmation and details of the next steps.</p>"
           page_title: Upload problems
+      letter_upload_type:
+        edit:
+          page_title: Letter upload type
+          no_letter_info_html: |
+            <p><strong>You must upload a copy of the letter for your appeal to be valid.</strong></p>
+            <ul class="list list-bullet">
+              <li>save your details and come back later when you have the letter</li>
+              <li>contact HMRC if you have lost your letter and need a replacement</li>
+            </ul>
+      documents_upload:
+        edit:
+          page_title: Letter upload
+          other_files_info_html: |
+            <p><strong>Do not upload any documents other than your letter</strong></p>
+            <p>The tribunal will contact you if further documents are needed.</p>
+          having_problems_uploading: I am having trouble uploading my letter
     hardship:
       disputed_tax_paid:
         edit:
@@ -543,10 +548,19 @@ en:
             outcome:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
+        steps/details/letter_upload_type_form:
+          attributes:
+            letter_upload_type:
+              inclusion: Select whether you need to upload a single file or multiple files
         steps/details/letter_upload_form:
           attributes:
             supporting_letter_document:
               blank: You must choose a file to upload
+            having_problems_uploading_explanation:
+              blank: Please enter reasons why you can't upload a letter
+        steps/details/documents_upload_form:
+          no_documents: You must upload at least one file
+          attributes:
             having_problems_uploading_explanation:
               blank: Please enter reasons why you can't upload a letter
         steps/hardship/disputed_tax_paid_form:
@@ -636,6 +650,8 @@ en:
         hardship_review_status_html: Did HMRC allow you to defer paying because of financial hardship?
       steps_lateness_in_time_form:
         in_time_html: Are you in time to appeal to the tax tribunal?
+      steps_details_letter_upload_type_form:
+        letter_upload_type_html: Do you need to upload a single file or multiple files?
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -803,7 +819,17 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
+      steps_details_letter_upload_type_form:
+        letter_upload_type:
+          single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
+            the letter as one file'
+          multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
+            the sides of your letter in several files'
+          no_letter_html: "<strong>I do not have the letter</strong><br>You have lost the letter or do not
+            have it handy"
       steps_details_letter_upload_form:
+        having_problems_uploading_explanation: Enter reasons why you can't upload a letter
+      steps_details_documents_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
@@ -1011,7 +1037,7 @@ en:
     documents_submitted:
       question: Documents uploaded
       accessible_change_text: documents uploaded
-    letter_submitted:
+    letter_uploaded:
       question: Letter uploaded
       accessible_change_text: letter uploaded
     problems_uploading_documents:
@@ -1105,7 +1131,7 @@ en:
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
-      technical_info: We accept scanned images or good quality pictures, for example via a smartphone.
+      technical_info: We accept scanned documents, images or good quality pictures, for example via a smartphone.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
@@ -1123,6 +1149,18 @@ en:
       file_wrong_format: " is in a format we don't accept. You can upload JPG, PNG, GIF, PDF, Word or Excel files."
       file_too_big: " is too big. You will need to resubmit a smaller version, less than XXX megabytes (MB)."
       confirm_delete: Are you sure?
+    letter_upload:
+      lead_text: *tax_tribunal_independent
+      heading:
+        original_notice_letter: Upload the original notice or decision letter
+        review_conclusion_letter: Upload the review conclusion letter
+        late_review_refusal_letter: Upload the letter refusing your late review
+        late_appeal_refusal_letter: Upload the letter refusing your late appeal
+      attach_document:
+        original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
+        review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
+        late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
+        late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
     password_toggle:
       show_password: Show password
       hide_password: Hide password

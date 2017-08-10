@@ -1,5 +1,7 @@
 module Steps::Details
   class LetterUploadController < Steps::DetailsStepController
+    helper LetterTypeHelper
+
     def edit
       @form_object = LetterUploadForm.new(
         tribunal_case: current_tribunal_case,

@@ -67,6 +67,12 @@ RSpec.describe TaxTribs::DecisionTree do
     end
   end
 
+  describe '.registrations_path' do
+    specify do
+      expect(subject.send(:registrations_path)).to eq({ controller: '/users/registrations', action: :new })
+    end
+  end
+
   describe '.dispute_or_penalties_decision' do
     let(:case_type) { instance_double(CaseType, ask_dispute_type?: false, ask_penalty?: false) }
 

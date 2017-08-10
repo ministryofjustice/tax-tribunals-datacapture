@@ -21,6 +21,12 @@ Then(/^I should not see "(.*?)"$/) do |text|
   expect(page).not_to have_text(text)
 end
 
+Then(/^I should not see dropzone errors$/) do
+  expect(page).not_to have_text("format we don't accept")
+  expect(page).not_to have_text("Server responded with 0 code")
+  expect(page).not_to have_text("No files uploaded")
+end
+
 When(/^I click the "(.*?)" link$/) do |text|
   click_link(text)
 end

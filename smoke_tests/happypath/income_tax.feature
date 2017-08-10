@@ -82,11 +82,38 @@ Feature: Income Tax Happy Paths
     And I click the "Save and continue" button
     Then I should see "Upload the review conclusion letter"
 
-    Given I attach the review conclusion letter
+    Given I choose "Upload the letter as multiple pages"
+    Then I should see "Upload the review conclusion letter"
+    And I should see "Drag and drop files here"
+
+    # Dropzone uploader
+    Given I drop "original_notice.docx"
+    Then I should see "original_notice.docx"
+    And I should not see dropzone errors
+
+    Given I click the "Remove" link
+    Then I should not see "original_notice.docx"
+
+    Given I drop "original_notice.docx"
+    Then I should see "original_notice.docx"
+    And I should not see dropzone errors
+
+    Given I drop "review_conclusion.docx"
+    Then I should see "review_conclusion.docx"
+    And I should not see dropzone errors
+
+    # There is an intermittent S3 race condition where the last upload before
+    # 'Check your answers' does not get stored in time to make it into the list
+    # call of 'Check your answers'.
+    Given I pause for "2" seconds
+
     When I click the "Save and continue" button
     Then I should see "Check your answers"
     And I should see "Appeal details"
     And I should see "grounds_for_appeal.docx"
+
+    And I should see "Letter uploaded"
+    And I should see "original_notice.docx"
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button

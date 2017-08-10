@@ -1,0 +1,21 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header %>
+
+    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
+
+    <%= step_form @form_object, html: { class: 'ga-radioButtonGroup' } do |f| %>
+      <%= f.radio_button_fieldset :letter_upload_type,
+          choices: Steps::Details::LetterUploadTypeForm.choices,
+          legend_options: {class: 'visuallyhidden'} %>
+
+      <div class="panel toggleable util_mb-large" id="letter_upload_type_no_letter" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
+        <%= t('.no_letter_info_html') %>
+      </div>
+
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
+    <% end %>
+  </div>
+</div>

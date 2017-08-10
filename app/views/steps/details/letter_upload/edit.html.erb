@@ -4,21 +4,17 @@
   <div class="column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%=t ".heading.#{@form_object.document_type}" %></h1>
-
-    <p class="lede"><%=t '.lead_text' %></p>
-
-    <p><%=t 'shared.file_upload.technical_info' %></p>
+    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
-      <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'letter', ga_label: @form_object.document_type} do |f| %>
+      <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'letter', ga_label: i18n_letter_type} do |f| %>
 
-        <%= document_upload_field(f, @form_object.document_key, label_text: t(".attach_document.#{@form_object.document_type}_html")) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t("shared.letter_upload.attach_document.#{i18n_letter_type}_html")) %>
 
         <% unless uploaded_document?(@form_object.document_key) %>
           <div class="form-group util_mt-large">
             <%= f.label :having_problems_uploading, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
-              <%= f.check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems' %>
+              <%= f.check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems single' %>
               <%= t '.having_problems_uploading' %>
             <% end %>
 

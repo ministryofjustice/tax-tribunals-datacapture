@@ -1,12 +1,9 @@
 module Steps::Details
-  class LetterUploadForm < BaseForm
-    include DocumentAttachable
-
-    attribute :supporting_letter_document, DocumentUpload
+  class DocumentsUploadForm < BaseForm
     attribute :having_problems_uploading, Boolean
     attribute :having_problems_uploading_explanation, String
 
-    validate :check_document_presence, unless: :having_problems_uploading
+    validate :check_documents_uploaded, if: :tribunal_case, unless: :having_problems_uploading
     validates_presence_of :having_problems_uploading_explanation, if: :having_problems_uploading
 
     def save
@@ -18,19 +15,19 @@ module Steps::Details
       super
     end
 
-    def document_key
-      :supporting_letter
-    end
-
     private
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
 
-      upload_document_if_present && tribunal_case.update(
+      tribunal_case.update(
         having_problems_uploading: having_problems_uploading,
         having_problems_uploading_explanation: having_problems_uploading ? having_problems_uploading_explanation : nil
       )
+    end
+
+    def check_documents_uploaded
+      tribunal_case.documents(:supporting_documents).any? || errors.add(:base, :no_documents)
     end
   end
 end

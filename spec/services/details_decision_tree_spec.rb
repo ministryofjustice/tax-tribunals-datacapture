@@ -144,11 +144,49 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `outcome`' do
       let(:step_params) { { outcome: 'anything'  } }
 
-      it { is_expected.to have_destination(:letter_upload, :edit) }
+      it { is_expected.to have_destination(:letter_upload_type, :edit) }
+    end
+
+    context 'when the step is `letter_upload_type`' do
+      let(:step_params) { { letter_upload_type: 'anything' } }
+
+      context 'and the answer is `single`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::SINGLE)}
+
+        it {is_expected.to have_destination(:letter_upload, :edit)}
+      end
+
+      context 'and the answer is `multiple`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::MULTIPLE)}
+
+        it {is_expected.to have_destination(:documents_upload, :edit)}
+      end
+
+      context 'and the answer is `no_letter`' do
+        let(:tribunal_case) {instance_double(TribunalCase, letter_upload_type: LetterUploadType::NO_LETTER)}
+
+        it {is_expected.to have_destination('/users/registrations', :new)}
+      end
     end
 
     context 'when the step is `letter_upload`' do
       let(:step_params) { { letter_upload: 'anything'  } }
+
+      context 'and user had no problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: false) }
+
+        it { is_expected.to have_destination(:check_answers, :show) }
+      end
+
+      context 'and user had problems uploading' do
+        let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: true) }
+
+        it { is_expected.to have_destination(:documents_upload_problems, :show) }
+      end
+    end
+
+    context 'when the step is `documents_upload`' do
+      let(:step_params) { { documents_upload: 'anything'  } }
 
       context 'and user had no problems uploading' do
         let(:tribunal_case) { instance_double(TribunalCase, having_problems_uploading?: false) }
