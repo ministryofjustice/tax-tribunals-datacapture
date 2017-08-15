@@ -671,7 +671,8 @@ en:
           apn_penalty_html: "<strong>Accelerated Payment Notice (APN) penalty</strong>"
           aggregates_levy_html: "<strong>Aggregates Levy</strong>"
           air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"
-          alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong>"
+          alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong><br>
+            including the Alcohol Wholesaler Registration Scheme (AWRS)"
           bingo_duty_html: "<strong>Bingo Duty</strong>"
           climate_change_levy_html: "<strong>Climate Change Levy</strong>"
           construction_industry_scheme_html: "<strong>Construction Industry Scheme
