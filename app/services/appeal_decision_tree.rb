@@ -19,6 +19,8 @@ class AppealDecisionTree < TaxTribs::DecisionTree
   def after_case_type_step
     if answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
+    elsif tribunal_case.case_type == CaseType::TAX_CREDITS
+      show(:tax_credits_kickout)
     elsif tribunal_case.case_type.ask_challenged?
       edit('/steps/challenge/decision')
     else

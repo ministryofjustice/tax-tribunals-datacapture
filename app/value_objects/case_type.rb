@@ -63,6 +63,7 @@ class CaseType < ValueObject
     STAMP_DUTIES                 = new(:stamp_duties,                 direct_tax_properties),
     STATUTORY_PAYMENTS           = new(:statutory_payments,           direct_tax_properties),
     STUDENT_LOANS                = new(:student_loans,                direct_tax_properties),
+    TAX_CREDITS                  = new(:tax_credits),                 # kickout
     TOBACCO_PRODUCTS_DUTY        = new(:tobacco_products_duty,        indirect_tax_properties),
     VAT                          = new(:vat,                          indirect_tax_properties),
     OTHER                        = new(:other,                        direct_tax: true, ask_hardship: true, appeal_or_application: :appeal)

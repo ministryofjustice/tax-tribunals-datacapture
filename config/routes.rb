@@ -54,6 +54,7 @@ Rails.application.routes.draw do
       edit_step :penalty_amount
       edit_step :tax_amount
       edit_step :penalty_and_tax_amounts
+      show_step :tax_credits_kickout
     end
 
     namespace :challenge do

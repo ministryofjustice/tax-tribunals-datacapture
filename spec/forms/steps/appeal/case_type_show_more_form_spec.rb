@@ -46,6 +46,7 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
         stamp_duties
         statutory_payments
         student_loans
+        tax_credits
         tobacco_products_duty
         other
       ))
