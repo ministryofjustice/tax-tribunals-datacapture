@@ -112,6 +112,13 @@ en:
           lead_text: Both figures must be shown on the same letter, either the original
             notice or review conclusion letter.
           page_title: Penalty and tax amounts
+      tax_credits_kickout:
+        show:
+          page_title: Tax credits
+          heading: You will need to appeal to a different tribunal
+          lead_text: There is a different way to appeal about tax credits, including Child Tax Credit and Working Tax Credit.
+          appeal_text: You will need to appeal to the Social Security and Child Support Tribunal.
+          appeal_button: Appeal a tax credit decision
       start:
         show:
           page_title: Start your appeal
@@ -702,6 +709,7 @@ en:
           statutory_payments_html: "<strong>Statutory payments</strong><br>for example
             statutory sick pay, maternity pay, paternity pay or adoption pay"
           student_loans_html: "<strong>Student loans</strong>"
+          tax_credits_html: "<strong>Tax credits</strong><br>including Child Tax Credit and Working Tax Credit"
           tobacco_products_duty_html: "<strong>Tobacco Products Duty</strong>"
           other_html: "<strong>None of the above</strong>"
       steps_appeal_dispute_type_form:
@@ -957,6 +965,7 @@ en:
         stamp_duties: Stamp duties
         statutory_payments: Statutory payments
         student_loans: Student loans
+        tax_credits: Tax credits
         tobacco_products_duty: Tobacco Products Duty
         vat: Value Added Tax (VAT)
     challenged_decision_direct:

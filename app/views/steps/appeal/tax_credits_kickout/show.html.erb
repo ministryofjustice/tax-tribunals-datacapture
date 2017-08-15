@@ -1,5 +1,5 @@
 <% title t('.page_title') %>
-<% track_transaction name: 'Must challenge HMRC', category: 'Kickouts' %>
+<% track_transaction name: 'Tax credits appeal', category: 'Kickouts' %>
 
 <div class="grid-row">
   <div class="column-two-thirds">
@@ -10,14 +10,10 @@
       <%=t '.lead_text' %>
     </p>
 
-    <p><%=t '.free_to_challenge_hmrc_heading_html' %></p>
-
-    <p>
-      <%=t '.free_to_challenge_hmrc_guidance_html' %>
-    </p>
+    <p><%=t '.appeal_text' %></p>
 
     <div class="form-group util_mt-large">
-      <a href="https://www.gov.uk/contact-hmrc" class="button"><%=t '.contact_hmrc_button' %></a>
+      <a href="https://www.gov.uk/social-security-child-support-tribunal" class="button"><%= t '.appeal_button' %></a>
     </div>
 
     <%= render partial: 'steps/shared/kickout_survey' %>
