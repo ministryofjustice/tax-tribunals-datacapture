@@ -106,6 +106,20 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
+  describe '#has_representative?' do
+    let(:attributes) { { has_representative: HasRepresentative.new(value) } }
+
+    context 'when value is `no`' do
+      let(:value) { :no }
+      it { expect(subject.has_representative?).to eq(false) }
+    end
+
+    context 'when value is `yes`' do
+      let(:value) { :yes }
+      it { expect(subject.has_representative?).to eq(true) }
+    end
+  end
+
   context 'when the user is the taxpayer' do
     let(:attributes) { { user_type: UserType.new(:taxpayer) } }
     describe '#started_by_taxpayer?' do

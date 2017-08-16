@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe TaxTribs::GlimrNewCase do
   let!(:tribunal_case)      { TribunalCase.create(case_attributes) }
+  let(:has_representative)  { HasRepresentative::NO }
   let(:taxpayer_type)       { ContactableEntityType::INDIVIDUAL }
   let(:taxpayer_address)    { "769 Eleanore Landing\nSuite 225" }
 
@@ -18,6 +19,7 @@ RSpec.describe TaxTribs::GlimrNewCase do
       taxpayer_organisation_name: 'Company Name',
       taxpayer_organisation_fao: 'Destany Fritsch',
       files_collection_ref: 'd29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
+      has_representative: has_representative
     }
   end
 
@@ -140,6 +142,73 @@ RSpec.describe TaxTribs::GlimrNewCase do
             contactStreet4: 'More address, Even more address'
           })
         end
+
+        it { subject.call }
+      end
+    end
+
+    context 'for a representative' do
+      let(:case_attributes) do
+        super().merge({
+          has_representative: HasRepresentative::YES,
+          representative_type: representative_type,
+          representative_individual_first_name: 'Kraig',
+          representative_individual_last_name: 'Walsh',
+          representative_organisation_name: 'Cartwright-Rau',
+          representative_organisation_fao: 'Wanda',
+          representative_contact_phone: '12345',
+          representative_contact_email: 'test-rep@example.com',
+          representative_contact_address: "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address",
+          representative_contact_postcode: 'X1 2YY'
+        })
+      end
+
+      let(:glimr_params) do
+        super().merge({
+          repPhone: '12345',
+          repEmail: 'test-rep@example.com',
+          repPostalCode: 'X1 2YY',
+          repStreet1: '769 Eleanore Landing',
+          repStreet2: 'Another street',
+          repStreet3: 'Suite 225',
+          repStreet4: 'More address, Even more address'
+        })
+      end
+
+      context 'when representative_type is individual' do
+        let(:representative_type) { ContactableEntityType::INDIVIDUAL }
+        let(:glimr_params) do
+          super().merge({
+            repFirstName: 'Kraig',
+            repLastName: 'Walsh'
+          })
+        end
+
+        it {subject.call}
+
+        # Mutant kill
+        context 'for several lines addresses but less than 4' do
+          let(:case_attributes) do
+            super().merge({
+              representative_contact_address: "769 Eleanore Landing\nAnother street\nSuite 225"
+            })
+          end
+          let(:glimr_params) do
+            super().slice!(:repStreet4)
+          end
+
+          it {subject.call}
+        end
+      end
+
+      context 'when representative_type is company' do
+        let(:representative_type) { ContactableEntityType::COMPANY }
+        let(:glimr_params) {
+          super().merge({
+            repOrganisationName: 'Cartwright-Rau',
+            repFAO: 'Wanda'
+          })
+        }
 
         it { subject.call }
       end

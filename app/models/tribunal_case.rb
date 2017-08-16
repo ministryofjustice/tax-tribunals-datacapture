@@ -74,6 +74,10 @@ class TribunalCase < ApplicationRecord
     case_type.appeal_or_application
   end
 
+  def has_representative?
+    has_representative.eql?(HasRepresentative::YES)
+  end
+
   def started_by_taxpayer?
     user_type.eql?(UserType::TAXPAYER)
   end
