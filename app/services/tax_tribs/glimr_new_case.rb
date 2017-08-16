@@ -44,6 +44,31 @@ module TaxTribs
           contactLastName: tc.taxpayer_individual_last_name
         )
       end
+
+      params.merge!(representative_params) if tc.has_representative?
+      params
+    end
+
+    def representative_params
+      params = {
+        repPhone: tc.representative_contact_phone,
+        repEmail: tc.representative_contact_email,
+        repPostalCode: tc.representative_contact_postcode
+      }
+
+      params.merge!(representative_street_params)
+
+      if tc.representative_is_organisation?
+        params.merge!(
+          repOrganisationName: tc.representative_organisation_name,
+          repFAO: tc.representative_organisation_fao
+        )
+      else
+        params.merge!(
+          repFirstName: tc.representative_individual_first_name,
+          repLastName: tc.representative_individual_last_name
+        )
+      end
     end
 
     private
@@ -56,10 +81,7 @@ module TaxTribs
     # parameters, we store all the remaining lines into the contactStreet4 parameter.
     #
     def taxpayer_street_params
-      lines = tc.taxpayer_contact_address.lines.map(&:chomp)
-
-      street1, street2, street3, *remnant = lines
-      street4 = remnant.join(', ').presence
+      street1, street2, street3, street4 = split_address(tc.taxpayer_contact_address)
 
       {
         contactStreet1: street1,
@@ -67,6 +89,26 @@ module TaxTribs
         contactStreet3: street3,
         contactStreet4: street4
       }.compact
+    end
+
+    def representative_street_params
+      street1, street2, street3, street4 = split_address(tc.representative_contact_address)
+
+      {
+        repStreet1: street1,
+        repStreet2: street2,
+        repStreet3: street3,
+        repStreet4: street4
+      }.compact
+    end
+
+    def split_address(address)
+      lines = address.lines.map(&:chomp)
+
+      street1, street2, street3, *remnant = lines
+      street4 = remnant.join(', ').presence
+
+      [street1, street2, street3, street4]
     end
   end
 end
