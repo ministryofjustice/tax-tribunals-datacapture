@@ -45,7 +45,7 @@ RSpec.describe TaxTribs::GlimrNewCase do
     let(:glimr_params) do
       {
         jurisdictionId: 8,
-        onlineMappingCode: 'APPN_OTHER',
+        onlineMappingCode: 'APPEAL_OTHER',
         documentsURL: 'http://downloader.com/d29210a8-f2fe-4d6f-ac96-ea4f9fd66687',
         contactFirstName: 'Filomena',
         contactLastName: 'Keebler',
