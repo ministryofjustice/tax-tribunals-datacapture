@@ -3,6 +3,8 @@ module Steps::Appeal
     attribute :penalty_amount, String
     attribute :tax_amount, String
 
+    validates_presence_of :penalty_amount, :tax_amount
+
     private
 
     def persist!

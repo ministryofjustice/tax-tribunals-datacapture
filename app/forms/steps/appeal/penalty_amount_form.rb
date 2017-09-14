@@ -7,8 +7,16 @@ module Steps::Appeal
       PenaltyLevel.values.map(&:to_s)
     end
     validates_inclusion_of :penalty_level, in: choices
+    validates_presence_of :penalty_amount, if: :amount_required?
 
     private
+
+    def amount_required?
+      [
+        PenaltyLevel::PENALTY_LEVEL_2.to_s,
+        PenaltyLevel::PENALTY_LEVEL_3.to_s
+      ].include?(penalty_level)
+    end
 
     def penalty_level_value
       PenaltyLevel.new(penalty_level)

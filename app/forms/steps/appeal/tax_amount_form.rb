@@ -2,6 +2,8 @@ module Steps::Appeal
   class TaxAmountForm < BaseForm
     attribute :tax_amount, String
 
+    validates_presence_of :tax_amount
+
     private
 
     def persist!
