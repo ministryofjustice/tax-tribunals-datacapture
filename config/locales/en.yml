@@ -470,6 +470,18 @@ en:
           attributes:
             penalty_level:
               inclusion: Select a penalty or surcharge amount
+            penalty_amount:
+              blank: Enter the amount
+        steps/appeal/tax_amount_form:
+          attributes:
+            tax_amount:
+              blank: Enter the amount
+        steps/appeal/penalty_and_tax_amounts_form:
+          attributes:
+            tax_amount:
+              blank: Enter the tax amount
+            penalty_amount:
+              blank: Enter the penalty amount
         steps/challenge/decision_form:
           attributes:
             challenged_decision:
@@ -729,14 +741,14 @@ en:
           cancellation_of_registration_html: "<strong>Cancellation of registration</strong>"
           other_html: "<strong>None of the above</strong>"
       steps_appeal_penalty_amount_form:
-        penalty_amount: Enter the penalty or surcharge amount (optional)
+        penalty_amount: Enter the penalty or surcharge amount
         penalty_level:
           <<: *PENALTY_LEVELS
       steps_appeal_tax_amount_form:
-        tax_amount: Enter the amount of tax under dispute (optional)
+        tax_amount: Enter the amount of tax under dispute
       steps_appeal_penalty_and_tax_amounts_form:
-        tax_amount: Enter the amount of tax under dispute (optional)
-        penalty_amount: Enter the penalty or surcharge amount (optional)
+        tax_amount: Enter the amount of tax under dispute
+        penalty_amount: Enter the penalty or surcharge amount
       steps_challenge_decision_form:
         challenged_decision:
           <<: *YESNO

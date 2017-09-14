@@ -57,15 +57,30 @@ RSpec.describe Steps::Appeal::PenaltyAmountForm do
         expect(subject.save).to be(true)
       end
 
-      context 'when penalty amount supplied' do
-        let(:penalty_amount) { 'about 12345' }
+      context 'when penalty amount is required' do
+        let(:penalty_level) { 'penalty_level_2' }
 
-        it 'saves the record' do
-          expect(tribunal_case).to receive(:update).with(
-            penalty_level: PenaltyLevel::PENALTY_LEVEL_1,
-            penalty_amount: 'about 12345'
-          ).and_return(true)
-          expect(subject.save).to be(true)
+        context 'when penalty amount is not supplied' do
+          it 'returns false' do
+            expect(subject.save).to be(false)
+          end
+
+          it 'has a validation error on the field' do
+            expect(subject).to_not be_valid
+            expect(subject.errors[:penalty_amount]).to_not be_empty
+          end
+        end
+
+        context 'when penalty amount is supplied' do
+          let(:penalty_amount) {'about 12345'}
+
+          it 'saves the record' do
+            expect(tribunal_case).to receive(:update).with(
+              penalty_level: PenaltyLevel::PENALTY_LEVEL_2,
+              penalty_amount: 'about 12345'
+            ).and_return(true)
+            expect(subject.save).to be(true)
+          end
         end
       end
     end

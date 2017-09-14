@@ -6,7 +6,7 @@ RSpec.describe Steps::Appeal::TaxAmountForm do
     tax_amount: tax_amount
   } }
   let(:tribunal_case) { instance_double(TribunalCase, tax_amount: nil) }
-  let(:tax_amount) { nil }
+  let(:tax_amount) { 'about 12345' }
 
   subject { described_class.new(arguments) }
 
@@ -20,17 +20,19 @@ RSpec.describe Steps::Appeal::TaxAmountForm do
     end
 
     context 'when tax_amount is not given' do
-      it 'returns true' do
-        expect(tribunal_case).to receive(:update).with(
-          tax_amount: nil
-        ).and_return(true)
-        expect(subject.save).to be(true)
+      let(:tax_amount) { nil }
+
+      it 'returns false' do
+        expect(subject.save).to be(false)
+      end
+
+      it 'has a validation error on the field' do
+        expect(subject).to_not be_valid
+        expect(subject.errors[:tax_amount]).to_not be_empty
       end
     end
 
     context 'when tax_amount is given' do
-      let(:tax_amount) { 'about 12345' }
-
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
           tax_amount: 'about 12345'
