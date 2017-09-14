@@ -4,6 +4,8 @@ en:
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
+    blank_penalty_amount: &blank_penalty_amount "Enter the penalty amount (or 'unknown' if you don't have it)"
+    blank_tax_amount: &blank_tax_amount "Enter the tax amount (or 'unknown' if you don't have it)"
     blank_first_name: &blank_first_name "Please enter your first name"
     blank_last_name: &blank_last_name "Please enter your last name"
     blank_address: &blank_address "Please enter a contact address"
@@ -471,17 +473,17 @@ en:
             penalty_level:
               inclusion: Select a penalty or surcharge amount
             penalty_amount:
-              blank: Enter the amount
+              blank: *blank_penalty_amount
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:
-              blank: Enter the amount
+              blank: *blank_tax_amount
         steps/appeal/penalty_and_tax_amounts_form:
           attributes:
             tax_amount:
-              blank: Enter the tax amount
+              blank: *blank_tax_amount
             penalty_amount:
-              blank: Enter the penalty amount
+              blank: *blank_penalty_amount
         steps/challenge/decision_form:
           attributes:
             challenged_decision:
