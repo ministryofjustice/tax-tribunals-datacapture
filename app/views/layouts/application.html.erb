@@ -1,5 +1,7 @@
 <% content_for?(:page_title) ? yield(:page_title) : fallback_title %>
 
+<% content_for(:cookie_message) do %><%=t '.cookie_message_html' %><% end %>
+
 <% content_for(:head) do %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
