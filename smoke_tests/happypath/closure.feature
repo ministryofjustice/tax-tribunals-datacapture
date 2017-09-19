@@ -41,24 +41,18 @@ Feature: Closure Happy Path
 
     Given I drop "original_notice.docx"
     Then I should see "original_notice.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
+    And I should not see dropzone errors
 
     Given I click the "Remove" link
     Then I should not see "original_notice.docx"
 
     Given I drop "original_notice.docx"
     Then I should see "original_notice.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
+    And I should not see dropzone errors
 
     Given I drop "review_conclusion.docx"
     Then I should see "review_conclusion.docx"
-    And I should not see "format we don't accept"
-    And I should not see "Server responded with 0 code"
-    And I should not see "No files uploaded"
+    And I should not see dropzone errors
 
     # There is an intermittent S3 race condition where the last upload before
     # 'Check your answers' does not get stored in time to make it into the list
