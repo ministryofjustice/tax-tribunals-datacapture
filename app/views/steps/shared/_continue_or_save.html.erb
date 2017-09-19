@@ -6,3 +6,7 @@
     <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path %>
   <% end %>
 </p>
+
+<div class="timeout-note">
+  <p><%= t('.timeout_note', session_timeout: Rails.configuration.x.session.expires_in_minutes) %></p>
+</div>

@@ -233,6 +233,8 @@ en:
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
           <p>You need to download and fill in an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
       kickout_feedback: Give your feedback. Help improve this service
+      continue_or_save:
+        timeout_note: Your session will time out after %{session_timeout} minutes of inactivity. Save your details if you want to come back later.
     details:
       user_type:
         edit:
