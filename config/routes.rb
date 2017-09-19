@@ -171,6 +171,7 @@ Rails.application.routes.draw do
   get :closure, to: 'closure_home#index'
 
   get :contact, to: 'home#contact', as: :contact_page
+  get :cookies, to: 'home#cookies', as: :cookies_page
 
   # catch-all route
   # :nocov:
