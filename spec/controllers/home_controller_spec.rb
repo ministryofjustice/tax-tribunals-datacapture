@@ -50,4 +50,11 @@ RSpec.describe HomeController do
       expect(response).to render_template(:contact)
     end
   end
+
+  describe '#cookies' do
+    it 'renders the expected page' do
+      get :cookies
+      expect(response).to render_template(:cookies)
+    end
+  end
 end
