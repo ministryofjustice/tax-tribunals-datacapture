@@ -1,7 +1,8 @@
 require 'securerandom'
 
 Then(/^I drop "(.*?)"$/) do |filename|
-	drop_in_dropzone("#{UPLOAD_EXAMPLES}/#{filename}")
+  drop_in_dropzone("#{UPLOAD_EXAMPLES}/#{filename}")
+  sleep(1)
 end
 
 def drop_in_dropzone(file_path)
