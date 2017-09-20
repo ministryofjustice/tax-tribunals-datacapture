@@ -9,10 +9,10 @@
 #document_upload_main_container.uploaded_doc_true {
   .uploaded_document_container {
     position: relative;
-    top: -50px;
+    top: -140px;
   }
 
-  p.actions {
+  p.actions, p.timeout-note {
     position: relative;
     top: 150px;
   }

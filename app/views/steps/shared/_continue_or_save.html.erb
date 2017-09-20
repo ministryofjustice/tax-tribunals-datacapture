@@ -7,6 +7,6 @@
   <% end %>
 </p>
 
-<div class="timeout-note">
-  <p><%= t('.timeout_note', session_timeout: Rails.configuration.x.session.expires_in_minutes) %></p>
-</div>
+<p class="timeout-note">
+  <%= t('.timeout_note', session_timeout: Rails.configuration.x.session.expires_in_minutes) %>
+</p>
