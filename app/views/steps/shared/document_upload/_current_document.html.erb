@@ -3,5 +3,9 @@
     <p class="ellipses"><%= t('.previous_document_html', file_name: current_document.name) %></p>
   </div>
 
-  <%= button_to 'Remove', document_path(current_document, document_key: document_key), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button button-secondary' %>
+  <%= button_to t('shared.file_upload.remove_file'),
+                document_path(current_document, document_key: document_key),
+                method: :delete,
+                data: {confirm: t('shared.file_upload.confirm_delete')},
+                class: 'button button-secondary' %>
 </div>
