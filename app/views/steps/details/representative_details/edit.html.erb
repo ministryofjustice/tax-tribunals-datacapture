@@ -13,7 +13,9 @@
         <%= f.text_field name_field %>
       <% end %>
       <%= f.text_area :representative_contact_address, size: '40x4', class: 'form-control-3-4' %>
+      <%= f.text_field :representative_contact_city %>
       <%= f.text_field :representative_contact_postcode %>
+      <%= f.text_field :representative_contact_country %>
       <% if @form_object.show_fao? %>
         <%= f.text_field :representative_organisation_fao %>
       <% end %>

@@ -32,11 +32,13 @@ module CheckAnswers
           organisation_fao: 'Jackie Smith',
           organisation_name: 'Foo org',
           contact_address: '123 Any Road',
-          contact_postcode: 'SW1H 9AJ'
+          contact_postcode: 'SW1H 9AJ',
+          contact_city: 'London',
+          contact_country: 'UK'
         } }
 
         it 'concatenates attributes' do
-          expect(subject.contact_address).to eq("Jackie Smith\nFoo org\n123 Any Road\nSW1H 9AJ")
+          expect(subject.contact_address).to eq("Jackie Smith\nFoo org\n123 Any Road\nLondon, SW1H 9AJ\nUK")
         end
       end
 
@@ -45,11 +47,13 @@ module CheckAnswers
           individual_first_name: 'Hans',
           individual_last_name: 'Muller',
           contact_address: '123 Any Road',
-          contact_postcode: 'SW1H 9AJ'
+          contact_postcode: 'SW1H 9AJ',
+          contact_city: 'London',
+          contact_country: 'UK'
         } }
 
         it 'concatenates attributes' do
-          expect(subject.contact_address).to eq("Hans Muller\n123 Any Road\nSW1H 9AJ")
+          expect(subject.contact_address).to eq("Hans Muller\n123 Any Road\nLondon, SW1H 9AJ\nUK")
         end
       end
     end

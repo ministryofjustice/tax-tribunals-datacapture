@@ -57,6 +57,8 @@ RSpec.describe Steps::Details::TaxpayerTypeForm do
           taxpayer_organisation_fao: nil,
           taxpayer_contact_address: nil,
           taxpayer_contact_postcode: nil,
+          taxpayer_contact_city: nil,
+          taxpayer_contact_country: nil,
           taxpayer_contact_email: nil,
           taxpayer_contact_phone: nil
         ).and_return(true)

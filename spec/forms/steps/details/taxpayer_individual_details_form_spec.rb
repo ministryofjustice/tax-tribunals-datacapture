@@ -56,6 +56,8 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
         taxpayer_individual_last_name: 'Smith',
         taxpayer_contact_address: 'Address',
         taxpayer_contact_postcode: 'Postcode',
+        taxpayer_contact_city: 'City',
+        taxpayer_contact_country: 'Country',
         taxpayer_contact_email: taxpayer_contact_email,
         tribunal_case: tribunal_case
     ) }

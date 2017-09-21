@@ -12,6 +12,8 @@ module Steps::Details
         taxpayer_organisation_fao: current_tribunal_case.taxpayer_organisation_fao,
         taxpayer_contact_address: current_tribunal_case.taxpayer_contact_address,
         taxpayer_contact_postcode: current_tribunal_case.taxpayer_contact_postcode,
+        taxpayer_contact_city: current_tribunal_case.taxpayer_contact_city,
+        taxpayer_contact_country: current_tribunal_case.taxpayer_contact_country,
         taxpayer_contact_email: current_tribunal_case.taxpayer_contact_email,
         taxpayer_contact_phone: current_tribunal_case.taxpayer_contact_phone
       )
