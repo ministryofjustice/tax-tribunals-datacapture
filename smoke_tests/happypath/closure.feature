@@ -19,11 +19,7 @@ Feature: Closure Happy Path
     Given I choose "Individual"
     Then I should see "Enter taxpayer's details"
 
-    Given I fill in "First name" with "MoJ Digital"
-    And I fill in "Last name" with "Smoketest"
-    And I fill in "Address" with "102 Petty France"
-    And I fill in "Postcode" with "SW1H 9AJ"
-    And I fill in "Email address" with "do-not-email@digital.justice.gov"
+    Given I fill the contact details
     And I click the "Continue" button
     Then I should see "Do you have someone to represent you?"
 
@@ -62,6 +58,7 @@ Feature: Closure Happy Path
     When I click the "Continue" button
     Then I should see "Check your answers"
     And I should see "Enquiry details"
+    And I should see "London, SW1H 9AJ"
     And I should see "original_notice.docx"
     And I should see "review_conclusion.docx"
 
