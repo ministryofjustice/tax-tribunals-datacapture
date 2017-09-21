@@ -68,3 +68,13 @@ end
 When(/^I pause for "([^"]*)" seconds$/) do |seconds|
   sleep seconds.to_i
 end
+
+Given(/^I fill the contact details$/) do
+  step 'I fill in "First name" with "MoJ Digital"'
+  step 'I fill in "Last name" with "Smoketest"'
+  step 'I fill in "Address" with "102 Petty France"'
+  step 'I fill in "City" with "London"'
+  step 'I fill in "Postcode" with "SW1H 9AJ"'
+  step 'I fill in "Country" with "UK"'
+  step 'I fill in "Email address" with "do-not-email@digital.justice.gov"'
+end

@@ -47,11 +47,7 @@ Feature: Income Tax Happy Paths
     Given I choose "Individual"
     Then I should see "Enter taxpayer's details"
 
-    Given I fill in "First name" with "MoJ Digital"
-    And I fill in "Last name" with "Smoketest"
-    And I fill in "Address" with "102 Petty France"
-    And I fill in "Postcode" with "SW1H 9AJ"
-    And I fill in "Email address" with "do-not-email@digital.justice.gov"
+    Given I fill the contact details
     And I click the "Save and continue" button
     Then I should see "Do you have someone to represent you?"
 
@@ -110,6 +106,7 @@ Feature: Income Tax Happy Paths
     When I click the "Save and continue" button
     Then I should see "Check your answers"
     And I should see "Appeal details"
+    And I should see "London, SW1H 9AJ"
     And I should see "grounds_for_appeal.docx"
 
     And I should see "Letter uploaded"
