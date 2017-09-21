@@ -14,6 +14,8 @@ RSpec.describe TaxTribs::GlimrNewCase do
       taxpayer_individual_last_name: 'Keebler',
       taxpayer_contact_address: taxpayer_address,
       taxpayer_contact_postcode: 'SW1H 9AJ',
+      taxpayer_contact_city: 'London',
+      taxpayer_contact_country: 'UK',
       taxpayer_contact_phone: '0700 12345678',
       taxpayer_contact_email: 'test@example.com',
       taxpayer_organisation_name: 'Company Name',
@@ -52,6 +54,8 @@ RSpec.describe TaxTribs::GlimrNewCase do
         contactStreet1: '769 Eleanore Landing',
         contactStreet2: 'Suite 225',
         contactPostalCode: 'SW1H 9AJ',
+        contactCity: 'London',
+        contactCountry: 'UK',
         contactPhone: '0700 12345678',
         contactEmail: 'test@example.com'
       }
@@ -159,7 +163,9 @@ RSpec.describe TaxTribs::GlimrNewCase do
           representative_contact_phone: '12345',
           representative_contact_email: 'test-rep@example.com',
           representative_contact_address: "769 Eleanore Landing\nAnother street\nSuite 225\nMore address\nEven more address",
-          representative_contact_postcode: 'X1 2YY'
+          representative_contact_postcode: 'X1 2YY',
+          representative_contact_city: 'Manchester',
+          representative_contact_country: 'United Kingdom'
         })
       end
 
@@ -168,6 +174,8 @@ RSpec.describe TaxTribs::GlimrNewCase do
           repPhone: '12345',
           repEmail: 'test-rep@example.com',
           repPostalCode: 'X1 2YY',
+          repCity: 'Manchester',
+          repCountry: 'United Kingdom',
           repStreet1: '769 Eleanore Landing',
           repStreet2: 'Another street',
           repStreet3: 'Suite 225',

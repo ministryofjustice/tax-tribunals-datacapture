@@ -6,6 +6,8 @@ RSpec.shared_examples 'a contactable entity form' do |params|
   default_fields = [
     "#{entity_type}_contact_address",
     "#{entity_type}_contact_postcode",
+    "#{entity_type}_contact_city",
+    "#{entity_type}_contact_country",
     "#{entity_type}_contact_email",
     "#{entity_type}_contact_phone"
   ].map(&:to_sym)

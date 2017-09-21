@@ -28,6 +28,8 @@ module TaxTribs
         contactPhone: tc.taxpayer_contact_phone,
         contactEmail: tc.taxpayer_contact_email,
         contactPostalCode: tc.taxpayer_contact_postcode,
+        contactCity: tc.taxpayer_contact_city,
+        contactCountry: tc.taxpayer_contact_country,
         documentsURL: tc.documents_url
       }
 
@@ -53,7 +55,9 @@ module TaxTribs
       params = {
         repPhone: tc.representative_contact_phone,
         repEmail: tc.representative_contact_email,
-        repPostalCode: tc.representative_contact_postcode
+        repPostalCode: tc.representative_contact_postcode,
+        repCity: tc.representative_contact_city,
+        repCountry: tc.representative_contact_country
       }
 
       params.merge!(representative_street_params)

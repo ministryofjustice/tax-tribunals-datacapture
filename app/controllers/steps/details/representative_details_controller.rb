@@ -12,6 +12,8 @@ module Steps::Details
         representative_organisation_fao: current_tribunal_case.representative_organisation_fao,
         representative_contact_address: current_tribunal_case.representative_contact_address,
         representative_contact_postcode: current_tribunal_case.representative_contact_postcode,
+        representative_contact_city: current_tribunal_case.representative_contact_city,
+        representative_contact_country: current_tribunal_case.representative_contact_country,
         representative_contact_email: current_tribunal_case.representative_contact_email,
         representative_contact_phone: current_tribunal_case.representative_contact_phone
       )

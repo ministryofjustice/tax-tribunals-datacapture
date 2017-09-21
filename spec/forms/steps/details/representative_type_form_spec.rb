@@ -57,6 +57,8 @@ RSpec.describe Steps::Details::RepresentativeTypeForm do
           representative_organisation_fao: nil,
           representative_contact_address: nil,
           representative_contact_postcode: nil,
+          representative_contact_city: nil,
+          representative_contact_country: nil,
           representative_contact_email: nil,
           representative_contact_phone: nil
         ).and_return(true)

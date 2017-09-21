@@ -6,10 +6,12 @@ en:
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
     blank_penalty_amount: &blank_penalty_amount "Enter the penalty amount (or 'unknown' if you don't have it)"
     blank_tax_amount: &blank_tax_amount "Enter the tax amount (or 'unknown' if you don't have it)"
-    blank_first_name: &blank_first_name "Please enter your first name"
-    blank_last_name: &blank_last_name "Please enter your last name"
-    blank_address: &blank_address "Please enter a contact address"
-    blank_postcode: &blank_postcode "Please enter the postcode"
+    blank_first_name: &blank_first_name "Please enter a first name"
+    blank_last_name: &blank_last_name "Please enter a last name"
+    blank_address: &blank_address "Please enter an address"
+    blank_postcode: &blank_postcode "Please enter a postcode"
+    blank_city: &blank_city "Please enter a city"
+    blank_country: &blank_country "Please enter a country"
     blank_organisation_name: &blank_organisation_name "Please enter a name"
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
     invalid_email: &invalid_email "Please enter a valid email address"
@@ -21,12 +23,16 @@ en:
     REP_ADDRESS: &REP_ADDRESS
       representative_contact_address: Address
       representative_contact_postcode: Postcode
+      representative_contact_city: City
+      representative_contact_country: Country
       representative_contact_email: Email address
       representative_contact_phone: Contact phone number (optional)
 
     TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
       taxpayer_contact_address: Address
       taxpayer_contact_postcode: Postcode
+      taxpayer_contact_city: City
+      taxpayer_contact_country: Country
       taxpayer_contact_email: Email address
       taxpayer_contact_phone: Contact phone number (optional)
 
@@ -527,6 +533,10 @@ en:
               blank: *blank_address
             taxpayer_contact_postcode:
               blank: *blank_postcode
+            taxpayer_contact_city:
+              blank: *blank_city
+            taxpayer_contact_country:
+              blank: *blank_country
             taxpayer_organisation_name:
               blank: *blank_organisation_name
             taxpayer_organisation_fao:
@@ -543,6 +553,10 @@ en:
               blank: *blank_address
             representative_contact_postcode:
               blank: *blank_postcode
+            representative_contact_city:
+              blank: *blank_city
+            representative_contact_country:
+              blank: *blank_country
             representative_organisation_name:
               blank: *blank_organisation_name
             representative_organisation_fao:

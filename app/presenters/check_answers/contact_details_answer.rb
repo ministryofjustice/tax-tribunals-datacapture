@@ -22,7 +22,8 @@ module CheckAnswers
         attributes[:organisation_name],
         organisation_registration_number,
         attributes[:contact_address],
-        attributes[:contact_postcode]
+        postcode_and_city,
+        attributes[:contact_country]
       ].compact.join("\n")
     end
 
@@ -65,6 +66,13 @@ module CheckAnswers
           attributes[:individual_last_name]
         ].join(' ')
       end
+    end
+
+    def postcode_and_city
+      [
+        attributes[:contact_city],
+        attributes[:contact_postcode]
+      ].compact.join(', ')
     end
   end
 end
