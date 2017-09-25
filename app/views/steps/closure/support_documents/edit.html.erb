@@ -8,8 +8,6 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <p><%=t 'shared.file_upload.technical_info' %></p>
-
     <%= render partial: 'steps/shared/file_upload_requirements' %>
 
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>

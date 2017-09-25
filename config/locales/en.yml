@@ -1171,7 +1171,10 @@ en:
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
-      technical_info: We accept scanned documents, images or good quality pictures, for example via a smartphone.
+      technical_info_html: |
+        We can accept a scan or photograph of your letter. It must be
+        <strong>good quality and legible</strong>. Your %{appeal_or_application} risks
+        being rejected if it is not clear to read.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
@@ -1465,7 +1468,7 @@ en:
       reset_sent:
         heading: Please check your email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
-        deleted_account: If you haven't signed in for 30 days we delete your account for security reasons.
+        deleted_account: You won't get an email if you haven't signed in for 30 days. We delete your details for security reasons. Create a new account to save a case.
         page_title: Reset link sent
       reset_confirmation:
         heading: Your password has been changed
