@@ -1077,9 +1077,13 @@ en:
     documents_submitted:
       question: Documents uploaded
       accessible_change_text: documents uploaded
+      quality_alert_html: ""
     letter_uploaded:
       question: Letter uploaded
       accessible_change_text: letter uploaded
+      quality_alert_html: |
+        <div class="quality-alert">Your %{appeal_or_application} will be returned
+        if we can't read the letter, and you risk missing the deadline.</div>
     problems_uploading_documents:
       question: Problems uploading documents
       accessible_change_text: problems uploading documents
@@ -1172,9 +1176,9 @@ en:
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
       technical_info_html: |
-        We can accept a scan or photograph of your letter. It must be
-        <strong>good quality and legible</strong>. Your %{appeal_or_application} risks
-        being rejected if it is not clear to read.
+        We accept a <strong>good quality and legible</strong> scan or photograph.
+        Your %{appeal_or_application} will be returned if we can't read the letter,
+        and you risk missing the deadline.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>
       uploaded_files_header: Uploaded files
