@@ -1082,7 +1082,7 @@ en:
       question: Letter uploaded
       accessible_change_text: letter uploaded
       quality_alert_html: |
-        <div class="quality-alert">Your %{appeal_or_application} will be returned
+        <div class="quality-alert">Your %{appeal_or_application} may be returned
         if we can't read the letter, and you risk missing the deadline.</div>
     problems_uploading_documents:
       question: Problems uploading documents
@@ -1177,7 +1177,7 @@ en:
         virus risks.
       technical_info_html: |
         We accept a <strong>good quality and legible</strong> scan or photograph.
-        Your %{appeal_or_application} will be returned if we can't read the letter,
+        Your %{appeal_or_application} may be returned if we can't read the letter,
         and you risk missing the deadline.
       dropzone_message_html: Drag and drop files here<br> <strong>or</strong><br><span
         class="faux-link" tabindex="-1">click to choose a file</span>

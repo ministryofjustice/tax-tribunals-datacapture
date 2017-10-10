@@ -10,8 +10,7 @@ module CheckAnswers
         challenged_decision_answer,
         Answer.new(:challenged_decision_status, tribunal_case.challenged_decision_status, change_path: edit_steps_challenge_decision_status_path),
         dispute_type_answer,
-        Answer.new(:penalty_level, tribunal_case.penalty_level, change_path: edit_steps_appeal_penalty_amount_path),
-        Answer.new(:penalty_amount, tribunal_case.penalty_amount, raw: true),
+        penalty_level_or_amount_answer,
         Answer.new(:tax_amount, tribunal_case.tax_amount, raw: true)
       ].select(&:show?)
     end
@@ -31,6 +30,14 @@ module CheckAnswers
         Answer.new(:dispute_type, tribunal_case.dispute_type_other_value, raw: true, change_path: edit_steps_appeal_dispute_type_path)
       else
         Answer.new(:dispute_type, tribunal_case.dispute_type, change_path: edit_steps_appeal_dispute_type_path)
+      end
+    end
+
+    def penalty_level_or_amount_answer
+      if tribunal_case.penalty_amount.blank?
+        Answer.new(:penalty_level, tribunal_case.penalty_level)
+      else
+        Answer.new(:penalty_amount, tribunal_case.penalty_amount, raw: true)
       end
     end
 
