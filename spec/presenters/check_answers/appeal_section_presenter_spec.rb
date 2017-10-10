@@ -11,7 +11,6 @@ module CheckAnswers
 
     before do
       allow(tribunal_case).to receive(:documents).and_return([])
-
       allow(Answer).to receive(:new).and_return(answer)
     end
 
@@ -23,7 +22,7 @@ module CheckAnswers
 
     describe '#answers' do
       it 'has the correct rows' do
-        expect(subject.answers.count).to eq(7)
+        expect(subject.answers.count).to eq(6)
 
         expect(subject.answers[0]).to eq(answer)
         expect(subject.answers[1]).to eq(answer)
@@ -31,14 +30,13 @@ module CheckAnswers
         expect(subject.answers[3]).to eq(answer)
         expect(subject.answers[4]).to eq(answer)
         expect(subject.answers[5]).to eq(answer)
-        expect(subject.answers[6]).to eq(answer)
       end
 
       context 'when the case type is other' do
         let(:case_type) { CaseType::OTHER }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(7)
+          expect(subject.answers.count).to eq(6)
 
           expect(subject.answers[0]).to eq(answer)
           expect(subject.answers[1]).to eq(answer)
@@ -46,7 +44,6 @@ module CheckAnswers
           expect(subject.answers[3]).to eq(answer)
           expect(subject.answers[4]).to eq(answer)
           expect(subject.answers[5]).to eq(answer)
-          expect(subject.answers[6]).to eq(answer)
         end
       end
 
@@ -54,7 +51,7 @@ module CheckAnswers
         let(:dispute_type) { DisputeType::OTHER }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(7)
+          expect(subject.answers.count).to eq(6)
 
           expect(subject.answers[0]).to eq(answer)
           expect(subject.answers[1]).to eq(answer)
@@ -62,7 +59,17 @@ module CheckAnswers
           expect(subject.answers[3]).to eq(answer)
           expect(subject.answers[4]).to eq(answer)
           expect(subject.answers[5]).to eq(answer)
-          expect(subject.answers[6]).to eq(answer)
+        end
+      end
+
+      context 'when the penalty amount is not blank' do
+        let(:dispute_type) { DisputeType::PENALTY }
+        let(:tribunal_case) {
+          TribunalCase.new(case_type: case_type, dispute_type: dispute_type, penalty_amount: '1234')
+        }
+
+        it 'has the correct rows' do
+          expect(subject.answers.count).to eq(6)
         end
       end
     end
