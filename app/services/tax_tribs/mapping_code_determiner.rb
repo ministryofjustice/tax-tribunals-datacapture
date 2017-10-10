@@ -18,7 +18,7 @@ module TaxTribs::MappingCodeDeterminer
     elsif closure_case_type
       closure_case_type_mapping_code
     elsif case_type
-      case_type_mapping_code
+      appeal_case_type_mapping_code
     end
   end
 
@@ -47,13 +47,12 @@ module TaxTribs::MappingCodeDeterminer
     end
   end
 
-  def case_type_mapping_code
-    # TODO: Add further when-branches once we have additional case types
+  def appeal_case_type_mapping_code
     case case_type
-    when CaseType::OTHER
-      MappingCode::APPEAL_OTHER
-    else
+    when CaseType::RESTORATION_CASE
       MappingCode::APPN_OTHER
+    else
+      MappingCode::APPEAL_OTHER
     end
   end
 

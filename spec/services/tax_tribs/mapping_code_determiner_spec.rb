@@ -108,16 +108,16 @@ RSpec.describe TaxTribs::MappingCodeDeterminer do
     it { expect{ subject.mapping_code }.to raise_error(StandardError) }
   end
 
-  context 'when the case type is about something else' do
-    let(:case_type) { CaseType::OTHER }
-
-    it { is_expected.to have_mapping_code(:appeal_other) }
-  end
-
-  context 'when there is a case type but it is an unhandled value' do
-    let(:case_type) { CaseType.new(:anything_else) }
+  context 'when the case type is restoration case' do
+    let(:case_type) { CaseType::RESTORATION_CASE }
 
     it { is_expected.to have_mapping_code(:appn_other) }
+  end
+
+  context 'when the case type is about something else' do
+    let(:case_type) { CaseType.new(:anything_else) }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
   context 'when there is a closure case type' do
