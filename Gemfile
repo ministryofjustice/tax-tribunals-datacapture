@@ -12,8 +12,7 @@ gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'govuk_template'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
-# explicit declaration to bump nokogiri version due to security issues in < 1.8.1
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri', '~> 1.8.2'
 gem 'pg', '~> 0.18'
 gem 'pry-rails'
 gem 'puma', '~> 3.0'
@@ -61,7 +60,7 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs'
   gem 'rails-controller-testing'
-  gem 'rubocop', require: false
+  gem 'rubocop', '0.49.1', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
