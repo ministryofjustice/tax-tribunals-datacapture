@@ -243,7 +243,7 @@ GEM
     nap (1.1.0)
     netrc (0.11.0)
     nio4r (2.0.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     nokogumbo (1.4.11)
       nokogiri
@@ -460,7 +460,7 @@ DEPENDENCIES
   ministryofjustice-danger
   mojfile-uploader-api-client (~> 0.8)
   mutant-rspec
-  nokogiri (~> 1.8.1)
+  nokogiri (~> 1.8.2)
   pg (~> 0.18)
   phantomjs
   poltergeist
