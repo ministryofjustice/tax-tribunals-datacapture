@@ -709,7 +709,7 @@ en:
           aggregates_levy_html: "<strong>Aggregates Levy</strong>"
           air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"
           alcoholic_liquor_duties_html: "<strong>Alcoholic Liquor Duties</strong><br>
-            including the Alcohol Wholesaler Registration Scheme (AWRS)"
+            includes the Alcohol Wholesaler Registration Scheme (AWRS)"
           bingo_duty_html: "<strong>Bingo Duty</strong>"
           climate_change_levy_html: "<strong>Climate Change Levy</strong>"
           construction_industry_scheme_html: "<strong>Construction Industry Scheme
@@ -725,7 +725,7 @@ en:
           hydrocarbon_oil_duties_html: "<strong>Hydrocarbon Oil Duties</strong>"
           inheritance_tax_html: "<strong>Inheritance Tax</strong>"
           insurance_premium_tax_html: "<strong>Insurance Premium Tax</strong>"
-          landfill_tax_html: "<strong>Landfill Tax</strong>"
+          landfill_tax_html: "<strong>Landfill Tax</strong><br>includes Landfill Disposal Tax (in Wales)"
           lottery_duty_html: "<strong>Lottery Duty</strong>"
           ni_contributions_html: "<strong>National Insurance (NI) contributions</strong>"
           money_laundering_decisions_html: "<strong>Money laundering decisions</strong>"
@@ -735,7 +735,7 @@ en:
           restoration_case_html: "<strong>Restoration case</strong><br>apply for the
             return of seized goods"
           stamp_duties_html: "<strong>Stamp duties</strong><br>includes Stamp Duty
-            Reserve Tax (SDRT) and Stamp Duty Land Tax (SDLT)"
+            Reserve Tax (SDRT), Stamp Duty Land Tax (SDLT) and Land Transaction Tax (in Wales)"
           statutory_payments_html: "<strong>Statutory payments</strong><br>for example
             statutory sick pay, maternity pay, paternity pay or adoption pay"
           student_loans_html: "<strong>Student loans</strong>"
@@ -784,8 +784,8 @@ en:
             qualifying options'
           non_resident_capital_gains_tax_html: Non-resident Capital Gains Tax (NRCGT)
             return
-          stamp_duty_land_tax_return_html: 'Stamp Duty Land Tax (SDLT): land transaction
-            return'
+          stamp_duty_land_tax_return_html: 'Stamp Duty Land Tax (SDLT) or Land Transaction
+            Tax (in Wales): land transaction return'
           transactions_in_securities_html: 'Transactions in securities: issue of counteraction
             or no-counteraction notice'
       steps_closure_enquiry_details_form:
@@ -1124,8 +1124,7 @@ en:
         enterprise_mgmt_incentives: 'Enterprise Management Incentives (EMIs): qualifying
           options'
         non_resident_capital_gains_tax: Non-resident Capital Gains Tax (NRCGT) return
-        stamp_duty_land_tax_return: 'Stamp Duty Land Tax (SDLT): land transaction
-          return'
+        stamp_duty_land_tax_return: Stamp Duty Land Tax (SDLT) or Land Transaction Tax (in Wales) return
         transactions_in_securities: 'Transactions in securities: issue of counteraction
           or no-counteraction notice'
     closure_hmrc_reference:
@@ -1310,8 +1309,8 @@ en:
         close: Apply to close an enquiry
         home_login: Return to a saved appeal or application
       link_descriptions:
-        appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force
-          or the National Crime Agency.
+        appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force,
+          National Crime Agency or the Welsh Revenue Authority.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
         home_login: Continue completing a case you haven't submitted.
       link_time_estimate: (%{minutes} minutes to complete)
