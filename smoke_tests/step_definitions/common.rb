@@ -78,3 +78,23 @@ Given(/^I fill the contact details$/) do
   step 'I fill in "Country" with "UK"'
   step 'I fill in "Email address" with "do-not-email@digital.justice.gov"'
 end
+
+Then(/^I should see the reference "([^"]*)" on page$/) do |text|
+  expect(page).to have_text(text)
+end
+
+When(/^I click on the "([^"]*)" link$/) do |arg1|
+  find('a.button').click
+end
+
+When(/^I accept alert$/) do
+  page.evaluate_script('window.confrim = function() {return true;}')
+end
+
+Then(/^I should not see pending application$/) do
+  within(:css, 'tr') do
+    expect(page).not_to have_selector(:css, "input[value='Delete']")
+    expect(page).not_to have_selector(:css, 'a.button.ga-pageLink')
+    expect(page).not_to have_link(:linktext, 'Edit reference')
+  end
+end
