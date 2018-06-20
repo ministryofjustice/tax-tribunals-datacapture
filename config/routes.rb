@@ -173,7 +173,7 @@ Rails.application.routes.draw do
   get :contact, to: 'home#contact', as: :contact_page
   get :cookies, to: 'home#cookies', as: :cookies_page
   get 'terms-conditions', to: 'home#terms', as: :terms_page
-  get 'privacy', to: 'home#privacy', as: :privacy
+  get 'privacy', to: 'home#privacy', as: :privacy_page
 
   # catch-all route
   # :nocov:
