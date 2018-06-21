@@ -20,7 +20,7 @@ en:
 
     who_managing:
       header: Who manages this service
-      line_1: This service is managed by HMCTS, which is an executive agency of the Ministry of Jus-tice (MoJ).
+      line_1: This service is managed by HMCTS, which is an executive agency of the Ministry of Justice (MoJ).
       line_2: The MoJ is known as the data controller for data protection purposes. The %{moj_personal_character} explains how the MoJ processes personal data.
       line_3: As part of the MoJ, HMCTS is responsible for deciding how your personal data is used and for protecting the personal data you provide.
       line_4: More information about using this service is in the %{terms_condition}.
@@ -29,7 +29,7 @@ en:
       header: Why we collect your personal data
       line_1: "We collect your personal data to:"
       line_2: Our staff use your personal data to process your appeal or application. They work in the UK and your data is stored in the UK.
-      line_3: Data used to improve this service does not identify you personally nor does it include any of the personal data specific to your case. Instead we use analytical data for how the ser-vice is used along with any feedback you provide. The email address attached to your feedback is treated with confidentiality and its use is limited to responses to any issues or queries you might have with the service, after which it is deleted when no longer needed.
+      line_3: Data used to improve this service does not identify you personally nor does it include any of the personal data specific to your case. Instead we use analytical data for how the service is used along with any feedback you provide. The email address attached to your feedback is treated with confidentiality and its use is limited to responses to any issues or queries you might have with the service, after which it is deleted when no longer needed.
       list_1: process your appeal or application
       list_2: meet legal requirements
       list_3: make improvements to this service
@@ -39,7 +39,7 @@ en:
       line_1: "We collect the following data when you use this service:"
       line_2: You provide this data when you submit your appeal or application; after which you can no longer access your data online and all further business must be carried out directly with the tribunal
       line_3: "If you have a representative, we will ask for:"
-      line_4: "If you are a representative acting on behalf of the appellant, you will need to provide in-formation about the person who you are appealing on behalf of, including:"
+      line_4: "If you are a representative acting on behalf of the appellant, you will need to provide information about the person who you are appealing on behalf of, including:"
       list_1: your name and address
       list_2: your email address and phone number (optional)
       list_3: any other personal information you provide as part of your appeal or application such as within your ‘grounds for appeal’ and any documentation you upload
@@ -49,20 +49,20 @@ en:
       list_7: their email address and phone number (optional)
       befor_you_submit:
         header: Before you submit your information
-        line_1: To protect your personal information, any data you enter as your progress through the service is held temporarily until you submit your appeal or application, after which your ap-peal cannot be viewed or modified further online.
+        line_1: To protect your personal information, any data you enter as your progress through the service is held temporarily until you submit your appeal or application, after which your appeal cannot be viewed or modified further online.
         line_2: If you are unable to complete your appeal for any reason, you can use the ‘Save & Return’ feature (below) at any time to save and come back later.
       using_save_return:
         header: Using the ‘Save & Return’ feature
-        line_1: If you decide to make use of the ‘Save & Return’ feature within the service you will be re-quired to provide your email address and a password to create a temporary account for the purpose of managing your appeal/s or application/s, see ‘Storing on ‘Save & Return’ under %{how_we_use}
+        line_1: If you decide to make use of the ‘Save & Return’ feature within the service you will be required to provide your email address and a password to create a temporary account for the purpose of managing your appeal(s) or application/s, see ‘Storing on ‘Save & Return’ under %{how_we_use}
       after_you_submit:
         header: After you submit your information
-        line_1: After you submit your claim you will see a confirmation page and receive a confirmation email containing your case reference number, however; if the link between the online and case management systems is unavailable you will not. Instead an email is automatically generated and forwarded to the tribunal containing a link to a PDF version of your case details along with any supporting documents you provided. These are subsequently down-loaded by the tribunal to manually enter your details and register your case; after which you will receive your case reference directly from the tribunal.
+        line_1: After you submit your claim you will see a confirmation page and receive a confirmation email containing your case reference number, however; if the link between the online and case management systems is unavailable you will not. Instead an email is automatically generated and forwarded to the tribunal containing a link to a PDF version of your case details along with any supporting documents you provided. These are subsequently downloaded by the tribunal to manually enter your details and register your case; after which you will receive your case reference directly from the tribunal.
         line_2: The selections you make and any data you provide is transmitted directly to the tribunal and, if the link is available; recorded automatically within the case management system; otherwise the data is entered manually.
         line_3: You can modify the information you have provided at any point in the process, however; once you submit your case the information you provided cannot be viewed or modified; to discuss your case further you will need to contact the tribunal on 0300 123 1024 (Find out about %{call_charges}).
 
     how_we_use:
       header: How we use your personal data
-      line_1: Your online submission contains a link to the PDF document containing the details of your case and any supporting documents you have provided which are then downloaded by the tribunal. All documents are automatically deleted after 60 days from the Gov.UK Sign-On online service where they are temporarily stored.
+      line_1: Your online submission contains a link to the PDF document containing the details of your case and any supporting documents you have provided which are then downloaded by the tribunal. All documents are automatically deleted after 60 days from the Gov.UK SignOn online service where they are temporarily stored.
       line_2: We may ask for your permission to use your email address to send you emails using GOV.UK Notify. This system processes emails only within the European Economic Area until the point where emails are handed over to the email provider you use.
       line_3: "We %{use_cookies} to collect data that tells us about how the service is used, including:"
       list_1: your computer, phone or tablet’s IP address
@@ -72,24 +72,24 @@ en:
       use_cookies_title: Managing cookies page
     how_we_store:
       header: How we store your personal data
-      line_1: HMCTS takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure da-tabase is kept entirely within the European Economic Area (EEA).
-      line_2: HMCTS uses Amazon Web Services (AWS) to store your data. By submitting your infor-mation, you consent to the %{aws_terms}
-      line_3: The service has been designed to keep your personal information secure, and as such the service has been configured to time out after 30 minutes of inactivity; after which any un-saved data you have provided will be deleted and you will need to start again.
+      line_1: HMCTS takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure database is kept entirely within the European Economic Area (EEA).
+      line_2: HMCTS uses Amazon Web Services (AWS) to store your data. By submitting your information, you consent to the %{aws_terms}
+      line_3: The service has been designed to keep your personal information secure, and as such the service has been configured to time out after 30 minutes of inactivity; after which any unsaved data you have provided will be deleted and you will need to start again.
       line_4: Any supporting documents you provide are held for 60 days from the date you submitted your case, after which they are deleted.
-      line_5: A PDF document containing the details of your case, along with any supporting documen-tation is stored online within the document storage component of the service. This part of the online service is accessible only to key members of the tribunal who sign in securely using a link that is unique to your case from within the internal case management service.
-      line_6: After you complete your application the paper file generated by the tribunal will be stored for 12 months from the date of the final decision, after which it will be confidentially de-stroyed. Currently the digital record of your case will remain on the tribunal’s internal case management application, however; the 12-month retention period currently applied to pa-per-based files is planned to be introduced as an automatic function to align with current file retention and deletion policies, see ‘Your rights’ under %{how_to_access}.
+      line_5: A PDF document containing the details of your case, along with any supporting documentation is stored online within the document storage component of the service. This part of the online service is accessible only to key members of the tribunal who sign in securely using a link that is unique to your case from within the internal case management service.
+      line_6: After you complete your application the paper file generated by the tribunal will be stored for 12 months from the date of the final decision, after which it will be confidentially destroyed. Currently the digital record of your case will remain on the tribunal’s internal case management application, however; the 12-month retention period currently applied to paperbased files is planned to be introduced as an automatic function to align with current file retention and deletion policies, see ‘Your rights’ under %{how_to_access}.
       aws_terms: AWS Terms and Conditions
       storing_save_return:
         header: Storing on ‘Save & Return’
-        line_1: If you use the ‘Save & Return’ feature, anything you save using this feature remains ac-cessible for 14 days from the date you first saved, after which, to protect your privacy and as you will be out of time to appeal; if you have not submitted your case during this time, all data is automatically deleted, and you will need to start again.
-        line_2: The account you create is temporary and only exists whilst you have 1 or more active cas-es saved. Once the final case is either submitted, deleted by you or deleted after the 14 days has expired; the account will also be deleted.
-        line_3: Any account that has not been accessed for more than 30 days, no matter how many ap-peals might be saved, will be deleted along with any unsubmitted cases.
+        line_1: If you use the ‘Save & Return’ feature, anything you save using this feature remains accessible for 14 days from the date you first saved, after which, to protect your privacy and as you will be out of time to appeal; if you have not submitted your case during this time, all data is automatically deleted, and you will need to start again.
+        line_2: The account you create is temporary and only exists whilst you have 1 or more active cases saved. Once the final case is either submitted, deleted by you or deleted after the 14 days has expired; the account will also be deleted.
+        line_3: Any account that has not been accessed for more than 30 days, no matter how many appeals might be saved, will be deleted along with any unsubmitted cases.
         line_4: Any supporting documents you have provided when you use this feature will be held for 60 days from the date you uploaded them, after which they are deleted whether you have submitted the case or not.
 
     how_we_share:
       header: How we share your personal data
-      line_1: Your data will be shared with the government department that made the decision you are appealing against. In this case HM Revenue and Customs, UK Border Force or the Na-tional Crime Agency depending on the nature of your case. This is necessary so that de-partment can respond to your appeal.
-      line_2: It is important to note that the Tax Tribunal is entirely independent and has no record of any outstanding cases you might have with other government departments until such time that you submit an appeal or application using this online service, or directly by more con-ventional channels e.g. Post.
+      line_1: Your data will be shared with the government department that made the decision you are appealing against. In this case HM Revenue and Customs, UK Border Force or the National Crime Agency depending on the nature of your case. This is necessary so that department can respond to your appeal.
+      line_2: It is important to note that the Tax Tribunal is entirely independent and has no record of any outstanding cases you might have with other government departments until such time that you submit an appeal or application using this online service, or directly by more conventional channels e.g. Post.
       line_3: We use Google Analytics to collect our website statistics. This anonymous website usage data is shared with Google. See Google’s %{google_privacy} for more information.
       google_privacy: Privacy Policy
       google_privacy_title: Google’s Privacy Policy page
@@ -106,7 +106,7 @@ en:
         header: Getting more information
         line_1: "You can get more details on:"
         list_1: Agreements we have with other organisations for sharing information;
-        list_2: Circumstances where we can pass on personal information without telling you, for example, to help with the prevention or detection of crime or to produce anony-mised statistics;
+        list_2: Circumstances where we can pass on personal information without telling you, for example, to help with the prevention or detection of crime or to produce anonymised statistics;
         list_3: Our instructions to staff on how to collect, use or delete your personal information;
         list_4: How we check that the information we hold is accurate and up-to-date;
         list_5: How to make a complaint
@@ -118,8 +118,8 @@ en:
           email: data.compliance@justice.gov.uk
       access:
         header: Access to personal information
-        line_1: "You can find out if we hold any personal data about you by making a ‘%{subject_access}’. This request goes to the MoJ as data controller. Or you can contact the data dis-closure team at:"
-        subject_access: subject access re-quest
+        line_1: "You can find out if we hold any personal data about you by making a ‘%{subject_access}’. This request goes to the MoJ as data controller. Or you can contact the data disclosure team at:"
+        subject_access: subject access request
         subject_access_title: How to request a copy of your personal data page
         address:
           header: Disclosure Team
@@ -132,7 +132,7 @@ en:
         line_1: If you want to complain about how we've handled your personal data see our %{complaints_procedure}.
         complaints_procedure: complaints procedure
         complaints_procedure_title: Complaints procedure page
-        line_2: "When we ask you for information, we will keep to the law. If you consider that your infor-mation has been handled incorrectly, you can contact the Information Commissioner for independent advice about data protection. You can contact the Information Commissioner at the following link: %{information_office}. You can also contact them at:"
+        line_2: "When we ask you for information, we will keep to the law. If you consider that your information has been handled incorrectly, you can contact the Information Commissioner for independent advice about data protection. You can contact the Information Commissioner at the following link: %{information_office}. You can also contact them at:"
         information_office: Information Commissioner’s Office
         information_office_title: Information Commissioner’s Office page
         address:
@@ -148,11 +148,9 @@ en:
     cookies:
       header: Cookies & similar technologies
       line_1: HMCTS uses cookies (small text files placed on your device) and similar technologies to provide our online service and to help collect user interaction and performance data.
-      line_2: Cookies allow us, among other things, to store your preferences and settings, track pro-gress through the service and to understand how you use the website so it can be updated and improved based on user needs. If you use the Save & Return feature of the service, then cookies help you with signing.
-      line_3: You have a variety of tools to control cookies and similar technologies, including browser controls to block and delete cookies and controls from third-party analytics service provid-ers to opt out of data collection, however; your browser and other choices may affect your ability to interact with our service.
+      line_2: Cookies allow us, among other things, to store your preferences and settings, track progress through the service and to understand how you use the website so it can be updated and improved based on user needs. If you use the Save & Return feature of the service, then cookies help you with signing.
+      line_3: You have a variety of tools to control cookies and similar technologies, including browser controls to block and delete cookies and controls from thirdparty analytics service providers to opt out of data collection, however; your browser and other choices may affect your ability to interact with our service.
       line_4: See our ‘%{cookies}’ policy for further information.
       cookie: Cookie
       cookie_title: Our ‘Cookie’ policy page
-
-
 
