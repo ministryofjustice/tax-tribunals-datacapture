@@ -1274,6 +1274,7 @@ en:
       contact: Contact
       cookies: Cookies
       terms_and_conditions: Terms and conditions
+      privacy_policy: Privacy policy
     phase_banner:
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
