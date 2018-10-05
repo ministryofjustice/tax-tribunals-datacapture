@@ -78,3 +78,82 @@ Given(/^I fill the contact details$/) do
   step 'I fill in "Country" with "UK"'
   step 'I fill in "Email address" with "do-not-email@digital.justice.gov"'
 end
+
+Then(/^I should see the reference "([^"]*)" on page$/) do |text|
+  expect(page).to have_text(text)
+end
+
+When(/^I click on the "([^"]*)" link$/) do |arg1|
+  find('a.button').click
+end
+
+When(/^I accept alert$/) do
+  page.evaluate_script('window.confrim = function() {return true;}')
+end
+
+Then(/^I should not see pending application$/) do
+  within(:css, 'tr') do
+    expect(page).not_to have_selector(:css, "input[value='Delete']")
+    expect(page).not_to have_selector(:css, 'a.button.ga-pageLink')
+    expect(page).not_to have_link(:linktext, 'Edit reference')
+  end
+end
+
+When(/^I click Continue without selecting an option$/) do
+  step 'I click the "Continue" button'
+end
+
+Then(/^I should get an error message "([^"]*)"$/) do |text|
+  within 'div.error-summary' do
+    expect(page).to have_text(text)
+  end
+end
+
+When(/^I am on review of original decision page$/) do
+  step 'I choose "Income Tax"'
+end
+
+When(/^I am on What response did you receive page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+end
+
+When(/^I am on dispute type page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+  step 'I choose "I have a review conclusion letter"'
+end
+
+When(/^I am on the penalty or surcharge amount page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+  step 'I choose "I have a review conclusion letter"'
+  step 'I choose "Penalty or surcharge"'
+end
+
+When(/^I am on Are you in time to appeal to the tax tribunal page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+  step 'I choose "I have a review conclusion letter"'
+  step 'I choose "Penalty or surcharge"'
+  step 'I choose "£100 or less"'
+end
+
+When(/^I am on Are you the taxpayer making the appeal page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+  step 'I choose "I have a review conclusion letter"'
+  step 'I choose "Penalty or surcharge"'
+  step 'I choose "£100 or less"'
+  step 'I choose "Yes, I am in time"'
+end
+
+When(/^I am on Who is making the appeal page$/) do
+  step 'I choose "Income Tax"'
+  step 'I choose "Yes"'
+  step 'I choose "I have a review conclusion letter"'
+  step 'I choose "Penalty or surcharge"'
+  step 'I choose "£100 or less"'
+  step 'I choose "Yes, I am in time"'
+  step 'I choose "Yes"'
+end
