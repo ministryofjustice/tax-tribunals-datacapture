@@ -1492,6 +1492,9 @@ en:
         date of the original notice or review conclusion letter.
       description_html: |
         <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <div role="note" aria-label="Information" class="info-notice">
+          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+        </div>
         <h2 class="heading-medium">What you will need</h2>
         <ul class="list list-bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
@@ -1506,6 +1509,9 @@ en:
       heading: Apply to close an enquiry
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
+        <div role="note" aria-label="Information" class="info-notice">
+          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+        </div>
         <h2 class="heading-medium">What you will need</h2>
         <ul class="list list-bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
