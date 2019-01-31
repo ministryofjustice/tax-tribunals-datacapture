@@ -56,13 +56,21 @@ end
 group :test do
   gem 'brakeman'
   gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'chromedriver-helper', '~> 1.1'
+  gem 'codeclimate-test-reporter', '0.6.0', require: nil
+  gem 'cucumber-rails', '~> 1.5', require: false
   gem 'cucumber'
-  gem 'poltergeist'
+  gem 'geckodriver-helper', '~> 0.0'
+  gem 'poltergeist', '1.15.0'
   gem 'phantomjs'
+  gem 'pry'
   gem 'rails-controller-testing'
   gem 'rubocop', '0.49.1', require: false
   gem 'rubocop-rspec', require: false
+  gem 'selenium-webdriver', '~> 3.10'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
+  gem 'site_prism', '~> 2.9'
   gem 'webmock'
 end
