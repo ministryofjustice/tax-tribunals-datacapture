@@ -1,16 +1,12 @@
 # See `dropzone_helpers.rb` for the step relating to checkboxes and a comment
 # explaining why that step is there.
 
-Given(/^I show my environment$/) do
-  puts "Running against: #{ENV.fetch('DATACAPTURE_URI')}"
-end
-
-When(/^I visit "(.*?)"$/) do |path|
+Given(/^I visit "(.*?)"$/) do |path|
   visit path
 end
 
 Then(/^I should be on "([^"]*)"$/) do |page_name|
-  expect("#{Capybara.app_host}#{URI.parse(current_url).path}").to eql("#{Capybara.app_host}#{page_name}")
+  expect(current_url).to eq page_name
 end
 
 Then(/^I should see "(.*?)"$/) do |text|
@@ -31,16 +27,16 @@ When(/^I click the "(.*?)" link$/) do |text|
   click_link(text)
 end
 
-When(/^I click the "(.*?)" button$/) do |text|
-  begin
-    find("input[value='#{text}']").click
-  rescue Capybara::Poltergeist::MouseEventFailed
-    find("input[value='#{text}']").trigger('click')
-  end
+When(/^I click continue$/) do
+  base_page.continue
 end
-
+  
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
+end
+
+When(/^I successfully save my appeal$/) do
+  save_appeal_page.succesfully_save_appeal
 end
 
 # I couldn't click the radio button using 'choose(text)', so just
@@ -59,22 +55,45 @@ Then(/^I see a case reference number$/) do
   expect(page).to have_text(/TC\/#{Date.today.year}\/\d{5}/)
 end
 
-Given(/^I fill in my email address$/) do
-  @email ||= "#{SecureRandom.uuid}@test.com"
-  puts @email
-  step %[I fill in "Your email address" with "#{@email}"]
-end
-
 When(/^I pause for "([^"]*)" seconds$/) do |seconds|
   sleep seconds.to_i
 end
 
-Given(/^I fill the contact details$/) do
-  step 'I fill in "First name" with "MoJ Digital"'
-  step 'I fill in "Last name" with "Smoketest"'
-  step 'I fill in "Address" with "102 Petty France"'
-  step 'I fill in "City" with "London"'
-  step 'I fill in "Postcode" with "SW1H 9AJ"'
-  step 'I fill in "Country" with "UK"'
-  step 'I fill in "Email address" with "do-not-email@digital.justice.gov"'
+Given(/^I fill in taxpayers details$/) do
+  taxpayer_details_page.successfully_submit_taxpayer_details
+end
+
+And(/^I save and continue$/) do
+  base_page.save_and_continue
+end
+
+And(/^I continue$/) do
+  base_page.continue
+end
+
+Given(/^I successfully submit enquiry details$/) do
+  enquiry_details_page.successfully_submit_enquiry_details
+end
+
+Then(/^I should be taken to my cases$/) do
+  expect(cases_page).to be_displayed
+  expect(cases_page.content).to have_header
+end
+
+When(/^I click the resume button$/) do
+  cases_page.resume.click
+end
+
+Then(/^I should be taken to dispute type page$/) do
+  expect(dispute_type_page.content).to have_header
+  expect(dispute_type_page).to be_displayed
+end
+
+Given(/^I fill in my reason$/) do
+  additional_info_page.provide_reason
+end
+
+Then(/^I should be taken to additional info on why the enquiry should be closed$/) do
+  expect(additional_info_page.content).to have_header
+  expect(additional_info_page).to be_displayed
 end
