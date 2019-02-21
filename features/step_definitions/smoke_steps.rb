@@ -1,10 +1,6 @@
 # See `dropzone_helpers.rb` for the step relating to checkboxes and a comment
 # explaining why that step is there.
 
-Given(/^I visit "(.*?)"$/) do |path|
-  visit path
-end
-
 Then(/^I should be on "([^"]*)"$/) do |page_name|
   expect(current_url).to eq page_name
 end
