@@ -60,7 +60,7 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs'
   gem 'rails-controller-testing'
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
