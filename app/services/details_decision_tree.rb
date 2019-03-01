@@ -22,6 +22,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :grounds_for_appeal
       edit(:outcome)
     when :outcome
+      edit(:need_support)
+    when :need_support
       edit(:letter_upload_type)
     when :letter_upload_type
       after_letter_upload_type

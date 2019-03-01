@@ -99,6 +99,7 @@ Rails.application.routes.draw do
       edit_step :representative_details
       edit_step :grounds_for_appeal
       edit_step :outcome
+      edit_step :need_support
       edit_step :letter_upload_type
       edit_step :letter_upload
       edit_step :documents_upload

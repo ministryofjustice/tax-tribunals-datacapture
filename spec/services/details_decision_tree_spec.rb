@@ -144,6 +144,12 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `outcome`' do
       let(:step_params) { { outcome: 'anything'  } }
 
+      it { is_expected.to have_destination(:need_support, :edit) }
+    end
+
+    context 'when step is `need_support`' do
+      let(:step_params) { { need_support: 'anything' } }
+
       it { is_expected.to have_destination(:letter_upload_type, :edit) }
     end
 
