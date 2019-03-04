@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.3'
 
 gem 'devise'
 gem 'email_validator'
@@ -60,7 +60,7 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs'
   gem 'rails-controller-testing'
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
