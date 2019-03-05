@@ -3,7 +3,7 @@
       - 'lib/generators/step/templates/*.rb'
       - 'db/schema.rb'
       - 'vendor/**/*'
-    TargetRubyVersion: 2.5
+    TargetRubyVersion: 2.3
     DisabledByDefault: true
   Lint/AmbiguousOperator:
     Description: >-
@@ -23,7 +23,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition'
     Enabled: true
 
-  Layout/BlockAlignment:
+  Lint/BlockAlignment:
     Description: 'Align block ends correctly.'
     Enabled: true
 
@@ -31,7 +31,7 @@
     Description: "Don't refer to the keyword argument in the default value."
     Enabled: true
 
-  Layout/ConditionPosition:
+  Lint/ConditionPosition:
     Description: >-
                    Checks for condition placed in a confusing position relative to
                    the keyword.
@@ -42,7 +42,7 @@
     Description: 'Check for debugger calls.'
     Enabled: true
 
-  Layout/DefEndAlignment:
+  Lint/DefEndAlignment:
     Description: 'Align ends corresponding to defs correctly.'
     Enabled: true
 
@@ -70,7 +70,7 @@
     Description: 'Checks for empty string interpolation.'
     Enabled: true
 
-  Layout/EndAlignment:
+  Lint/EndAlignment:
     Description: 'Align ends correctly.'
     Enabled: true
 
@@ -83,7 +83,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-return-ensure'
     Enabled: true
 
-  Security/Eval:
+  Lint/Eval:
     Description: 'The use of eval represents a serious security risk.'
     Enabled: true
 
@@ -96,7 +96,13 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions'
     Enabled: true
 
-  Lint/LiteralAsCondition:
+  Lint/InvalidCharacterLiteral:
+    Description: >-
+                   Checks for invalid character literals with a non-escaped
+                   whitespace character.
+    Enabled: true
+
+  Lint/LiteralInCondition:
     Description: 'Checks of literals used in conditions.'
     Enabled: true
 
@@ -153,7 +159,7 @@
     Description: 'Do not use prefix `_` for a variable that is used.'
     Enabled: true
 
-  Lint/UnneededCopDisableDirective:
+  Lint/UnneededDisable:
     Description: >-
                    Checks for rubocop:disable comments that can be removed.
                    Note: this cop is not disabled when disabling all cops.
@@ -348,12 +354,12 @@
   Rails/Validation:
     Description: 'Use validates :attribute, hash of validations.'
     Enabled: false
-  Layout/AccessModifierIndentation:
+  Style/AccessModifierIndentation:
     Description: Check indentation of private/protected visibility modifiers.
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-public-private-protected'
     Enabled: false
 
-  Naming/AccessorMethodName:
+  Style/AccessorMethodName:
     Description: Check the naming of accessor methods for get_/set_.
     Enabled: false
 
@@ -362,20 +368,20 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#alias-method'
     Enabled: false
 
-  Layout/AlignArray:
+  Style/AlignArray:
     Description: >-
                    Align the elements of an array literal if they span more than
                    one line.
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#align-multiline-arrays'
     Enabled: false
 
-  Layout/AlignHash:
+  Style/AlignHash:
     Description: >-
                    Align the elements of a hash literal if they span more than
                    one line.
     Enabled: false
 
-  Layout/AlignParameters:
+  Style/AlignParameters:
     Description: >-
                    Align the parameters of a method call if they span more
                    than one line.
@@ -397,7 +403,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#english-comments'
     Enabled: false
 
-  Naming/AsciiIdentifiers:
+  Style/AsciiIdentifiers:
     Description: 'Use only ascii symbols in identifiers.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#english-identifiers'
     Enabled: false
@@ -422,7 +428,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-block-comments'
     Enabled: false
 
-  Layout/BlockEndNewline:
+  Style/BlockEndNewline:
     Description: 'Put end statement of multiline block on its own line.'
     Enabled: false
 
@@ -443,7 +449,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-case-equality'
     Enabled: false
 
-  Layout/CaseIndentation:
+  Style/CaseIndentation:
     Description: 'Indentation of when in a case/when/[else/]end.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-when-to-case'
     Enabled: false
@@ -453,7 +459,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-character-literals'
     Enabled: false
 
-  Naming/ClassAndModuleCamelCase:
+  Style/ClassAndModuleCamelCase:
     Description: 'Use CamelCase for classes and modules.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#camelcase-classes'
     Enabled: false
@@ -476,7 +482,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-class-vars'
     Enabled: false
 
-  Layout/ClosingParenthesisIndentation:
+  Style/ClosingParenthesisIndentation:
     Description: 'Checks the indentation of hanging closing parentheses.'
     Enabled: false
 
@@ -495,11 +501,11 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#annotate-keywords'
     Enabled: false
 
-  Layout/CommentIndentation:
+  Style/CommentIndentation:
     Description: 'Indentation of comments.'
     Enabled: false
 
-  Naming/ConstantName:
+  Style/ConstantName:
     Description: 'Constants should use SCREAMING_SNAKE_CASE.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#screaming-snake-case'
     Enabled: false
@@ -513,7 +519,7 @@
     Description: 'Document classes and non-namespace modules.'
     Enabled: false
 
-  Layout/DotPosition:
+  Style/DotPosition:
     Description: 'Checks the position of the dot in multi-line method calls.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
     Enabled: false
@@ -527,7 +533,7 @@
     Description: 'Prefer `each_with_object` over `inject` or `reduce`.'
     Enabled: false
 
-  Layout/ElseAlignment:
+  Style/ElseAlignment:
     Description: 'Align elses and elsifs correctly.'
     Enabled: false
 
@@ -535,32 +541,32 @@
     Description: 'Avoid empty else-clauses.'
     Enabled: false
 
-  Layout/EmptyLineBetweenDefs:
+  Style/EmptyLineBetweenDefs:
     Description: 'Use empty lines between defs.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#empty-lines-between-methods'
     Enabled: false
 
-  Layout/EmptyLines:
+  Style/EmptyLines:
     Description: "Don't use several empty lines in a row."
     Enabled: false
 
-  Layout/EmptyLinesAroundAccessModifier:
+  Style/EmptyLinesAroundAccessModifier:
     Description: "Keep blank lines around access modifiers."
     Enabled: false
 
-  Layout/EmptyLinesAroundBlockBody:
+  Style/EmptyLinesAroundBlockBody:
     Description: "Keeps track of empty lines around block bodies."
     Enabled: false
 
-  Layout/EmptyLinesAroundClassBody:
+  Style/EmptyLinesAroundClassBody:
     Description: "Keeps track of empty lines around class bodies."
     Enabled: false
 
-  Layout/EmptyLinesAroundModuleBody:
+  Style/EmptyLinesAroundModuleBody:
     Description: "Keeps track of empty lines around module bodies."
     Enabled: false
 
-  Layout/EmptyLinesAroundMethodBody:
+  Style/EmptyLinesAroundMethodBody:
     Description: "Keeps track of empty lines around method bodies."
     Enabled: false
 
@@ -574,7 +580,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-END-blocks'
     Enabled: false
 
-  Layout/EndOfLine:
+  Style/EndOfLine:
     Description: 'Use Unix-style line endings.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#crlf'
     Enabled: false
@@ -584,25 +590,25 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
     Enabled: false
 
-  Layout/ExtraSpacing:
+  Style/ExtraSpacing:
     Description: 'Do not use unnecessary spacing.'
     Enabled: false
 
-  Naming/FileName:
+  Style/FileName:
     Description: 'Use snake_case for source file names.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-files'
     Enabled: false
 
-  Layout/InitialIndentation:
+  Style/InitialIndentation:
     Description: >-
       Checks the indentation of the first non-blank non-comment line in a file.
     Enabled: false
 
-  Layout/FirstParameterIndentation:
+  Style/FirstParameterIndentation:
     Description: 'Checks the indentation of the first parameter in a method call.'
     Enabled: false
 
-  Lint/FlipFlop:
+  Style/FlipFlop:
     Description: 'Checks for flip flops'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-flip-flops'
     Enabled: false
@@ -647,22 +653,22 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-semicolon-ifs'
     Enabled: false
 
-  Layout/IndentationConsistency:
+  Style/IndentationConsistency:
     Description: 'Keep indentation straight.'
     Enabled: false
 
-  Layout/IndentationWidth:
+  Style/IndentationWidth:
     Description: 'Use 2 spaces for indentation.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-indentation'
     Enabled: false
 
-  Layout/IndentArray:
+  Style/IndentArray:
     Description: >-
                    Checks the indentation of the first element in an array
                    literal.
     Enabled: false
 
-  Layout/IndentHash:
+  Style/IndentHash:
     Description: 'Checks the indentation of the first key in a hash literal.'
     Enabled: false
 
@@ -681,7 +687,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#proc-call'
     Enabled: false
 
-  Layout/LeadingCommentSpace:
+  Style/LeadingCommentSpace:
     Description: 'Comments should start with a space.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-space'
     Enabled: false
@@ -704,7 +710,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#method-parens'
     Enabled: false
 
-  Naming/MethodName:
+  Style/MethodName:
     Description: 'Use the configured style when naming methods.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-symbols-methods-vars'
     Enabled: false
@@ -719,7 +725,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
     Enabled: false
 
-  Layout/MultilineBlockLayout:
+  Style/MultilineBlockLayout:
     Description: 'Ensures newlines after multiline block do statements.'
     Enabled: false
 
@@ -728,7 +734,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-then'
     Enabled: false
 
-  Layout/MultilineOperationIndentation:
+  Style/MultilineOperationIndentation:
     Description: >-
                    Checks indentation of binary operations that span more than
                    one line.
@@ -792,6 +798,11 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#ternary-operator'
     Enabled: false
 
+  Style/OpMethod:
+    Description: 'When defining binary operators, name the argument other.'
+    StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#other-arg'
+    Enabled: false
+
   Style/OptionalArguments:
     Description: >-
                    Checks for optional arguments that do not appear at the end
@@ -829,7 +840,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-perl-regexp-last-matchers'
     Enabled: false
 
-  Naming/PredicateName:
+  Style/PredicateName:
     Description: 'Check the names of predicate methods.'
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark'
     Enabled: false
@@ -869,7 +880,7 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-r'
     Enabled: false
 
-  Layout/RescueEnsureAlignment:
+  Style/RescueEnsureAlignment:
     Description: 'Align rescues and ensures correctly.'
     Enabled: false
 
