@@ -29,6 +29,10 @@ def save_appeal_page
   @save_appeal_page ||= SaveAppealPage.new
 end
 
+def grounds_for_appeal_page
+  @grounds_for_appeal_page ||= GroundsForAppealPage.new
+end
+
 def save_confirmation_page
   @save_confirmation_page ||= SaveConfirmationPage.new
 end

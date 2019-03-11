@@ -18,4 +18,3 @@ class EnquiryDetailsPage < BasePage
     base_page.continue
   end
 end
-

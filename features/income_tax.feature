@@ -25,7 +25,9 @@ Feature: Income Tax Happy Paths
     Then I should be taken to my cases
     When I click the resume button
     
-    Then I should be taken to dispute type page
+    Then I should see "Resume your appeal"
+    And I click the "Resume appeal" link
+    Then I should see "What is your dispute about?"
     Given I choose "Penalty or surcharge"
     Then I should see "How much is the penalty or surcharge you are disputing?"
 
@@ -50,21 +52,29 @@ Feature: Income Tax Happy Paths
 
     Given I attach a file explaining my grounds
     And I pause for "2" seconds
+    And I click the "Save and continue" button
+    And I pause for "2" seconds
     And I click the "Back" link
-    Then I should see "Previously attached document: grounds_for_appeal.docx"
+    Then I should see my previously attached document
     And I click the "Remove" button
     Then I should not see "grounds_for_appeal.docx"
 
     Given I attach a file with a virus
+    And I pause for "2" seconds
+    And I click the "Save and continue" button
+    And I pause for "2" seconds
     Then I should see "eicar.com.txt has a virus"
 
     Given I attach a file explaining my grounds
+    And I click the "Save and continue" button
     And I pause for "2" seconds
     And I click the "Back" link
     Then I should see "Previously attached document: grounds_for_appeal.docx"
+    And I click the "Save and continue" button
     Then I should see "Briefly say what outcome you would like"
 
     Given I fill in "Clearly explain in 2-3 sentences" with "Drive my enemies before me, hear the lament of their women"
+    And I click the "Save and continue" button
     Then I should see "Upload the review conclusion letter"
 
     Given I choose "Upload the letter as multiple pages"
@@ -91,9 +101,10 @@ Feature: Income Tax Happy Paths
     # 'Check your answers' does not get stored in time to make it into the list
     # call of 'Check your answers'.
     Given I pause for "2" seconds
+    When I click the "Save and continue" button
     Then I should see "Check your answers"
     And I should see "Appeal details"
-    And I should see "London, SW1H 9AJ"
+    And I should see address
     And I should see "grounds_for_appeal.docx"
 
     And I should see "Letter uploaded"
@@ -101,6 +112,7 @@ Feature: Income Tax Happy Paths
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button
+    And I pause for "5" seconds
     Then I should see "Case submitted"
-    And I should see "Your case reference number is:"
-    And I see a case reference number
+    And I should see "Your case was submitted successfully."
+    And I should see "You will be sent a case reference number shortly."

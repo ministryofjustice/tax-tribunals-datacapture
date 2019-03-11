@@ -55,12 +55,12 @@ Feature: Closure Happy Path
     When I click continue
     Then I should see "Check your answers"
     And I should see "Enquiry details"
-    # broken here
-    And I should see "London, SW1H 9AJ"
+    And I should see address
     And I should see "original_notice.docx"
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button
+    And I pause for "5" seconds
     Then I should see "Case submitted"
-    And I should see "Your case reference number is:"
-    And I see a case reference number
+    And I should see "Your case was submitted successfully."
+    And I should see "You will be sent a case reference number shortly."

@@ -9,6 +9,10 @@ Then(/^I should see "(.*?)"$/) do |text|
   expect(page).to have_text(text)
 end
 
+Then(/^I should see address$/) do
+  expect(page.text).to have_content 'London, SW1H 9HE'
+end
+
 Then(/^I should not see "(.*?)"$/) do |text|
   expect(page).not_to have_text(text)
 end
@@ -26,6 +30,10 @@ end
 When(/^I click continue$/) do
   base_page.continue
 end
+
+When(/^I click the "(.*?)" button$/) do |text|
+  find("input[value='#{text}']").trigger('click')
+end
   
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
@@ -33,6 +41,10 @@ end
 
 When(/^I successfully save my appeal$/) do
   save_appeal_page.succesfully_save_appeal
+end
+
+Then(/^I should see my previously attached document$/) do
+  expect(grounds_for_appeal_page.content).to have_uploaded_document
 end
 
 # I couldn't click the radio button using 'choose(text)', so just
@@ -45,10 +57,6 @@ end
 When(/^I choose "([^"]*)"$/) do |text|
   step %[I click the radio button "#{text}"]
   find('[name=commit]').click
-end
-
-Then(/^I see a case reference number$/) do
-  expect(page).to have_text(/TC\/#{Date.today.year}\/\d{5}/)
 end
 
 When(/^I pause for "([^"]*)" seconds$/) do |seconds|
@@ -80,10 +88,10 @@ When(/^I click the resume button$/) do
   cases_page.resume.click
 end
 
-Then(/^I should be taken to dispute type page$/) do
-  expect(dispute_type_page.content).to have_header
-  expect(dispute_type_page).to be_displayed
+When(/^I click the resume appeal button$/) do
+  cases_page.resume_appeal.click
 end
+
 
 Given(/^I fill in my reason$/) do
   additional_info_page.provide_reason
