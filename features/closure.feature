@@ -1,3 +1,5 @@
+@smoke @headless
+
 Feature: Closure Happy Path
   Background:
     Given I visit the homepage
@@ -6,7 +8,6 @@ Feature: Closure Happy Path
     And I click continue to close an enquiry
     Then I should see "What type of enquiry do you want to close?"
 
-  @happy_path
   Scenario: Personal return application Happy Path
     Given I choose "Personal return"
     Then I should see "Are you the taxpayer making the application?"

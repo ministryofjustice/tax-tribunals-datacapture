@@ -1,3 +1,5 @@
+@smoke @headless
+
 Feature: Income Tax Happy Paths
   Background:
     Given I visit the homepage
@@ -7,7 +9,6 @@ Feature: Income Tax Happy Paths
     And I click the "Continue" link
     Then I should see "What is your appeal about?"
 
-  @happy_path
   Scenario: Individual Income Tax Happy Path
     Given I choose "Income Tax"
     Then I should see "Did you appeal the original decision to HMRC?"

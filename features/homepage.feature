@@ -1,5 +1,3 @@
-@smoke
-
 Feature: Homepage
 
    Background: Homepage
