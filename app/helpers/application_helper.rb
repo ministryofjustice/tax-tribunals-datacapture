@@ -54,7 +54,7 @@ module ApplicationHelper
   end
 
   def analytics_tracking_id
-    ENV['GA_TRACKING_ID']
+    ENV['GTM_TRACKING_ID']
   end
 
   def login_or_portfolio_path
@@ -63,16 +63,6 @@ module ApplicationHelper
 
   def service_homepage_url
     Rails.configuration.gds_service_homepage_url
-  end
-
-  def track_transaction(attributes)
-    return if current_tribunal_case.nil?
-
-    content_for :transaction_data, {
-      id: current_tribunal_case.id,
-      sku: current_tribunal_case.intent_case_type.to_s,
-      quantity: '1',
-    }.merge(attributes).to_json.html_safe
   end
 
   def title(page_title)

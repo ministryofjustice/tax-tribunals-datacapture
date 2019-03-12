@@ -110,7 +110,7 @@ RSpec.describe ApplicationHelper do
 
   describe '#analytics_tracking_id' do
     it 'retrieves the environment variable' do
-      expect(ENV).to receive(:[]).with('GA_TRACKING_ID')
+      expect(ENV).to receive(:[]).with('GTM_TRACKING_ID')
       helper.analytics_tracking_id
     end
   end
@@ -197,23 +197,6 @@ RSpec.describe ApplicationHelper do
     it 'should call #title with a blank value' do
       expect(helper).to receive(:title).with('')
       helper.fallback_title
-    end
-  end
-
-  describe '#track_transaction' do
-    let(:tribunal_case) { instance_double(TribunalCase, id: '12345') }
-
-    before do
-      allow(tribunal_case).to receive(:intent_case_type).and_return(CaseType::INCOME_TAX)
-      allow(helper).to receive(:current_tribunal_case).and_return(tribunal_case)
-    end
-
-    it 'sets the transaction attributes to track' do
-      helper.track_transaction(name: 'whatever')
-
-      expect(
-        helper.content_for(:transaction_data)
-      ).to eq("{\"id\":\"12345\",\"sku\":\"income_tax\",\"quantity\":\"1\",\"name\":\"whatever\"}")
     end
   end
 end
