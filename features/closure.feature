@@ -1,14 +1,13 @@
+@smoke @headless
+
 Feature: Closure Happy Path
   Background:
-    Given I show my environment
-    Then I visit "/"
-    And I should see "What do you want to do?"
-    When I click the "Apply to close an enquiry" link
-    Then I should see "Apply to close an enquiry"
-    And I click the "Continue" link
+    Given I visit the homepage
+    When I click the apply to close an enquiry link
+  
+    And I click continue to close an enquiry
     Then I should see "What type of enquiry do you want to close?"
 
-  @happy_path
   Scenario: Personal return application Happy Path
     Given I choose "Personal return"
     Then I should see "Are you the taxpayer making the application?"
@@ -19,20 +18,19 @@ Feature: Closure Happy Path
     Given I choose "Individual"
     Then I should see "Enter taxpayer's details"
 
-    Given I fill the contact details
-    And I click the "Continue" button
+    Given I fill in taxpayers details
+    And I continue
     Then I should see "Do you have someone to represent you?"
 
     Given I choose "No"
     Then I should see "Enquiry details"
 
-    Given I fill in "HMRC reference number" with "12345"
-    And I fill in "Years under enquiry" with "3 and a half"
-    And I click the "Continue" button
+    Given I successfully submit enquiry details
     Then I should see "Why should the enquiry close? (optional)"
 
-    Given I fill in "Enter reasons (optional)" with "My very sensible reasons."
-    And I click the "Continue" button
+    Given I should be taken to additional info on why the enquiry should be closed
+    And I fill in my reason
+    And I click continue
     Then I should see "Add documents to support your application (optional)"
 
     Given I drop "original_notice.docx"
@@ -55,14 +53,15 @@ Feature: Closure Happy Path
     # call of 'Check your answers'.
     Given I pause for "2" seconds
 
-    When I click the "Continue" button
+    When I click continue
     Then I should see "Check your answers"
     And I should see "Enquiry details"
-    And I should see "London, SW1H 9AJ"
+    And I should see address
     And I should see "original_notice.docx"
     And I should see "review_conclusion.docx"
 
     Given I click the "Submit" button
+    And I pause for "5" seconds
     Then I should see "Case submitted"
-    And I should see "Your case reference number is:"
-    And I see a case reference number
+    And I should see "Your case was submitted successfully."
+    And I should see "You will be sent a case reference number shortly."

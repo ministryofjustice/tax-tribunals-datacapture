@@ -1,9 +1,9 @@
 require 'securerandom'
 
-Then(/^I drop "(.*?)"$/) do |filename|
-  drop_in_dropzone("#{UPLOAD_EXAMPLES}/#{filename}")
-  sleep(1)
-end
+# Then(/^I drop "(.*?)"$/) do |filename|
+#   drop_in_dropzone("#{UPLOAD_EXAMPLES}/#{filename}")
+#   sleep(1)
+# end
 
 def drop_in_dropzone(file_path)
   # The fake input needs a unique css id for each instance, otherwise the
