@@ -1,6 +1,5 @@
 # Tax Tribunals Full-Stack Smoke Tests
 
-Cucumber tests with the tag: @smoke
 These are **NOT** standard cucumber features and should not be treated
 as such.  They are a set of simple features used to smoke test the
 application stack in various 'real' enviroments. They will not work
@@ -11,21 +10,10 @@ generally NOT be run against the production enviroment.**
 
 ## Running
 
-Run all Cucumber tests headless:
 ```
+export DATACAPTURE_URI=https://tax-tribunals-datacapture-dev.dsd.io
 bundle exec cucumber
 ```
-
-Run all Cucumber smoke tests:
-```
-bundle exec cucumber --tags @smoke
-```
-
-Run all Cucumber tests that run in Firefox:
-```
-DRIVER=firefox bundle exec cucumber --tags ~@headless
-```
-
 
 ### Running on CI
 
