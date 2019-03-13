@@ -63,7 +63,7 @@ group :test do
   gem 'cucumber'
   gem 'geckodriver-helper', '~> 0.0'
   gem 'poltergeist', '1.15.0'
-  gem 'phantomjs'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'pry'
   gem 'rails-controller-testing'
   gem 'rubocop', '0.49.1', require: false

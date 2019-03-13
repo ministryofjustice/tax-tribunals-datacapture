@@ -3,6 +3,6 @@ FROM ruby:2.3.3-onbuild
 RUN touch /etc/inittab
 
 ENV DATACAPTURE_URI https://tax-tribunals-datacapture-dev.dsd.io
-RUN apt-get update && apt-get install -y && apt-get install libcurl4-gnutls-dev -y
+RUN apt-get update && apt-get install -y && apt-get install libcurl4-gnutls-dev -y && apt-get install nodejs -y
 
 CMD bundle exec cucumber
