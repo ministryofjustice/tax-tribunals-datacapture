@@ -364,20 +364,8 @@ en:
       need_support:
         edit:
           heading: Do you need any support at the hearing?
-          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access. You can’t bring your own interpreter to the hearing but the court will provide one if you request it.
+          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access.
           page_title: Need Support?
-          help_panel:
-            heading: foo
-            content_html: |
-              <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
-              <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
-              <p>Find out about:</p>
-              <ul class="list list-bullet">
-                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
-                <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
-                <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
-              </ul>
-            page_title: Did you appeal?
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
