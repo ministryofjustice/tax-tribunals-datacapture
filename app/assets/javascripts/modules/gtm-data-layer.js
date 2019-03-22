@@ -23,21 +23,12 @@ moj.gtmDataLayerEvent = {
     var self = this,
         $form = $(self.radioFormClass);
 
-    // submitting the form is intercepted[1] until the GTM event
-    // has been pushed to the datalayer, by sending target to make a call[2]
     $form.on('submit', function(e) {
-      var eventData,
-          options;
-
-      e.preventDefault(); // [1]
+      var eventData;
 
       eventData = self.getRadioChoiceData($form);
-      options = {
-        actionType: 'form',
-        actionValue: $form // [2]
-      };
 
-      self.push(eventData, options);
+      self.push(eventData);
     });
   },
 
@@ -45,33 +36,15 @@ moj.gtmDataLayerEvent = {
     var self = this,
         $selectedRadio = $form.find('input[type="radio"]:checked'),
         selectedValue = $selectedRadio.val(),
-        eventData,
+        eventData = {};
 
-
-    eventData = {
-      event: self.event,
-    };
+    eventData['event'] = self.event;
     eventData[self.var_name] = selectedValue;
 
     return eventData;
   },
 
-  push: function(eventData, opts) {
-    var self = this,
-        opts = opts || {};
-
+  push: function(eventData) {
     window.dataLayer.push(eventData);
-
-    if(opts.actionType) {
-      if(opts.actionType === 'form') {
-        opts.actionValue.unbind('submit').trigger('submit');
-      } else if(opts.actionType === 'link') {
-        if(opts.actionValue.attr('target')) {
-          window.open(opts.actionValue.attr('href'), opts.actionValue.attr('target'));
-        } else {
-          document.location = opts.actionValue.attr('href');
-        }
-      }
-    }
   }
 };
