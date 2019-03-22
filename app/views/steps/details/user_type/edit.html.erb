@@ -6,7 +6,7 @@
 
     <h1 class="heading-large"><%= translate_with_appeal_or_application '.heading' %></h1>
 
-    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
+    <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :user_type,
         choices: Steps::Details::UserTypeForm.choices,
         legend_options: {class: 'visuallyhidden'} %>
@@ -17,3 +17,11 @@
     <%= render partial: 'steps/shared/representative_explanation' %>
   </div>
 </div>
+
+<% content_for(:javascripts) do %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        moj.gtmDataLayerEvent.init('UserType_Form', 'userType');
+      });
+  </script>
+<% end %>

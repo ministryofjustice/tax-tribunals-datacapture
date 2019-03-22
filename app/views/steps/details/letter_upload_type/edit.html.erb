@@ -6,7 +6,7 @@
 
     <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
 
-    <%= step_form @form_object, html: { class: 'ga-radioButtonGroup' } do |f| %>
+    <%= step_form @form_object, html: { class: 'gtm-radioButtonGroup' } do |f| %>
       <%= f.radio_button_fieldset :letter_upload_type,
           choices: Steps::Details::LetterUploadTypeForm.choices,
           legend_options: {class: 'visuallyhidden'} %>
@@ -19,3 +19,11 @@
     <% end %>
   </div>
 </div>
+
+<% content_for(:javascripts) do %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        moj.gtmDataLayerEvent.init('LetterType_Form', 'letterType');
+      });
+  </script>
+<% end %>
