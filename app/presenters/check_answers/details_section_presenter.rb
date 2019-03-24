@@ -9,6 +9,7 @@ module CheckAnswers
         FileOrTextAnswer.new(:grounds_for_appeal, tribunal_case.grounds_for_appeal, tribunal_case.documents(:grounds_for_appeal).first, change_path: edit_steps_details_grounds_for_appeal_path),
         # nil file because there is no file upload field (yet)
         FileOrTextAnswer.new(:outcome, tribunal_case.outcome, nil, change_path: edit_steps_details_outcome_path),
+        Answer.new(:need_support, tribunal_case.need_support, change_path: edit_steps_details_need_support_path),
         *submitted_letter_files_answers
       ].select(&:show?)
     end

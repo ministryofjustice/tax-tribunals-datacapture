@@ -929,6 +929,11 @@ en:
       change_password: Change my password
       save_and_continue: "Save and continue"
   check_answers:
+    need_support:
+      question: Do you need any support at the hearing?
+      accessible_change_text: whether you need support at the hearing
+      answers:
+        <<: *YESNO
     attached_document: Attached document
     change: Change
     phone: Tel
