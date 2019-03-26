@@ -1,0 +1,27 @@
+<div>
+  <dt class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{multi_answer_row.question}.question" %>
+  </dt>
+
+  <dd class="answer">
+    <ul class="list list-bullet">
+      <% multi_answer_row.value.each do |value| %>
+        <% if value.is_a?(String) && value.present? %>
+          <%= value %>
+        <% else %>
+          <li>
+            <%= t("check_answers.#{multi_answer_row.question}.answers.#{value}") %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </dd>
+
+  <dd class="change">
+    <% if multi_answer_row.show_change_link? %>
+      <%= link_to multi_answer_row.change_path do %>
+        <%=t 'check_answers.change' %><span class="visuallyhidden"> <%=t "check_answers.#{multi_answer_row.question}.accessible_change_text" %></span>
+      <% end %>
+    <% end %>
+  </dd>
+</div>
