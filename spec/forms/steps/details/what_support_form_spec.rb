@@ -30,9 +30,19 @@ RSpec.describe Steps::Details::WhatSupportForm do
         it { should_not validate_presence_of(:other_support_details) }
       end
 
-      context 'when no options are checked' do
-        it 'should not be valid' do
-          expect { subject.save }.should_not be_valid
+      context 'when no answers are checked' do
+        it 'should display the what support validation message' do
+          subject.valid?
+          subject.errors[:what_support].should include("Select what support you need at the hearing")
+        end
+      end
+
+      context 'when at least one answer is checked' do
+        let(:disabled_access) { true }
+
+        it 'should not display the what support validation message' do
+          subject.valid?
+          subject.errors[:what_support].should_not include("Select what support you need at the hearing")
         end
       end
     end
