@@ -600,10 +600,6 @@ en:
         steps/details/need_support_form:
           attributes:
             need_support:
-        steps/details/what_support_form:
-          attributes:
-            need_support:
-              inclusion: Select whether you need support at the hearing
               inclusion: Select whether you need support at the hearing or not
         steps/details/letter_upload_type_form:
           attributes:

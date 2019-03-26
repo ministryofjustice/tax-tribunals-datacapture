@@ -10,13 +10,7 @@
 
     <%= step_form @form_object do |f| %>
       <%=
-        f.check_box_fieldset :what_support, [
-          :language_interpreter,
-          :sign_language_interpreter,
-          :hearing_loop,
-          :disabled_access,
-          :other_support
-        ] do |fieldset|
+        f.check_box_fieldset :what_support, :what_support do |fieldset|
           fieldset.check_box_input(:language_interpreter)
           fieldset.check_box_input(:sign_language_interpreter)
           fieldset.check_box_input(:hearing_loop)
