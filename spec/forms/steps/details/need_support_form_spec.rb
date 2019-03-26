@@ -49,7 +49,13 @@ RSpec.describe Steps::Details::NeedSupportForm do
 
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          need_support: NeedSupport::YES
+          need_support: NeedSupport::YES,
+          language_interpreter: nil,
+          sign_language_interpreter: nil,
+          hearing_loop: nil,
+          disabled_access: nil,
+          other_support: nil,
+          other_support_details: nil,
         ).and_return(true)
         expect(subject.save).to be(true)
       end

@@ -23,9 +23,13 @@ module Steps::Details
       return true unless changed?
 
       tribunal_case.update(
-        need_support: need_support_value
-        # The following are dependent attributes that need to be reset
-        # TODO: Are there any dependent attributes? Reset them here.
+        need_support: need_support_value,
+        language_interpreter: nil,
+        sign_language_interpreter: nil,
+        hearing_loop: nil,
+        disabled_access: nil,
+        other_support: nil,
+        other_support_details: nil,
       )
     end
   end

@@ -366,6 +366,12 @@ en:
           heading: Do you need any support at the hearing?
           lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access.
           page_title: Need Support?
+      what_support:
+        edit:
+          heading: Support at the hearing
+          lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
+          page_title: What Support?
+          other_support_text: Explain what other support you will need at your tribunal.
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
@@ -592,6 +598,10 @@ en:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
         steps/details/need_support_form:
+          attributes:
+            need_support:
+              inclusion: Select whether you need support at the hearing
+        steps/details/what_support_form:
           attributes:
             need_support:
               inclusion: Select whether you need support at the hearing
@@ -938,6 +948,17 @@ en:
       accessible_change_text: whether you need support at the hearing
       answers:
         <<: *YESNO
+    what_support:
+      question: What support you need at the hearing?
+      accessible_change_text: what support you need at the hearing
+      answers:
+        language_interpreter: Language interpreter
+        sign_language_interpreter: Sign language interpreter
+        hearing_loop: Hearing loop
+        disabled_access: Disabled access
+        other_support: Other
+    what_support_other:
+      question: ''
     attached_document: Attached document
     change: Change
     phone: Tel

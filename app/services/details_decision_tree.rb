@@ -24,6 +24,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :outcome
       edit(:need_support)
     when :need_support
+      after_need_support_step
+    when :what_support
       edit(:letter_upload_type)
     when :letter_upload_type
       after_letter_upload_type
@@ -109,6 +111,15 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       show(:documents_upload_problems)
     else
       show(:check_answers)
+    end
+  end
+
+  def after_need_support_step
+    case tribunal_case.need_support
+    when 'yes'
+      edit(:what_support)
+    when 'no'
+      edit(:letter_upload_type)
     end
   end
 end

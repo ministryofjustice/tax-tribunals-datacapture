@@ -109,6 +109,7 @@ Rails.application.routes.draw do
       show_step :confirmation
       edit_step :user_type
       edit_step :representative_approval
+      edit_step :what_support
     end
   end
 
