@@ -601,6 +601,9 @@ en:
           attributes:
             need_support:
               inclusion: Select whether you need support at the hearing or not
+        steps/details/what_support_form:
+          attributes:
+            what_support: Select what support you need at the hearing
         steps/details/letter_upload_type_form:
           attributes:
             letter_upload_type:
@@ -874,6 +877,8 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
+      steps_details_what_support_form:
+        other_support_details: Explain what other support you will need at your tribunal
       steps_details_letter_upload_type_form:
         letter_upload_type:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
@@ -945,14 +950,14 @@ en:
       answers:
         <<: *YESNO
     what_support:
-      question: What support you need at the hearing?
+      question: Support at the hearing
       accessible_change_text: what support you need at the hearing
       answers:
         language_interpreter: Language interpreter
         sign_language_interpreter: Sign language interpreter
         hearing_loop: Hearing loop
         disabled_access: Disabled access
-        other_support: Other
+        other_support: Other support
     what_support_other:
       question: ''
     attached_document: Attached document

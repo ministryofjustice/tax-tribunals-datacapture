@@ -28,7 +28,10 @@ module Steps::Details
     end
 
     def at_least_one_checkbox_validation
-      errors.add(:what_support, "Select what support you need at the hearing") unless any_answers?
+      unless any_answers?
+        i18n_scope = 'activemodel.errors.models.steps/details/what_support_form.attributes'
+        errors.add(:what_support, I18n.t('what_support', scope: i18n_scope))
+      end
     end
 
     def any_answers?
