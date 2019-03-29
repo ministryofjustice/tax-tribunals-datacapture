@@ -76,6 +76,16 @@ Feature: Income Tax Happy Paths
 
     Given I fill in "Clearly explain in 2-3 sentences" with "Drive my enemies before me, hear the lament of their women"
     And I click the "Save and continue" button
+
+    Then I should see "Do you need any support at the hearing?"
+    When I click the radio button "Yes"
+    And I click the "Save and continue" button
+    Then I should see "Support at the hearing"
+    When I click the radio button "Language interpreter"
+    And I click the radio button "Other support"
+    And I fill in "Other support details" with "Italian"
+    And I click the "Save and continue" button
+
     Then I should see "Upload the review conclusion letter"
 
     Given I choose "Upload the letter as multiple pages"
@@ -108,6 +118,11 @@ Feature: Income Tax Happy Paths
     And I should see "Appeal details"
     And I should see "London, SW1H 9AJ"
     And I should see "grounds_for_appeal.docx"
+
+    And I should see "Do you need any support at the hearing?"
+    And I should see "Language interpreter"
+    And I should see "Other"
+    And I should see "Italian"
 
     And I should see "Letter uploaded"
     And I should see "original_notice.docx"
