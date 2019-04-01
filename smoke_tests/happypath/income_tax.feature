@@ -83,7 +83,7 @@ Feature: Income Tax Happy Paths
     Then I should see "Support at the hearing"
     When I click the radio button "Language interpreter"
     And I click the radio button "Other support"
-    And I fill in "Other support details" with "Italian"
+    And I fill in "Explain what other support you will need at your tribunal" with "Italian"
     And I click the "Save and continue" button
 
     Then I should see "Upload the review conclusion letter"
