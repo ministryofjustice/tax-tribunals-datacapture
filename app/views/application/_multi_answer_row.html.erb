@@ -6,7 +6,7 @@
   <dd class="answer">
     <ul class="list list-bullet">
       <% multi_answer_row.value.each do |value| %>
-        <% if value.is_a?(String) && value.present? %>
+        <% if is_string_present?(value) %>
           <%= value %>
         <% else %>
           <li>

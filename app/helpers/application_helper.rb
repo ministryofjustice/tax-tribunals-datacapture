@@ -78,4 +78,8 @@ module ApplicationHelper
 
     title ''
   end
+
+  def is_string_present?(value)
+    value.is_a?(String) && value.present?
+  end
 end
