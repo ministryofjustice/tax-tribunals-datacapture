@@ -1,0 +1,19 @@
+<tr>
+  <td class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{multi_answer_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-multi-choice">
+    <ul class="list list-bullet">
+      <% multi_answer_row.value.each do |value| %>
+        <% if is_string_present?(value) %>
+          <%= value %>
+        <% else %>
+          <li>
+            <%= t("check_answers.#{multi_answer_row.question}.answers.#{value}") %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </td>
+</tr>

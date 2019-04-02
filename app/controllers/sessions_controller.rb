@@ -93,7 +93,12 @@ class SessionsController < ApplicationController
         Faker::Address.street_address, Faker::Address.city, Faker::Address.county
       ].join("\n"),
       grounds_for_appeal: Faker::Lorem.paragraph(2),
-      outcome: Faker::ChuckNorris.fact
+      outcome: Faker::ChuckNorris.fact,
+      need_support: NeedSupport::YES,
+      language_interpreter: true,
+      hearing_loop: true,
+      other_support: true,
+      other_support_details: Faker::Lorem.paragraph(1),
     }
   end
 

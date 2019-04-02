@@ -199,4 +199,18 @@ RSpec.describe ApplicationHelper do
       helper.fallback_title
     end
   end
+
+  describe '#is_string_present?' do
+     it 'returns true for present string values' do
+        expect(helper.is_string_present?('something')).to be true
+     end
+
+     it 'returns false for non string values' do
+       expect(helper.is_string_present?(true)).to be false
+     end
+
+     it 'returns false for blank string values' do
+       expect(helper.is_string_present?(' ')).to be false
+     end
+  end
 end

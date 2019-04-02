@@ -1,0 +1,27 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object do |f| %>
+      <%=
+        f.check_box_fieldset :what_support, :what_support do |fieldset|
+          fieldset.check_box_input(:language_interpreter)
+          fieldset.check_box_input(:sign_language_interpreter)
+          fieldset.check_box_input(:hearing_loop)
+          fieldset.check_box_input(:disabled_access)
+          fieldset.check_box_input(:other_support) {
+            f.text_area :other_support_details, size: '40x4', class: 'form-control-3-4'
+          }
+        end
+      %>
+
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% title t('.page_title') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= step_header %>
+
+    <h1 class="heading-large"><%=t '.heading' %></h1>
+
+    <p class="lede"><%=t '.lead_text' %></p>
+
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
+      <%= f.radio_button_fieldset :need_support,
+        choices: Steps::Details::NeedSupportForm.choices,
+        legend_options: {class: 'visuallyhidden'} %>
+
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
+    <% end %>
+  </div>
+</div>
