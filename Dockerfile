@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.3.3-webapp-onbuild
+FROM ministryofjustice/ruby:2.5.3-webapp-onbuild
 
 ENV PUMA_PORT 3000
 
@@ -27,11 +27,6 @@ ENV NOTIFY_RESET_PASSWORD_TEMPLATE_ID           replace_this_at_build_time
 ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 
 RUN touch /etc/inittab
-
-# Prevent apt-get from failing to fetch updates for the removed jessie-updates suite
-RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list
-# Add alternative source which includes the removed debian-security suite
-RUN echo "deb http://security.debian.org/debian-security jessie/updates main" > /etc/apt/sources.list.d/jessie-alt-repo.list
 
 RUN apt-get update && apt-get install -y && apt-get install libcurl4-gnutls-dev -y
 

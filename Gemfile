@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.3'
 
-gem 'devise'
+gem 'devise', '4.4.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
 gem 'govuk_elements_form_builder', '~> 1.3.0'
@@ -60,7 +60,7 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs'
   gem 'rails-controller-testing'
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
