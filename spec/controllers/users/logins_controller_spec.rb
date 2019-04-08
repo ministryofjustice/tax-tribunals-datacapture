@@ -37,10 +37,6 @@ RSpec.describe Users::LoginsController do
         expect(response).to redirect_to(users_login_save_confirmation_path)
       end
 
-      it 'records #last_sign_in_at' do
-        expect { do_post }.to change(user, :last_sign_in_at)
-      end
-
       context 'when the case already belongs to the user (we do not send an email)' do
         it 'does not store the signed in email address in the session' do
           do_post
