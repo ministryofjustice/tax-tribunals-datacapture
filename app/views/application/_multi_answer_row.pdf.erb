@@ -5,15 +5,7 @@
 
   <td class="answer answer-multi-choice">
     <ul class="list list-bullet">
-      <% multi_answer_row.value.each do |value| %>
-        <% if is_string_present?(value) %>
-          <%= value %>
-        <% else %>
-          <li>
-            <%= t("check_answers.#{multi_answer_row.question}.answers.#{value}") %>
-          </li>
-        <% end %>
-      <% end %>
+      <%= render partial: 'multi_answer_items', locals: { multi_answer_row: multi_answer_row } %>
     </ul>
   </td>
 </tr>

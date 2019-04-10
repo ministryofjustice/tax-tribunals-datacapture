@@ -11,8 +11,12 @@
     <%= step_form @form_object do |f| %>
       <%=
         f.check_box_fieldset :what_support, :what_support do |fieldset|
-          fieldset.check_box_input(:language_interpreter)
-          fieldset.check_box_input(:sign_language_interpreter)
+          fieldset.check_box_input(:language_interpreter) {
+            f.text_area :language_interpreter_details, size: '40x1', class: 'form-control-3-4'
+          }
+          fieldset.check_box_input(:sign_language_interpreter) {
+            f.text_area :sign_language_interpreter_details, size: '40x1', class: 'form-control-3-4'
+          }
           fieldset.check_box_input(:hearing_loop)
           fieldset.check_box_input(:disabled_access)
           fieldset.check_box_input(:other_support) {

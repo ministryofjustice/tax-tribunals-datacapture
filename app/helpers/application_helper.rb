@@ -79,7 +79,7 @@ module ApplicationHelper
     title ''
   end
 
-  def is_string_present?(value)
-    value.is_a?(String) && value.present?
+  def multi_answer_i18n_lookup(question, answer)
+    t("check_answers.#{question}.answers.#{answer}")
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190324141116) do
+ActiveRecord::Schema.define(version: 20190409092902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20190324141116) do
     t.boolean  "disabled_access"
     t.boolean  "other_support"
     t.string   "other_support_details"
+    t.string   "language_interpreter_details"
+    t.string   "sign_language_interpreter_details"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true, using: :btree
     t.index ["user_id"], name: "index_tribunal_cases_on_user_id", using: :btree
   end

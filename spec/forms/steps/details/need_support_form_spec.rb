@@ -51,7 +51,9 @@ RSpec.describe Steps::Details::NeedSupportForm do
         expect(tribunal_case).to receive(:update).with(
           need_support: NeedSupport::YES,
           language_interpreter: nil,
+          language_interpreter_details: nil,
           sign_language_interpreter: nil,
+          sign_language_interpreter_details: nil,
           hearing_loop: nil,
           disabled_access: nil,
           other_support: nil,

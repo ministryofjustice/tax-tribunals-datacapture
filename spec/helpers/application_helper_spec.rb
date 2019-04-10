@@ -200,17 +200,11 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#is_string_present?' do
-     it 'returns true for present string values' do
-        expect(helper.is_string_present?('something')).to be true
-     end
+  describe '#multi_answer_i18n_lookup' do
+    let(:i18n_hearing_loop) { helper.multi_answer_i18n_lookup(:what_support, 'hearing_loop') }
 
-     it 'returns false for non string values' do
-       expect(helper.is_string_present?(true)).to be false
-     end
-
-     it 'returns false for blank string values' do
-       expect(helper.is_string_present?(' ')).to be false
-     end
+    it 'should return i18n for a given answer' do
+      expect(i18n_hearing_loop).to eq('Hearing loop')
+    end
   end
 end

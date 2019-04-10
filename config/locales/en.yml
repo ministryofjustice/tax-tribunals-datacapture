@@ -879,6 +879,8 @@ en:
         grounds_for_appeal_document: Attach reasons as a document
       steps_details_what_support_form:
         other_support_details: Explain what other support you will need at your tribunal
+        language_interpreter_details: What language needs to be interpreted?
+        sign_language_interpreter_details: Enter the sign language you need
       steps_details_letter_upload_type_form:
         letter_upload_type:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
@@ -954,7 +956,9 @@ en:
       accessible_change_text: what support you need at the hearing
       answers:
         language_interpreter: Language interpreter
+        language_interpreter_details: What language needs to be interpreted?
         sign_language_interpreter: Sign language interpreter
+        sign_language_interpreter_details: Enter the sign language you need
         hearing_loop: Hearing loop
         disabled_access: Disabled access
         other_support: Other support

@@ -25,7 +25,9 @@ module Steps::Details
       tribunal_case.update(
         need_support: need_support_value,
         language_interpreter: nil,
+        language_interpreter_details: nil,
         sign_language_interpreter: nil,
+        sign_language_interpreter_details: nil,
         hearing_loop: nil,
         disabled_access: nil,
         other_support: nil,
