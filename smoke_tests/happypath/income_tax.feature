@@ -82,6 +82,7 @@ Feature: Income Tax Happy Paths
     And I click the "Save and continue" button
     Then I should see "Support at the hearing"
     When I click the radio button "Language interpreter"
+    And I fill in "What language needs to be interpreted?" with "Spanish"
     And I click the radio button "Other support"
     And I fill in "Explain what other support you will need at your tribunal" with "Italian"
     And I click the "Save and continue" button
