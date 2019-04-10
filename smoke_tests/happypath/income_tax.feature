@@ -122,6 +122,7 @@ Feature: Income Tax Happy Paths
 
     And I should see "Do you need any support at the hearing?"
     And I should see "Language interpreter"
+    And I should see "Spanish"
     And I should see "Other"
     And I should see "Italian"
 
