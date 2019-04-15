@@ -1,0 +1,12 @@
+<% multi_answer_row.value.each do |value| %>
+  <% if value.is_a?(Array) %>
+    <li>
+      <%= multi_answer_i18n_lookup(multi_answer_row.question, value.first) %>
+    </li>
+      <%= value.last %>
+  <% else %>
+    <li>
+      <%= multi_answer_i18n_lookup(multi_answer_row.question, value) %>
+    </li>
+  <% end %>
+<% end %>

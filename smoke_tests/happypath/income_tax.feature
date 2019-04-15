@@ -82,8 +82,11 @@ Feature: Income Tax Happy Paths
     And I click the "Save and continue" button
     Then I should see "Support at the hearing"
     When I click the radio button "Language interpreter"
+    And I fill in "What language needs to be interpreted?" with "Spanish"
+    And I click the radio button "Sign language interpreter"
+    And I fill in "Enter the sign language you need" with "Spanish"
     And I click the radio button "Other support"
-    And I fill in "Explain what other support you will need at your tribunal" with "Italian"
+    And I fill in "Explain what other support you will need at your tribunal" with "Step-free access"
     And I click the "Save and continue" button
 
     Then I should see "Upload the review conclusion letter"
@@ -121,8 +124,11 @@ Feature: Income Tax Happy Paths
 
     And I should see "Do you need any support at the hearing?"
     And I should see "Language interpreter"
-    And I should see "Other"
-    And I should see "Italian"
+    And I should see "Spanish"
+    And I should see "Sign language interpreter"
+    And I should see "Spanish"
+    And I should see "Other support"
+    And I should see "Step-free access"
 
     And I should see "Letter uploaded"
     And I should see "original_notice.docx"
