@@ -144,6 +144,28 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `outcome`' do
       let(:step_params) { { outcome: 'anything'  } }
 
+      it { is_expected.to have_destination(:need_support, :edit) }
+    end
+
+    context 'when step is `need_support`' do
+      let(:step_params) { { need_support: 'anything' } }
+
+      context 'and the answer is `yes`' do
+        let(:tribunal_case) { instance_double(TribunalCase, need_support: NeedSupport::YES.to_s) }
+
+        it { is_expected.to have_destination(:what_support, :edit) }
+      end
+
+      context 'and the answer is `no`' do
+        let(:tribunal_case) { instance_double(TribunalCase, need_support: NeedSupport::NO.to_s) }
+
+        it { is_expected.to have_destination(:letter_upload_type, :edit) }
+      end
+    end
+
+    context 'when step is `what_support`' do
+      let(:step_params) { { what_support: 'anything' } }
+
       it { is_expected.to have_destination(:letter_upload_type, :edit) }
     end
 

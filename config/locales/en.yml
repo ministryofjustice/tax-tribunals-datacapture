@@ -361,6 +361,18 @@ en:
           lead_text: ""
           page_title: Outcome
       <<: *CYA_CONFIRMATION
+      need_support:
+        edit:
+          heading: Do you need any support at the hearing?
+          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access.
+          page_title: Need Support?
+      what_support:
+        edit:
+          heading: Support at the hearing
+          lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
+          page_title: What Support?
+          other_support_text: Explain what other support you will need at your tribunal.
+      <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
           heading: Complete your appeal by post
@@ -585,6 +597,13 @@ en:
             outcome:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
+        steps/details/need_support_form:
+          attributes:
+            need_support:
+              inclusion: Select whether you need support at the hearing or not
+        steps/details/what_support_form:
+          attributes:
+            what_support: Select what support you need at the hearing
         steps/details/letter_upload_type_form:
           attributes:
             letter_upload_type:
@@ -858,6 +877,10 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: Attach reasons as a document
+      steps_details_what_support_form:
+        other_support_details: Explain what other support you will need at your tribunal
+        language_interpreter_details: What language needs to be interpreted?
+        sign_language_interpreter_details: Enter the sign language you need
       steps_details_letter_upload_type_form:
         letter_upload_type:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
@@ -923,6 +946,24 @@ en:
       change_password: Change my password
       save_and_continue: "Save and continue"
   check_answers:
+    need_support:
+      question: Do you need any support at the hearing?
+      accessible_change_text: whether you need support at the hearing
+      answers:
+        <<: *YESNO
+    what_support:
+      question: Support at the hearing
+      accessible_change_text: what support you need at the hearing
+      answers:
+        language_interpreter: Language interpreter
+        language_interpreter_details: What language needs to be interpreted?
+        sign_language_interpreter: Sign language interpreter
+        sign_language_interpreter_details: Enter the sign language you need
+        hearing_loop: Hearing loop
+        disabled_access: Disabled access
+        other_support: Other support
+    what_support_other:
+      question: ''
     attached_document: Attached document
     change: Change
     phone: Tel

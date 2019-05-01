@@ -199,4 +199,12 @@ RSpec.describe ApplicationHelper do
       helper.fallback_title
     end
   end
+
+  describe '#multi_answer_i18n_lookup' do
+    let(:i18n_hearing_loop) { helper.multi_answer_i18n_lookup(:what_support, 'hearing_loop') }
+
+    it 'should return i18n for a given answer' do
+      expect(i18n_hearing_loop).to eq('Hearing loop')
+    end
+  end
 end

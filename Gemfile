@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.3'
 
-gem 'devise'
+gem 'devise', '~> 4.6.0'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_elements_form_builder', '0.1.1'
-gem 'govuk_elements_rails', '< 3.0.0'
-gem 'govuk_frontend_toolkit', '< 6.0.0'
+gem 'govuk_elements_form_builder', '~> 1.3.0'
+gem 'govuk_elements_rails', '~> 3.0.0'
+gem 'govuk_frontend_toolkit', '~> 6.0.0'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'govuk_template'
 gem 'jquery-rails'
@@ -60,7 +60,7 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs'
   gem 'rails-controller-testing'
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
