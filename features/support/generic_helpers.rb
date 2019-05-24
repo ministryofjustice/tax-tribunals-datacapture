@@ -1,17 +1,37 @@
+def appeal_page
+  @appeal_page ||= AppealPage.new
+end
+
 def base_page
   @base_page ||= BasePage.new
 end
 
-def home_page
-  @home_page ||= HomePage.new
+def case_type_page
+  @case_type_page ||= CaseTypePage.new
 end
 
 def closure_page
   @closure_page ||= ClosurePage.new
 end
 
-def case_type_page
-  @case_type_page ||= CaseTypePage.new
+def enquiry_details_page
+  @enquiry_details_page ||= EnquiryDetailsPage.new
+end
+
+def home_page
+  @home_page ||= HomePage.new
+end
+
+def taxpayer_details_page
+  @taxpayer_details_page ||= TaxpayerDetailsPage.new
+end
+
+def taxpayer_type_page
+  @taxpayer_type_page ||= TaxpayerTypePage.new
+end
+
+def user_type_page
+  @user_type_page ||= UserTypePage.new
 end
 
 def continue
