@@ -59,7 +59,6 @@ group :test do
   gem 'capybara-rails', '~> 0.0.2'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
-  gem 'codeclimate-test-reporter', require: nil
   gem 'cucumber-rails', '~> 1.5', require: false
   gem 'geckodriver-helper', '~> 0.23.0'
   gem 'phantomjs'
@@ -68,11 +67,9 @@ group :test do
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
   gem 'site_prism', '~> 2.9'
-  gem 'timecop'
   gem 'webdrivers', '~> 3.9', '>= 3.9.4'
   gem 'webmock', require: false
 end
