@@ -56,7 +56,6 @@ end
 group :test do
   gem 'brakeman'
   gem 'capybara', '~> 2.7'
-  gem 'capybara-rails', '~> 0.0.2'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'cucumber-rails', '~> 1.5', require: false
@@ -73,3 +72,4 @@ group :test do
   gem 'webdrivers', '~> 3.9', '>= 3.9.4'
   gem 'webmock', require: false
 end
+
