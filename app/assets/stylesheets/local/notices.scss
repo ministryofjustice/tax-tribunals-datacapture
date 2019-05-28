@@ -8,3 +8,13 @@
     margin-bottom: 0em ;
   }
 }
+.maintenance-notice {
+  h2 {
+    margin-top: 0.5em;
+  }
+  p {
+    color: $mellow-red;
+    font-weight: bold;
+    margin-top: 0.2em;
+  }
+}

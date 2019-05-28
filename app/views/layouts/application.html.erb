@@ -45,7 +45,9 @@
 <% content_for(:content) do %>
   <main id="content" role="main">
     <%= render partial: 'layouts/phase_banner' %>
-
+    <% if true %>
+      <%= render partial: 'layouts/downtime_banner' %>
+    <% end %>
     <% if flash[:alert] %>
       <div class="error-summary">
         <%= flash[:alert] %>
