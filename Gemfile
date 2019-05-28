@@ -55,14 +55,21 @@ end
 
 group :test do
   gem 'brakeman'
-  gem 'capybara'
-  gem 'cucumber'
-  gem 'poltergeist'
+  gem 'capybara', '~> 2.7'
+  gem 'capybara-screenshot'
+  gem 'chromedriver-helper', '~> 2.1'
+  gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'geckodriver-helper', '~> 0.23.0'
   gem 'phantomjs'
+  gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
-  gem 'webmock'
+  gem 'site_prism', '~> 2.9'
+  gem 'webdrivers', '~> 3.9', '>= 3.9.4'
+  gem 'webmock', require: false
 end
+
