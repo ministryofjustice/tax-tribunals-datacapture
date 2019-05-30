@@ -75,6 +75,13 @@ RSpec.describe TaxTribs::Status do
       end
 
       specify { expect(described_class.check).to eq(status) }
+      context 'Glimr client returns nil' do
+        before do
+          allow(GlimrApiClient::Available).to receive(:call).and_return(nil)
+        end
+
+        specify { expect(described_class.check).to eq(status) }
+      end
     end
 
     context 'database unavailable' do
@@ -86,6 +93,13 @@ RSpec.describe TaxTribs::Status do
       end
 
       specify { expect(described_class.check).to eq(status) }
+      context 'DB connection is down' do
+        before do
+          allow(ActiveRecord::Base).to receive(:connection).and_raise(PG::ConnectionBad)
+        end
+
+        specify { expect(described_class.check).to eq(status) }
+      end
     end
 
     context 'uploader unavailable' do
@@ -100,6 +114,14 @@ RSpec.describe TaxTribs::Status do
       end
 
       specify { expect(described_class.check).to eq(status) }
+      context 'MojFileUploaderApiClient is down' do
+        before do
+          allow(uploader_client).to receive(:call).and_raise(Errno::ECONNREFUSED)
+        end
+
+        specify { expect(described_class.check).to eq(status) }
+      end
+
     end
   end
 end
