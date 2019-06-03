@@ -1270,7 +1270,7 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
     error_summary:
-      heading: There's a problem.
+      heading: There is a problem
       text: ''
     invalid_session:
       heading: Sorry, you'll have to start again
