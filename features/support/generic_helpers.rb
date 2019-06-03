@@ -22,6 +22,14 @@ def home_page
   @home_page ||= HomePage.new
 end
 
+def appeal_home_page
+  @appeal_home_page ||= AppealHomePage.new
+end
+
+def appeal_case_type_page
+  @appeal_case_type_page ||= AppealCaseTypePage.new
+end
+
 def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
