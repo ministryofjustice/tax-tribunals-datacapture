@@ -36,6 +36,8 @@ module TaxTribs
         else
           'failed'
         end
+    rescue Errno::ECONNREFUSED
+      'failed'
     end
 
     def uploader_client
@@ -50,6 +52,8 @@ module TaxTribs
                            else
                              'failed'
                            end
+    rescue PG::ConnectionBad
+      'failed'
     end
 
     def glimr_status
@@ -59,6 +63,8 @@ module TaxTribs
             'ok'
           end
         rescue GlimrApiClient::Unavailable
+          'failed'
+        rescue NoMethodError
           'failed'
         end
     end
