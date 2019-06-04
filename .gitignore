@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 **/.DS_Store
+screenshot_cucumber_*
 
 # Ignore Byebug command history file.
 .byebug_history
