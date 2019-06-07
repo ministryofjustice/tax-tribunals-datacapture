@@ -9,3 +9,4 @@ script:
   - bundle exec danger
   - bundle exec rake db:create db:schema:load
   - bundle exec rspec
+  - bundle exec cucumber
