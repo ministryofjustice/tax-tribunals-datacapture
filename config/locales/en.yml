@@ -1355,7 +1355,6 @@ en:
           National Crime Agency or the Welsh Revenue Authority.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
         home_login: Continue completing a case you haven't submitted.
-      link_time_estimate: (%{minutes} minutes to complete)
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.

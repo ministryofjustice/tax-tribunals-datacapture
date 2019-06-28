@@ -9,7 +9,6 @@
           <li>
             <%= link_to t('.link_titles.%s' % name), path, class: 'task-link ga-pageLink', data: {ga_category: 'Type_app', ga_label: name} %>
             <%= content_tag(:p, t('.link_descriptions.%s' % name)) %>
-            <%= content_tag(:p, t('.link_time_estimate', minutes: minutes)) unless minutes.zero? %>
           </li>
       <% end %>
     </ul>
