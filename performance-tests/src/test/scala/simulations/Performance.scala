@@ -21,7 +21,7 @@ with HttpConfiguration
         .check(css("input[name='authenticity_token']", "value").saveAs("csrfCookie")))
 
     .exec(http("Appeal")
-        .get("/users/sign_in")
+        .get("/appeal")
         .formParam("authenticity_token", session => {
               session("csrfCookie").as[String]
         })
