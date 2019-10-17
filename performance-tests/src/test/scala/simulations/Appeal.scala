@@ -7,7 +7,7 @@ import com.typesafe.config._
 
 
 
-class Performance extends Simulation
+class Appeal extends Simulation
 with HttpConfiguration
 {
   val conf = ConfigFactory.load()
@@ -72,7 +72,7 @@ with HttpConfiguration
         .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_address]", "102 Petty France")
         .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_city]", "London")
         .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_postcode]", "SW1H 9AJ")
-        .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_country]", "Greater London")
+        .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_country]", "UK")
         .formParam("steps_details_taxpayer_individual_details_form[taxpayer_contact_email]", "john.smith@gmail.com")
         .check(status.is(200)))
 
