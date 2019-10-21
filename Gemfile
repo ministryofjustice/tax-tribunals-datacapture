@@ -62,6 +62,7 @@ group :test do
   gem 'phantomjs'
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
