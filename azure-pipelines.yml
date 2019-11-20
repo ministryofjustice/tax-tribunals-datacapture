@@ -25,7 +25,7 @@ pr:
 variables:
   application.name: 'tt-data-capture'
   azure.subscription.endpoint: 'hmcts-pet'
-  manual.branch.prefix: 'master'
+  manual.branch.prefix: 'develop'
 
 resources:
   containers:
