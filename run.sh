@@ -1,17 +1,38 @@
 #!/bin/bash
-cd /usr/src/app
-case ${DOCKER_STATE} in
-  migrate)
-    echo "Running migrate"
-    bundle exec rake db:migrate
+
+PHUSION_SERVICE="${PHUSION:-false}"
+case ${PHUSION_SERVICE} in
+true)
+      cd /home/app/
+      case ${DOCKER_STATE} in
+        migrate)
+          echo "Running migrate"
+          bundle exec rake db:migrate
+          ;;
+        create)
+          echo "Running create"
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+          bundle exec rake db:seed
+          ;;
+      esac
+    echo "running as service"
+    bundle exec puma -p $PUMA_PORT
     ;;
-  create)
-    echo "Running create"
-    bundle exec rake db:create
-    bundle exec rake db:migrate
-    bundle exec rake db:seed
+*)
+      case ${DOCKER_STATE} in
+        migrate)
+          echo "Running migrate"
+          bundle exec rake db:migrate
+          ;;
+        create)
+          echo "Running create"
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+          bundle exec rake db:seed
+          ;;
+      esac
+    echo "normal startup"
+    bundle exec puma -p $PUMA_PORT
     ;;
 esac
-
-echo "Running app"
-bundle exec puma -p $PUMA_PORT
