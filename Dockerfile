@@ -5,12 +5,14 @@ ARG APP_VERSION=unknown
 ARG APP_BUILD_DATE=unknown
 ARG APP_GIT_COMMIT=unknown
 ARG APP_BUILD_TAG=unknown
+ARG EXTERNAL_URL=http://localhost
 
 # Setting up ping.json variables
 ENV APP_VERSION ${APP_VERSION}
 ENV APP_BUILD_DATE ${APP_BUILD_DATE}
 ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
 ENV APP_BUILD_TAG ${APP_BUILD_TAG}
+ENV EXTERNAL_URL ${EXTERNAL_URL}
 
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
