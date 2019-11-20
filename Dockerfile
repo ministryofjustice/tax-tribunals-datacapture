@@ -14,11 +14,28 @@ ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
 # Application specific variables 
 
-ARG EXTERNAL_URL=http://localhost
-ARG GOVUK_NOTIFY_API_KEY=unknown
+ENV DATABASE_URL                 replace_this_at_build_time
+ENV GLIMR_API_URL                replace_this_at_build_time
+ENV EXTERNAL_URL                 replace_this_at_build_time
+ENV PAYMENT_ENDPOINT             replace_this_at_build_time
+ENV MOJ_FILE_UPLOADER_ENDPOINT   replace_this_at_build_time
+ENV TAX_TRIBUNALS_DOWNLOADER_URL replace_this_at_build_time
+ENV SENTRY_DSN                   replace_this_at_build_time
+ENV GOVUK_NOTIFY_API_KEY         replace_this_at_build_time
+ENV GTM_TRACKING_ID              replace_this_at_build_time
+ENV TAX_TRIBUNAL_EMAIL           replace_this_at_build_time
+ENV ZENDESK_USERNAME             replace_this_at_build_time
+ENV ZENDESK_TOKEN                replace_this_at_build_time
+ENV UPLOAD_PROBLEMS_REPORT_AUTH_USER            replace_this_at_build_time
+ENV UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST          replace_this_at_build_time
+ENV NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID        replace_this_at_build_time
+ENV NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID    replace_this_at_build_time
+ENV NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID      replace_this_at_build_time
+ENV NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID       replace_this_at_build_time
+ENV NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID           replace_this_at_build_time
+ENV NOTIFY_RESET_PASSWORD_TEMPLATE_ID           replace_this_at_build_time
+ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 
-ENV EXTERNAL_URL ${EXTERNAL_URL}
-ENV GOVUK_NOTIFY_API_KEY ${GOVUK_NOTIFY_API_KEY}
 
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
