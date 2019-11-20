@@ -12,6 +12,13 @@ steps:
     gem install bundler -v $(bundlerVersion)
   displayName: 'install bundler'
 
+- script: |
+    bundle install --retry=3 --jobs=4
+  displayName: 'bundle install'
+
+- script: |
+    psql -h localhost -c 'create role vsts login createdb superuser;' -U postgres
+  displayName: 'PG role setup'
 
 - script: |
     bundle exec rake db:create db:schema:load
