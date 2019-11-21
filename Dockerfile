@@ -14,7 +14,7 @@ ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
 # Application specific variables 
 
-ENV DATABASE_URL                 replace_this_at_build_time
+ENV DATABASE_URL                 ${DATABASE_URL}
 ENV GLIMR_API_URL                replace_this_at_build_time
 ENV EXTERNAL_URL                 replace_this_at_build_time
 ENV PAYMENT_ENDPOINT             replace_this_at_build_time
