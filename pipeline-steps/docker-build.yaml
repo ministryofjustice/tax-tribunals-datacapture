@@ -12,7 +12,7 @@ steps:
     keyVaultName: f74dd7b303a6devops
     secretsFilter: '*'
 
-- script: |
+- bash: |
     echo "##vso[task.setvariable variable=DATABASE_URL;isOutput=true]$(dev-tt-dc-database-url)"
   displayName: 'Export Keyvault Variables'
   name: exportKeyVault
