@@ -5,7 +5,6 @@ ARG APP_VERSION=unknown
 ARG APP_BUILD_DATE=unknown
 ARG APP_GIT_COMMIT=unknown
 ARG APP_BUILD_TAG=unknown
-ARG DATABASE_URL
 
 # Setting up ping.json variables
 ENV APP_VERSION ${APP_VERSION}
@@ -15,7 +14,7 @@ ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
 # Application specific variables 
 
-ENV DATABASE_URL                 ${DATABASE_URL}
+ENV DATABASE_URL                 replace_this_at_build_time
 ENV GLIMR_API_URL                replace_this_at_build_time
 ENV EXTERNAL_URL                 replace_this_at_build_time
 ENV PAYMENT_ENDPOINT             replace_this_at_build_time
