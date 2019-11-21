@@ -5,6 +5,7 @@ ARG APP_VERSION=unknown
 ARG APP_BUILD_DATE=unknown
 ARG APP_GIT_COMMIT=unknown
 ARG APP_BUILD_TAG=unknown
+ARG DATABASE_URL
 
 # Setting up ping.json variables
 ENV APP_VERSION ${APP_VERSION}
