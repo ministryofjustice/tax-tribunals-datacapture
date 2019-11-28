@@ -39,7 +39,7 @@ ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -q && \
-    apt-get install -qy tzdata libcurl4-gnutls-dev --no-install-recommends && apt-get clean && \
+    apt-get install -qy tzdata libcurl4-gnutls-dev libxrender-dev --no-install-recommends && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
 
