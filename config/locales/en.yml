@@ -1569,7 +1569,7 @@ en:
         page_title: Feedback
         heading: Report a problem
         submit: Submit
-        sub_heading: 'Please note: we cannot offer legal advice.'
+        notice: 'Please note: we cannot offer legal advice.'
         lead_html: |
           <p>Enter your name, e-mail address and a brief description of what you need help with. We’ll get back to you by email during the next working day between 9am and 5pm.</p>
           <p>We will always try and assist by email, but if you would like us to telephone you, please provide your telephone number in the description box. We’ll only use your details to contact you. Don’t include any personal information, for example address or date of birth.</p>
