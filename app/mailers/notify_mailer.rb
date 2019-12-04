@@ -102,6 +102,16 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: ENV.fetch('STATISTICS_REPORT_EMAIL_ADDRESS'))
   end
 
+  def report_problem(data)
+    set_template(ENV.fetch('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID'))
+    set_personalisation(
+      name: data.name,
+      email: data.email,
+      assistance_type: t("helpers.label.surveys_feedback_form.assistance_type.#{data.assistance_type}"),
+      comment: data.comment)
+    mail(to: ENV.fetch('REPORT_PROBLEM_EMAIL_ADDRESS'))
+  end
+
   private
 
   def log_errors(exception)

@@ -649,6 +649,8 @@ en:
           attributes:
             comment:
               blank: Please enter some text
+            name:
+              blank: Please enter a valid name
             email:
               invalid: *invalid_email
   activerecord:
@@ -708,6 +710,8 @@ en:
         in_time_html: Are you in time to appeal to the tax tribunal?
       steps_details_letter_upload_type_form:
         letter_upload_type_html: Do you need to upload a single file or multiple files?
+      surveys_feedback_form:
+        assistance_type: Did you have any assistance with applying in Tax Tribunal online today?
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -926,15 +930,17 @@ en:
       tribunal_case:
         user_case_reference: Your reference (optional)
       surveys_feedback_form:
-        comment: Describe any service improvement or problems you are having
-        email: Email (optional)
+        assistance_type:
+          none: No, I applied to Tax Tribunal online myself
+          partial: Someone helped me to apply to Tax Tribunal online
+          total: I have difficulty using computers, so someone filled in the online Tax Tribunal application for me
+        comment: Describe what you would like to report
+        email: Email
+        name: Name
     hint:
       user:
         password: Must be at least 8 characters
         current_password: We need your current password to confirm your changes
-      surveys_feedback_form:
-        comment_html: Don't include any personal or sensitive information
-        email_html: Provide an email if you wish to receive an update on your comment
     submit:
       create: Continue
       update: Continue
@@ -1319,8 +1325,6 @@ en:
     phase_banner:
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
-      phase_info_email_html: |
-        This is a new service. <a href="mailto:taxtribunals_helpdesk@digital.justice.gov.uk?subject=Feedback">Report a problem</a> and help improve it for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
@@ -1563,13 +1567,16 @@ en:
     feedback:
       new:
         page_title: Feedback
-        heading: Help us improve this service
+        heading: Report a problem
         submit: Submit
-        lead_text: Please tell us how to improve the service or report a problem below (your feedback will be anonymous).
+        sub_heading: 'Please note: we cannot offer legal advice.'
+        lead_html: |
+          <p>Enter your name, e-mail address and a brief description of what you need help with. We’ll get back to you by email during the next working day between 9am and 5pm.</p>
+          <p>We will always try and assist by email, but if you would like us to telephone you, please provide your telephone number in the description box. We’ll only use your details to contact you. Don’t include any personal information, for example address or date of birth.</p>
       thanks:
         page_title: Feedback submitted
-        heading: Thank you for your feedback
-        lead_text: Your feedback helps us to improve this service.
+        heading: Thank you for reporting this problem
+        lead_text: We will contact you on your email shortly.
         continue: Continue
   admin:
     upload_problems_report:

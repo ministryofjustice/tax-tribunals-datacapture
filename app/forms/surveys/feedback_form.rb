@@ -1,12 +1,13 @@
 module Surveys
   class FeedbackForm < BaseForm
-    attribute :rating, Integer
     attribute :comment, String
     attribute :email, NormalisedEmail
-    attribute :referrer, String
-    attribute :user_agent, String
+    attribute :name, String
+    attribute :assistance_type, String
 
-    validates :email, email: true, allow_blank: true
+    validates_presence_of :name
+    validates :email, email: true, allow_blank: false
+    validates_presence_of :assistance_type
     validates_presence_of :comment
 
     # TODO: once we have at least 2 of these feedback forms, we can extract
@@ -15,13 +16,13 @@ module Surveys
     # attributes like `referrer` and `user_agent`
     #
     def subject
-      'Feedback'.freeze
+      'Report a problem'.freeze
     end
 
     private
 
     def persist!
-      TaxTribs::ZendeskSender.new(self).send!
+      NotifyMailer.report_problem(self).deliver_now
     end
   end
 end

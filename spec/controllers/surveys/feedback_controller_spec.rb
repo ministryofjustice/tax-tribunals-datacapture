@@ -6,17 +6,6 @@ RSpec.describe Surveys::FeedbackController, type: :controller do
       get :new
       expect(response).to be_successful
     end
-
-    context 'referrer' do
-      before do
-        request.env['HTTP_REFERER'] = 'https://www.test.com/my/step'
-      end
-
-      it 'should assign the referrer path to the form object' do
-        get :new
-        expect(assigns[:form_object].referrer).to eq('/my/step')
-      end
-    end
   end
 
   describe '#create' do
