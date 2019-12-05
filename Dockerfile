@@ -48,6 +48,9 @@ EXPOSE $PUMA_PORT
 
 RUN bash -c "bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets"
 
+# adding daily export cron job
+RUN echo "5 * * * * root /bin/daily-export.sh\n" >> /etc/cron.d/daily-export
+
 # running app as a servive
 ENV PHUSION true
 RUN mkdir /etc/service/app
