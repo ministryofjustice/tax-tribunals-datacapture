@@ -27,7 +27,7 @@ end
 
 Then(/^I am taken to a thank you page$/) do
   within_window windows.last do
-    expect(thank_you_page).to be_displayed
+    expect(current_url).to end_with '/surveys/feedback/thanks'
     expect(thank_you_page.content).to have_header
     expect(thank_you_page.content).to have_contact_via_email
   end

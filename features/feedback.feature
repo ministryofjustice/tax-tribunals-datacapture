@@ -1,6 +1,6 @@
 Feature: Feedback page
 
-  Background: Taxpayer details page
+  Background: Feedback page
     Given I am on the feedback page
 
     Scenario: Submit feedback
