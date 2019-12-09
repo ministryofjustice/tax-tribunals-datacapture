@@ -1578,7 +1578,6 @@ en:
       thanks:
         page_title: Feedback submitted
         heading: Thank you for reporting this problem
-        lead_text: We will contact you on your email shortly.
         continue: Back to start
   admin:
     upload_problems_report:
