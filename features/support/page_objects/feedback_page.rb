@@ -8,8 +8,8 @@ class FeedbackPage < BasePage
     element :submit_button, "input[value='Submit']"
     element :name_error, '.error-message', text: 'Please enter a valid name'
     element :email_error, '.error-message', text: 'Please enter a valid email address'
-    element :multiple_choice_error, '.error-message', text: 'Please enter an answer'
-    element :text_field_box, '.error-message', text: 'Please enter some text'
+    element :multiple_choice_error, '.error-message', text: 'Please select the level of assistance you received using this online service'
+    element :text_field_box, '.error-message', text: 'Please enter what you would like to report'
   end
 
   def submit_feedback

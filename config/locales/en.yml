@@ -647,8 +647,10 @@ en:
               blank: *attach_reasons_blank_error
         surveys/feedback_form:
           attributes:
+            assistance_type:
+              blank: Please select the level of assistance you received using this online service
             comment:
-              blank: Please enter some text
+              blank: Please enter what you would like to report
             name:
               blank: Please enter a valid name
             email:
