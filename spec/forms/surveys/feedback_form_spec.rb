@@ -5,7 +5,7 @@ RSpec.describe Surveys::FeedbackForm do
     comment: comment,
     email: email,
     name: name,
-    assistance_type: assistance_type
+    assistance_level: assistance_level
   } }
 
   subject { described_class.new(arguments) }
@@ -13,7 +13,7 @@ RSpec.describe Surveys::FeedbackForm do
   let(:comment) { 'my feedback here' }
   let(:email) { 'email@example.com' }
   let(:name) { 'Jane Doe' }
-  let(:assistance_type) { 'none' }
+  let(:assistance_level) { 'none' }
 
   describe '#subject' do
     it { expect(subject.subject).to eq('Report a problem') }

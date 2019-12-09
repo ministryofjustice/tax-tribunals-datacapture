@@ -3,11 +3,11 @@ module Surveys
     attribute :comment, String
     attribute :email, NormalisedEmail
     attribute :name, String
-    attribute :assistance_type, String
+    attribute :assistance_level, String
 
     validates_presence_of :name
     validates :email, email: true, allow_blank: false
-    validates_presence_of :assistance_type
+    validates_presence_of :assistance_level
     validates_presence_of :comment
 
     # TODO: once we have at least 2 of these feedback forms, we can extract

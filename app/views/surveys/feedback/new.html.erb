@@ -13,7 +13,7 @@
     <%= form_for(@form_object, url: surveys_feedback_path) do |f| %>
       <%= f.text_field :name %>
       <%= f.text_field :email %>
-      <%= f.radio_button_fieldset :assistance_type,
+      <%= f.radio_button_fieldset :assistance_level,
         choices: ['none', 'partial', 'total'] %>
       <%= f.text_area :comment, size: '40x6', class: 'form-control form-control-3-4' %>
       <%= f.submit t('.submit'), class: 'button' %>

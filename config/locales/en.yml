@@ -647,7 +647,7 @@ en:
               blank: *attach_reasons_blank_error
         surveys/feedback_form:
           attributes:
-            assistance_type:
+            assistance_level:
               blank: Please select the level of assistance you received using this online service
             comment:
               blank: Please enter what you would like to report
@@ -713,7 +713,7 @@ en:
       steps_details_letter_upload_type_form:
         letter_upload_type_html: Do you need to upload a single file or multiple files?
       surveys_feedback_form:
-        assistance_type: Did you have any assistance with applying in Tax Tribunal online today?
+        assistance_level: Did you have any assistance with applying to Tax Tribunal today?
     label:
       steps_appeal_case_type_form:
         case_type:
@@ -932,7 +932,7 @@ en:
       tribunal_case:
         user_case_reference: Your reference (optional)
       surveys_feedback_form:
-        assistance_type:
+        assistance_level:
           none: No, I applied to Tax Tribunal online myself
           partial: Someone helped me to apply to Tax Tribunal online
           total: I have difficulty using computers, so someone filled in the online Tax Tribunal application for me

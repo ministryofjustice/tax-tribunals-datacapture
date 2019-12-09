@@ -24,7 +24,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     double(
       name: 'Jane Doe',
       email: 'jane@example.com',
-      assistance_type: 'none',
+      assistance_level: 'none',
       comment: 'Some text'
     )
   }
@@ -48,7 +48,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     it_behaves_like 'a Notify mail', template_id: 'report-problem-template'
 
     it 'has the right keys' do
-      expect(mail.govuk_notify_personalisation.keys).to eq([:name, :email, :assistance_type, :comment])
+      expect(mail.govuk_notify_personalisation.keys).to eq([:name, :email, :assistance_level, :comment])
     end
 
     it "gets the template id from an env var" do
