@@ -4,7 +4,7 @@ class FeedbackPage < BasePage
   section :content, '#content' do
     element :header, 'h1', text: 'Report a problem'
     element :note, 'p', 'Please note: we cannot offer legal advice.'
-    element :someone_else_option, '.multiple-choice', text: 'I have difficulty using computers, so someone filled in the online Tax Tribunal application for me'
+    element :someone_else_option, 'label', text: 'I have difficulty using computers, so someone filled in the online Tax Tribunal application for me'
     element :submit_button, "input[value='Submit']"
     element :name_error, '.error-message', text: 'Please enter a valid name'
     element :email_error, '.error-message', text: 'Please enter a valid email address'

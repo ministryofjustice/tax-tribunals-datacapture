@@ -33,7 +33,7 @@ Then(/^I am taken to a thank you page$/) do
   end
 end
 
-Then("when I click continue") do
+And("I click continue") do
   within_window windows.last do
     thank_you_page.content.continue_button.click
   end
