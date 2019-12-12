@@ -6,6 +6,11 @@ RSpec.describe User, type: :model do
     specify { expect(described_class.column_names).to include('last_sign_in_at') }
   end
 
+  describe 'blockable fields' do
+    specify { expect(described_class.column_names).to include('failed_attempts') }
+    specify { expect(described_class.column_names).to include('locked_at') }
+  end
+
   describe '.purge!' do
     let(:user_class) { class_double(User) }
 
