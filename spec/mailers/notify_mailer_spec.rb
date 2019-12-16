@@ -20,6 +20,14 @@ RSpec.describe NotifyMailer, type: :mailer do
   let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
   let(:representative_type) { ContactableEntityType::INDIVIDUAL }
   let(:case_reference) { 'TC/2017/00001' }
+  let(:report_form) {
+    double(
+      name: 'Jane Doe',
+      email: 'jane@example.com',
+      assistance_level: 'none',
+      comment: 'Some text'
+    )
+  }
 
   before do
     allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
@@ -28,6 +36,30 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID').and_return('change-password-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
+    allow(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID').and_return('report-problem-template')
+  end
+
+  describe '#report_problem' do
+    before do
+      allow(ENV).to receive(:fetch).with('REPORT_PROBLEM_EMAIL_ADDRESS').and_return('reporting@example.com')
+    end
+
+    let(:mail) { described_class.report_problem(report_form) }
+    it_behaves_like 'a Notify mail', template_id: 'report-problem-template'
+
+    it 'has the right keys' do
+      expect(mail.govuk_notify_personalisation.keys).to eq([:name, :email, :assistance_level, :comment])
+    end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID')
+      mail.body
+    end
+
+    it "gets the recipient from an env var" do
+      expect(ENV).to receive(:fetch).with('REPORT_PROBLEM_EMAIL_ADDRESS')
+      mail.body
+    end
   end
 
   describe '#statistics_report' do

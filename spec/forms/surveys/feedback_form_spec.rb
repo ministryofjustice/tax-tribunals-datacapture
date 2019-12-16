@@ -4,19 +4,19 @@ RSpec.describe Surveys::FeedbackForm do
   let(:arguments) { {
     comment: comment,
     email: email,
-    referrer: referrer,
-    user_agent: user_agent
+    name: name,
+    assistance_level: assistance_level
   } }
 
   subject { described_class.new(arguments) }
 
   let(:comment) { 'my feedback here' }
   let(:email) { 'email@example.com' }
-  let(:referrer) { '/path' }
-  let(:user_agent) { 'Safari' }
+  let(:name) { 'Jane Doe' }
+  let(:assistance_level) { 'none' }
 
   describe '#subject' do
-    it { expect(subject.subject).to eq('Feedback') }
+    it { expect(subject.subject).to eq('Report a problem') }
   end
 
   describe '#save' do
@@ -46,21 +46,24 @@ RSpec.describe Surveys::FeedbackForm do
       end
     end
 
-    context 'allows blank email' do
+    context 'refuse blank email' do
       let(:email) { '' }
 
-      it 'has no validation errors' do
-        expect(subject).to be_valid
+      it 'has validation errors' do
+        expect(subject).not_to be_valid
       end
     end
 
     context 'when the form is valid' do
-      let(:zendesk_sender_double) { double('zendesk_sender_double') }
+      let(:mailer_double) { double.as_null_object }
 
-      it 'creates the ticket' do
-        expect(TaxTribs::ZendeskSender).to receive(:new).with(subject).and_return(zendesk_sender_double)
-        expect(zendesk_sender_double).to receive(:send!).and_return(true)
-        expect(subject.save).to be(true)
+      before do
+        allow(NotifyMailer).to receive(:report_problem).with(subject).and_return(mailer_double)
+      end
+
+      it 'sends notification' do
+        subject.save
+        expect(mailer_double).to have_received(:deliver_now)
       end
     end
   end
