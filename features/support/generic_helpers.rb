@@ -42,6 +42,14 @@ def user_type_page
   @user_type_page ||= UserTypePage.new
 end
 
+def feedback_page
+  @feedback_page ||= FeedbackPage.new
+end
+
+def thank_you_page
+  @thank_you_page ||= ThankYouPage.new
+end
+
 def continue
   base_page.content.continue_button.click
 end
