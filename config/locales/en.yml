@@ -941,7 +941,7 @@ en:
         name: Name
     hint:
       user:
-        password: Must be at least 8 characters
+        password: Must be different than your email, at least 8 characters and include at least 1 uppercase, 1 lowercase, 1 digit and 1 special character.
         current_password: We need your current password to confirm your changes
     submit:
       create: Continue
@@ -1277,6 +1277,8 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      password:
+        password_strength: The password is too weak
     error_summary:
       heading: There is a problem
       text: ''
