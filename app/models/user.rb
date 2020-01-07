@@ -23,8 +23,9 @@ class User < ApplicationRecord
   private
 
   def password_complexity
-    return if password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/ &&
-    password.downcase != email.downcase
+    return if password.blank? ||
+    password.downcase != email.downcase ||
+    password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
 
     errors.add :password, I18n.t('errors.messages.password.password_strength')
   end
