@@ -941,7 +941,6 @@ en:
         name: Name
     hint:
       user:
-        password: Must be different than your email, at least 8 characters and include at least 1 uppercase, 1 lowercase, 1 digit and 1 special character.
         current_password: We need your current password to confirm your changes
     submit:
       create: Continue
@@ -1528,6 +1527,15 @@ en:
         sign_in: Sign in to see your saved cases
         page_title: Password changed
     shared:
+      password_guidelines_html: |
+          <p>Your password must:</p>
+          <ul class="list standard-list">
+            <li>be at least 8 characters</li>
+            <li>have at least on number (0-9)</li>
+            <li>have at least one uppercase and one lowercase letter</li>
+            <li>have at least one special character</li>
+            <li>not be the same with the email address field</li>
+          </ul>
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
         expire_warning_html: We will keep a draft for <strong>%{expire_in_days} days</strong> or until you submit your case. Any information will be automatically deleted for your security after this time.
