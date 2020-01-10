@@ -1535,7 +1535,7 @@ en:
           <p>Your password must:</p>
           <ul class="list standard-list">
             <li>be at least 8 characters</li>
-            <li>have at least on number (0-9)</li>
+            <li>have at least one number (0-9)</li>
             <li>have at least one uppercase and one lowercase letter</li>
             <li>have at least one special character (#,?,!,@,$,%,^,&,*,-)</li>
             <li>not be the same with the email address field</li>
