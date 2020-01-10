@@ -40,7 +40,7 @@ RSpec.describe Users::RegistrationsController do
       def do_post
         post :create, params: { 'user' => {
             'email' => 'foo@bar.com',
-            'password' => 'passw0rd'
+            'password' => 'K#9f@vP(va'
         } }
       end
 

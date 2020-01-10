@@ -1,0 +1,11 @@
+parameters:
+  aptDependencies: ''
+
+
+steps:
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y $(aptDependencies)
+  displayName: 'add dependencies'
+

@@ -941,7 +941,6 @@ en:
         name: Name
     hint:
       user:
-        password: Must be at least 8 characters
         current_password: We need your current password to confirm your changes
     submit:
       create: Continue
@@ -1277,6 +1276,12 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      password:
+        email_match: Enter a password different than the email address
+        special_char_absence: Enter a password that has at least one special character (#,?,!,@,$,%,^,&,*,-)
+        upper_lower_char_absence: Enter a password that has at least one uppercase and lowercase letters
+        number_absence: Enter a password that has at least one number (0-9)
+        password_strength: Enter a stronger password
     error_summary:
       heading: There is a problem
       text: ''
@@ -1526,6 +1531,15 @@ en:
         sign_in: Sign in to see your saved cases
         page_title: Password changed
     shared:
+      password_guidelines_html: |
+          <p>Your password must:</p>
+          <ul class="list standard-list">
+            <li>be at least 8 characters</li>
+            <li>have at least one number (0-9)</li>
+            <li>have at least one uppercase and one lowercase letter</li>
+            <li>have at least one special character (#,?,!,@,$,%,^,&,*,-)</li>
+            <li>not be the same with the email address field</li>
+          </ul>
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
         expire_warning_html: We will keep a draft for <strong>%{expire_in_days} days</strong> or until you submit your case. Any information will be automatically deleted for your security after this time.

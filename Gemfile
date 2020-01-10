@@ -1,7 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
+ruby '2.5.7'
+
+gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
@@ -21,6 +27,7 @@ gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'strong_password', '~> 0.0.8'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
@@ -40,7 +47,6 @@ group :development do
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
-  gem 'ministryofjustice-danger'
   gem 'web-console'
 end
 
@@ -63,6 +69,7 @@ group :test do
   gem 'phantomjs'
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'

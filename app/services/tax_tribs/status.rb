@@ -21,12 +21,7 @@ module TaxTribs
     private
 
     def version
-      # This has been manually checked in a demo app in a docker container running
-      # ruby:latest with Docker 1.12. Ymmv, however; in particular it may not
-      # work on alpine-based containers. It is mocked at the method level in the
-      # specs, so it is possible to simply comment the call out if there are
-      # issues with it.
-      `git rev-parse HEAD`.chomp
+      ENV['APP_GIT_COMMIT'] || 'unknown'
     end
 
     def uploader_status
