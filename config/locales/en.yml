@@ -1277,10 +1277,12 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       password:
-        email_match: Enter a password different than the email address
-        special_char_absence: Enter a password that has at least one special character (#,?,!,@,$,%,^,&,*,-)
-        upper_lower_char_absence: Enter a password that has at least one uppercase and lowercase letters
-        number_absence: Enter a password that has at least one number (0-9)
+        complexity:
+          email: Enter a password different than the email address
+          symbol: Enter a password that has at least one special character (#,?,!,@,$,%,^,&,*,-)
+          upper: Enter a password that has at least one uppercase letter
+          lower: Enter a password that has at least one lowercase letter
+          digit: Enter a password that has at least one number (0-9)
         password_strength: Enter a stronger password
     error_summary:
       heading: There is a problem
