@@ -15,7 +15,7 @@ Then("I am taken to the save your appeal page") do
 end
 
 When("I enter a password that is not at least 8 characters") do
-  expect(save_appeal_page.content).to have_choose_password
+  expect(save_appeal_page.content.login_label[1].text).to eq 'Choose password'
   save_appeal_page.content.password_input.set 'save'
   save
 end
