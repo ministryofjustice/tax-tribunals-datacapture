@@ -14,12 +14,47 @@ Then("I am taken to the save your appeal page") do
   expect(save_appeal_page).to be_displayed
 end
 
-When("I enter a password that is not at least 8 characters") do
-  expect(save_appeal_page.content.login_label[1].text).to eq 'Choose password'
-  save_appeal_page.content.password_input.set 'save'
+When("I enter a valid email address") do
+  expect(save_appeal_page.content.login_label[0].text).to eq 'Your email address'
+  save_appeal_page.content.email_input.set 'test@test.com'
   save
 end
 
-Then("I should see an error messages telling me the criteria has not been met") do
+When("I enter a password that is not at least 8 characters") do
+  expect(save_appeal_page.content.login_label[1].text).to eq 'Choose password'
+  save_appeal_page.content.password_input.set 'Pa$0'
+  save
+end
+
+When("I enter a password that does not have at least one number") do
+  save_appeal_page.content.password_input.set 'Pa$$word'
+  save
+end
+
+When("I enter a password that does not have an upper and lower case") do
+  save_appeal_page.content.password_input.set 'pa$$word2020'
+  save
+end
+
+When("I enter a password that does not have a special character") do
+  save_appeal_page.content.password_input.set 'password2020'
+  save
+end
+
+When("I enter a password that is the same as my email address") do
+  save_appeal_page.content.password_input.set 'test@test.com'
+  save
+end
+
+And("I enter a valid password") do
+  save_appeal_page.content.password_input.set 'E5O:m(<?'
+  save
+end
+
+Then("I should see a password error messages") do
   expect(save_appeal_page.content).to have_password_error
+end
+
+Then("I should be taken to the saved confirmation page") do
+  expect(current_url).to end_with '/registration/save_confirmation'
 end
