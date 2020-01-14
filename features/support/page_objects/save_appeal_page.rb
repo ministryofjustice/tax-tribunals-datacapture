@@ -6,7 +6,7 @@ class SaveAppealPage < BasePage
     elements :login_label, '.form-label'
     element :email_input, '#user_email'
     element :password_input, '#user_password'
-    element :password_error, '.error-message'
+    element :error_message, '.error-message', text: 'Enter a stronger password'
   end
 
   def save_and_come_back

@@ -44,7 +44,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
   gem 'web-console'
@@ -53,6 +52,7 @@ end
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
   gem 'mutant-rspec'
   gem 'pry-byebug'
