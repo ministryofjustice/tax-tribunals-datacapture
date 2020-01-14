@@ -27,6 +27,7 @@ gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'strong_password', '~> 0.0.8'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
@@ -43,7 +44,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
   gem 'web-console'
@@ -52,6 +52,7 @@ end
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
   gem 'mutant-rspec'
   gem 'pry-byebug'

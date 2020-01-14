@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable, :validatable, :trackable, :lockable
 
+  validate :password_complexity, unless: -> { errors[:password].any? || password.blank? }
+  validates :password, password_strength: { use_dictionary: true, min_entropy: 15.5 }, unless: -> { errors[:password].any? || password.blank? }
+
   has_many :tribunal_cases, dependent: :destroy
   has_many :pending_tribunal_cases, -> { not_submitted }, class_name: TribunalCase
 
@@ -15,5 +18,15 @@ class User < ApplicationRecord
     # does not get set until after the first time they have actually signed in.
     # This does *not* automatically happen when they create their account.
     where(["last_sign_in_at <= :date OR (created_at <= :date AND last_sign_in_at IS NULL)", date: date]).destroy_all
+  end
+
+
+  private
+
+  def password_complexity
+    return if password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/ &&
+    password.downcase != email.downcase
+
+    errors.add :password, I18n.t('errors.messages.password.password_strength')
   end
 end
