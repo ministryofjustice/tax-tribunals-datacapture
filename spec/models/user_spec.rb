@@ -48,4 +48,27 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'password validation' do
+    let(:user) { User.new(password: password) }
+    before do
+      user.valid?
+    end
+
+    context 'strong password' do
+      let(:password) { 'Fe94#lG1!' }
+
+      it 'should not include password errors' do
+        expect(user.errors[:password]).to be_empty
+      end
+    end
+
+    context 'weak password' do
+      let(:password) { 'foobar123' }
+
+      it 'should have error message' do
+        expect(user.errors[:password]).to include("Enter a stronger password")
+      end
+    end
+  end
 end

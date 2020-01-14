@@ -666,11 +666,11 @@ en:
               taken: You already have cases saved with this email address. Try signing in.
             password:
               blank: Please enter a password
-              too_short: Your password must be at least %{count} characters
+              too_short: Enter a stronger password
               too_long: Your password must be no longer than %{count} characters
             password_confirmation:
               blank: Please enter the password again
-              too_short: Your password must be at least %{count} characters
+              too_short: Enter a stronger password
               too_long: Your password must be no longer than %{count} characters
               confirmation: The password confirmation doesn't match
             current_password:
@@ -1277,12 +1277,6 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       password:
-        complexity:
-          email: Enter a password different than the email address
-          symbol: Enter a password that has at least one special character (#,?,!,@,$,%,^,&,*,-)
-          upper: Enter a password that has at least one uppercase letter
-          lower: Enter a password that has at least one lowercase letter
-          digit: Enter a password that has at least one number (0-9)
         password_strength: Enter a stronger password
     error_summary:
       heading: There is a problem
