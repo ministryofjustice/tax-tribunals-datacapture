@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Logstash.new
