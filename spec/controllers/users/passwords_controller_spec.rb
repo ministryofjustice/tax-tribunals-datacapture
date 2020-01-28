@@ -19,6 +19,35 @@ RSpec.describe Users::PasswordsController do
       }}
     end
 
+    describe 'throttling volume of emails sent for the same account' do
+      let(:email) { 'user@example.com' }
+      let(:sent_at) { "2020-01-28 13:28:34 UTC" }
+
+      before do
+        @user = User.create(email: email, password: 'Vr3lE(F@4p',
+          reset_password_sent_at: sent_at, reset_password_token: 'foo')
+      end
+
+      context 'when receives multiple resets within a second' do
+        it 'does not sends more than one email' do
+          travel_to sent_at
+          expect(@user.reset_password_sent_at).to eq(sent_at)
+        end
+      end
+
+      context 'when receives one reset within a second' do
+        let(:future) { "2020-01-28 13:28:35 UTC" }
+
+        it 'sends the reset password email' do
+          travel_to future
+          do_post
+
+          @user.reload
+          expect(@user.reset_password_sent_at).to eq(future)
+        end
+      end
+    end
+
     context 'when email field is not left empty' do
       let(:email) { 'foo@bar.com' }
 
