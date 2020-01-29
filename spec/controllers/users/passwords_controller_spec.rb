@@ -36,14 +36,14 @@ RSpec.describe Users::PasswordsController do
       end
 
       context 'when receives one reset within a second' do
-        let(:future) { "2020-01-28 13:28:35 UTC" }
+        let(:three_sec_later) { "2020-01-28 13:28:37 UTC" }
 
         it 'sends the reset password email' do
-          travel_to future
+          travel_to three_sec_later
           do_post
 
           @user.reload
-          expect(@user.reset_password_sent_at).to eq(future)
+          expect(@user.reset_password_sent_at).to eq(three_sec_later)
         end
       end
     end

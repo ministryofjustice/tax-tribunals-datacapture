@@ -4,12 +4,13 @@ module Users
     # value as otherwise Devise will not error if the email address is left blank.
     # This will not error on malformed email addresses as we are in Paranoid mode and Devise
     # will consider any input as valid, but at least we cover the blank scenario.
+    # Throttle the emails sent to one per three per seconds per account to avoid
+    # email flooding.
     def create
       email = params[:user][:email]
-
       unless email.empty?
         user = User.find_by(email: email)
-        if (Time.zone.now.to_i - user&.reset_password_sent_at.to_i) < 1.second
+        if (Time.zone.now.to_f - user&.reset_password_sent_at.to_f) < 3
           redirect_to users_password_reset_sent_path and return
         end
       end
