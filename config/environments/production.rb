@@ -46,6 +46,9 @@ Rails.application.configure do
   # get the constantized attribute name itself, in form labels.
   config.action_view.raise_on_missing_translations = false
 
+  config.force_ssl = true
+  config.ssl_options = { hsts: { expires: 1.year, preload: true } }
+
   Raven.configure do |config|
     config.ssl_verification = ENV['SENTRY_SSL_VERIFICATION'] == true
   end
