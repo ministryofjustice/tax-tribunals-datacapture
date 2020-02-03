@@ -7,6 +7,11 @@ module Users
     def logged_out
     end
 
+    def destroy
+      current_user.invalidate_all_sessions!
+      super
+    end
+
     protected
 
     def sign_in(_resource_name, user)

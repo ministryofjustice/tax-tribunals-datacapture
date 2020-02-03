@@ -20,6 +20,13 @@ class User < ApplicationRecord
     where(["last_sign_in_at <= :date OR (created_at <= :date AND last_sign_in_at IS NULL)", date: date]).destroy_all
   end
 
+  def authenticatable_salt
+    "#{super}#{session_token}"
+  end
+
+  def invalidate_all_sessions!
+    self.update_attribute(:session_token, SecureRandom.hex)
+  end
 
   private
 
