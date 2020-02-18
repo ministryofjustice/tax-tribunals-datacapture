@@ -44,5 +44,7 @@ module TaxTribunalsDatacapture
     config.x.users.expire_in_days = ENV.fetch('USERS_EXPIRE_AFTER', 30).to_i
 
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
+
+    config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
   end
 end

@@ -31,6 +31,7 @@ gem 'strong_password', '~> 0.0.8'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
+gem 'application_insights', '~> 0.5.6'
 
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
