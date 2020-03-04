@@ -11,5 +11,4 @@ end
 
 Given("I am taken to the taxpayer details page") do
   expect(taxpayer_details_page).to be_displayed
-  binding.pry
 end
