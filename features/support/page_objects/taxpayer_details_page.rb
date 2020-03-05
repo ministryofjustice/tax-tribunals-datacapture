@@ -24,4 +24,16 @@ class TaxpayerDetailsPage < BasePage
     user_type_page.submit_yes
     base_page.submit_individual
   end
+
+  def submit_taxpayer_details
+    taxpayer_details_page.content.input_field[0].first_name_input.set 'John'
+    taxpayer_details_page.content.input_field[1].last_name_input.set 'Smith'
+    taxpayer_details_page.content.input_field[2].address_input.set '102 Petty France'
+    taxpayer_details_page.content.input_field[3].city_input.set 'London'
+    taxpayer_details_page.content.input_field[4].postcode_input.set 'SW1H 9AJ'
+    taxpayer_details_page.content.input_field[5].country_input.set 'UK'
+    taxpayer_details_page.content.input_field[6].email_input.set 'jsmith_test@test.com'
+    taxpayer_details_page.content.input_field[7].phone_input.set '07777 888888'
+    continue
+  end
 end
