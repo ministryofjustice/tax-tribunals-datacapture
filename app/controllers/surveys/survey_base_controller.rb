@@ -7,6 +7,10 @@ module Surveys
     end
 
     def create
+      # See what's stored in the Rails cache to make sure
+      # the real user IP is being throttled and not the load balancer
+      logger.info("[DEBUG] Rails cache: #{Rails.cache.instance_variable_get(:@data).keys.map{|key| {key: key, value: Rails.cache.fetch(key)}}}")
+
       @form_object = form_object_class.new(survey_params)
 
       if @form_object.save
