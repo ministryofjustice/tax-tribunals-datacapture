@@ -32,14 +32,18 @@ class Rack::Attack
     req.params['surveys_feedback_form']['email'] =~ spammer_regexp
   end
 
-  ### Prevent DOS Attack on the Report a Problem page ###
+  ### Exponential backoff for POST requests to "/feedback" paths ###
 
-  # Throttle POST requests to /feedback paths by IP address
-  #
-  # Key: "rack::attack:#{Time.now.to_i/:period}:feedback/ip:#{req.remote_ip}"
-  throttle('feedback/ip', limit: 3, period: 2.minute) do |req|
-    if req.path =~ /feedback/i && req.post?
-      req.ip
+  # Allows 8 requests/IP in 15 minutes
+  #        16 requests/IP in 2.5 hours
+  #        32 requests/IP in 25 hours
+  (3..5).each do |level|
+    throttle("feedback/ip/#{level}",
+               :limit => (2 ** level),
+               :period => (0.9 * (10 ** level)).to_i.seconds) do |req|
+      if req.path =~ /feedback/i && req.post?
+        req.ip
+      end
     end
   end
 end
