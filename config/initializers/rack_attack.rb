@@ -47,3 +47,8 @@ class Rack::Attack
     end
   end
 end
+
+# Return custom message when throttling blocks an IP address
+Rack::Attack.throttled_response = lambda do |request|
+  [ 429, {}, ["We have received too many requests from your IP address. Please try again later.\n"]]
+end
