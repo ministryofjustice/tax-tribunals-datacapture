@@ -10,7 +10,7 @@ module Surveys
       # See what's stored in the Rails cache to make sure
       # the real user IP is being throttled and not the load balancer
 
-      logger.info("[DEBUG] Rails cache json: #{Rails.cache.to_json}")
+      Rails.logger.info("[DEBUG] Rails cache json: #{Rails.cache.to_json}")
 
       @form_object = form_object_class.new(survey_params)
 
