@@ -52,3 +52,12 @@ end
 Rack::Attack.throttled_response = lambda do |request|
   [ 429, {}, ["We have received too many requests from your IP address. Please try again later.\n"]]
 end
+
+# Log blocked message separately
+ActiveSupport::Notifications.subscribe('rack.attack') do |name, start, finish, request_id, req|
+  if req.env["rack.attack.match_type"] == :throttle
+    Rails.logger.info "[Rack::Attack][Blocked] " <<
+                      "ip: #{req.ip}, " <<
+                      "path: #{req.path}"
+  end
+end
