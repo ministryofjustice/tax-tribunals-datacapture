@@ -3,6 +3,7 @@
       - 'lib/generators/step/templates/*.rb'
       - 'db/schema.rb'
       - 'vendor/**/*'
+      - 'config/initializers/rack_attack.rb'
     TargetRubyVersion: 2.5
     DisabledByDefault: true
   Lint/AmbiguousOperator:
