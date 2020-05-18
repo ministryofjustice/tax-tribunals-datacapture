@@ -19,6 +19,7 @@ Rails.application.configure do
   end
 
   config.cache_classes = true
+  config.cache_store = :memory_store
 
   config.eager_load = true
 
