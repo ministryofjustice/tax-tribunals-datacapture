@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 
 module TaxTribunalsDatacapture
   class Application < Rails::Application
-    config.load_defaults 5.2
+    config.load_defaults 6.0
 
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
 
