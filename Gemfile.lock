@@ -539,7 +539,7 @@ DEPENDENCIES
   logstash-event
   ministryofjustice-danger
   mojfile-uploader-api-client (~> 0.8)
-  mutant-rspec
+  mutant-rspec (< 0.9)
   nokogiri (~> 1.10.5)
   pg (~> 0.18)
   phantomjs
