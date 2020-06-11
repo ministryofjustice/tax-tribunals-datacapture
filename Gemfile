@@ -51,7 +51,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
   gem 'launchy'
-  gem 'mutant-rspec'
+  gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
