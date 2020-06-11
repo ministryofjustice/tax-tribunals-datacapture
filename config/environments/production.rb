@@ -45,4 +45,6 @@ Rails.application.configure do
   # missing translations of model attribute names. The form will
   # get the constantized attribute name itself, in form labels.
   config.action_view.raise_on_missing_translations = false
+
+  config.active_record.dump_schema_after_migration = false
 end

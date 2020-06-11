@@ -27,7 +27,7 @@ RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
 
       expect(subject).to render_template(:show)
       expect(assigns[:presenter]).to eq(presenter)
-      expect(response.headers['Content-Disposition']).to eq('inline; filename="check_answers.pdf"')
+      expect(response.headers['Content-Disposition']).to eq('inline; filename="check_answers.pdf"; filename*=UTF-8\'\'check_answers.pdf')
     end
   end
 

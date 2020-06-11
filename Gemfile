@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
@@ -17,7 +19,7 @@ gem 'pg', '~> 0.18'
 gem 'pry-rails'
 gem 'puma', '~> 3.12'
 gem 'rack-attack', '~> 5.4.2'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
