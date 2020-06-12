@@ -18,6 +18,7 @@ Rails.application.configure do
   end
 
   config.cache_classes = true
+  config.cache_store = :memory_store
 
   config.eager_load = true
 
@@ -44,4 +45,6 @@ Rails.application.configure do
   # missing translations of model attribute names. The form will
   # get the constantized attribute name itself, in form labels.
   config.action_view.raise_on_missing_translations = false
+
+  config.active_record.dump_schema_after_migration = false
 end

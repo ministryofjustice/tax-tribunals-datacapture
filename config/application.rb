@@ -4,26 +4,23 @@ require "rails"
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
+# require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
+# require "action_cable/engine"
 require "sprockets/railtie"
-
-# Ensure that when running the application through Rake the RAILS_ENV doesn't incorrectly
-# get replaced with 'development' when running the specs.
-# Adapted from `railties/lib/rails/test_unit/railtie.rb`.
-# :nocov:
-if defined?(Rake.application) &&
-    Rake.application.top_level_tasks.grep(/^(default$|spec(:|$))/).any?
-  ENV["RAILS_ENV"] ||= "test"
-end
-# :nocov:
+# require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
 
 module TaxTribunalsDatacapture
   class Application < Rails::Application
+    config.load_defaults 6.0
+
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
+
+    config.middleware.use Rack::Attack
 
     # This automatically adds id: :uuid to create_table in all future migrations
     config.active_record.primary_key = :uuid

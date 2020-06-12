@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
@@ -13,10 +15,11 @@ gem 'govuk_template'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
-gem 'pg', '~> 0.18'
+gem 'pg'
 gem 'pry-rails'
-gem 'puma', '~> 3.12'
-gem 'rails', '~> 5.0.0'
+gem 'puma', '~> 4.3.5'
+gem 'rack-attack', '~> 5.4.2'
+gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
@@ -40,7 +43,6 @@ group :development do
   gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
-  gem 'ministryofjustice-danger'
   gem 'web-console'
 end
 
@@ -48,7 +50,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
   gem 'launchy'
-  gem 'mutant-rspec'
+  gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
