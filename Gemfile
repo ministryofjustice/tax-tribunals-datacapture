@@ -24,7 +24,7 @@ gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
 
