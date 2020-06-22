@@ -3,7 +3,7 @@ class FeedbackPage < BasePage
 
   section :content, '#content' do
     element :header, 'h1', text: 'Report a problem'
-    element :note, 'p', 'Please note: we cannot offer legal advice.'
+    element :note, 'p', text: 'Please note: we cannot offer legal advice.'
     elements :multiple_choice, '.multiple-choice'
     element :submit_button, "input[value='Submit']"
     element :name_error, '.error-message', text: 'Please enter a valid name'
