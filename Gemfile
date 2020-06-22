@@ -57,7 +57,7 @@ end
 
 group :test do
   gem 'brakeman'
-  gem 'capybara', '~> 2.7'
+  gem 'capybara', '~> 3.2'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'cucumber-rails', '~> 1.5', require: false
