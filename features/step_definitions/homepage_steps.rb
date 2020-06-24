@@ -11,9 +11,9 @@ Given("I should be asked what do you want to do") do
 end
 
 Then("I should not see tax time information") do
-  expect(home_page.content).not_to have_time_information_tax
+  expect(home_page.content).to have_no_time_information_tax
 end
 
 Then("I should not see enquiry time information") do
-  expect(home_page.content).not_to have_time_information_enquiry
+  expect(home_page.content).to have_no_time_information_enquiry
 end

@@ -38,6 +38,10 @@ def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
 
+def representative_page
+  @representative_page ||= RepresentativePage.new
+end
+
 def taxpayer_type_page
   @taxpayer_type_page ||= TaxpayerTypePage.new
 end

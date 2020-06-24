@@ -1,13 +1,10 @@
 source 'https://rubygems.org'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.7'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
+gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
@@ -19,17 +16,17 @@ gem 'govuk_template'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
-gem 'pg', '~> 0.18'
+gem 'pg'
 gem 'pry-rails'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3.5'
 gem 'rack-attack', '~> 5.4.2'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
 gem 'strong_password', '~> 0.0.8'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
 gem 'application_insights', '~> 0.5.6'
@@ -56,14 +53,14 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
-  gem 'mutant-rspec'
+  gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
 
 group :test do
   gem 'brakeman'
-  gem 'capybara', '~> 2.7'
+  gem 'capybara', '~> 3.2'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'cucumber-rails', '~> 1.5', require: false
@@ -78,7 +75,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
   gem 'site_prism', '~> 2.9'
-  gem 'webdrivers', '~> 3.9', '>= 3.9.4'
+  gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
 

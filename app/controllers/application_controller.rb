@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
 
   # This is required to get request attributes in to the production logs.
   # See the various lograge configurations in `production.rb`.

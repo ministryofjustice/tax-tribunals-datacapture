@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :password, password_strength: { use_dictionary: true, min_entropy: 15.5 }, unless: -> { errors[:password].any? || password.blank? }
 
   has_many :tribunal_cases, dependent: :destroy
-  has_many :pending_tribunal_cases, -> { not_submitted }, class_name: TribunalCase
+  has_many :pending_tribunal_cases, -> { not_submitted }, class_name: 'TribunalCase'
 
   attribute :email, NormalisedEmailType.new
 
