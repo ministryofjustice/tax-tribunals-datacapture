@@ -30,6 +30,10 @@ def appeal_case_type_page
   @appeal_case_type_page ||= AppealCaseTypePage.new
 end
 
+def challenge_decision_page
+  @challenge_decision_page ||= ChallengeDecisionPage.new
+end
+
 def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
@@ -54,10 +58,18 @@ def thank_you_page
   @thank_you_page ||= ThankYouPage.new
 end
 
+def save_appeal_page
+  @save_appeal_page ||= SaveAppealPage.new
+end
+
 def continue
   base_page.content.continue_button.click
 end
 
 def save_and_continue
   base_page.content.save_continue_button.click
+end
+
+def save
+  base_page.content.save_button.click
 end

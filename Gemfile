@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.5.7'
 
+gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
@@ -24,9 +25,11 @@ gem 'responders'
 gem 'sanitize'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'strong_password', '~> 0.0.8'
 gem 'uglifier'
 gem 'virtus'
 gem 'zendesk_api', '~> 1.14.4'
+gem 'application_insights', '~> 0.5.6'
 
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
@@ -40,7 +43,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
   gem 'web-console'
@@ -49,6 +51,7 @@ end
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
   gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
@@ -65,6 +68,7 @@ group :test do
   gem 'phantomjs'
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
