@@ -42,6 +42,8 @@ module TaxTribunalsDatacapture
 
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
 
-    config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+    if ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+      config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+    end
   end
 end
