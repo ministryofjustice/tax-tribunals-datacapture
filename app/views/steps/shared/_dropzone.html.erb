@@ -11,7 +11,7 @@
 </div>
 
 <div class="dropzone dz-clickable js-only" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>" role="button">
-  <div class="dz-default dz-message grid-row">
+  <div class="dz-default dz-message govuk-grid-row">
     <div class="column-one-third arrow-icon">
       <p></p>
     </div>
@@ -24,9 +24,9 @@
 </div>
 
 <div class="uploaded-files-wrapper">
-  <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
+  <h2 class="govuk-heading-m"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
 
-  <ol class="list uploaded-files">
+  <ol class="govuk-list uploaded-files">
     <% if document_list&.any? %>
         <% document_list.each do |doc| %>
             <li class="file no-js-only">

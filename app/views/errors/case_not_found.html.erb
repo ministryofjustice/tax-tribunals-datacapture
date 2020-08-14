@@ -1,8 +1,8 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t '.heading' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text', session_timeout: Rails.configuration.x.session.expires_in_minutes %></p>
 

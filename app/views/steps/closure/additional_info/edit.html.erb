@@ -1,10 +1,10 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'closure', ga_label: 'additional info'} do |f| %>

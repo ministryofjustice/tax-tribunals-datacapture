@@ -1,8 +1,8 @@
 <% title t('privacy.header') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t 'privacy.header' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t 'privacy.header' %></h1>
     <span><%= t('privacy.last_update').html_safe %></span>
     <p><%= t 'privacy.info_1' %></cite></p>
     <p><%= t('privacy.info_2', { call_charges: call_charges_link }).html_safe %></p>
@@ -18,13 +18,13 @@
       <li><a href="#cookies" title=""><%= t 'privacy.section_list.cookies' %></a></li>
     </ul>
 
-    <h1 id="who_managing" class="heading-large"><%= t 'privacy.who_managing.header' %></h1>
+    <h1 id="who_managing" class="govuk-heading-l"><%= t 'privacy.who_managing.header' %></h1>
     <p><%= t 'privacy.who_managing.line_1' %></p>
     <p><%= t('privacy.who_managing.line_2', { moj_personal_character: moj_personal_character_link }).html_safe %></p>
     <p><%= t 'privacy.who_managing.line_3' %></p>
     <p><%= t('privacy.who_managing.line_4', { terms_condition: terms_link }).html_safe %></p>
 
-    <h1 id="why_collect" class="heading-large"><%= t 'privacy.why_collect.header' %></h1>
+    <h1 id="why_collect" class="govuk-heading-l"><%= t 'privacy.why_collect.header' %></h1>
     <p><%= t 'privacy.why_collect.line_1' %></p>
 
     <ul class="standard-list">
@@ -36,7 +36,7 @@
     <p><%= t 'privacy.why_collect.line_2' %></p>
     <p><%= t 'privacy.why_collect.line_3' %></p>
 
-    <h1 id="personal_data" class="heading-large"><%= t 'privacy.personal_data.header' %></h1>
+    <h1 id="personal_data" class="govuk-heading-l"><%= t 'privacy.personal_data.header' %></h1>
     <p><%= t 'privacy.personal_data.line_1' %></p>
 
     <ul class="standard-list">
@@ -70,7 +70,7 @@
     <p><%= t 'privacy.personal_data.after_you_submit.line_2' %></p>
     <p><%= t('privacy.personal_data.after_you_submit.line_3', { call_charges: call_charges_link }).html_safe %></p>
 
-    <h1 id="how_we_use" class="heading-large"><%= t 'privacy.how_we_use.header' %></h1>
+    <h1 id="how_we_use" class="govuk-heading-l"><%= t 'privacy.how_we_use.header' %></h1>
     <p><%= t 'privacy.how_we_use.line_1' %></p>
     <p><%= t 'privacy.how_we_use.line_2' %></p>
     <p><%= t('privacy.how_we_use.line_3', { use_cookies: use_cookies_link }).html_safe %></p>
@@ -81,7 +81,7 @@
       <li><%= t 'privacy.how_we_use.list_3' %></li>
     </ul><br />
 
-    <h1 id="how_we_store" class="heading-large"><%= t 'privacy.how_we_store.header' %></h1>
+    <h1 id="how_we_store" class="govuk-heading-l"><%= t 'privacy.how_we_store.header' %></h1>
     <p><%= t 'privacy.how_we_store.line_1' %></p>
     <p><%= t('privacy.how_we_store.line_2', { aws_terms: aws_terms_link}).html_safe %></p>
     <p><%= t 'privacy.how_we_store.line_3' %></p>
@@ -95,12 +95,12 @@
     <p><%= t 'privacy.how_we_store.storing_save_return.line_4' %></p>
 
 
-    <h1 id="how_we_share" class="heading-large"><%= t 'privacy.how_we_share.header' %></h1>
+    <h1 id="how_we_share" class="govuk-heading-l"><%= t 'privacy.how_we_share.header' %></h1>
     <p><%= t 'privacy.how_we_share.line_1' %></p>
     <p><%= t 'privacy.how_we_share.line_2' %></p>
     <p><%= t('privacy.how_we_share.line_3', { google_privacy: google_privacy_link }).html_safe %></p>
 
-    <h1 id="how_to_access" class="heading-large"><%= t 'privacy.how_to_access.header' %></h1>
+    <h1 id="how_to_access" class="govuk-heading-l"><%= t 'privacy.how_to_access.header' %></h1>
     <strong><%= t 'privacy.how_to_access.your_rights.header' %></strong>
     <p><%= t 'privacy.how_to_access.your_rights.line_1' %></p>
     <ul class="standard-list">
@@ -154,7 +154,7 @@
       <li><%= ico_link %></li>
     </ul><br/>
 
-    <h1 id="cookies" class="heading-large"><%= t 'privacy.cookies.header' %></h1>
+    <h1 id="cookies" class="govuk-heading-l"><%= t 'privacy.cookies.header' %></h1>
     <p><%= t 'privacy.cookies.line_1' %></p>
     <p><%= t 'privacy.cookies.line_2' %></p>
     <p><%= t 'privacy.cookies.line_3' %></p>

@@ -1,10 +1,10 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%= translate_with_appeal_or_application '.heading' %></h1>
+    <h1 class="govuk-heading-l"><%= translate_with_appeal_or_application '.heading' %></h1>
 
     <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
       <%= f.radio_button_fieldset :user_type,

@@ -3,7 +3,7 @@
     <%= translate_with_appeal_or_application "check_answers.#{documents_submitted_row.question}.question" %>
   </dt>
   <dd class="answer">
-    <ul class="list list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
       <% documents_submitted_row.documents.each do |document| %>
         <li><%= document.name %></li>
       <% end %>

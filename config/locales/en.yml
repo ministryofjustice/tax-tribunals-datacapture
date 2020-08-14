@@ -74,9 +74,9 @@ en:
           save_or_print_pdf: Save or print your case details
           what_happens_next_html: |
             <p>Please save or print your case details for your records.</p>
-            <h2 class="heading-medium">What happens next?</h2>
+            <h2 class="govuk-heading-m">What happens next?</h2>
             <p>The tax tribunal will:</p>
-            <ul class="list list-bullet">
+            <ul class="govuk-list govuk-list--bullet">
               <li>check your details and may ask you for more information</li>
               <li>write to confirm the next steps and if there will be a hearing</li>
               <li>contact any other parties and ask them to respond</li>
@@ -141,7 +141,7 @@ en:
               <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
               <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
               <p>Find out about:</p>
-              <ul class="list list-bullet">
+              <ul class="govuk-list govuk-list--bullet">
                 <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
                 <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
                 <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
@@ -158,7 +158,7 @@ en:
           review_text_html: |
             <p>You should ask for a review even if you think you are late.</p>
             <p>Find out more about:</p>
-            <ul class="list list-bullet">
+            <ul class="govuk-list govuk-list--bullet">
               <li><a href="https://www.gov.uk/tax-appeals" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
               <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
             </ul>
@@ -168,7 +168,7 @@ en:
           heading: You must wait before you can appeal
           lead_text_html: |
             <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
-            <ul class="list list-bullet">
+            <ul class="govuk-list govuk-list--bullet">
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
@@ -190,7 +190,7 @@ en:
         show:
           heading: You must wait before you can appeal
           lead_text_html: |
-            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p> <ul class="list list-bullet">
+            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p> <ul class="govuk-list govuk-list--bullet">
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
@@ -232,7 +232,7 @@ en:
         heading: What is a representative and what can they do?
         content_html: |
           <p>A representative can be a:</p>
-          <ul class="list list-bullet">
+          <ul class="govuk-list govuk-list--bullet">
               <li>professional lawyer, tax adviser, accountant</li>
               <li>friend or family relative</li>
             </ul>
@@ -287,14 +287,14 @@ en:
             as_representative: How to get authorisation from the taxpayer
           details_info_html:
             as_taxpayer_html: |
-              <ol class="list list-number">
+              <ol class="govuk-list list-number">
                  <li>Copy and paste the text below into a document or download as a PDF.</li>
                  <li>Complete and sign the form.</li>
                  <li>Upload the form in digital format below.</li>
                </ol>
                <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
             as_representative_html: |
-              <ol class="list list-number">
+              <ol class="govuk-list list-number">
                 <li>Copy and paste the text below into an email, document or download as a PDF.</li>
                 <li>Send to the taxpayer to complete.</li>
                 <li>Ask the taxpayer to email back the information from their email account or attach a signed form.</li>
@@ -302,7 +302,7 @@ en:
               </ol>
               <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
           details_example_html: |
-            <h2 class="heading-medium">Example text</h2>
+            <h2 class="govuk-heading-m">Example text</h2>
             <div class="panel">
               <div class="letter">
                 <p>Taxpayer's name:</p>
@@ -380,8 +380,8 @@ en:
             unless you are appealing late.
           post_text_html: |
             <div class="letter">
-              <h2 class="heading-medium">What you will need to do</h2>
-              <ol class="list list-number">
+              <h2 class="govuk-heading-m">What you will need to do</h2>
+              <ol class="govuk-list list-number">
                 <li>
                   <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
@@ -390,7 +390,7 @@ en:
                 <li>
                   <strong>Make copies of all documents you wanted to upload</strong>
                   <p>You must include:</p>
-                  <ul class="list list-bullet">
+                  <ul class="govuk-list govuk-list--bullet">
                     <li>the original notice or review conclusion letter</li>
                     <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
                   </ul>
@@ -415,7 +415,7 @@ en:
           page_title: Letter upload type
           no_letter_info_html: |
             <p><strong>You must upload a copy of the letter for your appeal to be valid.</strong></p>
-            <ul class="list list-bullet">
+            <ul class="govuk-list govuk-list--bullet">
               <li>save your details and come back later when you have the letter</li>
               <li>contact HMRC if you have lost your letter and need a replacement</li>
             </ul>
@@ -1215,7 +1215,7 @@ en:
     file_upload:
       header: File upload requirements
       file_list_html: |
-        <ul class="list list-bullet">
+        <ul class="govuk-list govuk-list--bullet">
           <li>File formats: Word, Excel, PDF, JPG, GIF, PNG</li>
           <li>File size: up to 20 megabytes (MB)</li>
           <li>Files cannot be password protected</li>
@@ -1232,7 +1232,7 @@ en:
       no_uploaded_files: No files uploaded
       explanation_html: |
         <p><strong>What to do next</strong></p>
-        <ul class="list list-bullet">
+        <ul class="govuk-list govuk-list--bullet">
           <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
           <li>Enter reasons if you are still having trouble uploading.</li>
           <li>Click 'continue' to print and complete your appeal by post.</li>
@@ -1368,7 +1368,7 @@ en:
         <p>Monday to Friday, 8:30am to 5pm</p>
         <p>Please note: the helpline can't give you legal advice.</p>
         <p><strong>Other ways to get help</strong></p>
-        <ul class="list list-bullet">
+        <ul class="govuk-list govuk-list--bullet">
            <li><a href="https://www.citizensadvice.org.uk" target="_blank" rel="noopener">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
            <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
            <li><a href="http://www.litrg.org.uk" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
@@ -1526,7 +1526,7 @@ en:
     shared:
       password_guidelines_html: |
           <p>Your password must:</p>
-          <ul class="list standard-list">
+          <ul class="govuk-list standard-list">
             <li>be at least 8 characters</li>
             <li>have at least one number (0-9)</li>
             <li>have at least one uppercase and one lowercase letter</li>
@@ -1549,8 +1549,8 @@ en:
         <div role="note" aria-label="Information" class="info-notice">
           <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
-        <h2 class="heading-medium">What you will need</h2>
-        <ul class="list list-bullet">
+        <h2 class="govuk-heading-m">What you will need</h2>
+        <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> so the judge can hear things from your side</li>
         </ul>
@@ -1566,8 +1566,8 @@ en:
         <div role="note" aria-label="Information" class="info-notice">
           <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
-        <h2 class="heading-medium">What you will need</h2>
-        <ul class="list list-bullet">
+        <h2 class="govuk-heading-m">What you will need</h2>
+        <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>

@@ -1,8 +1,8 @@
 <% title t('terms.header') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t 'terms.header' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t 'terms.header' %></h1>
     <span><%= t('terms.last_update').html_safe %></span>
     <p><cite><%= t('terms.info', privacy_link: link_to(t('terms.privacy'), privacy_page_path)).html_safe %></cite></p>
 
@@ -14,13 +14,13 @@
       <li><a href="#disclaimer" title=""><%= t 'terms.section_list.disclaimer' %></a></li>
     </ul>
 
-    <h1 id="general" class="heading-large"><%= t 'terms.general.header' %></h1>
+    <h1 id="general" class="govuk-heading-l"><%= t 'terms.general.header' %></h1>
     <p><%= t 'terms.general.line_1' %></p>
     <p><%= t 'terms.general.line_2' %></p>
     <p><%= t 'terms.general.line_3' %></p>
 
 
-    <h1 id="applicable" class="heading-large"><%= t 'terms.applicable_law.header' %></h1>
+    <h1 id="applicable" class="govuk-heading-l"><%= t 'terms.applicable_law.header' %></h1>
     <p><%= t 'terms.applicable_law.line_1' %></p>
 
     <ul class="standard-list">
@@ -30,7 +30,7 @@
       <li><%= t 'terms.applicable_law.list_4' %></li>
     </ul>
 
-    <h1 class="heading-large" id="responsible"><%= t 'terms.responsible.header' %></h1>
+    <h1 class="govuk-heading-l" id="responsible"><%= t 'terms.responsible.header' %></h1>
 
     <p><%= t 'terms.responsible.line_1' %></p>
     <p><%= t 'terms.responsible.line_2' %></p>
@@ -38,13 +38,13 @@
     <p><%= t 'terms.responsible.line_4' %></p>
 
 
-    <h1 class="heading-large" id="gdpr"><%= t 'terms.gdpr.header' %></h1>
+    <h1 class="govuk-heading-l" id="gdpr"><%= t 'terms.gdpr.header' %></h1>
     <p><%= t 'terms.gdpr.line_1' %></p>
     <p><%= t('terms.gdpr.line_2', privacy_link: link_to(t('terms.privacy'), privacy_page_path)).html_safe %></p>
     <p><%= t 'terms.gdpr.line_3' %></p>
     <p><%= t 'terms.gdpr.line_4' %></p>
 
-    <h1 class="heading-large" id="disclaimer"><%= t 'terms.disclaimer.header' %></h1>
+    <h1 class="govuk-heading-l" id="disclaimer"><%= t 'terms.disclaimer.header' %></h1>
     <p><%= t 'terms.disclaimer.line_1' %></p>
     <p><%= t 'terms.disclaimer.line_2' %></p>
 

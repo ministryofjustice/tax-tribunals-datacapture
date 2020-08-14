@@ -1,10 +1,10 @@
 <% title '' %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t '.heading' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t '.heading' %></h1>
 
-    <ul class="list task-list">
+    <ul class="govuk-list task-list">
       <% @link_sections.each do |(name, minutes, path)| %>
           <li>
             <%= link_to t('.link_titles.%s' % name), path, class: 'task-link ga-pageLink', data: {ga_category: 'Type_app', ga_label: name} %>
