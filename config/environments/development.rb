@@ -68,3 +68,6 @@ Rails.application.configure do
 end
 
 Faker::Config.locale = 'en-GB' # For the development tools
+
+# Use env var to enable i18n-debug gem on demand
+I18n::Debug.logger = Logger.new("/dev/null") unless ENV['ENABLE_I18N_DEBUG']
