@@ -64,6 +64,18 @@
 @import 'dropzone';
 @import 'local/dropzone';
 
+// GOV.UK Frontend
+
+// turn on compatibility mode for the GOV.UK Template, Elements, Frontend
+$govuk-compatibility-govukelements: true;
+$govuk-compatibility-govuktemplate: true;
+$govuk-compatibility-govukfrontendtoolkit: true;
+$govuk-use-legacy-palette: true;
+
+$govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
+@import "govuk-frontend/govuk/all";
+
+
 .js-enabled {
   .js-hidden {
     display: none !important;
@@ -115,4 +127,24 @@ li.no-js-only {
   .related-link-hint {
     color: $grey-1;
   }
+}
+
+@mixin app-button-reset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  box-sizing: unset;
+  background-color: transparent;
+}
+
+.app-header__logout-link {
+  // 1. Remove any button styling
+  @include app-button-reset;
+
+  // 2. Apply header link styling
+  @include govuk-font($size: 16, $weight: bold);
+  white-space: nowrap;
 }

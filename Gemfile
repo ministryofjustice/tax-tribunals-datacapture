@@ -12,7 +12,6 @@ gem 'govuk_elements_form_builder', '~> 1.3.0'
 gem 'govuk_elements_rails', '~> 3.0.0'
 gem 'govuk_frontend_toolkit', '~> 6.0.0'
 gem 'govuk_notify_rails', '~> 2.0.0'
-gem 'govuk_template'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
@@ -78,4 +77,3 @@ group :test do
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
-

@@ -16,6 +16,7 @@
 //= require_tree .
 
 //= require govuk_toolkit
+//= require govuk-frontend/govuk/all
 
 $(document).ready(function() {
   new GOVUK.ShowHideContent().init();
@@ -23,3 +24,4 @@ $(document).ready(function() {
   // Initialize JS in /modules (this includes the Dropzone custom setup)
   window.moj.init();
 });
+

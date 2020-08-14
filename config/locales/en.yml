@@ -1332,9 +1332,6 @@ en:
       logout: Sign out
       change_password: Change password
       your_cases: Your saved cases
-    application:
-      cookie_message_html: |
-        <p>Appeal to the tax tribunal uses cookies to make the site simpler. <a href="/cookies">Find out more about cookies</a></p>
   document_upload:
     errors:
       file_size: "%{file_name} is too big. You will need to resubmit a smaller version,

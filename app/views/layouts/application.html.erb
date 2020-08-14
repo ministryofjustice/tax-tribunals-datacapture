@@ -1,7 +1,5 @@
 <% content_for?(:page_title) ? yield(:page_title) : fallback_title %>
 
-<% content_for(:cookie_message) do %><%=t '.cookie_message_html' %><% end %>
-
 <% content_for(:head) do %>
   <%= render partial: 'layouts/analytics/gtm_script' if analytics_tracking_id.present? %>
   <%= csrf_meta_tags %>
@@ -12,20 +10,14 @@
   <meta name="robots" content="noindex, nofollow">
 <% end %>
 
-<% content_for(:header_class) do %>with-proposition<% end %>
+<% content_for(:service_name) do %>
+  <%= link_to 'Appeal to the tax tribunal', '/',
+    class: 'govuk-header__link govuk-header__link--service-name ga-pageLink'
+  %>
+<% end %>
 
-<% content_for(:proposition_header) do %>
-  <div class="header-proposition">
-    <div class="content">
-      <% if user_signed_in? %>
-        <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
-      <% end %>
-      <nav id="proposition-menu">
-        <%= link_to 'Appeal to the tax tribunal', service_homepage_url, id: 'proposition-name' %>
-        <%= render partial: 'layouts/current_user_menu' if user_signed_in? %>
-      </nav>
-    </div>
-  </div>
+<% content_for(:header_navigation) do %>
+  <%= render partial: 'layouts/current_user_menu' %>
 <% end %>
 
 <% content_for(:body_start) do %>
@@ -42,18 +34,12 @@
   <![endif]-->
 <% end %>
 
+<% content_for(:phase_banner) do %>
+  <%= render partial: 'layouts/phase_banner' %>
+<% end %>
+
 <% content_for(:content) do %>
-  <main id="content" role="main">
-    <%= render partial: 'layouts/phase_banner' %>
-
-    <% if flash[:alert] %>
-      <div class="error-summary">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-
-    <%= yield %>
-  </main>
+  <%= yield %>
 <% end %>
 
 <% content_for(:body_end) do %>
@@ -71,7 +57,7 @@
   <%= yield :javascripts %>
 <% end %>
 
-<% content_for(:footer_support_links) do %>
+<% content_for(:footer_links) do %>
   <%= render partial: 'layouts/footer_links' %>
 <% end %>
 

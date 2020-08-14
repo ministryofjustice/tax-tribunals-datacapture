@@ -19,7 +19,7 @@ module ApplicationHelper
   # Render a back link pointing to the user's previous step
   def step_header
     capture do
-      render partial: 'step_header', locals: {
+      render partial: 'layouts/step_header', locals: {
         path: controller.previous_step_path
       }
     end + error_summary(@form_object)
