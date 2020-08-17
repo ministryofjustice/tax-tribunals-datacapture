@@ -11,7 +11,7 @@
 
     <% if file_or_text_row.file? %>
       <h4 class="govuk-heading-s"><%=t 'check_answers.attached_document' %></h4>
-      <p><%= file_or_text_row.file.name %></p>
+      <p class="govuk-body"><%= file_or_text_row.file.name %></p>
     <% end %>
   </dd>
   <dd class="change">

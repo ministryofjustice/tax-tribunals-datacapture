@@ -6,6 +6,6 @@
   TODO: Revisit this to use a helper method to say "Your case will be deleted in #{N} days"
   where N counts down from the case creation date.
 -->
-<p><%=t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
+<p class="govuk-body"><%=t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
 
-<p><%=t '.return_info' %></p>
+<p class="govuk-body"><%=t '.return_info' %></p>

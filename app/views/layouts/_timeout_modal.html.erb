@@ -8,11 +8,11 @@
                 session_length: Rails.configuration.x.session.expires_in_minutes) %>
       </span>
       <h2><%= t('session.expiring.heading') %></h2>
-      <p>
+      <p class="govuk-body">
         <%= t('session.expiring.in') %> <span id="timeout-dialog-remaining"></span>.
       </p>
-      <p><%= t('session.expiring.security') %></p>
-      <p>
+      <p class="govuk-body"><%= t('session.expiring.security') %></p>
+      <p class="govuk-body">
         <button class="button secondary extend" id="extend" href="#"><%= t('session.expiring.extend') %></button>
         <button class="button secondary abort" id="destroy" href="#"><%= t('session.expiring.destroy') %></button>
       </p>

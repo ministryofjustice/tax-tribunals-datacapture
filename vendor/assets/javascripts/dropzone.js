@@ -735,7 +735,7 @@
       }
       fieldsString = "<div class=\"dz-fallback\">";
       if (this.options.dictFallbackText) {
-        fieldsString += "<p>" + this.options.dictFallbackText + "</p>";
+        fieldsString += "<p class="govuk-body">" + this.options.dictFallbackText + "</p>";
       }
       fieldsString += "<input type=\"file\" name=\"" + (this._getParamName(0)) + "\" " + (this.options.uploadMultiple ? 'multiple="multiple"' : void 0) + " /><input type=\"submit\" value=\"Upload!\"></div>";
       fields = Dropzone.createElement(fieldsString);

@@ -2,7 +2,7 @@
 
 <div class="govuk-box-highlight">
   <h1 class="bold-large"><%= t '.case_submitted' %></h1>
-  <p><%= t '.confirmation_email' %></p>
+  <p class="govuk-body"><%= t '.confirmation_email' %></p>
 </div>
 
 <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>

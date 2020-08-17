@@ -6,14 +6,14 @@
 
     <h2 class="govuk-heading-l"><%=t '.heading' %></h2>
 
-    <p><%= t '.lead_text' %></p>
+    <p class="govuk-body"><%= t '.lead_text' %></p>
 
-    <p><%= t '.account_text' %></p>
+    <p class="govuk-body"><%= t '.account_text' %></p>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.email_field :email, autofocus: true %>
 
-      <p><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
+      <p class="govuk-body"><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
 
       <%= f.submit t('helpers.submit.reset_password'), class: 'button' %>
     <% end %>

@@ -7,7 +7,7 @@
     <%= simple_format(contact_details_row.contact_address) %>
 
     <% if contact_details_row.extra_details? %>
-      <p>
+      <p class="govuk-body">
         <% if contact_details_row.phone? %>
           <%=t 'check_answers.phone' %>: <%= contact_details_row.phone %><br>
         <% end %>
