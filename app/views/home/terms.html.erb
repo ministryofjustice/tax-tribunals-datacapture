@@ -4,14 +4,14 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l"><%= t 'terms.header' %></h1>
     <span><%= t('terms.last_update').html_safe %></span>
-    <p><cite><%= t('terms.info', privacy_link: link_to(t('terms.privacy'), privacy_page_path)).html_safe %></cite></p>
+    <p><cite><%= t('terms.info', privacy_link: link_to(t('terms.privacy'), privacy_page_path, class: "govuk-link")).html_safe %></cite></p>
 
     <ul>
-      <li><a href="#general" title=""><%= t 'terms.section_list.general' %></a></li>
-      <li><a href="#applicable" title=""><%= t 'terms.section_list.applicable_law' %></a></li>
-      <li><a href="#responsible" title=""><%= t 'terms.section_list.responsible' %></a></li>
-      <li><a href="#gdpr" title=""><%= t 'terms.section_list.gdpr' %></a></li>
-      <li><a href="#disclaimer" title=""><%= t 'terms.section_list.disclaimer' %></a></li>
+      <li><a href="#general" class="govuk-link" title=""><%= t 'terms.section_list.general' %></a></li>
+      <li><a href="#applicable" class="govuk-link" title=""><%= t 'terms.section_list.applicable_law' %></a></li>
+      <li><a href="#responsible" class="govuk-link" title=""><%= t 'terms.section_list.responsible' %></a></li>
+      <li><a href="#gdpr" class="govuk-link" title=""><%= t 'terms.section_list.gdpr' %></a></li>
+      <li><a href="#disclaimer" class="govuk-link" title=""><%= t 'terms.section_list.disclaimer' %></a></li>
     </ul>
 
     <h1 id="general" class="govuk-heading-l"><%= t 'terms.general.header' %></h1>
@@ -40,7 +40,7 @@
 
     <h1 class="govuk-heading-l" id="gdpr"><%= t 'terms.gdpr.header' %></h1>
     <p><%= t 'terms.gdpr.line_1' %></p>
-    <p><%= t('terms.gdpr.line_2', privacy_link: link_to(t('terms.privacy'), privacy_page_path)).html_safe %></p>
+    <p><%= t('terms.gdpr.line_2', privacy_link: link_to(t('terms.privacy'), privacy_page_path, class: "govuk-link")).html_safe %></p>
     <p><%= t 'terms.gdpr.line_3' %></p>
     <p><%= t 'terms.gdpr.line_4' %></p>
 

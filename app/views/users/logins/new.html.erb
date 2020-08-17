@@ -12,7 +12,7 @@
       <%= f.email_field :email, name: 'user[email]', autofocus: true %>
       <%= f.password_field :password, name: 'user[password]', class: 'js-toggleable-password', autocomplete: 'off' %>
 
-      <p><%= link_to t('.forgot_password'), new_user_password_path %></p>
+      <p><%= link_to t('.forgot_password'), new_user_password_path, class: 'govuk-link' %></p>
 
       <%= f.submit t('helpers.submit.sign_in'), class: 'button' %>
     <% end %>

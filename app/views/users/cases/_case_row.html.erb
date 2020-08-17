@@ -5,12 +5,12 @@
   <% if tribunal_case.user_case_reference? %>
     <td>
       <%= tribunal_case.user_case_reference %><br>
-      <%= link_to t('.edit_reference'), edit_users_case_path(tribunal_case) %>
+      <%= link_to t('.edit_reference'), edit_users_case_path(tribunal_case, class: 'govuk-link') %>
     </td>
   <% else %>
     <td class="not-entered">
       <%=t '.reference_not_entered' %><br>
-      <%= link_to t('.create_reference'), edit_users_case_path(tribunal_case) %>
+      <%= link_to t('.create_reference'), edit_users_case_path(tribunal_case, class: 'govuk-link') %>
     </td>
   <% end %>
   <% if tribunal_case.taxpayer_name? %>

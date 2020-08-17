@@ -21,7 +21,7 @@
   </dd>
   <dd class="change">
     <% if contact_details_row.show_change_link? %>
-      <%= link_to contact_details_row.change_path do %>
+      <%= link_to contact_details_row.change_path, class: 'govuk-link' do %>
         Change <span class="visuallyhidden"><%=t "check_answers.#{contact_details_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>

@@ -16,7 +16,7 @@
   </dd>
   <dd class="change">
     <% if file_or_text_row.show_change_link? %>
-      <%= link_to file_or_text_row.change_path do %>
+      <%= link_to file_or_text_row.change_path, class: 'govuk-link' do %>
         <%=t 'check_answers.change' %><span class="visuallyhidden"> <%=t "check_answers.#{file_or_text_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>

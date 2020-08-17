@@ -6,6 +6,6 @@
 
     <%= render partial: 'users/shared/case_saved', locals: {email_address: @email_address} %>
 
-    <p><%= link_to t('.your_cases'), users_cases_path %></p>
+    <p><%= link_to t('.your_cases'), users_cases_path, class: 'govuk-link' %></p>
   </div>
 </div>

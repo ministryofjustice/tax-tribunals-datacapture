@@ -6,6 +6,6 @@
 
     <%= render partial: 'users/shared/case_saved', locals: {email_address: @email_address} %>
 
-    <p><%= link_to t('.sign_in'), user_session_path %></p>
+    <p><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
   </div>
 </div>
