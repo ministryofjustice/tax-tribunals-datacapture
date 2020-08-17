@@ -83,7 +83,7 @@ en:
             </ul>
             <p>
               If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-              <a href="https://www.gov.uk/call-charges">call charges</a>).
+              <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
             </p>
 
   steps:
@@ -142,9 +142,9 @@ en:
               <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
               <p>Find out about:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li><a href="https://www.gov.uk/tax-appeals">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
-                <li><a href="https://www.gov.uk/customs-seizures/overview">options when UK Border Force (UKBF) seizes your things</a></li>
-                <li><a href="https://www.gov.uk/tax-tribunal/overview">how to challenge a National Crime Agency (NCA) decision</a></li>
+                <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
+                <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link">options when UK Border Force (UKBF) seizes your things</a></li>
+                <li><a href="https://www.gov.uk/tax-tribunal/overview" class="govuk-link">how to challenge a National Crime Agency (NCA) decision</a></li>
               </ul>
           page_title: Did you appeal?
       decision_status:
@@ -159,8 +159,8 @@ en:
             <p>You should ask for a review even if you think you are late.</p>
             <p>Find out more about:</p>
             <ul class="govuk-list govuk-list--bullet">
-              <li><a href="https://www.gov.uk/tax-appeals" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
-              <li><a href="https://www.gov.uk/customs-seizures/overview" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
             </ul>
           page_title: Must ask for review
       must_wait_for_review_decision:
@@ -178,7 +178,7 @@ en:
           heading: You must appeal the original decision to HMRC
           lead_text: The original notice letter will explain what to do.
           free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal
-            once you have written to HMRC. Check the options when you <a href="https://www.gov.uk/tax-appeals">disagree
+            once you have written to HMRC. Check the options when you <a href="https://www.gov.uk/tax-appeals" class="govuk-link">disagree
             with a tax decision.</a>
           free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
@@ -237,7 +237,7 @@ en:
               <li>friend or family relative</li>
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>You need to download and fill in an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
+          <p>You need to download and fill in an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
       kickout_feedback: Give your feedback. Help improve this service
       continue_or_save:
         timeout_note: Your session will time out after %{session_timeout} minutes of inactivity. Save your details if you want to come back later.
@@ -385,7 +385,7 @@ en:
                 <li>
                   <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
-                  <p><strong><a href="%{download_pdf_url}" target="_blank" rel="noopener">Print your appeal details<span class="visuallyhidden"> (opens in new window)</span></a></strong></p>
+                  <p><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Print your appeal details<span class="visuallyhidden"> (opens in new window)</span></a></strong></p>
                 </li>
                 <li>
                   <strong>Make copies of all documents you wanted to upload</strong>
@@ -1233,7 +1233,7 @@ en:
       explanation_html: |
         <p><strong>What to do next</strong></p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>See <a href="%{contact_url}">useful contact information</a> for help on using this service.</li>
+          <li>See <a href="%{contact_url}" class="govuk-link">useful contact information</a> for help on using this service.</li>
           <li>Enter reasons if you are still having trouble uploading.</li>
           <li>Click 'continue' to print and complete your appeal by post.</li>
         </ul>
@@ -1297,7 +1297,7 @@ en:
       heading: You have already submitted this case
       lead_text_html: |
         To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
-        (find out about <a href="https://www.gov.uk/call-charges">call charges</a>).
+        (find out about <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
       <<: *START_FINISH
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
@@ -1315,7 +1315,7 @@ en:
       lead_text: If you entered a web address, please check it’s correct.
       more_text_html: |
         <p>You can also try starting from the homepage to find the information you need.</p>
-        <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)">paper form</a> to submit an appeal or close an enquiry.</p>
+        <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)" class="govuk-link">paper form</a> to submit an appeal or close an enquiry.</p>
       <<: *START_FINISH
       page_title: Not found
   layouts:
@@ -1327,7 +1327,7 @@ en:
       privacy_policy: Privacy policy
     phase_banner:
       phase_info_html: |
-        This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Provide feedback</a> and help improve the service for others.
+        This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback</a> and help improve the service for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
@@ -1364,17 +1364,17 @@ en:
       lead_text: Useful information if you need help using this service.
       description_html: |
         <p><strong>Tax tribunal helpline</strong></p>
-        <p>Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges">find out about call charges)</a></p>
+        <p>Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">find out about call charges)</a></p>
         <p>Monday to Friday, 8:30am to 5pm</p>
         <p>Please note: the helpline can't give you legal advice.</p>
         <p><strong>Other ways to get help</strong></p>
         <ul class="govuk-list govuk-list--bullet">
-           <li><a href="https://www.citizensadvice.org.uk" target="_blank" rel="noopener">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="https://www.citizensadvice.org.uk" class="govuk-link" target="_blank" rel="noopener">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
            <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
-           <li><a href="http://www.litrg.org.uk" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://taxaid.org.uk" target="_blank" rel="noopener">TaxAid<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://www.taxvol.org.uk" target="_blank" rel="noopener">Tax Help for Older People<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk">taxvol@taxvol.org.uk</a>)</p>
+           <li><a href="http://www.litrg.org.uk" class="govuk-link" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://taxaid.org.uk" class="govuk-link" target="_blank" rel="noopener">TaxAid<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://www.taxvol.org.uk" class="govuk-link" target="_blank" rel="noopener">Tax Help for Older People<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
   session:
@@ -1547,14 +1547,14 @@ en:
       description_html: |
         <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
         <div role="note" aria-label="Information" class="info-notice">
-          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> so the judge can hear things from your side</li>
         </ul>
-        <p>You'll also need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p>You'll also need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       continue: Continue
       page_title: Start an appeal
   closure_home:
@@ -1564,14 +1564,14 @@ en:
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
         <div role="note" aria-label="Information" class="info-notice">
-          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-        <p>You'll need to complete an <a href="%{approval_form_href}" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p>You'll need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       page_title: Start a closure
   surveys:
     feedback:
