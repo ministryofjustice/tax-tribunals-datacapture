@@ -1320,6 +1320,7 @@ en:
       page_title: Not found
   layouts:
     footer_links:
+      header: Support links
       help: Help
       contact: Contact
       cookies: Cookies

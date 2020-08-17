@@ -1,17 +1,19 @@
-<ul>
-  <li>
-    <%= link_to t('.help'), 'https://www.gov.uk/help' %>
+<h2 class="govuk-visually-hidden"><%=t('.header') %></h2>
+
+<ul class="govuk-footer__inline-list">
+  <li class="govuk-footer__inline-list-item">
+    <%= link_to t('.help'), 'https://www.gov.uk/help', class: 'govuk-footer__link' %>
   </li>
-  <li>
-    <%= link_to t('.contact'), contact_page_path %>
+  <li class="govuk-footer__inline-list-item">
+    <%= link_to t('.contact'), contact_page_path, class: 'govuk-footer__link' %>
   </li>
-  <li>
-    <%= link_to t('.cookies'), cookies_page_path %>
+  <li class="govuk-footer__inline-list-item">
+    <%= link_to t('.cookies'), cookies_page_path, class: 'govuk-footer__link' %>
   </li>
-  <li>
-    <%= link_to t('.terms_and_conditions'), terms_page_path %>
+  <li class="govuk-footer__inline-list-item">
+    <%= link_to t('.terms_and_conditions'), terms_page_path, class: 'govuk-footer__link' %>
   </li>
-  <li>
-    <%= link_to t('.privacy_policy'), privacy_page_path %>
+  <li class="govuk-footer__inline-list-item">
+    <%= link_to t('.privacy_policy'), privacy_page_path, class: 'govuk-footer__link' %>
   </li>
 </ul>
