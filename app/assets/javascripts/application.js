@@ -15,7 +15,6 @@
 //= require dropzone
 //= require_tree .
 
-//= require govuk_toolkit
 //= require govuk-frontend/govuk/all
 
 $(document).ready(function() {
