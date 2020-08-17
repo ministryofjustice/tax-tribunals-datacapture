@@ -3,7 +3,7 @@ class TaxpayerDetailsPage < BasePage
 
   section :content, '#content' do
     element :header, 'h1', text: 'Enter taxpayer\'s details'
-    sections :input_field, '.form-group' do
+    sections :input_field, '.govuk-form-group' do
       element :input_label, '.form-label'
       element :first_name_input, '#steps_details_taxpayer_individual_details_form_taxpayer_individual_first_name'
       element :last_name_input, '#steps_details_taxpayer_individual_details_form_taxpayer_individual_last_name'
