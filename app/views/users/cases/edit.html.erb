@@ -6,6 +6,6 @@
 <%= form_for @tribunal_case, url: users_case_path do |f| %>
   <%= f.text_field :user_case_reference %>
 
-  <%= f.submit class: 'button' %>
-  <%= link_to t('helpers.submit.cancel'), users_cases_path, class: 'button button-secondary' %>
+  <%= f.submit class: 'govuk-button' %>
+  <%= link_to t('helpers.submit.cancel'), users_cases_path, class: 'govuk-button govuk-button--secondary' %>
 <% end %>

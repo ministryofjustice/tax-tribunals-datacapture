@@ -20,8 +20,8 @@
   <% end %>
   <td class="right">
     <span class="right actions actions-tight">
-      <%= button_to t('.delete'), users_case_path(tribunal_case), method: :delete, data: {confirm: t('.delete_confirmation')}, class: 'button button-secondary' %>
-      <%= link_to t('.resume'), resume_users_case_path(tribunal_case), class: 'button ga-pageLink', data: {ga_category: 'save and return', ga_label: 'resume case'} %>
+      <%= button_to t('.delete'), users_case_path(tribunal_case), method: :delete, data: {confirm: t('.delete_confirmation')}, class: 'govuk-button govuk-button--secondary' %>
+      <%= link_to t('.resume'), resume_users_case_path(tribunal_case), class: 'govuk-button ga-pageLink', data: {ga_category: 'save and return', ga_label: 'resume case'} %>
     </span>
   </td>
 </tr>
