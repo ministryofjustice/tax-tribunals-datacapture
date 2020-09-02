@@ -18,8 +18,6 @@ module TaxTribunalsDatacapture
   class Application < Rails::Application
     config.load_defaults 6.0
 
-    ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
-
     config.middleware.use Rack::Attack
 
     # This automatically adds id: :uuid to create_table in all future migrations

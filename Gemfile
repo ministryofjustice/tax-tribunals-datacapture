@@ -8,6 +8,7 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
+gem 'govuk_design_system_formbuilder'
 gem 'govuk_elements_form_builder', '~> 1.3.0'
 gem 'govuk_elements_rails', '~> 3.0.0'
 gem 'govuk_frontend_toolkit', '~> 6.0.0'
