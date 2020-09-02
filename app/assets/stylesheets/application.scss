@@ -1,68 +1,4 @@
-// From GDS's alphagov/govuk_frontend_toolkit
-@import 'colours';
-@import 'font_stack';
-@import 'measurements';
-@import 'conditionals';
-@import 'device-pixels';
-@import 'grid_layout';
-@import 'typography';
-@import 'shims';
-
-@import 'design-patterns/alpha-beta';
-@import 'design-patterns/buttons';
-@import 'design-patterns/breadcrumbs';
-
-// From GDS's alphagov/govuk_elements
-@import 'elements/helpers';
-@import 'elements/reset';
-
-// Base (unclassed HTML elements)
-// These are predefined by govuk_template
-// If you're not using govuk_template, uncomment the line below.
-// HTML elements, set by the GOV.UK template
-// @import 'elements/base'
-
-@import 'elements/layout';
-@import 'elements/elements-typography';
-@import 'elements/buttons';
-@import 'elements/icons';
-@import 'elements/lists';
-@import 'elements/tables';
-@import 'elements/details';
-@import 'elements/panels';
-@import 'elements/forms';
-@import 'elements/forms/form-multiple-choice';
-@import 'elements/forms/form-date';
-@import 'elements/forms/form-validation';
-@import 'elements/breadcrumbs';
-@import 'elements/phase-banner';
-@import 'elements/components';
-
-@import 'elements/shame';
-
-@import 'local/check_answers';
-@import 'local/developer_tools';
-@import 'local/single-file-upload';
-@import 'local/tables';
-@import 'local/lists';
-@import 'local/inputs';
-@import 'local/buttons';
-@import 'local/forms';
-@import 'local/typography';
-@import 'local/header';
-@import 'local/panels';
-@import 'local/banners';
-@import 'local/case_details_pdf';
-@import 'local/utilities';
-@import 'local/positioning_hacks';
-@import 'local/timeout_modal';
-@import 'local/spinner';
-@import 'local/notices';
-@import 'local/feedback';
-
-// Dropzone vendor styling + local customization
-@import 'dropzone';
-@import 'local/dropzone';
+@import 'local/old_design';
 
 // GOV.UK Frontend
 
@@ -74,6 +10,30 @@ $govuk-use-legacy-palette: true;
 
 $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import "govuk-frontend/govuk/all";
+
+
+@import 'local/check_answers';
+@import 'local/developer_tools';
+@import 'local/single-file-upload';
+// @import 'local/tables';
+@import 'local/lists';
+// @import 'local/inputs';
+// @import 'local/buttons';
+// @import 'local/forms';
+// @import 'local/typography';
+// @import 'local/panels';
+// @import 'local/banners';
+@import 'local/case_details_pdf';
+@import 'local/utilities';
+@import 'local/positioning_hacks';
+@import 'local/timeout_modal';
+@import 'local/spinner';
+@import 'local/notices';
+@import 'local/feedback';
+
+// Dropzone vendor styling + local customization
+@import 'dropzone';
+@import 'local/dropzone';
 
 
 .js-enabled {
