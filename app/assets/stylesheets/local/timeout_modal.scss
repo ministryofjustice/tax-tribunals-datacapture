@@ -17,7 +17,7 @@
   background-color: #fff;
   width: 100%;
 
-  @include media(desktop) {
+  @include govuk-media-query($from: desktop) {
     top: 50%;
     left: 50%;
     width: 530px;
@@ -35,7 +35,7 @@
     font-weight: bold;
     line-height: 60px;
     padding-left: 60px;
-  } 
+  }
 
   p {
     margin: 15px;
