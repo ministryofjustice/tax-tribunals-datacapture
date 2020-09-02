@@ -20,4 +20,6 @@
 $(document).ready(function() {
   // Initialize frontend toolkit
   window.GOVUKFrontend.initAll();
+
+  window.moj.init();
 });
