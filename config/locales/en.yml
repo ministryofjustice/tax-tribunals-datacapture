@@ -729,7 +729,7 @@ en:
           _show_more_html: "<strong>Show more</strong>"
       steps_appeal_case_type_show_more_form:
         case_type_other_value: Enter the type of tax or dispute involved in your case
-        case_type:
+        case_type_options:
           apn_penalty_html: "<strong>Accelerated Payment Notice (APN) penalty</strong>"
           aggregates_levy_html: "<strong>Aggregates Levy</strong>"
           air_passenger_duty_html: "<strong>Air Passenger Duty</strong>"

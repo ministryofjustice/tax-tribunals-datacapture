@@ -5,10 +5,10 @@ module Steps::Appeal
 
     def self.choices
       # Make sure we don't show the choices we already had on the previous page
-      CaseType.values.map(&:to_s) - CaseTypeForm.choices
+      CaseType.values - CaseTypeForm.choices
     end
 
-    validates_inclusion_of :case_type, in: choices
+    validates_inclusion_of :case_type, in: choices.map(&:to_s)
     validates_presence_of  :case_type_other_value, if: :other_case_type?
 
     private

@@ -1,17 +1,19 @@
 <% title t('.page_title') %>
+<%= step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
+    <%= govuk_error_summary %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
-      <%= f.radio_button_fieldset :case_type,
-        choices: Steps::Appeal::CaseTypeShowMoreForm.choices,
-        legend_options: {class: 'visuallyhidden'} %>
+    <%= step_form @form_object, builder: GOVUKDesignSystemFormBuilder::FormBuilder do |f| %>
+      <%= f.govuk_collection_radio_buttons :case_type,
+        Steps::Appeal::CaseTypeShowMoreForm.choices, :value, nil,
+        legend: { class: 'visuallyhidden' }
+      %>
 
       <div class="panel toggleable" id="case_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= f.text_field :case_type_other_value, class: 'form-control' %>
