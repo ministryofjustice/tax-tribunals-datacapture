@@ -3,17 +3,17 @@ strong {
 }
 
 details {
-  margin-top: $gutter;
-  margin-bottom: $gutter;
+  margin-top: $govuk-gutter;
+  margin-bottom: $govuk-gutter;
 }
 
 form {
-  padding-bottom: $gutter;
+  padding-bottom: $govuk-gutter;
 }
 
 fieldset + .form-group {
   margin-bottom: 0;
-  margin-top: $gutter;
+  margin-top: $govuk-gutter;
 }
 
 .step-info {

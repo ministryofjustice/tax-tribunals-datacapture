@@ -1,6 +1,6 @@
 .heading-bottom-border {
   border-bottom: 1px solid $border-colour;
-  padding-bottom: $gutter/6;
+  padding-bottom: $govuk-gutter/6;
   margin-bottom: 0;
 }
 
@@ -16,7 +16,7 @@
 
   .question {
     font-weight: bold;
-    margin: em(12, 19) 4em $gutter/6 0;
+    margin: em(12, 19) 4em $govuk-gutter/6 0;
     // top: from Elements' td
     // right: due to length of "change" link (adjust if you change the link to be much longer)
     // bottom: by eye (~4-5px)
