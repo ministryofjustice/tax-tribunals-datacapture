@@ -18,9 +18,6 @@
 //= require govuk-frontend/govuk/all
 
 $(document).ready(function() {
-  new GOVUK.ShowHideContent().init();
-
-  // Initialize JS in /modules (this includes the Dropzone custom setup)
-  window.moj.init();
+  // Initialize frontend toolkit
+  window.GOVUKFrontend.initAll();
 });
-
