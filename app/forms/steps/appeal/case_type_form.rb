@@ -13,11 +13,11 @@ module Steps::Appeal
         CaseType::CORPORATION_TAX,
         CaseType::NI_CONTRIBUTIONS,
         CaseType::INFORMATION_NOTICE,
-        SHOW_MORE
-      ].map(&:to_s)
+        ValueObject.new(SHOW_MORE)
+      ]
     end
 
-    validates_inclusion_of :case_type, in: choices
+    validates_inclusion_of :case_type, in: choices.map(&:to_s)
 
     private
 

@@ -716,7 +716,7 @@ en:
         assistance_level: Did you have any assistance with applying to Tax Tribunal today?
     label:
       steps_appeal_case_type_form:
-        case_type:
+        case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
             Pay As You Earn (PAYE) and Self Assessment"
           self_assessment_late_penalty_html: "<strong>Penalty for late filing of self-assessment tax return</strong>"
@@ -726,7 +726,7 @@ en:
           information_notice_html: "<strong>Information notice</strong><br>a request
             for further information about your tax position"
           ni_contributions_html: "<strong>National Insurance (NI) contributions</strong>"
-          _show_more_html: "<strong>Other type of tax, appeal or application</strong>"
+          _show_more_html: "<strong>Show more</strong>"
       steps_appeal_case_type_show_more_form:
         case_type_other_value: Enter the type of tax or dispute involved in your case
         case_type:
