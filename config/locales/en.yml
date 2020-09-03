@@ -796,7 +796,7 @@ en:
         challenged_decision_options:
           <<: *YESNO
       steps_challenge_decision_status_form:
-        challenged_decision_status:
+        challenged_decision_status_options:
           <<: *CHALLENGE_STATUS
       steps_closure_case_type_form:
         closure_case_type:
