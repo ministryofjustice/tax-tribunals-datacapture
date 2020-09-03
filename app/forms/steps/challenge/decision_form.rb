@@ -3,10 +3,10 @@ module Steps::Challenge
     attribute :challenged_decision, String
 
     def self.choices
-      ChallengedDecision.values.map(&:to_s)
+      ChallengedDecision.values
     end
 
-    validates_inclusion_of :challenged_decision, in: choices
+    validates_inclusion_of :challenged_decision, in: choices.map(&:to_s)
 
     def heading_translation_key
       if tribunal_case.case_type.direct_tax?

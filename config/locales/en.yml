@@ -793,7 +793,7 @@ en:
         tax_amount: Enter the amount of tax under dispute
         penalty_amount: Enter the penalty or surcharge amount
       steps_challenge_decision_form:
-        challenged_decision:
+        challenged_decision_options:
           <<: *YESNO
       steps_challenge_decision_status_form:
         challenged_decision_status:
