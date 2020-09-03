@@ -1,17 +1,19 @@
 <% title t('.page_title') %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
+    <%= govuk_error_summary %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <p class="lede"><%=t '.lead_text' %></p>
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
-      <%= f.radio_button_fieldset :penalty_level,
-        choices: Steps::Appeal::PenaltyAmountForm.choices,
-        legend_options: {class: 'visuallyhidden'} %>
+      <%= f.govuk_collection_radio_buttons :penalty_level,
+        Steps::Appeal::PenaltyAmountForm.choices, :value, nil,
+        legend: { class: 'visuallyhidden' }
+      %>
 
       <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true" data-show-elements="form input:radio:not(:first)" data-hide-elements="form input:radio:first">
         <%= f.text_field :penalty_amount, class: 'form-control' %>

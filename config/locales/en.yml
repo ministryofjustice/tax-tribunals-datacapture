@@ -785,7 +785,7 @@ en:
           other_html: "<strong>None of the above</strong>"
       steps_appeal_penalty_amount_form:
         penalty_amount: Enter the penalty or surcharge amount
-        penalty_level:
+        penalty_level_options:
           <<: *PENALTY_LEVELS
       steps_appeal_tax_amount_form:
         tax_amount: Enter the amount of tax under dispute
