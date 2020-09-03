@@ -9,7 +9,7 @@
 
     <p class="lede"><%=t '.lead_text' %></p>
 
-    <%= step_form @form_object, builder: GOVUKDesignSystemFormBuilder::FormBuilder do |f| %>
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :case_type,
         Steps::Appeal::CaseTypeForm.choices, :value, nil,
         legend: { class: 'visuallyhidden' }
