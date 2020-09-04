@@ -822,7 +822,7 @@ en:
       steps_closure_support_documents_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload documents
       steps_details_user_type_form:
-        user_type:
+        user_type_options:
           taxpayer: 'Yes'
           representative: No, I am acting on behalf of the taxpayer
       steps_details_taxpayer_type_form:

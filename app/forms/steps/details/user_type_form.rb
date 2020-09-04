@@ -3,9 +3,9 @@ module Steps::Details
     attribute :user_type, String
 
     def self.choices
-      UserType.values.map(&:to_s)
+      UserType.values
     end
-    validates_inclusion_of :user_type, in: choices
+    validates_inclusion_of :user_type, in: choices.map(&:to_s)
 
     private
 
