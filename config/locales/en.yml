@@ -844,7 +844,7 @@ en:
           friend_or_family_html: Friend or family member
           other_html: None of the above
       steps_details_representative_type_form:
-        representative_type:
+        representative_type_options:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
