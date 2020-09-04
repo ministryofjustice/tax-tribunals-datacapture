@@ -826,7 +826,7 @@ en:
           taxpayer: 'Yes'
           representative: No, I am acting on behalf of the taxpayer
       steps_details_taxpayer_type_form:
-        taxpayer_type:
+        taxpayer_type_options:
           individual_html: "<strong>Individual</strong>"
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
