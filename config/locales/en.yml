@@ -915,7 +915,7 @@ en:
       steps_hardship_hardship_reason_form:
         hardship_reason: Enter your reasons below or attach as a document
       steps_lateness_in_time_form:
-        in_time:
+        in_time_options:
           'yes': Yes, I am in time
           'no': No, I am late
           unsure: I am not sure

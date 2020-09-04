@@ -3,9 +3,9 @@ module Steps::Lateness
     attribute :in_time, String
 
     def self.choices
-      InTime.values.map(&:to_s)
+      InTime.values
     end
-    validates_inclusion_of :in_time, in: choices
+    validates_inclusion_of :in_time, in: choices.map(&:to_s)
 
     private
 
