@@ -3,9 +3,9 @@ module Steps::Details
     attribute :has_representative, String
 
     def self.choices
-      HasRepresentative.values.map(&:to_s)
+      HasRepresentative.values
     end
-    validates_inclusion_of :has_representative, in: choices
+    validates_inclusion_of :has_representative, in: choices.map(&:to_s)
 
     private
 

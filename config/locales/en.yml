@@ -832,7 +832,7 @@ en:
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
             example a partnership, LLP (Limited Liability Partnership), trust, club or association"
       steps_details_has_representative_form:
-        has_representative:
+        has_representative_options:
           <<: *YESNO
       steps_details_representative_professional_status_form:
         representative_professional_status_options:
