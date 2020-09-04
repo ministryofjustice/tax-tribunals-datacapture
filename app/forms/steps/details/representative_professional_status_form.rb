@@ -3,9 +3,9 @@ module Steps::Details
     attribute :representative_professional_status, String
 
     def self.choices
-      RepresentativeProfessionalStatus.values.map(&:to_s)
+      RepresentativeProfessionalStatus.values
     end
-    validates_inclusion_of :representative_professional_status, in: choices
+    validates_inclusion_of :representative_professional_status, in: choices.map(&:to_s)
 
     private
 

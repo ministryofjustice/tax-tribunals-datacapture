@@ -835,7 +835,7 @@ en:
         has_representative:
           <<: *YESNO
       steps_details_representative_professional_status_form:
-        representative_professional_status:
+        representative_professional_status_options:
           england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
             in England, Wales or Northern Ireland
           scotland_legal_rep_html: Practising solicitor or advocate in Scotland
