@@ -769,7 +769,7 @@ en:
           other_html: "<strong>None of the above</strong>"
       steps_appeal_dispute_type_form:
         dispute_type_other_value: What is your dispute about?
-        dispute_type:
+        dispute_type_options:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
           amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay money</strong>"
