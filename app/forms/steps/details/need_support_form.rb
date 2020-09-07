@@ -3,10 +3,10 @@ module Steps::Details
     attribute :need_support, String
 
     def self.choices
-      NeedSupport.values.map(&:to_s)
+      NeedSupport.values
     end
 
-    validates_inclusion_of :need_support, in: choices
+    validates_inclusion_of :need_support, in: choices.map(&:to_s)
 
     private
 

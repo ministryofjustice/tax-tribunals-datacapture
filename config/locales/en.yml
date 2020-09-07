@@ -899,6 +899,9 @@ en:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_documents_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
+      steps_details_need_support_form:
+        need_support_options:
+          <<: *YESNO
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
