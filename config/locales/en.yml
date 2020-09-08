@@ -371,7 +371,6 @@ en:
           heading: Support at the hearing
           lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
           page_title: What Support?
-          other_support_text: Explain what other support you will need at your tribunal.
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
@@ -902,6 +901,20 @@ en:
       steps_details_need_support_form:
         need_support_options:
           <<: *YESNO
+      steps_details_what_support_form:
+        language_interpreter_details: What language needs to be interpreted?
+        sign_language_interpreter_details: Enter the sign language you need
+        other_support_details: Explain what other support you will need at your tribunal
+        language_interpreter_options:
+          language_interpreter: Language interpreter
+        sign_language_interpreter_options:
+          sign_language_interpreter: Sign language interpreter
+        hearing_loop_options:
+          hearing_loop: Hearing loop
+        disabled_access_options:
+          disabled_access: Disabled access
+        other_support_options:
+          other_support: Other support
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
