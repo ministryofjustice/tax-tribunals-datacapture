@@ -3,9 +3,9 @@ module Steps::Hardship
     attribute :hardship_review_requested, String
 
     def self.choices
-      HardshipReviewRequested.values.map(&:to_s)
+      HardshipReviewRequested.values
     end
-    validates_inclusion_of :hardship_review_requested, in: choices
+    validates_inclusion_of :hardship_review_requested, in: choices.map(&:to_s)
 
     private
 

@@ -3,9 +3,9 @@ module Steps::Details
     attribute :letter_upload_type, String
 
     def self.choices
-      LetterUploadType.values.map(&:to_s)
+      LetterUploadType.values
     end
-    validates_inclusion_of :letter_upload_type, in: choices
+    validates_inclusion_of :letter_upload_type, in: choices.map(&:to_s)
 
     private
 
