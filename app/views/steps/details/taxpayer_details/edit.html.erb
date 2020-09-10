@@ -11,7 +11,7 @@
       <% @form_object.name_fields.each do |name_field| %>
         <%= f.govuk_text_field name_field %>
       <% end %>
-      <%= f.govuk_text_area :taxpayer_contact_address, size: '40x4' %>
+      <%= f.govuk_text_area :taxpayer_contact_address %>
       <%= f.govuk_text_field :taxpayer_contact_city %>
       <%= f.govuk_text_field :taxpayer_contact_postcode %>
       <%= f.govuk_text_field :taxpayer_contact_country %>

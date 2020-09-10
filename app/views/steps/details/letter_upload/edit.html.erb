@@ -1,8 +1,9 @@
 <% title t('.page_title') %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
+    <%= govuk_error_summary %>
 
     <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
 
@@ -14,13 +15,13 @@
         <% unless uploaded_document?(@form_object.document_key) %>
           <div class="govuk-form-group util_mt-large">
             <%= f.label :having_problems_uploading, class: 'block-label selection-button-checkbox', 'data-target': 'unable_to_upload_panel' do %>
-              <%= f.check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems single' %>
+              <%= f.govuk_check_box :having_problems_uploading, class: 'ga-checkbox', 'data-ga-label': 'having problems single' %>
               <%= t '.having_problems_uploading' %>
             <% end %>
 
             <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
               <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
-              <%=f.text_area :having_problems_uploading_explanation, size: '40x4', class: 'form-control form-control-3-4' %>
+              <%=f.govuk_text_area :having_problems_uploading_explanation %>
             </div>
           </div>
         <% end %>

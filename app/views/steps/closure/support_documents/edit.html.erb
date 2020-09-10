@@ -1,8 +1,9 @@
 <% title t('.page_title') %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
+    <%= govuk_error_summary %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
@@ -25,7 +26,7 @@
         <% end %>
 
         <div id="unable_to_upload_panel" class="panel js-hidden" aria-hidden="true">
-          <%= f.text_area :having_problems_uploading_explanation, size: '40x4', class: 'form-control form-control-3-4' %>
+          <%= f.govuk_text_area :having_problems_uploading_explanation %>
         </div>
       </div>
 

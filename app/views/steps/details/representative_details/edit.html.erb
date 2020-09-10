@@ -1,5 +1,5 @@
 <% title t('.page_title') %>
-<%= step_header %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -13,7 +13,7 @@
       <% @form_object.name_fields.each do |name_field| %>
         <%= f.govuk_text_field name_field %>
       <% end %>
-      <%= f.govuk_text_area :representative_contact_address, size: '40x4' %>
+      <%= f.govuk_text_area :representative_contact_address %>
       <%= f.govuk_text_field :representative_contact_city %>
       <%= f.govuk_text_field :representative_contact_postcode %>
       <%= f.govuk_text_field :representative_contact_country %>

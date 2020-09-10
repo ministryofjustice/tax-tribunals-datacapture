@@ -1,8 +1,9 @@
 <% title t('.page_title') %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
+    <%= govuk_error_summary %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
@@ -10,7 +11,7 @@
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'hardship', ga_label: 'hardship reasons'} do |f| %>
-        <%= f.text_area :hardship_reason, size: '60x10', class: 'form-control form-control-3-4 form-control-large' %>
+        <%= f.govuk_text_area :hardship_reason %>
 
         <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
 
