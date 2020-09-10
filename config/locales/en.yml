@@ -798,7 +798,7 @@ en:
         challenged_decision_status_options:
           <<: *CHALLENGE_STATUS
       steps_closure_case_type_form:
-        closure_case_type:
+        closure_case_type_options:
           personal_return_html: Personal return
           company_return_html: Company return
           partnership_return_html: Partnership return
