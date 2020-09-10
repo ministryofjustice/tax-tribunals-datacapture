@@ -948,7 +948,7 @@ en:
       tribunal_case:
         user_case_reference: Your reference (optional)
       surveys_feedback_form:
-        assistance_level:
+        assistance_level_options:
           none: No, I applied to Tax Tribunal online myself
           partial: Someone helped me to apply to Tax Tribunal online
           total: I have difficulty using computers, so someone filled in the online Tax Tribunal application for me
