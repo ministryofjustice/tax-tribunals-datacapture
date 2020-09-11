@@ -887,7 +887,7 @@ en:
         language_interpreter_details: What language needs to be interpreted?
         sign_language_interpreter_details: Enter the sign language you need
       steps_details_letter_upload_type_form:
-        letter_upload_type:
+        letter_upload_type_options:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
             the letter as one file'
           multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
