@@ -15,7 +15,7 @@
         legend: {class: 'visuallyhidden'} %>
 
       <div class="panel toggleable" id="dispute_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
-        <%= f.govuk_text_field :dispute_type_other_value, class: 'form-control' %>
+        <%= f.govuk_text_field :dispute_type_other_value %>
       </div>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
