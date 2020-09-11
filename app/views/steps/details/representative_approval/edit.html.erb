@@ -11,11 +11,11 @@
 
     <p class="lede"><%= t '.anytime_text' %></p>
 
-    <details role="group">
-      <summary role="button" aria-controls="details-content-0">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary" aria-controls="details-content" aria-expanded="false">
         <%= translate_for_user_type '.details_heading' %>
       </summary>
-      <div class="panel" id="details-content-0">
+      <div class="govuk-details__text" aria-hidden="true">
         <%= translate_for_user_type '.details_info_html' %>
         <%=t '.details_example_html' %>
         <%= link_to t('.download_button_text'), asset_path('proforma.pdf'), class: 'govuk-button', target: '_blank' %>

@@ -18,9 +18,13 @@
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>
 
-    <details>
-      <summary><%=t '.help_panel.heading' %></summary>
-      <div class="panel">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary" aria-controls="details-content" aria-expanded="false">
+        <span class="govuk-details__summary-text">
+          <%=t '.help_panel.heading' %>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
         <%=t '.help_panel.content_html' %>
       </div>
     </details>
