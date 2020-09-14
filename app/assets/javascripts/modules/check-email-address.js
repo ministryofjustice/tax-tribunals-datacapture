@@ -49,7 +49,7 @@ moj.Modules.checkEmail = {
   createConfirmationPanel: function() {
     var self = this;
 
-    self.$emailField.closest('.govuk-form-group').after('<div class="panel ' + self.confirmation_panel_class + '"><p class="form-hint">' + moj.Modules.emailConfirmationText + '</p><strong></strong></div>');
+    self.$emailField.closest('.govuk-form-group').after('<div class="panel ' + self.confirmation_panel_class + '"><p class="govuk-label__hint">' + moj.Modules.emailConfirmationText + '</p><strong></strong></div>');
   },
 
   hideConfirmation: function() {
