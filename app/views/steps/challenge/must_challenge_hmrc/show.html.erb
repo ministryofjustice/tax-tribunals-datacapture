@@ -16,7 +16,9 @@
     </p>
 
     <div class="govuk-form-group util_mt-large">
-      <a href="https://www.gov.uk/contact-hmrc" class="button"><%=t '.contact_hmrc_button' %></a>
+      <a href="https://www.gov.uk/contact-hmrc" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        <%=t '.contact_hmrc_button' %>
+      </a>
     </div>
 
     <%= render partial: 'steps/shared/kickout_survey' %>

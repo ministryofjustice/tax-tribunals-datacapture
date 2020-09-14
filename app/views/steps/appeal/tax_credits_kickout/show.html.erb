@@ -12,7 +12,9 @@
     <p class="govuk-body"><%=t '.appeal_text' %></p>
 
     <div class="govuk-form-group util_mt-large">
-      <a href="https://www.gov.uk/social-security-child-support-tribunal" class="button"><%= t '.appeal_button' %></a>
+      <a href="https://www.gov.uk/social-security-child-support-tribunal"  role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        <%= t '.appeal_button' %>
+      </a>
     </div>
 
     <%= render partial: 'steps/shared/kickout_survey' %>
