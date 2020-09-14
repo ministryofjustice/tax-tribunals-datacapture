@@ -7,7 +7,7 @@
 
     <h1 class="govuk-heading-l"><%= translate_with_appeal_or_application '.heading' %></h1>
 
-    <p class="lede"><%= translate_with_appeal_or_application '.lead_text' %></p>
+    <p class="govuk-body-l"><%= translate_with_appeal_or_application '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
       <%= f.govuk_text_area :outcome %>
