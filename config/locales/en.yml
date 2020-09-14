@@ -159,8 +159,8 @@ en:
             <p>You should ask for a review even if you think you are late.</p>
             <p>Find out more about:</p>
             <ul class="govuk-list govuk-list--bullet">
-              <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="visuallyhidden"> (opens in new window)</span></a></li>
-              <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="visuallyhidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
+              <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
             </ul>
           page_title: Must ask for review
       must_wait_for_review_decision:
@@ -237,7 +237,7 @@ en:
               <li>friend or family relative</li>
             </ul>
           <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>You need to download and fill in an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
+          <p>You need to download and fill in an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
       kickout_feedback: Give your feedback. Help improve this service
       continue_or_save:
         timeout_note: Your session will time out after %{session_timeout} minutes of inactivity. Save your details if you want to come back later.
@@ -384,7 +384,7 @@ en:
                 <li>
                   <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
-                  <p><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Print your appeal details<span class="visuallyhidden"> (opens in new window)</span></a></strong></p>
+                  <p><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Print your appeal details<span class="govuk-visually-hidden"> (opens in new window)</span></a></strong></p>
                 </li>
                 <li>
                   <strong>Make copies of all documents you wanted to upload</strong>
@@ -1386,11 +1386,11 @@ en:
         <p>Please note: the helpline can't give you legal advice.</p>
         <p><strong>Other ways to get help</strong></p>
         <ul class="govuk-list govuk-list--bullet">
-           <li><a href="https://www.citizensadvice.org.uk" class="govuk-link" target="_blank" rel="noopener">Citizens Advice<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="https://www.citizensadvice.org.uk" class="govuk-link" target="_blank" rel="noopener">Citizens Advice<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
            <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
-           <li><a href="http://www.litrg.org.uk" class="govuk-link" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://taxaid.org.uk" class="govuk-link" target="_blank" rel="noopener">TaxAid<span class="visuallyhidden"> (opens in new window)</span></a></li>
-           <li><a href="http://www.taxvol.org.uk" class="govuk-link" target="_blank" rel="noopener">Tax Help for Older People<span class="visuallyhidden"> (opens in new window)</span></a></li>
+           <li><a href="http://www.litrg.org.uk" class="govuk-link" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
+           <li><a href="http://taxaid.org.uk" class="govuk-link" target="_blank" rel="noopener">TaxAid<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
+           <li><a href="http://www.taxvol.org.uk" class="govuk-link" target="_blank" rel="noopener">Tax Help for Older People<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
            <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
@@ -1493,7 +1493,7 @@ en:
         expire_warning_html: |
           <p class="notice govuk-body>
             <i class="icon icon-important">
-              <span class="visuallyhidden">Warning</span>
+              <span class="govuk-visually-hidden">Warning</span>
             </i>
             <strong class="font-small">
               Please check you meet the tax tribunal deadline. You may be able to appeal late by giving reasons.
@@ -1571,7 +1571,7 @@ en:
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> so the judge can hear things from your side</li>
         </ul>
-        <p>You'll also need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p>You'll also need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       continue: Continue
       page_title: Start an appeal
   closure_home:
@@ -1588,7 +1588,7 @@ en:
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
         <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-        <p>You'll need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="visuallyhidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p>You'll need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       page_title: Start a closure
   surveys:
     feedback:

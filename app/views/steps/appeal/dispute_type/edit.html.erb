@@ -12,7 +12,7 @@
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :dispute_type,
         @form_object.choices, :value, nil,
-        legend: {class: 'visuallyhidden'} %>
+        legend: {class: 'govuk-visually-hidden'} %>
 
       <div class="panel toggleable" id="dispute_type_other_value" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= f.govuk_text_field :dispute_type_other_value %>

@@ -13,7 +13,7 @@
   <dd class="change">
     <% if documents_submitted_row.show_change_link? %>
       <%= link_to documents_submitted_row.change_path, class: 'govuk-link' do %>
-        Change <span class="visuallyhidden"><%=t "check_answers.#{documents_submitted_row.question}.accessible_change_text" %></span>
+        Change <span class="govuk-visually-hidden"><%=t "check_answers.#{documents_submitted_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

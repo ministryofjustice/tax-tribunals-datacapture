@@ -12,7 +12,7 @@
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :penalty_level,
         Steps::Appeal::PenaltyAmountForm.choices, :value, nil,
-        legend: { class: 'visuallyhidden' }
+        legend: { class: 'govuk-visually-hidden' }
       %>
 
       <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true" data-show-elements="form input:radio:not(:first)" data-hide-elements="form input:radio:first">

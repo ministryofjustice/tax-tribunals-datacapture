@@ -1,7 +1,7 @@
 <div id="timeout-dialog" class="modal-dialog">
   <div class="modal-dialog_container">
     <div class="modal-dialog_box" role="dialog" aria-labelledby="aria-timeout-label">
-      <span class="visuallyhidden" id="aria-timeout-label">
+      <span class="govuk-visually-hidden" id="aria-timeout-label">
         <%= t('session.expiring.aria-warning',
                 passed: Rails.configuration.x.session.expires_in_minutes - Rails.configuration.x.session.warning_when_remaining,
                 remain: Rails.configuration.x.session.warning_when_remaining,

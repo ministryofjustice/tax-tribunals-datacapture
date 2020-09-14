@@ -12,7 +12,7 @@
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :case_type,
         Steps::Appeal::CaseTypeForm.choices, :value, nil,
-        legend: { class: 'visuallyhidden' }
+        legend: { class: 'govuk-visually-hidden' }
       %>
 
       <%= f.submit class: 'govuk-button' %>
