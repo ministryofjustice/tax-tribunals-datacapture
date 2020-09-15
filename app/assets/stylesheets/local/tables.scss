@@ -60,11 +60,11 @@ table.check-your-answers {
 
 table.saved-appeals {
   th {
-    @include bold-16;
+    @include govuk-font(16, $weight: bold)
   }
 
   td {
-    @include core-16;
+    @include govuk-font(16);
     min-height: 24px;
     vertical-align: middle;
   }

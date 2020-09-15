@@ -15,21 +15,21 @@ $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import 'local/check_answers';
 @import 'local/developer_tools';
 @import 'local/single-file-upload';
-// @import 'local/tables';
+
 @import 'local/lists';
 // @import 'local/inputs';
 // @import 'local/buttons';
 // @import 'local/forms';
 // @import 'local/typography';
 // @import 'local/panels';
-// @import 'local/banners';
+@import 'local/banners';
 @import 'local/case_details_pdf';
 @import 'local/utilities';
 @import 'local/positioning_hacks';
 @import 'local/timeout_modal';
 @import 'local/spinner';
-@import 'local/notices';
-@import 'local/feedback';
+// @import 'local/notices';
+// @import 'local/feedback';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';

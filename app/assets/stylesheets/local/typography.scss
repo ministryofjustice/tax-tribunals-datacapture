@@ -17,14 +17,14 @@ fieldset + .form-group {
 }
 
 .step-info {
-  @include core-19;
+  @include govuk-font(19);
   color: $grey-1;
 
   margin-top: 45px;
   margin-bottom: 0;
 
   .link-back {
-    @include core-19;
+    @include govuk-font(19);
     margin-right: 5px;
   }
 
@@ -35,7 +35,7 @@ fieldset + .form-group {
 
 .check-your-answers {
   td {
-    @include core-19;
+    @include govuk-font(19);
     vertical-align: top;
   }
 
@@ -100,7 +100,7 @@ address {
 
 .govuk-box-highlight {
   p {
-    @include core-24;
+    @include govuk-font(24);
   }
 }
 
