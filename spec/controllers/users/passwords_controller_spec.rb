@@ -20,7 +20,7 @@ RSpec.describe Users::PasswordsController do
     end
 
     describe 'throttling volume of emails sent for the same account' do
-      let(:email) { 'user@example.com' }
+      let(:email) { 'reset@example.com' }
       let(:sent_at) { "2020-01-28 13:28:34 UTC" }
 
       before do
