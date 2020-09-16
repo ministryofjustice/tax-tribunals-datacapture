@@ -25,7 +25,7 @@ module TaxTribunalsDatacapture
     # This automatically adds id: :uuid to create_table in all future migrations
     config.active_record.primary_key = :uuid
 
-    config.survey_link = 'https://www.gov.uk/done/tax-tribunal'.freeze
+    config.survey_link = 'https://www.smartsurvey.co.uk/s/ETES20/'.freeze
     config.kickout_survey_link = 'https://goo.gl/forms/Ccx0sJcOs5cSVYks2'.freeze
 
     # This is the GDS-hosted homepage for our service, and the one with a `start` button
