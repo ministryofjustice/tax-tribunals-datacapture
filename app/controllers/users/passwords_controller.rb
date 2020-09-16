@@ -4,8 +4,7 @@ module Users
     # value as otherwise Devise will not error if the email address is left blank.
     # This will not error on malformed email addresses as we are in Paranoid mode and Devise
     # will consider any input as valid, but at least we cover the blank scenario.
-    # Throttle the emails sent to one per three per seconds per account to avoid
-    # email flooding.
+    # Throttle the emails sent to one per three seconds per account to avoid email flooding.
     def create
       email = params[:user][:email]
       unless email.empty?
