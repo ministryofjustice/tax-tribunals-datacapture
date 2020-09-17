@@ -38,3 +38,12 @@ public/assets/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore idea
+/.idea
+
+# Ignore generators
+.generators
+
+# Ignore binaries
+.DS_Store
