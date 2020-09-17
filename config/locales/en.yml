@@ -1327,7 +1327,7 @@ en:
       privacy_policy: Privacy policy
     phase_banner:
       phase_info_html: |
-        This is a new service. <a href="https://www.smartsurvey.co.uk/s/ETFBS20/" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
+        This is a new service. <a href="%{feedback_url}" target="_blank" rel="noopener">Report a problem</a> and help improve it for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
