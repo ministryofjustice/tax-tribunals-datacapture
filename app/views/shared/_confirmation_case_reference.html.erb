@@ -1,6 +1,6 @@
 <% if tribunal_case&.case_reference.present? %>
 
-  <h2 class="govuk-heading-m">
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">
     <span><%= t '.case_reference' %></span>
     <span><%= tribunal_case.case_reference %></span>
   </h2>
@@ -9,7 +9,7 @@
 
 <% else %>
 
-  <h2 class="govuk-heading-m">
+  <h2 class="govuk-heading-m govuk-!-margin-top-7">
     <span><%= t '.case_submitted_successfully' %></span>
   </h2>
 

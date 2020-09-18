@@ -11,7 +11,7 @@
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'grounds', ga_label: 'grounds for appeal'} do |f| %>
-        <%= f.govuk_text_area :grounds_for_appeal %>
+        <%= f.govuk_text_area :grounds_for_appeal, rows: 15 %>
 
         <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
 
