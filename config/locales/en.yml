@@ -725,7 +725,7 @@ en:
           information_notice_html: "<strong>Information notice</strong><br>a request
             for further information about your tax position"
           ni_contributions_html: "<strong>National Insurance (NI) contributions</strong>"
-          _show_more_html: "<strong>Show more</strong>"
+          _show_more_html: "<strong>Other type of tax, appeal or application</strong>"
       steps_appeal_case_type_show_more_form:
         case_type_other_value: Enter the type of tax or dispute involved in your case
         case_type_options:
