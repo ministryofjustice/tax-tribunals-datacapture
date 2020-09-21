@@ -2,7 +2,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= error_summary(resource) %>
+    <%= govuk_error_summary(resource) %>
 
     <h2 class="govuk-heading-l"><%= translate_with_appeal_or_application '.heading' %></h2>
 
@@ -13,8 +13,8 @@
 
     <div class="verify-password-form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'signup'}}) do |f| %>
-        <%= f.email_field :email, autofocus: true %>
-        <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: "off" %>
+        <%= f.govuk_email_field :email, width: 'two-thirds', autocomplete: 'email', spellcheck: 'false', autofocus: true %>
+        <%= f.govuk_password_field :password, width: 'two-thirds', autocomplete: 'new-password', spellcheck: 'false' %>
 
         <%= f.submit t('helpers.submit.create_account'), class: 'govuk-button' %>
       <% end %>
