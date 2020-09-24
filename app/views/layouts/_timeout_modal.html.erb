@@ -7,14 +7,18 @@
                 remain: Rails.configuration.x.session.warning_when_remaining,
                 session_length: Rails.configuration.x.session.expires_in_minutes) %>
       </span>
-      <h2><%= t('session.expiring.heading') %></h2>
+
+      <h3 class="govuk-heading-m"><%= t('session.expiring.heading') %></h3>
+
       <p class="govuk-body">
         <%= t('session.expiring.in') %> <span id="timeout-dialog-remaining"></span>.
       </p>
+
       <p class="govuk-body"><%= t('session.expiring.security') %></p>
+
       <p class="govuk-body">
-        <button class="govuk-button secondary extend" id="extend" href="#"><%= t('session.expiring.extend') %></button>
-        <button class="govuk-button govuk-button--secondary" id="destroy" href="#"><%= t('session.expiring.destroy') %></button>
+        <button class="govuk-button app-js--extend govuk-!-margin-bottom-1" id="extend" href="#" data-module="govuk-button"><%= t('session.expiring.extend') %></button>
+        <button class="govuk-button app-js--abort govuk-!-margin-bottom-1 govuk-button--warning" id="destroy" href="#" data-module="govuk-button"><%= t('session.expiring.destroy') %></button>
       </p>
     </div>
   </div>
