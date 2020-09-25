@@ -7,6 +7,6 @@
   <% end %>
 </div>
 
-<p class="govuk-body-s govuk-!-margin-top-6">
+<p class="timeout-note govuk-body-s govuk-!-margin-top-6">
   <%= t('.timeout_note', session_timeout: Rails.configuration.x.session.expires_in_minutes) %>
 </p>
