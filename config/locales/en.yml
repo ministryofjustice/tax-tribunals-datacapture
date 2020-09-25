@@ -895,6 +895,8 @@ en:
           no_letter_html: "<strong>I do not have the letter</strong><br>You have lost the letter or do not
             have it handy"
       steps_details_letter_upload_form:
+        having_problems_uploading_options:
+          having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_documents_upload_form:
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
