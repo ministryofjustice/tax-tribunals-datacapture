@@ -899,6 +899,8 @@ en:
           having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_documents_upload_form:
+        having_problems_uploading_options:
+          having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_need_support_form:
         need_support_options:
