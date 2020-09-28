@@ -20,7 +20,7 @@
         <%= f.govuk_check_box :hearing_loop, :hearing_loop, multiple: false %>
         <%= f.govuk_check_box :disabled_access, :disabled_access, multiple: false %>
         <%= f.govuk_check_box :other_support, :other_support, multiple: false do %>
-          <%= f.govuk_text_field :other_support_details %>
+          <%= f.govuk_text_area :other_support_details %>
         <% end %>
       <% end %>
 
