@@ -287,14 +287,14 @@ en:
             as_representative: How to get authorisation from the taxpayer
           details_info_html:
             as_taxpayer_html: |
-              <ol class="govuk-list list-number">
+              <ol class="govuk-list govuk-list--number">
                  <li>Copy and paste the text below into a document or download as a PDF.</li>
                  <li>Complete and sign the form.</li>
                  <li>Upload the form in digital format below.</li>
                </ol>
                <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
             as_representative_html: |
-              <ol class="govuk-list list-number">
+              <ol class="govuk-list govuk-list--number">
                 <li>Copy and paste the text below into an email, document or download as a PDF.</li>
                 <li>Send to the taxpayer to complete.</li>
                 <li>Ask the taxpayer to email back the information from their email account or attach a signed form.</li>
@@ -380,7 +380,7 @@ en:
           post_text_html: |
             <div class="letter">
               <h2 class="govuk-heading-m">What you will need to do</h2>
-              <ol class="govuk-list list-number">
+              <ol class="govuk-list govuk-list--number">
                 <li>
                   <strong>Print out your appeal details</strong>
                   <p>Use the following link to print your details:</p>
