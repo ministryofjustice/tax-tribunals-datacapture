@@ -1,66 +1,12 @@
-strong {
-  font-weight: bold;
-}
-
-details {
-  margin-top: $govuk-gutter;
-  margin-bottom: $govuk-gutter;
-}
-
-form {
-  padding-bottom: $govuk-gutter;
-}
-
-fieldset + .form-group {
-  margin-bottom: 0;
-  margin-top: $govuk-gutter;
-}
-
-.step-info {
-  @include govuk-font(19);
-  color: $grey-1;
-
-  margin-top: 45px;
-  margin-bottom: 0;
-
-  .link-back {
-    @include govuk-font(19);
-    margin-right: 5px;
-  }
-
-  & + .heading-large {
-    margin-top: 0;
-  }
-}
-
-.check-your-answers {
-  td {
-    @include govuk-font(19);
-    vertical-align: top;
-  }
-
-  .change-answer {
-    text-align: right;
-    font-weight: bold;
-    padding-right: 0;
-  }
-
-  p.simple-format {
-    margin-top: 0;
-  }
-}
-
-address {
-  font-style: normal;
-}
-
-.ellipses {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.govuk-details {
+  @include govuk-responsive-margin(6, "top");
 }
 
 .actions {
+
+  .govuk-button {
+    margin: 0px;
+  }
 
   a, input {
     vertical-align: middle;
@@ -89,33 +35,4 @@ address {
       }
     }
   }
-}
-
-.js-toggle-password {
-  cursor: pointer;
-  color: $link-colour;
-  text-decoration: underline;
-  margin-bottom: 0;
-}
-
-.govuk-box-highlight {
-  p {
-    @include govuk-font(24);
-  }
-}
-
-h2.notice {
-  margin-bottom: 1em;
-}
-
-.timeout-note {
-  margin-top: 30px;
-  font-size: 16px;
-  line-height: 1.25;
-  color: #454a4c;
-}
-
-.quality-alert {
-  padding: 8px;
-  background-color: #dee0e2;
 }
