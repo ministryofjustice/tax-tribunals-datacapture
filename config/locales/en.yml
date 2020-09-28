@@ -819,6 +819,8 @@ en:
       steps_closure_additional_info_form:
         closure_additional_info: Enter reasons (optional)
       steps_closure_support_documents_form:
+        having_problems_uploading_options:
+          having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload documents
       steps_details_user_type_form:
         user_type_options:
