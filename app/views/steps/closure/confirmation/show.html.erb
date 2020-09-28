@@ -1,8 +1,8 @@
 <% title t('.page_title') %>
 
-<div class="govuk-box-highlight">
-  <h1 class="bold-large"><%= t '.case_submitted' %></h1>
-  <p class="govuk-body"><%= t '.confirmation_email' %></p>
+<div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title"><%= t '.case_submitted' %></h1>
+  <div class="govuk-panel__body"><%= t '.confirmation_email' %></div>
 </div>
 
 <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>
