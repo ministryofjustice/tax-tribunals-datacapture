@@ -1,16 +1,16 @@
 <% title t('.page_title') %>
+<% step_header %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= step_header %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
-	<p class="govuk-body-l"><%=t '.post_text_html', download_pdf_url: steps_details_check_answers_path(format: :pdf) %></p>
+	  <p class="govuk-body-l"><%=t '.post_text_html', download_pdf_url: steps_details_check_answers_path(format: :pdf) %></p>
 
-	<p class="govuk-body-l"><%=t '.post_address_html' %></p>
+	  <p class="govuk-body-l"><%=t '.post_address_html' %></p>
 
     <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.finish')} %>
   </div>
