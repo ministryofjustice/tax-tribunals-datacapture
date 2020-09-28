@@ -6,7 +6,7 @@
     <span><%= t('terms.last_update').html_safe %></span>
     <p class="govuk-body"><cite><%= t('terms.info', privacy_link: link_to(t('terms.privacy'), privacy_page_path, class: "govuk-link")).html_safe %></cite></p>
 
-    <ul>
+    <ul class="govuk-list">
       <li><a href="#general" class="govuk-link" title=""><%= t 'terms.section_list.general' %></a></li>
       <li><a href="#applicable" class="govuk-link" title=""><%= t 'terms.section_list.applicable_law' %></a></li>
       <li><a href="#responsible" class="govuk-link" title=""><%= t 'terms.section_list.responsible' %></a></li>
