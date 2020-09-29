@@ -2,7 +2,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= error_summary(resource) %>
+    <%= govuk_error_summary(resource) %>
 
     <h2 class="govuk-heading-l"><%=t '.heading' %></h2>
 
@@ -11,7 +11,7 @@
     <p class="govuk-body"><%= t '.account_text' %></p>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.govuk_email_field :email, width: 'two-thirds', autocomplete: 'email', spellcheck: 'false', autofocus: true %>
 
       <p class="govuk-body"><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
 
