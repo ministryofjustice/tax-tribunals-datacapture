@@ -20,7 +20,6 @@
     <%= render partial: 'steps/shared/dropzone', locals: { document_list: @documents_list } %>
 
     <%= step_form @form_object, html: { class: 'cf' } do |f| %>
-    <% binding.pry %>
       <%= f.govuk_check_boxes_fieldset :having_problems_uploading do %>
         <%= f.govuk_check_box :having_problems_uploading, :having_problems_uploading, multiple: false  do %>
           <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
