@@ -10,7 +10,7 @@
         <% end %>
         <h4>Destroy session</h4>
         <p class="details">Deletes all data entered in this session and lets you start a case again from scratch.</p>
-        <p class="govuk-body"><%= link_to 'Destroy session', session_path, method: :delete, class: 'govuk-button button-destroy_session', data: { confirm: 'Are you sure?' } %></p>
+        <p class="govuk-body"><%= link_to 'Destroy session', session_path, method: :delete, class: 'govuk-button govuk-button--warning', data: { confirm: 'Are you sure?' } %></p>
         <h4>Quick case set up</h4>
         <p class="details">Creates a case (or if one is in the session already, updates it) and prefills it so you can go straight to the next task.</p>
         <p class="govuk-body">
