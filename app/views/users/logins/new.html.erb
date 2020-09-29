@@ -12,7 +12,7 @@
     %>
     <%= form_for(resource, as: 'user_signin', url: user_session_path, html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'login'}}) do |f| %>
       <%= f.govuk_email_field :email, name: 'user[email]', width: 'two-thirds', autocomplete: 'email', spellcheck: 'false', autofocus: true %>
-      <%= f.govuk_password_field :password, width: 'two-thirds', autocomplete: 'new-password', spellcheck: 'false' %>
+      <%= f.govuk_password_field :password, name: 'user[password]', width: 'two-thirds', autocomplete: 'new-password', spellcheck: 'false' %>
 
       <p class="govuk-body"><%= link_to t('.forgot_password'), new_user_password_path, class: 'govuk-link' %></p>
 
