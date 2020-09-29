@@ -1,12 +1,12 @@
 'use strict';
 
 moj.Modules.passwordToggle = {
-  password_element: 'input[name="user[password]"]',
+  password_elements: 'input[name="user[password]"], input[name="user[current_password]"]',
   link_class: 'js-toggle-password',
 
   init: function() {
     var self = this,
-        $toggleablePasswords = $(self.password_element);
+        $toggleablePasswords = $(self.password_elements);
 
     if($toggleablePasswords.length) {
       self.injectLinks($toggleablePasswords);
@@ -43,7 +43,7 @@ moj.Modules.passwordToggle = {
 
   togglePassword: function($link) {
     var self = this,
-        $el = $link.siblings(self.password_element),
+        $el = $link.siblings(self.password_elements),
         elType = $el.attr('type'),
         newType = (elType === 'password' ? 'text' : 'password');
 
