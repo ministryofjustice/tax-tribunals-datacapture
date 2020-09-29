@@ -2,6 +2,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <%= govuk_error_summary(resource) %>
+
     <h2 class="govuk-heading-l"><%=t '.heading' %></h2>
     <%#
       Using `as: 'user_signin'` so we can customise the i18n labels (and password hint),
@@ -9,8 +11,8 @@
       otherwise it would become `user_signin[email] and user_signin[password]`
     %>
     <%= form_for(resource, as: 'user_signin', url: user_session_path, html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'login'}}) do |f| %>
-      <%= f.email_field :email, name: 'user[email]', autofocus: true %>
-      <%= f.password_field :password, name: 'user[password]', class: 'js-toggleable-password', autocomplete: 'off' %>
+      <%= f.govuk_email_field :email, name: 'user[email]', width: 'two-thirds', autocomplete: 'email', spellcheck: 'false', autofocus: true %>
+      <%= f.govuk_password_field :password, width: 'two-thirds', autocomplete: 'new-password', spellcheck: 'false' %>
 
       <p class="govuk-body"><%= link_to t('.forgot_password'), new_user_password_path, class: 'govuk-link' %></p>
 
