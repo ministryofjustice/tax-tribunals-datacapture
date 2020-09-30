@@ -1535,6 +1535,7 @@ en:
             <li>have at least one uppercase and one lowercase letter</li>
             <li>have at least one special character (#,?,!,@,$,%,^,&,*,-)</li>
             <li>not be the same with the email address field</li>
+            <li>not be a weak anagram or commonly used password</li>
           </ul>
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
