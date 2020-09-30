@@ -11,26 +11,19 @@ $govuk-use-legacy-palette: true;
 $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import "govuk-frontend/govuk/all";
 
-
-@import 'local/check_answers';
-@import 'local/developer_tools';
-@import 'local/single-file-upload';
-
-@import 'local/lists';
-// @import 'local/inputs';
-// @import 'local/buttons';
-// @import 'local/forms';
-@import 'local/tables';
-@import 'local/typography';
-@import 'local/panels';
 @import 'local/banners';
 @import 'local/case_details_pdf';
-@import 'local/utilities';
+@import 'local/check_answers';
+@import 'local/developer_tools';
+@import 'local/lists';
+@import 'local/panels';
 @import 'local/positioning_hacks';
-@import 'local/timeout_modal';
+@import 'local/single-file-upload';
 @import 'local/spinner';
-// @import 'local/notices';
-// @import 'local/feedback';
+@import 'local/tables';
+@import 'local/timeout_modal';
+@import 'local/typography';
+@import 'local/utilities';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';
