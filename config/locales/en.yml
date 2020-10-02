@@ -138,9 +138,9 @@ en:
           help_panel:
             heading: Help with challenging a tax decision
             content_html: |
-              <p>The original notice letter will say what you can do when you disagree with a tax decision.</p>
-              <p>You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
-              <p>Find out about:</p>
+              <p class="govuk-body">The original notice letter will say what you can do when you disagree with a tax decision.</p>
+              <p class="govuk-body">You can still appeal to the tax tribunal after you have challenged a tax decision.</p>
+              <p class="govuk-body">Find out about:</p>
               <ul class="govuk-list govuk-list--bullet">
                 <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link">challenging a tax decision with HM Revenue &amp; Customs (HMRC)</a></li>
                 <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link">options when UK Border Force (UKBF) seizes your things</a></li>
@@ -156,8 +156,8 @@ en:
           heading: You must ask for a review of the original decision
           lead_text_html: The original notice letter will explain what to do.
           review_text_html: |
-            <p>You should ask for a review even if you think you are late.</p>
-            <p>Find out more about:</p>
+            <p class="govuk-body">You should ask for a review even if you think you are late.</p>
+            <p class="govuk-body">Find out more about:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link" target="_blank" rel="noopener">challenging a tax decision with HM Revenue &amp; Customs (HMRC)<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
               <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link" target="_blank" rel="noopener">options when UK Border Force (UKBF) seizes your things<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
@@ -167,7 +167,7 @@ en:
         show:
           heading: You must wait before you can appeal
           lead_text_html: |
-            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
+            <p class="govuk-body">If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
@@ -180,7 +180,7 @@ en:
           free_to_challenge_hmrc_heading_html: You can only appeal to the tax tribunal
             once you have written to HMRC. Check the options when you <a href="https://www.gov.uk/tax-appeals" class="govuk-link">disagree
             with a tax decision.</a>
-          free_to_challenge_hmrc_guidance_html: <p>You should appeal even if you think
+          free_to_challenge_hmrc_guidance_html: <p class="govuk-body">You should appeal even if you think
             you are late. HMRC will decide whether to accept your appeal or explain
             what you can do next. </p>
           contact_hmrc_button: Contact HMRC
@@ -190,7 +190,7 @@ en:
         show:
           heading: You must wait before you can appeal
           lead_text_html: |
-            <p>If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p> <ul class="govuk-list govuk-list--bullet">
+            <p class="govuk-body">If you've accepted or asked for a review, you can only appeal to the tax tribunal when you have:</p> <ul class="govuk-list govuk-list--bullet">
               <li>received a review conclusion letter</li>
               <li>waited 45 days and not received a letter</li>
             </ul>
@@ -231,13 +231,13 @@ en:
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |
-          <p>A representative can be a:</p>
+          <p class="govuk-body">A representative can be a:</p>
           <ul class="govuk-list govuk-list--bullet">
               <li>professional lawyer, tax adviser, accountant</li>
               <li>friend or family relative</li>
             </ul>
-          <p>You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
-          <p>You need to download and fill in an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
+          <p class="govuk-body">You can use a representative if you feel you need help or advice. A representative is able to receive correspondence from the tax tribunal and go to any hearings for you.</p>
+          <p class="govuk-body">You need to download and fill in an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if the person representing you isn't a practising barrister or solicitor.</p>
       kickout_feedback: Give your feedback. Help improve this service
       continue_or_save:
         timeout_note: Your session will time out after %{session_timeout} minutes of inactivity. Save your details if you want to come back later.
@@ -292,7 +292,7 @@ en:
                  <li>Complete and sign the form.</li>
                  <li>Upload the form in digital format below.</li>
                </ol>
-               <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+               <p class="govuk-body">If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
             as_representative_html: |
               <ol class="govuk-list govuk-list--number">
                 <li>Copy and paste the text below into an email, document or download as a PDF.</li>
@@ -300,25 +300,25 @@ en:
                 <li>Ask the taxpayer to email back the information from their email account or attach a signed form.</li>
                 <li>Upload a copy of the email or signed form.</li>
               </ol>
-              <p>If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
+              <p class="govuk-body">If your <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure">application</span> is for a company, you will need a company director to sign the form.</p>
           details_example_html: |
             <h2 class="govuk-heading-m">Example text</h2>
             <div class="panel">
               <div class="letter">
-                <p>Taxpayer's name:</p>
-                <p>I authorise my representative to act on my behalf in this <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure"> application</span>.</p>
-                <p>Name of representative:</p>
-                <p>Address of representative:</p>
-                <p>Signed by taxpayer:</p>
-                <p>Name of signatory (printed):</p>
-                <p>Position held:</p>
-                <p>Date:</p>
+                <p class="govuk-body">Taxpayer's name:</p>
+                <p class="govuk-body">I authorise my representative to act on my behalf in this <span class="" data-dependent="application_type=appeal">appeal</span><span class="js-hidden" data-dependent="application_type=closure"> application</span>.</p>
+                <p class="govuk-body">Name of representative:</p>
+                <p class="govuk-body">Address of representative:</p>
+                <p class="govuk-body">Signed by taxpayer:</p>
+                <p class="govuk-body">Name of signatory (printed):</p>
+                <p class="govuk-body">Position held:</p>
+                <p class="govuk-body">Date:</p>
               </div>
             </div>
           download_button_text: Download PDF
           attach_document_html: |
             <strong>Upload authorisation form</strong>
-            <p>You can send scanned images of the form or a good quality photo.</p>
+            <p class="govuk-body">You can send scanned images of the form or a good quality photo.</p>
           page_title: Representative approval
       representative_type:
         edit:
@@ -383,12 +383,12 @@ en:
               <ol class="govuk-list govuk-list--number">
                 <li>
                   <strong>Print out your appeal details</strong>
-                  <p>Use the following link to print your details:</p>
-                  <p><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Print your appeal details<span class="govuk-visually-hidden"> (opens in new window)</span></a></strong></p>
+                  <p class="govuk-body">Use the following link to print your details:</p>
+                  <p class="govuk-body"><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Print your appeal details<span class="govuk-visually-hidden"> (opens in new window)</span></a></strong></p>
                 </li>
                 <li>
                   <strong>Make copies of all documents you wanted to upload</strong>
-                  <p>You must include:</p>
+                  <p class="govuk-body">You must include:</p>
                   <ul class="govuk-list govuk-list--bullet">
                     <li>the original notice or review conclusion letter</li>
                     <li>copies of any documents you attached such as the grounds of appeal, reasons for a late appeal, or authorising a representative</li>
@@ -396,7 +396,7 @@ en:
                 </li>
                 <li>
                   <strong>Send everything by post</strong>
-                  <p>Put your printed appeal details and copies of your documents in one envelope and post to:</p>
+                  <p class="govuk-body">Put your printed appeal details and copies of your documents in one envelope and post to:</p>
                   <address>
                     First-tier Tribunal (Tax Chamber)<br>
                     PO Box 16972<br>
@@ -406,14 +406,13 @@ en:
                 </li>
                </ol>
             </div>
-          post_address_html: "<p>Once the tax tribunal has received your appeal they
-            will write to you with confirmation and details of the next steps.</p>"
+          post_address_html: <p class="govuk-body">Once the tax tribunal has received your appeal they will write to you with confirmation and details of the next steps.</p>
           page_title: Upload problems
       letter_upload_type:
         edit:
           page_title: Letter upload type
           no_letter_info_html: |
-            <p><strong>You must upload a copy of the letter for your appeal to be valid.</strong></p>
+            <p class="govuk-body"><strong>You must upload a copy of the letter for your appeal to be valid.</strong></p>
             <ul class="govuk-list govuk-list--bullet">
               <li>save your details and come back later when you have the letter</li>
               <li>contact HMRC if you have lost your letter and need a replacement</li>
@@ -422,8 +421,8 @@ en:
         edit:
           page_title: Letter upload
           other_files_info_html: |
-            <p><strong>Do not upload any documents other than your letter</strong></p>
-            <p>The tribunal will contact you if further documents are needed.</p>
+            <p class="govuk-body"><strong>Do not upload any documents other than your letter</strong></p>
+            <p class="govuk-body">The tribunal will contact you if further documents are needed.</p>
           having_problems_uploading: I am having trouble uploading my letter
     hardship:
       disputed_tax_paid:
@@ -1253,7 +1252,7 @@ en:
       uploaded_files_header: Uploaded files
       no_uploaded_files: No files uploaded
       explanation_html: |
-        <p><strong>What to do next</strong></p>
+        <p class="govuk-body"><strong>What to do next</strong></p>
         <ul class="govuk-list govuk-list--bullet">
           <li>See <a href="%{contact_url}" class="govuk-link">useful contact information</a> for help on using this service.</li>
           <li>Enter reasons if you are still having trouble uploading.</li>
@@ -1336,8 +1335,8 @@ en:
       heading: Page not found
       lead_text: If you entered a web address, please check it’s correct.
       more_text_html: |
-        <p>You can also try starting from the homepage to find the information you need.</p>
-        <p>If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)" class="govuk-link">paper form</a> to submit an appeal or close an enquiry.</p>
+        <p class="govuk-body">You can also try starting from the homepage to find the information you need.</p>
+        <p class="govuk-body">If the problem persists, you can download and complete a <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForms.do?court_forms_category=Tax%20(First-tier%20Tribunal)" class="govuk-link">paper form</a> to submit an appeal or close an enquiry.</p>
       <<: *START_FINISH
       page_title: Not found
   layouts:
@@ -1386,18 +1385,18 @@ en:
       heading: Contact
       lead_text: Useful information if you need help using this service.
       description_html: |
-        <p><strong>Tax tribunal helpline</strong></p>
-        <p>Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">find out about call charges)</a></p>
-        <p>Monday to Friday, 8:30am to 5pm</p>
-        <p>Please note: the helpline can't give you legal advice.</p>
-        <p><strong>Other ways to get help</strong></p>
+        <p class="govuk-body"><strong>Tax tribunal helpline</strong></p>
+        <p class="govuk-body">Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">find out about call charges)</a></p>
+        <p class="govuk-body">Monday to Friday, 8:30am to 5pm</p>
+        <p class="govuk-body">Please note: the helpline can't give you legal advice.</p>
+        <p class="govuk-body"><strong>Other ways to get help</strong></p>
         <ul class="govuk-list govuk-list--bullet">
            <li><a href="https://www.citizensadvice.org.uk" class="govuk-link" target="_blank" rel="noopener">Citizens Advice<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
-           <p>(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
+           <p class="govuk-body">(call 03444 111 444 in England, 03444 77 20 20 in Wales, or check contact details for your local Citizens Advice office)</p>
            <li><a href="http://www.litrg.org.uk" class="govuk-link" target="_blank" rel="noopener">Low Incomes Tax Reform Group<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
            <li><a href="http://taxaid.org.uk" class="govuk-link" target="_blank" rel="noopener">TaxAid<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
            <li><a href="http://www.taxvol.org.uk" class="govuk-link" target="_blank" rel="noopener">Tax Help for Older People<span class="govuk-visually-hidden"> (opens in new window)</span></a></li>
-           <p>(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
+           <p class="govuk-body">(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
   session:
@@ -1477,7 +1476,7 @@ en:
         heading: Save your %{appeal_or_application}
         existing_account: Sign into an existing account
         account_warning_html: |
-          <p>Choose an email address and password so you can sign in and complete your case later.</p>
+          <p class="govuk-body">Choose an email address and password so you can sign in and complete your case later.</p>
         email_confirmation: "An email will be sent to:"
         page_title: Sign up
       save_confirmation:
@@ -1548,7 +1547,7 @@ en:
         page_title: Password changed
     shared:
       password_guidelines_html: |
-          <p>Your password must:</p>
+          <p class="govuk-body">Your password must:</p>
           <ul class="govuk-list standard-list">
             <li>be at least 8 characters</li>
             <li>have at least one number (0-9)</li>
@@ -1568,16 +1567,16 @@ en:
       lead_text_html: You have 30 calendar days to appeal. This begins from the
         date of the original notice or review conclusion letter.
       description_html: |
-        <p>You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
         <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
           <li><strong>reasons for your appeal</strong> so the judge can hear things from your side</li>
         </ul>
-        <p>You'll also need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p class="govuk-body">You'll also need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       continue: Continue
       page_title: Start an appeal
   closure_home:
@@ -1587,14 +1586,14 @@ en:
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
         <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p>This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
+          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
         </ul>
-        <p>You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
-        <p>You'll need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
+        <p class="govuk-body">You can also provide further information and supporting documents saying why you think the enquiry should end.</p>
+        <p class="govuk-body">You'll need to complete an <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">authorisation form (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (opens in new window)</span></a> if you want someone to represent you and they are not a practising solicitor or barrister.</p>
       page_title: Start a closure
   surveys:
     feedback:
@@ -1604,8 +1603,8 @@ en:
         submit: Submit
         notice: 'Please note: we cannot offer legal advice.'
         lead_html: |
-          <p>Enter your name, e-mail address and a brief description of what you need help with. We’ll get back to you by email during the next working day between 9am and 5pm.</p>
-          <p>We will always try and assist by email, but if you would like us to telephone you, please provide your telephone number in the description box. We’ll only use your details to contact you. Don’t include any personal information, for example address or date of birth.</p>
+          <p class="govuk-body">Enter your name, e-mail address and a brief description of what you need help with. We’ll get back to you by email during the next working day between 9am and 5pm.</p>
+          <p class="govuk-body">We will always try and assist by email, but if you would like us to telephone you, please provide your telephone number in the description box. We’ll only use your details to contact you. Don’t include any personal information, for example address or date of birth.</p>
       thanks:
         page_title: Feedback submitted
         heading: Thank you for reporting this problem
@@ -1622,7 +1621,7 @@ en:
             case_type: Case type
             text_entered: Text entered
         explanation_html: |
-          <p>List of cases where users reported having problems uploading documents.<br>The list doesn't include purged cases.</p>
+          <p class="govuk-body">List of cases where users reported having problems uploading documents.<br>The list doesn't include purged cases.</p>
     other_case_types_report:
       index:
         page_title: Other case types report
@@ -1634,7 +1633,7 @@ en:
             case_type: Case type
             text_entered: Text entered
         explanation_html: |
-          <p>List of cases when users couldn't select an option using the full list of taxes.<br>The list doesn't include purged cases.</p>
+          <p class="govuk-body">List of cases when users couldn't select an option using the full list of taxes.<br>The list doesn't include purged cases.</p>
     other_dispute_types_report:
       index:
         page_title: Other dispute types report
@@ -1646,7 +1645,7 @@ en:
             case_type: Case type
             text_entered: Text entered
         explanation_html: |
-          <p>List of cases when users couldn't select an option in the list of dispute types.<br>The list doesn't include purged cases.</p>
+          <p class="govuk-body">List of cases when users couldn't select an option in the list of dispute types.<br>The list doesn't include purged cases.</p>
     menu_header:
       upload_problems_link: Upload problems
       other_case_types_link: Other case types
