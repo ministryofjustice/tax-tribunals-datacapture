@@ -7,17 +7,17 @@
   }
 
   .details {
-    color: $secondary-text-colour;
+    color: govuk-colour("dark-grey");
     margin: 0;
   }
 
   .button-destroy_session {
-    background-color: $mellow-red;
-    color: $page-colour;
+    background-color: govuk-colour("red");
+    color: govuk-colour("white");
   }
 
   .button-create_session {
-    background-color: $mauve;
-    color: $page-colour;
+    background-color: govuk-colour("light-purple");
+    color: govuk-colour("white");
   }
 }
