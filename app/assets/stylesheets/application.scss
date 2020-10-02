@@ -1,13 +1,4 @@
-@import 'local/old_design';
-
 // GOV.UK Frontend
-
-// turn on compatibility mode for the GOV.UK Template, Elements, Frontend
-$govuk-compatibility-govukelements: true;
-$govuk-compatibility-govuktemplate: true;
-$govuk-compatibility-govukfrontendtoolkit: true;
-$govuk-use-legacy-palette: true;
-
 $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import "govuk-frontend/govuk/all";
 
