@@ -1,7 +1,7 @@
 class SaveAppealPage < BasePage
   set_url '/users/sign_up'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h2', text: 'Save your appeal'
     elements :login_label, '.form-label'
     element :email_input, '#user_email'

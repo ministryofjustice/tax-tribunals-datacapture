@@ -1,7 +1,7 @@
 class TaxpayerTypePage < BasePage
   set_url '/steps/details/taxpayer_type'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h1', text: 'Who is making the application?'
   end
 

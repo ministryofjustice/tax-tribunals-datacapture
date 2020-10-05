@@ -1,7 +1,7 @@
 class TaxpayerDetailsPage < BasePage
   set_url '/steps/details/taxpayer_details'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h1', text: 'Enter taxpayer\'s details'
     sections :input_field, '.govuk-form-group' do
       element :input_label, '.form-label'

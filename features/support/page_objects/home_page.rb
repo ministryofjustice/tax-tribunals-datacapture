@@ -1,7 +1,7 @@
 class HomePage < BasePage
   set_url '/'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h1', text: 'What do you want to do?'
     element :appeal_link, 'a', text: 'Appeal against a tax decision'
     element :close_enquiry_link, 'a', text: 'Apply to close an enquiry'
