@@ -4,15 +4,15 @@ class TaxpayerDetailsPage < BasePage
   section :content, '#main-content' do
     element :header, 'h1', text: 'Enter taxpayer\'s details'
     sections :input_field, '.govuk-form-group' do
-      element :input_label, '.form-label'
-      element :first_name_input, '#steps_details_taxpayer_individual_details_form_taxpayer_individual_first_name'
-      element :last_name_input, '#steps_details_taxpayer_individual_details_form_taxpayer_individual_last_name'
-      element :address_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_address'
-      element :city_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_city'
-      element :postcode_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_postcode'
-      element :country_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_country'
-      element :email_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_email'
-      element :phone_input, '#steps_details_taxpayer_individual_details_form_taxpayer_contact_phone'
+      element :input_label, '.govuk-label'
+      element :first_name_input, '#steps-details-taxpayer-individual-details-form-taxpayer-individual-first-name-field'
+      element :last_name_input, '#steps-details-taxpayer-individual-details-form-taxpayer-individual-last-name-field'
+      element :address_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-address-field'
+      element :city_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-city-field'
+      element :postcode_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-postcode-field'
+      element :country_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-country-field'
+      element :email_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-email-field'
+      element :phone_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-phone-field'
     end
   end
 
