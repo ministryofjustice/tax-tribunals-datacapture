@@ -1,5 +1,8 @@
 module Steps::Details
   class WhatSupportForm < BaseForm
+    # include ActiveModel::Validations::Callbacks
+
+    # before_validation :coerce_values
 
     attribute :language_interpreter, Boolean
     attribute :language_interpreter_details, String
@@ -14,6 +17,11 @@ module Steps::Details
     validates_presence_of  :sign_language_interpreter_details, if: :sign_language_interpreter?
     validates_presence_of  :other_support_details, if: :other_support?
     validate :at_least_one_checkbox_validation
+
+    def save
+      coerce_values
+      super
+    end
 
     private
 
@@ -30,7 +38,17 @@ module Steps::Details
     end
 
     def attributes_map
-      attribute_set.map { |attr| [attr.name, self[attr.name]] }.to_h
+      attribute_set.map {|attr| [attr.name, coerce_value(attr)] }.to_h
+    end
+
+    def coerce_value(attr)
+      return true if attr.is_a?(Virtus::Attribute::Boolean) && !(self[attr.name].blank?)
+
+      self[attr.name]
+    end
+
+    def coerce_values
+      self.attributes = attributes_map
     end
 
     def at_least_one_checkbox_validation
