@@ -602,6 +602,12 @@ en:
         steps/details/what_support_form:
           attributes:
             what_support: Select what support you need at the hearing
+            language_interpreter_details:
+              blank: Please enter what language needs to be interpreted
+            sign_language_interpreter_details:
+              blank: Please enter the sign language you need
+            other_support_details:
+              blank: Please enter what other support you need
         steps/details/letter_upload_type_form:
           attributes:
             letter_upload_type:
