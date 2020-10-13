@@ -34,6 +34,7 @@ moj.Modules.docUpload = {
     dzOptions = {
       url: '/uploader/supporting_documents/documents',
       paramName: 'document',
+      parallelUploads: 10,
       maxFilesize: maxFilesize,
       acceptedFiles: self.$form.data('accepted-files'),
       autoProcessQueue: true,
