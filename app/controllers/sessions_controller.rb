@@ -96,6 +96,7 @@ class SessionsController < ApplicationController
       outcome: Faker::ChuckNorris.fact,
       need_support: NeedSupport::YES,
       language_interpreter: true,
+      language_interpreter_details: Faker::Lorem.word,
       hearing_loop: true,
       other_support: true,
       other_support_details: Faker::Lorem.paragraph(1),
