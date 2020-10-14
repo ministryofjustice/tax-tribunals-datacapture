@@ -12,7 +12,7 @@
     <%= render partial: 'steps/shared/file_upload_requirements' %>
 
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
-      <%= file_field_tag :document %>
+      <%= file_field_tag :document, class: 'govuk-file-upload' %>
       <%= submit_tag 'Upload', class: 'govuk-button' %>
     <% end %>
 

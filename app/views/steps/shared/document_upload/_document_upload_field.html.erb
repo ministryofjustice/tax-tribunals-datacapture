@@ -10,7 +10,7 @@
 
 <div class="govuk-grid-row uploader-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= form.govuk_file_field(field_name, class: 'single-file-upload', accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
+    <%= form.govuk_file_field(field_name, class: 'govuk-file-upload single-file-upload', accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
   </div>
   <div class="govuk-grid-column-one-third">
     <p class="js-file-status"></p>
