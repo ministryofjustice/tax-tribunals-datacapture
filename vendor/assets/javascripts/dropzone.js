@@ -105,9 +105,9 @@
 
     /*
     This is a list of all available events you can register on a dropzone object.
-
+    
     You can register an event handler like this:
-
+    
         dropzone.on("dragEnter", function() { });
      */
 
@@ -268,7 +268,7 @@
             node.innerHTML = this.filesize(file.size);
           }
           if (this.options.addRemoveLinks) {
-            file._removeLink = Dropzone.createElement("<a class=\"dz-remove govuk-link\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
+            file._removeLink = Dropzone.createElement("<a class=\"dz-remove\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
             file.previewElement.appendChild(file._removeLink);
           }
           removeFileEvent = (function(_this) {
@@ -735,7 +735,7 @@
       }
       fieldsString = "<div class=\"dz-fallback\">";
       if (this.options.dictFallbackText) {
-        fieldsString += "<p class=\"govuk-body\">" + this.options.dictFallbackText + "</p>";
+        fieldsString += "<p>" + this.options.dictFallbackText + "</p>";
       }
       fieldsString += "<input type=\"file\" name=\"" + (this._getParamName(0)) + "\" " + (this.options.uploadMultiple ? 'multiple="multiple"' : void 0) + " /><input type=\"submit\" value=\"Upload!\"></div>";
       fields = Dropzone.createElement(fieldsString);
@@ -1655,7 +1655,7 @@
 
 
   /*
-
+  
   Bugfix for iOS 6 and 7
   Source: http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   based on the work of https://github.com/stomita/ios-imagefile-megapixel
