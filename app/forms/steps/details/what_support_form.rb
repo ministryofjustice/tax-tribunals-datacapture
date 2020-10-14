@@ -1,8 +1,5 @@
 module Steps::Details
   class WhatSupportForm < BaseForm
-    # include ActiveModel::Validations::Callbacks
-
-    # before_validation :coerce_values
 
     attribute :language_interpreter, Boolean
     attribute :language_interpreter_details, String
