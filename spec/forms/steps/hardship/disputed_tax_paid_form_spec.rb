@@ -11,10 +11,12 @@ RSpec.describe Steps::Hardship::DisputedTaxPaidForm do
 
   subject { described_class.new(arguments) }
 
-  describe '#choices' do
-    it 'gets its options from the value object' do
-      expect(DisputedTaxPaid).to receive(:values).and_return([DisputedTaxPaid.new(:foo)])
-      expect(subject.choices).to eq(['foo'])
+  describe '.choices' do
+    it 'returns the relevant choices' do
+      expect(subject.choices).to match_array([
+        DisputedTaxPaid::YES,
+        DisputedTaxPaid::NO
+      ])
     end
   end
 
