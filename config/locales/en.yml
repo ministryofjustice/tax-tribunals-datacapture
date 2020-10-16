@@ -888,7 +888,7 @@ en:
         representative_organisation_fao: Contact name
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
-        grounds_for_appeal_document: Attach reasons as a document
+        grounds_for_appeal_document: ''
       steps_details_what_support_form:
         other_support_details: Explain what other support you will need at your tribunal
         language_interpreter_details: What language needs to be interpreted?
@@ -902,6 +902,7 @@ en:
           no_letter_html: "<strong>I do not have the letter</strong><br>You have lost the letter or do not
             have it handy"
       steps_details_letter_upload_form:
+        supporting_letter_document: ''
         having_problems_uploading_options:
           having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
@@ -948,6 +949,9 @@ en:
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
         lateness_reason: Enter reasons below or attach as a document
+        lateness_reason_document: ''
+      steps_details_representative_approval_form:
+        representative_approval_document: ''
       user:
         email: Your email address
         password: Choose password
