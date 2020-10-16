@@ -12,7 +12,7 @@ ENV APP_BUILD_DATE ${APP_BUILD_DATE}
 ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
 ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
-# Application specific variables 
+# Application specific variables
 
 ENV GLIMR_API_URL                replace_this_at_build_time
 ENV EXTERNAL_URL                 replace_this_at_build_time
@@ -39,12 +39,16 @@ ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -q && \
-    apt-get install -qy tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 --no-install-recommends && apt-get clean && \
+    apt-get install -qy yarn tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 --no-install-recommends && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
 
 ENV PUMA_PORT 8000
 EXPOSE $PUMA_PORT
+
+COPY yarn.lock ./
+
+RUN yarn install --check-files
 
 RUN bash -c "bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets"
 
