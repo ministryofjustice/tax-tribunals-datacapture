@@ -9,64 +9,15 @@ $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import 'local/lists';
 @import 'local/panels';
 @import 'local/positioning_hacks';
-@import 'local/single-file-upload';
+@import 'local/single_file_upload';
 @import 'local/spinner';
 @import 'local/tables';
 @import 'local/timeout_modal';
 @import 'local/typography';
 @import 'local/utilities';
+@import 'local/js_enabled';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';
 @import 'local/dropzone';
 
-
-.js-enabled {
-  .js-hidden {
-    display: none !important;
-  }
-}
-
-.no-js-only {
-  display: block;
-
-  .js-enabled & {
-    display: none !important;
-  }
-}
-
-li.no-js-only {
-  display: list-item;
-}
-
-.js-only {
-  display: none !important;
-
-  .js-enabled & {
-    display: block !important;
-  }
-}
-
-.js-enabled li.js-only {
-  display: list-item !important;
-}
-
-@mixin app-button-reset {
-  padding: 0;
-  margin: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  box-sizing: unset;
-  background-color: transparent;
-}
-
-.app-header__logout-link {
-  // 1. Remove any button styling
-  @include app-button-reset;
-
-  // 2. Apply header link styling
-  @include govuk-font($size: 16, $weight: bold);
-  white-space: nowrap;
-}

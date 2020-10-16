@@ -46,3 +46,16 @@
   color: #6f777b;
   font-weight: 400;
 }
+
+.app-header__logout-link {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  box-sizing: unset;
+  background-color: transparent;
+  white-space: nowrap;
+  @include govuk-font($size: 16, $weight: bold);
+}
