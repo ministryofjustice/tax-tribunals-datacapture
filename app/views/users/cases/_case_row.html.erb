@@ -3,7 +3,7 @@
     <%= content_tag(:span, tribunal_case.expires_in) %>
   </td>
   <% if tribunal_case.user_case_reference? %>
-    <td>
+    <td class="govuk-table__cell timeliness">
       <%= tribunal_case.user_case_reference %><br>
       <%= link_to t('.edit_reference'), edit_users_case_path(tribunal_case), class: 'govuk-link' %>
     </td>
