@@ -14,7 +14,7 @@
     </td>
   <% end %>
   <% if tribunal_case.taxpayer_name? %>
-    <td><%= tribunal_case.taxpayer_name %></td>
+    <td class="govuk-table__cell"><%= tribunal_case.taxpayer_name %></td>
   <% else %>
     <td class="govuk-table__cell not-entered"><%=t '.name_not_entered' %></td>
   <% end %>
