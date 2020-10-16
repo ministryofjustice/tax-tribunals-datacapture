@@ -3,9 +3,9 @@ module Steps::Hardship
     attribute :disputed_tax_paid, String
 
     def choices
-      DisputedTaxPaid.values
+      DisputedTaxPaid.values.map(&:to_s)
     end
-    validates_inclusion_of :disputed_tax_paid, in: proc { |record| record.choices.map(&:to_s) }
+    validates_inclusion_of :disputed_tax_paid, in: proc { |record| record.choices }
 
     private
 

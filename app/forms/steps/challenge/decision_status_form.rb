@@ -2,7 +2,7 @@ module Steps::Challenge
   class DecisionStatusForm < BaseForm
     attribute :challenged_decision_status, String
 
-    validates_inclusion_of :challenged_decision_status, in: proc { |record| record.choices.map(&:to_s) }, if: :tribunal_case
+    validates_inclusion_of :challenged_decision_status, in: proc { |record| record.choices }, if: :tribunal_case
 
     def choices
       if tribunal_case.case_type.direct_tax?
@@ -28,7 +28,7 @@ module Steps::Challenge
           ChallengedDecisionStatus::OVERDUE,
           ChallengedDecisionStatus::REFUSED
         ]
-      end
+      end.map(&:to_s)
     end
 
     private

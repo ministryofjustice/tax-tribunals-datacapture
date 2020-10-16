@@ -3,9 +3,9 @@ module Steps::Details
     attribute :representative_type, String
 
     def self.choices
-      ContactableEntityType.values
+      ContactableEntityType.values.map(&:to_s)
     end
-    validates_inclusion_of :representative_type, in: choices.map(&:to_s)
+    validates_inclusion_of :representative_type, in: choices
 
     private
 

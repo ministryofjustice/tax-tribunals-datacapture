@@ -3,9 +3,9 @@ module Steps::Closure
     attribute :closure_case_type, String
 
     def self.choices
-      ClosureCaseType.values
+      ClosureCaseType.values.map(&:to_s)
     end
-    validates_inclusion_of :closure_case_type, in: choices.map(&:to_s)
+    validates_inclusion_of :closure_case_type, in: choices
 
     private
 

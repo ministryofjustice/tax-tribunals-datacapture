@@ -9,7 +9,7 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :hardship_review_requested,
-        Steps::Hardship::HardshipReviewRequestedForm.choices, :value, nil,
+        Steps::Hardship::HardshipReviewRequestedForm.choices, :to_s, nil,
         legend: {class: 'govuk-visually-hidden'} %>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>

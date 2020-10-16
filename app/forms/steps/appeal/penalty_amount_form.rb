@@ -4,10 +4,9 @@ module Steps::Appeal
     attribute :penalty_amount, String
 
     def self.choices
-      PenaltyLevel.values
+      PenaltyLevel.values.map(&:to_s)
     end
-
-    validates_inclusion_of :penalty_level, in: choices.map(&:to_s)
+    validates_inclusion_of :penalty_level, in: choices
     validates_presence_of :penalty_amount, if: :amount_required?
 
     private

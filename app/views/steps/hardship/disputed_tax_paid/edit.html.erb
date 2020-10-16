@@ -11,7 +11,7 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :disputed_tax_paid,
-        choices: @form_object.choices, :value, nil,
+        choices: @form_object.choices, :to_s, nil,
         legend: {class: 'govuk-visually-hidden'} %>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
