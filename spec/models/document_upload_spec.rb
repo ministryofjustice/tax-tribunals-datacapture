@@ -122,6 +122,11 @@ RSpec.describe DocumentUpload do
         expect(subject.valid?).to eq(false)
         expect(subject.errors).not_to be_empty
       end
+
+      it 'and the exception is raised' do
+        allow(subject).to receive(:unique_filename).and_raise(ArgumentError.new)
+        expect(subject.valid?).to eq(false)
+      end
     end
   end
 

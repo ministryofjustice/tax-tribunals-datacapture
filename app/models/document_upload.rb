@@ -133,6 +133,8 @@ class DocumentUpload
     add_error(:invalid_characters) unless file_name.ascii_only?
     add_error(:file_size) if file_size > MAX_FILE_SIZE.megabytes
     add_error(:content_type) unless content_type.downcase.in?(ALLOWED_CONTENT_TYPES)
+  rescue ArgumentError
+    add_error(:invalid_characters)
   end
 
   def add_error(code)
@@ -140,6 +142,6 @@ class DocumentUpload
   end
 
   def translate(key)
-    I18n.translate("errors.#{key}", scope: 'document_upload', file_name: file_name, max_size: MAX_FILE_SIZE)
+    I18n.translate("errors.#{key}", scope: 'document_upload', file_name: original_filename, max_size: MAX_FILE_SIZE)
   end
 end
