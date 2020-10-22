@@ -1,5 +1,5 @@
 Given(/^I am on the closure page$/) do
-  closure_page.go_to_closure_page
+  go_to_closure_page
   expect(closure_page.content).to have_header
   expect(closure_page).to be_displayed
 end

@@ -16,15 +16,6 @@ class TaxpayerDetailsPage < BasePage
     end
   end
 
-  def go_to_taxpayer_details_page
-    home_page.load_page
-    home_page.close_enquiry
-    closure_page.continue
-    case_type_page.submit_personal_return
-    user_type_page.submit_yes
-    base_page.submit_individual
-  end
-
   def submit_taxpayer_details
     taxpayer_details_page.content.input_field[0].first_name_input.set 'John'
     taxpayer_details_page.content.input_field[1].last_name_input.set 'Smith'

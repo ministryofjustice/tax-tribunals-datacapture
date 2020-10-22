@@ -9,9 +9,4 @@ class ClosurePage < BasePage
   def continue
     content.continue_button.click
   end
-
-  def go_to_closure_page
-    home_page.load_page
-    home_page.close_enquiry
-  end
 end

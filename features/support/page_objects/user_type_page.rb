@@ -7,13 +7,6 @@ class UserTypePage < BasePage
     element :no, 'label', text: 'No'
   end
 
-  def go_to_user_type_page
-    home_page.load_page
-    home_page.close_enquiry
-    closure_page.continue
-    case_type_page.submit_personal_return
-  end
-
   def submit_yes
     content.yes.click
     continue

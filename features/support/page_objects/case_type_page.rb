@@ -7,12 +7,6 @@ class CaseTypePage < BasePage
     element :personal_return, 'label', text: 'Personal return'
   end
 
-  def go_to_case_type_page
-    home_page.load_page
-    home_page.close_enquiry
-    closure_page.continue
-  end
-
   def submit_personal_return
     case_type_page.content.personal_return.click
     continue

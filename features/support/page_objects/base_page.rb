@@ -7,9 +7,4 @@ class BasePage < SitePrism::Page
     element :company, 'label', text: 'Company'
     element :other, 'label', text: 'Other type of organisation'
   end
-
-  def submit_individual
-    content.individual.click
-    continue
-  end
 end

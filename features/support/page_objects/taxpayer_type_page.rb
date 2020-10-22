@@ -5,12 +5,9 @@ class TaxpayerTypePage < BasePage
     element :header, 'h1', text: 'Who is making the application?'
   end
 
-  def go_to_taxpayer_type_page
-    home_page.load_page
-    home_page.close_enquiry
-    closure_page.continue
-    case_type_page.submit_personal_return
-    user_type_page.submit_yes
+  def submit_individual
+    content.individual.click
+    continue
   end
 
   def submit_company

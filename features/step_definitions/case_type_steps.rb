@@ -4,7 +4,7 @@ Then("I am taken to the case type case") do
 end
 
 Given("I am on the case type page") do
-  case_type_page.go_to_case_type_page
+  go_to_case_type_page
   expect(case_type_page).to be_displayed
   expect(case_type_page.content).to have_header
 end

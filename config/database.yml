@@ -11,7 +11,10 @@ default: &default
 
 development:
   <<: *default
-test:
+test: &test
   <<: *default
 production:
   <<: *default
+
+cucumber:
+  <<: *test

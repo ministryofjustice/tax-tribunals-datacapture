@@ -30,6 +30,10 @@ def appeal_case_type_page
   @appeal_case_type_page ||= AppealCaseTypePage.new
 end
 
+def appeal_case_type_show_more_page
+  @appeal_case_type_show_more_page ||= AppealCaseTypeShowMorePage.new
+end
+
 def challenge_decision_page
   @challenge_decision_page ||= ChallengeDecisionPage.new
 end
