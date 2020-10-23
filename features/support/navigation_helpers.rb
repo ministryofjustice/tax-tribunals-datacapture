@@ -23,7 +23,7 @@ def go_to_taxpayer_details_page
   expect(user_type_page).to be_displayed
   user_type_page.submit_yes
   expect(taxpayer_type_page).to be_displayed
-  base_page.submit_individual
+  taxpayer_type_page.submit_individual
 end
 
 def go_to_taxpayer_type_page
