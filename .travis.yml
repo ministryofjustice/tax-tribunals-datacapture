@@ -5,6 +5,8 @@ cache:
 services: postgresql
 addons:
   postgresql: 9.6
+install:
+  - yarn install
 script:
   - bundle exec rake db:create db:schema:load
   - bundle exec rspec
