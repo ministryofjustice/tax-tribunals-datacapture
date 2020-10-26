@@ -12,17 +12,17 @@ RSpec.describe Steps::Closure::CaseTypeForm do
 
   describe '.choices' do
     it 'returns the relevant choices' do
-      expect(described_class.choices).to match_array([
-        ClosureCaseType::PERSONAL_RETURN,
-        ClosureCaseType::COMPANY_RETURN,
-        ClosureCaseType::PARTNERSHIP_RETURN,
-        ClosureCaseType::TRUSTEE_RETURN,
-        ClosureCaseType::ENTERPRISE_MGMT_INCENTIVES,
-        ClosureCaseType::NON_RESIDENT_CAPITAL_GAINS_TAX,
-        ClosureCaseType::STAMP_DUTY_LAND_TAX_RETURN,
-        ClosureCaseType::TRANSACTIONS_IN_SECURITIES,
-        ClosureCaseType::CLAIM_OR_AMENDMENT,
-      ])
+      expect(described_class.choices).to eq(%w(
+        personal_return
+        company_return
+        partnership_return
+        trustee_return
+        enterprise_mgmt_incentives
+        non_resident_capital_gains_tax
+        stamp_duty_land_tax_return
+        transactions_in_securities
+        claim_or_amendment
+      ))
     end
   end
 

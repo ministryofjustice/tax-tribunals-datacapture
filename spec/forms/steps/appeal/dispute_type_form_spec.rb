@@ -24,14 +24,14 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       let(:case_type) { CaseType::INCOME_TAX }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to eq([
-          DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
-          DisputeType::AMOUNT_AND_PENALTY,
-          DisputeType::PAYE_CODING_NOTICE,
-          DisputeType::OTHER
-        ])
+        expect(subject.choices).to eq(%w(
+          penalty
+          amount_of_tax_owed_by_hmrc
+          amount_of_tax_owed_by_taxpayer
+          amount_and_penalty
+          paye_coding_notice
+          other
+        ))
       end
     end
 
@@ -39,11 +39,11 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       let(:case_type) { CaseType::INFORMATION_NOTICE }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to eq([
-          DisputeType::PENALTY,
-          DisputeType::INFORMATION_NOTICE,
-          DisputeType::OTHER
-       ])
+        expect(subject.choices).to eq(%w(
+          penalty
+          information_notice
+          other
+        ))
       end
     end
 
@@ -51,12 +51,12 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       let(:case_type) { CaseType::MONEY_LAUNDERING_DECISIONS }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to eq([
-          DisputeType::PENALTY,
-          DisputeType::REFUSAL_TO_REGISTER_APPLICANT,
-          DisputeType::CANCELLATION_OF_REGISTRATION,
-          DisputeType::OTHER
-        ])
+        expect(subject.choices).to eq(%w(
+          penalty
+          refusal_to_register_applicant
+          cancellation_of_registration
+          other
+        ))
       end
     end
 
@@ -64,13 +64,13 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       let(:case_type) { CaseType.new(:anything) }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to eq([
-          DisputeType::PENALTY,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
-          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
-          DisputeType::AMOUNT_AND_PENALTY,
-          DisputeType::OTHER
-        ])
+        expect(subject.choices).to eq(%w(
+          penalty
+          amount_of_tax_owed_by_hmrc
+          amount_of_tax_owed_by_taxpayer
+          amount_and_penalty
+          other
+        ))
       end
     end
 
@@ -78,10 +78,10 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       let(:case_type) { CaseType::DOTAS_PENALTY }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to eq([
-          DisputeType::PENALTY,
-          DisputeType::OTHER
-        ])
+        expect(subject.choices).to eq(%w(
+          penalty
+          other
+        ))
       end
     end
   end

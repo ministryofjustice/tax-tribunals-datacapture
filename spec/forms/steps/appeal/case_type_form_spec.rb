@@ -12,16 +12,16 @@ RSpec.describe Steps::Appeal::CaseTypeForm do
 
   describe '.choices' do
     it 'returns the relevant choices' do
-      expect(described_class.choices).to match_array([
-        CaseType::INCOME_TAX,
-        CaseType::SELF_ASSESSMENT_LATE_PENALTY,
-        CaseType::VAT,
-        CaseType::CAPITAL_GAINS_TAX,
-        CaseType::CORPORATION_TAX,
-        CaseType::NI_CONTRIBUTIONS,
-        CaseType::INFORMATION_NOTICE,
-        ValueObject.new(:_show_more)
-      ])
+      expect(described_class.choices).to eq(%w(
+        income_tax
+        self_assessment_late_penalty
+        vat
+        capital_gains_tax
+        corporation_tax
+        ni_contributions
+        information_notice
+        _show_more
+      ))
     end
   end
 

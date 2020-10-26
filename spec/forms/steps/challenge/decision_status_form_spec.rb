@@ -16,14 +16,14 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
       let(:case_type) { CaseType::INCOME_TAX }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to  match_array([
-          ChallengedDecisionStatus::RECEIVED,
-          ChallengedDecisionStatus::PENDING,
-          ChallengedDecisionStatus::OVERDUE,
-          ChallengedDecisionStatus::NOT_REQUIRED,
-          ChallengedDecisionStatus::APPEAL_LATE_REJECTION,
-          ChallengedDecisionStatus::APPEALING_DIRECTLY
-        ])
+        expect(subject.choices).to eq(%w(
+          received
+          pending
+          overdue
+          not_required
+          appeal_late_rejection
+          appealing_directly
+        ))
       end
     end
 
@@ -31,12 +31,12 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
       let(:case_type) { CaseType::RESTORATION_CASE }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to match_array([
-          ChallengedDecisionStatus::RECEIVED,
-          ChallengedDecisionStatus::PENDING,
-          ChallengedDecisionStatus::OVERDUE,
-          ChallengedDecisionStatus::REVIEW_LATE_REJECTION
-        ])
+        expect(subject.choices).to eq(%w(
+          received
+          pending
+          overdue
+          review_late_rejection
+        ))
       end
     end
 
@@ -44,12 +44,12 @@ RSpec.describe Steps::Challenge::DecisionStatusForm do
       let(:case_type) { CaseType::VAT }
 
       it 'shows only the relevant choices' do
-        expect(subject.choices).to match_array([
-          ChallengedDecisionStatus::RECEIVED,
-          ChallengedDecisionStatus::PENDING,
-          ChallengedDecisionStatus::OVERDUE,
-          ChallengedDecisionStatus::REFUSED
-        ])
+        expect(subject.choices).to eq(%w(
+          received
+          pending
+          overdue
+          refused
+        ))
       end
     end
   end

@@ -19,37 +19,37 @@ RSpec.describe Steps::Appeal::CaseTypeShowMoreForm do
     end
 
     it 'returns the relevant choices' do
-      expect(described_class.choices).to match_array([
-        CaseType::APN_PENALTY,
-        CaseType::AGGREGATES_LEVY,
-        CaseType::AIR_PASSENGER_DUTY,
-        CaseType::ALCOHOLIC_LIQUOR_DUTIES,
-        CaseType::BINGO_DUTY,
-        CaseType::CLIMATE_CHANGE_LEVY,
-        CaseType::CONSTRUCTION_INDUSTRY_SCHEME,
-        CaseType::COUNTER_TERRORISM,
-        CaseType::CUSTOMS_DUTY,
-        CaseType::DOTAS_PENALTY,
-        CaseType::EXPORT_REGULATIONS_PENALTY,
-        CaseType::GAMING_DUTY,
-        CaseType::GENERAL_BETTING_DUTY,
-        CaseType::HYDROCARBON_OIL_DUTIES,
-        CaseType::INHERITANCE_TAX,
-        CaseType::INSURANCE_PREMIUM_TAX,
-        CaseType::LANDFILL_TAX,
-        CaseType::LOTTERY_DUTY,
-        CaseType::MONEY_LAUNDERING_DECISIONS,
-        CaseType::PETROLEUM_REVENUE_TAX,
-        CaseType::POOL_BETTING_DUTY,
-        CaseType::REMOTE_GAMING_DUTY,
-        CaseType::RESTORATION_CASE,
-        CaseType::STAMP_DUTIES,
-        CaseType::STATUTORY_PAYMENTS,
-        CaseType::STUDENT_LOANS,
-        CaseType::TAX_CREDITS,
-        CaseType::TOBACCO_PRODUCTS_DUTY,
-        CaseType::OTHER
-      ])
+      expect(described_class.choices).to eq(%w(
+        apn_penalty
+        aggregates_levy
+        air_passenger_duty
+        alcoholic_liquor_duties
+        bingo_duty
+        climate_change_levy
+        construction_industry_scheme
+        counter_terrorism
+        customs_duty
+        dotas_penalty
+        export_regulations_penalty
+        gaming_duty
+        general_betting_duty
+        hydrocarbon_oil_duties
+        inheritance_tax
+        insurance_premium_tax
+        landfill_tax
+        lottery_duty
+        money_laundering_decisions
+        petroleum_revenue_tax
+        pool_betting_duty
+        remote_gaming_duty
+        restoration_case
+        stamp_duties
+        statutory_payments
+        student_loans
+        tax_credits
+        tobacco_products_duty
+        other
+      ))
     end
   end
 
