@@ -16,7 +16,7 @@
       %>
 
       <div class="panel toggleable" id="penalty_amount_detail" aria-hidden="true" data-show-elements="form input:radio:not(:first)" data-hide-elements="form input:radio:first">
-        <%= f.govuk_number_field :penalty_amount, width: 'one-half' %>
+        <%= f.govuk_text_field :penalty_amount, width: 'one-half' %>
       </div>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
