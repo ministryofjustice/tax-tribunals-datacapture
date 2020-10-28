@@ -9,6 +9,7 @@
 
     <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
+    <span id="steps-details-what-support-form-what-support-field-error"></span>
     <%= step_form @form_object do |f| %>
       <%= f.govuk_check_boxes_fieldset :what_support do %>
         <%= f.govuk_check_box :language_interpreter, :language_interpreter, multiple: false, link_errors: true  do %>
