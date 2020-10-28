@@ -54,6 +54,12 @@ RUN bash -c "yarn install --check-files"
 
 RUN bash -c "bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets"
 
+# Copy fonts and images (without digest) along with the digested ones,
+# as there are some hardcoded references in the `govuk-frontend` files
+# that will not be able to use the rails digest mechanism.
+RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
+RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
+
 # adding daily export cron job
 ADD daily-export /etc/cron.d/
 
