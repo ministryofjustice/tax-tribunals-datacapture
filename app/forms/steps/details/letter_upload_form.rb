@@ -10,6 +10,7 @@ module Steps::Details
     validates_presence_of :having_problems_uploading_explanation, if: :having_problems_uploading
 
     def save
+      self.having_problems_uploading = having_problems_uploading ? true : nil
       # The validation in #documents_uploaded below checks TribunalCase#documents,
       # which may erroneously return an empty array if the user previously ticked
       # "I'm having trouble" but then unticked it again.
