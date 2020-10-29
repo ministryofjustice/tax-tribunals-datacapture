@@ -822,6 +822,7 @@ en:
         closure_years_under_enquiry: Years under enquiry
         closure_hmrc_officer: Name of the tax officer running the enquiry (optional)
       steps_closure_additional_info_form:
+        closure_additional_info_document: ''
         closure_additional_info: Enter reasons (optional)
       steps_closure_support_documents_form:
         having_problems_uploading_options:
