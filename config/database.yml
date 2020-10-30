@@ -1,4 +1,4 @@
-# This file is only present to fix a Jenkins
+ # This file is only present to fix a Jenkins
 # build error that started to occur after
 # adding devise, but which we could not
 # reproduce on our local machines
@@ -13,6 +13,7 @@ development:
   <<: *default
 test: &test
   <<: *default
+  database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>
 production:
   <<: *default
 

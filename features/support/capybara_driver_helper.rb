@@ -1,5 +1,5 @@
 Capybara.configure do |config|
-  driver = ENV['DRIVER']&.to_sym || :poltergeist
+  driver = ENV['DRIVER']&.to_sym || :chrome
   config.default_driver = driver
   config.default_max_wait_time = 30
   config.match = :prefer_exact
@@ -16,7 +16,7 @@ Capybara.register_driver :firefox do |app|
 end
 
 Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'))
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
