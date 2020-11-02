@@ -4,6 +4,8 @@ class TaxpayerTypePage < BasePage
   section :content, '#main-content' do
     element :header, 'h1', text: 'Who is making the application?'
     element :individual, 'label', text: 'Individual'
+    element :company, 'label', text: 'Company'
+    element :other, 'label', text: 'Other type of organisation'
   end
 
   def submit_individual

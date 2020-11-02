@@ -12,3 +12,7 @@ end
 When("I submit that I am the tax payer making the application") do
   user_type_page.submit_yes
 end
+
+When("I submit that I am not the tax payer making the application") do
+  user_type_page.submit_no
+end

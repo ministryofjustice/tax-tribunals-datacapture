@@ -46,6 +46,10 @@ def representative_page
   @representative_page ||= RepresentativePage.new
 end
 
+def representative_professional_page
+  @representative_professional_page ||= RepresentativeProfessionalPage.new
+end
+
 def taxpayer_type_page
   @taxpayer_type_page ||= TaxpayerTypePage.new
 end
