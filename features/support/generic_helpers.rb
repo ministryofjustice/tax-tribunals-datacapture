@@ -34,6 +34,10 @@ def appeal_case_type_show_more_page
   @appeal_case_type_show_more_page ||= AppealCaseTypeShowMorePage.new
 end
 
+def login_page
+  @login_page ||= LoginPage.new
+end
+
 def challenge_decision_page
   @challenge_decision_page ||= ChallengeDecisionPage.new
 end
