@@ -1,4 +1,6 @@
 class DetailsDecisionTree < TaxTribs::DecisionTree
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/CyclomaticComplexity
   def destination
     return next_step if next_step
 
@@ -37,6 +39,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       raise "Invalid step '#{step_params}'"
     end
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   private
 

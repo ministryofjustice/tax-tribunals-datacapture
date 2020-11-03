@@ -1,5 +1,5 @@
 Given("I am on the taxpayer details page") do
-  taxpayer_details_page.go_to_taxpayer_details_page
+  go_to_taxpayer_details_page
   expect(taxpayer_details_page.content).to have_header
 end
 

@@ -4,6 +4,7 @@ class AppealHomePage < BasePage
   section :content, '#main-content' do
     element :appeal_decision_link, 'a', text: 'Appeal against a tax decision'
     element :continue_button, '.govuk-button', text: 'Continue'
+    element :header, 'h2', text: 'Appeal against a tax decision'
   end
 
   def continue

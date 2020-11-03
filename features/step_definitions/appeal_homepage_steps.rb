@@ -10,3 +10,7 @@ Then(/^I am taken to the appeal case type page$/) do
   expect(appeal_case_type_page).to be_displayed
   expect(appeal_case_type_page.content).to have_header
 end
+
+Then("I am taken to the appeal page") do
+  expect(appeal_home_page.content).to have_header
+end

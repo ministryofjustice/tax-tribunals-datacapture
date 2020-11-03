@@ -30,6 +30,14 @@ def appeal_case_type_page
   @appeal_case_type_page ||= AppealCaseTypePage.new
 end
 
+def appeal_case_type_show_more_page
+  @appeal_case_type_show_more_page ||= AppealCaseTypeShowMorePage.new
+end
+
+def login_page
+  @login_page ||= LoginPage.new
+end
+
 def challenge_decision_page
   @challenge_decision_page ||= ChallengeDecisionPage.new
 end
@@ -40,6 +48,10 @@ end
 
 def representative_page
   @representative_page ||= RepresentativePage.new
+end
+
+def representative_professional_page
+  @representative_professional_page ||= RepresentativeProfessionalPage.new
 end
 
 def taxpayer_type_page

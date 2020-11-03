@@ -1,3 +1,11 @@
 Given("I submit that I am an individual") do
-  base_page.submit_individual
+  taxpayer_type_page.submit_individual
+end
+
+Given("I submit that I am a company") do
+  taxpayer_type_page.submit_company
+end
+
+Given("I submit that I am an other") do
+  taxpayer_type_page.submit_other
 end
