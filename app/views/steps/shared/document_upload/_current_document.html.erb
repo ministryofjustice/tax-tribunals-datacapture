@@ -1,11 +1,13 @@
-<div class="uploaded_document_container grid-row uploader-row">
-  <div class="column-two-thirds">
-    <p class="ellipses"><%= t('.previous_document_html', file_name: current_document.name) %></p>
+<div class="govuk-grid-row uploaded_document_container uploader-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><%= t('.previous_document_html', file_name: current_document.name) %></p>
   </div>
 
-  <%= button_to t('shared.file_upload.remove_file'),
+  <div class="govuk-grid-column-one-third">
+    <%= button_to t('shared.file_upload.remove_file'),
                 document_path(current_document, document_key: document_key),
                 method: :delete,
                 data: {confirm: t('shared.file_upload.confirm_delete')},
-                class: 'button button-secondary' %>
+                class: 'govuk-button govuk-button--secondary' %>
+  </div>
 </div>

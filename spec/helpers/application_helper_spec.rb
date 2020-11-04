@@ -7,7 +7,7 @@ class ActionView::TestCase::TestController
   end
 end
 
-RSpec.describe ApplicationHelper do
+RSpec.describe ApplicationHelper, type: :helper do
   let(:record) { TribunalCase.new }
 
   describe '#step_form' do
@@ -45,32 +45,41 @@ RSpec.describe ApplicationHelper do
     let(:form_object) { double('Form object') }
 
     it 'renders the expected content' do
-      expect(helper).to receive(:render).with(partial: 'step_header', locals: {path: '/foo/bar'}).and_return('foo')
-
+      expect(helper).to receive(:render).with(partial: 'layouts/step_header', locals: {path: '/foo/bar'}).and_return('foobar')
       assign(:form_object, form_object)
-      expect(helper).to receive(:error_summary).with(form_object).and_return('bar')
 
       expect(helper.step_header).to eq('foobar')
     end
   end
 
-  describe '#error_summary' do
+  describe '#govuk_error_summary' do
     context 'when no form object is given' do
       let(:form_object) { nil }
 
       it 'returns nil' do
-        expect(helper.error_summary(form_object)).to be_nil
+        expect(helper.govuk_error_summary(form_object)).to be_nil
       end
     end
 
-    context 'when a form object is given' do
-      let(:form_object) { double('form object') }
-      let(:summary) { double('error summary') }
+    context 'when a form object without errors is given' do
+      let(:form_object) { BaseForm.new }
 
-      it 'delegates to GovukElementsErrorsHelper' do
-        expect(GovukElementsErrorsHelper).to receive(:error_summary).with(form_object, anything, anything).and_return(summary)
+      it 'returns nil' do
+        expect(helper.govuk_error_summary(form_object)).to be_nil
+      end
+    end
 
-        expect(helper.error_summary(form_object)).to eq(summary)
+    context 'when a form object with errors is given' do
+      let(:form_object) { BaseForm.new }
+
+      before do
+        form_object.errors.add(:base, :blank)
+      end
+
+      it 'returns the summary' do
+        expect(helper.govuk_error_summary(form_object)).to eq(
+          '<div class="govuk-error-summary" tabindex="-1" role="alert" data-module="govuk-error-summary" aria-labelledby="error-summary-title"><h2 id="error-summary-title" class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a data-turbolinks="false" href="#base-form-base-field-error">Please enter an answer</a></li></ul></div></div>'
+        )
       end
     end
   end

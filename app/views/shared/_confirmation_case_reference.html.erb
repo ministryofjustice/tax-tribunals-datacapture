@@ -1,18 +1,18 @@
 <% if tribunal_case&.case_reference.present? %>
 
-  <h2 class="heading-large">
-    <span class="heading-secondary"><%= t '.case_reference' %></span>
+  <h2 class="govuk-heading-m heading-secondary govuk-!-margin-top-6">
+    <span><%= t '.case_reference' %></span>
     <span><%= tribunal_case.case_reference %></span>
   </h2>
 
-  <p><%= t '.note_number' %></p>
+  <p class="govuk-body"><%= t '.note_number' %></p>
 
 <% else %>
 
-  <h2 class="heading-large">
-    <span class="heading-secondary"><%= t '.case_submitted_successfully' %></span>
+  <h2 class="govuk-heading-m heading-secondary govuk-!-margin-top-7">
+    <span><%= t '.case_submitted_successfully' %></span>
   </h2>
 
-  <p><%= t '.case_reference_pending' %></p>
+  <p class="govuk-body"><%= t '.case_reference_pending' %></p>
 
 <% end %>

@@ -14,9 +14,9 @@ module Users
         end
       end
 
-      super do |user|
-        if user.errors.added?(:email, :blank)
-          respond_with(user) and return
+      super do |user2|
+        if user2.errors.added?(:email, :blank)
+          respond_with(user2) and return
         end
       end
     end

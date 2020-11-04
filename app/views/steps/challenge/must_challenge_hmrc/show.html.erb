@@ -1,22 +1,24 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <%= step_header %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
-    <p class="lede">
+    <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
+    <p class="govuk-body-l">
       <%=t '.lead_text' %>
     </p>
 
-    <p><%=t '.free_to_challenge_hmrc_heading_html' %></p>
+    <p class="govuk-body"><%=t '.free_to_challenge_hmrc_heading_html' %></p>
 
-    <p>
+    <p class="govuk-body">
       <%=t '.free_to_challenge_hmrc_guidance_html' %>
     </p>
 
-    <div class="form-group util_mt-large">
-      <a href="https://www.gov.uk/contact-hmrc" class="button"><%=t '.contact_hmrc_button' %></a>
+    <div class="govuk-form-group util_mt-large">
+      <a href="https://www.gov.uk/contact-hmrc" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        <%=t '.contact_hmrc_button' %>
+      </a>
     </div>
 
     <%= render partial: 'steps/shared/kickout_survey' %>

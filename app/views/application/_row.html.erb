@@ -11,8 +11,8 @@
   </dd>
   <dd class="change">
     <% if row.show_change_link? %>
-      <%= link_to row.change_path do %>
-        Change <span class="visuallyhidden"><%=t "check_answers.#{row.question}.accessible_change_text" %></span>
+      <%= link_to row.change_path, class: 'govuk-link' do %>
+        Change <span class="govuk-visually-hidden"><%=t "check_answers.#{row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

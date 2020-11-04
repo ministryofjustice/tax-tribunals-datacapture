@@ -1,10 +1,11 @@
 class HomePage < BasePage
   set_url '/'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h1', text: 'What do you want to do?'
     element :appeal_link, 'a', text: 'Appeal against a tax decision'
     element :close_enquiry_link, 'a', text: 'Apply to close an enquiry'
+    element :return, 'a', text: 'Return to a saved appeal or application'
     element :time_information_tax, 'p', text: '(30 minutes to complete)'
     element :time_information_enquiry, 'p', text: '(15 minutes to complete)'
   end
@@ -15,5 +16,9 @@ class HomePage < BasePage
 
   def close_enquiry
     content.close_enquiry_link.click
+  end
+
+  def return
+    content.return.click
   end
 end

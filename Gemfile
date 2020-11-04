@@ -8,11 +8,8 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_elements_form_builder', '~> 1.3.0'
-gem 'govuk_elements_rails', '~> 3.0.0'
-gem 'govuk_frontend_toolkit', '~> 6.0.0'
+gem 'govuk_design_system_formbuilder'
 gem 'govuk_notify_rails', '~> 2.0.0'
-gem 'govuk_template'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
@@ -23,7 +20,7 @@ gem 'rack-attack', '~> 5.4.2'
 gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '~> 2.1.2'
 gem 'sentry-raven'
 gem 'strong_password', '~> 0.0.8'
 gem 'uglifier'
@@ -78,4 +75,3 @@ group :test do
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
-

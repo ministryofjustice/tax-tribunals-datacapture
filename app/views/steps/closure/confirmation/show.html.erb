@@ -1,14 +1,14 @@
 <% title t('.page_title') %>
 
-<div class="govuk-box-highlight">
-  <h1 class="bold-large"><%= t '.case_submitted' %></h1>
-  <p><%= t '.confirmation_email' %></p>
+<div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title"><%= t '.case_submitted' %></h1>
+  <div class="govuk-panel__body"><%= t '.confirmation_email' %></div>
 </div>
 
 <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>
 
-<h2 class="heading-medium">
-  <%= link_to t('.save_or_print_pdf'), steps_closure_check_answers_path(format: :pdf), target: '_blank' %>
+<h2 class="govuk-heading-m">
+  <%= link_to t('.save_or_print_pdf'), steps_closure_check_answers_path(format: :pdf), target: '_blank', class: 'govuk-link' %>
 </h2>
 
 <%= t '.what_happens_next_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone  %>

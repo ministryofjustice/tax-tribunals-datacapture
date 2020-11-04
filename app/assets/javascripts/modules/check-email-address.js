@@ -43,19 +43,19 @@ moj.Modules.checkEmail = {
     }
     $('.' + self.confirmation_panel_class).removeClass('js-hidden');
     $('.' + self.confirmation_panel_class).find('strong').text(val);
-    self.$emailField.closest('.form-group').addClass('tight');
+    self.$emailField.closest('.govuk-form-group').addClass('tight');
   },
 
   createConfirmationPanel: function() {
     var self = this;
 
-    self.$emailField.closest('.form-group').after('<div class="panel ' + self.confirmation_panel_class + '"><p class="form-hint">' + moj.Modules.emailConfirmationText + '</p><strong></strong></div>');
+    self.$emailField.closest('.govuk-form-group').after('<div class="panel ' + self.confirmation_panel_class + '"><p class="govuk-label__hint">' + moj.Modules.emailConfirmationText + '</p><strong></strong></div>');
   },
 
   hideConfirmation: function() {
     var self = this;
 
-    self.$emailField.closest('.form-group').removeClass('tight');
+    self.$emailField.closest('.govuk-form-group').removeClass('tight');
     $('.' + self.confirmation_panel_class).addClass('js-hidden');
   }
 };

@@ -1,26 +1,27 @@
 <% title t('.page_title') %>
+<% step_header %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <%= step_header %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_error_summary %>
 
-    <h1 class="heading-large"><%=t '.heading' %></h1>
+    <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <%= step_form @form_object do |f| %>
       <% @form_object.name_fields.each do |name_field| %>
-        <%= f.text_field name_field %>
+        <%= f.govuk_text_field name_field, width: 'one-half' %>
       <% end %>
-      <%= f.text_area :taxpayer_contact_address, size: '40x4', class: 'form-control-3-4' %>
-      <%= f.text_field :taxpayer_contact_city %>
-      <%= f.text_field :taxpayer_contact_postcode %>
-      <%= f.text_field :taxpayer_contact_country %>
+      <%= f.govuk_text_area :taxpayer_contact_address %>
+      <%= f.govuk_text_field :taxpayer_contact_city, width: 'one-half' %>
+      <%= f.govuk_text_field :taxpayer_contact_postcode, width: 'one-half' %>
+      <%= f.govuk_text_field :taxpayer_contact_country, width: 'one-half' %>
       <% if @form_object.show_fao? %>
-        <%= f.text_field :taxpayer_organisation_fao %>
+        <%= f.govuk_text_field :taxpayer_organisation_fao, width: 'one-half' %>
       <% end %>
-      <%= f.text_field :taxpayer_contact_email %>
-      <%= f.text_field :taxpayer_contact_phone %>
+      <%= f.govuk_text_field :taxpayer_contact_email, width: 'one-half' %>
+      <%= f.govuk_text_field :taxpayer_contact_phone, width: 'one-half' %>
       <% if @form_object.show_registration_number? %>
-        <%= f.text_field :taxpayer_organisation_registration_number %>
+        <%= f.govuk_text_field :taxpayer_organisation_registration_number, width: 'one-half' %>
       <% end %>
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>

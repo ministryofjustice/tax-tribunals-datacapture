@@ -1,18 +1,18 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <%= error_summary(resource) %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_error_summary(resource) %>
 
-    <h2 class="heading-large"><%=t '.heading' %></h2>
+    <h2 class="govuk-heading-l"><%=t '.heading' %></h2>
 
     <%= t('users.shared.password_guidelines_html')  %>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
-      <%= f.password_field :current_password, class: 'js-toggleable-password', autofocus: true, autocomplete: "off" %>
-      <%= f.password_field :password, class: 'js-toggleable-password', autocomplete: "off" %>
+      <%= f.govuk_password_field :current_password, width: 'two-thirds', autocomplete: 'off', autofocus: true, spellcheck: 'false' %>
+      <%= f.govuk_password_field :password, width: 'two-thirds', autocomplete: 'off', spellcheck: 'false' %>
 
-      <%= f.submit t('helpers.submit.change_password'), class: 'button' %>
+      <%= f.submit t('helpers.submit.change_password'), class: 'govuk-button' %>
     <% end %>
   </div>
 </div>

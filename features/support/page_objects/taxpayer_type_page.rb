@@ -1,16 +1,16 @@
 class TaxpayerTypePage < BasePage
   set_url '/steps/details/taxpayer_type'
 
-  section :content, '#content' do
+  section :content, '#main-content' do
     element :header, 'h1', text: 'Who is making the application?'
+    element :individual, 'label', text: 'Individual'
+    element :company, 'label', text: 'Company'
+    element :other, 'label', text: 'Other type of organisation'
   end
 
-  def go_to_taxpayer_type_page
-    home_page.load_page
-    home_page.close_enquiry
-    closure_page.continue
-    case_type_page.submit_personal_return
-    user_type_page.submit_yes
+  def submit_individual
+    content.individual.click
+    continue
   end
 
   def submit_company

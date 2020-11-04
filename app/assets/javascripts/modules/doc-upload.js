@@ -34,6 +34,7 @@ moj.Modules.docUpload = {
     dzOptions = {
       url: '/uploader/supporting_documents/documents',
       paramName: 'document',
+      parallelUploads: 10,
       maxFilesize: maxFilesize,
       acceptedFiles: self.$form.data('accepted-files'),
       autoProcessQueue: true,
@@ -107,7 +108,7 @@ moj.Modules.docUpload = {
     var self = this;
 
     self.$fileList.find('.no-files').hide();
-    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="button button-secondary">' + moj.Modules.dropzoneStrings.docUploadRemoveFile + '</a></li>');
+    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="govuk-button govuk-button--secondary">' + moj.Modules.dropzoneStrings.docUploadRemoveFile + '</a></li>');
   },
 
   removeDropzonePreview: function(file) {

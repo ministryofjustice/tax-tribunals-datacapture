@@ -3,19 +3,19 @@
   <div class="dz-filename">
     <p class="filename"><span data-dz-name></span> <span data-dz-errormessage></span></p>
     <p class="actions">
-      <a class="dz-cancel" href="#" data-dz-remove><%= t 'shared.file_upload.cancel_upload' %></a>
-      <a class="dz-removeFailedFile" href="#" data-dz-remove><%= t 'shared.file_upload.remove_file' %></a>
+      <a class="dz-cancel govuk-link" href="#" data-dz-remove><%= t 'shared.file_upload.cancel_upload' %></a>
+      <a class="dz-removeFailedFile govuk-link" href="#" data-dz-remove><%= t 'shared.file_upload.remove_file' %></a>
     </p>
   </div>
   <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
 </div>
 
 <div class="dropzone dz-clickable js-only" id="dz_doc_upload" tabindex="0" data-accepted-files="<%= DocumentUpload::ALLOWED_CONTENT_TYPES.join(',') %>" data-max-filesize="<%= DocumentUpload::MAX_FILE_SIZE %>" role="button">
-  <div class="dz-default dz-message grid-row">
-    <div class="column-one-third arrow-icon">
-      <p></p>
+  <div class="dz-default dz-message govuk-grid-row">
+    <div class="govuk-grid-column-one-third arrow-icon">
+      <p class="govuk-body"></p>
     </div>
-    <div class="column-one-half">
+    <div class="govuk-grid-column-one-half">
       <p class="dz-message-copy">
         <%= t 'shared.file_upload.dropzone_message_html' %>
       </p>
@@ -24,19 +24,19 @@
 </div>
 
 <div class="uploaded-files-wrapper">
-  <h2 class="heading-medium"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
+  <h2 class="govuk-heading-m"><%= t 'shared.file_upload.uploaded_files_header' %></h2>
 
-  <ol class="list uploaded-files">
+  <ol class="govuk-list uploaded-files">
     <% if document_list&.any? %>
         <% document_list.each do |doc| %>
             <li class="file no-js-only">
               <%= doc.name %>
-              <%= button_to t('shared.file_upload.remove_file'), document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: t('shared.file_upload.confirm_delete') }, class: 'button button-secondary' %>
+              <%= button_to t('shared.file_upload.remove_file'), document_path(doc, document_key: :supporting_documents), method: :delete, data: { confirm: t('shared.file_upload.confirm_delete') }, class: 'govuk-button govuk-button--secondary' %>
             </li>
 
             <li class="file js-only">
               <%= doc.name %>
-              <%= link_to t('shared.file_upload.remove_file'), '#', 'data-delete-name': doc.encoded_name, class: 'button button-secondary' %>
+              <%= link_to t('shared.file_upload.remove_file'), '#', 'data-delete-name': doc.encoded_name, class: 'govuk-button govuk-button--secondary' %>
             </li>
         <% end %>
     <% else %>

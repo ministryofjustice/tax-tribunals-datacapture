@@ -1,10 +1,10 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t('.heading') %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t('.heading') %></h1>
 
-    <p class="lede"><%= t('.lead_text') %></p>
+    <p class="govuk-body-l"><%= t('.lead_text') %></p>
 
     <%= t('.description_html',
           approval_form_href: asset_path('proforma.pdf'),
@@ -12,8 +12,8 @@
         )
     %>
 
-    <p>
-      <%= link_to t('.continue'), edit_steps_closure_case_type_path, class: 'button button-start', role: 'button' %>
+    <p class="govuk-body">
+      <%= link_to t('.continue'), edit_steps_closure_case_type_path, class: 'govuk-button', role: 'button' %>
     </p>
   </div>
 </div>

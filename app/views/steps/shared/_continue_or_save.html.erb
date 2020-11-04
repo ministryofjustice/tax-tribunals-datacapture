@@ -1,12 +1,12 @@
-<p class="actions">
+<div class="actions">
   <% if user_signed_in? %>
-    <%= f.submit t('helpers.submit.save_and_continue'), class: 'button' %>
+    <%= f.submit t('helpers.submit.save_and_continue'), class: 'govuk-button' %>
   <% else %>
-    <%= f.submit class: 'button' %>
-    <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path %>
+    <%= f.submit class: 'govuk-button' %>
+    <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path, class: 'govuk-link' %>
   <% end %>
-</p>
+</div>
 
-<p class="timeout-note">
+<p class="timeout-note govuk-body-s govuk-!-margin-top-6">
   <%= t('.timeout_note', session_timeout: Rails.configuration.x.session.expires_in_minutes) %>
 </p>

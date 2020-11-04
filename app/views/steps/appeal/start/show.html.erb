@@ -14,13 +14,13 @@
   </div>
 </header>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
       <%=t '.heading' %>
     </h1>
 
-    <p class="lede">
+    <p class="govuk-body-l">
     <%=t '.lead_text_html' %>
     </p>
 
@@ -30,8 +30,8 @@
         )
     %>
 
-    <p>
-    <%= link_to t('.continue'), edit_steps_appeal_case_type_path, class: 'button button-start', role: 'button' %>
+    <p class="govuk-body">
+      <%= link_to t('.continue'), edit_steps_appeal_case_type_path, class: 'govuk-button', role: 'button' %>
     </p>
   </div>
 </div>

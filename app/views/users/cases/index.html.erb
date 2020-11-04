@@ -1,24 +1,24 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="heading-large">
+    <h1 class="govuk-heading-l">
       <%=t '.heading' %>
     </h1>
-    <p class="lede"><%=t '.cases_intro' %></p>
+    <p class="govuk-body-l"><%=t '.cases_intro' %></p>
     <%= t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %>
   </div>
 </div>
 
-<table class="saved-appeals">
-  <caption class="visuallyhidden"><%=t '.table.caption' %></caption>
-  <thead>
-  <tr>
-    <th><%=t '.table.heading.expires_in' %></th>
-    <th><%=t '.table.heading.your_reference' %></th>
-    <th><%=t '.table.heading.taxpayer_name' %></th>
-    <th><span class="visuallyhidden"><%=t '.table.heading.case_actions' %></span>&nbsp;</th>
+<table class="govuk-table saved-appeals">
+  <caption class="govuk-visually-hidden"><%=t '.table.caption' %></caption>
+  <thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header"><%=t '.table.heading.expires_in' %></th>
+    <th scope="col" class="govuk-table__header"><%=t '.table.heading.your_reference' %></th>
+    <th scope="col" class="govuk-table__header"><%=t '.table.heading.taxpayer_name' %></th>
+    <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden"><%=t '.table.heading.case_actions' %></span>&nbsp;</th>
   </tr>
   </thead>
 
@@ -29,10 +29,10 @@
   </tbody>
 </table>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <p>
-      <%= link_to t('.new_case'), root_path %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <%= link_to t('.new_case'), root_path, class: 'govuk-link' %>
     </p>
   </div>
 </div>

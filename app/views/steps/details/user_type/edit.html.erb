@@ -1,15 +1,16 @@
 <% title t('.page_title') %>
+<% step_header %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <%= step_header %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_error_summary %>
 
-    <h1 class="heading-large"><%= translate_with_appeal_or_application '.heading' %></h1>
+    <h1 class="govuk-heading-l"><%= translate_with_appeal_or_application '.heading' %></h1>
 
     <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
-      <%= f.radio_button_fieldset :user_type,
-        choices: Steps::Details::UserTypeForm.choices,
-        legend_options: {class: 'visuallyhidden'} %>
+      <%= f.govuk_collection_radio_buttons :user_type,
+        Steps::Details::UserTypeForm.choices, :to_s, nil,
+        legend: {class: 'govuk-visually-hidden'} %>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>

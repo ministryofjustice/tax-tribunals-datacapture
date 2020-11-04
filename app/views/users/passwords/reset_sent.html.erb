@@ -1,12 +1,12 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t '.heading' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
+    <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
-    <p><%=t '.deleted_account' %></p>
+    <p class="govuk-body"><%=t '.deleted_account' %></p>
 
     <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.start_again'), show_survey: false} %>
   </div>

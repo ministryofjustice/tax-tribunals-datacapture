@@ -5,6 +5,11 @@ module Steps::Closure
 
     validates_presence_of :having_problems_uploading_explanation, if: :having_problems_uploading
 
+    def save
+      self.having_problems_uploading = having_problems_uploading ? true : false
+      super
+    end
+
     private
 
     def persist!

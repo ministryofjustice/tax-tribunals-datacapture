@@ -10,14 +10,14 @@
     <% end %>
 
     <% if file_or_text_row.file? %>
-      <h4 class="heading-small"><%=t 'check_answers.attached_document' %></h4>
-      <p><%= file_or_text_row.file.name %></p>
+      <h4 class="govuk-heading-s"><%=t 'check_answers.attached_document' %></h4>
+      <p class="govuk-body"><%= file_or_text_row.file.name %></p>
     <% end %>
   </dd>
   <dd class="change">
     <% if file_or_text_row.show_change_link? %>
-      <%= link_to file_or_text_row.change_path do %>
-        <%=t 'check_answers.change' %><span class="visuallyhidden"> <%=t "check_answers.#{file_or_text_row.question}.accessible_change_text" %></span>
+      <%= link_to file_or_text_row.change_path, class: 'govuk-link' do %>
+        <%=t 'check_answers.change' %><span class="govuk-visually-hidden"> <%=t "check_answers.#{file_or_text_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

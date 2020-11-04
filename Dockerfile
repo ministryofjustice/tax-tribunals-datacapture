@@ -12,7 +12,7 @@ ENV APP_BUILD_DATE ${APP_BUILD_DATE}
 ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
 ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
-# Application specific variables 
+# Application specific variables
 
 ENV GLIMR_API_URL                replace_this_at_build_time
 ENV EXTERNAL_URL                 replace_this_at_build_time
@@ -35,18 +35,30 @@ ENV NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID           replace_this_at_build_time
 ENV NOTIFY_RESET_PASSWORD_TEMPLATE_ID           replace_this_at_build_time
 ENV NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID          replace_this_at_build_time
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -q && \
-    apt-get install -qy tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 --no-install-recommends && apt-get clean && \
+    apt-get install -qy yarn tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 --no-install-recommends && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
 
 ENV PUMA_PORT 8000
 EXPOSE $PUMA_PORT
 
+COPY yarn.lock ./
+
+RUN bash -c "yarn install --check-files"
+
 RUN bash -c "bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets"
+
+# Copy fonts and images (without digest) along with the digested ones,
+# as there are some hardcoded references in the `govuk-frontend` files
+# that will not be able to use the rails digest mechanism.
+RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
+RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
 
 # adding daily export cron job
 ADD daily-export /etc/cron.d/

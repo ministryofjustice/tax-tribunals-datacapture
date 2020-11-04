@@ -18,21 +18,17 @@ module ApplicationHelper
 
   # Render a back link pointing to the user's previous step
   def step_header
-    capture do
-      render partial: 'step_header', locals: {
-        path: controller.previous_step_path
-      }
-    end + error_summary(@form_object)
+    render partial: 'layouts/step_header', locals: {
+      path: controller.previous_step_path
+    }
   end
 
-  def error_summary(form_object)
-    return if form_object.nil?
+  def govuk_error_summary(form_object = @form_object)
+    return unless form_object.try(:errors).present?
 
-    GovukElementsErrorsHelper.error_summary(
-      form_object,
-      translate('errors.error_summary.heading'),
-      translate('errors.error_summary.text')
-    )
+    fields_for(form_object, form_object) do |f|
+      f.govuk_error_summary t('errors.error_summary.heading')
+    end
   end
 
   def translate_for_user_type(key, params={})

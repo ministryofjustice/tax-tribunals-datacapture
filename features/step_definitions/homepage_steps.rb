@@ -17,3 +17,15 @@ end
 Then("I should not see enquiry time information") do
   expect(home_page.content).to have_no_time_information_enquiry
 end
+
+When("I click the appeal a tax decision") do
+  home_page.appeal
+end
+
+When("I click the return to a saved appeal button") do
+  home_page.return
+end
+
+Then("I am taken to the login page") do
+  expect(login_page.content).to have_header
+end

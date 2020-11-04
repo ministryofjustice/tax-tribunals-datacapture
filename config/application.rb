@@ -18,8 +18,6 @@ module TaxTribunalsDatacapture
   class Application < Rails::Application
     config.load_defaults 6.0
 
-    ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
-
     config.middleware.use Rack::Attack
 
     # This automatically adds id: :uuid to create_table in all future migrations
@@ -42,6 +40,8 @@ module TaxTribunalsDatacapture
 
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
 
-    config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+    if ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+      config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
+    end
   end
 end

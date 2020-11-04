@@ -1,7 +1,9 @@
-<details>
-  <summary><%= t 'shared.file_upload.header' %></summary>
-  <div class="panel">
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary" aria-controls="details-content" aria-expanded="false">
+    <%= t 'shared.file_upload.header' %>
+  </summary>
+  <div class="govuk-details__text" aria-hidden="true">
     <%= t 'shared.file_upload.file_list_html' %>
-    <p><%= t 'shared.file_upload.footer' %></p>
+    <p class="govuk-body"><%= t 'shared.file_upload.footer' %></p>
   </div>
 </details>

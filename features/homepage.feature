@@ -11,3 +11,7 @@ Feature: Homepage
   Scenario: No time estimates on homepage
     Then I should not see tax time information
     And I should not see enquiry time information
+
+  Scenario: Return to a saved appeal or application
+    When I click the return to a saved appeal button
+    Then I am taken to the login page

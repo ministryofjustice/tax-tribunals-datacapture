@@ -1,13 +1,13 @@
 .heading-bottom-border {
-  border-bottom: 1px solid $border-colour;
-  padding-bottom: $gutter/6;
+  border-bottom: 1px solid govuk-colour("mid-grey");
+  padding-bottom: $govuk-gutter/6;
   margin-bottom: 0;
 }
 
 .check-your-answers {
   > * {
     position: relative;
-    border-bottom: 1px solid $border-colour;
+    border-bottom: 1px solid govuk-colour("mid-grey");
 
     > * {
       display: block;
@@ -16,7 +16,7 @@
 
   .question {
     font-weight: bold;
-    margin: em(12, 19) 4em $gutter/6 0;
+    margin: govuk-em(12, 19) 4em $govuk-gutter/6 0;
     // top: from Elements' td
     // right: due to length of "change" link (adjust if you change the link to be much longer)
     // bottom: by eye (~4-5px)
@@ -24,7 +24,7 @@
   }
 
   .answer {
-    padding-bottom: em(9, 19); // from Elements' td
+    padding-bottom: govuk-em(9, 19); // from Elements' td
   }
 
   .change {
@@ -35,7 +35,7 @@
   }
 
 
-  @include media(desktop) {
+  @include govuk-media-query($from: desktop) {
     display: table;
 
     > * {
@@ -44,8 +44,8 @@
 
       > * {
         display: table-cell;
-        border-bottom: 1px solid $border-colour;
-        padding: em(12, 19) em(20, 19) em(9, 19) 0; // copied from Elements' td padding
+        border-bottom: 1px solid govuk-colour("mid-grey");
+        padding: govuk-em(12, 19) govuk-em(20, 19) govuk-em(9, 19) 0; // copied from Elements' td padding
         margin: 0;
       }
     }

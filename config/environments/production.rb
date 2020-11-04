@@ -29,6 +29,9 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = false
+  config.sass.style = :compressed
+  config.sass.line_comments = false
 
   config.assets.compile = false
 

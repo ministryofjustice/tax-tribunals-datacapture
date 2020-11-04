@@ -4,15 +4,15 @@
   </dt>
 
   <dd class="answer">
-    <ul class="list list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
       <%= render partial: 'multi_answer_items', locals: { multi_answer_row: multi_answer_row } %>
     </ul>
   </dd>
 
   <dd class="change">
     <% if multi_answer_row.show_change_link? %>
-      <%= link_to multi_answer_row.change_path do %>
-        <%=t 'check_answers.change' %><span class="visuallyhidden"> <%=t "check_answers.#{multi_answer_row.question}.accessible_change_text" %></span>
+      <%= link_to multi_answer_row.change_path, class: 'govuk-link' do %>
+        <%=t 'check_answers.change' %><span class="govuk-visually-hidden"> <%=t "check_answers.#{multi_answer_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

@@ -6,7 +6,7 @@
     <%= simple_format(contact_details_row.contact_address) %>
 
     <% if contact_details_row.extra_details? %>
-      <p>
+      <p class="govuk-body">
         <% if contact_details_row.phone? %>
           <%=t 'check_answers.phone' %>: <%= contact_details_row.phone %><br>
         <% end %>
@@ -21,8 +21,8 @@
   </dd>
   <dd class="change">
     <% if contact_details_row.show_change_link? %>
-      <%= link_to contact_details_row.change_path do %>
-        Change <span class="visuallyhidden"><%=t "check_answers.#{contact_details_row.question}.accessible_change_text" %></span>
+      <%= link_to contact_details_row.change_path, class: 'govuk-link' do %>
+        Change <span class="govuk-visually-hidden"><%=t "check_answers.#{contact_details_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

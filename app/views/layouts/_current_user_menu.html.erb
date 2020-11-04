@@ -1,6 +1,19 @@
-<ul id="proposition-links">
-  <li><%= link_to t('.your_cases'), users_cases_path %></li>
-  <li><%= link_to t('.change_password'), edit_user_registration_path %></li>
-  <li><%= current_user.email %></li>
-  <li><%= button_to t('.logout'), destroy_user_session_path, method: :delete %></li>
-</ul>
+<% if user_signed_in? %>
+  <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+  <nav>
+    <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+      <li class="govuk-header__navigation-item">
+        <%= link_to t('.your_cases'), users_cases_path, class: 'govuk-header__link' %>
+      </li>
+      <li class="govuk-header__navigation-item">
+        <%= link_to t('.change_password'), edit_user_registration_path, class: 'govuk-header__link' %>
+      </li>
+      <li class="govuk-header__navigation-item">
+        <%= current_user.email %>
+      </li>
+      <li class="govuk-header__navigation-item">
+        <%= button_to t('.logout'), destroy_user_session_path, class: 'govuk-header__link app-header__logout-link', method: :delete %>
+      </li>
+    </ul>
+  </nav>
+<% end %>

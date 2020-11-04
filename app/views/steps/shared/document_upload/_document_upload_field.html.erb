@@ -1,18 +1,18 @@
-<p>
+<p class="govuk-body">
   <%= form.label(field_name, label_text, id: [
-    'error', GovukElementsErrorsHelper.underscore_name(form.object), field_name
+    'error', form.object.class.name.underscore.tr('/', '_'), field_name
   ].join('_')) %>
 </p>
 
-<p>
+<p class="govuk-body">
   <%=t '.upload_explanation_html' %>
 </p>
 
-<div class="grid-row uploader-row">
-  <div class="column-two-thirds">
-    <%= form.file_field(field_name, class: 'single-file-upload', accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
+<div class="govuk-grid-row uploader-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= form.govuk_file_field(field_name, class: 'govuk-file-upload single-file-upload', accept: DocumentUpload::ALLOWED_CONTENT_TYPES.join(','), src: 'camera') %>
   </div>
-  <div class="column-one-third">
+  <div class="govuk-grid-column-one-third">
     <p class="js-file-status"></p>
   </div>
 </div>

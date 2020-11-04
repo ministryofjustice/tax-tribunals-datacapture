@@ -77,9 +77,7 @@ class SessionsController < ApplicationController
       taxpayer_contact_postcode: Faker::Address.postcode,
       taxpayer_individual_first_name: Faker::Name.first_name,
       taxpayer_individual_last_name: Faker::Name.last_name,
-      taxpayer_contact_address: [
-        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
-      ].join("\n"),
+      taxpayer_contact_address: [Faker::Address.street_address, Faker::Address.city, Faker::Address.county].join("\n"),
       has_representative: HasRepresentative::YES,
       representative_professional_status: RepresentativeProfessionalStatus::ENGLAND_OR_WALES_OR_NI_LEGAL_REP,
       representative_type: ContactableEntityType::COMPANY,
@@ -89,13 +87,12 @@ class SessionsController < ApplicationController
       representative_contact_phone: Faker::PhoneNumber.phone_number,
       representative_contact_email: Faker::Internet.email,
       representative_contact_postcode: Faker::Address.postcode,
-      representative_contact_address: [
-        Faker::Address.street_address, Faker::Address.city, Faker::Address.county
-      ].join("\n"),
+      representative_contact_address: [Faker::Address.street_address, Faker::Address.city, Faker::Address.county].join("\n"),
       grounds_for_appeal: Faker::Lorem.paragraph(2),
       outcome: Faker::ChuckNorris.fact,
       need_support: NeedSupport::YES,
       language_interpreter: true,
+      language_interpreter_details: Faker::Lorem.word,
       hearing_loop: true,
       other_support: true,
       other_support_details: Faker::Lorem.paragraph(1),

@@ -1,14 +1,14 @@
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <%%= step_header %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%%= govuk_error_summary %>
 
-    <h1 class="heading-large"><%%=t '.heading' %></h1>
+    <h1 class="govuk-heading-l"><%%=t '.heading' %></h1>
 
-    <p class="lede"><%%=t '.lead_text' %></p>
+    <p class="govuk-body-l"><%%=t '.lead_text' %></p>
 
     <%%= step_form @form_object do |f| %>
       <!-- TODO: Add form fields here -->
-      <%%= f.submit class: 'button' %>
+      <%%= f.submit class: 'govuk-button' %>
     <%% end %>
   </div>
 </div>

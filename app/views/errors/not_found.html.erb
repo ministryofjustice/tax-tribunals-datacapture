@@ -1,15 +1,15 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-large"><%= t '.heading' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%= t '.heading' %></h1>
 
-    <p class="lede"><%=t '.lead_text' %></p>
+    <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
-    <p><%=t '.more_text_html' %></p>
+    <p class="govuk-body"><%=t '.more_text_html' %></p>
 
-    <div class="form-group">
-      <%= link_to t('.start_again'), root_path, class: 'button' %>
+    <div class="govuk-form-group">
+      <%= link_to t('.start_again'), root_path, class: 'govuk-button' %>
     </div>
   </div>
 </div>

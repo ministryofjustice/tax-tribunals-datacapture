@@ -43,10 +43,10 @@ moj.Modules.sessionTimeout = {
     if(isNaN(moj.Modules.sessionLength) || isNaN(moj.Modules.sessionWarnWhenRemaining)) return;
 
     // Bind buttons in modal
-    $(self.config.$modalContainer + " .extend").click(function() {
+    $(self.config.$modalContainer + " .app-js--extend").click(function() {
       self.extend();
     });
-    $(self.config.$modalContainer + " .abort").click(function() {
+    $(self.config.$modalContainer + " .app-js--abort").click(function() {
       self.abort();
     });
 
@@ -67,7 +67,7 @@ moj.Modules.sessionTimeout = {
 
   startTimer: function() {
     var self = this;
-    
+
     var now = new Date();
     self.endOfSessionTime = new Date(now.getTime() + self.config.sessionLength);
 
@@ -113,7 +113,7 @@ moj.Modules.sessionTimeout = {
       self.startTimer();
     }).fail(function() {
       // Assume session has expired if we cannot ping
-      window.location.href = self.config.expiredUrl; 
+      window.location.href = self.config.expiredUrl;
     });
 
     self.hideModal();

@@ -3,7 +3,7 @@
     <%= translate_with_appeal_or_application "check_answers.#{documents_submitted_row.question}.question" %>
   </dt>
   <dd class="answer">
-    <ul class="list list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
       <% documents_submitted_row.documents.each do |document| %>
         <li><%= document.name %></li>
       <% end %>
@@ -12,8 +12,8 @@
   </dd>
   <dd class="change">
     <% if documents_submitted_row.show_change_link? %>
-      <%= link_to documents_submitted_row.change_path do %>
-        Change <span class="visuallyhidden"><%=t "check_answers.#{documents_submitted_row.question}.accessible_change_text" %></span>
+      <%= link_to documents_submitted_row.change_path, class: 'govuk-link' do %>
+        Change <span class="govuk-visually-hidden"><%=t "check_answers.#{documents_submitted_row.question}.accessible_change_text" %></span>
       <% end %>
     <% end %>
   </dd>

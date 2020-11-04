@@ -1,22 +1,22 @@
 <% title t('.page_title') %>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-xlarge"><%=t '.heading' %></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl"><%=t '.heading' %></h1>
 
-    <%= error_summary(@form_object) %>
+    <%= govuk_error_summary(@form_object) %>
 
-    <p class="heading-large"><%=t '.notice' %></p>
+    <p class="govuk-heading-l"><%=t '.notice' %></p>
 
-    <p class="lede"><%=t '.lead_html' %></p>
+    <p class="govuk-body-l"><%=t '.lead_html' %></p>
 
     <%= form_for(@form_object, url: surveys_feedback_path) do |f| %>
-      <%= f.text_field :name %>
-      <%= f.text_field :email %>
-      <%= f.radio_button_fieldset :assistance_level,
-        choices: ['none', 'partial', 'total'] %>
-      <%= f.text_area :comment, size: '40x6', class: 'form-control form-control-3-4' %>
-      <%= f.submit t('.submit'), class: 'button' %>
+      <%= f.govuk_text_field :name, width: 'one-half' %>
+      <%= f.govuk_text_field :email, width: 'one-half' %>
+      <%= f.govuk_collection_radio_buttons :assistance_level,
+        ['none', 'partial', 'total'], :to_s, nil %>
+      <%= f.govuk_text_area :comment %>
+      <%= f.submit t('.submit'), class: 'govuk-button' %>
     <% end %>
   </div>
 </div>

@@ -1,118 +1,23 @@
-// From GDS's alphagov/govuk_frontend_toolkit
-@import 'colours';
-@import 'font_stack';
-@import 'measurements';
-@import 'conditionals';
-@import 'device-pixels';
-@import 'grid_layout';
-@import 'typography';
-@import 'shims';
+// GOV.UK Frontend
+$govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
+@import "govuk-frontend/govuk/all";
 
-@import 'design-patterns/alpha-beta';
-@import 'design-patterns/buttons';
-@import 'design-patterns/breadcrumbs';
-
-// From GDS's alphagov/govuk_elements
-@import 'elements/helpers';
-@import 'elements/reset';
-
-// Base (unclassed HTML elements)
-// These are predefined by govuk_template
-// If you're not using govuk_template, uncomment the line below.
-// HTML elements, set by the GOV.UK template
-// @import 'elements/base'
-
-@import 'elements/layout';
-@import 'elements/elements-typography';
-@import 'elements/buttons';
-@import 'elements/icons';
-@import 'elements/lists';
-@import 'elements/tables';
-@import 'elements/details';
-@import 'elements/panels';
-@import 'elements/forms';
-@import 'elements/forms/form-multiple-choice';
-@import 'elements/forms/form-date';
-@import 'elements/forms/form-validation';
-@import 'elements/breadcrumbs';
-@import 'elements/phase-banner';
-@import 'elements/components';
-
-@import 'elements/shame';
-
-@import 'local/check_answers';
-@import 'local/developer_tools';
-@import 'local/single-file-upload';
-@import 'local/tables';
-@import 'local/lists';
-@import 'local/inputs';
-@import 'local/buttons';
-@import 'local/forms';
-@import 'local/typography';
-@import 'local/header';
-@import 'local/panels';
 @import 'local/banners';
 @import 'local/case_details_pdf';
-@import 'local/utilities';
+@import 'local/check_answers';
+@import 'local/developer_tools';
+@import 'local/lists';
+@import 'local/panels';
 @import 'local/positioning_hacks';
-@import 'local/timeout_modal';
+@import 'local/single_file_upload';
 @import 'local/spinner';
-@import 'local/notices';
-@import 'local/feedback';
+@import 'local/tables';
+@import 'local/timeout_modal';
+@import 'local/typography';
+@import 'local/utilities';
+@import 'local/js_enabled';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';
 @import 'local/dropzone';
 
-.js-enabled {
-  .js-hidden {
-    display: none !important;
-  }
-}
-
-.no-js-only {
-  display: block;
-
-  .js-enabled & {
-    display: none !important;
-  }
-}
-
-li.no-js-only {
-  display: list-item;
-}
-
-.js-only {
-  display: none !important;
-
-  .js-enabled & {
-    display: block !important;
-  }
-}
-
-.js-enabled li.js-only {
-  display: list-item !important;
-}
-
-
-// Related items
-// (These styles will be moved to GOV.UK elements, duplicating here for now.)
-.govuk-related-items {
-  margin-top: $gutter * 2;
-  border-top: 10px solid $govuk-blue;
-  padding-top: 5px;
-
-  .heading-medium {
-    margin-top: 0.3em;
-    margin-bottom: 0.5em
-  }
-
-  li {
-    margin-bottom: 10px;
-    list-style-type: none;
-  }
-
-  .related-link-hint {
-    color: $grey-1;
-  }
-}
