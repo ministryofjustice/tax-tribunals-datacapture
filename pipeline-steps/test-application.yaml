@@ -29,5 +29,5 @@ steps:
   displayName: 'test rspec'
 
 - script: |
-    bundle exec cucumber --fail-fast
+    bundle exec cucumber features/*.feature --fail-fast
   displayName: 'test cucumber'
