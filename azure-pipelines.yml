@@ -51,9 +51,8 @@ jobs:
       bundlerVersion: '1.17.3'
 
     steps:
-   - template: ./pipeline-steps/test-application.yaml
-    - template: ./pipeline-steps/publish-tests.yaml
-
+      - template: ./pipeline-steps/test-application.yaml
+      - template: ./pipeline-steps/publish-tests.yaml
 
   - job: BuildAndPushImageCI
 
