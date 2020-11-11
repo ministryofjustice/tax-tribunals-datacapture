@@ -22,6 +22,7 @@ pr:
       - master
       - feature/*
       - test
+      - hi
 
 variables:
   application.name: 'tt-data-capture'
