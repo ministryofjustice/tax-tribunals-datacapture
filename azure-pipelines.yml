@@ -21,6 +21,7 @@ pr:
     include:
       - master
       - feature/*
+      - test
 
 variables:
   application.name: 'tt-data-capture'
