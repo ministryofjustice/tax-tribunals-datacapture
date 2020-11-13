@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
 
+gem 'dotenv-rails', groups: [:development, :test] # this has to be here because of load order
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
@@ -47,7 +48,6 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'dotenv-rails'
   gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
   gem 'mutant-rspec', '< 0.9'

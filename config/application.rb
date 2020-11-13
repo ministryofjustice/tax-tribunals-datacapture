@@ -13,6 +13,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module TaxTribunalsDatacapture
   class Application < Rails::Application
@@ -38,6 +39,7 @@ module TaxTribunalsDatacapture
     config.x.cases.expire_in_days = ENV.fetch('EXPIRE_AFTER', 14).to_i
     config.x.users.expire_in_days = ENV.fetch('USERS_EXPIRE_AFTER', 30).to_i
 
+    puts ENV.keys
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
 
     if ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
