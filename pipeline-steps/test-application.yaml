@@ -22,12 +22,8 @@ steps:
 
 - script: |
     bundle exec rake db:create db:schema:load
-  displayName: 'creade DB'
+  displayName: 'DB load'
 
 - script: |
-    bundle exec rspec --fail-fast --format documentation --format RspecJunitFormatter --out test-rspec.xml
-  displayName: 'test rspec'
-
-- script: |
-    bundle exec cucumber features/*.feature --fail-fast
-  displayName: 'test cucumber'
+    bundle exec cucumber --fail-fast --order random --no-strict-flaky --retry 3
+  displayName: 'cucumber'
