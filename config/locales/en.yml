@@ -218,6 +218,7 @@ en:
           lead_text: *tax_tribunal_independent
           page_title: Documents upload
           having_problems_uploading: I am having trouble uploading my documents
+          trouble_uploading_documents_question: Are you having trouble uploading your documents?
       <<: *CYA_CONFIRMATION
       start:
         show:
@@ -355,6 +356,7 @@ en:
         edit:
           page_title: Letter upload
           having_problems_uploading: I am having trouble uploading my letter
+          trouble_uploading_document_question: Are you having trouble uploading your document?
       outcome:
         edit:
           heading: Briefly say what outcome you would like
@@ -424,6 +426,7 @@ en:
             <p class="govuk-body"><strong>Do not upload any documents other than your letter</strong></p>
             <p class="govuk-body">The tribunal will contact you if further documents are needed.</p>
           having_problems_uploading: I am having trouble uploading my letter
+          trouble_uploading_documents_question: Are you having trouble uploading your documents?
     hardship:
       disputed_tax_paid:
         edit:
@@ -905,7 +908,7 @@ en:
       steps_details_letter_upload_form:
         supporting_letter_document: ''
         having_problems_uploading_options:
-          having_problems_uploading: I am having trouble uploading my documents
+          having_problems_uploading: I am having trouble uploading my document
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_documents_upload_form:
         having_problems_uploading_options:

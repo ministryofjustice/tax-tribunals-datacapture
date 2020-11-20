@@ -5,7 +5,11 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
+    <h1 class="govuk-heading-l"><label for="document"><%=t "shared.letter_upload.heading.#{i18n_letter_type}" %></h1>
+
+    <p class="govuk-body-l"><%=t 'shared.letter_upload.lead_text' %></p>
+
+    <p class="govuk-body"><%= translate_with_appeal_or_application('shared.file_upload.technical_info_html') %></p>
 
     <%= render partial: 'steps/shared/file_upload_requirements' %>
 
@@ -20,7 +24,8 @@
     <%= render partial: 'steps/shared/dropzone', locals: { document_list: @documents_list } %>
 
     <%= step_form @form_object, html: { class: 'cf' } do |f| %>
-      <%= f.govuk_check_boxes_fieldset :having_problems_uploading do %>
+      <%= f.govuk_check_boxes_fieldset :having_problems_uploading,
+          legend: { text: t(".trouble_uploading_documents_question"), hidden: true, tag: 'h2'} do %>
         <%= f.govuk_check_box :having_problems_uploading, :having_problems_uploading, multiple: false  do %>
           <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
           <%=f.govuk_text_area :having_problems_uploading_explanation %>

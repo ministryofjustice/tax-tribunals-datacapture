@@ -1,7 +1,7 @@
 <p class="govuk-body">
   <%= form.label(field_name, label_text, id: [
     'error', form.object.class.name.underscore.tr('/', '_'), field_name
-  ].join('_')) %>
+  ].join('_'), for: [form.object.class.name, field_name, 'field'].join('-').underscore.dasherize.tr('/', '-')) %>
 </p>
 
 <p class="govuk-body">
