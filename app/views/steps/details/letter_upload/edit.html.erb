@@ -14,7 +14,7 @@
 
         <% unless uploaded_document?(@form_object.document_key) %>
           <%= f.govuk_check_boxes_fieldset :having_problems_uploading,
-              legend: { text: t(".trouble_uploading_document_question"), hidden: true, tag: 'p'} do %>
+              legend: { text: t(".trouble_uploading_document_question"), hidden: true, tag: 'h2'} do %>
             <%= f.govuk_check_box :having_problems_uploading, :having_problems_uploading, multiple: false do %>
               <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
               <%=f.govuk_text_area :having_problems_uploading_explanation %>
