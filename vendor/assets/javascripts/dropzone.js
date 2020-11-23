@@ -547,6 +547,7 @@
             }
             _this.hiddenFileInput = document.createElement("input");
             _this.hiddenFileInput.setAttribute("type", "file");
+            _this.hiddenFileInput.setAttribute("aria-hidden", "true");
             if ((_this.options.maxFiles == null) || _this.options.maxFiles > 1) {
               _this.hiddenFileInput.setAttribute("multiple", "multiple");
             }
