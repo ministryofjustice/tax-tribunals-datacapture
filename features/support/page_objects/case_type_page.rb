@@ -3,7 +3,7 @@ class CaseTypePage < BasePage
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What type of enquiry do you want to close?'
-    element :one_on_list, 'p', text: 'The tax tribunal can only deal with applications to close the following enquiries.'
+    element :one_on_list, '.govuk-hint'
     element :personal_return, 'label', text: 'Personal return'
   end
 
