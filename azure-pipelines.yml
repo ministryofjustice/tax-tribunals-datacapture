@@ -12,7 +12,7 @@ trigger:
       - master
   tags:
     include:
-    - v*
+      - v*
 
 
 pr:
@@ -29,12 +29,13 @@ variables:
 
 resources:
   containers:
-  # - container: my_container
-  #   image: ubuntu:16.04
-  - container: postgres
-    image: postgres:9.6
-    ports:
-    - 5432:5432
+    # - container: my_container
+    #   image: ubuntu:16.04
+    - container: postgres
+      image: postgres:9.6
+      env: { POSTGRES_HOST_AUTH_METHOD: trust }
+      ports:
+        - 5432:5432
 
 jobs:
 
@@ -47,13 +48,12 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.5.5'
+      rubyVersion: '= 2.6.6'
       bundlerVersion: '1.17.3'
 
     steps:
-    # - template: ./pipeline-steps/test-application.yaml
-    - template: ./pipeline-steps/publish-tests.yaml
-
+      - template: ./pipeline-steps/test-application.yaml
+      - template: ./pipeline-steps/publish-tests.yaml
 
   - job: BuildAndPushImageCI
 
@@ -63,11 +63,11 @@ jobs:
       name: hmcts-pet
 
     steps:
-    - template: ./pipeline-steps/docker-build.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)
+      - template: ./pipeline-steps/docker-build.yaml
+        parameters:
+          azureContainerRegistry: $(azure.container.registry)
+          azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+          applicationName: $(application.name)
 
 
   - job: BuildAndPushImageRelease
@@ -78,11 +78,11 @@ jobs:
       name: hmcts-pet
 
     steps:
-    - template: ./pipeline-steps/docker-build-release.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)
+      - template: ./pipeline-steps/docker-build-release.yaml
+        parameters:
+          azureContainerRegistry: $(azure.container.registry)
+          azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+          applicationName: $(application.name)
 
 
   - job: BuildAndPushImageManual
@@ -93,9 +93,9 @@ jobs:
       name: hmcts-pet
 
     steps:
-    - template: ./pipeline-steps/docker-build-manual.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        manualBranchPrefix: $(manual.branch.prefix)
-        applicationName: $(application.name)
+      - template: ./pipeline-steps/docker-build-manual.yaml
+        parameters:
+          azureContainerRegistry: $(azure.container.registry)
+          azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+          manualBranchPrefix: $(manual.branch.prefix)
+          applicationName: $(application.name)
