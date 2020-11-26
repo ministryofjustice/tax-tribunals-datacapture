@@ -5,6 +5,7 @@
       - 'vendor/**/*'
       - 'config/initializers/rack_attack.rb'
     TargetRubyVersion: 2.6.6
+    require: rubocop-performance
     DisabledByDefault: true
   Lint/AmbiguousOperator:
     Description: >-
