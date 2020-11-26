@@ -471,6 +471,14 @@ en:
             whether your %{appeal_or_application} can go ahead if it is late.
           attach_document_html: *attach_reasons_document
           page_title: Lateness reason
+    save_and_return:
+      edit:
+        page_title: Do you want to be able to save and return to this appeal?
+        heading: Do you want to be able to save and return to this appeal?
+        lead_text: Creating an account will allow you to save an incomplete appeal and return to it later.
+        lead_text_2: If you choose not to create an account and you do not submit your appeal, then any information you have provided will be lost, and you will need to start again.
+        save_for_later: Create an account (optional)
+
   activemodel:
     errors:
       models:

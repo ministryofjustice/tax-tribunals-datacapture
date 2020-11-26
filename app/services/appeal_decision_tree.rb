@@ -1,10 +1,11 @@
 class AppealDecisionTree < TaxTribs::DecisionTree
   def destination
     return next_step if next_step
-
+    # binding.pry
     case step_name.to_sym
     when :case_type, :case_type_show_more
-      after_case_type_step
+      save_return_path
+      # after_case_type_step
     when :dispute_type
       after_dispute_type_step
     when :penalty_amount, :penalty_and_tax_amounts, :tax_amount
