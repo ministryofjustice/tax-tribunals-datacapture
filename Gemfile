@@ -8,7 +8,7 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.1'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_design_system_formbuilder'
+gem 'govuk_design_system_formbuilder', '~> 2.1.4'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
