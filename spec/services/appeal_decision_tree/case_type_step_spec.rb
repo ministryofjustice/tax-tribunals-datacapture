@@ -6,7 +6,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
   let(:next_step)     { nil }
   let(:case_type)     { nil }
 
-  subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
+  subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step, as: :save_and_return) }
 
   context 'for a `show more` option' do
     let(:step_params) { {case_type: '_show_more'} }

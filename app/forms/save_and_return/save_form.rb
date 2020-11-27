@@ -2,15 +2,12 @@ module SaveAndReturn
   class SaveForm < BaseForm
     attribute :save_for_later, Boolean
 
-    # validates_presence_of :name
-    # validates :email, email: true, allow_blank: false
-    # validates_presence_of :assistance_level
-    # validates_presence_of :comment
-
-    private
-
-    def persist!
-      # NotifyMailer.report_problem(self).deliver_now
+    def decision_tree(intent_value)
+      if intent_value == :tax_appeal
+        AppealDecisionTree
+      elsif intent_value ==  :close_enquiry
+        TaxTribs::ClosureDecisionTree
+      end
     end
   end
 end

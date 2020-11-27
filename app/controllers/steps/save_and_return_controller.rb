@@ -1,27 +1,28 @@
 module Steps
   class SaveAndReturnController < StepController
 
-    def index
-      # @tribunal_cases = pending_user_cases.order(created_at: :asc)
-    end
-
     def edit
-      # binding.pry
       @form_object = SaveAndReturn::SaveForm.new
-      # @tribunal_case = pending_case_from_params
     end
 
     def update
-      # @tribunal_case = pending_case_from_params
-      # @tribunal_case.update(user_case_reference: permitted_params[:user_case_reference])
-
-      # redirect_to users_cases_path
+      if permitted_params[:save_for_later] == "true"
+        redirect_to new_user_registration_path
+      else
+        redirect_to destination
+      end
     end
 
     private
 
     def permitted_params
-      params.require(:tribunal_case).permit(:user_case_reference)
+      return {} if params[:save_and_return_save_form].nil?
+      params[:save_and_return_save_form].permit(:save_for_later)
     end
+
+    def destination
+      session['next_step'] || root_url
+    end
+
   end
 end
