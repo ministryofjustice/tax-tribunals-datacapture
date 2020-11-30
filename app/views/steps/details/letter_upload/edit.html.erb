@@ -5,7 +5,9 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
+    <h1 class="govuk-heading-l"><%=t "shared.letter_upload.heading.#{i18n_letter_type}" %></h1>
+
+    <p class="govuk-body"><%= translate_with_appeal_or_application('shared.file_upload.technical_info_html') %></p>
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'letter', ga_label: i18n_letter_type} do |f| %>
@@ -13,7 +15,8 @@
         <%= document_upload_field(f, @form_object.document_key, label_text: t("shared.letter_upload.attach_document.#{i18n_letter_type}_html")) %>
 
         <% unless uploaded_document?(@form_object.document_key) %>
-          <%= f.govuk_check_boxes_fieldset :having_problems_uploading do %>
+          <%= f.govuk_check_boxes_fieldset :having_problems_uploading,
+              legend: { text: t(".trouble_uploading_document_question"), hidden: true, tag: 'h2' } do %>
             <%= f.govuk_check_box :having_problems_uploading, :having_problems_uploading, multiple: false do %>
               <%= t 'shared.file_upload.explanation_html', contact_url: contact_page_path %>
               <%=f.govuk_text_area :having_problems_uploading_explanation %>
