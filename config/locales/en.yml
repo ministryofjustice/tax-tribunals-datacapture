@@ -1377,6 +1377,7 @@ en:
       cookies: Cookies
       terms_and_conditions: Terms and conditions
       privacy_policy: Privacy policy
+      accessibility_statement: Accessibility statement
     phase_banner:
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback</a> and help improve the service for others.
@@ -1429,6 +1430,102 @@ en:
            <p class="govuk-body">(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
+    accessibility:
+      page_title: Accessibility statement
+      heading_html: Accessibility statement for appealing to the Tax Tribunal
+      description_html: |
+        <p class="govuk-body">This accessibility statement applies to the online service for 'appealing against a
+        tax decision’ and ‘applying to close a tax enquiry’.</p>
+        <p class="govuk-body">This website is run by Her Majesty's Courts and Tribunals Service (HMCTS). We want as
+        many people as possible to be able to use this service. For example, that means you should be able to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>change colours, contrast levels and fonts
+          <li>zoom in up to 300% without the text spilling off the screen
+          <li>navigate the form using just a keyboard
+          <li>listen to the form using a screen reader
+        </ul>
+        <p class="govuk-body">Please note that the accessibility tests conducted to date only cover VoiceOver
+        compatibility.</p>
+        <p class="govuk-body">We’ve also made the text as simple as possible to understand.</p>
+        <p class="govuk-body">
+          <a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">AbilityNet</a>
+          has advice on making your device easier to use if you have a disability.
+        </p>
+        <h2 class="govuk-heading-m">How accessible this website is</h2>
+        <p class="govuk-body">We are in the process of arranging a full Web Content Accessibility Guidelines (WCAG)
+        version 2.1 audit for this service.</p>
+        <p class="govuk-body">We will update this statement once we’ve received the WCAG 2.1 audit report. In the
+        meantime, we have done some basic tests, and addressed the issues that were flagged.</p>
+        <p class="govuk-body">
+          We used components in the GOV.UK Design System to build this service. The
+          <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">Design System
+          accessibility guide</a>
+          explains the current state of accessibility for these components.
+        </p>
+        <p class="govuk-body">
+          Components listed on the
+          <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">Design System
+          accessibility guide</a>
+          are fully compliant with the WCAG 2.1 AA standard.
+        </p>
+        <h2 class="govuk-heading-m">Feedback and contact information</h2>
+        <p class="govuk-body">If you need information on this service in a different format like accessible PDF,
+        large print, easy read, audio recording or braille:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>email <a href="mailto:hmctsforms@justice.gov.uk" class="govuk-link">hmctsforms@justice.gov.uk</a>
+        </ul>
+        </p>
+        <p class="govuk-body">If you send us an email, we will consider your request and get back to you within 10 days.
+        </p>
+        <p class="govuk-body">If you would like to talk to someone directly, contact:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>telephone: %{tax_tribunal_phone}
+        </ul>
+        </p>
+        <h2 class="govuk-heading-m">Reporting accessibility problems</h2>
+        <p class="govuk-body">
+          We’re always looking to improve the accessibility of this online form. If you find any
+          problems that aren’t listed on this page or think we’re not meeting the requirements of the accessibility
+          requirements, email
+          <a href="mailto:hmctsforms@justice.gov.uk" class="govuk-link">hmctsforms@justice.gov.uk</a>
+          giving details of the issue and any assistive technology you are using.
+        </p>
+        <h2 class="govuk-heading-m">Enforcement procedure</h2>
+        <p class="govuk-body">
+          The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies
+          (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’).
+          If you’re not happy with how we respond to your complaint,
+          <a href="https://www.equalityadvisoryservice.com/" class="govuk-link">contact the Equality Advisory and
+          Support Service (EASS)</a>
+        </p>
+        <h1 class="govuk-heading-l">Technical information about this website’s accessibility</h1>
+        <p class="govuk-body">HMCTS is committed to making its online forms and services accessible, in accordance with
+        the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+        <h2 class="govuk-heading-m">Compliance status</h2>
+        <p class="govuk-body">
+          This website is partially compliant with the
+          <a href="https://www.w3.org/TR/WCAG21/" class="govuk-link">Web Content Accessibility Guidelines version 2.1</a>
+          AA standard, due to the exemptions listed below.
+        <h1 class="govuk-heading-l">Non-accessible content</h1>
+        <p class="govuk-body">The content listed below is non-accessible for the following reasons.</p>
+        <h2 class="govuk-heading-m">Non-compliance with the accessibility regulations</h2>
+        <h3 class="govuk-heading-s">Lack of manual accessibility testing</h3>
+        <p class="govuk-body">Some basic testing has been conducted on the Tax Tribunals online form. Specifically,
+        the service was made to pass WCAG 2.1 AA standard tests outputted by HTML web accessibility testing tools,
+        <em>Pa11y</em> and <em>WAVE</em>. The form was also tested from start to finish with keyboard testing, zooming in to 300% and
+        VoiceOver.</p>
+        <p class="govuk-body">However, the lack of manual accessibility testing means that it is not possible to declare
+        the service fully compliant. The full WCAG 2.1 audit to be carried out will clarify the overall accessibility
+        of the service. This will allow us to make the service fully compliant.</p>
+        <h1 class="govuk-heading-l">What we’re doing to improve accessibility</h1>
+        <p class="govuk-body">We are in the process of arranging a full WCAG 2.1 audit of this online form. We will
+        then update this statement.</p>
+        <h1 class="govuk-heading-l">Preparation of this accessibility statement</h1>
+        <p class="govuk-body">This statement was prepared on 23 November 2020. It was last updated on
+        23 November 2020.</p>
+        <p class="govuk-body">This website was last tested on 23 November 2020. The tests were carried out by Her
+        Majesty’s Courts and Tribunals Service (HMCTS).</p>
+
   session:
     note:
       heading: Security time-out
