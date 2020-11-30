@@ -6,8 +6,9 @@
     <%= govuk_error_summary %>
 
     <%= step_form @form_object do |f| %>
-      <%= f.govuk_text_field :tax_amount, width: 'one-half',
-          label: { text: t('.heading'), size: 'l', tag: 'h1' }, hint: { text: t('.lead_text') }%>
+      <%= f.govuk_text_field :tax_amount, width: 'one-quarter', prefix_text: '£',
+          label: { text: t('.heading'), size: 'l', tag: 'h1' },
+                             hint: { text: t('.lead_text') }%>
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>
   </div>
