@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe AppealDecisionTree, '#destination' do
-  let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type) }
+  let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type, user_id: user_id) }
   let(:step_params)   { {case_type: 'anything'} }
   let(:next_step)     { nil }
   let(:case_type)     { nil }
+  let(:user_id)       { nil }
+  let(:as)            { :save_and_return }
 
-  subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step, as: :save_and_return) }
+
+  subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step, as: as) }
 
   context 'for a `show more` option' do
     let(:step_params) { {case_type: '_show_more'} }
@@ -42,4 +45,15 @@ RSpec.describe AppealDecisionTree, '#destination' do
     let(:case_type) { CaseType::OTHER }
     it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
   end
+
+  context 'sign in user' do
+    let(:user_id)       { '123456' }
+    let(:as)            { nil }
+
+    context 'for a `show more` option' do
+      let(:step_params) { {case_type: '_show_more'} }
+      it { is_expected.to have_destination(:case_type_show_more, :edit) }
+    end
+  end
+
 end
