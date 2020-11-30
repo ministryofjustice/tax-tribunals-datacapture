@@ -210,8 +210,12 @@ en:
       additional_info:
         edit:
           heading: Why should the enquiry close? (optional)
-          attach_document_html: "<strong>Attach reasons as a document (optional)</strong>"
+          attach_document_html: "<strong>Attach reasons as a single document (optional)</strong>"
           page_title: Additional information
+          upload_explanation_html: |
+            <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
+            <p class="govuk-body">You will have an opportunity to upload supporting documents later in the process.</p>
+
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
@@ -226,8 +230,6 @@ en:
       document_upload:
         current_document:
           previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
-        document_upload_field:
-          upload_explanation_html: "Your document will upload when you click 'Continue'."
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |
@@ -320,6 +322,7 @@ en:
             <strong>Upload authorisation form</strong>
             <p class="govuk-body">You can send scanned images of the form or a good quality photo.</p>
           page_title: Representative approval
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
       representative_type:
         edit:
           heading:
@@ -349,8 +352,11 @@ en:
             supports your case.
           footer_description_text: You will next have to upload any supporting documents
             including any correspondence with HMRC and evidence to support your case.
-          attach_document_html: *attach_reasons_document
+          attach_document_html: "<strong>Attach reasons as a single document</strong>"
           page_title: Grounds for appeal
+          upload_explanation_html: |
+            <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
+            <p class="govuk-body">You will have an opportunity to upload the original notice, decision letter or review conclusion letter later in the process.</p>
       letter_upload:
         edit:
           page_title: Letter upload
@@ -449,6 +455,7 @@ en:
             paying the tax first.
           attach_document_html: *attach_reasons_document
           page_title: Hardship reason
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
     lateness:
       in_time:
         edit:
@@ -471,6 +478,7 @@ en:
             whether your %{appeal_or_application} can go ahead if it is late.
           attach_document_html: *attach_reasons_document
           page_title: Lateness reason
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
   activemodel:
     errors:
       models:
@@ -1287,6 +1295,7 @@ en:
         review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
         late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
         late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
+      upload_explanation_html: "Your document will upload when you click 'Continue'."
     password_toggle:
       show_password: Show password
       hide_password: Hide password

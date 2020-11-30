@@ -2,7 +2,7 @@
 # (as opposed to more than one) document.
 module DocumentUploadHelper
   # Display an upload field if no document has been uploaded for this `document_key` yet
-  def document_upload_field(form, document_key, label_text:)
+  def document_upload_field(form, document_key, label_text:, paragraph_text:)
     return if uploaded_document?(document_key)
 
     render(
@@ -10,7 +10,8 @@ module DocumentUploadHelper
       locals: {
         form:       form,
         field_name: document_field(document_key),
-        label_text: label_text
+        label_text: label_text,
+        paragraph_text: paragraph_text
       }
     )
   end
