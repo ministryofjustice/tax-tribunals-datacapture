@@ -361,6 +361,7 @@ en:
         edit:
           page_title: Letter upload
           having_problems_uploading: I am having trouble uploading my letter
+          upload_explanation_html: Your document will upload when you click 'Continue'.
       outcome:
         edit:
           heading: Briefly say what outcome you would like
