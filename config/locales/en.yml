@@ -1579,6 +1579,8 @@ en:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
         expire_warning_html: We will keep a draft for <strong>%{expire_in_days} days</strong> or until you submit your case. Any information will be automatically deleted for your security after this time.
         return_info: You can return to continue entering details at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.
+        continue_hint: Click 'Continue' to resume.
+        continue: Continue
   appeal_home:
     index:
       impartial_decision: Get an impartial decision on your dispute

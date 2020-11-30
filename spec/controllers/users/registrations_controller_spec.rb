@@ -53,6 +53,19 @@ RSpec.describe Users::RegistrationsController do
           expect { do_post }.to change{ User.count }.by(1)
           expect(response).to redirect_to(users_registration_save_confirmation_path)
         end
+
+        it 'creates the user and redirects to the confirmation page' do
+          expect(controller).not_to receive(:sign_in)
+          do_post
+        end
+
+        context 'save_for_later' do
+          it 'keep the user signed in' do
+            session[:save_for_later] = true
+            expect(controller).to receive(:sign_in)
+            do_post
+          end
+        end
       end
 
       context 'when the registration was unsuccessful' do
@@ -89,6 +102,20 @@ RSpec.describe Users::RegistrationsController do
 
       it 'resets the session after rendering the page' do
         expect(subject).to receive(:reset_tribunal_case_session)
+        get :save_confirmation
+      end
+    end
+
+    context 'when the registration is from save_for_later' do
+      before { session[:save_for_later] = true }
+
+      it 'renders the expected page' do
+        get :save_confirmation
+        expect(response).to render_template(:save_confirmation)
+      end
+
+      it 'resets the session after rendering the page' do
+        expect(subject).not_to receive(:reset_tribunal_case_session)
         get :save_confirmation
       end
     end

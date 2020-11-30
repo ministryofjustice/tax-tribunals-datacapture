@@ -7,6 +7,7 @@ module Steps
 
     def update
       if permitted_params[:save_for_later] == "true"
+        session[:save_for_later] = true
         redirect_to new_user_registration_path
       else
         redirect_to destination
