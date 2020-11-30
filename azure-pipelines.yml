@@ -21,6 +21,7 @@ pr:
     include:
       - master
       - feature/*
+      - bugfix/*
 
 variables:
   application.name: 'tt-data-capture'
