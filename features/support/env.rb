@@ -40,6 +40,3 @@ Dir[File.dirname(__FILE__) + '/page_objects/**/*.rb'].each { |f| require f }
 
 Capybara.raise_server_errors = false
 
-Capybara.register_driver :apparition do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end

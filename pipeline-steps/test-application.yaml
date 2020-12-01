@@ -22,7 +22,7 @@ steps:
 
 - script: |
     bundle exec rake db:create db:schema:load
-  displayName: 'creade DB'
+  displayName: 'create DB'
 
 - script: |
     bundle exec rspec --fail-fast --format documentation --format RspecJunitFormatter --out test-rspec.xml
