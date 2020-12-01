@@ -6,7 +6,7 @@
 
 require 'capybara/cucumber'
 require 'capybara/dsl'
-require 'capybara/poltergeist'
+require 'capybara/apparition'
 require 'capybara-screenshot/cucumber'
 require 'cucumber/rails'
 require 'rest-client'
@@ -37,3 +37,9 @@ Dir[File.dirname(__FILE__) + '/page_objects/**/*.rb'].each { |f| require f }
 # recommended as it will mask a lot of errors for you!
 #
 # ActionController::Base.allow_rescue = false
+
+Capybara.raise_server_errors = false
+
+Capybara.register_driver :apparition do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end

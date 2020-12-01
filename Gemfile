@@ -10,7 +10,8 @@ gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
 gem 'govuk_design_system_formbuilder'
 gem 'govuk_notify_rails', '~> 2.0.0'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
 gem 'pg'
@@ -57,13 +58,12 @@ end
 
 group :test do
   gem 'brakeman'
-  gem 'capybara', '~> 3.2'
+  gem 'apparition'
+  gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
-  gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'cucumber-rails', '~> 1.8.0', require: false
   gem 'geckodriver-helper', '~> 0.23.0'
-  gem 'phantomjs'
-  gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop', require: false
@@ -71,7 +71,7 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
-  gem 'site_prism', '~> 2.9'
+  gem 'site_prism'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
