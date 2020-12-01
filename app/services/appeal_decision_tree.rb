@@ -51,8 +51,8 @@ class AppealDecisionTree < TaxTribs::DecisionTree
   end
 
   def case_type_or_save_step
-    @next_step = after_case_type_step
-    if tribunal_case.user_id.blank?
+    if tribunal_case.user_id.blank? && tribunal_case.navigation_stack.last == "/steps/appeal/case_type"
+      @next_step = after_case_type_step
       save_return_path
     else
       after_case_type_step

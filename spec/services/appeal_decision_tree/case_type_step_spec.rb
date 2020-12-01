@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe AppealDecisionTree, '#destination' do
-  let(:tribunal_case) { instance_double(TribunalCase, case_type: case_type, user_id: user_id) }
-  let(:step_params)   { {case_type: 'anything'} }
-  let(:next_step)     { nil }
-  let(:case_type)     { nil }
-  let(:user_id)       { nil }
-  let(:as)            { :save_and_return }
+  let(:tribunal_case)     { instance_double(TribunalCase, case_type: case_type, user_id: user_id, navigation_stack: navigation_stack ) }
+  let(:step_params)       { {case_type: 'anything'} }
+  let(:next_step)         { nil }
+  let(:case_type)         { nil }
+  let(:user_id)           { nil }
+  let(:as)                { :save_and_return }
+  let(:navigation_stack)  { [] }
 
 
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step, as: as) }
@@ -53,6 +54,31 @@ RSpec.describe AppealDecisionTree, '#destination' do
     context 'for a `show more` option' do
       let(:step_params) { {case_type: '_show_more'} }
       it { is_expected.to have_destination(:case_type_show_more, :edit) }
+    end
+  end
+
+  context 'save_and_return' do
+    let(:user_id)   { nil }
+    let(:as)        { nil }
+
+    context 'no case_type' do
+      let(:case_type) { nil }
+      let(:step_params) { {case_type: Steps::Appeal::CaseTypeForm::SHOW_MORE} }
+      let(:navigation_stack)  { ["/steps/appeal/case_type"] }
+
+      it { is_expected.to have_destination('/steps/save_and_return', :edit) }
+    end
+
+    context 'case_type has a value' do
+      let(:navigation_stack)  { ["/steps/appeal/case_type"] }
+      let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: true) }
+      it { is_expected.to have_destination('/steps/save_and_return', :edit) }
+    end
+
+    context 'case_type has a value the last path is not case_type' do
+      let(:case_type) { CaseType::OTHER }
+      let(:navigation_stack)  { ['/steps/appeal/case_type', '/steps/appeal/case_type_show_more'] }
+      it { is_expected.not_to have_destination('/steps/save_and_return', :edit) }
     end
   end
 
