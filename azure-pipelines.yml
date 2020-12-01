@@ -48,11 +48,11 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.5.8'
+      rubyVersion: '= 2.5.7'
       bundlerVersion: '1.17.3'
 
     steps:
-    - template: ./pipeline-steps/test-application.yaml
+    # - template: ./pipeline-steps/test-application.yaml
     - template: ./pipeline-steps/publish-tests.yaml
 
 
