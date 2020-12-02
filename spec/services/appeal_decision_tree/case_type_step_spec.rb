@@ -63,32 +63,33 @@ RSpec.describe AppealDecisionTree, '#destination' do
 
     context 'no case_type' do
       let(:case_type) { nil }
-      let(:step_params) { {case_type: Steps::Appeal::CaseTypeForm::SHOW_MORE} }
-      let(:navigation_stack)  { ['/steps/appeal/case_type'] }
+      let(:step_params) {{ case_type: '_show_more' }}
 
-      it { is_expected.to have_destination('/steps/save_and_return', :edit) }
-      it 'next_step value is set' do
-        subject.destination
-        expect(subject.next_step).to eq({ controller: :case_type_show_more, action: :edit })
-      end
-    end
-
-    context 'case_type has a value' do
-      let(:navigation_stack)  { ['/steps/appeal/case_type'] }
-      let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: true) }
-      it { is_expected.to have_destination('/steps/save_and_return', :edit) }
-    end
-
-    context 'case_type has a value the last path is not case_type' do
-      let(:case_type) { CaseType::OTHER }
-      let(:navigation_stack)  { ['/steps/appeal/case_type', '/steps/appeal/case_type_show_more'] }
-      it { is_expected.not_to have_destination('/steps/save_and_return', :edit) }
+      it { is_expected.to have_destination(:case_type_show_more, :edit) }
 
       it 'next_step value is not set' do
         subject.destination
         expect(subject.next_step).to be_nil
       end
+    end
 
+    context 'case_type has a value' do
+      let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: true) }
+      let(:step_params) {{ case_type: 'vat' }}
+
+      it { is_expected.to have_destination('/steps/save_and_return', :edit) }
+
+      it 'next_step value is set' do
+        subject.destination
+        expect(subject.next_step).to eq({ action: :edit, controller: '/steps/appeal/dispute_type' })
+      end
+    end
+
+    context 'case_type has a value but user changed mind' do
+      let(:case_type) { CaseType.new(:dummy, ask_challenged: false, ask_dispute_type: true) }
+      let(:step_params) { {case_type: Steps::Appeal::CaseTypeForm::SHOW_MORE} }
+
+      it { is_expected.to have_destination(:case_type_show_more, :edit) }
     end
   end
 
