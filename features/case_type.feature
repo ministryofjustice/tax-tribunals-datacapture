@@ -8,4 +8,4 @@ Feature: Case type page
 
     Scenario: Personal return
       When I submit that it is a personal return
-      Then I am taken to the user type page
+      Then I should go to the save and return page
