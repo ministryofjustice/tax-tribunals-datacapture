@@ -61,7 +61,9 @@ group :test do
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'database_cleaner-active_record'
   gem 'geckodriver-helper', '~> 0.23.0'
+  gem 'factory_bot_rails'
   gem 'phantomjs'
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
