@@ -11,6 +11,14 @@
   <%= link_to t('.save_or_print_pdf'), steps_closure_check_answers_path(format: :pdf), target: '_blank', class: 'govuk-link' %>
 </h2>
 
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive"><%= t '.last_opportunity_warning' %></span>
+    <%= t '.last_opportunity_warning_message' %>
+  </strong>
+</div>
+
 <%= t '.what_happens_next_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone  %>
 
 <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.finish')} %>
