@@ -61,7 +61,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
-  gem 'cucumber-rails', '~> 1.8.0', require: false
+  gem 'cucumber-rails', '~> 1.5', require: false
   gem 'geckodriver-helper', '~> 0.23.0'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.4.1'
