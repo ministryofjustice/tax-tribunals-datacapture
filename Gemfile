@@ -42,6 +42,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
+  gem 'hashdiff', '>= 0.4.0'
   gem 'web-console'
 end
 
