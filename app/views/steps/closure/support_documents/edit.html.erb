@@ -5,9 +5,9 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
+    <h1 class="govuk-heading-l"><label for="document"><%=t '.heading' %></h1>
 
-    <p class="govuk-body-l"><%=t '.lead_text' %></p>
+    <p class="govuk-caption-m"><%=t '.lead_text' %></p>
 
     <%= render partial: 'steps/shared/file_upload_requirements' %>
 
@@ -20,9 +20,10 @@
 
     <%= step_form @form_object do |f| %>
       <div class="govuk-form-group util_mt-large">
-        <%= f.govuk_check_boxes_fieldset :having_problems_uploading do %>
+        <%= f.govuk_check_boxes_fieldset :having_problems_uploading,
+            legend: { text: t('.trouble_uploading_documents_question'), hidden: true } do %>
             <%= f.govuk_check_box :having_problems_uploading, :having_problems_uploading, multiple: false do %>
-              <%=f.govuk_text_area :having_problems_uploading_explanation %>
+              <%= f.govuk_text_area :having_problems_uploading_explanation %>
             <% end %>
           <% end %>
       </div>

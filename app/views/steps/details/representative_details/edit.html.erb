@@ -7,7 +7,7 @@
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
-    <p class="govuk-body-l"><%= translate_for_user_type '.lead_text' %></p>
+    <p class="govuk-caption-m"><%= translate_for_user_type '.lead_text' %></p>
 
     <%= step_form @form_object do |f| %>
       <% @form_object.name_fields.each do |name_field| %>

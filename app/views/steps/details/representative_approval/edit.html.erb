@@ -9,7 +9,7 @@
 
     <p class="govuk-body-l"><%= translate_for_user_type '.lead_text' %></p>
 
-    <p class="govuk-body-l"><%= t '.anytime_text' %></p>
+    <p class="govuk-body"><%= t '.anytime_text' %></p>
 
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary" aria-controls="details-content" aria-expanded="false">
@@ -24,7 +24,8 @@
 
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'representative approval', ga_label: 'representative approval'} do |f| %>
-        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html'),
+                                  paragraph_text: t('.upload_explanation_html')) %>
 
         <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>

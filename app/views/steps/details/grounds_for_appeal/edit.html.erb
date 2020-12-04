@@ -5,15 +5,14 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <h1 class="govuk-heading-l"><%= translate_with_appeal_or_application '.heading' %></h1>
-
-    <p class="govuk-body-l"><%=t '.lead_text' %></p>
-
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'grounds', ga_label: 'grounds for appeal'} do |f| %>
-        <%= f.govuk_text_area :grounds_for_appeal, rows: 15 %>
+        <%= f.govuk_text_area :grounds_for_appeal, rows: 15, hint: { text: t('.lead_text_html') },
+            label: { text: translate_with_appeal_or_application('.heading'), size: 'l', tag: 'h1' }
+        %>
 
-        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html'),
+                                  paragraph_text: t('.upload_explanation_html')) %>
 
         <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>
