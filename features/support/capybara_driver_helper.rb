@@ -1,18 +1,22 @@
+Selenium::WebDriver.logger.level = :error
+
 Capybara.configure do |config|
-  driver = ENV['DRIVER']&.to_sym || :poltergeist
+  driver = ENV['DRIVER']&.to_sym || :headless
   config.default_driver = driver
   config.default_max_wait_time = 30
   config.match = :prefer_exact
+  config.exact = true
   config.visible_text_only = true
 end
 
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
+Capybara.register_driver :apparition do |app|
+  Capybara::Apparition::Driver.new(app, js_errors: false)
 end
 
-Capybara.register_driver :firefox do |app|
-  options = Selenium::WebDriver::Firefox::Options.new
-  Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true, options: options)
+
+Capybara.register_driver :headless do |app|
+  chrome_options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu'])
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: chrome_options)
 end
 
 Capybara.register_driver :chrome do |app|
@@ -22,6 +26,12 @@ end
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
   driver.browser.save_screenshot(path)
 end
+
+Capybara.register_driver :firefox do |app|
+  options = Selenium::WebDriver::Firefox::Options.new
+  Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true, options: options)
+end
+
 
 Capybara.register_driver :safari do |app|
   Capybara::Selenium::Driver.new(app, browser: :safari)
