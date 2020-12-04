@@ -10,7 +10,8 @@ RSpec.describe DocumentUploadHelper do
   end
 
   describe '#document_upload_field' do
-    subject { helper.document_upload_field(form, :some_step, label_text: 'A file') }
+    subject { helper.document_upload_field(form, :some_step, label_text: 'A file',
+                                           paragraph_text: 'Some text') }
 
     context 'when there is no document uploaded' do
       let(:documents) { [] }
@@ -21,7 +22,8 @@ RSpec.describe DocumentUploadHelper do
           locals: {
             form:       form,
             field_name: :some_step_document,
-            label_text: 'A file'
+            label_text: 'A file',
+            paragraph_text: 'Some text'
           }
         )
         subject

@@ -1,11 +1,11 @@
 <p class="govuk-body">
   <%= form.label(field_name, label_text, id: [
-    'error', form.object.class.name.underscore.tr('/', '_'), field_name
-  ].join('_')) %>
+      'error', form.object.class.name.underscore.tr('/', '_'), field_name
+  ].join('_'), for: [form.object.class.name, field_name, 'field'].join('-').underscore.dasherize.tr('/', '-')) %>
 </p>
 
 <p class="govuk-body">
-  <%=t '.upload_explanation_html' %>
+  <%= paragraph_text %>
 </p>
 
 <div class="govuk-grid-row uploader-row">
