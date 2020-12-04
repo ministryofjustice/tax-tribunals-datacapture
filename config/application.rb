@@ -24,7 +24,7 @@ module TaxTribunalsDatacapture
     config.active_record.primary_key = :uuid
 
     config.survey_link = 'https://www.smartsurvey.co.uk/s/TTExit20/'.freeze
-    config.kickout_survey_link = 'https://goo.gl/forms/Ccx0sJcOs5cSVYks2'.freeze
+    config.kickout_survey_link = 'https://www.smartsurvey.co.uk/s/TTExit20/'.freeze
 
     # This is the GDS-hosted homepage for our service, and the one with a `start` button
     config.gds_service_homepage_url = 'https://www.gov.uk/tax-tribunal'.freeze
