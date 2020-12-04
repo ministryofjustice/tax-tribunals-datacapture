@@ -73,7 +73,6 @@ en:
           confirmation_email: We will send confirmation by email
           save_or_print_pdf: Save or print your case details
           what_happens_next_html: |
-            <p class="govuk-body">Please save or print your case details for your records.</p>
             <h2 class="govuk-heading-m">What happens next?</h2>
             <p class="govuk-body">The tax tribunal will:</p>
             <ul class="govuk-list govuk-list--bullet">
@@ -85,7 +84,8 @@ en:
               If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
               <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
             </p>
-
+          last_opportunity_warning: Warning
+          last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
   steps:
     appeal:
       case_type:
@@ -210,9 +210,11 @@ en:
       additional_info:
         edit:
           heading: Why should the enquiry close? (optional)
-          attach_document_html: "<strong>Attach reasons as a document (optional)</strong>"
+          attach_document_html: "<strong>Attach reasons as a single document (optional)</strong>"
           page_title: Additional information
-          textarea_label: Enter reasons (optional)
+          upload_explanation_html: |
+            <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
+            <p class="govuk-body">You will have an opportunity to upload supporting documents later in the process.</p>
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
@@ -228,8 +230,6 @@ en:
       document_upload:
         current_document:
           previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
-        document_upload_field:
-          upload_explanation_html: "Your document will upload when you click 'Continue'."
       representative_explanation:
         heading: What is a representative and what can they do?
         content_html: |
@@ -322,6 +322,7 @@ en:
             <strong>Upload authorisation form</strong>
             <p class="govuk-body">You can send scanned images of the form or a good quality photo.</p>
           page_title: Representative approval
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
       representative_type:
         edit:
           heading:
@@ -353,14 +354,17 @@ en:
             supports your case.
           footer_description_text: You will next have to upload any supporting documents
             including any correspondence with HMRC and evidence to support your case.
-          attach_document_html: *attach_reasons_document
+          attach_document_html: "<strong>Attach reasons as a single document</strong>"
           page_title: Grounds for appeal
-          textarea_placeholder: Enter reasons here or attach as a document below
+          upload_explanation_html: |
+            <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
+            <p class="govuk-body">You will have an opportunity to upload the original notice, decision letter or review conclusion letter later in the process.</p>
       letter_upload:
         edit:
           page_title: Letter upload
           having_problems_uploading: I am having trouble uploading my letter
           trouble_uploading_document_question: Are you having trouble uploading your document?
+          upload_explanation_html: Your document will upload when you click 'Continue'.
       outcome:
         edit:
           heading: Briefly say what outcome you would like
@@ -456,6 +460,7 @@ en:
             paying the tax first.
           attach_document_html: *attach_reasons_document
           page_title: Hardship reason
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
     lateness:
       in_time:
         edit:
@@ -482,7 +487,7 @@ en:
             <p>Enter reasons below or attach as a document.</p>
           attach_document_html: *attach_reasons_document
           page_title: Lateness reason
-          textarea_placeholder: Enter reasons here or attach as a document below
+          upload_explanation_html: "Your document will upload when you click 'Continue'."
   activemodel:
     errors:
       models:
@@ -1254,7 +1259,7 @@ en:
     confirmation_case_reference:
       case_reference: 'Your case reference number is:'
       case_submitted_successfully: Your case was submitted successfully.
-      case_reference_pending: You will be sent a case reference number shortly.
+      case_reference_pending: It is highly recommended that you save or print a copy of the case details for your records.
       note_number: Make a note of this number in case you need to contact us. We will also email the number to you.
     file_upload:
       header: File upload requirements
@@ -1299,6 +1304,7 @@ en:
         review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
         late_review_refusal_letter_html: "<strong>Attach the letter refusing your late review</strong>"
         late_appeal_refusal_letter_html: "<strong>Attach the letter refusing your late appeal</strong>"
+      upload_explanation_html: "Your document will upload when you click 'Continue'."
     password_toggle:
       show_password: Show password
       hide_password: Hide password

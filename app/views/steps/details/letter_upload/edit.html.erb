@@ -12,7 +12,8 @@
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'letter', ga_label: i18n_letter_type} do |f| %>
 
-        <%= document_upload_field(f, @form_object.document_key, label_text: t("shared.letter_upload.attach_document.#{i18n_letter_type}_html")) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t("shared.letter_upload.attach_document.#{i18n_letter_type}_html"),
+                                  paragraph_text: t('.upload_explanation_html')) %>
 
         <% unless uploaded_document?(@form_object.document_key) %>
           <%= f.govuk_check_boxes_fieldset :having_problems_uploading,

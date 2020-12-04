@@ -10,7 +10,8 @@
         <%= f.govuk_text_area :closure_additional_info, rows: 15, label: { text: t('.heading'), size: 'l', tag: 'h1' },
         hint: { text: t('.textarea_label') } %>
 
-        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html'),
+                                  paragraph_text: t('.upload_explanation_html')) %>
 
         <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>
