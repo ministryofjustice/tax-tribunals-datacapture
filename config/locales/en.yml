@@ -215,13 +215,14 @@ en:
           upload_explanation_html: |
             <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
             <p class="govuk-body">You will have an opportunity to upload supporting documents later in the process.</p>
-
+          textarea_label: Enter reasons (optional)
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
           lead_text: *tax_tribunal_independent
           page_title: Documents upload
           having_problems_uploading: I am having trouble uploading my documents
+          trouble_uploading_documents_question: Are you having trouble uploading your documents?
       <<: *CYA_CONFIRMATION
       start:
         show:
@@ -336,17 +337,19 @@ en:
           heading: Representative's details
           lead_text:
             as_taxpayer: If you have authorised your representative to act on your
-              behalf, all correspondence will be sent to the address or email address,
+              behalf, all correspondence will be sent to the address or email address
               you enter below.
             as_representative: If the taxpayer has authorised you to act on their
-              behalf, all correspondence will be sent to the address and email address,
+              behalf, all correspondence will be sent to the address and email address
               you enter below.
           page_title: Representative's details
       grounds_for_appeal:
         edit:
           heading: Grounds for %{appeal_or_application}
-          lead_text: Clearly explain why you are appealing, giving reasons for each
-            decision you dispute. The judge will want to hear things from your side.
+          lead_text_html: |
+            <p>Clearly explain why you are appealing, giving reasons for each
+            decision you dispute. The judge will want to hear things from your side.</p>
+            <p>Enter reasons below or attach as a document.</p>
           description_text: Clearly explain in your own words. The judge will want
             to know things from your side and understand how any evidence you provide
             supports your case.
@@ -361,11 +364,12 @@ en:
         edit:
           page_title: Letter upload
           having_problems_uploading: I am having trouble uploading my letter
+          trouble_uploading_document_question: Are you having trouble uploading your document?
           upload_explanation_html: Your document will upload when you click 'Continue'.
       outcome:
         edit:
           heading: Briefly say what outcome you would like
-          lead_text: ""
+          lead_text: Clearly explain in 2-3 sentences
           page_title: Outcome
       <<: *CYA_CONFIRMATION
       need_support:
@@ -431,6 +435,7 @@ en:
             <p class="govuk-body"><strong>Do not upload any documents other than your letter</strong></p>
             <p class="govuk-body">The tribunal will contact you if further documents are needed.</p>
           having_problems_uploading: I am having trouble uploading my letter
+          trouble_uploading_documents_question: Are you having trouble uploading your documents?
     hardship:
       disputed_tax_paid:
         edit:
@@ -470,13 +475,17 @@ en:
           heading: Why are you late with your %{appeal_or_application}?
           heading_unsure: Are there reasons why your %{appeal_or_application} might
             be late?
-          lead_text: The judge will consider your reasons and any response from HMRC.
+          lead_text_html: |
+            <p>The judge will consider your reasons and any response from HMRC.
             There may be a hearing to decide if your %{appeal_or_application} can
             go ahead. If you are not allowed to appeal late, you will be told why
-            not.
-          lead_text_unsure: To help process your case quickly, you should give reasons
+            not.</p>
+            <p>Enter reasons below or attach as a document.</p>
+          lead_text_unsure_html: |
+            <p>To help process your case quickly, you should give reasons
             why your %{appeal_or_application} might be late. The judge will decide
-            whether your %{appeal_or_application} can go ahead if it is late.
+            whether your %{appeal_or_application} can go ahead if it is late.</p>
+            <p>Enter reasons below or attach as a document.</p>
           attach_document_html: *attach_reasons_document
           page_title: Lateness reason
           upload_explanation_html: "Your document will upload when you click 'Continue'."
@@ -914,7 +923,7 @@ en:
       steps_details_letter_upload_form:
         supporting_letter_document: ''
         having_problems_uploading_options:
-          having_problems_uploading: I am having trouble uploading my documents
+          having_problems_uploading: I am having trouble uploading my document
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
       steps_details_documents_upload_form:
         having_problems_uploading_options:
@@ -1535,7 +1544,7 @@ en:
             case_actions: Case actions
         page_title: Your draft cases
       edit:
-        heading: Your case reference
+        heading: Your case reference (optional)
         lead_text: Give the case a reference so it's easy to find.
         page_title: Edit reference
       case_row:

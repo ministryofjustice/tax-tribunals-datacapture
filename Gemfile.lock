@@ -179,7 +179,7 @@ GEM
       typhoeus (~> 1.1.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (1.2.7)
+    govuk_design_system_formbuilder (2.1.4)
       actionview (>= 5.2)
       activemodel (>= 5.2)
       activesupport (>= 5.2)
@@ -494,7 +494,7 @@ DEPENDENCIES
   faker (~> 1.6, >= 1.6.3)
   geckodriver-helper (~> 0.23.0)
   glimr-api-client (~> 0.3.2)
-  govuk_design_system_formbuilder
+  govuk_design_system_formbuilder (~> 2.1.4)
   govuk_notify_rails (~> 2.0.0)
   i18n-debug
   jquery-rails

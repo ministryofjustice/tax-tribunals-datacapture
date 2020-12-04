@@ -5,17 +5,13 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <h1 class="govuk-heading-l">
-      <%= @form_object.lateness_unknown? ? translate_with_appeal_or_application('.heading_unsure') : translate_with_appeal_or_application('.heading') %>
-    </h1>
-
-    <p class="govuk-body-l">
-      <%= @form_object.lateness_unknown? ? translate_with_appeal_or_application('.lead_text_unsure') : translate_with_appeal_or_application('.lead_text') %>
-    </p>
-
     <div id="document_upload_main_container" class="uploaded_doc_<%= uploaded_document?(@form_object.document_key) %>">
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'lateness', ga_label: 'lateness reasons'} do |f| %>
-        <%= f.govuk_text_area :lateness_reason, rows: 15 %>
+        <%= f.govuk_text_area :lateness_reason, rows: 15,
+            label: { text: @form_object.lateness_unknown? ? translate_with_appeal_or_application('.heading_unsure') : translate_with_appeal_or_application('.heading'),
+                     size: 'l', tag: 'h1'},
+            hint: { text: @form_object.lateness_unknown? ? translate_with_appeal_or_application('.lead_text_unsure_html') : translate_with_appeal_or_application('.lead_text_html') }
+        %>
 
         <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html'),
                                   paragraph_text: t('.upload_explanation_html')) %>

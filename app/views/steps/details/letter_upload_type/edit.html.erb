@@ -5,12 +5,11 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <%= render partial: 'steps/shared/document_upload/letter_upload_header' %>
-
     <%= step_form @form_object, html: { class: 'gtm-radioButtonGroup' } do |f| %>
       <%= f.govuk_collection_radio_buttons :letter_upload_type,
           Steps::Details::LetterUploadTypeForm.choices, :to_s, nil,
-          legend: {class: 'govuk-visually-hidden'} %>
+          legend: { text: t("shared.letter_upload.heading.#{i18n_letter_type}"), size: 'l' },
+          hint: { text: t('shared.letter_upload.lead_text') } %>
 
       <div class="panel toggleable util_mb-large" id="letter_upload_type_no_letter" aria-hidden="true" data-show-elements="form input:radio:last" data-hide-elements="form input:radio:not(:last)">
         <%= t('.no_letter_info_html') %>
