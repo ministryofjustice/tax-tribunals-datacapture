@@ -215,6 +215,7 @@ en:
           upload_explanation_html: |
             <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
             <p class="govuk-body">You will have an opportunity to upload supporting documents later in the process.</p>
+          textarea_label: Enter reasons (optional)
       support_documents:
         edit:
           heading: Add documents to support your application (optional)
