@@ -11,7 +11,8 @@
       <%= step_form @form_object, html: {class: 'ga-fileUpload'}, data: {ga_category: 'closure', ga_label: 'additional info'} do |f| %>
         <%= f.govuk_text_area :closure_additional_info, rows: 15 %>
 
-        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html')) %>
+        <%= document_upload_field(f, @form_object.document_key, label_text: t('.attach_document_html'),
+                                  paragraph_text: t('.upload_explanation_html')) %>
 
         <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
       <% end %>
