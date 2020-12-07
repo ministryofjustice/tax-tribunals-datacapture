@@ -3,23 +3,23 @@ Then("I am able to click on the external Help link") do
 end
 
 When("I click on the Contact link") do
-  base_page.footer.contact_link.click
+  go_to_contact_page
 end
 
 When("I click on the Cookies link") do
-  base_page.footer.cookies_link.click
+  go_to_cookies_page
 end
 
 When("I click on the Privacy policy link") do
-  base_page.footer.privacy_link.click
+  go_to_privacy_page
 end
 
 When("I click on the Accessibility statement link") do
-  base_page.footer.accessibility_link.click
+  go_to_accessibility_page
 end
 
 When("I click on the Terms and conditions link") do
-  base_page.footer.terms_link.click
+  go_to_terms_page
 end
 
 Then("I am on the Contact page") do
