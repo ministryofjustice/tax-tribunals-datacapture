@@ -1,3 +1,5 @@
+  require: rubocop-performance
+
   AllCops:
     Exclude:
       - 'lib/generators/step/templates/*.rb'
@@ -279,7 +281,7 @@
     Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
     Enabled: true
 
-  Performance/Sample:
+  Style/Sample:
     Description: >-
                     Use `sample` instead of `shuffle.first`,
                     `shuffle.last`, and `shuffle[Fixnum]`.
@@ -599,7 +601,7 @@
       Checks the indentation of the first non-blank non-comment line in a file.
     Enabled: false
 
-  Layout/FirstParameterIndentation:
+  Layout/IndentFirstArgument:
     Description: 'Checks the indentation of the first parameter in a method call.'
     Enabled: false
 
@@ -657,13 +659,13 @@
     StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-indentation'
     Enabled: false
 
-  Layout/IndentArray:
+  Layout/IndentFirstArrayElement:
     Description: >-
                    Checks the indentation of the first element in an array
                    literal.
     Enabled: false
 
-  Layout/IndentHash:
+  Layout/IndentFirstHashElement:
     Description: 'Checks the indentation of the first key in a hash literal.'
     Enabled: false
 
