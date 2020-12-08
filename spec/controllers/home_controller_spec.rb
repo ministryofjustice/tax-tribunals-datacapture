@@ -57,4 +57,25 @@ RSpec.describe HomeController do
       expect(response).to render_template(:cookies)
     end
   end
+
+  describe '#terms' do
+    it 'renders the expected page' do
+      get :terms
+      expect(response).to render_template(:terms)
+    end
+  end
+
+  describe '#privacy' do
+    it 'renders the expected page' do
+      get :privacy
+      expect(response).to render_template(:privacy)
+    end
+  end
+
+  describe '#accessibility' do
+    it 'renders the expected page' do
+      get :accessibility
+      expect(response).to render_template(:accessibility)
+    end
+  end
 end
