@@ -8,4 +8,10 @@
 -->
 <p class="govuk-body"><%=t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
 
-<p class="govuk-body"><%=t '.return_info' %></p>
+
+<%- if current_user %>
+  <p class="govuk-body"><%=t '.continue_hint' %></p>
+  <%= link_to t('.continue'), session['next_step'], class: 'govuk-button' %>
+<% else %>
+  <p class="govuk-body"><%=t '.return_info' %></p>
+<% end %>

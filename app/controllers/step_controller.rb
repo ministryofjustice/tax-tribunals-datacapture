@@ -21,14 +21,17 @@ class StepController < ApplicationController
     )
 
     if @form_object.save
-      destination = decision_tree_class.new(
+
+      decision = decision_tree_class.new(
         tribunal_case: current_tribunal_case,
         step_params:   hash,
         # Used when the step name in the decision tree is not the same as the first
         # (and usually only) attribute in the form.
         as:            opts[:as],
         next_step:     @next_step
-      ).destination
+      )
+      destination = decision.destination
+      next_step_in_session(decision)
 
       redirect_to destination
     else
@@ -55,5 +58,11 @@ class StepController < ApplicationController
 
     current_tribunal_case.navigation_stack = stack_until_current_page + [request.fullpath]
     current_tribunal_case.save!
+  end
+
+  def next_step_in_session(decision)
+    if decision.next_step != { controller: '/steps/save_and_return', action: :edit }
+      session[:next_step] = url_for(decision.next_step)
+    end
   end
 end

@@ -5,7 +5,8 @@
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
     <%= render partial: 'users/shared/case_saved', locals: {email_address: @email_address} %>
-
-    <p class="govuk-body"><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
+    <%- unless current_user %>
+      <p class="govuk-body"><%= link_to t('.sign_in'), user_session_path, class: 'govuk-link' %></p>
+    <% end %>
   </div>
 </div>

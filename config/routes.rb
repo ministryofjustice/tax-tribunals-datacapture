@@ -111,6 +111,8 @@ Rails.application.routes.draw do
       edit_step :representative_approval
       edit_step :what_support
     end
+
+    edit_step :save_and_return
   end
 
   namespace :users do
