@@ -19,10 +19,6 @@ When("I click on continue after selecting Income Tax option") do
   continue
 end
 
-Then("I should go to the challenge decision page") do
-  expect(challenge_decision_page).to be_displayed
-end
-
 When("I click on continue after selecting Other option") do
   appeal_case_type_page.content.other_option.click
   continue
@@ -70,4 +66,17 @@ end
 
 Then("I should go to the in time page") do
   expect(page).to have_current_path('/steps/lateness/in_time')
+end
+
+Then("I should go to the save and return page") do
+  expect(save_return_page.content).to have_header
+end
+
+When("I click on continue when I am on the save and return page") do
+  expect(save_return_page.content).to have_header
+  continue
+end
+
+Then("I should be on the challenge decision page") do
+  expect(challenge_decision_page.content).to have_help_with_challenging_a_decision
 end

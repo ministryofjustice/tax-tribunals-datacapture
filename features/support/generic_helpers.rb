@@ -74,6 +74,14 @@ def save_appeal_page
   @save_appeal_page ||= SaveAppealPage.new
 end
 
+def save_return_page
+  @save_return_page ||= SaveReturnPage.new
+end
+
+def save_confirmation_page
+  @save_confirmation_page ||= SaveConfirmationPage.new
+end
+
 def continue
   base_page.content.continue_button.click
 end

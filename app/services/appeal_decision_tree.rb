@@ -3,8 +3,10 @@ class AppealDecisionTree < TaxTribs::DecisionTree
     return next_step if next_step
 
     case step_name.to_sym
-    when :case_type, :case_type_show_more
+    when :save_and_return
       after_case_type_step
+    when :case_type, :case_type_show_more
+      case_type_or_save_step
     when :dispute_type
       after_dispute_type_step
     when :penalty_amount, :penalty_and_tax_amounts, :tax_amount
@@ -46,5 +48,18 @@ class AppealDecisionTree < TaxTribs::DecisionTree
     else
       edit('steps/lateness/in_time')
     end
+  end
+
+  def case_type_or_save_step
+    if tribunal_case.user_id.blank? && !on_show_more_step?
+      @next_step = after_case_type_step
+      save_return_path
+    else
+      after_case_type_step
+    end
+  end
+
+  def on_show_more_step?
+    answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
   end
 end

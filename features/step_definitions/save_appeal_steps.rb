@@ -3,6 +3,9 @@ Given("I have an appeal in progress") do
   home_page.appeal
   appeal_home_page.continue
   appeal_case_type_page.submit_income_tax
+  expect(save_return_page.content).to have_header
+  continue
+  expect(challenge_decision_page.content).to have_header
 end
 
 When("I click on save and come back later") do
@@ -10,7 +13,7 @@ When("I click on save and come back later") do
 end
 
 Then("I am taken to the save your appeal page") do
-  expect(save_appeal_page.content).to have_header
+  expect(save_appeal_page.content).to have_appeal_header
   expect(save_appeal_page).to be_displayed
 end
 

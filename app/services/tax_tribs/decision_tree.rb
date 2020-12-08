@@ -38,6 +38,10 @@ class TaxTribs::DecisionTree
     { controller: '/users/registrations', action: :new }
   end
 
+  def save_return_path
+    { controller: '/steps/save_and_return', action: :edit }
+  end
+
   def dispute_or_penalties_decision
     if tribunal_case.case_type.ask_dispute_type?
       edit('/steps/appeal/dispute_type')

@@ -20,6 +20,8 @@ def go_to_taxpayer_details_page
   closure_page.continue
   expect(case_type_page).to be_displayed
   case_type_page.submit_personal_return
+  expect(save_return_page.content).to have_header
+  continue
   expect(user_type_page).to be_displayed
   user_type_page.submit_yes
   expect(taxpayer_type_page).to be_displayed
@@ -31,6 +33,8 @@ def go_to_taxpayer_type_page
   home_page.close_enquiry
   closure_page.continue
   case_type_page.submit_personal_return
+  expect(save_return_page.content).to have_header
+  continue
   user_type_page.submit_yes
 end
 
@@ -39,6 +43,8 @@ def go_to_user_type_page
   home_page.close_enquiry
   closure_page.continue
   case_type_page.submit_personal_return
+  expect(save_return_page.content).to have_header
+  continue
 end
 
 def go_to_representative_page
@@ -74,4 +80,8 @@ end
 def go_to_accessibility_page
   home_page.load_page
   base_page.footer.accessibility_link.click
+end
+
+def go_to_login_page
+  login_page.load_page
 end

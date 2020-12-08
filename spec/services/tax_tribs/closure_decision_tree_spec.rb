@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe TaxTribs::ClosureDecisionTree do
-  let(:tribunal_case) { double('TribunalCase') }
+  let(:tribunal_case) { double('TribunalCase', user_id: user_id) }
   let(:step_params) { double('Step') }
   let(:next_step) { nil }
+  let(:user_id) { nil }
 
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step) }
 
@@ -14,17 +15,35 @@ RSpec.describe TaxTribs::ClosureDecisionTree do
       it { is_expected.to have_destination('/home', :index) }
     end
 
-    # Mutant kill
-    context 'when the step_params key is a string' do
-      let(:step_params) { { 'case_type' => 'anything' } }
+    context 'case type' do
+      context 'user is logged in' do
+        let(:user_id)       { '123456' }
 
-      it { is_expected.to have_destination('/steps/details/user_type', :edit) }
-    end
+        describe 'when the step_params key is a string' do
+          let(:step_params) { { 'case_type' => 'anything' } }
 
-    context 'when the step is `case_type`' do
-      let(:step_params) { { case_type: 'anything' } }
+          it { is_expected.to have_destination('/steps/details/user_type', :edit) }
+        end
 
-      it { is_expected.to have_destination('/steps/details/user_type', :edit) }
+        describe 'when the step is `case_type`' do
+          let(:step_params) { { case_type: 'anything' } }
+
+          it { is_expected.to have_destination('/steps/details/user_type', :edit) }
+        end
+      end
+
+      context 'user is not logged in' do
+        describe 'when the step_params key is a string' do
+          let(:step_params) { { 'case_type' => 'anything' } }
+
+          it { is_expected.to have_destination('/steps/save_and_return', :edit) }
+
+          it 'next_step value is set' do
+            subject.destination
+            expect(subject.next_step).to eq({ action: :edit, controller: '/steps/details/user_type' })
+          end
+        end
+      end
     end
 
     context 'when the step is `enquiry_details`' do

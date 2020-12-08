@@ -1,0 +1,20 @@
+<% title t('.page_title') %>
+<% step_header %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
+
+    <p class="govuk-body-l"><%=t '.lead_text' %></p>
+    <p class="govuk-body-l"><%=t '.lead_text_2' %></p>
+
+    <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
+      <div class="govuk-form-group">
+        <%= f.govuk_check_box :save_for_later, true, multiple: false, link_errors: true, label: { text: t('.save_for_later') } %>
+      </div>
+
+      <%= f.govuk_submit %>
+    <% end %>
+
+  </div>
+</div>
