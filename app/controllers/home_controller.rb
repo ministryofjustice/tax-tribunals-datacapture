@@ -16,6 +16,9 @@ class HomeController < ApplicationController
   def privacy
   end
 
+  def accessibility
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]

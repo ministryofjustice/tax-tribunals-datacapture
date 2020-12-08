@@ -60,3 +60,28 @@ end
 def go_to_login_page
   login_page.load_page
 end
+
+def go_to_contact_page
+  home_page.load_page
+  base_page.footer.contact_link.click
+end
+
+def go_to_cookies_page
+  home_page.load_page
+  base_page.footer.cookies_link.click
+end
+
+def go_to_terms_page
+  home_page.load_page
+  base_page.footer.terms_link.click
+end
+
+def go_to_privacy_page
+  home_page.load_page
+  base_page.footer.privacy_link.click
+end
+
+def go_to_accessibility_page
+  home_page.load_page
+  base_page.footer.accessibility_link.click
+end

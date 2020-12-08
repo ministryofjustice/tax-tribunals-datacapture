@@ -7,4 +7,12 @@ class BasePage < SitePrism::Page
     element :company, 'label', text: 'Company'
     element :other, 'label', text: 'Other type of organisation'
   end
+  section :footer, '.govuk-footer' do
+    element :help_link, 'a', text: 'Help'
+    element :contact_link, 'a', text: 'Contact'
+    element :cookies_link, 'a', text: 'Cookies'
+    element :terms_link, 'a', text: 'Terms and conditions'
+    element :privacy_link, 'a', text: 'Privacy policy'
+    element :accessibility_link, 'a', text: 'Accessibility statement'
+  end
 end

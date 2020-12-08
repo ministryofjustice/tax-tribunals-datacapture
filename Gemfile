@@ -42,6 +42,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
+  gem 'hashdiff', '>= 0.4.0'
   gem 'web-console'
 end
 
@@ -57,7 +58,8 @@ end
 
 group :test do
   gem 'brakeman'
-  gem 'capybara', '~> 3.2'
+  gem 'apparition'
+  gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'cucumber-rails', '~> 1.5', require: false
@@ -69,11 +71,12 @@ group :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
-  gem 'site_prism', '~> 2.9'
+  gem 'site_prism'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
