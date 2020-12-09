@@ -5,17 +5,17 @@ ruby '2.6.6'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
-gem 'devise', '~> 4.7.1'
+gem 'devise', '~> 4.7.3'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_design_system_formbuilder', '~> 2.1.4'
+gem 'govuk_design_system_formbuilder', '~> 2.1.5'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
 gem 'nokogiri', '~> 1.10.5'
 gem 'pg'
 gem 'pry-rails'
-gem 'puma', '~> 4.3.5'
+gem 'puma', '~> 5.0.4'
 gem 'rack-attack', '~> 5.4.2'
 gem 'rails', '~> 6.0.3'
 gem 'responders'
@@ -54,6 +54,9 @@ group :development, :test do
   gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
@@ -70,9 +73,6 @@ group :test do
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
