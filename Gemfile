@@ -5,10 +5,10 @@ ruby '2.6.6'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
-gem 'devise', '~> 4.7.1'
+gem 'devise', '~> 4.7.3'
 gem 'email_validator'
 gem 'glimr-api-client', '~> 0.3.2'
-gem 'govuk_design_system_formbuilder', '~> 2.1.4'
+gem 'govuk_design_system_formbuilder', '~> 2.1.5'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'jquery-rails'
 gem 'mojfile-uploader-api-client', '~> 0.8'
