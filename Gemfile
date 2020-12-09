@@ -54,6 +54,9 @@ group :development, :test do
   gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
@@ -70,9 +73,6 @@ group :test do
   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
