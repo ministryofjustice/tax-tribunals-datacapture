@@ -8,6 +8,7 @@ module CheckAnswers
       [
         FileOrTextAnswer.new(:grounds_for_appeal, tribunal_case.grounds_for_appeal, tribunal_case.documents(:grounds_for_appeal).first, change_path: edit_steps_details_grounds_for_appeal_path),
         # nil file because there is no file upload field (yet)
+        Answer.new(:eu_exit, tribunal_case.eu_exit.to_s, change_path: edit_steps_details_eu_exit_path),
         FileOrTextAnswer.new(:outcome, tribunal_case.outcome, nil, change_path: edit_steps_details_outcome_path),
         *support_answers,
         *submitted_letter_files_answers
