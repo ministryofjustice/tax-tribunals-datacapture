@@ -43,8 +43,9 @@ Capybara::Screenshot.register_filename_prefix_formatter(:cucumber) do |scenario|
 end
 
 Capybara.register_driver :saucelabs do |app|
-  browser = Settings.saucelabs.browsers.send(Settings.saucelabs.browser).to_h
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: Settings.saucelabs.url, desired_capabilities: browser)
+  h = {:browserName=>"chrome", :name=>"MAC_CHROME_LATEST", :platform=>"OS X 10.12", :version=>"latest"}
+  browser = h
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: 'http://AhsanZX97:a0c85584-0285-4f58-bd70-33ebe9bb4dad@ondemand.saucelabs.com:80/wd/hub', desired_capabilities: browser)
 end
 
 Capybara.javascript_driver = Capybara.default_driver
