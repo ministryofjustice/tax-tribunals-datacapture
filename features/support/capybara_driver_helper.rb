@@ -42,6 +42,11 @@ Capybara::Screenshot.register_filename_prefix_formatter(:cucumber) do |scenario|
   "screenshot_cucumber_#{title}"
 end
 
+Capybara.register_driver :saucelabs do |app|
+  browser = Settings.saucelabs.browsers.send(Settings.saucelabs.browser).to_h
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: Settings.saucelabs.url, desired_capabilities: browser)
+end
+
 Capybara.javascript_driver = Capybara.default_driver
 Capybara.current_driver = Capybara.default_driver
 Capybara.always_include_port = true

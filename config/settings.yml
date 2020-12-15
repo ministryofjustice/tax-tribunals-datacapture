@@ -1,0 +1,37 @@
+env: <%= ENV['ENV'] %>
+submission:
+  url: <%= ENV['SUBMISSION_URL'] %>
+  token: <%= ENV['SUBMISSION_TOKEN'] %>
+analytics:
+  id: <%= ENV['GTM_ID'] || 'GTM-MBQ9L9X' %>
+health_status:
+  deployment:
+    version_number: <%= ENV['APPVERSION'] || 'unknown' %>
+    build_date: <%= ENV['APP_BUILD_DATE'] || 'unknown' %>
+    commit_id:  <%= ENV['APP_GIT_COMMIT'] || 'unknown' %>
+    build_tag:  <%= ENV['APP_BUILD_TAG'] || 'unknown' %>
+zendesk:
+  enabled: <%= ENV['ZENDESK_ENABLED'].present? && ['1', 'true'].include?(ENV['ZENDESK_ENABLED'].downcase) %>
+  url: <%= ENV['ZENDESK_URL'] %>
+  username: <%= ENV['ZENDESK_USERNAME'] %>
+  token: <%= ENV['ZENDESK_TOKEN'] %>
+session:
+  expires_in_minutes: 60
+et:
+  england_wales_email: ETHelpwithfees@hmcts.gsi.gov.uk
+  scotland_email: GLASGOWET@hmcts.gsi.gov.uk
+homepage:
+  external_url: <%= ENV['HOMEPAGE_EXTERNAL_URL'] || nil %>
+done_page:
+  external_url: <%= ENV['DONE_PAGE_EXTERNAL_URL'] || nil %>
+income:
+  min_threshold_base: 1085
+  max_threshold_base: 5085
+  per_child_increment: 245
+  married_supplement: 160
+probate_fees:
+  release_date: <%= ENV['PROBATE_FEES_RELEASE_DATE'] || '2025-04-01' %>
+sentry:
+  ssl_verification: <%= ENV['SENTRY_SSL_VERIFICATION'] %>
+maintenance:
+  show: <%= ENV['SHOW_MAINTENANCE_BANNER'] || false %>

@@ -1,0 +1,51 @@
+saucelabs:
+  username: <%= ENV['SAUCE_USERNAME'] %>
+  access_key: <%= ENV['SAUCE_ACCESS_KEY'] %>
+  url: <%= "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub" %>
+  browser: <%= ENV['SAUCELABS_BROWSER'] || 'chrome_win_latest' %>
+  browsers:
+    edge_latest:
+      browserName: MicrosoftEdge
+      name: IEEdge_LATEST
+      platform: Windows 10
+      version: latest
+    edge_previous:
+      browserName: MicrosoftEdge
+      name: IEEdge_PREVIOUS
+      platform: Windows 10
+      version: latest-1
+    chrome_mac_latest:
+      browserName: chrome
+      name: MAC_CHROME_LATEST
+      platform: OS X 10.12
+      version: latest
+    chrome_mac_previous:
+      browserName: chrome
+      name: MAC_CHROME_PREVIOUS
+      platform: OS X 10.11
+      version: latest-1
+    firefox_win_latest:
+      browserName: firefox
+      name: WIN_FIREFOX_LATEST
+      platform: Windows 10
+      version: latest
+    firefox_win_previous:
+      browserName: firefox
+      name: WIN_FIREFOX_PREVIOUS
+      platform: Windows 8.1
+      version: latest-1
+    firefox_mac_latest:
+      browserName: firefox
+      name: MAC_FIREFOX_LATEST
+      platform: OS X 10.12
+      version: latest
+    firefox_mac_previous:
+      browserName: firefox
+      name: MAC_FIREFOX_PREVIOUS
+      platform: OS X 10.11
+      version: latest-1
+    safari9:
+      browserName: safari
+      name: SAFARI_9
+      platform: OS X 10.11
+      version: '9.0'
