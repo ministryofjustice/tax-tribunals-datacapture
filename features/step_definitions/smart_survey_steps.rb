@@ -3,5 +3,5 @@ Given("that I'm on the home page and want to give feedback") do
 end
 
 Then("there should be a smart survey link at the top of the home page") do
-  expect(home_page).to have_link('Provide feedback', href: 'https://www.smartsurvey.co.uk/s/TTFeed20/')
+  expect(home_page).to have_link('Provide feedback (opens in a new tab)', href: 'https://www.smartsurvey.co.uk/s/TTFeed20/')
 end
