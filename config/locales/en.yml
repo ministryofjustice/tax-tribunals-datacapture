@@ -1388,7 +1388,7 @@ en:
       accessibility_statement: Accessibility statement
     phase_banner:
       phase_info_html: |
-        This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback</a> and help improve the service for others.
+        This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback (opens in a new tab)</a> and help improve the service for others.
     current_user_menu:
       logout: Sign out
       change_password: Change password
