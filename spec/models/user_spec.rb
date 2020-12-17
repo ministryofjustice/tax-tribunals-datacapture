@@ -47,6 +47,21 @@ RSpec.describe User, type: :model do
         expect(subject.email).to eq("test\u0027ing@hyphened\u002ddomain.com")
       end
     end
+
+    context 'name@domain.name' do
+      let(:user) { User.new(password: 'Fe94#lG1!') }
+
+      it 'invalid' do
+        user.email = "test@test"
+        expect(user.valid?).to be false
+      end
+
+      it 'valid' do
+        user.email = "test@test.com"
+        expect(user.valid?).to be true
+      end
+
+    end
   end
 
   describe 'password validation' do

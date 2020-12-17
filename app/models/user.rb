@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :pending_tribunal_cases, -> { not_submitted }, class_name: 'TribunalCase'
 
   attribute :email, NormalisedEmailType.new
+  validates :email, email: true
 
   # Devise requires several DB attributes for the `trackable` module, but we are not
   # using all of them. Using virtual attributes so Devise doesn't complain.
@@ -36,4 +37,5 @@ class User < ApplicationRecord
 
     errors.add :password, I18n.t('errors.messages.password.password_strength')
   end
+
 end
