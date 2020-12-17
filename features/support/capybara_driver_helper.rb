@@ -42,9 +42,28 @@ Capybara::Screenshot.register_filename_prefix_formatter(:cucumber) do |scenario|
   "screenshot_cucumber_#{title}"
 end
 
-Capybara.register_driver :saucelabs do |app|
+#............. Sauce Labs .............#
+
+Capybara.register_driver :chrome_saucelabs do |app|
   browser = {:browserName=>"chrome", :name=>"MAC_CHROME_LATEST", :platform=>"OS X 10.12", :version=>"latest"}
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: 'http://AhsanZX97:a0c85584-0285-4f58-bd70-33ebe9bb4dad@ondemand.saucelabs.com:80/wd/hub', desired_capabilities: browser)
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub", desired_capabilities: browser)
+end
+
+Capybara.register_driver :firefox_saucelabs do |app|
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  profile['browser.cache.disk.enable'] = false
+  profile['browser.cache.memory.enable'] = false
+  caps = Selenium::WebDriver::Remote::Capabilities.firefox(idle_timeout: 150)
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub")
+end
+
+Capybara.register_driver :internet_explorer_saucelabs do |app|
+  browser = {:browserName=>"MicrosoftEdge", :name=>"IEEdge_LATEST", :platform=>"Windows 10", :version=>"latest"}
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: browser, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub")
+end
+
+Capybara.register_driver :safari_saucelabs do |app|
+  Capybara::Selenium::Driver.new(app, browser: :safari, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub" )
 end
 
 Capybara.javascript_driver = Capybara.default_driver

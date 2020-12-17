@@ -1,3 +1,0 @@
-env: <%= ENV['ENV'] %>
-submission:
-  url: <%= ENV['EXTERNAL_URL'] %>
