@@ -58,6 +58,13 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       end
 
       context 'when no option is selected and the form is submitted' do
+        let(:expected_params) { { 'steps_details_eu_exit_form' => { 'eu_exit': nil } } }
+
+        it 'redirects to the outcome page' do
+          allow(form_object).to receive(:save).and_return true
+          put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
+          expect(response).to redirect_to(edit_steps_details_outcome_path)
+        end
 
       end
     end
