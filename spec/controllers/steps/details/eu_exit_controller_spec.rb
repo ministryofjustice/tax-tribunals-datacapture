@@ -39,6 +39,7 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
 
     context 'when a case in progress is in the session' do
       let(:existing_case) { TribunalCase.create(case_status: nil) }
+      let(:form_object) { instance_double(Steps::Details::EuExitForm, attributes: { eu_exit: true }) }
 
       before do
         expect(controller).to receive(:store_step_path_in_session)
@@ -46,6 +47,13 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       end
 
       context 'when the form saves successfully' do
+        let(:expected_params) { { 'steps_details_eu_exit_form' => { 'eu_exit': 'true' } } }
+
+        it 'redirects to the outcome page' do
+          allow(form_object).to receive(:save).and_return true
+          put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
+          expect(response).to redirect_to(edit_steps_details_outcome_path)
+        end
 
       end
 
