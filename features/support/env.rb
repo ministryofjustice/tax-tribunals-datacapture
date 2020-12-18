@@ -40,3 +40,10 @@ Dir[File.dirname(__FILE__) + '/page_objects/**/*.rb'].each { |f| require f }
 
 Capybara.raise_server_errors = false
 
+ENV['NO_PROXY'] = ENV['no_proxy'] = '127.0.0.1'
+if ENV['APP_HOST']
+  Capybara.app_host = ENV['APP_HOST']
+  if Capybara.app_host.chars.last != '/'
+    Capybara.app_host += '/'
+  end
+end
