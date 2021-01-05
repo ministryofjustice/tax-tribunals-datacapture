@@ -692,7 +692,7 @@ en:
           attributes:
             email:
               blank: Please enter your email address
-              invalid: Please enter a valid email address
+              invalid: Please enter an email address in the correct format, like name@example.com
               taken: You already have cases saved with this email address. Try signing in.
             password:
               blank: Please enter a password
@@ -1337,6 +1337,8 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
       password:
         password_strength: Enter a stronger password
+      email:
+        special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
     error_summary:
       heading: There is a problem
       text: ''

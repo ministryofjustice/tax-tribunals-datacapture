@@ -36,6 +36,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'email validation' do
+    let(:user) { User.new(password: 'Fe94#lG1!') }
     context 'custom value casting' do
       #
       # This is just a quick test to ensure the `NormalisedEmailType` casting is being used.
@@ -48,20 +49,32 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'name@domain.name' do
-      let(:user) { User.new(password: 'Fe94#lG1!') }
 
-      it 'invalid' do
-        user.email = "test@test"
-        expect(user.valid?).to be false
+    context 'invalid' do
+      list = ["testcom", "test@", "test@test", '*test@test.com','(test@test.com',')test@test.com','!test@test.com','&test@test.com','/test@test.com',';test@test.com']
+
+      list.each do |email|
+        it "#{email}" do
+          user.email = email
+          expect(user.valid?).to be false
+        end
       end
 
-      it 'valid' do
-        user.email = "test@test.com"
-        expect(user.valid?).to be true
+      it 'custom error message' do
+        user.email = '(test@test.com'
+        user.valid?
+        expect(user.errors.messages[:email]).to eq ["Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"]
       end
 
     end
+
+    context 'valid' do
+      it 'test@test.com' do
+        user.email = "test@test.com"
+        expect(user.valid?).to be true
+      end
+    end
+
   end
 
   describe 'password validation' do

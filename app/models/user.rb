@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :pending_tribunal_cases, -> { not_submitted }, class_name: 'TribunalCase'
 
   attribute :email, NormalisedEmailType.new
-  validates :email, email: true
+  validates :email, email: { mode: :strict }, unless: :special_chars_in_mail
 
   # Devise requires several DB attributes for the `trackable` module, but we are not
   # using all of them. Using virtual attributes so Devise doesn't complain.
@@ -36,6 +36,14 @@ class User < ApplicationRecord
     password.downcase != email.downcase
 
     errors.add :password, I18n.t('errors.messages.password.password_strength')
+  end
+
+  def special_chars_in_mail
+    return if email.blank?
+
+    if email =~ /[;&()!\/*]/i
+      errors.add :email, I18n.t('errors.messages.email.special_characters')
+    end
   end
 
 end
