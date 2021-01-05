@@ -43,6 +43,14 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
       it 'email is validated if filled' do
         should validate_email(:representative_contact_email)
       end
+
+      it 'is provided with invalid characters' do
+        form = subject
+        form.representative_contact_email = '&@test.com'
+        form.valid?
+        expect(form.errors[:representative_contact_email]).not_to be_blank
+      end
+
     end
   end
 end
