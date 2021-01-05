@@ -40,6 +40,13 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
         expect(subject.errors[:taxpayer_contact_email]).to be_blank
       end
 
+      it 'is provided with invalid characters' do
+        form = subject
+        form.taxpayer_contact_email = '&@test.com'
+        form.valid?
+        expect(form.errors[:taxpayer_contact_email]).not_to be_blank
+      end
+
       it 'email is validated if filled' do
         should validate_email(:taxpayer_contact_email)
       end

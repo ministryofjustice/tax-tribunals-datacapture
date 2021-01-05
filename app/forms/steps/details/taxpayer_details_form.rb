@@ -12,12 +12,25 @@ module Steps::Details
                           :taxpayer_contact_city,
                           :taxpayer_contact_country
 
-    validates :taxpayer_contact_email, email: true, if: :started_by_taxpayer_or_present?
+    validates :taxpayer_contact_email, email: { mode: :strict }, if: :should_validate_email
 
     private
 
+    def should_validate_email
+      return false unless started_by_taxpayer_or_present?
+      special_chars_in_mail.blank?
+    end
+
     def started_by_taxpayer_or_present?
       started_by_taxpayer? || taxpayer_contact_email.present?
+    end
+
+    def special_chars_in_mail
+      return if taxpayer_contact_email.blank?
+
+      if taxpayer_contact_email =~ /[;&()!\/*]/i
+        errors.add :taxpayer_contact_email, I18n.t('errors.messages.email.special_characters')
+      end
     end
 
     def started_by_taxpayer?
