@@ -166,7 +166,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    email_validator (1.6.0)
+    email_validator (2.2.2)
       activemodel
     equalizer (0.0.11)
     erubi (1.10.0)
@@ -431,7 +431,7 @@ GEM
     tilt (2.0.10)
     typhoeus (1.1.2)
       ethon (>= 0.9.0)
-    tzinfo (1.2.8)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -501,7 +501,7 @@ DEPENDENCIES
   database_cleaner-active_record
   devise (~> 4.7.3)
   dotenv-rails
-  email_validator
+  email_validator (~> 2.2.2)
   factory_bot_rails
   faker (~> 1.6, >= 1.6.3)
   geckodriver-helper (~> 0.23.0)
