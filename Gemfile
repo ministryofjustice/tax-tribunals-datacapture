@@ -21,11 +21,11 @@ gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sassc-rails', '~> 2.1.2'
-gem 'sentry-raven'
+gem 'sentry-raven', '~> 3.1'
 gem 'strong_password', '~> 0.0.8'
 gem 'uglifier'
 gem 'virtus'
-gem 'zendesk_api', '~> 1.14.4'
+gem 'zendesk_api', '~> 1.28'
 gem 'application_insights', '~> 0.5.6'
 
 # PDF generation
