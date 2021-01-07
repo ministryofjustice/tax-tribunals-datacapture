@@ -1,22 +1,22 @@
 Rails.application.configure do
-  config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
-  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
-  config.lograge.enabled = true
-  config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.log_level = :info
+  # config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+  # config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
+  # config.lograge.enabled = true
+  # config.lograge.formatter = Lograge::Formatters::Logstash.new
+  config.log_level = :debug
   config.action_view.logger = nil
 
-  config.lograge.custom_options = lambda do |event|
-    exceptions = %w(controller action format id)
-    {
-      host: event.payload[:host],
-      params: event.payload[:params].except(*exceptions),
-      referrer: event.payload[:referrer],
-      session_id: event.payload[:session_id],
-      tags: %w{taxtribs-datacapture},
-      user_agent: event.payload[:user_agent]
-    }
-  end
+  # config.lograge.custom_options = lambda do |event|
+  #   exceptions = %w(controller action format id)
+  #   {
+  #     host: event.payload[:host],
+  #     params: event.payload[:params].except(*exceptions),
+  #     referrer: event.payload[:referrer],
+  #     session_id: event.payload[:session_id],
+  #     tags: %w{taxtribs-datacapture},
+  #     user_agent: event.payload[:user_agent]
+  #   }
+  # end
 
   config.cache_classes = true
   config.cache_store = :memory_store
