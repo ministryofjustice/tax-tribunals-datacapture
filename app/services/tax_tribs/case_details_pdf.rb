@@ -18,7 +18,13 @@ class TaxTribs::CaseDetailsPdf
   end
 
   def generate
+    Rails.logger.info '====== before generating pdf'
     @pdf = controller_ctx.render_to_string(render_options)
+    Rails.logger.info '======= after generating pdf'
+  rescue StandardError => e
+    Rails.logger.info '===== EXCEPTION ====='
+    Rails.logger.info e
+    Rails.logger.info '===== EXCEPTION END ====='
   end
 
   def generate_and_upload

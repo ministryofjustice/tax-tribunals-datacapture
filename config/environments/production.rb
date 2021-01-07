@@ -4,7 +4,7 @@ Rails.application.configure do
   # config.lograge.enabled = true
   # config.lograge.formatter = Lograge::Formatters::Logstash.new
   config.log_level = :debug
-  config.action_view.logger = nil
+  # config.action_view.logger = nil
 
   # config.lograge.custom_options = lambda do |event|
   #   exceptions = %w(controller action format id)
