@@ -30,8 +30,7 @@ gem 'application_insights', '~> 0.5.6'
 
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
-# gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-binary-edge', '~> 0.12.6.0'
+gem 'wkhtmltopdf-binary'
 
 group :production do
   gem 'lograge'
