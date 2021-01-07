@@ -41,7 +41,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -q && \
-    apt-get install -qy yarn tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 --no-install-recommends && apt-get clean && \
+    apt-get install -qy yarn tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 libjpeg-turbo8 --no-install-recommends && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
 
