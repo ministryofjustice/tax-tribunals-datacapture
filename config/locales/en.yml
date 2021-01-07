@@ -1699,12 +1699,13 @@ en:
         continue: Continue
   appeal_home:
     index:
-      impartial_decision: Get an impartial decision on your dispute
+      impartial_decision: Your appeal will be decided by an independent tribunal
       heading: Appeal against a tax decision
       lead_text_html: You have 30 calendar days to appeal. This begins from the
         date of the original notice or review conclusion letter.
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
         <div role="note" aria-label="Information" class="govuk-inset-text">
           <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
