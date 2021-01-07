@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_110138) do
+ActiveRecord::Schema.define(version: 2020_12_15_120225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_110138) do
     t.string "other_support_details"
     t.string "language_interpreter_details"
     t.string "sign_language_interpreter_details"
+    t.boolean "eu_exit"
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true
     t.index ["user_id"], name: "index_tribunal_cases_on_user_id"
   end

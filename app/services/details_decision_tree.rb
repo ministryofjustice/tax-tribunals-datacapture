@@ -22,6 +22,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :representative_details
       after_representative_details_step
     when :grounds_for_appeal
+      edit(:eu_exit)
+    when :eu_exit
       edit(:outcome)
     when :outcome
       edit(:need_support)
