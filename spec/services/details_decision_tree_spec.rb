@@ -138,7 +138,29 @@ RSpec.describe DetailsDecisionTree do
     context 'when the step is `grounds_for_appeal`' do
       let(:step_params) { { grounds_for_appeal: 'anything'  } }
 
-      it { is_expected.to have_destination(:outcome, :edit) }
+      it { is_expected.to have_destination(:eu_exit, :edit) }
+    end
+
+    context 'when the step is `eu_exit`' do
+      let(:step_params) { { eu_exit: 'anything'  } }
+
+      context 'and the answer is `yes`' do
+        let(:tribunal_case) { instance_double(TribunalCase, eu_exit: true) }
+
+        it { is_expected.to have_destination(:outcome, :edit) }
+      end
+
+      context 'and the answer is `no`' do
+        let(:tribunal_case) { instance_double(TribunalCase, eu_exit: false) }
+
+        it { is_expected.to have_destination(:outcome, :edit) }
+      end
+
+      context 'and step is not answered' do
+        let(:tribunal_case) { instance_double(TribunalCase) }
+
+        it { is_expected.to have_destination(:outcome, :edit) }
+      end
     end
 
     context 'when the step is `outcome`' do
