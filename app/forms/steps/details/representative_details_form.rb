@@ -42,7 +42,6 @@ module Steps::Details
       end
     end
 
-
     def persist!(additional_attributes)
       raise 'No TribunalCase given' unless tribunal_case
 

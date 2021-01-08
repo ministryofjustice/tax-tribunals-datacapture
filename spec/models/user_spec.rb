@@ -66,6 +66,13 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:email]).to eq ["Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"]
       end
 
+      context 'too long' do
+        it 'has error message' do
+          user.email = long_email(257)
+          user.valid?
+          expect(user.errors.messages[:email]).to eq ["Email is too longis too long (maximum is 256 characters)"]
+        end
+      end
     end
 
     context 'valid' do
@@ -73,6 +80,14 @@ RSpec.describe User, type: :model do
         user.email = "test@test.com"
         expect(user.valid?).to be true
       end
+
+      context 'long email' do
+        it do
+          user.email = long_email(256)
+          expect(user.valid?).to be true
+        end
+      end
+
     end
 
   end
