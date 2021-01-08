@@ -510,6 +510,7 @@ def go_to_outcome_page
   expect(outcome_page.content).to have_header
 end
 
+# rubocop:disable MethodLength
 def go_to_need_support_page
   home_page.load_page
   expect(home_page.content).to have_header
@@ -713,6 +714,8 @@ def complete_valid_appeal_application
     submit
   end
 end
+
+# rubocop:enable MethodLength
 
 def go_to_login_page
   login_page.load_page
