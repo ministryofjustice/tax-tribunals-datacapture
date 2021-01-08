@@ -1,8 +1,5 @@
 Given("I am on the appeal case type page") do
-  appeal_home_page.load_page
-  expect(appeal_home_page).to be_displayed
-  appeal_home_page.continue
-  expect(appeal_case_type_page).to be_displayed
+  go_to_appeal_case_type_page
 end
 
 When("I click on continue without selecting a case type") do
