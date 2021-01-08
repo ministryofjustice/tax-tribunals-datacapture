@@ -447,6 +447,9 @@ GEM
       equalizer (~> 0.0.9)
       parser (>= 2.3.1.2, < 2.6)
       procto (~> 0.0.2)
+    valid_email2 (3.5.0)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -542,6 +545,7 @@ DEPENDENCIES
   site_prism
   strong_password (~> 0.0.8)
   uglifier
+  valid_email2
   virtus
   web-console
   webdrivers (~> 4.4)
