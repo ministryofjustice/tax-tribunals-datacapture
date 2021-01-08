@@ -8,6 +8,13 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
       :taxpayer_individual_last_name
   ]
 
+  it_behaves_like 'a validated email', entity_type: :taxpayer,
+    additional_fields: [
+      :taxpayer_individual_first_name,
+      :taxpayer_individual_last_name
+  ]
+
+
   describe '#name_fields' do
     specify { expect(subject.name_fields).to eq([:taxpayer_individual_first_name, :taxpayer_individual_last_name]) }
   end
@@ -38,13 +45,6 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
       it 'email is not required' do
         subject.valid?
         expect(subject.errors[:taxpayer_contact_email]).to be_blank
-      end
-
-      it 'is provided with invalid characters' do
-        form = subject
-        form.taxpayer_contact_email = '&@test.com'
-        form.valid?
-        expect(form.errors[:taxpayer_contact_email]).not_to be_blank
       end
 
       it 'email is validated if filled' do

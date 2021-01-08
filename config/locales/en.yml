@@ -14,7 +14,7 @@ en:
     blank_country: &blank_country "Please enter a country"
     blank_organisation_name: &blank_organisation_name "Please enter a name"
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
-    invalid_email: &invalid_email "Please enter a valid email address"
+    invalid_email: &invalid_email "Enter an email address in the correct format, like name@example.com"
 
     YESNO: &YESNO
       'yes': 'Yes'
@@ -1339,6 +1339,7 @@ en:
         password_strength: Enter a stronger password
       email:
         special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
+        too_long: "Email is too longis too long (maximum is 256 characters)"
     error_summary:
       heading: There is a problem
       text: ''

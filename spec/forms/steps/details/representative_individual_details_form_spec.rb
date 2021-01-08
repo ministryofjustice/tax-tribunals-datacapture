@@ -8,6 +8,12 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
       :representative_individual_last_name
     ]
 
+  it_behaves_like 'a validated email', entity_type: :representative,
+    additional_fields: [
+      :representative_individual_first_name,
+      :representative_individual_last_name
+  ]
+
   describe '#name_fields' do
     specify { expect(subject.name_fields).to eq([:representative_individual_first_name, :representative_individual_last_name]) }
   end
@@ -43,14 +49,6 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
       it 'email is validated if filled' do
         should validate_email(:representative_contact_email)
       end
-
-      it 'is provided with invalid characters' do
-        form = subject
-        form.representative_contact_email = '&@test.com'
-        form.valid?
-        expect(form.errors[:representative_contact_email]).not_to be_blank
-      end
-
     end
   end
 end
