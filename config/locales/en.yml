@@ -391,6 +391,7 @@ en:
           heading: Support at the hearing
           lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
           page_title: What Support?
+          sign_language_interpreter_hint: Enter what type of sign language you need. For example, British Sign Language.
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
@@ -928,10 +929,6 @@ en:
       steps_details_eu_exit_form:
         eu_exit_options:
           <<: *TRUEFALSE
-      steps_details_what_support_form:
-        other_support_details: Explain what other support you will need at your tribunal
-        language_interpreter_details: What language needs to be interpreted?
-        sign_language_interpreter_details: Enter the sign language you need
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
@@ -953,8 +950,8 @@ en:
         need_support_options:
           <<: *YESNO
       steps_details_what_support_form:
-        language_interpreter_details: What language needs to be interpreted?
-        sign_language_interpreter_details: Enter the sign language you need
+        language_interpreter_details: Enter the language
+        sign_language_interpreter_details: Enter the language
         other_support_details: Explain what other support you will need at your tribunal
         language_interpreter_options:
           language_interpreter: Language interpreter
@@ -963,7 +960,7 @@ en:
         hearing_loop_options:
           hearing_loop: Hearing loop
         disabled_access_options:
-          disabled_access: Disabled access
+          disabled_access: Accessible hearing rooms
         other_support_options:
           other_support: Other support
       steps_details_outcome_form:
@@ -1716,12 +1713,13 @@ en:
         continue: Continue
   appeal_home:
     index:
-      impartial_decision: Get an impartial decision on your dispute
+      impartial_decision: Your appeal will be decided by an independent tribunal
       heading: Appeal against a tax decision
       lead_text_html: You have 30 calendar days to appeal. This begins from the
         date of the original notice or review conclusion letter.
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
         <div role="note" aria-label="Information" class="govuk-inset-text">
           <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
