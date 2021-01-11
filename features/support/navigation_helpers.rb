@@ -660,7 +660,7 @@ def go_to_appeal_check_answers_page
   letter_upload_type_page.submit_one_document_option
   expect(letter_upload_page.content).to have_lead_text
   identifier  = 'steps-details-letter-upload-form-supporting-letter-document-field'
-  filename    = 'features/support/sample_file/sample.docx'
+  filename    = 'features/support/sample_file/to_upload.jpg'
   letter_upload_page.attach_file(identifier, filename)
   continue
   expect(check_answers_page.content).to have_header
@@ -709,7 +709,7 @@ def complete_valid_appeal_application
     letter_upload_type_page.submit_one_document_option
     expect(letter_upload_page.content).to have_lead_text
     identifier  = 'steps-details-letter-upload-form-supporting-letter-document-field'
-    filename    = 'features/support/sample_file/sample.docx'
+    filename    = 'features/support/sample_file/to_upload.jpg'
     letter_upload_page.attach_file(identifier, filename)
     continue
     expect(check_answers_page.content).to have_header
