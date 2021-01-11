@@ -12,7 +12,8 @@
           <%= f.govuk_text_field :language_interpreter_details, width: 'two-thirds' %>
         <% end %>
         <%= f.govuk_check_box :sign_language_interpreter, :sign_language_interpreter, multiple: false do %>
-          <%= f.govuk_text_field :sign_language_interpreter_details, width: 'two-thirds' %>
+          <%= f.govuk_text_field :sign_language_interpreter_details, width: 'two-thirds',
+          hint: { text: t('.sign_language_interpreter_hint') } %>
         <% end %>
         <%= f.govuk_check_box :hearing_loop, :hearing_loop, multiple: false %>
         <%= f.govuk_check_box :disabled_access, :disabled_access, multiple: false %>
