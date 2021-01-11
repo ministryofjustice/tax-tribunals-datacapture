@@ -66,6 +66,10 @@ def grounds_for_appeal_page
   @grounds_for_appeal_page ||= GroundsForAppealPage.new
 end
 
+def eu_exit_page
+  @eu_exit_page ||= EuExitPage.new
+end
+
 def outcome_page
   @outcome_page ||= OutcomePage.new
 end
