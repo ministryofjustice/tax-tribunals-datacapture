@@ -110,6 +110,7 @@ Rails.application.routes.draw do
       edit_step :user_type
       edit_step :representative_approval
       edit_step :what_support
+      edit_step :eu_exit
     end
 
     edit_step :save_and_return

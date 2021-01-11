@@ -20,6 +20,10 @@ en:
       'yes': 'Yes'
       'no': 'No'
 
+    TRUEFALSE: &TRUEFALSE
+      'true': 'Yes'
+      'false': 'No'
+
     REP_ADDRESS: &REP_ADDRESS
       representative_contact_address: Address
       representative_contact_postcode: Postcode
@@ -360,6 +364,11 @@ en:
           upload_explanation_html: |
             <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
             <p class="govuk-body">You will have an opportunity to upload the original notice, decision letter or review conclusion letter later in the process.</p>
+      eu_exit:
+        edit:
+          heading: Is your appeal as a result of the exit by the United Kingdom from the European Union? (optional)
+          lead_text: ''
+          page_title: Exit of European Union
       letter_upload:
         edit:
           page_title: Letter upload
@@ -917,6 +926,9 @@ en:
       steps_details_grounds_for_appeal_form:
         grounds_for_appeal: Enter reasons below or attach as a document
         grounds_for_appeal_document: ''
+      steps_details_eu_exit_form:
+        eu_exit_options:
+          <<: *TRUEFALSE
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
@@ -1174,6 +1186,11 @@ en:
     grounds_for_appeal:
       question: Grounds for %{appeal_or_application}
       accessible_change_text: grounds for %{appeal_or_application}
+    eu_exit:
+      question: Is your appeal a result of the UK's exit from the EU?
+      accessible_change_text: is your appeal a result of the UK's exit from the EU?
+      answers:
+        <<: *TRUEFALSE
     outcome:
       question: Desired outcome
       accessible_change_text: desired outcome
@@ -1696,12 +1713,13 @@ en:
         continue: Continue
   appeal_home:
     index:
-      impartial_decision: Get an impartial decision on your dispute
+      impartial_decision: Your appeal will be decided by an independent tribunal
       heading: Appeal against a tax decision
       lead_text_html: You have 30 calendar days to appeal. This begins from the
         date of the original notice or review conclusion letter.
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
         <div role="note" aria-label="Information" class="govuk-inset-text">
           <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
         </div>
