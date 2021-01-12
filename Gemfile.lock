@@ -166,8 +166,6 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    email_validator (1.6.0)
-      activemodel
     equalizer (0.0.11)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -437,7 +435,7 @@ GEM
     tilt (2.0.10)
     typhoeus (1.1.2)
       ethon (>= 0.9.0)
-    tzinfo (1.2.8)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -453,6 +451,9 @@ GEM
       equalizer (~> 0.0.9)
       parser (>= 2.3.1.2, < 2.6)
       procto (~> 0.0.2)
+    valid_email2 (3.5.0)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -507,7 +508,6 @@ DEPENDENCIES
   database_cleaner-active_record
   devise (~> 4.7.3)
   dotenv-rails
-  email_validator
   factory_bot_rails
   faker (~> 1.6, >= 1.6.3)
   geckodriver-helper (~> 0.23.0)
@@ -548,6 +548,7 @@ DEPENDENCIES
   site_prism
   strong_password (~> 0.0.8)
   uglifier
+  valid_email2
   virtus
   web-console
   webdrivers (~> 4.4)

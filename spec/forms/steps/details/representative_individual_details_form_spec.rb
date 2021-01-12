@@ -8,6 +8,12 @@ RSpec.describe Steps::Details::RepresentativeIndividualDetailsForm do
       :representative_individual_last_name
     ]
 
+  it_behaves_like 'a validated email', entity_type: :representative,
+    additional_fields: [
+      :representative_individual_first_name,
+      :representative_individual_last_name
+  ]
+
   describe '#name_fields' do
     specify { expect(subject.name_fields).to eq([:representative_individual_first_name, :representative_individual_last_name]) }
   end

@@ -12,14 +12,34 @@ module Steps::Details
                           :representative_contact_city,
                           :representative_contact_country
 
-    validates :representative_contact_email, email: true, if: :started_by_representative_or_present?
+    validates :representative_contact_email, 'valid_email_2/email': true, if: :should_validate_email
 
     private
 
     delegate :started_by_representative?, to: :tribunal_case
 
+    def should_validate_email
+      return false unless started_by_representative_or_present?
+      special_chars_in_mail.blank? && email_too_long.blank?
+    end
+
     def started_by_representative_or_present?
       started_by_representative? || representative_contact_email.present?
+    end
+
+    def special_chars_in_mail
+      return if representative_contact_email.blank?
+
+      if representative_contact_email =~ /[;&()!\/*]/i
+        errors.add :representative_contact_email, I18n.t('errors.messages.email.special_characters')
+      end
+    end
+
+    def email_too_long
+      return if representative_contact_email.blank?
+      if representative_contact_email.length > 256
+        errors.add :representative_contact_email, I18n.t('errors.messages.email.too_long')
+      end
     end
 
     def persist!(additional_attributes)
