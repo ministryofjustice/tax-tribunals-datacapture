@@ -32,6 +32,10 @@ When("I click on continue when I am on the save confirmation page") do
   save_confirmation_page.content.continue_button.click
 end
 
-Then("I should be on the user type page") do
-  expect(user_type_page.content).to have_header
+Then("I should be on the closure user type page") do
+  expect(user_type_page.content).to have_closure_header
+end
+
+Then("I should be on the appeal user type page") do
+  expect(user_type_page.content).to have_appeal_header
 end

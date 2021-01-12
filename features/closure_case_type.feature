@@ -1,7 +1,7 @@
 Feature: Case type page
 
   Background: Case type page
-    Given I am on the case type page
+    Given I am on the closure case type page
 
     Scenario: Displays hint
       Then I should see that I can only close one of the listed options

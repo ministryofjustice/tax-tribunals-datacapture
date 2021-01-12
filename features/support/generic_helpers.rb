@@ -42,12 +42,52 @@ def challenge_decision_page
   @challenge_decision_page ||= ChallengeDecisionPage.new
 end
 
+def challenge_decision_status_page
+  @challenge_decision_status_page ||= ChallengeDecisionStatusPage.new
+end
+
+def dispute_type_page
+  @dispute_type_page ||= DisputeTypePage.new
+end
+
+def penalty_amount_page
+  @penalty_amount_page ||= PenaltyAmountPage.new
+end
+
+def in_time_page
+  @in_time_page ||= InTimePage.new
+end
+
+def lateness_reason_page
+  @lateness_reason_page ||= LatenessReasonPage.new
+end
+
+def grounds_for_appeal_page
+  @grounds_for_appeal_page ||= GroundsForAppealPage.new
+end
+
+def eu_exit_page
+  @eu_exit_page ||= EuExitPage.new
+end
+
+def outcome_page
+  @outcome_page ||= OutcomePage.new
+end
+
+def need_support_page
+  @need_support_page ||= NeedSupportPage.new
+end
+
+def letter_upload_type_page
+  @letter_upload_type_page ||= LetterUploadTypePage.new
+end
+
 def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
 
-def representative_page
-  @representative_page ||= RepresentativePage.new
+def has_representative_page
+  @has_representative_page ||= HasRepresentativePage.new
 end
 
 def representative_professional_page
@@ -60,6 +100,10 @@ end
 
 def user_type_page
   @user_type_page ||= UserTypePage.new
+end
+
+def letter_upload_page
+  @letter_upload_page ||= LetterUploadPage.new
 end
 
 def feedback_page
@@ -82,6 +126,22 @@ def save_confirmation_page
   @save_confirmation_page ||= SaveConfirmationPage.new
 end
 
+def additional_info_page
+  @additional_info_page ||= AdditionalInfoPage.new
+end
+
+def support_documents_page
+  @support_documents_page ||= SupportDocumentsPage.new
+end
+
+def check_answers_page
+  @check_answers_page ||= CheckAnswersPage.new
+end
+
+def confirmation_page
+  @confirmation_page ||= ConfirmationPage.new
+end
+
 def continue
   base_page.content.continue_button.click
 end
@@ -92,4 +152,8 @@ end
 
 def save
   base_page.content.save_button.click
+end
+
+def submit
+  base_page.content.submit_button.click
 end
