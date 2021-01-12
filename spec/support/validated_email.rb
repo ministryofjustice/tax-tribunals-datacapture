@@ -52,7 +52,7 @@ RSpec.shared_examples 'a validated email' do |params|
       it 'has error message' do
         subject.save
         key = "#{entity_type}_contact_email".to_sym
-        expect(subject.errors.messages[key]).to eq ["Email is too longis too long (maximum is 256 characters)"]
+        expect(subject.errors.messages[key]).to eq ["Email is too long (maximum is 256 characters)"]
       end
     end
 

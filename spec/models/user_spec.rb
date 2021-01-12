@@ -70,7 +70,7 @@ RSpec.describe User, type: :model do
         it 'has error message' do
           user.email = long_email(257)
           user.valid?
-          expect(user.errors.messages[:email]).to eq ["Email is too longis too long (maximum is 256 characters)"]
+          expect(user.errors.messages[:email]).to eq ["Email is too long (maximum is 256 characters)"]
         end
       end
     end
