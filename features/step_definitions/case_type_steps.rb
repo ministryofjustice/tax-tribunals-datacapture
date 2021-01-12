@@ -1,12 +1,5 @@
-Then("I am taken to the case type case") do
-  expect(case_type_page).to be_displayed
-  expect(case_type_page.content).to have_header
-end
-
-Given("I am on the case type page") do
-  go_to_case_type_page
-  expect(case_type_page).to be_displayed
-  expect(case_type_page.content).to have_header
+Given("I am on the closure case type page") do
+  go_to_closure_case_type_page
 end
 
 Then("I should see that I can only close one of the listed options") do

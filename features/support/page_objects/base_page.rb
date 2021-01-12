@@ -3,6 +3,7 @@ class BasePage < SitePrism::Page
     element :continue_button, "input[value='Continue']"
     element :save_continue_button, "input[value='Save and continue']"
     element :save_button, "input[value='Save']"
+    element :submit_button, "input[value='Submit']"
     element :individual, 'label', text: 'Individual'
     element :company, 'label', text: 'Company'
     element :other, 'label', text: 'Other type of organisation'

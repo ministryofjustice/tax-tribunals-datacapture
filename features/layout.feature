@@ -1,7 +1,10 @@
-Feature: Footer
+Feature: Layout
 
   Background: I am on the home page
     Given I visit the homepage
+
+  Scenario: Verify Smart Survey link
+    Then I am able to click on the Smart Survey link
 
   Scenario: Verify help link
     Then I am able to click on the external Help link
