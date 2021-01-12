@@ -17,7 +17,7 @@ RSpec.describe ApplicationController do
       it 'should not report the exception, and redirect to the error page' do
         routes.draw { get 'invalid_session' => 'anonymous#invalid_session' }
 
-        expect(Raven).not_to receive(:capture_exception)
+        expect(Sentry).not_to receive(:capture_exception)
 
         get :invalid_session
         expect(response).to redirect_to(invalid_session_errors_path)
@@ -28,7 +28,7 @@ RSpec.describe ApplicationController do
       it 'should not report the exception, and redirect to the error page' do
         routes.draw { get 'case_not_found' => 'anonymous#case_not_found' }
 
-        expect(Raven).not_to receive(:capture_exception)
+        expect(Sentry).not_to receive(:capture_exception)
 
         get :case_not_found
         expect(response).to redirect_to(case_not_found_errors_path)
@@ -39,7 +39,7 @@ RSpec.describe ApplicationController do
       it 'should not report the exception, and redirect to the error page' do
         routes.draw { get 'case_submitted' => 'anonymous#case_submitted' }
 
-        expect(Raven).not_to receive(:capture_exception)
+        expect(Sentry).not_to receive(:capture_exception)
 
         get :case_submitted
         expect(response).to redirect_to(case_submitted_errors_path)
@@ -50,7 +50,7 @@ RSpec.describe ApplicationController do
       it 'should report the exception, and redirect to the error page' do
         routes.draw { get 'another_exception' => 'anonymous#another_exception' }
 
-        expect(Raven).to receive(:capture_exception)
+        expect(Sentry).to receive(:capture_exception)
 
         get :another_exception
         expect(response).to redirect_to(unhandled_errors_path)

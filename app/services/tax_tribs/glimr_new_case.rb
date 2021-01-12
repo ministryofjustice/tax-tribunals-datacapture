@@ -17,7 +17,7 @@ module TaxTribs
       self
     rescue => e
       Rails.logger.info({ caller: self.class.name, method: __callee__, error: e }.to_json)
-      Raven.capture_exception(e)
+      Sentry.capture_exception(e)
       self
     end
 

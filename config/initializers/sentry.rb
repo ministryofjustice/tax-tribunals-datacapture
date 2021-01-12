@@ -3,6 +3,7 @@ Sentry.init do |config|
   config.dsn = ENV['SENTRY_DSN']
   config.breadcrumbs_logger = [:sentry_logger, :active_support_logger]
   config.environment = 'production'
+  config.enabled_environments = ['production']
 
   # To activate performance monitoring, set one of these options.
   # We recommend adjusting the value in production:
