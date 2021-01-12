@@ -208,10 +208,21 @@ RSpec.describe DocumentUpload do
         end
       end
 
+      context 'when the filename was sanitized' do
+        subject { described_class.new(file, document_key: 'foo') }
+
+        it 'should upload the document with that key' do
+          expect(Uploader).to receive(:add_file).with(hash_including(document_key: 'foo')).and_return({key: 'new_file_name.jpg'})
+
+          subject.upload!(collection_ref: '123')
+          expect(subject.file_name).to eq 'new_file_name.jpg'
+        end
+      end
+
       context 'when the document_key was provided in the upload! params' do
         subject { described_class.new(file) }
 
-        it 'should upload the document with that key' do
+        it 'should use file name from response' do
           expect(Uploader).to receive(:add_file).with(hash_including(document_key: 'bar')).and_return({})
 
           subject.upload!(collection_ref: '123', document_key: 'bar')

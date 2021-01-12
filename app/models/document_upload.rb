@@ -46,12 +46,13 @@ class DocumentUpload
   end
 
   def upload!(collection_ref: nil, document_key: nil)
-    Uploader.add_file(
+    response = Uploader.add_file(
       collection_ref: collection_ref || self.collection_ref,
       document_key: document_key || self.document_key,
       filename: file_name,
       data: file_data
     )
+    @file_name = response[:key]
   rescue Uploader::InfectedFileError
     add_error(:virus_detected)
   rescue Uploader::UploaderError => e

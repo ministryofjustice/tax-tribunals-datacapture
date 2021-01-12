@@ -114,7 +114,7 @@ end
 def go_to_additional_info_page
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.close_enquiry
@@ -141,7 +141,7 @@ end
 def go_to_support_documents_page
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.close_enquiry
@@ -170,7 +170,7 @@ end
 def go_to_closure_check_answers_page
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.close_enquiry
@@ -201,7 +201,7 @@ end
 def complete_valid_closure_application
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.close_enquiry
@@ -669,7 +669,7 @@ end
 def complete_valid_appeal_application
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.appeal
