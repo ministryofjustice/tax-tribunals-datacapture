@@ -12,5 +12,8 @@ Sentry.init do |config|
  # This line is from old sentry gem config. I checked and the data sent to sentry UI are filtered based on the
  # Rails.application.config.filter_parameters.map(&:to_s) values
  # config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
+
+ # Old config value. I didn't find the alternative in a new gem.
+ # config.ssl_verification = ENV['SENTRY_SSL_VERIFICATION'] == true
 end
 # :nocov:
