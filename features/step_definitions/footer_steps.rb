@@ -2,6 +2,10 @@ Then("I am able to click on the external Help link") do
   expect(base_page.footer.help_link["href"]).to eq "https://www.gov.uk/help"
 end
 
+Then("I am able to click on the Smart Survey link") do
+  expect(home_page).to have_link('Provide feedback (opens in a new tab)', href: 'https://www.smartsurvey.co.uk/s/TTFeed20/')
+end
+
 When("I click on the Contact link") do
   go_to_contact_page
 end

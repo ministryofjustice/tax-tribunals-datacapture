@@ -1,12 +1,5 @@
-Then("I am taken to the user type page") do
-  expect(user_type_page).to be_displayed
-  expect(user_type_page.content).to have_header
-end
-
 Given("I am on the user type page") do
-  go_to_user_type_page
-  expect(user_type_page).to be_displayed
-  expect(user_type_page.content).to have_header
+  go_to_closure_user_type_page
 end
 
 When("I submit that I am the tax payer making the application") do

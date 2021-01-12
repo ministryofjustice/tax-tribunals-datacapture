@@ -1,6 +1,5 @@
 Given("I am on the taxpayer details page") do
-  go_to_taxpayer_details_page
-  expect(taxpayer_details_page.content).to have_header
+  go_to_closure_taxpayer_details_page
 end
 
 When("I successfully submit taxpayers details") do
@@ -16,6 +15,5 @@ When("I successfully submit taxpayers details") do
 end
 
 Then("I am taken to representative page") do
-  expect(representative_page).to be_displayed
-  expect(representative_page.content).to have_header
+  expect(has_representative_page.content).to have_header
 end
