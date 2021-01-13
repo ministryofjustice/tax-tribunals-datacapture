@@ -117,11 +117,11 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def log_errors(exception)
     Rails.logger.info({caller: self.class.name, method: self.action_name, error: exception}.to_json)
 
-    Raven.extra_context(
+    Sentry.set_extras(
       template_id: self.govuk_notify_template,
       personalisation: filtered_personalisation
     )
-    Raven.capture_exception(exception)
+    Sentry.capture_exception(exception)
   end
 
   def filtered_personalisation

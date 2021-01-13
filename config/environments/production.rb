@@ -56,9 +56,5 @@ Rails.application.configure do
     redirect: { exclude: ->(request) { /status\.json/.match?(request.path) } }
   }
 
-  Raven.configure do |config|
-    config.ssl_verification = ENV['SENTRY_SSL_VERIFICATION'] == true
-  end
-
   config.active_record.dump_schema_after_migration = false
 end

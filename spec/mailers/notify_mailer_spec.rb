@@ -184,8 +184,8 @@ RSpec.describe NotifyMailer, type: :mailer do
 
       it 'should report the exception' do
         expect(Rails.logger).to receive(:info)
-        expect(Raven).to receive(:capture_exception)
-        expect(Raven).to receive(:extra_context).with(
+        expect(Sentry).to receive(:capture_exception)
+        expect(Sentry).to receive(:set_extras).with(
           {
             template_id: 'confirmation-template',
             personalisation: {

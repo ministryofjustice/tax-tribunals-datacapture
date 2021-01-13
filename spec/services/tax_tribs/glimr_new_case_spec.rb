@@ -97,8 +97,8 @@ RSpec.describe TaxTribs::GlimrNewCase do
           subject.call
         end
 
-        it 'sends the exception to Raven' do
-          expect(Raven).to receive(:capture_exception).with(StandardError)
+        it 'sends the exception to Sentry' do
+          expect(Sentry).to receive(:capture_exception).with(StandardError)
           subject.call
         end
 
@@ -226,7 +226,7 @@ RSpec.describe TaxTribs::GlimrNewCase do
   describe 'Error cases' do
     # Right now we are capturing any kind of error that his call might produce, like timeouts,
     # or GlimrApiClient::Unavailable, and not showing the user the error, just silently sending it
-    # to Raven and logging it, and also sending an email to the tribunal telling them there was a problem.
+    # to Sentry and logging it, and also sending an email to the tribunal telling them there was a problem.
     context 'Any kind of error StandardError' do
       before do
         allow(GlimrApiClient::RegisterNewCase).to receive(:call).and_raise(StandardError)
@@ -241,8 +241,8 @@ RSpec.describe TaxTribs::GlimrNewCase do
         subject.call
       end
 
-      it 'is captured by Raven' do
-        expect(Raven).to receive(:capture_exception)
+      it 'is captured by Sentry' do
+        expect(Sentry).to receive(:capture_exception)
         subject.call
       end
     end
