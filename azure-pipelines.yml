@@ -51,6 +51,7 @@ jobs:
     variables:
       rubyVersion: '= 2.5.8'
       bundlerVersion: '1.17.3'
+      external_url: 'test'
 
     steps:
     - template: ./pipeline-steps/test-application.yaml
