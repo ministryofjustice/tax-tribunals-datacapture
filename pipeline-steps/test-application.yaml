@@ -21,13 +21,13 @@ steps:
   displayName: 'PG role setup'
 
 - script: |
+    bundle exec rubocop --fail-fast
+  displayName: 'rubocop'
+
+- script: |
     bundle exec rake db:create db:schema:load
-  displayName: 'creade DB'
+  displayName: 'DB load'
 
 - script: |
-    bundle exec rspec --fail-fast --format documentation --format RspecJunitFormatter --out test-rspec.xml
-  displayName: 'test rspec'
-
-- script: |
-    bundle exec cucumber --fail-fast
-  displayName: 'test cucumber'
+    CAPYBARA_SERVER_PORT=random bundle exec cucumber
+  displayName: 'cucumber'
