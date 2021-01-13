@@ -51,9 +51,11 @@ jobs:
     variables:
       rubyVersion: '= 2.5.8'
       bundlerVersion: '1.17.3'
+      env: 'test'
       external_url: 'test'
       govuk_notify_api_key: 'test'
-      moj_file_uploader_endpoint: ''
+      moj_file_uploader_endpoint: 'test'
+
 
     steps:
     - template: ./pipeline-steps/test-application.yaml
