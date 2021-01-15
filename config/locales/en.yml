@@ -966,13 +966,13 @@ en:
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid:
+        disputed_tax_paid_options:
           <<: *YESNO
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested:
+        hardship_review_requested_options:
           <<: *YESNO
       steps_hardship_hardship_review_status_form:
-        hardship_review_status:
+        hardship_review_status_options:
           granted: 'Yes'
           pending: I am waiting for a decision
           refused: 'No'
