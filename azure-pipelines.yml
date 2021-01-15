@@ -48,7 +48,7 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.5.7'
+      rubyVersion: '= 2.6.6'
       bundlerVersion: '1.17.3'
 
     steps:
