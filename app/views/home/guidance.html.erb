@@ -7,18 +7,18 @@
 
 <h2 class="govuk-heading-l"><%= t '.subheading_1' %></h2>
 
-<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-  <% t('home.guidance.accordion_1').each do |i| %>
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-1">
+  <% t('home.guidance.accordion_1').each_with_index do |i, k|  %>
     <div class="govuk-accordion__section ">
       <div class="govuk-accordion__section-header">
         <h2 class="govuk-accordion__section-heading">
-          <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          <span class="govuk-accordion__section-button" id="<%="accordion-1-heading-#{k}"%>">
             <%= i[:question_html].html_safe %>
           </span>
         </h2>
       </div>
-      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-        <%= i[:answer_html].html_safe  %>
+      <div id="<%="accordion-1-content-#{k}"%>" class="govuk-accordion__section-content" aria-labelledby="<%="accordion-1-heading-#{k}"%>">
+        <%= i[:answer_html].html_safe %>
       </div>
     </div>
   <% end %>
@@ -28,17 +28,17 @@
 
 <%= t '.steps_details_html' %>
 
-<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-  <% t('home.guidance.accordion_2').each do |i| %>
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-2">
+  <% t('home.guidance.accordion_2').each_with_index do |i, k| %>
     <div class="govuk-accordion__section ">
       <div class="govuk-accordion__section-header">
         <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              <%= i[:question_html].html_safe  %>
+            <span class="govuk-accordion__section-button" id="<%="accordion-2-heading-#{k}"%>">
+              <%= i[:question_html].html_safe %>
             </span>
         </h2>
       </div>
-      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+      <div id="<%="accordion-2-content-#{k}"%>" class="govuk-accordion__section-content" aria-labelledby="<%="accordion-2-heading-#{k}"%>">
         <%= i[:answer_html].html_safe % { approval_form_href: asset_path('proforma.pdf') } %>
       </div>
     </div>
