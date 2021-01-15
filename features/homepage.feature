@@ -14,3 +14,7 @@ Feature: Homepage
   Scenario: Return to a saved appeal or application
     When I click the return to a saved appeal button
     Then I am taken to the login page
+
+  Scenario: View guidance page
+    When I click the view guidance before I start link
+    Then I am taken to the guidance page
