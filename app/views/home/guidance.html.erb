@@ -1,0 +1,50 @@
+<% title t('.page_title') %>
+<%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
+
+<h1 class="govuk-heading-xl"><%=t '.heading' %></h1>
+
+<p class="govuk-body-l"><%= t '.lead_text' %></p>
+
+<h2 class="govuk-heading-l"><%= t '.subheading_1' %></h2>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <% t('home.guidance.accordion_1').each do |i| %>
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+            <%= i[:question_html].html_safe %>
+          </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <%= i[:answer_html].html_safe  %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="govuk-heading-l"><%= t '.subheading_2' %></h2>
+
+<%= t '.steps_details_html' %>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <% t('home.guidance.accordion_2').each do |i| %>
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              <%= i[:question_html].html_safe  %>
+            </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <%= i[:answer_html].html_safe % { approval_form_href: asset_path('proforma.pdf') } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<p class="govuk-body" ><%= t '.feedback_html', feedback_url: Rails.configuration.survey_link %></p>
+
+<%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
