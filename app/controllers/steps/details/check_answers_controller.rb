@@ -8,6 +8,8 @@ module Steps::Details
       respond_to do |format|
         format.html
         format.pdf { render @presenter.pdf_params }
+        format.text
+
       end
     end
 

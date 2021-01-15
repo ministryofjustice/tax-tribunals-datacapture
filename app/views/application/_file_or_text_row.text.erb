@@ -1,0 +1,20 @@
+<tr>
+  <td class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{file_or_text_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-file-or-text">
+    <% if file_or_text_row.value? %>
+      <div class="user-text">
+        <%= simple_format(file_or_text_row.value) %>
+      </div>
+    <% end %>
+
+    <% if file_or_text_row.file? %>
+      <div class="attached-file">
+        <h4><%=t 'check_answers.attached_document' %></h4>
+        <p class="govuk-body"><%= file_or_text_row.file.name %></p>
+      </div>
+    <% end %>
+  </td>
+</tr>

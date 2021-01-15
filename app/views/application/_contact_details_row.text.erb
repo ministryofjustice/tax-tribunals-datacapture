@@ -1,0 +1,23 @@
+<tr>
+  <td class="question">
+    <%= translate_with_appeal_or_application "check_answers.#{contact_details_row.question}.question" %>
+  </td>
+
+  <td class="answer answer-contact-details">
+    <%= simple_format(contact_details_row.contact_address) %>
+
+    <% if contact_details_row.extra_details? %>
+      <p class="govuk-body">
+        <% if contact_details_row.phone? %>
+          <%=t 'check_answers.phone' %>: <%= contact_details_row.phone %><br>
+        <% end %>
+        <% if contact_details_row.email? %>
+          <%=t 'check_answers.email' %>: <%= contact_details_row.email %><br>
+        <% end %>
+        <% if contact_details_row.organisation_registration_number? %>
+          <%=t 'check_answers.organisation_registration_number' %>: <%= contact_details_row.organisation_registration_number %>
+        <% end %>
+      </p>
+    <% end %>
+  </td>
+</tr>
