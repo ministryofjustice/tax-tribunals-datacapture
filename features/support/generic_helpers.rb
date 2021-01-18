@@ -54,6 +54,26 @@ def penalty_amount_page
   @penalty_amount_page ||= PenaltyAmountPage.new
 end
 
+def penalty_and_tax_amounts_page
+  @penalty_and_tax_amounts_page ||= PenaltyAndTaxAmountsPage.new
+end
+
+def disputed_tax_paid_page
+  @disputed_tax_paid_page ||= DisputedTaxPaidPage.new
+end
+
+def hardship_review_requested_page
+  @hardship_review_requested_page ||= HardshipReviewRequestedPage.new
+end
+
+def hardship_review_status_page
+  @hardship_review_status_page ||= HardshipReviewStatusPage.new
+end
+
+def hardship_reason_page
+  @hardship_reason_page ||= HardshipReasonPage.new
+end
+
 def in_time_page
   @in_time_page ||= InTimePage.new
 end
@@ -156,4 +176,14 @@ end
 
 def submit
   base_page.content.submit_button.click
+end
+
+def submit_yes
+  base_page.content.yes_option.click
+  continue
+end
+
+def submit_no
+  base_page.content.no_option.click
+  continue
 end
