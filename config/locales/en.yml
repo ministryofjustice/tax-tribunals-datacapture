@@ -978,6 +978,7 @@ en:
           refused: 'No'
       steps_hardship_hardship_reason_form:
         hardship_reason: Enter your reasons below or attach as a document
+        hardship_reason_document: ''
       steps_lateness_in_time_form:
         in_time_options:
           'yes': Yes, I am in time
