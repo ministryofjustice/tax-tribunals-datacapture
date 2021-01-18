@@ -966,18 +966,19 @@ en:
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid:
+        disputed_tax_paid_options:
           <<: *YESNO
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested:
+        hardship_review_requested_options:
           <<: *YESNO
       steps_hardship_hardship_review_status_form:
-        hardship_review_status:
+        hardship_review_status_options:
           granted: 'Yes'
           pending: I am waiting for a decision
           refused: 'No'
       steps_hardship_hardship_reason_form:
         hardship_reason: Enter your reasons below or attach as a document
+        hardship_reason_document: ''
       steps_lateness_in_time_form:
         in_time_options:
           'yes': Yes, I am in time
