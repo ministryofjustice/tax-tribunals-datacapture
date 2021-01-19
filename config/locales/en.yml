@@ -1661,7 +1661,7 @@ en:
             <p style="margin-left: 40px" class="govuk-body"><b>Important Notes:</b> If you select to go back and change any part of your appeal before you click “Submit”, please avoid using the browser back buttons as this could result in you submitting an appeal that is missing information, resulting in an invalid appeal being submitted. Instead, continue with any subsequent steps until you reach the “Check your answers” screen.</p>
             <p style="margin-left: 40px" class="govuk-body">If you made use of the save & return feature at any point in the process, in the interest of data security and to protect your privacy, your saved appeal will no longer exist online, and you must contact the tribunal directly if you need to make any amendments.</p>
       feedback_html: |
-        Do you think this guide can be improved? <a class="govuk-link" rel="external" target="_blank" href="%{feedback_url}">Contact us</a> and let us know.
+        <p class="govuk-body" >Do you think this guide can be improved? <a class="govuk-link" rel="external" target="_blank" href="%{feedback_url}">Contact us</a> and let us know.</p>
 
   session:
     note:

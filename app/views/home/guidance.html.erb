@@ -45,7 +45,7 @@
   <% end %>
 </div>
 
-<p class="govuk-body" ><%= t '.feedback_html', feedback_url: Rails.configuration.survey_link %></p>
+<%= t '.feedback_html', feedback_url: Rails.configuration.survey_link %>
 
 <p class="govuk-body" >
   <a class="govuk-link" href="#" onclick="window.print();return false;">Print this page</a>
