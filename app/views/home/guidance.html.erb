@@ -47,4 +47,6 @@
 
 <p class="govuk-body" ><%= t '.feedback_html', feedback_url: Rails.configuration.survey_link %></p>
 
-<%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
+<p class="govuk-body" >
+  <a class="govuk-link" href="#" onclick="window.print();return false;">Print this page</a>
+</p>
