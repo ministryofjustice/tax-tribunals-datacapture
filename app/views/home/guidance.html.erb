@@ -1,5 +1,8 @@
 <% title t('.page_title') %>
-<%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
+<% content_for(:back_link) do %>
+  <%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
+<% end %>
+
 
 <h1 class="govuk-heading-xl"><%=t '.heading' %></h1>
 
@@ -45,7 +48,7 @@
   <% end %>
 </div>
 
-<%= t '.feedback_html', feedback_url: Rails.configuration.survey_link %>
+<%= t '.feedback_html', feedback_url: 'https://www.smartsurvey.co.uk/s/TTFeed20/' %>
 
 <p class="govuk-body" >
   <a class="govuk-link" href="#" onclick="window.print();return false;">Print this page</a>
