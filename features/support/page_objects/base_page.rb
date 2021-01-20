@@ -7,7 +7,6 @@ class BasePage < SitePrism::Page
     element :individual, 'label', text: 'Individual'
     element :company, 'label', text: 'Company'
     element :other, 'label', text: 'Other type of organisation'
-    element :back_button, '.govuk-back-link'
   end
   section :footer, '.govuk-footer' do
     element :help_link, 'a', text: 'Help'
@@ -17,4 +16,5 @@ class BasePage < SitePrism::Page
     element :privacy_link, 'a', text: 'Privacy policy'
     element :accessibility_link, 'a', text: 'Accessibility statement'
   end
+  element :back_button, '.govuk-back-link'
 end

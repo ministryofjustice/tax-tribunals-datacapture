@@ -163,5 +163,5 @@ def submit
 end
 
 def back
-  base_page.content.back_button.click
+  base_page.back_button.click
 end
