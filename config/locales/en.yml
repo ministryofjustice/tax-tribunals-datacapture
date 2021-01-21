@@ -90,6 +90,8 @@ en:
             </p>
           last_opportunity_warning: Warning
           last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
+  application:
+    name: Appeal to the tax tribunal
   steps:
     appeal:
       case_type:
