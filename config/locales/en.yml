@@ -1458,6 +1458,130 @@ en:
            <p class="govuk-body">(call 0845 601 3321 or 01308 488066, or email <a href="mailto:taxvol@taxvol.org.uk" class="govuk-link">taxvol@taxvol.org.uk</a>)</p>
         </ul>
       page_title: Contact
+    cookies:
+      page_title: Cookies
+      heading: Cookies
+      lead_text: Appeal to the tax tribunal puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.
+      description_html: |
+        <p class="govuk-body">Cookies are used to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>remember your progress</li>
+          <li>measure how you use the website so it can be updated and improved based on your needs</li>
+        </ul>
+        <p class="govuk-body">Appeal to the tax tribunal cookies aren't used to identify you personally.</p>
+        <p class="govuk-body">You'll normally see a message on the site before we store a cookie on your computer.</p>
+        <h2 class="govuk-heading-s">Further information</h2>
+        <p class="govuk-body">Refer here to <a class="govuk-link" rel="external" target="_blank" href="https://www.gov.uk/help/cookies" title='Cookies on GOV.UK'>GOV.UK cookie policy</a>.</p>
+        <p class="govuk-body">Find out more about <a class="govuk-link" rel="external" target="_blank" href="http://www.aboutcookies.org">how to manage cookies</a>.</p>
+        <h2 class="govuk-heading-m">How cookies are used on Appeal to the tax tribunal</h2>
+        <p class="govuk-body"><strong>Our introductory message</strong></p>
+        <p class="govuk-body">You may see a pop-up welcome message when you first visit Appeal to the tax tribunal. We'll store a cookie so that your computer knows you've seen it and knows not to show it again.</p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Name</th>
+              <th scope="col" class="govuk-table__header">Purpose</th>
+              <th scope="col" class="govuk-table__header">Expires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">seen_cookie_message</td>
+              <td class="govuk-table__cell">Saves a message to let us know that you've seen our cookie message</td>
+              <td class="govuk-table__cell">1 month</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="govuk-body"><strong>Remembering your progress</strong></p>
+        <p class="govuk-body">We will store a cookie to remember your case progress in this computer and to expire your session after 30 minutes of inactivity.</p>
+        <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Purpose</th>
+            <th scope="col" class="govuk-table__header">Expires</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_tax-tribunals-datacapture_session</td>
+              <td class="govuk-table__cell">Saves your current progress in this computer and tracks inactivity periods</td>
+              <td class="govuk-table__cell">After 30 minutes of inactivity or when you close your browser</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="govuk-body"><strong>Measuring website usage (Google Analytics)</strong></p>
+        <p class="govuk-body">We use Google Analytics software to collect information about how you use Appeal to the tax tribunal. We do this to help make sure the site is meeting the needs of its users and to help us make improvements, for example <a class="govuk-link" rel="external" target="_blank" href="https://insidegovuk.blog.gov.uk/2015/03/26/new-tool-to-see-trending-searches/">improving site search</a>.</p>
+        <p class="govuk-body">Google Analytics stores information about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the pages you visit on Appeal to the tax tribunal</li>
+          <li>how long you spend on each Appeal to the tax tribunal page</li>
+          <li>how you got to the site</li>
+          <li>what you click on while you’re visiting the site</li>
+        </ul>
+        <p class="govuk-body">We don't collect or store your personal information (for example your name or address) so this information can't be used to identify who you are.</p>
+        <p class="govuk-body">We don’t allow Google to use or share our analytics data.</p>
+        <p class="govuk-body">Google Analytics sets the following cookies:</p>
+        <p class="govuk-body">Universal Analytics</p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Name</th>
+              <th scope="col" class="govuk-table__header">Purpose</th>
+              <th scope="col" class="govuk-table__header">Expires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_ga</td>
+              <td class="govuk-table__cell">This helps us count how many people visit Appeal to the tax tribunal by tracking if you've visited before</td>
+              <td class="govuk-table__cell">2 years</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_gid</td>
+              <td class="govuk-table__cell">This helps us count how many people visit Appeal to the tax tribunal by tracking if you've visited before</td>
+              <td class="govuk-table__cell">24 hours</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_gat</td>
+              <td class="govuk-table__cell">Used to manage the rate at which page view requests are made</td>
+              <td class="govuk-table__cell">10 minutes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="govuk-body">Google Analytics</p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Name</th>
+              <th scope="col" class="govuk-table__header">Purpose</th>
+              <th scope="col" class="govuk-table__header">Expires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_utma</td>
+              <td class="govuk-table__cell">Like _ga, this lets us know if you've visited before, so we can count how many of our visitors are new to Appeal to the tax tribunal or to a certain page</td>
+              <td class="govuk-table__cell">2 years</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_utmb</td>
+              <td class="govuk-table__cell">This works with _utmc to calculate the average length of time you spend on Appeal to the tax tribunal</td>
+              <td class="govuk-table__cell">30 minutes</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_utmc</td>
+              <td class="govuk-table__cell">This works with _utmb to calculate when you close your browser</td>
+              <td class="govuk-table__cell">when you close your browser</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">_utmz</td>
+              <td class="govuk-table__cell">This tells us how you reached Appeal to the tax tribunal (for example from another website or a search engine)</td>
+              <td class="govuk-table__cell">6 months</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="govuk-body">You can <a class="govuk-link" rel="external" target="_blank" href="https://tools.google.com/dlpage/gaoptout">opt out of Google Analytics cookies</a>.</p>
     accessibility:
       page_title: Accessibility statement
       heading_html: Accessibility statement for appealing to the Tax Tribunal
