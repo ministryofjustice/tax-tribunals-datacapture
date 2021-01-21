@@ -1411,6 +1411,13 @@ en:
       logout: Sign out
       change_password: Change password
       your_cases: Your saved cases
+    govuk_template:
+      skip_to_main_content: Skip to main content
+      default_page_title: GOV.UK - The best place to find government services and information
+      ogl_html: |
+        All content is available under the <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+      crown_copyright_html: |
+        <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
   document_upload:
     errors:
       file_size: "%{file_name} is too big. You will need to resubmit a smaller version,
