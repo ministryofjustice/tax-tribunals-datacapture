@@ -1,0 +1,17 @@
+<div class="govuk-form-group address-lookup">
+    <%= hidden_field_tag(:bearer, access_token) %>
+    <%= hidden_field_tag(:address_lookup_url, address_lookup_url) %>
+    <%= label_tag(:address_lookup, t('helpers.address_lookup.enter_a_uk_postcode'), class: 'govuk-label') %>
+    <%= text_field_tag(:address_lookup, nil, class: 'govuk-input govuk-!-width-one-half') %>
+    <%= button_tag(t('helpers.address_lookup.find_address'), type: 'button', class: 'govuk-button') %>
+    <%= tag.a(t('helpers.address_lookup.enter_address_manually'), href: '#', class: 'govuk-link') %>
+</div>
+
+<div id="address-lookup-addresses" class="govuk-form-group">
+    <%= label_tag(:address_lookup_options, t('helpers.address_lookup.select_an_address'),class: 'govuk-label') %>
+    <%= select_tag(:address_lookup_options, nil, class: 'govuk-select') %>
+</div>
+
+<div id="address-lookup-manual-address">
+    <%= yield :form %>
+</div>

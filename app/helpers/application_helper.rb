@@ -87,4 +87,17 @@ module ApplicationHelper
   def multi_answer_i18n_lookup(question, answer)
     t("check_answers.#{question}.answers.#{answer}")
   end
+
+  def address_lookup(access_token: nil, &block)
+    if access_token
+      content_for(:form, &block)
+      render(partial: 'steps/shared/address_lookup', locals: {access_token: access_token})
+    else
+      yield block
+    end
+  end
+
+  def address_lookup_url
+    [Rails.configuration.address_lookup_endpoint, "/search/places/v1/postcode"].join
+  end
 end

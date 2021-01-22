@@ -216,4 +216,30 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(i18n_hearing_loop).to eq('Hearing loop')
     end
   end
+
+  describe '#address_lookup' do
+    let(:form_block) { Proc.new {} }
+
+    it 'behaves like a passthrough method when no access_token' do
+      expect(helper).not_to receive(:render)
+      helper.address_lookup(access_token: nil, &form_block)
+    end
+
+    it 'inserts address lookup partial when access_token present' do
+      token = 'osapitoken'
+
+      expect(helper).to receive(:content_for).with(:form, &form_block)
+      expect(helper).to receive(:render).with(
+        partial: 'steps/shared/address_lookup',
+        locals: { access_token: token }
+      )
+      helper.address_lookup(access_token: token, &form_block)
+    end
+  end
+
+  describe '#address_lookup_url' do
+    it 'returns a the address lookup url' do
+      expect(helper.address_lookup_url).to eql("#{Rails.configuration.address_lookup_endpoint}/search/places/v1/postcode")
+    end
+  end
 end
