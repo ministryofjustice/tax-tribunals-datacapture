@@ -29,6 +29,7 @@ gem 'virtus'
 gem 'zendesk_api', '~> 1.28'
 gem 'application_insights', '~> 0.5.6'
 gem 'sprockets', '3.7.2'
+gem 'rack-cors'
 
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
