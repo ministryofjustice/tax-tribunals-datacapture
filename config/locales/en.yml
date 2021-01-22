@@ -384,7 +384,7 @@ en:
       need_support:
         edit:
           heading: Do you need any support at the hearing?
-          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access.
+          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or an accessible hearing room.
           page_title: Need Support?
       what_support:
         edit:
@@ -1035,7 +1035,7 @@ en:
         sign_language_interpreter: Sign language interpreter
         sign_language_interpreter_details: Enter the sign language you need
         hearing_loop: Hearing loop
-        disabled_access: Disabled access
+        disabled_access: Accessible hearing rooms
         other_support: Other support
     what_support_other:
       question: ''
