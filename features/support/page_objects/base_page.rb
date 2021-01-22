@@ -16,4 +16,5 @@ class BasePage < SitePrism::Page
     element :privacy_link, 'a', text: 'Privacy policy'
     element :accessibility_link, 'a', text: 'Accessibility statement'
   end
+  element :back_button, '.govuk-back-link'
 end

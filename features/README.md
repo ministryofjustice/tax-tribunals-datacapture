@@ -50,3 +50,7 @@ Run Below command
 Example:
 
 `$ DRIVER=chrome_saucelabs cucumber --tags @saucelabs`
+
+### Stubbing
+
+`RSpec::Mocks` is used to stub `Uploader`. This allows the feature tests to progress beyond the pages, i.e. document upload steps, that require a document upload. An example of this can be found in the `complete_valid_appeal_application` method in `navigation_helpers.rb`.

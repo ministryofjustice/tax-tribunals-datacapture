@@ -19,6 +19,9 @@ class HomeController < ApplicationController
   def accessibility
   end
 
+  def guidance
+  end
+
   private
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
@@ -27,7 +30,8 @@ class HomeController < ApplicationController
     [
       [:appeal, 30, appeal_path],
       [:close, 15, closure_path],
-      [:home_login, 0, helpers.login_or_portfolio_path]
+      [:home_login, 0, helpers.login_or_portfolio_path],
+      [:guidance, 0, guidance_path]
     ]
   end
 end

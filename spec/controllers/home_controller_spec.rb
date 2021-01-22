@@ -24,6 +24,11 @@ RSpec.describe HomeController do
       expect(name).to eq(:home_login)
       expect(time).to eq(0)
       expect(link).to eq('/users/login')
+
+      name, time, link = assigns[:link_sections][3]
+      expect(name).to eq(:guidance)
+      expect(time).to eq(0)
+      expect(link).to eq('/guidance')
     end
 
     context 'when user is logged in' do
@@ -41,6 +46,13 @@ RSpec.describe HomeController do
         expect(time).to eq(0)
         expect(link).to eq('/users/cases')
       end
+    end
+  end
+
+  describe '#guidance' do
+    it 'renders the expected page' do
+      get :guidance
+      expect(response).to render_template(:guidance)
     end
   end
 

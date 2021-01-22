@@ -9,3 +9,7 @@ end
 Given("I submit that I am an other") do
   taxpayer_type_page.submit_other
 end
+
+Given("I click the back button") do
+  back
+end
