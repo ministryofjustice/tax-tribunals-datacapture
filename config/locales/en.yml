@@ -1056,6 +1056,11 @@ en:
       reset_password: Reset password
       change_password: Change my password
       save_and_continue: "Save and continue"
+    address_lookup:
+      enter_a_uk_postcode: Enter a UK postcode
+      find_address: Find address
+      enter_address_manually: Enter address manually
+      select_an_address: Select an address
   check_answers:
     need_support:
       question: Do you need any support at the hearing?
