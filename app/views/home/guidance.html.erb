@@ -1,0 +1,55 @@
+<% title t('.page_title') %>
+<% content_for(:back_link) do %>
+  <%= link_to t('generic.back_link'), root_path, class: 'govuk-back-link' %>
+<% end %>
+
+
+<h1 class="govuk-heading-xl"><%=t '.heading' %></h1>
+
+<p class="govuk-body-l"><%= t '.lead_text' %></p>
+
+<h2 class="govuk-heading-l"><%= t '.subheading_1' %></h2>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-1">
+  <% t('home.guidance.accordion_1').each_with_index do |i, k|  %>
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="<%="accordion-1-heading-#{k}"%>">
+            <%= i[:question_html].html_safe %>
+          </span>
+        </h2>
+      </div>
+      <div id="<%="accordion-1-content-#{k}"%>" class="govuk-accordion__section-content" aria-labelledby="<%="accordion-1-heading-#{k}"%>">
+        <%= i[:answer_html].html_safe %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="govuk-heading-l"><%= t '.subheading_2' %></h2>
+
+<%= t '.steps_details_html' %>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-2">
+  <% t('home.guidance.accordion_2').each_with_index do |i, k| %>
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="<%="accordion-2-heading-#{k}"%>">
+              <%= i[:question_html].html_safe %>
+            </span>
+        </h2>
+      </div>
+      <div id="<%="accordion-2-content-#{k}"%>" class="govuk-accordion__section-content" aria-labelledby="<%="accordion-2-heading-#{k}"%>">
+        <%= i[:answer_html].html_safe % { approval_form_href: asset_path('proforma.pdf') } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= t '.feedback_html', feedback_url: 'https://www.smartsurvey.co.uk/s/TTFeed20/' %>
+
+<p class="govuk-body" >
+  <a class="govuk-link" href="#" onclick="window.print();return false;">Print this page</a>
+</p>

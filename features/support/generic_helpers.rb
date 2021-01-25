@@ -22,6 +22,10 @@ def home_page
   @home_page ||= HomePage.new
 end
 
+def guidance_page
+  @guidance_page ||= GuidancePage.new
+end
+
 def appeal_home_page
   @appeal_home_page ||= AppealHomePage.new
 end
@@ -186,4 +190,8 @@ end
 def submit_no
   base_page.content.no_option.click
   continue
+end
+
+def back
+  base_page.back_button.click
 end
