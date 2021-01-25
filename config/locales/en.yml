@@ -1795,6 +1795,7 @@ en:
             <p style="margin-left: 40px" class="govuk-body">If you made use of the save & return feature at any point in the process, in the interest of data security and to protect your privacy, your saved appeal will no longer exist online, and you must contact the tribunal directly if you need to make any amendments.</p>
       feedback_html: |
         <p class="govuk-body" >Do you think this guide can be improved? <a class="govuk-link" rel="external" target="_blank" href="%{feedback_url}">Contact us</a> and let us know.</p>
+      print: Print this page
 
   session:
     note:
