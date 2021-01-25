@@ -1061,6 +1061,9 @@ en:
       find_address: Find address
       enter_address_manually: Enter address manually
       select_an_address: Select an address
+      error: Error
+      please_enter_valid_postcode: Please enter a valid UK postcode
+      api_call_error: An error occurred, Please enter the address manually
   check_answers:
     need_support:
       question: Do you need any support at the hearing?

@@ -5,6 +5,7 @@ moj.Modules.addressLookup = {
     ukPostcodeRegEx: /^(([A-Z]{1,2}[0-9][A-Z0-9]?|ASCN|STHL|TDCU|BBND|[BFS]IQQ|PCRN|TKCA) ?[0-9][A-Z]{2}|BFPO ?[0-9]{1,4}|(KY[0-9]|MSR|VG|AI)[ -]?[0-9]{4}|[A-Z]{2} ?[0-9]{2}|GE ?CX|GIR ?0A{2}|SAN ?TA1)$/i,
 
     selectors: {
+        formGroup: '.address-lookup',
         btn: '.address-lookup button',
         postcode: '#address_lookup',
         bearer: '#bearer',
@@ -13,11 +14,13 @@ moj.Modules.addressLookup = {
         addressOptions: '#address-lookup-addresses',
         addressOptionSelect: '#address-lookup-addresses select',
         addressLookupUrl: '#address_lookup_url',
+        errorSpan: '#address-lookup-postcode-error',
         addressFields: ['.address', '.city', '.postcode', '.country']
     },
 
     classes: {
-        inputError: 'govuk-form-group--error'
+        inputError: 'govuk-input--error',
+        formGroupError: 'govuk-form-group--error'
     },
 
     init: function() {
@@ -45,17 +48,19 @@ moj.Modules.addressLookup = {
 
     whenValidPostcode: function(callback) {
         const self = this,
-              $postcode = $(self.selectors.postcode);
+              $postcode = $(self.selectors.postcode),
+              $formGroup = $(self.selectors.formGroup);
 
         if (self.ukPostcodeRegEx.test($postcode.val())) {
+            $formGroup.removeClass(self.classes.formGroupError);
+            $formGroup.find(self.selectors.postcode).removeClass(self.classes.inputError);
+            $(self.selectors.errorSpan).hide();
             callback($postcode.val());
         }
         else {
-            console.log('invalid postcode')
-            // insert error message
-            //  <span class="govuk-error-message" id="address-lookup-postcode-error">
-            //    <span class="govuk-visually-hidden">Error: </span>
-            // Please enter a name</span>
+            $formGroup.addClass(self.classes.formGroupError);
+            $formGroup.find(self.selectors.postcode).addClass(self.classes.inputError);
+            $(self.selectors.errorSpan).show();
         }
     },
 
@@ -83,8 +88,8 @@ moj.Modules.addressLookup = {
     },
 
     formatOptions: function(entry, idx) {
-        const self = this;
-        const dpa = self.dpaValueGetter(entry);
+        const self = this,
+              dpa = self.dpaValueGetter(entry);
         return '<option value="' + idx +'">' + [dpa.address, dpa.city, dpa.postcode].join(', ') + '</option>';
     },
 
@@ -148,7 +153,8 @@ moj.Modules.addressLookup = {
               $addressBox = $(self.selectors.addressOptions);
 
         $addressBox.find('select').hide();
-        $addressBox.find('p').html('An error occurred, Please enter the address manually').show();
+        $addressBox.find('p').show();
+        $addressBox.addClass(self.classes.formGroupError);
         $addressBox.show();
         $(self.selectors.manualLink).trigger('click');
     }
