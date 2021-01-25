@@ -4,13 +4,18 @@
 # Read more: https://github.com/cyu/rack-cors
 Rails.application.config.hosts << "localhost"
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors, debug: true, logger: (-> { Rails.logger }) do
+
+Rails.application.config.middleware
+  .insert_before(0,
+    Rack::Cors,
+    debug: (not Rails.env.production?),
+    logger: (-> { Rails.logger })) do
   allow do
-    origins 'localhost:3000'
+    origins 'api.os.uk'
 
     resource '*',
       headers: :any,
-      methods: [:get],
+      methods: [:get, :post, :delete, :put, :patch, :options, :head],
       max_age: 0,
       credentials: true
   end

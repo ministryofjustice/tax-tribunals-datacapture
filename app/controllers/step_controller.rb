@@ -12,6 +12,33 @@ class StepController < ApplicationController
 
   private
 
+  def address_lookup_access_token
+    Rails.cache.fetch('address_lookup', expires_in: 280) do
+      uri = URI(Rails.configuration.x.address_lookup.endpoint)
+
+      req = Net::HTTP::Post.new('/oauth2/token/v1')
+      req.basic_auth(
+        Rails.configuration.x.address_lookup.api_key,
+        Rails.configuration.x.address_lookup.api_secret
+      )
+      req.set_form_data('grant_type' => 'client_credentials')
+
+      begin
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true if uri.instance_of? URI::HTTPS
+        res = http.request(req)
+        if res.is_a?(Net::HTTPSuccess)
+          # example response
+          # {"access_token":"y2mpJZGmQW1AN1LdHLHXA0bUXNOA","expires_in":"299","issued_at":"1611584726303","token_type":"BearerToken"}
+          JSON.parse(res.body).fetch('access_token', nil)
+        end
+      rescue StandardError => e
+        Rails.logger.error("Address Lookup Fetch Access Token error: #{e}")
+        nil
+      end
+    end
+  end
+
   def update_and_advance(form_class, opts={})
     hash = permitted_params(form_class).to_h
 

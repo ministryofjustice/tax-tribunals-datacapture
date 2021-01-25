@@ -1,5 +1,7 @@
 module Steps::Details
   class RepresentativeDetailsController < Steps::DetailsStepController
+    before_action :address_lookup_access_token, only: [:edit]
+
     def edit
       @form_object = form_klass.new(
         tribunal_case: current_tribunal_case,

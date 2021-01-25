@@ -239,7 +239,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '#address_lookup_url' do
     it 'returns a the address lookup url' do
-      expect(helper.address_lookup_url).to eql("#{Rails.configuration.address_lookup_endpoint}/search/places/v1/postcode")
+      expect(helper.address_lookup_url).to eql("#{Rails.configuration.x.address_lookup.endpoint}/search/places/v1/postcode")
     end
   end
 end

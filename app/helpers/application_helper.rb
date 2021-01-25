@@ -98,12 +98,10 @@ module ApplicationHelper
   end
 
   def address_lookup_access_token
-    Rails.cache.fetch('address_lookup', expires_in: 280) do
-      nil
-    end
+    Rails.cache.read('address_lookup')
   end
 
   def address_lookup_url
-    [Rails.configuration.address_lookup_endpoint, "/search/places/v1/postcode"].join
+    [Rails.configuration.x.address_lookup.endpoint, "/search/places/v1/postcode"].join
   end
 end
