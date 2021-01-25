@@ -1,4 +1,4 @@
-<% title t('.page_title') %>
+<% title t('cookies.page_title') %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -7,7 +7,127 @@
 
     <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
-    <%= t('.description_html') %>
+
+    <p class="govuk-body"><%= t 'cookies.intro.line_1' %></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><%= t 'cookies.intro.line_2' %></li>
+      <li><%= t 'cookies.intro.line_3' %></li>
+    </ul>
+    <p class="govuk-body"><%= t 'cookies.intro.line_4' %></p>
+    <p class="govuk-body"><%= t 'cookies.intro.line_5' %></p>
+    <h2 class="govuk-heading-s"><%= t 'cookies.section_list.further_information' %></h2>
+    <p class="govuk-body"><%= t 'cookies.further_info.line_1_html' %></p>
+    <p class="govuk-body"><%= t 'cookies.further_info.line_2_html' %></p>
+    <h2 class="govuk-heading-m"><%= t 'cookies.section_list.how_we_use' %></h2>
+    <p class="govuk-body"><strong><%= t 'cookies.how_we_use.intro_message' %></strong></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_1' %></p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_1.header_1' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_1.header_2' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_1.header_3' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_1.row_1.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_1.row_1.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_1.row_1.col_3' %></td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body"><strong><%= t 'cookies.how_we_use.remembering_progress' %></strong></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_2' %></p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_2.header_1' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_2.header_2' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_2.header_3' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_2.row_1.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_2.row_1.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_2.row_1.col_3' %></td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body"><strong><%= t 'cookies.how_we_use.measuring_usage' %></strong></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_3_html' %></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_4' %></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><%= t 'cookies.how_we_use.line_5' %></li>
+      <li><%= t 'cookies.how_we_use.line_6' %></li>
+      <li><%= t 'cookies.how_we_use.line_7' %></li>
+      <li><%= t 'cookies.how_we_use.line_8' %></li>
+    </ul>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_9' %></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_10' %></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_11' %></p>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_12' %></p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_3.header_1' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_3.header_2' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_3.header_3' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_1.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_1.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_1.col_3' %></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_2.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_2.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_2.col_3' %></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_3.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_3.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_3.row_3.col_3' %></td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_13' %></p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_4.header_1' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_4.header_2' %></th>
+        <th scope="col" class="govuk-table__header"><%= t 'cookies.how_we_use.table_4.header_3' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_1.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_1.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_1.col_3' %></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_2.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_2.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_2.col_3' %></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_3.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_3.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_3.col_3' %></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_4.col_1' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_4.col_2' %></td>
+        <td class="govuk-table__cell"><%= t 'cookies.how_we_use.table_4.row_4.col_3' %></td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body"><%= t 'cookies.how_we_use.line_14_html' %></p>
+
 
   </div>
 </div>
