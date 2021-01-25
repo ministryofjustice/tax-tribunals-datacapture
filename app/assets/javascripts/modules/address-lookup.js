@@ -9,9 +9,11 @@ moj.Modules.addressLookup = {
         postcode: '#address_lookup',
         bearer: '#bearer',
         manualLink: '.address-lookup a',
-        addressFields: '#address-lookup-manual-address',
+        manualAddress: '#address-lookup-manual-address',
         addressOptions: '#address-lookup-addresses',
-        addressLookupUrl: '#address_lookup_url'
+        addressOptionSelect: '#address-lookup-addresses select',
+        addressLookupUrl: '#address_lookup_url',
+        addressFields: ['.address', '.city', '.postcode', '.country']
     },
 
     classes: {
@@ -31,14 +33,14 @@ moj.Modules.addressLookup = {
 
         $(self.selectors.btn).on("click", (self.postcodeLookup).bind(self));
         $(self.selectors.manualLink).on("click", (self.showAddressFields).bind(self));
-        $(self.selectors.addressOptions).on("click", (self.fillAddressFields).bind(self));
+        $(self.selectors.addressOptionSelect).on("change", (self.fillAddressFields).bind(self));
     },
 
     showAddressFields: function(e) {
         const self = this;
 
         $(self.selectors.manualLink).hide();
-        $(self.selectors.addressFields).show();
+        $(self.selectors.manualAddress).show();
     },
 
     whenValidPostcode: function(callback) {
@@ -80,23 +82,74 @@ moj.Modules.addressLookup = {
         }).bind(self));
     },
 
-    renderAddressOptions: function(e) {
-        console.log('render options')
-        // count result
-        // if at least 1
-        // format select options
-        // insert options
-        // display select box
-        // else -> enter manually
+    formatOptions: function(entry, idx) {
+        const self = this;
+        const dpa = self.dpaValueGetter(entry);
+        return '<option value="' + idx +'">' + [dpa.address, dpa.city, dpa.postcode].join(', ') + '</option>';
+    },
+
+    renderAddressOptions: function(data) {
+        const self = this,
+              $addressBox = $(self.selectors.addressOptions);
+
+        self.addresses = data.results;
+
+        if (self.addresses.length > 0) {
+            var options = $.map(self.addresses, (self.formatOptions).bind(self));
+            options.unshift('<option>' + options.length + ' addresses found' + '</option>');
+            $addressBox.find('p').hide();
+            $addressBox.find('select').html(options).show();
+            $addressBox.show();
+        }
+        else {
+            $addressBox.find('select').hide();
+            $addressBox.find('p').html('No address found').show();
+            $addressBox.show();
+      }
+    },
+
+    dpaValueGetter: function(entry) {
+        var dpa;
+        if (entry == null || entry === 'undefined') {
+            dpa = {};
+        }
+        else {
+            dpa = entry['DPA'] || {};
+        }
+        return {
+            address: [
+                dpa.BUILDING_NAME,
+                dpa.BUILDING_NUMBER,
+                dpa.THOROUGHFARE_NAME
+            ].filter(function(e) { return e != null || e != 'undefined'; }).join(' '),
+            postcode: dpa.POSTCODE,
+            city: dpa.POST_TOWN,
+            country: 'United Kingdom'
+        };
     },
 
     fillAddressFields: function(e) {
-        var self = this;
         e.preventDefault();
-        console.log('filladrressfields');
+        const self = this,
+              idx = $(e.currentTarget).val(),
+              $manualAddress = $(self.selectors.manualAddress);
+
+        const dpa = self.dpaValueGetter(self.addresses[idx]);
+
+        $.each(self.selectors.addressFields, function(_, fieldSelector) {
+            const key = fieldSelector.replace('.', '');
+            $manualAddress.find(fieldSelector).val(dpa[key]);
+        });
+        $manualAddress.show();
     },
 
     handleError: function(e) {
-        console.log('error')
+        const self = this,
+              $addressBox = $(self.selectors.addressOptions);
+
+        $addressBox.find('select').hide();
+        $addressBox.find('p').html('An error occurred, Please enter the address manually').show();
+        $addressBox.show();
+        $(self.selectors.manualLink).trigger('click');
     }
 };

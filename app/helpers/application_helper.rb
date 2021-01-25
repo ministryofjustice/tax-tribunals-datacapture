@@ -88,12 +88,18 @@ module ApplicationHelper
     t("check_answers.#{question}.answers.#{answer}")
   end
 
-  def address_lookup(access_token: nil, &block)
-    if access_token
+  def address_lookup(&block)
+    if address_lookup_access_token
       content_for(:form, &block)
-      render(partial: 'steps/shared/address_lookup', locals: {access_token: access_token})
+      render(partial: 'steps/shared/address_lookup', locals: {access_token: address_lookup_access_token})
     else
       yield block
+    end
+  end
+
+  def address_lookup_access_token
+    Rails.cache.fetch('address_lookup', expires_in: 280) do
+      nil
     end
   end
 
