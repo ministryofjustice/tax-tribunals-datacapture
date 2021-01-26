@@ -20,3 +20,18 @@
 <div id="address-lookup-manual-address">
     <%= yield :form %>
 </div>
+
+<div id="address-lookup-error-summary" class="js-template">
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+            <%= t('errors.error_summary.heading') %>
+        </h2>
+        <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                    <a href="#address_lookup"><%= t('helpers.address_lookup.please_enter_valid_postcode') %></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

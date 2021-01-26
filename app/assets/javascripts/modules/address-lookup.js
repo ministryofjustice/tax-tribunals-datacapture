@@ -46,18 +46,42 @@ moj.Modules.addressLookup = {
         $(self.selectors.manualAddress).show();
     },
 
+    govukErrorSummary: {
+        selectors: {
+            errorTemplate: '#address-lookup-error-summary',
+            container: '.govuk-error-summary'
+        },
+
+        show : function() {
+            const self = this,
+                  $tag = $(self.selectors.container + '.dynamic');
+            if ($tag.length == 0) {
+                $(
+                    $(self.selectors.errorTemplate).html()
+                ).addClass('dynamic').insertBefore('form');
+            }
+        },
+
+        hide: function() {
+            const self = this;
+            $(self.selectors.container + '.dynamic').remove();
+        }
+    },
+
     whenValidPostcode: function(callback) {
         const self = this,
               $postcode = $(self.selectors.postcode),
               $formGroup = $(self.selectors.formGroup);
 
         if (self.ukPostcodeRegEx.test($postcode.val())) {
+            self.govukErrorSummary.hide();
             $formGroup.removeClass(self.classes.formGroupError);
             $formGroup.find(self.selectors.postcode).removeClass(self.classes.inputError);
             $(self.selectors.errorSpan).hide();
             callback($postcode.val());
         }
         else {
+            self.govukErrorSummary.show();
             $formGroup.addClass(self.classes.formGroupError);
             $formGroup.find(self.selectors.postcode).addClass(self.classes.inputError);
             $(self.selectors.errorSpan).show();
@@ -79,10 +103,7 @@ moj.Modules.addressLookup = {
                 data: { "postcode": postcode },
                 headers: { "Authorization": "Bearer " + $bearer.val() },
                 success: (self.renderAddressOptions).bind(self),
-                error: (self.handleError).bind(self),
-                xhrFields: {
-                    withCredentials: true
-                }
+                error: (self.handleError).bind(self)
             });
         }).bind(self));
     },
