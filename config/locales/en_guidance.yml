@@ -1,0 +1,110 @@
+en:
+  guidance:
+    page_title: Guidance
+    heading: Guide to appealing a tax decision
+    lead_text: Find answers to frequently asked questions, and a step-by-step guide through the service. You may exit this guidance and start completing your appeal by clicking the Start Appeal button at any time.
+    subheading_1: Frequently-asked questions
+    accordion_1:
+      - question_html: Does the tax tribunal know that I have already contacted HMRC?
+        answer_html: |
+          <p class="govuk-body">The tax tribunal is independent and has no knowledge of any proceedings you have with HMRC. We will only ask HMRC for details once you submit your case, so that a judge can make an impartial decision for your appeal.</p>
+      - question_html: Is it possible to save details and come back later?
+        answer_html: |
+          <p class="govuk-body">Throughout the service you can save your progress and continue later. The save & return feature has been created for your convenience in case you are unable to complete your appeal or want to submit your appeal later.</p>
+      - question_html: How do I use the save & return feature?
+        answer_html: |
+          <p class="govuk-body">The save & return feature is available on all screens once you have chosen whether you intend to “Appeal against a tax decision” or “Apply to close an enquiry”. It is available as a link towards the bottom of the screen beneath the fields you are completing.</p>
+      - question_html: What happens when I use the save & return feature?
+        answer_html: |
+          <p class="govuk-body">Selecting save & return will ask you to enter an email address and password. This will create a temporary account that will remain active for 30 days from the date you last logged in, after which, in the interest of data security and to protect your privacy, the account and any unsubmitted appeals will be deleted.</p>
+          <p class="govuk-body">Saved appeals are automatically deleted 14 days from the date you first saved them, and once submitted they are no longer shown.</p>
+      - question_html: What happens when I submit my appeal?
+        answer_html: |
+          <p class="govuk-body">When an appeal is submitted, even if previously saved, it will no longer exist online and cannot be modified further without contacting the tribunal directly. Again, this is in the interest of data security and to protect your privacy.</p>
+          <p class="govuk-body">Should you require a copy of your online appeal you can download and/or print a copy of the PDF that is available from the confirmation screen after you successfully submit your appeal. Further copies can also be requested by contacting the tribunal directly.</p>
+      - question_html: Why does the online session time out after 30 minutes of inactivity?
+        answer_html: |
+          <p class="govuk-body">To protect your privacy the online session will time out after 30 minutes of inactivity. Unless you ‘save’ you will lose any data you have entered and will have to start again. To avoid this happening, it is advisable to use the save & return feature.</p>
+      - question_html: Can I print a copy of my appeal?
+        answer_html: |
+          <p class="govuk-body">You can save and/or print a copy after you submit your appeal using the link shown on the confirmation page, but once you close the confirmation screen you will no longer be able to do so. Further copies can also be requested by contacting the tribunal directly.</p>
+      - question_html: Can I attach supporting documents?
+        answer_html: |
+          <p class="govuk-body">As you complete your online appeal, you will have the opportunity to attach supporting documents.</p>
+          <p class="govuk-body">At this stage, the tribunal only needs two sets of documents to support you appeal:</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+            <li>Your “Grounds for appeal” describing why you are appealing, which can consist of free-text, a single document, or both.</li>
+            <li>The review conclusion letter that you should have received after appealing to HMRC, for example. Although here you can attach more than a single document, this is not necessary as the tribunal will contact you as and when this is needed. To assist the tribunal with processing your appeal, providing more documents than what are needed at this stage should be avoided where possible.</li>
+          </ul>
+    subheading_2: What steps are there in a typical online appeal?
+    steps_details_html: |
+      <p class="govuk-body">You will face a different number of steps depending on whether you want to “Appeal against a tax decision” or “Apply to close an enquiry”.</p>
+      <p class="govuk-body">We have used “Appeal against a tax decision” for this guide. The following is a typical example of a journey through the online service, although yours may differ depending on choices you make.</p>
+    accordion_2:
+      - question_html: 1. What is your appeal about?
+        answer_html: |
+          <p class="govuk-body">Select the option that is relevant to your appeal or alternatively select “Other type of tax, appeal or application” if the option you need is not listed.</p>
+            <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+              <li>If you select “Other type of tax, appeal or application” the next screen will present you with further options. If you cannot find the option you need, you can select “None of the above” and manually enter the type of tax or dispute to continue.</li>
+            </ul>
+          <p class="govuk-body">Subject to the option you selected on the previous screen you will be asked, “Did you appeal the original benefit decision to HMRC?” or alternatively “Did you ask for a review of the original decision?”.</p>
+      - question_html: 2. Did you appeal or review the original decision?
+        answer_html: |
+          <p class="govuk-body">Depending on the type of appeal you selected on the previous screen you will be asked, “Did you appeal the original benefit decision to HMRC?” or alternatively “Did you ask for a review of the original decision?”.</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+            <li><b>Did you appeal the original benefit decision?</b><br>If you select ‘No’ for this question the next screen will tell you that “You must appeal the original decision to HMRC” as you can only appeal to the tax tribunal once you have written to HMRC and received their response.</li>
+            <br>
+            <li><b>Did you ask for a review of the original decision?</b><br>Whether you select ‘Yes’ or ‘No’ for this question the next screen will display a separate set of options for you to choose from:</li>
+          </ul>
+          <p style="margin-left: 100px" class="govuk-body"><b>Yes – What response did you receive?<br>No – What is your dispute about?</b></p>
+          <p class="govuk-body">Selecting ‘Yes’ will display the screen asking; “What response did you receive?”, with additional options to check whether you are able to continue with your appeal. This is done to avoid wasting your time submitting an appeal that could subsequently be returned as invalid by the tribunal.</p>
+      - question_html: 3. What is your dispute about?
+        answer_html: |
+          <p class="govuk-body">The screens that follow this page will differ subject to the option you choose here, either requiring an amount to be selected within a given range, an amount to be manually entered or in some cases no amount may need to be given.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Please note:</b> Where an amount is asked for, you will not be able to continue until you have selected or entered the amount, however; if none of the options apply then you can choose “None of the above” and enter the dispute type manually to continue. In doing this you will not be asked to select or enter an amount being disputed.</p>
+          <p class="govuk-body">The next screen asks the question “Are you in time to appeal to the tax tribunal?” Selecting any option other than “Yes, I am in time” will present an additional screen where you can explain why you are late with your appeal or to give the reasons why your appeal might be late.</p>
+          <p class="govuk-body">Selecting <b>“No, I am late”</b> or <b>“I am not sure”</b> will be the first time you encounter the option to manually enter information, upload a document or both.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Please note:</b> You are only able to upload a single document at this stage, however; you will have the opportunity to provide additional documentation later in the process, before you submit your appeal.</p>
+      - question_html: 4. Are you the taxpayer making the appeal?
+        answer_html: |
+          <p class="govuk-body">This screen consists of two options, “Yes” or “No, I am acting on behalf of the taxpayer”. The purpose of this screen is to ensure that anyone acting on your behalf has been authorised by you to do so.</p>
+          <p style="margin-left: 40px" class="govuk-body">Selecting “Yes” will take you to a screen of options that asks, “Who is making the appeal?” for you to identify whether you are an “Individual”, “Company” or “Other type of organisation”.</p>
+          <p style="margin-left: 40px" class="govuk-body">Selecting “No, I am acting on behalf of the taxpayer” will then take you to the screen that asks, “Who are you?”. Here you can select from one of the options in the list or select “None of the above”.</p>
+          <p class="govuk-body">Subject to the option you choose here the next screen will either ask “Are you an individual, company or other type of organisation?” or “Do you want to start receiving correspondence from the tribunal? (optional)”</p>
+          <p class="govuk-body">For the question “Do you want to start receiving correspondence from the tribunal?” you will be required to upload a copy of the <a href="%{approval_form_href}" class="govuk-link">authorisation form</a>.</p>
+          <p style="margin-left: 40px" class="govuk-body">Selecting “No, I am acting on behalf of the taxpayer” will show an additional screen asking, “Who is making the appeal?” where you are required to identify whether you are an Individual, Company or Other type of organisation.</p>
+          <p class="govuk-body">The next screen collects the name, address, email address and contact phone number (optional) and will differ subject to whether you are the taxpayer or a representative. The screens immediately following this will differ somewhat but are similar in that they aim to understand whether the taxpayer is appealing in person or whether they are being represented, whilst gathering the relevant name and address details.</p>
+          <p class="govuk-body">Clicking continue will then take you through the process of identifying whether you have someone to represent you. For the purpose of this example, it is assumed you are representing yourself by selecting “No”.</p>
+      - question_html: 5. Grounds for appeal
+        answer_html: |
+          <p class="govuk-body">This is your opportunity to manually enter information, upload a document or both, to explain why you are appealing and to give reasons for each decision you dispute.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Please Note:</b> Here you are only able to provide a single document. However, you will have the opportunity later in the process to upload further documentation, before you submit your appeal.</p>
+          <p style="margin-left: 40px" class="govuk-body">The document you select is not uploaded until you select “Continue”. If you decide you want to remove the document, you can return to this page and click “Remove”. This will allow you to provide an alternative document.</p>
+      - question_html: 6. Briefly say what outcome you would like
+        answer_html: |
+          <p class="govuk-body">Here you can say what your intended outcome is; please ensure this is clear yet brief.</p>
+      - question_html: 7. Do you need any support at the hearing?
+        answer_html: |
+          <p class="govuk-body">This is to help the tribunal with understanding your needs and make any necessary arrangements to welcome you at a face-to-face hearing.</p>
+          <p class="govuk-body">Selecting “Yes” will present you with several options for the type of support you will need at your hearing:</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+            <li>Language Interpreter</li>
+            <li>Sign language interpreter</li>
+            <li>Hearing loop</li>
+            <li>Accessible hearing rooms</li>
+            <li>Other support</li>
+          </ul>
+          <p class="govuk-body">Selecting “No” will take you to the “Upload the original notice or decision letter” screen.</p>
+      - question_html: 8. Upload the original notice or decision letter
+        answer_html: |
+          <p class="govuk-body">This is a fundamental part of the online service and the option you select here dictates whether you can upload a single document, multiple documents or, if you do not have the document/s available, save your progress and continue later.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Important Note:</b> Although you are given the option to upload multiple documents, you should only do so if your original notice or decision letter from HMRC happen to be split over multiple pages rather than being a single document.</p>
+          <p style="margin-left: 40px" class="govuk-body">Providing further evidence at this stage is unnecessary as the tribunal will request this from you later, when and if needed.</p>
+      - question_html: 9. Check your answers
+        answer_html: |
+          <p class="govuk-body">This is your last opportunity to make any amendments before you submit your appeal to the tribunal. Following submission, you can view and download a PDF version of your appeal, after which you will no longer be able to view or modify further without contacting the tribunal directly.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Important Notes:</b> If you select to go back and change any part of your appeal before you click “Submit”, please avoid using the browser back buttons as this could result in you submitting an appeal that is missing information, resulting in an invalid appeal being submitted. Instead, continue with any subsequent steps until you reach the “Check your answers” screen.</p>
+          <p style="margin-left: 40px" class="govuk-body">If you made use of the save & return feature at any point in the process, in the interest of data security and to protect your privacy, your saved appeal will no longer exist online, and you must contact the tribunal directly if you need to make any amendments.</p>
+    feedback_html: |
+      <p class="govuk-body" >Do you think this guide can be improved? <a class="govuk-link" rel="external" target="_blank" href="%{feedback_url}">Contact us</a> and let us know.</p>
+    print: Print this page
