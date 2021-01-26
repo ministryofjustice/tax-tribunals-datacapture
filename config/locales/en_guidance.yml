@@ -10,24 +10,24 @@ en:
           <p class="govuk-body">The tax tribunal is independent and has no knowledge of any proceedings you have with HMRC. We will only ask HMRC for details once you submit your case, so that a judge can make an impartial decision for your appeal.</p>
       - question_html: Is it possible to save details and come back later?
         answer_html: |
-          <p class="govuk-body">Throughout the service you can save your progress and continue later. The save and return feature has been created for your convenience in case you are unable to complete your appeal or want to submit your appeal later.</p>
-      - question_html: How do I use the Save & Return feature?
+          <p class="govuk-body">Throughout the service you can save your progress and continue later. The save & return feature has been created for your convenience in case you are unable to complete your appeal or want to submit your appeal later.</p>
+      - question_html: How do I use the save & return feature?
         answer_html: |
-          <p class="govuk-body">The save and return feature is available on all screens once you have chosen whether you intend to “Appeal against a tax decision” or “Apply to close an enquiry”. It is available as a link towards the bottom of the screen beneath the fields you are completing.</p>
-      - question_html: What happens when I use the Save & Return feature?
+          <p class="govuk-body">The save & return feature is available on all screens once you have chosen whether you intend to “Appeal against a tax decision” or “Apply to close an enquiry”. It is available as a link towards the bottom of the screen beneath the fields you are completing.</p>
+      - question_html: What happens when I use the save & return feature?
         answer_html: |
-          <p class="govuk-body">Selecting save and return will ask you to enter an email address and password. This will create a temporary account that will remain active for 30 days from the date you last logged in, after which, in the interest of data security and to protect your privacy, the account and any unsubmitted appeals will be deleted.</p>
+          <p class="govuk-body">Selecting save & return will ask you to enter an email address and password. This will create a temporary account that will remain active for 30 days from the date you last logged in, after which, in the interest of data security and to protect your privacy, the account and any unsubmitted appeals will be deleted.</p>
           <p class="govuk-body">Saved appeals are automatically deleted 14 days from the date you first saved them, and once submitted they are no longer shown.</p>
       - question_html: What happens when I submit my appeal?
         answer_html: |
           <p class="govuk-body">When an appeal is submitted, even if previously saved, it will no longer exist online and cannot be modified further without contacting the tribunal directly. Again, this is in the interest of data security and to protect your privacy.</p>
-          <p class="govuk-body">Should you require a copy of your online appeal you can download and/or print a copy of the PDF that is available from the confirmation screen after you successfully submit your appeal. A copy of your appeal will also be sent to the email address you provided, so it is important to check you have entered this accurately. Further copies can also be requested by contacting the tribunal directly.</p>
+          <p class="govuk-body">Should you require a copy of your online appeal you can download and/or print a copy of the PDF that is available from the confirmation screen after you successfully submit your appeal. Further copies can also be requested by contacting the tribunal directly.</p>
       - question_html: Why does the online session time out after 30 minutes of inactivity?
         answer_html: |
-          <p class="govuk-body">To protect your privacy the online session will time out after 30 minutes of inactivity. Unless you ‘save’ you will lose any data you have entered and will have to start again. To avoid this happening, it is advisable to use the save and return feature.</p>
-      - question_html: Can I Print a copy of my appeal?
+          <p class="govuk-body">To protect your privacy the online session will time out after 30 minutes of inactivity. Unless you ‘save’ you will lose any data you have entered and will have to start again. To avoid this happening, it is advisable to use the save & return feature.</p>
+      - question_html: Can I print a copy of my appeal?
         answer_html: |
-          <p class="govuk-body">You can save and/or print a copy after you submit your appeal using the link shown on the confirmation page, but once you close the confirmation screen you will no longer be able to do so. A copy of your appeal will also be sent to the email address you provided so it is important to check you have entered this accurately. Further copies can also be requested by contacting the tribunal directly.</p>
+          <p class="govuk-body">You can save and/or print a copy after you submit your appeal using the link shown on the confirmation page, but once you close the confirmation screen you will no longer be able to do so. Further copies can also be requested by contacting the tribunal directly.</p>
       - question_html: Can I attach supporting documents?
         answer_html: |
           <p class="govuk-body">As you complete your online appeal, you will have the opportunity to attach supporting documents.</p>
@@ -47,7 +47,6 @@ en:
             <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
               <li>If you select “Other type of tax, appeal or application” the next screen will present you with further options. If you cannot find the option you need, you can select “None of the above” and manually enter the type of tax or dispute to continue.</li>
             </ul>
-            <p style="margin-left: 40px" class="govuk-body"><b>Please note:</b> When you do this, the text you enter is collated for further analysis to be considered as a potential enhancement.</p>
           <p class="govuk-body">Subject to the option you selected on the previous screen you will be asked, “Did you appeal the original benefit decision to HMRC?” or alternatively “Did you ask for a review of the original decision?”.</p>
       - question_html: 2. Did you appeal or review the original decision?
         answer_html: |
