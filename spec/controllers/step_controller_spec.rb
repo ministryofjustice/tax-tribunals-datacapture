@@ -75,4 +75,32 @@ RSpec.describe DummyStepController, type: :controller do
       end
     end
   end
+
+  describe '#address_lookup_access_token' do
+    it 'performs a https post request to Ordnance Survey OAuth2 credential api' do
+      response = {
+        access_token: "y2mpJZGmQW1AN1LdHLHXA0bUXNOA",
+        expires_in:   "299",
+        issued_at:    "1611584726303",
+        token_type:   "BearerToken"
+      }
+
+      expect(Rails.configuration.x.address_lookup).to receive(:api_key).and_return('api_key')
+      expect(Rails.configuration.x.address_lookup).to receive(:api_secret).and_return('api_secret')
+
+      stub_request(:post, "https://api.os.uk/oauth2/token/v1").
+        with(
+          body: {"grant_type"=>"client_credentials"},
+          headers: {
+            'Accept'          => '*/*',
+            'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'Authorization'   => 'Basic YXBpX2tleTphcGlfc2VjcmV0',
+            'Content-Type'    => 'application/x-www-form-urlencoded',
+            'User-Agent'      => 'Ruby'
+          }).
+        to_return(status: 200, body: response.to_json, headers: {})
+
+      subject.send(:address_lookup_access_token)
+    end
+  end
 end

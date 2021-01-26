@@ -13,7 +13,7 @@ class StepController < ApplicationController
   private
 
   def address_lookup_access_token
-    Rails.cache.fetch('address_lookup', expires_in: 280) do
+    Rails.cache.fetch('address_lookup', expires_in: 290) do
       uri = URI(Rails.configuration.x.address_lookup.endpoint)
 
       req = Net::HTTP::Post.new('/oauth2/token/v1')
@@ -23,14 +23,14 @@ class StepController < ApplicationController
       )
       req.set_form_data('grant_type' => 'client_credentials')
 
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = uri.instance_of? URI::HTTPS
       begin
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true if uri.instance_of? URI::HTTPS
         res = http.request(req)
         if res.is_a?(Net::HTTPSuccess)
-          # example response
-          # {"access_token":"y2mpJZGmQW1AN1LdHLHXA0bUXNOA","expires_in":"299","issued_at":"1611584726303","token_type":"BearerToken"}
-          JSON.parse(res.body).fetch('access_token', nil)
+          JSON.parse(res.body).fetch('access_token', nil).tap do |token|
+            Rails.logger.info("[Address Lookup] :: os cred #{res.body}")
+          end
         end
       rescue StandardError => e
         Rails.logger.error("Address Lookup Fetch Access Token error: #{e}")

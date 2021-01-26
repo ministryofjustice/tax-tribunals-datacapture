@@ -222,24 +222,31 @@ RSpec.describe ApplicationHelper, type: :helper do
 
     it 'behaves like a passthrough method when no access_token' do
       expect(helper).not_to receive(:render)
-      helper.address_lookup(access_token: nil, &form_block)
+      helper.address_lookup(&form_block)
     end
 
     it 'inserts address lookup partial when access_token present' do
       token = 'osapitoken'
-
+      helper.stub(:address_lookup_access_token).and_return(token)
       expect(helper).to receive(:content_for).with(:form, &form_block)
       expect(helper).to receive(:render).with(
         partial: 'steps/shared/address_lookup',
         locals: { access_token: token }
       )
-      helper.address_lookup(access_token: token, &form_block)
+      helper.address_lookup(&form_block)
     end
   end
 
   describe '#address_lookup_url' do
     it 'returns a the address lookup url' do
       expect(helper.address_lookup_url).to eql("#{Rails.configuration.x.address_lookup.endpoint}/search/places/v1/postcode")
+    end
+  end
+
+  describe '#address_lookup_access_token' do
+    it 'returns a cached token when present' do
+      Rails.cache.stub(:read).and_return('faketoken')
+      expect(helper.address_lookup_access_token).to eq('faketoken')
     end
   end
 end
