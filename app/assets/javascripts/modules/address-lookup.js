@@ -68,17 +68,19 @@ moj.Modules.addressLookup = {
         }
     },
 
-    whenValidPostcode: function(callback) {
+    whenPostcodeValid: function(callback) {
         const self = this,
               $postcode = $(self.selectors.postcode),
-              $formGroup = $(self.selectors.formGroup);
+              $formGroup = $(self.selectors.formGroup),
+              $bearer = $(self.selectors.bearer),
+              $url = $(self.selectors.addressLookupUrl);
 
         if (self.ukPostcodeRegEx.test($postcode.val())) {
             self.govukErrorSummary.hide();
             $formGroup.removeClass(self.classes.formGroupError);
             $formGroup.find(self.selectors.postcode).removeClass(self.classes.inputError);
             $(self.selectors.errorSpan).hide();
-            callback($postcode.val());
+            callback($url.val(), $postcode.val(), $bearer.val());
         }
         else {
             self.govukErrorSummary.show();
@@ -88,22 +90,39 @@ moj.Modules.addressLookup = {
         }
     },
 
+    cache: {},
+
     postcodeLookup: function(e) {
         e.preventDefault();
         const self = this;
 
-        self.whenValidPostcode((function(postcode) {
-            const self = this,
-                  $bearer = $(self.selectors.bearer),
-                  $url = $(self.selectors.addressLookupUrl);
+        self.whenPostcodeValid((function(url, postcode, token) {
+            const self = this;
 
             $.ajax({
-                url: $url.val(),
+                beforeSend: function(jq, settings) {
+                    const cache = moj.Modules.addressLookup.cache;
+
+                    if (cache[postcode] !=  null) {
+                        moj.Modules.addressLookup.renderAddressOptions(cache[postcode]);
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                },
+                url: url,
                 method: 'GET',
+                cache: true,
                 data: { "postcode": postcode },
-                headers: { "Authorization": "Bearer " + $bearer.val() },
+                headers: { "Authorization": "Bearer " + token },
                 success: (self.renderAddressOptions).bind(self),
-                error: (self.handleError).bind(self)
+                error: (self.handleError).bind(self),
+                complete: function(jq, status) {
+                    if (status == 'success') {
+                        moj.Modules.addressLookup.cache[postcode] = jq.responseJSON;
+                    }
+                }
             });
         }).bind(self));
     },
