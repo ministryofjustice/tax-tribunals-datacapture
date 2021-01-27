@@ -10,6 +10,14 @@ class User < ApplicationRecord
   attribute :email, NormalisedEmailType.new
   validates :email, 'valid_email_2/email': true, if: :should_validate_email
 
+  class Signin
+    include ActiveModel::Model
+    attr_accessor :email, :password
+
+    validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i, unless: Proc.new { |o| o.email.blank? }
+    validates :email, :password, presence: true
+ end
+
   # Devise requires several DB attributes for the `trackable` module, but we are not
   # using all of them. Using virtual attributes so Devise doesn't complain.
   attr_accessor :last_sign_in_ip, :current_sign_in_ip, :sign_in_count

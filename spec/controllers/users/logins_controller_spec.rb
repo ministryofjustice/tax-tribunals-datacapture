@@ -29,7 +29,7 @@ RSpec.describe Users::LoginsController do
       let(:tribunal_case) { instance_double(TribunalCase, user: user) }
 
       before do
-        expect(warden).to receive(:authenticate!).and_return(user)
+        expect(warden).to receive(:authenticate).and_return(user)
       end
 
       it 'signs the user in and redirects to the confirmation page' do
@@ -58,7 +58,7 @@ RSpec.describe Users::LoginsController do
 
     context 'when the authentication was unsuccessful' do
       before do
-        expect(warden).to receive(:authenticate!).and_call_original
+        expect(warden).to receive(:authenticate).and_call_original
         expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
       end
 
