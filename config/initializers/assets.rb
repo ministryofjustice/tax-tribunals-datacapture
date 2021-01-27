@@ -1,6 +1,3 @@
-Rails.application.config.assets.configure do |env|
-  env.export_concurrent = false
-end
 Rails.application.config.assets.version = '1.1'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[*.png *.ico]
