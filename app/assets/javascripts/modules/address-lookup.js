@@ -163,10 +163,11 @@ moj.Modules.addressLookup = {
         }
         return {
             address: [
+                dpa.SUB_BUILDING_NAME,
                 dpa.BUILDING_NAME,
                 dpa.BUILDING_NUMBER,
                 dpa.THOROUGHFARE_NAME
-            ].filter(function(e) { return e != null || e != 'undefined'; }).join(' '),
+            ].filter(function(e) { return e != null && e != 'undefined'; }).join(', '),
             postcode: dpa.POSTCODE,
             city: dpa.POST_TOWN,
             country: 'United Kingdom'
