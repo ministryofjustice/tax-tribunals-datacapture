@@ -3,8 +3,7 @@ module Users
     def create
       self.resource = warden.authenticate(auth_options)
       if self.resource.blank?
-        self.resource = User::Signin.new(params.require(:user).permit(:email, :password))
-        self.resource.valid?
+        self.resource = User.signin(params.require(:user).permit(:email, :password))
         render :new
       else
         set_flash_message!(:notice, :signed_in)

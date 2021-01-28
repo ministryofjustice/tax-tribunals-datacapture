@@ -702,6 +702,8 @@ en:
               invalid: *invalid_email
         user/signin:
           attributes:
+            base:
+              invalid: Enter a valid email and password
             email:
               blank: *blank_email
               invalid: *invalid_email

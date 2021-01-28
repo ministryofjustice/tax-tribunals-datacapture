@@ -146,4 +146,11 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.signin' do
+    it 'adds error email/password combination' do
+      error = User.signin(email: 'foo@bar.com', password: 'XIY19@fdb').errors.details[:base]
+      expect(error).to eq([{error: :invalid}])
+    end
+  end
 end

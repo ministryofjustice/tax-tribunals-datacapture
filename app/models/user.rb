@@ -16,7 +16,13 @@ class User < ApplicationRecord
 
     validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i, unless: Proc.new { |o| o.email.blank? }
     validates :email, :password, presence: true
- end
+  end
+
+  def self.signin(args)
+    Signin.new(args).tap do |signin|
+      signin.errors.add(:base, :invalid, message: 'Enter a valid email and password') if signin.valid?
+    end
+  end
 
   # Devise requires several DB attributes for the `trackable` module, but we are not
   # using all of them. Using virtual attributes so Devise doesn't complain.
