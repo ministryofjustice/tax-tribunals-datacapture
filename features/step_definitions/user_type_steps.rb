@@ -3,9 +3,9 @@ Given("I am on the user type page") do
 end
 
 When("I submit that I am the tax payer making the application") do
-  user_type_page.submit_yes
+  submit_yes
 end
 
 When("I submit that I am not the tax payer making the application") do
-  user_type_page.submit_no
+  submit_no
 end

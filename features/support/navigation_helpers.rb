@@ -1,5 +1,7 @@
 include RSpec::Mocks::ExampleMethods
 
+# rubocop:disable MethodLength
+
 def go_to_closure_page
   home_page.load_page
   expect(home_page.content).to have_header
@@ -51,7 +53,7 @@ def go_to_closure_taxpayer_type_page
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
   expect(user_type_page.content).to have_closure_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_closure_header
 end
 
@@ -66,7 +68,7 @@ def go_to_closure_taxpayer_details_page
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
   expect(user_type_page.content).to have_closure_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_closure_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
@@ -82,7 +84,7 @@ def go_to_closure_has_representative_page
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
   expect(user_type_page.content).to have_closure_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_closure_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
@@ -101,13 +103,13 @@ def go_to_enquiry_details_page
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
   expect(user_type_page.content).to have_closure_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_closure_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(enquiry_details_page.content).to have_header
 end
 
@@ -125,13 +127,13 @@ def go_to_additional_info_page
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
     expect(user_type_page.content).to have_closure_header
-    user_type_page.submit_yes
+    submit_yes
     expect(taxpayer_type_page.content).to have_closure_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(has_representative_page.content).to have_header
-    has_representative_page.submit_no
+    submit_no
     expect(enquiry_details_page.content).to have_header
     enquiry_details_page.valid_submission
     expect(additional_info_page.content).to have_header
@@ -152,13 +154,13 @@ def go_to_support_documents_page
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
     expect(user_type_page.content).to have_closure_header
-    user_type_page.submit_yes
+    submit_yes
     expect(taxpayer_type_page.content).to have_closure_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(has_representative_page.content).to have_header
-    has_representative_page.submit_no
+    submit_no
     expect(enquiry_details_page.content).to have_header
     enquiry_details_page.valid_submission
     expect(additional_info_page.content).to have_header
@@ -181,13 +183,13 @@ def go_to_closure_check_answers_page
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
     expect(user_type_page.content).to have_closure_header
-    user_type_page.submit_yes
+    submit_yes
     expect(taxpayer_type_page.content).to have_closure_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(has_representative_page.content).to have_header
-    has_representative_page.submit_no
+    submit_no
     expect(enquiry_details_page.content).to have_header
     enquiry_details_page.valid_submission
     expect(additional_info_page.content).to have_header
@@ -212,13 +214,13 @@ def complete_valid_closure_application
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
     expect(user_type_page.content).to have_closure_header
-    user_type_page.submit_yes
+    submit_yes
     expect(taxpayer_type_page.content).to have_closure_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(has_representative_page.content).to have_header
-    has_representative_page.submit_no
+    submit_no
     expect(enquiry_details_page.content).to have_header
     enquiry_details_page.valid_submission
     expect(additional_info_page.content).to have_header
@@ -267,7 +269,7 @@ def go_to_challenge_decision_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
+  expect(challenge_decision_page.content).to have_appeal_header
 end
 
 def go_to_challenge_decision_status_page
@@ -280,8 +282,8 @@ def go_to_challenge_decision_status_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
 end
 
@@ -295,8 +297,8 @@ def go_to_dispute_type_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -312,8 +314,8 @@ def go_to_penalty_amount_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -331,8 +333,8 @@ def go_to_in_time_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -352,8 +354,8 @@ def go_to_appeal_user_type_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -375,8 +377,8 @@ def go_to_appeal_taxpayer_type_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -386,7 +388,7 @@ def go_to_appeal_taxpayer_type_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
 end
 
@@ -400,8 +402,8 @@ def go_to_appeal_taxpayer_details_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -411,7 +413,7 @@ def go_to_appeal_taxpayer_details_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
@@ -427,8 +429,8 @@ def go_to_appeal_has_representative_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -438,7 +440,7 @@ def go_to_appeal_has_representative_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
@@ -456,8 +458,8 @@ def go_to_grounds_for_appeal_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -467,13 +469,13 @@ def go_to_grounds_for_appeal_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
 end
 
@@ -487,8 +489,8 @@ def go_to_outcome_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -498,19 +500,18 @@ def go_to_outcome_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
   grounds_for_appeal_page.valid_submission
   expect(outcome_page.content).to have_header
 end
 
-# rubocop:disable MethodLength
 def go_to_need_support_page
   home_page.load_page
   expect(home_page.content).to have_header
@@ -521,8 +522,8 @@ def go_to_need_support_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -532,13 +533,13 @@ def go_to_need_support_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
   grounds_for_appeal_page.valid_submission
   expect(outcome_page.content).to have_header
@@ -556,8 +557,8 @@ def go_to_letter_upload_type_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -567,19 +568,19 @@ def go_to_letter_upload_type_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
   grounds_for_appeal_page.valid_submission
   expect(outcome_page.content).to have_header
   outcome_page.valid_submission
   expect(need_support_page.content).to have_header
-  need_support_page.submit_no
+  submit_no
   expect(letter_upload_type_page.content).to have_header
 end
 
@@ -593,8 +594,8 @@ def go_to_letter_upload_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -604,19 +605,19 @@ def go_to_letter_upload_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
   grounds_for_appeal_page.valid_submission
   expect(outcome_page.content).to have_header
   outcome_page.valid_submission
   expect(need_support_page.content).to have_header
-  need_support_page.submit_no
+  submit_no
   expect(letter_upload_type_page.content).to have_header
   letter_upload_type_page.submit_one_document_option
   expect(letter_upload_page.content).to have_lead_text
@@ -632,8 +633,8 @@ def go_to_appeal_check_answers_page
   case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
   save_return_page.skip_save_and_return
-  expect(challenge_decision_page.content).to have_header
-  challenge_decision_page.submit_yes
+  expect(challenge_decision_page.content).to have_appeal_header
+  submit_yes
   expect(challenge_decision_status_page.content).to have_header
   challenge_decision_status_page.submit_review_conclusion_letter
   expect(dispute_type_page.content).to have_header
@@ -643,19 +644,19 @@ def go_to_appeal_check_answers_page
   expect(in_time_page.content).to have_header
   in_time_page.submit_yes
   expect(user_type_page.content).to have_appeal_header
-  user_type_page.submit_yes
+  submit_yes
   expect(taxpayer_type_page.content).to have_appeal_header
   taxpayer_type_page.submit_individual
   expect(taxpayer_details_page.content).to have_header
   taxpayer_details_page.submit_taxpayer_details
   expect(has_representative_page.content).to have_header
-  has_representative_page.submit_no
+  submit_no
   expect(grounds_for_appeal_page.content).to have_header
   grounds_for_appeal_page.valid_submission
   expect(outcome_page.content).to have_header
   outcome_page.valid_submission
   expect(need_support_page.content).to have_header
-  need_support_page.submit_no
+  submit_no
   expect(letter_upload_type_page.content).to have_header
   letter_upload_type_page.submit_one_document_option
   expect(letter_upload_page.content).to have_lead_text
@@ -679,8 +680,8 @@ def complete_valid_appeal_application
     case_type_page.submit_income_tax
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
-    expect(challenge_decision_page.content).to have_header
-    challenge_decision_page.submit_yes
+    expect(challenge_decision_page.content).to have_appeal_header
+    submit_yes
     expect(challenge_decision_status_page.content).to have_header
     challenge_decision_status_page.submit_review_conclusion_letter
     expect(dispute_type_page.content).to have_header
@@ -690,21 +691,21 @@ def complete_valid_appeal_application
     expect(in_time_page.content).to have_header
     in_time_page.submit_yes
     expect(user_type_page.content).to have_appeal_header
-    user_type_page.submit_yes
+    submit_yes
     expect(taxpayer_type_page.content).to have_appeal_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(has_representative_page.content).to have_header
-    has_representative_page.submit_no
+    submit_no
     expect(grounds_for_appeal_page.content).to have_header
     grounds_for_appeal_page.valid_submission
     expect(eu_exit_page.content).to have_header
-    eu_exit_page.submit_yes
+    submit_yes
     expect(outcome_page.content).to have_header
     outcome_page.valid_submission
     expect(need_support_page.content).to have_header
-    need_support_page.submit_no
+    submit_no
     expect(letter_upload_type_page.content).to have_header
     letter_upload_type_page.submit_one_document_option
     expect(letter_upload_page.content).to have_lead_text
@@ -715,6 +716,27 @@ def complete_valid_appeal_application
     expect(check_answers_page.content).to have_header
     submit
   end
+end
+
+def go_to_disputed_tax_paid_page
+  home_page.load_page
+  expect(home_page.content).to have_header
+  home_page.appeal
+  expect(appeal_page.content).to have_header
+  appeal_page.continue
+  expect(case_type_page.content).to have_appeal_header
+  case_type_page.submit_vat
+  expect(save_return_page.content).to have_header
+  save_return_page.skip_save_and_return
+  expect(challenge_decision_page.content).to have_review_header
+  submit_yes
+  expect(challenge_decision_status_page.content).to have_header
+  challenge_decision_status_page.submit_review_conclusion_letter
+  expect(dispute_type_page.content).to have_header
+  dispute_type_page.submit_owe_and_penalty_option
+  expect(penalty_and_tax_amounts_page.content).to have_header
+  penalty_and_tax_amounts_page.valid_submission
+  expect(disputed_tax_paid_page.content).to have_header
 end
 
 # rubocop:enable MethodLength
