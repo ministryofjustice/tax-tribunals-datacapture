@@ -7,15 +7,21 @@ class CaseTypePage < BasePage
     element :one_on_list, '.govuk-hint'
     element :personal_return, 'label', text: 'Personal return'
     element :income_tax, 'label', text: %r{Income Tax}
+    element :vat, 'label', text: 'Value Added Tax (VAT)'
   end
 
   def submit_personal_return
-    case_type_page.content.personal_return.click
+    content.personal_return.click
     continue
   end
 
   def submit_income_tax
-    case_type_page.content.income_tax.click
+    content.income_tax.click
+    continue
+  end
+
+  def submit_vat
+    content.vat.click
     continue
   end
 end
