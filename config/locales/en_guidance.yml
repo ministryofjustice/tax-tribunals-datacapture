@@ -2,7 +2,7 @@ en:
   guidance:
     page_title: Guidance
     heading: Guide to appealing a tax decision
-    lead_text: Find answers to frequently asked questions, and a step-by-step guide through the service. You may exit this guidance and start completing your appeal by clicking the Start Appeal button at any time.
+    lead_text: Find answers to frequently asked questions, and a step-by-step guide through the service. You may exit this guidance by clicking the Back button. From there you can 'Appeal against a tax decision' or 'Apply to close an enquiry'.
     subheading_1: Frequently-asked questions
     accordion_1:
       - question_html: Does the tax tribunal know that I have already contacted HMRC?
