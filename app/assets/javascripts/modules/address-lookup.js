@@ -15,7 +15,9 @@ moj.Modules.addressLookup = {
         addressOptionSelect: '#address-lookup-addresses select',
         addressLookupUrl: '#address_lookup_url',
         errorSpan: '#address-lookup-postcode-error',
-        addressFields: ['.address', '.city', '.postcode', '.country']
+        addressFields: ['.address', '.city', '.postcode', '.country'],
+        addressesFound: '#addresses-found',
+        noAddressFound: '#no-address-found'
     },
 
     classes: {
@@ -135,20 +137,22 @@ moj.Modules.addressLookup = {
 
     renderAddressOptions: function(data) {
         const self = this,
-              $addressBox = $(self.selectors.addressOptions);
+              $addressBox = $(self.selectors.addressOptions),
+              adrFound = $(self.selectors.addressesFound).text(),
+              noAdrFound = $(self.selectors.noAddressFound).text();
 
         self.addresses = data.results;
 
         if (self.addresses.length > 0) {
             var options = $.map(self.addresses, (self.formatOptions).bind(self));
-            options.unshift('<option>' + options.length + ' addresses found' + '</option>');
+            options.unshift('<option>' + options.length + ' ' + adrFound + '</option>');
             $addressBox.find('p').hide();
             $addressBox.find('select').html(options).show();
             $addressBox.show();
         }
         else {
             $addressBox.find('select').hide();
-            $addressBox.find('p').html('No address found').show();
+            $addressBox.find('p').html(noAdrFound).show();
             $addressBox.show();
       }
     },
