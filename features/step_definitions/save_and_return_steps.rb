@@ -4,7 +4,7 @@ Given("I sign in using my sign in details") do
   login_page.content.email_input.set user.email
   login_page.content.password_input.set user.password
   login_page.content.sign_in_button.click
-  expect(page).not_to have_content "There's an error. Please enter a valid email and password."
+  expect(login_page.content).not_to have_error_summary
 end
 
 Given("I create an account in appeal journey") do
