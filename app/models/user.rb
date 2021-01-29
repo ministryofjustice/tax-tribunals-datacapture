@@ -16,11 +16,17 @@ class User < ApplicationRecord
 
     validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i, unless: Proc.new { |o| o.email.blank? }
     validates :email, :password, presence: true
+
+    validate :email_password_combination
+
+    def email_password_combination
+      errors.add(:base, :invalid, message: 'Enter a valid email and password') if errors.blank?
+    end
   end
 
-  def self.signin(args)
+  def self.signin_errors(args)
     Signin.new(args).tap do |signin|
-      signin.errors.add(:base, :invalid, message: 'Enter a valid email and password') if signin.valid?
+      signin.valid?
     end
   end
 

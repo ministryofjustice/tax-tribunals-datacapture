@@ -145,12 +145,20 @@ RSpec.describe User, type: :model do
         expect(error).to eq([{error: :blank}])
       end
     end
+
+    context 'validates email password combination' do
+      it 'adds error' do
+        error = user_signin.errors.details[:base]
+        expect(error).to eq([{error: :invalid}])
+      end
+    end
   end
 
-  describe '.signin' do
-    it 'adds error email/password combination' do
-      error = User.signin(email: 'foo@bar.com', password: 'XIY19@fdb').errors.details[:base]
-      expect(error).to eq([{error: :invalid}])
+  describe '.signin_errors' do
+    it 'returns a user::signin filled with error messages' do
+      obj = User.signin_errors(email: 'foo@bar.com', password: 'XIY19@fdb')
+      expect(obj).to be_kind_of(User::Signin)
+      expect(obj.errors).to be_present
     end
   end
 end
