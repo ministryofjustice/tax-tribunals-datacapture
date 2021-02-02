@@ -12,19 +12,20 @@ module Steps::Details
                           :representative_contact_city,
                           :representative_contact_country
 
-    validates :representative_contact_email, 'valid_email_2/email': true, if: :should_validate_email
+    validate :special_chars_in_mail if :started_by_representative_or_present?
+    validate :email_too_long if :started_by_representative_or_present?
+    validates :representative_contact_email, presence: true, 'valid_email_2/email': true, if: :extra_email_validation?
 
     private
 
     delegate :started_by_representative?, to: :tribunal_case
 
-    def should_validate_email
-      return false unless started_by_representative_or_present?
-      special_chars_in_mail.blank? && email_too_long.blank?
-    end
-
     def started_by_representative_or_present?
       started_by_representative? || representative_contact_email.present?
+    end
+
+    def extra_email_validation?
+      started_by_representative_or_present? && errors.details[:representative_contact_email].blank?
     end
 
     def special_chars_in_mail
