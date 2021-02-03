@@ -117,9 +117,17 @@ RSpec.describe DocumentUpload do
         allow(subject).to receive(:original_filename).and_return('invalid £ name.txt')
       end
 
-      it 'should be valid' do
-        expect(subject.valid?).to eq(true)
+      it 'should not be valid' do
+        expect(subject).to receive(:add_error).with(:invalid_characters).and_call_original
+        expect(subject.valid?).to eq(false)
+        expect(subject.errors).not_to be_empty
       end
+
+      it 'and the exception is raised' do
+        allow(subject).to receive(:unique_filename).and_raise(ArgumentError.new)
+        expect(subject.valid?).to eq(false)
+      end
+
     end
 
     context 'file is valid with welsh characters' do
