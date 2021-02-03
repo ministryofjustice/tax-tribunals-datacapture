@@ -8,6 +8,6 @@ class OutcomePage < BasePage
 
   def valid_submission
     content.textarea.set 'Outcome'
-    continue
+    continue_or_save_continue
   end
 end

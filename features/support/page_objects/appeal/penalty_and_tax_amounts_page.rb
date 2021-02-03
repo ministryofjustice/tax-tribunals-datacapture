@@ -10,6 +10,6 @@ class PenaltyAndTaxAmountsPage < BasePage
   def valid_submission
     content.amount_under_dispute_input.set '100'
     content.penalty_or_surchange_input.set '100'
-    continue
+    continue_or_save_continue
   end
 end

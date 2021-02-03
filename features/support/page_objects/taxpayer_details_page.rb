@@ -13,6 +13,7 @@ class TaxpayerDetailsPage < BasePage
       element :country_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-country-field'
       element :email_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-email-field'
       element :phone_input, '#steps-details-taxpayer-individual-details-form-taxpayer-contact-phone-field'
+      element :input_error, '.govuk-error-message'
     end
   end
 
@@ -25,6 +26,6 @@ class TaxpayerDetailsPage < BasePage
     taxpayer_details_page.content.input_field[5].country_input.set 'UK'
     taxpayer_details_page.content.input_field[6].email_input.set 'jsmith_test@test.com'
     taxpayer_details_page.content.input_field[7].phone_input.set '07777 888888'
-    continue
+    continue_or_save_continue
   end
 end

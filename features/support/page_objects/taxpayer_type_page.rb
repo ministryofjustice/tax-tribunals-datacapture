@@ -11,16 +11,16 @@ class TaxpayerTypePage < BasePage
 
   def submit_individual
     content.individual.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_company
     content.company.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_other
     content.other.click
-    continue
+    continue_or_save_continue
   end
 end

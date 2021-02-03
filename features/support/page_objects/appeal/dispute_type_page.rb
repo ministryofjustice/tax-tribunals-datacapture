@@ -9,11 +9,11 @@ class DisputeTypePage < BasePage
 
   def submit_penalty_or_surcharge
     content.penalty_or_surcharge_option.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_owe_and_penalty_option
     content.owe_and_penalty_option.click
-    continue
+    continue_or_save_continue
   end
 end

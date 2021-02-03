@@ -8,6 +8,6 @@ class PenaltyAmountPage < BasePage
 
   def submit_100_or_less
     content.one_hundred_or_less_option.click
-    continue
+    continue_or_save_continue
   end
 end

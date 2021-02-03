@@ -12,6 +12,6 @@ class EnquiryDetailsPage < BasePage
     content.reference_number_input.set "AB12"
     content.years_input.set "1"
     content.tax_officer_input.set "John Smith"
-    continue
+    continue_or_save_continue
   end
 end
