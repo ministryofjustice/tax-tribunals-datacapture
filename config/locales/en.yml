@@ -15,7 +15,7 @@ en:
     blank_organisation_name: &blank_organisation_name "Please enter a name"
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
     invalid_email: &invalid_email "Enter an email address in the correct format, like name@example.com"
-    blank_email: &blank_email "Please enter a valid email address"
+    blank_email: &blank_email "Please enter your email address"
     blank_password: &blank_password "Please enter a password"
     YESNO: &YESNO
       'yes': 'Yes'
