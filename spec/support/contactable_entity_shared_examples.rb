@@ -25,7 +25,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
       else
         [k, 'dummy_value']
       end
-    }.to_h }
+                                   }.to_h }
   let(:arguments) { fields_with_dummy_values.merge({ tribunal_case: tribunal_case }) }
   let(:tribunal_case) { instance_double(TribunalCase).as_null_object }
 
