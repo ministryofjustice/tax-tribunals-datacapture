@@ -31,7 +31,7 @@ Then("I am shown all the taxpayer details errors") do
   expect(taxpayer_details_page.content.input_field[3].input_error.text).to have_content /Please enter a city/
   expect(taxpayer_details_page.content.input_field[4].input_error.text).to have_content /Please enter a postcode/
   expect(taxpayer_details_page.content.input_field[5].input_error.text).to have_content /Please enter a country/
-  # expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content /Email address/
+  expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content /Please enter your email address/
 end
 
 Then("I am on the taxpayer details page") do

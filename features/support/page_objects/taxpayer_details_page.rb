@@ -3,7 +3,7 @@ class TaxpayerDetailsPage < BasePage
 
   section :content, '#main-content' do
     element :header, 'h1', text: "Enter taxpayer's details"
-    element :email_error, 'a', text: 'Please enter a valid email address'
+    element :email_error, 'a', text: 'Please enter your email address'
     sections :input_field, '.govuk-form-group' do
       element :input_label, '.govuk-label'
       element :first_name_input, "input[name='steps_details_taxpayer_individual_details_form[taxpayer_individual_first_name]']"
