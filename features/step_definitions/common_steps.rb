@@ -17,3 +17,7 @@ end
 When("I click on save and come back later") do
   save_and_come_back
 end
+
+When("I click the continue button") do
+  continue_or_save_continue
+end

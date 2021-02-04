@@ -19,8 +19,21 @@ FactoryBot.define do
       challenged_decision_status { ChallengedDecisionStatus::RECEIVED }
     end
 
+    trait :penalty do
+      dispute_type { DisputeType::PENALTY }
+    end
+
     trait :amount_and_penalty do
       dispute_type { DisputeType::AMOUNT_AND_PENALTY }
+    end
+
+    trait :penalty_100_or_less do
+      penalty_level { PenaltyLevel::PENALTY_LEVEL_1 }
+      # penalty_amount { '' }
+    end
+
+    trait :yes_in_time do
+      in_time { InTime::YES }
     end
 
     trait :valid_amount_and_penalty_amounts do
@@ -47,14 +60,20 @@ FactoryBot.define do
       taxpayer_contact_phone { '2' }
     end
 
-    trait :has_representative do
+    trait :has_representative_no do
       has_representative { HasRepresentative::NO }
     end
 
-    trait :valid_enquiry_details do
-      closure_hmrc_reference { 'de' }
-      closure_years_under_enquiry { 'de' }
-      closure_hmrc_officer { 'de' }
+    trait :valid_gfa do
+      grounds_for_appeal { 'gfa' }
+    end
+
+    trait :valid_outcome do
+      outcome { 'outcome' }
+    end
+
+    trait :yes_need_support do
+      need_support { NeedSupport::YES }
     end
   end
 
@@ -85,7 +104,7 @@ FactoryBot.define do
       taxpayer_contact_phone { '2' }
     end
 
-    trait :has_representative do
+    trait :has_representative_no do
       has_representative { HasRepresentative::NO }
     end
 
@@ -94,11 +113,11 @@ FactoryBot.define do
       closure_years_under_enquiry { 'de' }
       closure_hmrc_officer { 'de' }
     end
-  end
 
-  factory :user do
-    id { '2c510a62-4ac8-4fad-acfd-d2b50b1c14f0' }
-    email { 'user@user.com' }
-    password { '!TaxTribun2897dxkjanwjk2a1' }
+    trait :valid_enquiry_details do
+      closure_hmrc_reference { 'de' }
+      closure_years_under_enquiry { 'de' }
+      closure_hmrc_officer { 'de' }
+    end
   end
 end

@@ -4,7 +4,7 @@ Feature: Appeal case type page
     Given I am on the appeal case type page
 
   Scenario: Error message
-    When I click on continue without selecting a case type
+    When I click on continue without selecting an option
     Then I should be on the appeal case type page
     And I should see appeal case type error message
 
@@ -19,7 +19,7 @@ Feature: Appeal case type page
   Scenario: No selection on the case type show more page
     When I click on continue after selecting Other option
     And I am on the case type show more page
-    And I click on continue without selecting a case type
+    And I click on continue without selecting an option
     Then I should see appeal case type error message
 
   Scenario: Selection provided on the case type show more page

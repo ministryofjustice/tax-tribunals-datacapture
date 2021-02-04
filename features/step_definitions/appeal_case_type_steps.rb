@@ -6,7 +6,7 @@ Given("I am on the appeal case type page without login") do
   appeal_case_type_page.load_page
 end
 
-When("I click on continue without selecting a case type") do
+When("I click on continue without selecting an option") do
   continue_or_save_continue
 end
 

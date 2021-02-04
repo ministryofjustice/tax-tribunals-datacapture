@@ -3,6 +3,7 @@ Given("I navigate to the taxpayer details page") do
 end
 
 When("I successfully submit taxpayers details") do
+  expect(taxpayer_details_page.content).to have_header
   expect(taxpayer_details_page.content.input_field[0].input_label.text).to eq 'First name'
   expect(taxpayer_details_page.content.input_field[1].input_label.text).to eq 'Last name'
   expect(taxpayer_details_page.content.input_field[2].input_label.text).to eq 'Address'
@@ -15,6 +16,7 @@ When("I successfully submit taxpayers details") do
 end
 
 When("I submit a blank taxpayers details form") do
+  expect(taxpayer_details_page.content).to have_header
   continue_or_save_continue
 end
 

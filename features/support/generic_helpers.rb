@@ -58,6 +58,10 @@ def dispute_type_page
   @dispute_type_page ||= DisputeTypePage.new
 end
 
+def tax_amount_page
+  @tax_amount_page ||= TaxAmountPage.new
+end
+
 def penalty_amount_page
   @penalty_amount_page ||= PenaltyAmountPage.new
 end
@@ -114,8 +118,16 @@ def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
 
+def representative_details_page
+  @representative_details_page ||= RepresentativeDetailsPage.new
+end
+
 def has_representative_page
   @has_representative_page ||= HasRepresentativePage.new
+end
+
+def representative_type_page
+  @representative_type_page ||= RepresentativeTypePage.new
 end
 
 def representative_professional_page
@@ -128,6 +140,10 @@ end
 
 def user_type_page
   @user_type_page ||= UserTypePage.new
+end
+
+def what_support_page
+  @what_support_page ||= WhatSupportPage.new
 end
 
 def letter_upload_page

@@ -117,7 +117,7 @@ end
 def navigate_to_support_documents_page
   RSpec::Mocks.with_temporary_scope do
     create_user
-    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative, :valid_enquiry_details)
+    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative_no, :valid_enquiry_details)
     stub_uploader_and_go_to_login_page
     login_and_resume
     support_documents_page.load_page
@@ -127,7 +127,7 @@ end
 def navigate_to_closure_case_type_page
   RSpec::Mocks.with_temporary_scope do
     create_user
-    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative, :valid_enquiry_details)
+    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative_no, :valid_enquiry_details)
     stub_uploader_and_go_to_login_page
     login
     closure_case_type_page.load_page
@@ -142,6 +142,7 @@ def navigate_to_appeal_case_type_page
     login
     appeal_case_type_page.load_page
   end
+
 end
 
 def navigate_to_disputed_tax_paid_page
@@ -194,7 +195,27 @@ def navigate_to_challenge_decision_page
   end
 end
 
+def navigate_to_what_support_page
+  RSpec::Mocks.with_temporary_scope do
+    create_user
+    FactoryBot.create(:appeal_case, :income_tax_case, :yes_review, :received_letter, :penalty, :penalty_100_or_less,
+                      :yes_in_time, :taxpayer_user_type, :individual_taxpayer_type, :valid_taxpayer_details,
+                      :has_representative_no, :valid_gfa, :valid_outcome, :yes_need_support)
+    stub_uploader_and_go_to_login_page
+    login_and_resume
+    what_support_page.load_page
+  end
+end
 
+def navigate_to_dispute_type_page
+  RSpec::Mocks.with_temporary_scope do
+    create_user
+    FactoryBot.create(:appeal_case, :income_tax_case, :yes_review, :received_letter)
+    stub_uploader_and_go_to_login_page
+    login_and_resume
+    dispute_type_page.load_page
+  end
+end
 
 def go_to_contact_page
   home_page.load_page
