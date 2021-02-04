@@ -10,5 +10,4 @@ end
 
 When("I submit that I am not the tax payer making the application") do
   submit_no
-  expect(representative_professional_page.content).to have_header
 end

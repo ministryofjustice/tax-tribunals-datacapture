@@ -2,7 +2,8 @@ class RepresentativeProfessionalPage < BasePage
   set_url '/steps/details/representative_professional_status'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Who are you?'
+    element :representatives_header, 'h1', text: 'Who are you?'
+    element :individuals_header, 'h1', text: 'Who is representing you?'
     element :practising_solicitor_option, 'label', text: 'Practising solicitor or barrister in England, Wales or Northern Ireland'
   end
 

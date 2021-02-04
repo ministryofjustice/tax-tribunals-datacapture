@@ -24,7 +24,6 @@ Then("I should not see an email error") do
 end
 
 Given("I submit that the representative is a practising solicitor") do
-  expect(representative_professional_page.content).to have_header
   representative_professional_page.submit_practising_solicitor
 end
 
