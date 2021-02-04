@@ -43,11 +43,10 @@ module PrivacyHelper
     )
   end
 
-  def aws_terms_link
-    link_to(t('privacy.how_we_store.aws_terms'),
-      "http://aws.amazon.com/service-terms/",
-      target: '_blank',
-      title: t('privacy.how_we_store.aws_terms'),
+  def azure_terms_link
+    link_to(t('privacy.how_we_store.azure_terms'),
+      "https://azure.microsoft.com/en-gb/support/legal/",
+      title: t('privacy.how_we_store.azure_terms'),
       class: 'govuk-link'
     )
   end
