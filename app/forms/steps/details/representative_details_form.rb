@@ -12,9 +12,11 @@ module Steps::Details
                           :representative_contact_city,
                           :representative_contact_country
 
+    # rubocop:disable LiteralAsCondition
     validate :special_chars_in_mail if :started_by_representative_or_present?
     validate :email_too_long if :started_by_representative_or_present?
     validates :representative_contact_email, presence: true, 'valid_email_2/email': true, if: :extra_email_validation?
+    # rubocop:enable LiteralAsCondition
 
     private
 
