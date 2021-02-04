@@ -114,20 +114,15 @@ def stub_uploader_and_go_to_login_page
   go_to_login_page
 end
 
-def navigate_to_support_documents_page
-  RSpec::Mocks.with_temporary_scope do
-    create_user
-    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative_no, :valid_enquiry_details)
-    stub_uploader_and_go_to_login_page
-    login_and_resume
-    support_documents_page.load_page
-  end
+def stub_uploader
+  allow(Uploader).to receive(:list_files).and_return([])
+  allow(Uploader).to receive(:add_file).and_return({})
 end
 
 def navigate_to_closure_case_type_page
   RSpec::Mocks.with_temporary_scope do
     create_user
-    FactoryBot.create(:closure_case, :valid_taxpayer_details, :has_representative_no, :valid_enquiry_details)
+    FactoryBot.create(:closure_case)
     stub_uploader_and_go_to_login_page
     login
     closure_case_type_page.load_page
@@ -214,6 +209,17 @@ def navigate_to_dispute_type_page
     stub_uploader_and_go_to_login_page
     login_and_resume
     dispute_type_page.load_page
+  end
+end
+
+def navigate_to_enquiry_details_page
+  RSpec::Mocks.with_temporary_scope do
+    create_user
+    FactoryBot.create(:closure_case, :personal_return_case, :taxpayer_user_type, :individual_taxpayer_type,
+                      :valid_taxpayer_details, :has_representative_no)
+    stub_uploader_and_go_to_login_page
+    login_and_resume
+    enquiry_details_page.load_page
   end
 end
 
