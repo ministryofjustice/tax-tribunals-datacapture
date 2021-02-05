@@ -10,6 +10,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :taxpayer_type
       edit(:taxpayer_details)
     when :taxpayer_details
+      edit(:send_taxpayer_copy)
+    when :send_taxpayer_copy
       after_taxpayer_details_step
     when :has_representative
       after_has_representative_step
@@ -20,6 +22,8 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :representative_type
       edit(:representative_details)
     when :representative_details
+      edit(:send_representative_copy)
+    when :send_representative_copy
       after_representative_details_step
     when :grounds_for_appeal
       edit(:eu_exit)
