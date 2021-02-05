@@ -11,4 +11,9 @@ class AppealCaseTypeShowMorePage < BasePage
       element :answer_error_link, 'a', text: 'Please enter an answer'
     end
   end
+
+  def submit_aggregates_levy_option
+    content.aggregates_levy_option.click
+    continue_or_save_continue
+  end
 end

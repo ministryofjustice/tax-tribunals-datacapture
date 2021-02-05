@@ -8,6 +8,6 @@ class GroundsForAppealPage < BasePage
 
   def valid_submission
     content.textarea.set 'Grounds for appeal text'
-    continue
+    continue_or_save_continue
   end
 end

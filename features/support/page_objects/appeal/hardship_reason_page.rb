@@ -8,6 +8,6 @@ class HardshipReasonPage < BasePage
 
   def submit_reason
     content.reason_textarea.set 'Reason'
-    continue
+    continue_or_save_continue
   end
 end
