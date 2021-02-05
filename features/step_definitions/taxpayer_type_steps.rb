@@ -3,7 +3,7 @@ Then("I am taken to the taxpayer type page") do
 end
 
 Given("I am on the taxpayer type page") do
-  go_to_closure_taxpayer_type_page
+  navigate_to_closure_taxpayer_type_page
 end
 
 Given("I am taken to the taxpayer details page") do

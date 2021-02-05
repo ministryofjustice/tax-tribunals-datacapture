@@ -8,6 +8,6 @@ class LetterUploadTypePage < BasePage
 
   def submit_one_document_option
     content.one_doc_option.click
-    continue
+    continue_or_save_continue
   end
 end

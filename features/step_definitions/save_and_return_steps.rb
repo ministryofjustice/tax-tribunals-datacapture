@@ -1,16 +1,7 @@
-Given("I sign in using my sign in details") do
-  go_to_login_page
-  user = FactoryBot.create(:user)
-  login_page.content.email_input.set user.email
-  login_page.content.password_input.set user.password
-  login_page.content.sign_in_button.click
-  expect(login_page.content).not_to have_error_summary
-end
-
 Given("I create an account in appeal journey") do
   expect(save_return_page.content).to have_header
   save_return_page.content.create_account_checkbox.click
-  continue
+  continue_or_save_continue
   expect(save_appeal_page.content).to have_appeal_header
   save_appeal_page.content.email_input.set 'test@email.net'
   save_appeal_page.content.password_input.set 'TaxTribun4!'
@@ -20,7 +11,7 @@ end
 Given("I create an account in closure journey") do
   expect(save_return_page.content).to have_header
   save_return_page.content.create_account_checkbox.click
-  continue
+  continue_or_save_continue
   expect(save_appeal_page.content).to have_closure_header
   save_appeal_page.content.email_input.set 'test@email.net'
   save_appeal_page.content.password_input.set 'TaxTribun4!'
@@ -36,6 +27,6 @@ Then("I should be on the closure user type page") do
   expect(user_type_page.content).to have_closure_header
 end
 
-Then("I should be on the appeal user type page") do
-  expect(user_type_page.content).to have_appeal_header
+Given("I am on the closure case type page without login") do
+  closure_case_type_page.load_page
 end

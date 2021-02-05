@@ -1,5 +1,5 @@
 Given("I am taken to the disputed tax paid step") do
-  go_to_disputed_tax_paid_page
+  navigate_to_disputed_tax_paid_page
 end
 
 When("I submit that I have not paid the tax under dispute") do

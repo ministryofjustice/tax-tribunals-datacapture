@@ -3,6 +3,10 @@ Feature: Homepage
   Background: Homepage
     Given I visit the homepage
 
+  Scenario: Appeal against a tax decision
+    When I click the appeal a tax decision
+    Then I am taken to the appeal page
+
   Scenario: Apply to close an enquiry
     When I click the apply to close an enquiry link
     Then I am taken to the closure page
