@@ -35,6 +35,16 @@ RSpec.describe DetailsDecisionTree do
       context 'and the user is the taxpayer' do
         let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
 
+        it { is_expected.to have_destination(:send_taxpayer_copy, :edit) }
+      end
+    end
+
+    context 'when the step is `send_taxpayer_copy`' do
+      let(:step_params) { { send_taxpayer_copy: 'anything'  } }
+
+      context 'and the user is the taxpayer' do
+        let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER) }
+
         it { is_expected.to have_destination(:has_representative, :edit) }
       end
 
@@ -113,6 +123,18 @@ RSpec.describe DetailsDecisionTree do
 
     context 'when the step is `representative_details`' do
       let(:step_params) { { representative_details: 'anything'  } }
+
+      context 'when the user is the taxpayer' do
+        context 'for a tax appeal' do
+          let(:tribunal_case) { instance_double(TribunalCase, user_type: UserType::TAXPAYER, intent: Intent::TAX_APPEAL) }
+
+          it { is_expected.to have_destination(:send_representative_copy, :edit) }
+        end
+      end
+    end
+
+    context 'when the step is `send_representative_copy`' do
+      let(:step_params) { { send_representative_copy: 'anything'  } }
 
       context 'when the user is the taxpayer' do
         context 'for a tax appeal' do

@@ -215,4 +215,19 @@ RSpec.describe TribunalCase, type: :model do
       end
     end
   end
+
+  describe 'attributes' do
+    let(:attributes) do
+      { send_taxpayer_copy: SendApplicationDetails.new('no'),
+        send_representative_copy: SendApplicationDetails.new('yes') }
+    end
+
+    it 'has send application details field for taxpayer' do
+      expect(subject.send_taxpayer_copy.to_s).to eq('no')
+    end
+
+    it 'has send application details field for representative' do
+      expect(subject.send_representative_copy.to_s).to eq('yes')
+    end
+  end
 end

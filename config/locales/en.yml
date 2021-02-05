@@ -41,6 +41,12 @@ en:
       taxpayer_contact_email: Email address
       taxpayer_contact_phone: Contact phone number (optional)
 
+    SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
+      heading: Does the %{entity} want a copy of the case details sent by email?
+      lead_text: If you select Yes, we will send a copy of the case details to the %{entity} when you submit the case. It is highly recommended that you keep a copy for your records. You will also have the opportunity to print or save them when you submit the case.
+      page_title: Send case details copy
+      confirm_email_text: For the purpose of protecting privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
+
     PENALTY_LEVELS: &PENALTY_LEVELS
       penalty_level_1: "£100 or less"
       penalty_level_2: over £100 – £20,000
@@ -235,6 +241,8 @@ en:
         show:
           page_title: Start your closure
     shared:
+      send_application_details:
+        <<: *SEND_CASE_DETAILS_COPY
       document_upload:
         current_document:
           previous_document_html: "<strong>Previously attached document:</strong><br>%{file_name}"
@@ -614,6 +622,15 @@ en:
             representative_contact_email:
               invalid: *invalid_email
               blank: *blank_email
+        steps/details/send_application_details_form:
+          attributes:
+            send_application_details:
+              send_taxpayer_copy: Select if the taxpayer should receive a copy of the case details by email
+              send_representative_copy: Select if the representative should receive a copy of the case details by email
+            email_address:
+              different_taxpayer: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
+              different_representative: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
+
         steps/details/representative_professional_status_form:
           attributes:
             representative_professional_status:
@@ -888,6 +905,10 @@ en:
           company_html: "<strong>Company</strong>"
           other_organisation_html: "<strong>Other type of organisation</strong><br>for
             example a partnership, LLP (Limited Liability Partnership), trust, club or association"
+      steps_details_send_application_details_form:
+        email_address: Email address
+        send_application_details_options:
+          <<: *YESNO
       steps_details_has_representative_form:
         has_representative_options:
           <<: *YESNO
