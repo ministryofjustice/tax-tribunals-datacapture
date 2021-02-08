@@ -9,11 +9,11 @@ class InTimePage < BasePage
 
   def submit_yes
     content.yes_option.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_no
     content.no_option.click
-    continue
+    continue_or_save_continue
   end
 end

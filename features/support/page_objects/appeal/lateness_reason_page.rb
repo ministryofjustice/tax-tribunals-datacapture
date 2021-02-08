@@ -8,6 +8,6 @@ class LatenessReasonPage < BasePage
 
   def valid_submission
     content.textarea.set 'Reason for lateness'
-    continue
+    continue_or_save_continue
   end
 end

@@ -114,4 +114,51 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '::Signin class' do
+    let(:email) { 'foo@bar.com' }
+    let(:password) { 'XIY19@fdb' }
+    let(:user_signin) { User::Signin.new(email: email, password: password) }
+    before { user_signin.valid? }
+
+    context 'validates email format' do
+      let(:email) { 'foo@bar.c' }
+      it 'adds error' do
+        error = user_signin.errors.details[:email]
+        expect(error).to eq([{error: :invalid, value: "foo@bar.c"}])
+      end
+    end
+
+    context 'validates email presence' do
+      let(:email) { '' }
+      it 'adds error' do
+        error = user_signin.errors.details[:email]
+        expect(error).to eq([{error: :blank}])
+      end
+    end
+
+    context 'validates password presence' do
+      let(:password) { '' }
+
+      it 'adds error' do
+        error = user_signin.errors.details[:password]
+        expect(error).to eq([{error: :blank}])
+      end
+    end
+
+    context 'validates email password combination' do
+      it 'adds error' do
+        error = user_signin.errors.details[:base]
+        expect(error).to eq([{error: :invalid}])
+      end
+    end
+  end
+
+  describe '.signin_errors' do
+    it 'returns a user::signin filled with error messages' do
+      obj = User.signin_errors(email: 'foo@bar.com', password: 'XIY19@fdb')
+      expect(obj).to be_kind_of(User::Signin)
+      expect(obj.errors).to be_present
+    end
+  end
 end
