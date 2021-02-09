@@ -3,7 +3,7 @@ Then("I should see an enter penalty amount error") do
 end
 
 Given("I am on the dispute type page") do
-  navigate_to_dispute_type_page
+  navigate_to_dispute_type_page(:income_tax_case)
   expect(dispute_type_page.content).to have_header
 end
 
@@ -18,10 +18,12 @@ Then("I should see a select penalty or surcharge amount error") do
 end
 
 When("I select 100 to 20000 option and submit") do
+  expect(penalty_amount_page.content).to have_header
   penalty_amount_page.submit_invalid_100_to_20000
 end
 
 When("I submit a penalty amount value") do
+  expect(penalty_amount_page.content).to have_header
   penalty_amount_page.submit_valid_100_to_20000
 end
 
@@ -56,6 +58,7 @@ Then("I should see an enter the tax amount error") do
 end
 
 When("I submit a tax amount value") do
+  expect(tax_amount_page.content).to have_header
   tax_amount_page.valid_submission
 end
 
