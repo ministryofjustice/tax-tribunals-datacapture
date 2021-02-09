@@ -99,6 +99,15 @@ class TribunalCase < ApplicationRecord
     intent_case_type.nil?
   end
 
+  def send_taxpayer_copy?
+    send_taxpayer_copy.eql?(SendApplicationDetails::YES)
+  end
+
+  def send_representative_copy?
+    send_representative_copy.eql?(SendApplicationDetails::YES)
+  end
+
+
   private
 
   def sanitize

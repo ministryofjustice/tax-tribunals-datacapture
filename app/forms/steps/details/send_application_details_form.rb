@@ -21,7 +21,7 @@ module Steps::Details
     # rubocop:enable LiteralAsCondition
 
     def send_copy?
-      send_application_details == 'yes'
+      send_application_details&.to_s == 'yes'
     end
 
     private
