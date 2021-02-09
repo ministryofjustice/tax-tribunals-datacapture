@@ -112,7 +112,7 @@ RSpec.describe DocumentUpload do
       end
     end
 
-    context 'when file is not valid due to non-ascii characters in the name' do
+    context 'file is not checked for asci-characters only' do
       before do
         allow(subject).to receive(:original_filename).and_return('invalid £ name.txt')
       end
@@ -126,6 +126,17 @@ RSpec.describe DocumentUpload do
       it 'and the exception is raised' do
         allow(subject).to receive(:unique_filename).and_raise(ArgumentError.new)
         expect(subject.valid?).to eq(false)
+      end
+
+    end
+
+    context 'file is valid with welsh characters' do
+      before do
+        allow(subject).to receive(:original_filename).and_return('invalid âêîôûÚÙŵŷ name.txt')
+      end
+
+      it 'should be valid' do
+        expect(subject.valid?).to eq(true)
       end
     end
   end

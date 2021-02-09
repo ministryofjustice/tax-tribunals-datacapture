@@ -11,11 +11,13 @@ module Steps::Details
                           :taxpayer_contact_postcode,
                           :taxpayer_contact_city,
                           :taxpayer_contact_country
-    # rubocop:disable LiteralAsCondition
+
+    # rubocop:disable Lint/LiteralAsCondition
     validate :special_chars_in_mail if :started_by_taxpayer_or_present?
     validate :email_too_long if :started_by_taxpayer_or_present?
     validates :taxpayer_contact_email, presence: true, 'valid_email_2/email': true, if: :extra_email_validation?
-    # rubocop:enable LiteralAsCondition
+    # rubocop:enable Lint/LiteralAsCondition
+
     private
 
     def started_by_taxpayer_or_present?

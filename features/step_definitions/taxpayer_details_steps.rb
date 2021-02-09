@@ -25,13 +25,13 @@ Then("I am taken to representative page") do
 end
 
 Then("I am shown all the taxpayer details errors") do
-  expect(taxpayer_details_page.content.input_field[0].input_error.text).to have_content /Please enter a first name/
-  expect(taxpayer_details_page.content.input_field[1].input_error.text).to have_content /Please enter a last name/
-  expect(taxpayer_details_page.content.input_field[2].input_error.text).to have_content /Please enter an address/
-  expect(taxpayer_details_page.content.input_field[3].input_error.text).to have_content /Please enter a city/
-  expect(taxpayer_details_page.content.input_field[4].input_error.text).to have_content /Please enter a postcode/
-  expect(taxpayer_details_page.content.input_field[5].input_error.text).to have_content /Please enter a country/
-  expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content /Please enter your email address/
+  expect(taxpayer_details_page.content.input_field[0].input_error.text).to have_content(/Please enter a first name/)
+  expect(taxpayer_details_page.content.input_field[1].input_error.text).to have_content(/Please enter a last name/)
+  expect(taxpayer_details_page.content.input_field[2].input_error.text).to have_content(/Please enter an address/)
+  expect(taxpayer_details_page.content.input_field[3].input_error.text).to have_content(/Please enter a city/)
+  expect(taxpayer_details_page.content.input_field[4].input_error.text).to have_content(/Please enter a postcode/)
+  expect(taxpayer_details_page.content.input_field[5].input_error.text).to have_content(/Please enter a country/)
+  expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content(/Please enter your email address/)
 end
 
 Then("I am on the taxpayer details page") do

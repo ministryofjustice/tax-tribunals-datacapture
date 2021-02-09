@@ -2,6 +2,7 @@ class DocumentUpload
   include Virtus.model
   extend ActiveModel::Naming
   extend ActiveModel::Translation
+  require 'welsh_characters'
 
   attribute :tempfile, Object
   attribute :content_type, String
@@ -131,7 +132,7 @@ class DocumentUpload
   end
 
   def validate
-    add_error(:invalid_characters) unless file_name.ascii_only?
+    add_error(:invalid_characters) unless invalid_characters?
     add_error(:file_size) if file_size > MAX_FILE_SIZE.megabytes
     add_error(:content_type) unless content_type.downcase.in?(ALLOWED_CONTENT_TYPES)
   rescue ArgumentError
@@ -144,5 +145,12 @@ class DocumentUpload
 
   def translate(key)
     I18n.translate("errors.#{key}", scope: 'document_upload', file_name: original_filename, max_size: MAX_FILE_SIZE)
+  end
+
+  def invalid_characters?
+    return true if file_name.ascii_only?
+    filename = file_name.unicode_normalize(:nfkc)
+    filename = filename.gsub(Regexp.union(WelshCharacters::MAPPING_TO_ASCII.keys), WelshCharacters::MAPPING_TO_ASCII)
+    filename.ascii_only?
   end
 end
