@@ -202,10 +202,10 @@ def navigate_to_what_support_page
   end
 end
 
-def navigate_to_dispute_type_page
+def navigate_to_dispute_type_page(case_type)
   RSpec::Mocks.with_temporary_scope do
     create_user
-    FactoryBot.create(:appeal_case, :income_tax_case, :yes_review, :received_letter)
+    FactoryBot.create(:appeal_case, case_type, :yes_review, :received_letter)
     stub_uploader_and_go_to_login_page
     login_and_resume
     dispute_type_page.load_page
