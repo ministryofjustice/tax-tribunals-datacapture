@@ -60,12 +60,6 @@ RSpec.describe Steps::Details::SendApplicationDetailsForm do
           specify { expect(subject).to be_valid }
         end
 
-        context 'when send_application_details value is yes and email_address missing' do
-          let(:attributes) { {send_application_details: 'yes', email_address: nil} }
-          specify { expect(subject).not_to be_valid }
-          specify { expect(subject.errors.details[:email_address]).to eq([{error: "different_#{entity}".to_sym}])}
-        end
-
         context 'when send_application_details value is yes and email_address doesnt match' do
           let(:attributes) { {send_application_details: 'yes', email_address: 'no@nn.com'} }
           specify { expect(subject).not_to be_valid }
@@ -74,6 +68,20 @@ RSpec.describe Steps::Details::SendApplicationDetailsForm do
 
         context 'when send_application_detail value is yes and email_address matches' do
           specify { expect(subject).to be_valid }
+        end
+
+        context 'when send_application_detail value is yes must be email was provided' do
+          let(:tribunal_case) do
+            TribunalCase.new(
+              user_type: user_type,
+              taxpayer_contact_email: nil,
+              representative_contact_email: nil
+            )
+          end
+          let(:attributes) { {send_application_details: 'yes', email_address: nil} }
+
+          specify { expect(subject).not_to be_valid }
+          specify { expect(subject.errors.details[:email_address]).to eq([{error: :blank}]) }
         end
       end
     end

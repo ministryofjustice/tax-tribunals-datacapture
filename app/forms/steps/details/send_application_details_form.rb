@@ -14,6 +14,8 @@ module Steps::Details
     end
 
     validate :selected_option
+    validates_presence_of :email_address, if: :send_copy?
+
     # rubocop:disable LiteralAsCondition
     validate :email_address_identical, if: :send_copy?
     # rubocop:enable LiteralAsCondition
@@ -31,6 +33,7 @@ module Steps::Details
     end
 
     def email_address_identical
+      return unless errors.blank?
       if saved_email != email_address
         key = "different_#{send_to}".to_sym
         errors.add(:email_address, key, message: "#{send_to}'s email does not match entered email address")
