@@ -629,7 +629,8 @@ en:
               send_representative_copy: Select if the representative should receive a copy of the case details by email
             email_address:
               different_taxpayer: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
-              different_representative: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
+              different_representative: Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect.
+              blank: *blank_email
 
         steps/details/representative_professional_status_form:
           attributes:
