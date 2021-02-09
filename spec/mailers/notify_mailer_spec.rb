@@ -37,6 +37,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
     allow(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID').and_return('report-problem-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID').and_return('application-details-template')
   end
 
   describe '#report_problem' do
@@ -258,5 +259,38 @@ RSpec.describe NotifyMailer, type: :mailer do
   describe 'personalisation logging filter' do
     let(:filter) { described_class::PERSONALISATION_ERROR_FILTER }
     it { expect(filter).to match_array([:recipient_name, :company_name, :documents_url, :reset_url]) }
+  end
+
+  describe 'application_details_copy' do
+    let(:mail) { described_class.application_details_copy(tribunal_case, :taxpayer, "email content") }
+
+    before do
+      expect(tribunal_case).to receive(:send)
+        .with(:taxpayer_contact_email)
+        .and_return('taxpayer@email.com')
+    end
+
+    it_behaves_like 'a Notify mail', template_id: 'application-details-template'
+
+    context 'recipient' do
+      it { expect(mail.to).to eq(['taxpayer@email.com']) }
+    end
+
+    context 'personalisation' do
+      it 'sets the personalisation' do
+        expect(
+          mail.govuk_notify_personalisation.keys
+        ).to eq([:appeal_or_application, :application_details])
+      end
+
+      it 'uses provided email content' do
+        expect(mail.govuk_notify_personalisation[:application_details]).to eq("email content")
+      end
+    end
+
+    it "gets the template id from an env var" do
+      expect(ENV).to receive(:fetch).with('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID')
+      mail.body
+    end
   end
 end

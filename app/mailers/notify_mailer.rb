@@ -82,6 +82,19 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: mail_presenter.ftt_recipient_email)
   end
 
+  def application_details_copy(tribunal_case, entity, application_details)
+    recipient_email = tribunal_case.send("#{entity}_contact_email".to_sym)
+
+    set_template(ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID'))
+
+    set_personalisation(
+      appeal_or_application: tribunal_case.appeal_or_application,
+      application_details: application_details
+    )
+
+    mail(to: recipient_email)
+  end
+
   def incomplete_case_reminder(tribunal_case, template_id)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
