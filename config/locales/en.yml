@@ -1247,6 +1247,16 @@ en:
     problems_uploading_letter:
       question: Reasons why you can't upload a letter
       accessible_change_text: reasons why you can't upload a letter
+    send_taxpayer_copy:
+      question: Does the taxpayer want a copy of the case details sent by email?
+      accessible_change_text: does the representative want a copy of the case details sent by email?
+      answers:
+        <<: *YESNO
+    send_representative_copy:
+      question: Does the representative want a copy of the case details sent by email?
+      accessible_change_text: does the representative want a copy of the case details sent by email?
+      answers:
+        <<: *YESNO
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is
