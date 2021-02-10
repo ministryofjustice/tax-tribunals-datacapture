@@ -1,9 +1,9 @@
 <%= translate_with_appeal_or_application "check_answers.#{file_or_text_row.question}.question" %>
 <% if file_or_text_row.value? %>
-    <%= file_or_text_row.value %>
+    ^<%= file_or_text_row.value %>
 <% end %>
 
 <% if file_or_text_row.file? %>
     # <%=t 'check_answers.attached_document' %>
-    <%= file_or_text_row.file.name %>
+    ^<%= file_or_text_row.file.name %>
 <% end %>
