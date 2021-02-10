@@ -48,12 +48,14 @@ module CheckAnswers
         let(:has_representative) { HasRepresentative::YES }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(4)
+          expect(subject.answers.count).to eq(6)
 
           expect(subject.answers[0]).to eq(contact_details_answer)
-          expect(subject.answers[1]).to eq(contact_details_answer)
-          expect(subject.answers[2]).to eq(answer)
-          expect(subject.answers[3]).to eq(file_or_text_answer)
+          expect(subject.answers[1]).to eq(answer)
+          expect(subject.answers[2]).to eq(contact_details_answer)
+          expect(subject.answers[3]).to eq(answer)
+          expect(subject.answers[4]).to eq(answer)
+          expect(subject.answers[5]).to eq(file_or_text_answer)
         end
       end
 
@@ -61,12 +63,14 @@ module CheckAnswers
         let(:has_representative) { HasRepresentative::NO }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(4)
+          expect(subject.answers.count).to eq(6)
 
           expect(subject.answers[0]).to eq(contact_details_answer)
           expect(subject.answers[1]).to eq(answer)
           expect(subject.answers[2]).to eq(answer)
-          expect(subject.answers[3]).to eq(file_or_text_answer)
+          expect(subject.answers[3]).to eq(answer)
+          expect(subject.answers[4]).to eq(answer)
+          expect(subject.answers[5]).to eq(file_or_text_answer)
         end
       end
     end
