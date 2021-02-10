@@ -58,6 +58,14 @@ def dispute_type_page
   @dispute_type_page ||= DisputeTypePage.new
 end
 
+def send_taxpayer_copy_page
+  @send_taxpayer_copy_page ||= SendTaxpayerCopyPage.new
+end
+
+def send_representative_copy_page
+  @send_representative_copy_page ||= SendRepresentativeCopyPage.new
+end
+
 def tax_amount_page
   @tax_amount_page ||= TaxAmountPage.new
 end

@@ -25,7 +25,7 @@ class TaxpayerDetailsPage < BasePage
     taxpayer_details_page.content.input_field[3].city_input.set 'London'
     taxpayer_details_page.content.input_field[4].postcode_input.set 'SW1H 9AJ'
     taxpayer_details_page.content.input_field[5].country_input.set 'UK'
-    taxpayer_details_page.content.input_field[6].email_input.set 'jsmith_test@test.com'
+    taxpayer_details_page.content.input_field[6].email_input.set 'matching@email.com'
     taxpayer_details_page.content.input_field[7].phone_input.set '07777 888888'
     continue_or_save_continue
   end
