@@ -1329,6 +1329,7 @@ en:
     confirmation_case_reference:
       case_reference: 'Your case reference number is:'
       case_submitted_successfully: Your case was submitted successfully.
+      case_reference_warning: If you chose not to receive a copy of the case details by email, it is highly recommended that you save or print them for your records.
       case_reference_pending: It is highly recommended that you save or print a copy of the case details for your records.
       note_number: Make a note of this number in case you need to contact us. We will also email the number to you.
     file_upload:
