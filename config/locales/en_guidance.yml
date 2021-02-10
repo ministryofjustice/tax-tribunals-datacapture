@@ -21,13 +21,13 @@ en:
       - question_html: What happens when I submit my appeal?
         answer_html: |
           <p class="govuk-body">When an appeal is submitted, even if previously saved, it will no longer exist online and cannot be modified further without contacting the tribunal directly. Again, this is in the interest of data security and to protect your privacy.</p>
-          <p class="govuk-body">Should you require a copy of your online appeal you can download and/or print a copy of the PDF that is available from the confirmation screen after you successfully submit your appeal. Further copies can also be requested by contacting the tribunal directly.</p>
+          <p class="govuk-body">Should you require a copy of your online appeal you can download and/or print a copy of the PDF that is available from the confirmation screen after you successfully submit your appeal. As part of your appeal you can choose to have a copy of the case details emailed to the taxpayer, representative or both. Upon submitting your appeal, this email will be sent to the respective email address(es) so it is important to check that you have entered this accurately. Further copies can also be requested by contacting the tribunal directly.</p>
       - question_html: Why does the online session time out after 30 minutes of inactivity?
         answer_html: |
           <p class="govuk-body">To protect your privacy the online session will time out after 30 minutes of inactivity. Unless you ‘save’ you will lose any data you have entered and will have to start again. To avoid this happening, it is advisable to use the save & return feature.</p>
-      - question_html: Can I print a copy of my appeal?
+      - question_html: Can I save a copy of my appeal?
         answer_html: |
-          <p class="govuk-body">You can save and/or print a copy after you submit your appeal using the link shown on the confirmation page, but once you close the confirmation screen you will no longer be able to do so. Further copies can also be requested by contacting the tribunal directly.</p>
+          <p class="govuk-body">As part of your appeal you can choose to have a copy of the case details emailed to the taxpayer, representative or both. You can also save and/or print a copy after you submit your appeal using the link shown on the confirmation page. However, once you close the confirmation page, you will no longer be able to access this page again. If you require a copy after the confirmation page is closed, you can request one by contacting the tribunal directly.</p>
       - question_html: Can I attach supporting documents?
         answer_html: |
           <p class="govuk-body">As you complete your online appeal, you will have the opportunity to attach supporting documents.</p>
