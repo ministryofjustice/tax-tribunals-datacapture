@@ -13,13 +13,13 @@ RSpec.describe Steps::Details::SendTaxpayerCopyController, type: :controller do
     let(:tribunal_case) do
       TribunalCase.new(
         taxpayer_type: UserType::TAXPAYER,
-        send_taxpayer_copy: yes,
+        send_taxpayer_copy: SendApplicationDetails::YES,
         taxpayer_contact_email: email_address
       )
     end
 
     it 'shows email_address' do
-      expect(controllor.send(:email_address)).to eq(email_address)
+      expect(controller.send(:email_address)).to eq(email_address)
     end
   end
 
@@ -27,12 +27,12 @@ RSpec.describe Steps::Details::SendTaxpayerCopyController, type: :controller do
     let(:tribunal_case) do
       TribunalCase.new(
         taxpayer_type: UserType::TAXPAYER,
-        send_taxpayer_copy: no,
+        send_taxpayer_copy: SendApplicationDetails::NO,
       )
     end
 
     it 'email_address is blank' do
-      expect(controllor.send(:email_address)).to be_blank
+      expect(controller.send(:email_address)).to be_blank
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe Steps::Details::SendTaxpayerCopyController, type: :controller do
     end
 
     it 'email_address is blank' do
-      expect(controllor.send(:email_address)).to be_blank
+      expect(controller.send(:email_address)).to be_blank
     end
   end
 end
