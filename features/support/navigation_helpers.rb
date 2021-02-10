@@ -20,6 +20,8 @@ def complete_valid_closure_application
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
+    expect(send_taxpayer_copy_page.content).to have_header
+    submit_no
     expect(has_representative_page.content).to have_header
     submit_no
     expect(enquiry_details_page.content).to have_header
@@ -62,6 +64,8 @@ def complete_valid_appeal_application
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
+    expect(send_taxpayer_copy_page.content).to have_header
+    submit_no
     expect(has_representative_page.content).to have_header
     submit_no
     expect(grounds_for_appeal_page.content).to have_header
@@ -150,10 +154,10 @@ def navigate_to_disputed_tax_paid_page
   end
 end
 
-def navigate_to_closure_taxpayer_details_page
+def navigate_to_closure_taxpayer_details_page(user_type)
   RSpec::Mocks.with_temporary_scope do
     create_user
-    FactoryBot.create(:closure_case, :personal_return_case, :taxpayer_user_type, :individual_taxpayer_type)
+    FactoryBot.create(:closure_case, :personal_return_case, user_type, :individual_taxpayer_type)
     stub_uploader_and_go_to_login_page
     login_and_resume
     taxpayer_details_page.load_page
@@ -195,7 +199,7 @@ def navigate_to_what_support_page
     create_user
     FactoryBot.create(:appeal_case, :income_tax_case, :yes_review, :received_letter, :penalty, :penalty_100_or_less,
                       :yes_in_time, :taxpayer_user_type, :individual_taxpayer_type, :valid_taxpayer_details,
-                      :has_representative_no, :valid_gfa, :valid_outcome, :yes_need_support)
+                      :has_representative_no, :no_email, :valid_gfa, :valid_outcome, :yes_need_support)
     stub_uploader_and_go_to_login_page
     login_and_resume
     what_support_page.load_page
@@ -216,10 +220,21 @@ def navigate_to_enquiry_details_page
   RSpec::Mocks.with_temporary_scope do
     create_user
     FactoryBot.create(:closure_case, :personal_return_case, :taxpayer_user_type, :individual_taxpayer_type,
-                      :valid_taxpayer_details, :has_representative_no)
+                      :valid_taxpayer_details, :no_email, :has_representative_no)
     stub_uploader_and_go_to_login_page
     login_and_resume
     enquiry_details_page.load_page
+  end
+end
+
+def navigate_to_send_taxpayer_copy_page
+  RSpec::Mocks.with_temporary_scope do
+    create_user
+    FactoryBot.create(:closure_case, :personal_return_case, :taxpayer_user_type, :individual_taxpayer_type,
+                      :valid_taxpayer_details)
+    stub_uploader_and_go_to_login_page
+    login_and_resume
+    send_taxpayer_copy_page.load_page
   end
 end
 
