@@ -13,13 +13,13 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: yes,
+        send_representative_copy: SendApplicationDetails::YES,
         representative_contact_email: email_address
       )
     end
 
     it 'shows email_address' do
-      expect(controllor.send(:email_address)).to eq(email_address)
+      expect(controller.send(:email_address)).to eq(email_address)
     end
   end
 
@@ -27,12 +27,12 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: no,
+        send_representative_copy: SendApplicationDetails::NO,
       )
     end
 
     it 'email_address is blank' do
-      expect(controllor.send(:email_address)).to be_blank
+      expect(controller.send(:email_address)).to be_blank
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     end
 
     it 'email_address is blank' do
-      expect(controllor.send(:email_address)).to be_blank
+      expect(controller.send(:email_address)).to be_blank
     end
   end
 end
