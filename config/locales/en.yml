@@ -43,9 +43,9 @@ en:
 
     SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
       heading: Does the %{entity} want a copy of the case details sent by email?
-      lead_text: If you select Yes, we will send a copy of the case details to the %{entity} when you submit the case. It is highly recommended that you keep a copy for your records. You will also have the opportunity to print or save them when you submit the case.
+      lead_text: If you select Yes, we will send a copy of the case details to the %{entity} when you submit the case. It is recommended that you keep a copy for your records.
       page_title: Send case details copy
-      confirm_email_text: For the purpose of protecting privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
+      confirm_email_text: To protect privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
 
     PENALTY_LEVELS: &PENALTY_LEVELS
       penalty_level_1: "£100 or less"
