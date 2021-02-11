@@ -14,7 +14,7 @@
         <%= f.govuk_text_field name_field, width: 'one-half' %>
       <% end %>
 
-      <%= address_lookup do %>
+      <%= address_lookup(record: @form_object, entity: :representative) do %>
           <%= f.govuk_text_area :representative_contact_address, class: 'govuk-textarea address' %>
           <%= f.govuk_text_field :representative_contact_city, width: 'one-half', class: 'govuk-input govuk-!-width-one-half city' %>
           <%= f.govuk_text_field :representative_contact_postcode, width: 'one-half', class: 'govuk-input govuk-!-width-one-half postcode' %>

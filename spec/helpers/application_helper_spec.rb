@@ -219,10 +219,11 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '#address_lookup' do
     let(:form_block) { Proc.new {} }
+    let(:record) { TribunalCase.new }
 
     it 'behaves like a passthrough method when no access_token' do
       expect(helper).not_to receive(:render)
-      helper.address_lookup(&form_block)
+      helper.address_lookup(record: record, entity: :representative, &form_block)
     end
 
     it 'inserts address lookup partial when access_token present' do
@@ -231,9 +232,12 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper).to receive(:content_for).with(:form, &form_block)
       expect(helper).to receive(:render).with(
         partial: 'steps/shared/address_lookup',
-        locals: { access_token: token }
+        locals: {
+          access_token: token,
+          show_details: false
+        }
       )
-      helper.address_lookup(&form_block)
+      helper.address_lookup(record: record, entity: :taxpayer, &form_block)
     end
   end
 

@@ -8,7 +8,7 @@
     </span>
     <%= text_field_tag(:address_lookup, nil, class: 'govuk-input govuk-!-width-one-half') %>
     <%= button_tag(t('helpers.address_lookup.find_address'), type: 'button', class: 'govuk-button') %>
-    <%= tag.a(t('helpers.address_lookup.enter_address_manually'), href: '#', class: 'govuk-link') %>
+    <%= tag.a(t('helpers.address_lookup.enter_address_manually'), href: '#', class: "#{ show_details ? 'hide' : nil } govuk-link ") %>
 </div>
 
 <div id="address-lookup-addresses" class="govuk-form-group">
@@ -17,11 +17,11 @@
     <p class="govuk-error-message" style="display: none;"> <%= t('helpers.address_lookup.api_call_error') %></p>
 </div>
 
-<div id="address-lookup-manual-address">
+<div id="address-lookup-manual-address" class="<%= show_details ? nil : 'hide' %>">
     <%= yield :form %>
 </div>
 
-<div id="address-lookup-error-summary" class="js-template">
+<div id="address-lookup-error-summary" class="js-template hide">
     <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
             <%= t('errors.error_summary.heading') %>
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-<div class="js-template">
+<div class="js-template hide">
     <span id="addresses-found"><%= t('helpers.address_lookup.addresses_found') %></span>
     <span id="no-address-found"><%= t('helpers.address_lookup.no_address_found') %></span>
 </div>

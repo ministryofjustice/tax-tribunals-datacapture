@@ -45,7 +45,7 @@ moj.Modules.addressLookup = {
         const self = this;
 
         $(self.selectors.manualLink).hide();
-        $(self.selectors.manualAddress).show();
+        $(self.selectors.manualAddress).removeClass('hide');
     },
 
     govukErrorSummary: {
@@ -167,10 +167,10 @@ moj.Modules.addressLookup = {
         }
         return {
             address: [
+                dpa.ORGANISATION_NAME,
                 dpa.SUB_BUILDING_NAME,
                 dpa.BUILDING_NAME,
-                dpa.BUILDING_NUMBER,
-                dpa.THOROUGHFARE_NAME
+                [dpa.BUILDING_NUMBER, dpa.THOROUGHFARE_NAME].join(' ')
             ].filter(function(e) { return e != null && e != 'undefined'; }).join(', '),
             postcode: dpa.POSTCODE,
             city: dpa.POST_TOWN,
@@ -190,7 +190,7 @@ moj.Modules.addressLookup = {
             const key = fieldSelector.replace('.', '');
             $manualAddress.find(fieldSelector).val(dpa[key]);
         });
-        $manualAddress.show();
+        $manualAddress.removeClass('hide');
     },
 
     handleError: function(e) {

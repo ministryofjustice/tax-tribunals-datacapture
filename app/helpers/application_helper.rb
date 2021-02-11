@@ -88,10 +88,16 @@ module ApplicationHelper
     t("check_answers.#{question}.answers.#{answer}")
   end
 
-  def address_lookup(&block)
+  def address_lookup(record:, entity: , &block)
     if address_lookup_access_token
       content_for(:form, &block)
-      render(partial: 'steps/shared/address_lookup', locals: {access_token: address_lookup_access_token})
+      render(
+        partial: 'steps/shared/address_lookup',
+        locals: {
+          access_token: address_lookup_access_token,
+          show_details: address_lookup_details_filled?(record, entity)
+        }
+      )
     else
       yield block
     end
@@ -103,5 +109,9 @@ module ApplicationHelper
 
   def address_lookup_url
     [Rails.configuration.x.address_lookup.endpoint, "/search/places/v1/postcode"].join
+  end
+
+  def address_lookup_details_filled?(record, entity)
+    record.send("#{entity}_contact_address").present?
   end
 end
