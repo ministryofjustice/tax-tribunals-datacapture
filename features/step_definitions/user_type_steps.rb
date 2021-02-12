@@ -1,11 +1,13 @@
-Given("I am on the user type page") do
-  go_to_closure_user_type_page
+Given("I navigate to closure user type page") do
+  navigate_to_closure_user_type_page
+  expect(user_type_page.content).to have_closure_header
 end
 
 When("I submit that I am the tax payer making the application") do
-  user_type_page.submit_yes
+  submit_yes
+  expect(taxpayer_type_page.content).to have_closure_header
 end
 
 When("I submit that I am not the tax payer making the application") do
-  user_type_page.submit_no
+  submit_no
 end

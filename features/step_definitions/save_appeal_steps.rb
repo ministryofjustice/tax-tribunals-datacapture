@@ -1,15 +1,11 @@
 Given("I have an appeal in progress") do
   home_page.load_page
   home_page.appeal
-  appeal_home_page.continue
+  appeal_page.continue
   appeal_case_type_page.submit_income_tax
   expect(save_return_page.content).to have_header
-  continue
-  expect(challenge_decision_page.content).to have_header
-end
-
-When("I click on save and come back later") do
-  challenge_decision_page.save_and_come_back
+  continue_or_save_continue
+  expect(challenge_decision_page.content).to have_appeal_header
 end
 
 Then("I am taken to the save your appeal page") do
@@ -58,5 +54,5 @@ Then("I should see a password error messages") do
 end
 
 Then("I should be taken to the saved confirmation page") do
-  expect(current_url).to end_with '/registration/save_confirmation'
+  expect(save_confirmation_page.content).to have_header
 end

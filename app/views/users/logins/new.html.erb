@@ -8,7 +8,7 @@
       to be different in this form. Because of this, we also need to specify the `name`,
       otherwise it would become `user_signin[email] and user_signin[password]`
     %>
-    <%= form_for(resource, as: 'user_signin', url: user_session_path, html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'login'}}) do |f| %>
+      <%= form_for(resource, as: 'user_signin', url: user_session_path, html: {class: 'ga-submitForm', data: {ga_category: 'save and return', ga_label: 'login'}}) do |f| %>
       <%= f.govuk_fieldset legend: { text: t('.heading'), size: 'l' } do %>
         <%= f.govuk_email_field :email, name: 'user[email]', width: 'two-thirds', autocomplete: 'email', spellcheck: 'false', autofocus: true %>
         <%= f.govuk_password_field :password, name: 'user[password]', width: 'two-thirds', autocomplete: 'new-password', spellcheck: 'false' %>

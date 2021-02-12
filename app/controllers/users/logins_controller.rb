@@ -1,5 +1,17 @@
 module Users
   class LoginsController < Devise::SessionsController
+    def create
+      self.resource = warden.authenticate(auth_options)
+      if self.resource.blank?
+        self.resource = User.signin_errors(params.require(:user).permit(:email, :password))
+        render :new
+      else
+        set_flash_message!(:notice, :signed_in)
+        sign_in(resource_name, resource)
+        respond_with resource, location: after_sign_in_path_for(resource)
+      end
+    end
+
     def save_confirmation
       @email_address = session[:confirmation_email_address]
     end

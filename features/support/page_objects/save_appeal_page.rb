@@ -9,8 +9,4 @@ class SaveAppealPage < BasePage
     element :password_input, '#user-password-field'
     element :error_message, '.govuk-error-message', text: 'Enter a stronger password'
   end
-
-  def save_and_come_back
-    content.save_and_come_back.click
-  end
 end

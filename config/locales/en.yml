@@ -15,7 +15,8 @@ en:
     blank_organisation_name: &blank_organisation_name "Please enter a name"
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
     invalid_email: &invalid_email "Enter an email address in the correct format, like name@example.com"
-
+    blank_email: &blank_email "Please enter your email address"
+    blank_password: &blank_password "Please enter a password"
     YESNO: &YESNO
       'yes': 'Yes'
       'no': 'No'
@@ -90,6 +91,8 @@ en:
             </p>
           last_opportunity_warning: Warning
           last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
+  application:
+    name: Appeal to the tax tribunal
   steps:
     appeal:
       case_type:
@@ -384,7 +387,7 @@ en:
       need_support:
         edit:
           heading: Do you need any support at the hearing?
-          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or disabled access.
+          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or an accessible hearing room.
           page_title: Need Support?
       what_support:
         edit:
@@ -589,6 +592,7 @@ en:
               blank: *blank_organisation_fao
             taxpayer_contact_email:
               invalid: *invalid_email
+              blank: *blank_email
         steps/details/representative_details_form:
           attributes:
             representative_individual_first_name:
@@ -609,6 +613,7 @@ en:
               blank: *blank_organisation_fao
             representative_contact_email:
               invalid: *invalid_email
+              blank: *blank_email
         steps/details/representative_professional_status_form:
           attributes:
             representative_professional_status:
@@ -695,6 +700,15 @@ en:
               blank: Please enter a valid name
             email:
               invalid: *invalid_email
+        user/signin:
+          attributes:
+            base:
+              invalid: Enter a valid email and password
+            email:
+              blank: *blank_email
+              invalid: *invalid_email
+            password:
+              blank: *blank_password
   activerecord:
     errors:
       models:
@@ -966,18 +980,19 @@ en:
       steps_details_outcome_form:
         outcome: Clearly explain in 2-3 sentences
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid:
+        disputed_tax_paid_options:
           <<: *YESNO
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested:
+        hardship_review_requested_options:
           <<: *YESNO
       steps_hardship_hardship_review_status_form:
-        hardship_review_status:
+        hardship_review_status_options:
           granted: 'Yes'
           pending: I am waiting for a decision
           refused: 'No'
       steps_hardship_hardship_reason_form:
         hardship_reason: Enter your reasons below or attach as a document
+        hardship_reason_document: ''
       steps_lateness_in_time_form:
         in_time_options:
           'yes': Yes, I am in time
@@ -1034,7 +1049,7 @@ en:
         sign_language_interpreter: Sign language interpreter
         sign_language_interpreter_details: Enter the sign language you need
         hearing_loop: Hearing loop
-        disabled_access: Disabled access
+        disabled_access: Accessible hearing rooms
         other_support: Other support
     what_support_other:
       question: ''
@@ -1410,6 +1425,13 @@ en:
       logout: Sign out
       change_password: Change password
       your_cases: Your saved cases
+    govuk_template:
+      skip_to_main_content: Skip to main content
+      default_page_title: GOV.UK - The best place to find government services and information
+      ogl_html: |
+        All content is available under the <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+      crown_copyright_html: |
+        <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
   document_upload:
     errors:
       file_size: "%{file_name} is too big. You will need to resubmit a smaller version,
@@ -1432,11 +1454,13 @@ en:
         appeal: Appeal against a tax decision
         close: Apply to close an enquiry
         home_login: Return to a saved appeal or application
+        guidance: View guidance before I start
       link_descriptions:
         appeal: Settle a dispute with HM Revenue & Customs (HMRC), UK Border Force,
           National Crime Agency or the Welsh Revenue Authority.
         close: Ask the judge for a closure, counteraction or no-counteraction notice.
         home_login: Continue completing a case you haven't submitted.
+        guidance: Find answers to frequently asked questions, and a step-by-step guide through the service.
     contact:
       heading: Contact
       lead_text: Useful information if you need help using this service.
@@ -1550,7 +1574,6 @@ en:
         23 November 2020.</p>
         <p class="govuk-body">This website was last tested on 23 November 2020. The tests were carried out by Her
         Majesty’s Courts and Tribunals Service (HMCTS).</p>
-
   session:
     note:
       heading: Security time-out

@@ -49,7 +49,7 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.5.8'
+      rubyVersion: '= 2.6.6'
       bundlerVersion: '1.17.3'
       env: 'test'
       external_url: 'test'
@@ -67,7 +67,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')), ne(variables['Build.Reason'], 'Manual'))
     pool:
-      name: hmcts-pet
+      vmImage: 'Ubuntu-16.04'
 
     steps:
     - template: ./pipeline-steps/docker-build.yaml
@@ -82,7 +82,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
     pool:
-      name: hmcts-pet
+      vmImage: 'Ubuntu-16.04'
 
     steps:
     - template: ./pipeline-steps/docker-build-release.yaml
@@ -97,7 +97,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
     pool:
-      name: hmcts-pet
+      vmImage: 'Ubuntu-16.04'
 
     steps:
     - template: ./pipeline-steps/docker-build-manual.yaml

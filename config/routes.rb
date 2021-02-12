@@ -175,6 +175,7 @@ Rails.application.routes.draw do
   get :appeal, to: 'appeal_home#index'
   get :closure, to: 'closure_home#index'
 
+  get :guidance, to: 'home#guidance'
   get :contact, to: 'home#contact', as: :contact_page
   get :cookies, to: 'home#cookies', as: :cookies_page
   get 'terms-conditions', to: 'home#terms', as: :terms_page

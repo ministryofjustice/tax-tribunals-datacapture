@@ -7,11 +7,11 @@ class SaveReturnPage < BasePage
   end
 
   def skip_save_and_return
-    continue
+    continue_or_save_continue
   end
 
   def create_new_account
     content.create_account_checkbox.click
-    continue
+    continue_or_save_continue
   end
 end

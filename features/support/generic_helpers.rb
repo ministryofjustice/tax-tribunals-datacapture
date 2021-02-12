@@ -1,29 +1,29 @@
-def appeal_page
-  @appeal_page ||= AppealPage.new
-end
-
 def base_page
   @base_page ||= BasePage.new
-end
-
-def case_type_page
-  @case_type_page ||= CaseTypePage.new
-end
-
-def closure_page
-  @closure_page ||= ClosurePage.new
-end
-
-def enquiry_details_page
-  @enquiry_details_page ||= EnquiryDetailsPage.new
 end
 
 def home_page
   @home_page ||= HomePage.new
 end
 
-def appeal_home_page
-  @appeal_home_page ||= AppealHomePage.new
+def appeal_page
+  @appeal_page ||= AppealPage.new
+end
+
+def closure_page
+  @closure_page ||= ClosurePage.new
+end
+
+def guidance_page
+  @guidance_page ||= GuidancePage.new
+end
+
+def closure_case_type_page
+  @closure_case_type_page ||= ClosureCaseTypePage.new
+end
+
+def enquiry_details_page
+  @enquiry_details_page ||= EnquiryDetailsPage.new
 end
 
 def appeal_case_type_page
@@ -38,6 +38,14 @@ def login_page
   @login_page ||= LoginPage.new
 end
 
+def your_saved_cases_page
+  @your_saved_cases_page ||= YourSavedCasesPage.new
+end
+
+def check_answers_resume_page
+  @check_answers_resume_page ||= CheckAnswersResumePage.new
+end
+
 def challenge_decision_page
   @challenge_decision_page ||= ChallengeDecisionPage.new
 end
@@ -50,8 +58,32 @@ def dispute_type_page
   @dispute_type_page ||= DisputeTypePage.new
 end
 
+def tax_amount_page
+  @tax_amount_page ||= TaxAmountPage.new
+end
+
 def penalty_amount_page
   @penalty_amount_page ||= PenaltyAmountPage.new
+end
+
+def penalty_and_tax_amounts_page
+  @penalty_and_tax_amounts_page ||= PenaltyAndTaxAmountsPage.new
+end
+
+def disputed_tax_paid_page
+  @disputed_tax_paid_page ||= DisputedTaxPaidPage.new
+end
+
+def hardship_review_requested_page
+  @hardship_review_requested_page ||= HardshipReviewRequestedPage.new
+end
+
+def hardship_review_status_page
+  @hardship_review_status_page ||= HardshipReviewStatusPage.new
+end
+
+def hardship_reason_page
+  @hardship_reason_page ||= HardshipReasonPage.new
 end
 
 def in_time_page
@@ -86,8 +118,16 @@ def taxpayer_details_page
   @taxpayer_details_page ||= TaxpayerDetailsPage.new
 end
 
+def representative_details_page
+  @representative_details_page ||= RepresentativeDetailsPage.new
+end
+
 def has_representative_page
   @has_representative_page ||= HasRepresentativePage.new
+end
+
+def representative_type_page
+  @representative_type_page ||= RepresentativeTypePage.new
 end
 
 def representative_professional_page
@@ -100,6 +140,10 @@ end
 
 def user_type_page
   @user_type_page ||= UserTypePage.new
+end
+
+def what_support_page
+  @what_support_page ||= WhatSupportPage.new
 end
 
 def letter_upload_page
@@ -156,4 +200,26 @@ end
 
 def submit
   base_page.content.submit_button.click
+end
+
+def continue_or_save_continue
+  base_page.content.continue_or_save_continue.click
+end
+
+def submit_yes
+  base_page.content.yes_option.click
+  continue_or_save_continue
+end
+
+def submit_no
+  base_page.content.no_option.click
+  continue_or_save_continue
+end
+
+def back
+  base_page.back_button.click
+end
+
+def save_and_come_back
+  base_page.content.save_and_come_back_link.click
 end

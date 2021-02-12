@@ -12,18 +12,20 @@ module Steps::Details
                           :taxpayer_contact_city,
                           :taxpayer_contact_country
 
-    validates :taxpayer_contact_email, 'valid_email_2/email': true, if: :should_validate_email
-
+    # rubocop:disable Lint/LiteralAsCondition
+    validate :special_chars_in_mail if :started_by_taxpayer_or_present?
+    validate :email_too_long if :started_by_taxpayer_or_present?
+    validates :taxpayer_contact_email, presence: true, 'valid_email_2/email': true, if: :extra_email_validation?
+    # rubocop:enable Lint/LiteralAsCondition
 
     private
 
-    def should_validate_email
-      return false unless started_by_taxpayer_or_present?
-      special_chars_in_mail.blank? && email_too_long.blank?
-    end
-
     def started_by_taxpayer_or_present?
       started_by_taxpayer? || taxpayer_contact_email.present?
+    end
+
+    def extra_email_validation?
+      started_by_taxpayer_or_present? && errors.details[:taxpayer_contact_email].blank?
     end
 
     def special_chars_in_mail
