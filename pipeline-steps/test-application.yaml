@@ -21,6 +21,10 @@ steps:
   displayName: 'PG role setup'
 
 - script: |
+    ps -aef|grep 'postgres'
+  displayName: 'ps list'
+
+- script: |
     bundle exec rake db:create
   displayName: 'DB create'
 
