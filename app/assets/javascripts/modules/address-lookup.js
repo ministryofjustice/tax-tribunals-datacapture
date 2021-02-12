@@ -167,10 +167,15 @@ moj.Modules.addressLookup = {
         }
         return {
             address: [
-                dpa.ORGANISATION_NAME,
                 dpa.SUB_BUILDING_NAME,
                 dpa.BUILDING_NAME,
-                [dpa.BUILDING_NUMBER, dpa.THOROUGHFARE_NAME].join(' ')
+                [
+                    dpa.BUILDING_NUMBER,
+                    dpa.DEPENDENT_THOROUGHFARE_NAME,
+                    dpa.THOROUGHFARE_NAME,
+                    dpa.DOUBLE_DEPENDENT_LOCALITY,
+                    dpa.DEPENDENT_LOCALITY
+                ].filter(function(e) { return e != null && e != 'undefined'; }).join(' ')
             ].filter(function(e) { return e != null && e != 'undefined'; }).join(', '),
             postcode: dpa.POSTCODE,
             city: dpa.POST_TOWN,
