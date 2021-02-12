@@ -62,47 +62,47 @@ jobs:
     - template: ./pipeline-steps/publish-tests.yaml
 
 
-  - job: BuildAndPushImageCI
+  # - job: BuildAndPushImageCI
 
-    dependsOn: TestApplication
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')), ne(variables['Build.Reason'], 'Manual'))
-    pool:
-      vmImage: 'Ubuntu-16.04'
+  #   dependsOn: TestApplication
+  #   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')), ne(variables['Build.Reason'], 'Manual'))
+  #   pool:
+  #     vmImage: 'Ubuntu-16.04'
 
-    steps:
-    - template: ./pipeline-steps/docker-build.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)
-
-
-  - job: BuildAndPushImageRelease
-
-    dependsOn: TestApplication
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
-    pool:
-      vmImage: 'Ubuntu-16.04'
-
-    steps:
-    - template: ./pipeline-steps/docker-build-release.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)
+  #   steps:
+  #   - template: ./pipeline-steps/docker-build.yaml
+  #     parameters:
+  #       azureContainerRegistry: $(azure.container.registry)
+  #       azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+  #       applicationName: $(application.name)
 
 
-  - job: BuildAndPushImageManual
+  # - job: BuildAndPushImageRelease
 
-    dependsOn: TestApplication
-    condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
-    pool:
-      vmImage: 'Ubuntu-16.04'
+  #   dependsOn: TestApplication
+  #   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  #   pool:
+  #     vmImage: 'Ubuntu-16.04'
 
-    steps:
-    - template: ./pipeline-steps/docker-build-manual.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        manualBranchPrefix: $(manual.branch.prefix)
-        applicationName: $(application.name)
+  #   steps:
+  #   - template: ./pipeline-steps/docker-build-release.yaml
+  #     parameters:
+  #       azureContainerRegistry: $(azure.container.registry)
+  #       azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+  #       applicationName: $(application.name)
+
+
+  # - job: BuildAndPushImageManual
+
+  #   dependsOn: TestApplication
+  #   condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
+  #   pool:
+  #     vmImage: 'Ubuntu-16.04'
+
+  #   steps:
+  #   - template: ./pipeline-steps/docker-build-manual.yaml
+  #     parameters:
+  #       azureContainerRegistry: $(azure.container.registry)
+  #       azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+  #       manualBranchPrefix: $(manual.branch.prefix)
+  #       applicationName: $(application.name)

@@ -21,11 +21,11 @@ steps:
   displayName: 'PG role setup'
 
 - script: |
-    bundle exec rubocop --fail-fast
-  displayName: 'rubocop'
+    bundle exec rake db:create
+  displayName: 'DB create'
 
 - script: |
-    bundle exec rake db:create db:schema:load
+    bundle exec rake db:schema:load
   displayName: 'DB load'
 
 - script: |
