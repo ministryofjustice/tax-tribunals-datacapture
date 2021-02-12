@@ -21,8 +21,8 @@ gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sassc-rails', '~> 2.1.2'
-gem 'sentry-ruby'
-gem 'sentry-rails'
+# gem 'sentry-ruby'
+# gem 'sentry-rails'
 gem 'strong_password', '~> 0.0.8'
 gem 'uglifier'
 gem 'virtus'
@@ -38,27 +38,27 @@ group :production do
   gem 'logstash-event'
 end
 
-# group :development do
-#   gem 'better_errors'
-#   gem 'binding_of_caller'
-#   gem 'i18n-debug'
-#   gem 'listen', '~> 3.0.5'
-#   gem 'hashdiff', '>= 0.4.0'
-#   gem 'web-console'
-# end
+group :development do
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+  gem 'i18n-debug'
+  gem 'listen', '~> 3.0.5'
+  # gem 'hashdiff', '>= 0.4.0'
+  gem 'web-console'
+end
 
-# group :development, :test do
-#   gem 'byebug', platform: :mri
-#   gem 'dotenv-rails'
-#   gem 'faker', '~> 1.6', '>= 1.6.3'
-#   gem 'launchy'
-#   gem 'mutant-rspec', '< 0.9'
-#   gem 'pry-byebug'
-#   gem 'rspec-rails'
-#   gem 'rubocop', require: false
-#   gem 'rubocop-performance', require: false
-#   gem 'rubocop-rspec', require: false
-# end
+group :development, :test do
+  # gem 'byebug', platform: :mri
+  # gem 'dotenv-rails'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
+  # gem 'launchy'
+  # gem 'mutant-rspec', '< 0.9'
+  # gem 'pry-byebug'
+  # gem 'rspec-rails'
+  # gem 'rubocop', require: false
+  # gem 'rubocop-performance', require: false
+  # gem 'rubocop-rspec', require: false
+end
 
 # group :test do
 #   gem 'brakeman'
