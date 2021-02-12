@@ -11,6 +11,7 @@ default: &default
 
 development:
   <<: *default
+  database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_development') %>
 test: &test
   <<: *default
   database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>
