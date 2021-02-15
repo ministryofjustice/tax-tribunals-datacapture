@@ -55,6 +55,7 @@ jobs:
       external_url: 'test'
       govuk_notify_api_key: 'test'
       moj_file_uploader_endpoint: 'test'
+      notify_reset_password_template_id: 'test'
       aptDependencies: 'postgresql-client'
 
 
