@@ -179,7 +179,7 @@ moj.Modules.addressLookup = {
             ].filter(function(e) { return e != null && e != 'undefined'; }).join(', '),
             postcode: dpa.POSTCODE,
             city: dpa.POST_TOWN,
-            country: 'United Kingdom'
+            country: 'UNITED KINGDOM'
         };
     },
 
