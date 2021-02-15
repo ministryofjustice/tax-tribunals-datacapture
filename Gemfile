@@ -21,8 +21,8 @@ gem 'rails', '~> 6.0.3'
 gem 'responders'
 gem 'sanitize'
 gem 'sassc-rails', '~> 2.1.2'
-# gem 'sentry-ruby'
-# gem 'sentry-rails'
+gem 'sentry-ruby'
+gem 'sentry-rails'
 gem 'strong_password', '~> 0.0.8'
 gem 'uglifier'
 gem 'virtus'
@@ -39,45 +39,45 @@ group :production do
 end
 
 group :development do
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'i18n-debug'
   gem 'listen', '~> 3.0.5'
-  # gem 'hashdiff', '>= 0.4.0'
+  gem 'hashdiff', '>= 0.4.0'
   gem 'web-console'
 end
 
 group :development, :test do
-  # gem 'byebug', platform: :mri
-  # gem 'dotenv-rails'
+  gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
   gem 'faker', '~> 1.6', '>= 1.6.3'
-  # gem 'launchy'
-  # gem 'mutant-rspec', '< 0.9'
-  # gem 'pry-byebug'
-  # gem 'rspec-rails'
-  # gem 'rubocop', require: false
-  # gem 'rubocop-performance', require: false
-  # gem 'rubocop-rspec', require: false
+  gem 'launchy'
+  gem 'mutant-rspec', '< 0.9'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
 
-# group :test do
-#   gem 'brakeman'
-#   gem 'apparition'
-#   gem 'capybara'
-#   gem 'capybara-screenshot'
-#   gem 'chromedriver-helper', '~> 2.1'
-#   gem 'cucumber-rails', '~> 1.5', require: false
-#   gem 'database_cleaner-active_record'
-#   gem 'geckodriver-helper', '~> 0.23.0'
-#   gem 'factory_bot_rails'
-#   gem 'phantomjs'
-#   gem 'poltergeist', '~> 1.18', '>= 1.18.1'
-#   gem 'rails-controller-testing'
-#   gem 'rspec_junit_formatter', '~> 0.4.1'
-#   gem 'selenium-webdriver', '~> 3.142'
-#   gem 'simplecov', require: false
-#   gem 'simplecov-rcov'
-#   gem 'site_prism'
-#   gem 'webdrivers', '~> 4.4'
-#   gem 'webmock', require: false
-# end
+group :test do
+  gem 'brakeman'
+  gem 'apparition'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'chromedriver-helper', '~> 2.1'
+  gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'database_cleaner-active_record'
+  gem 'geckodriver-helper', '~> 0.23.0'
+  gem 'factory_bot_rails'
+  gem 'phantomjs'
+  gem 'poltergeist', '~> 1.18', '>= 1.18.1'
+  gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter', '~> 0.4.1'
+  gem 'selenium-webdriver', '~> 3.142'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov'
+  gem 'site_prism'
+  gem 'webdrivers', '~> 4.4'
+  gem 'webmock', require: false
+end
