@@ -60,6 +60,7 @@ jobs:
       fees_external_url: 'http://localhost:3003/case_requests'
       tax_tribunals_downloader_url: 'http://localhost:9393'
       aptDependencies: 'postgresql-client'
+      nocoverage: true
 
 
     steps:
