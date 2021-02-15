@@ -312,8 +312,6 @@ GEM
     rack (2.2.3)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
-    rack-cors (1.1.1)
-      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.5)
@@ -537,7 +535,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.1)
   rack-attack (~> 5.4.2)
-  rack-cors
   rails (~> 6.0.3)
   rails-controller-testing
   responders
