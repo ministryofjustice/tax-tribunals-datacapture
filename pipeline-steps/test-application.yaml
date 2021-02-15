@@ -21,12 +21,12 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    psql -h localhost -c 'create role vsts login createdb superuser;' -U postgres
-  displayName: 'PG role setup'
+    bundle exec rubocop --fail-fast
+  displayName: 'rubocop'
 
 - script: |
-    bundle exec rake db:create db:schema:load
-  displayName: 'creade DB'
+    psql -h localhost -c 'create role vsts login createdb superuser;' -U postgres
+  displayName: 'PG role setup'
 
 - script: |
     bundle exec rake db:create db:schema:load
