@@ -1,4 +1,6 @@
 <%= translate_with_appeal_or_application "check_answers.#{documents_submitted_row.question}.question" %>
 <% documents_submitted_row.documents.each do |document| %>
-    ^<%= document.name %>
+
+^ <%= document.name %>
+
 <% end %>
