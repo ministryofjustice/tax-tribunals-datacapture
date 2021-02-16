@@ -68,4 +68,3 @@ ENV PHUSION true
 RUN mkdir /etc/service/app
 COPY run.sh /etc/service/app/run
 RUN chmod +x /etc/service/app/run
-

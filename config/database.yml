@@ -7,10 +7,11 @@ default: &default
   database: <%= ENV["DB_NAME"] %>
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
-  host: <%= ENV["DB_HOST"] %>
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
 
 development:
   <<: *default
+  database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_development') %>
 test: &test
   <<: *default
   database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>

@@ -17,6 +17,14 @@ steps:
   displayName: 'bundle install'
 
 - script: |
+    npm install --production
+  displayName: 'npm install'
+
+- script: |
+    bundle exec rubocop --fail-fast
+  displayName: 'rubocop'
+
+- script: |
     psql -h localhost -c 'create role vsts login createdb superuser;' -U postgres
   displayName: 'PG role setup'
 
