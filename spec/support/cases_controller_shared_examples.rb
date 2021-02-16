@@ -3,11 +3,14 @@ require 'rails_helper'
 RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
   let(:confirmation_path) { options.fetch(:confirmation_path) }
 
-  let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil, case_reference: case_reference) }
+  let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil, case_reference: case_reference, send_taxpayer_copy?: send_taxpayer_copy, send_representative_copy?: send_representative_copy) }
   let(:case_creator_double) { instance_double(TaxTribs::CaseCreator, call: true) }
   let(:taxpayer_case_confirmation_mail_double) { double(deliver_later: true) }
   let(:ftt_new_case_notification_mail_double) { double(deliver_later: true) }
   let(:case_reference) { nil }
+  let(:send_taxpayer_copy) { false }
+  let(:send_representative_copy) { false }
+  let(:mail_double) { double(deliver_later: true) }
 
   describe 'POST #create' do
     before do
@@ -62,6 +65,40 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
       it 'should redirect to the confirmation page' do
         post :create
         expect(response).to redirect_to(confirmation_path)
+      end
+    end
+
+    context 'send application details copy to taxpayer' do
+      let(:send_taxpayer_copy) { true }
+
+      it 'should send email' do
+        allow(subject).to receive(:case_to_string).and_return('string content')
+        expect(NotifyMailer).to receive(:application_details_copy)
+          .with(current_tribunal_case, :taxpayer, 'string content')
+          .and_return(mail_double)
+
+        post :create
+      end
+
+      it 'should render email content' do
+        allow(NotifyMailer).to receive(:application_details_copy).and_return(mail_double)
+        expect(subject).to receive(:render_to_string)
+          .with(template: subject.pdf_template, formats: [:text], encoding: 'UTF-8')
+
+        post :create
+      end
+    end
+
+    context 'send application details copy to representative' do
+      let(:send_representative_copy) { true }
+
+      it 'should send email' do
+        allow(subject).to receive(:case_to_string).and_return('string content')
+        expect(NotifyMailer).to receive(:application_details_copy)
+          .with(current_tribunal_case, :representative, 'string content')
+          .and_return(mail_double)
+
+        post :create
       end
     end
   end
