@@ -16,9 +16,7 @@ module Steps::Details
     validate :selected_option
     validates_presence_of :email_address, if: :send_copy?
 
-    # rubocop:disable LiteralAsCondition
     validate :email_address_identical, if: :send_copy?
-    # rubocop:enable LiteralAsCondition
 
     def send_copy?
       send_application_details&.to_s == 'yes'
