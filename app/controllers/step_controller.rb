@@ -29,7 +29,7 @@ class StepController < ApplicationController
         res = http.request(req)
         if res.is_a?(Net::HTTPSuccess)
           JSON.parse(res.body).fetch('access_token', nil).tap do |token|
-            Rails.logger.info("[Address Lookup] :: os cred #{res.body}")
+            Rails.logger.info("[Address Lookup] :: os cred #{res.body} -- token: #{token}")
           end
         end
       rescue StandardError => e
