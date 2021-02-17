@@ -34,6 +34,8 @@ class TribunalCase < ApplicationRecord
   has_value_object :taxpayer_type, class_name: 'ContactableEntityType'
   has_value_object :representative_type, class_name: 'ContactableEntityType'
   has_value_object :letter_upload_type
+  has_value_object :send_taxpayer_copy, class_name: 'SendApplicationDetails'
+  has_value_object :send_representative_copy, class_name: 'SendApplicationDetails'
 
   # Closure task
   has_value_object :closure_case_type
@@ -96,6 +98,15 @@ class TribunalCase < ApplicationRecord
   def blank?
     intent_case_type.nil?
   end
+
+  def send_taxpayer_copy?
+    send_taxpayer_copy.eql?(SendApplicationDetails::YES)
+  end
+
+  def send_representative_copy?
+    send_representative_copy.eql?(SendApplicationDetails::YES)
+  end
+
 
   private
 

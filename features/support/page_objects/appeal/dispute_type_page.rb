@@ -5,6 +5,7 @@ class DisputeTypePage < BasePage
     element :header, 'h1', text: 'What is your dispute about?'
     element :penalty_or_surcharge_option, 'label', text: /Penalty or surcharge/
     element :repay_option, 'label', text: 'You want HMRC to repay money'
+    element :owe_option, 'label', text: 'HMRC claim you owe money'
     element :owe_and_penalty_option, 'label', text: /HMRC claim you owe money and a penalty or surcharge/
     element :paye_option, 'label', text: /Pay As You Earn/
     element :nota_option, 'label', text: 'None of the above'
@@ -19,6 +20,11 @@ class DisputeTypePage < BasePage
 
   def submit_repay_option
     content.repay_option.click
+    continue_or_save_continue
+  end
+
+  def submit_owe_option
+    content.owe_option.click
     continue_or_save_continue
   end
 

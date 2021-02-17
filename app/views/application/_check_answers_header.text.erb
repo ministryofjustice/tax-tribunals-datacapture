@@ -1,0 +1,5 @@
+# <%=t 'check_answers.pdf.header.tax_chamber' %>
+
+# <%= translate_with_appeal_or_application("check_answers.pdf.header.#{heading_key}") %><% if @presenter.case_reference? %> - <%= @presenter.case_reference %><% end %>
+
+<%= t('check_answers.pdf.header.generated_at', date: l(Date.today, format: :long)) %>

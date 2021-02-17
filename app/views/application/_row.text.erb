@@ -1,0 +1,10 @@
+<%= translate_with_appeal_or_application "check_answers.#{row.question}.question" %>:
+<% if row.raw? %>
+
+^ <%= escape_govuk_notify(row) %>
+
+<% else %>
+
+^ <%=t "check_answers.#{row.question}.answers.#{row.value}" %>
+
+<% end %>

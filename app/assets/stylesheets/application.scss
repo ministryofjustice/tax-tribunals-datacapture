@@ -17,8 +17,8 @@ $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import 'local/typography';
 @import 'local/utilities';
 @import 'local/js_enabled';
+@import 'local/send_application_details';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';
 @import 'local/dropzone';
-

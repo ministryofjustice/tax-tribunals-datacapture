@@ -1,5 +1,9 @@
-Given("I navigate to the taxpayer details page") do
-  navigate_to_closure_taxpayer_details_page
+Given("I navigate to the closure taxpayer details page as a taxpayer") do
+  navigate_to_closure_taxpayer_details_page(:taxpayer_user_type)
+end
+
+Given("I navigate to the closure taxpayer details page as a representative") do
+  navigate_to_closure_taxpayer_details_page(:representative_user_type)
 end
 
 When("I successfully submit taxpayers details") do
@@ -20,8 +24,8 @@ When("I submit a blank taxpayers details form") do
   continue_or_save_continue
 end
 
-Then("I am taken to representative page") do
-  expect(has_representative_page.content).to have_header
+Then("I am taken to the send taxpayer copy page") do
+  expect(send_taxpayer_copy_page.content).to have_header
 end
 
 Then("I am shown all the taxpayer details errors") do

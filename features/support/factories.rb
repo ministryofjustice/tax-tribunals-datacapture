@@ -56,8 +56,12 @@ FactoryBot.define do
       taxpayer_contact_city { 'Stockport' }
       taxpayer_contact_postcode { 'SK1 3DJ' }
       taxpayer_contact_country { 'UK' }
-      taxpayer_contact_email { 'emali@gjksm.com' }
+      taxpayer_contact_email { 'matching@email.com' }
       taxpayer_contact_phone { '2' }
+    end
+
+    trait :no_email do
+      send_taxpayer_copy { SendApplicationDetails::NO }
     end
 
     trait :has_representative_no do
@@ -89,6 +93,10 @@ FactoryBot.define do
       user_type { UserType::TAXPAYER }
     end
 
+    trait :representative_user_type do
+      user_type { UserType::REPRESENTATIVE }
+    end
+
     trait :individual_taxpayer_type do
       taxpayer_type { ContactableEntityType::INDIVIDUAL }
     end
@@ -100,8 +108,12 @@ FactoryBot.define do
       taxpayer_contact_city { 'Stockport' }
       taxpayer_contact_postcode { 'SK1 3DJ' }
       taxpayer_contact_country { 'UK' }
-      taxpayer_contact_email { 'emali@gjksm.com' }
+      taxpayer_contact_email { 'matching@email.com' }
       taxpayer_contact_phone { '2' }
+    end
+
+    trait :no_email do
+      send_taxpayer_copy { SendApplicationDetails::NO }
     end
 
     trait :has_representative_no do

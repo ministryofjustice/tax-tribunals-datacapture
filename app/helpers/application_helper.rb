@@ -40,6 +40,15 @@ module ApplicationHelper
     translate(key, params.merge(appeal_or_application_params))
   end
 
+  def escape_govuk_notify(row)
+    fields_with_rendering_issues = [:closure_years_under_enquiry]
+    if fields_with_rendering_issues.include?(row.question)
+      row.value.split('.').join(' .')
+    else
+      row.value
+    end
+  end
+
   def appeal_or_application_params
     appeal_or_application = translate("generic.appeal_or_application.#{current_tribunal_case.appeal_or_application}")
 
