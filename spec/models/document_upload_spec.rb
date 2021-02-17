@@ -200,6 +200,19 @@ RSpec.describe DocumentUpload do
     end
   end
 
+  describe '#sanitize filename' do
+    let(:filename) { '?file.txt' }
+    subject { DocumentUpload.new(Tempfile.new, filename: filename, content_type: 'text') }
+
+    context 'removes ?' do
+      it { expect(subject.file_name).to eq('file.txt') }
+    end
+
+    context 'removes %' do
+      let(:filename) { '?%file.txt' }
+      it { expect(subject.file_name).to eq('file.txt')}
+    end
+  end
   context '#upload!' do
     before do
       expect(file.tempfile).to receive(:read).and_call_original

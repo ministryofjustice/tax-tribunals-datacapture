@@ -40,7 +40,7 @@ class DocumentUpload
 
     self.tempfile = obj.respond_to?(:tempfile) ? obj.tempfile : obj
     self.content_type = content_type || obj.content_type
-    self.original_filename = filename || obj.original_filename
+    self.original_filename = sanitize(filename || obj.original_filename)
     self.collection_ref = collection_ref
     self.document_key = document_key
     self.errors = ActiveModel::Errors.new(self)
@@ -95,6 +95,10 @@ class DocumentUpload
   #
   def file_data
     Base64.encode64(tempfile.read)
+  end
+
+  def sanitize(s)
+    s.tr('?%','')
   end
 
   def uploaded_documents
