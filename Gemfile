@@ -62,7 +62,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'brakeman'
+  gem 'brakeman', '~> 5.0.0'
   gem 'apparition'
   gem 'capybara'
   gem 'capybara-screenshot'

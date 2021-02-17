@@ -25,6 +25,10 @@ steps:
   displayName: 'rubocop'
 
 - script: |
+    bundle exec brakeman
+  displayName: 'brakeman'
+
+- script: |
     psql -h localhost -c 'create role vsts login createdb superuser;' -U postgres
   displayName: 'PG role setup'
 
