@@ -59,6 +59,7 @@ jobs:
       tax_tribunals_downloader_url: 'http://localhost:9393'
       aptDependencies: 'postgresql-client'
       nocoverage: true
+      address_lookup_endpoint: 'https://api.os.uk'
 
 
     steps:

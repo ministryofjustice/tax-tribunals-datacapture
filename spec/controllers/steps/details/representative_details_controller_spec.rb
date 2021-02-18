@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Steps::Details::RepresentativeDetailsController, type: :controller do
   before do
+    stub_request(:post, "https://api.os.uk/oauth2/token/v1")
     allow(controller).to receive(:current_tribunal_case).and_return(tribunal_case)
   end
 

@@ -13,17 +13,21 @@
       <% @form_object.name_fields.each do |name_field| %>
         <%= f.govuk_text_field name_field, width: 'one-half' %>
       <% end %>
-      <%= f.govuk_text_area :representative_contact_address %>
-      <%= f.govuk_text_field :representative_contact_city, width: 'one-half' %>
-      <%= f.govuk_text_field :representative_contact_postcode, width: 'one-half' %>
-      <%= f.govuk_text_field :representative_contact_country, width: 'one-half' %>
+
+      <%= address_lookup(record: @form_object, entity: :representative) do %>
+          <%= f.govuk_text_area :representative_contact_address, class: 'govuk-textarea address' %>
+          <%= f.govuk_text_field :representative_contact_city, width: 'one-half', class: 'govuk-input govuk-!-width-one-half city' %>
+          <%= f.govuk_text_field :representative_contact_postcode, width: 'one-half', class: 'govuk-input govuk-!-width-one-half postcode' %>
+          <%= f.govuk_text_field :representative_contact_country, width: 'one-half', class: 'govuk-input govuk-!-width-one-half country' %>
+      <% end %>
+
       <% if @form_object.show_fao? %>
-        <%= f.govuk_text_field :representative_organisation_fao, width: 'one-half' %>
+          <%= f.govuk_text_field :representative_organisation_fao, width: 'one-half' %>
       <% end %>
       <%= f.govuk_text_field :representative_contact_email, width: 'one-half' %>
       <%= f.govuk_text_field :representative_contact_phone, width: 'one-half' %>
       <% if @form_object.show_registration_number? %>
-        <%= f.govuk_text_field :representative_organisation_registration_number, width: 'one-half' %>
+          <%= f.govuk_text_field :representative_organisation_registration_number, width: 'one-half' %>
       <% end %>
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
     <% end %>

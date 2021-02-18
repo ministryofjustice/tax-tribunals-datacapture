@@ -40,6 +40,10 @@ module TaxTribunalsDatacapture
 
     config.action_mailer.default_url_options = { host: ENV.fetch('EXTERNAL_URL') }
 
+    config.x.address_lookup.endpoint = ENV['ADDRESS_LOOKUP_ENDPOINT']
+    config.x.address_lookup.api_key = ENV['ADDRESS_LOOKUP_API_KEY']
+    config.x.address_lookup.api_secret = ENV['ADDRESS_LOOKUP_API_SECRET']
+
     if ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
       config.middleware.use ApplicationInsights::Rack::TrackRequest, ENV['AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY']
     end
