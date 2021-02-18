@@ -58,3 +58,7 @@ Example:
 ### Navigation
 
 To make navigation between pages quicker, `FactoryBot` is used to create users that possess particular traits. This means that once the driver has logged in, pages can be accessed by URL (using `load_page` method). To create a new `navigation_helper` method, a specific set of application traits is necessary to access a particular page i.e. to access the Check Answers page, create an application that possesses all the details of a completed application.
+
+### Brakeman
+
+[Brakeman](https://github.com/presidentbeef/brakeman) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
