@@ -131,7 +131,10 @@ moj.Modules.addressLookup = {
 
     formatOptions: function(entry, idx) {
         const self = this,
-              dpa = self.dpaValueGetter(entry, {address: {fn: 'inline'}});
+              inline = function (a) {
+                  return moj.Modules.addressLookup.dpaFormatters.helpers.toString(a, ', ');
+              },
+              dpa = self.dpaValueGetter(entry, {address: inline});
         return '<option value="' + idx +'">' + [dpa.address, dpa.city, dpa.postcode].join(', ') + '</option>';
     },
 
@@ -167,20 +170,18 @@ moj.Modules.addressLookup = {
             dpa = entry['DPA'] || {};
         }
 
-        const addressFormat = self.dpaFormatters.address[formatOptions.address.fn];
+        const addressFormat = formatOptions.address;
         return {
-            address: addressFormat([
-                dpa.SUB_BUILDING_NAME,
-                dpa.BUILDING_NAME,
+            address: addressFormat(
                 [
+                    dpa.SUB_BUILDING_NAME,
+                    dpa.BUILDING_NAME,
                     dpa.BUILDING_NUMBER,
                     dpa.DEPENDENT_THOROUGHFARE_NAME,
                     dpa.THOROUGHFARE_NAME,
                     dpa.DOUBLE_DEPENDENT_LOCALITY,
                     dpa.DEPENDENT_LOCALITY
-                ]
-            ],
-                                  formatOptions.address.args),
+                ]),
             postcode: dpa.POSTCODE,
             city: dpa.POST_TOWN,
             country: 'UNITED KINGDOM'
@@ -194,25 +195,6 @@ moj.Modules.addressLookup = {
                     return e != null && e != 'undefined' && e != '';
                 }).join(sep);
             }
-        },
-
-        address: {
-            inline: function(address) {
-                const toString = moj.Modules.addressLookup.dpaFormatters.helpers.toString,
-                      a = $.map(address, function(e) {
-                          if ($.isArray(e)) {
-                              return toString(e, ' ');
-                          }
-                          return e;
-                      });
-                return toString(a, ', ');
-            },
-
-            lineBreak: function(a, idx) {
-                const toString = moj.Modules.addressLookup.dpaFormatters.helpers.toString,
-                      inline = moj.Modules.addressLookup.dpaFormatters.address.inline;
-                return toString([inline(a.splice(0, idx)), inline(a)], '\n');
-            }
         }
     },
 
@@ -220,9 +202,12 @@ moj.Modules.addressLookup = {
         e.preventDefault();
         const self = this,
               idx = $(e.currentTarget).val(),
-              $manualAddress = $(self.selectors.manualAddress);
+              $manualAddress = $(self.selectors.manualAddress),
+              lineBreak = function (a) {
+                  return moj.Modules.addressLookup.dpaFormatters.helpers.toString(a, ',\n');
+              };
 
-        const dpa = self.dpaValueGetter(self.addresses[idx], {address: {fn: 'lineBreak', args: 2}});
+        const dpa = self.dpaValueGetter(self.addresses[idx], {address: lineBreak});
 
         $.each(self.selectors.addressFields, function(_, fieldSelector) {
             const key = fieldSelector.replace('.', '');
