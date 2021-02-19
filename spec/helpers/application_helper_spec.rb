@@ -253,4 +253,10 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.address_lookup_access_token).to eq('faketoken')
     end
   end
+
+  describe '#form_t239_link' do
+    it 'returns link to official form location' do
+      expect(helper.form_t239_link).to eq('https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf')
+    end
+  end
 end
