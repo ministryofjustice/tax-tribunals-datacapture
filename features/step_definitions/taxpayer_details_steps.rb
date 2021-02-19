@@ -11,7 +11,7 @@ When("I successfully submit taxpayers details") do
   expect(taxpayer_details_page.content.input_field[0].input_label.text).to eq 'First name'
   expect(taxpayer_details_page.content.input_field[1].input_label.text).to eq 'Last name'
   expect(taxpayer_details_page.content.input_field[2].input_label.text).to eq 'Address'
-  expect(taxpayer_details_page.content.input_field[3].input_label.text).to eq 'City'
+  expect(taxpayer_details_page.content.input_field[3].input_label.text).to eq 'Town/City'
   expect(taxpayer_details_page.content.input_field[4].input_label.text).to eq 'Postcode'
   expect(taxpayer_details_page.content.input_field[5].input_label.text).to eq 'Country'
   expect(taxpayer_details_page.content.input_field[6].input_label.text).to eq 'Email address'
