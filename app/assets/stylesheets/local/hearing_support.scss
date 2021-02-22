@@ -1,0 +1,11 @@
+.strip {
+    appearance: none;
+}
+
+.select2-container--govuk {
+    @include govuk-exports('govuk/component/select');
+}
+
+.select2-selection select2-selection--single {
+    border: 0px;
+}

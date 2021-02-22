@@ -23,3 +23,5 @@ $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 // Dropzone vendor styling + local customization
 @import 'dropzone';
 @import 'local/dropzone';
+
+@import 'select2'
