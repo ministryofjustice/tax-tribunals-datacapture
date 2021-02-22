@@ -65,6 +65,9 @@
     <strong><%= t 'privacy.personal_data.using_save_return.header' %></strong>
     <p class="govuk-body"><%= t('privacy.personal_data.using_save_return.line_1', { how_we_use: how_we_use_link }).html_safe %></p>
 
+    <strong><%= t 'privacy.personal_data.case_details_email.header' %></strong>
+    <p class="govuk-body"><%= t('privacy.personal_data.case_details_email.line_1', { how_we_use: how_we_use_link }).html_safe %></p>
+
     <strong><%= t 'privacy.personal_data.after_you_submit.header' %></strong>
     <p class="govuk-body"><%= t 'privacy.personal_data.after_you_submit.line_1' %></p>
     <p class="govuk-body"><%= t 'privacy.personal_data.after_you_submit.line_2' %></p>
@@ -72,7 +75,7 @@
 
     <h1 id="how_we_use" class="govuk-heading-l"><%= t 'privacy.how_we_use.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.how_we_use.line_1' %></p>
-    <p class="govuk-body"><%= t 'privacy.how_we_use.line_2' %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_use.line_2', { govuk_notify: govuk_notify_link }).html_safe %></p>
     <p class="govuk-body"><%= t('privacy.how_we_use.line_3', { use_cookies: use_cookies_link }).html_safe %></p>
 
     <ul class="standard-list">
