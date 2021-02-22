@@ -33,6 +33,7 @@ gem 'sprockets', '3.7.2'
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
+gem "select2-rails", '4.0.13'
 
 group :production do
   gem 'lograge'
