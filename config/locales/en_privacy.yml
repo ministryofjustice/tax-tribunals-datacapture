@@ -54,6 +54,9 @@ en:
       using_save_return:
         header: Using the ‘Save & Return’ feature
         line_1: If you decide to make use of the ‘Save & Return’ feature within the service you will be required to provide your email address and a password to create a temporary account for the purpose of managing your appeal(s) or application/s, see ‘Storing on ‘Save & Return’ under %{how_we_use}
+      case_details_email:
+        header: Sending case details by email
+        line_1: You will be asked if you want a copy of your case details sent either to the taxpayer, representative or both by email. This is optional and we do not recommend that you do this if your case involves highly sensitive information. If you choose to receive a copy of the case details by email, this is done so at your own risk. We cannot guarantee that it will not be maliciously intercepted once it leaves our email notification service. Your case details are not visible in the email notification system. For more information, see %{how_we_use}.
       after_you_submit:
         header: After you submit your information
         line_1: After you submit your claim you will see a confirmation page and receive a confirmation email containing your case reference number, however; if the link between the online and case management systems is unavailable you will not. Instead an email is automatically generated and forwarded to the tribunal containing a link to a PDF version of your case details along with any supporting documents you provided. These are subsequently downloaded by the tribunal to manually enter your details and register your case; after which you will receive your case reference directly from the tribunal.
@@ -62,14 +65,15 @@ en:
 
     how_we_use:
       header: How we use your personal data
-      line_1: Your online submission contains a link to the PDF document containing the details of your case and any supporting documents you have provided which are then downloaded by the tribunal. All documents are automatically deleted after 60 days from the Gov.UK SignOn online service where they are temporarily stored.
-      line_2: We may ask for your permission to use your email address to send you emails using GOV.UK Notify. This system processes emails only within the European Economic Area until the point where emails are handed over to the email provider you use.
+      line_1: Your online submission contains a link to the PDF document containing the details of your case and any supporting documents you have provided which are then downloaded by the tribunal. All documents are automatically deleted after 60 days from the GOV.UK SignOn online service where they are temporarily stored.
+      line_2: We may ask for your permission to use your email address to send you emails using %{govuk_notify}. This includes sending your case details if you choose to partake in this option. This system processes emails only within the European Economic Area until the point where emails are handed over to the email provider that you use. User data is held for 7 days and the email address(es) and name(s) that you provide during your application or appeal may be visible in the system. Access to GOV.UK Notify is restricted to key members of the technical support team.
       line_3: "We %{use_cookies} to collect data that tells us about how the service is used, including:"
       list_1: your computer, phone or tablet’s IP address
       list_2: the region or town where you are using your computer, phone or tablet
       list_3: the operating system and web browser you use
       use_cookies: use cookies
       use_cookies_title: Managing cookies page
+      govuk_notify: GOV.UK Notify
     how_we_store:
       header: How we store your personal data
       line_1: HMCTS takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure database is kept entirely within the European Economic Area (EEA).
