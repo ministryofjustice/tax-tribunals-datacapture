@@ -16,6 +16,7 @@
 //= require_tree .
 
 //= require govuk-frontend/govuk/all
+//= require select2
 
 $(document).ready(function() {
   // Initialize frontend toolkit
