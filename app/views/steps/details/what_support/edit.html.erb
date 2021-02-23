@@ -10,12 +10,11 @@
       <%= f.govuk_check_boxes_fieldset :what_support, legend: { text: t('.heading'), size: 'l' }, hint: { text: t('.lead_text') }  do %>
         <%= f.govuk_check_box :language_interpreter, :language_interpreter, multiple: false, link_errors: true  do %>
             <%= f.govuk_collection_select :language_interpreter_details, lang_options(:languages),
-             :to_s, :to_s,
-             html_options: {class: 'strip'} %>
+             :to_s, :to_s, html_options: {class: 'select2'} %>
         <% end %>
         <%= f.govuk_check_box :sign_language_interpreter, :sign_language_interpreter, multiple: false do %>
             <%= f.govuk_collection_select :sign_language_interpreter_details, lang_options(:sign_languages), :to_s, :to_s,
-             hint: { text: t('.sign_language_interpreter_hint') }, html_options: {class: 'strip'} %>
+             hint: { text: t('.sign_language_interpreter_hint') }, html_options: {class: 'select2'} %>
         <% end %>
         <%= f.govuk_check_box :hearing_loop, :hearing_loop, multiple: false %>
         <%= f.govuk_check_box :disabled_access, :disabled_access, multiple: false %>

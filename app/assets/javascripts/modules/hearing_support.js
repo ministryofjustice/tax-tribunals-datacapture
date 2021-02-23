@@ -2,13 +2,12 @@
 
 moj.Modules.hearingSupport = {
     selectors: {
-        language: '#steps-details-what-support-form-language-interpreter-details-field',
-        signLanguage: '#steps-details-what-support-form-sign-language-interpreter-details-field'
+        select: '.select2',
     },
 
     init: function() {
         const self = this;
-        if ($(self.selectors.language).length) {
+        if ($(self.selectors.select).length) {
             self.bindEvents();
         }
     },
@@ -20,7 +19,6 @@ moj.Modules.hearingSupport = {
 
     bindEvents: function() {
         const self = this;
-        $(self.selectors.language).select2(self.conf);
-        $(self.selectors.signLanguage).select2(self.conf);
+        $(self.selectors.select).select2(self.conf);
     }
 }
