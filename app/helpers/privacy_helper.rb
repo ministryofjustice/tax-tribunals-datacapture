@@ -118,4 +118,12 @@ module PrivacyHelper
     )
   end
 
+  def govuk_notify_link
+    link_to(t('privacy.how_we_use.govuk_notify'),
+            'https://www.notifications.service.gov.uk/',
+            target: '_blank',
+            title: t('privacy.how_we_use.govuk_notify'),
+            class: 'govuk-link'
+    )
+  end
 end
