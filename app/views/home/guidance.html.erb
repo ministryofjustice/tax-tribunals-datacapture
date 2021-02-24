@@ -42,7 +42,7 @@
         </h2>
       </div>
       <div id="<%="accordion-2-content-#{k}"%>" class="govuk-accordion__section-content" aria-labelledby="<%="accordion-2-heading-#{k}"%>">
-        <%= i[:answer_html].html_safe % { approval_form_href: asset_path('proforma.pdf') } %>
+        <%= i[:answer_html].html_safe % { approval_form_href: form_t239_link } %>
       </div>
     </div>
   <% end %>
