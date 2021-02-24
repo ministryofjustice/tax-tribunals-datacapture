@@ -3,7 +3,7 @@
     <%= f.submit t('helpers.submit.save_and_continue'), class: 'govuk-button' %>
   <% else %>
     <%= f.submit class: 'govuk-button' %>
-    <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path, class: 'govuk-link' %>
+    <%= link_to t('helpers.submit.save_and_come_back_later'), new_user_registration_path, class: 'govuk-link', id: 'save_and_come_back_later' %>
   <% end %>
 </div>
 
