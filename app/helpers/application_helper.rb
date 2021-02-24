@@ -114,4 +114,8 @@ module ApplicationHelper
   def address_lookup_details_filled?(record, entity)
     record.send("#{entity}_contact_address").present?
   end
+
+  def form_t239_link
+    'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf'
+  end
 end

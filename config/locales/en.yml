@@ -28,7 +28,7 @@ en:
     REP_ADDRESS: &REP_ADDRESS
       representative_contact_address: Address
       representative_contact_postcode: Postcode
-      representative_contact_city: City
+      representative_contact_city: Town/City
       representative_contact_country: Country
       representative_contact_email: Email address
       representative_contact_phone: Contact phone number (optional)
@@ -36,7 +36,7 @@ en:
     TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
       taxpayer_contact_address: Address
       taxpayer_contact_postcode: Postcode
-      taxpayer_contact_city: City
+      taxpayer_contact_city: Town/City
       taxpayer_contact_country: Country
       taxpayer_contact_email: Email address
       taxpayer_contact_phone: Contact phone number (optional)
