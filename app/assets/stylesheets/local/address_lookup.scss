@@ -1,5 +1,9 @@
 .address-lookup input {
     margin-right: 10px;
+
+    @media only screen and (max-width: 641px) {
+      margin-bottom: 10px;
+    }
 }
 
 .address-lookup a {
