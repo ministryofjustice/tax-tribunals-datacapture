@@ -11,9 +11,11 @@
 
     <p class="govuk-body"><%= t '.anytime_text' %></p>
 
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary" aria-controls="details-content" aria-expanded="false">
-        <%= translate_for_user_type '.details_heading' %>
+    <details class="govuk-details">
+      <summary class="details__summary" aria-controls="details-content" aria-expanded="false">
+        <span class="govuk-details__summary-text">
+          <%= translate_for_user_type '.details_heading' %>
+        </span>
       </summary>
       <div class="govuk-details__text" aria-hidden="true">
         <%= translate_for_user_type '.details_info_html' %>
