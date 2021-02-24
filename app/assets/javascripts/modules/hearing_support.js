@@ -20,11 +20,8 @@ moj.Modules.hearingSupport = {
                 return $('.select2-no-results').text();
             }
         },
-        // position: function() {
-        //     return {
-        //         top: '',
-        //         left: ''
-        //     };
+        // selectionAdapter: function() {
+        //     console.log('this is callled!!!!!!!!')
         // }
     },
 
