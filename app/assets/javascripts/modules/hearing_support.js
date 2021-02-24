@@ -14,7 +14,18 @@ moj.Modules.hearingSupport = {
 
     conf: {
         width: 'element',
-        theme: 'govuk'
+        theme: 'govuk',
+        language: {
+            noResults: function() {
+                return $('.select2-no-results').text();
+            }
+        },
+        // position: function() {
+        //     return {
+        //         top: '',
+        //         left: ''
+        //     };
+        // }
     },
 
     bindEvents: function() {
