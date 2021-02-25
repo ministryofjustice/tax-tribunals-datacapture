@@ -1331,6 +1331,7 @@ en:
       compact: '%d/%m/%Y'
       long: '%e %B %Y'
   time:
+    years: years
     case_expires_in:
       zero: Today
       one: '%{count} day'
