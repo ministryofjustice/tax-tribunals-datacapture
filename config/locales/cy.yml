@@ -1642,6 +1642,7 @@ cy:
         heading: "Diolch am riportio'r broblem hon"
         page_title: "Adborth wedi’i gyflwyno"
   time:
+    years: o flynyddoedd
     case_expires_in:
       one: "%{count} diwrnod"
       other: "%{count} o ddiwrnodau"
