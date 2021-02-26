@@ -4,7 +4,7 @@
 
 // ------------
 .select2-container {
-  width: 274px !important;
+  width: 70% !important;
   box-sizing: border-box;
   display: inline-block;
   margin: 0;
@@ -70,7 +70,7 @@
 .select2-results {
     display: block;
     border: 2px solid;
-    width: 260px;
+    //width: 260px;
     margin-left: 4px;
     margin-top: -6px;
     z-index: 99999;
@@ -114,7 +114,8 @@
 
 .select2-search--dropdown {
   display: block;
-  padding: 4px; }
+  padding: 4px 0px 4px 4px;
+}
   .select2-search--dropdown .select2-search__field {
       @extend .govuk-input;
     padding: 4px;
@@ -167,8 +168,8 @@
 
 .select2-container--govuk
 .select2-selection--single .select2-selection__rendered {
-  color: #444;
-  line-height: 28px;
+    @extend .govuk-label;
+    margin-bottom: 0;
 }
 
 .select2-container--govuk
