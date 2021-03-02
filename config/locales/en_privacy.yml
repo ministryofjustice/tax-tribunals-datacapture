@@ -1,7 +1,7 @@
 en:
   privacy:
     header: HMCTS Privacy Policy
-    last_update: '<strong>Last Updated:</strong> May 2018'
+    last_update: '<strong>Last Updated:</strong> Feb 2021'
     info_1: Your privacy is important to us. This privacy statement explains what personal data Her Majesty’s Courts and Tribunals (HMCTS) collects from you when you use this service, through our interactions with you and through our service, and how we use that data.
     info_2: If you have any questions, you can contact the tax tribunal on 0300 123 1024 (Find out about %{call_charges}).
     call_charges: call charges
@@ -158,4 +158,3 @@ en:
       line_4: See our ‘%{cookies}’ policy for further information.
       cookie: Cookie
       cookie_title: Our ‘Cookie’ policy page
-
