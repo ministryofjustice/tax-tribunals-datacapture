@@ -1,5 +1,8 @@
 en:
   success: Success
+  selector:
+    language: Cymraeg
+    locale: cy
   dictionary:
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."

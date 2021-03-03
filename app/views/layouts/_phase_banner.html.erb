@@ -13,12 +13,15 @@
   <img src="https://tax-tribunals-uploader-demo.herokuapp.com/" height="1" width="1" class="hidden">
 <% else %>
   <div class="govuk-phase-banner">
-    <p class="govuk-phase-banner__content">
+    <p class="govuk-phase-banner__content full">
       <strong class="govuk-tag govuk-phase-banner__content__tag">
         beta
       </strong>
       <span class="govuk-phase-banner__text">
         <%= t('.phase_info_html', feedback_url: "https://www.smartsurvey.co.uk/s/TTFeed20/") %>
+      </span>
+      <span class="selector-locale">
+          <%= link_to(t('selector.language'), {locale: t('selector.locale')}, {class: 'govuk-link'}) %>
       </span>
     </p>
   </div>
