@@ -1,5 +1,8 @@
 ---
 cy:
+  selector:
+    language: English
+    locale: en
   dictionary:
     attach_reasons_blank_error: &attach_reasons_blank_error "Mae’n rhaid ichi roi rhesymau neu atodi dogfen"
     attach_reasons_document: &attach_reasons_document "<strong>Atodwch eich rhesymau fel dogfen</strong>"
