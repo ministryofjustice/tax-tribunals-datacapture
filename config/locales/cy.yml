@@ -1,5 +1,7 @@
 ---
 cy:
+  links:
+    form_t239: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/952858/CYM_T239_AuthoriseARepresentative_06.18.pdf
   selector:
     language: English
     locale: en
@@ -1299,9 +1301,9 @@ cy:
               <p class="govuk-body">Gallwch dal apelio i'r tribiwnlys treth ar ôl ichi herio penderfyniad treth.</p>
               <p class="govuk-body">Mwy o wybodaeth am:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li><a href="https://www.gov.uk/tax-appeals" class="govuk-link">herio penderfyniad treth Cyllid a Thollau EM (HMRC)</a></li>
+                <li><a href="https://www.gov.uk/anghytuno-phenderfyniad-treth" class="govuk-link">herio penderfyniad treth Cyllid a Thollau EM (HMRC)</a></li>
                 <li><a href="https://www.gov.uk/customs-seizures/overview" class="govuk-link">eich opsiynau pan fydd Llu Ffiniau'r DU (UKBF) yn atafaelu eich nwyddau</a></li>
-                <li><a href="https://www.gov.uk/tax-tribunal/overview" class="govuk-link">sut i herio penderfyniad yr Asiantaeth Troseddu Cenedlaethol (NCA)</a></li>
+                <li><a href="https://www.gov.uk/tribiwnlys-treth" class="govuk-link">sut i herio penderfyniad yr Asiantaeth Troseddu Cenedlaethol (NCA)</a></li>
               </ul>
             heading: "Cymorth gyda herio penderfyniad treth"
           page_title: "A wnaethoch chi apelio?"
