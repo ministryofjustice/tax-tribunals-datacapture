@@ -1,5 +1,5 @@
 class GroundsForAppealPage < BasePage
-  set_url '/steps/details/grounds_for_appeal'
+  set_url '/en/steps/details/grounds_for_appeal'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Grounds for appeal'

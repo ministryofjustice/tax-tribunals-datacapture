@@ -6,6 +6,7 @@ require 'rspec/rails'
 require_relative '../spec/support/view_spec_helpers'
 require_relative '../spec/helpers/authentication_helpers_spec'
 require './spec/support/email_validation_helpers'
+require_relative '../spec/support/integration.rb'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -28,7 +29,9 @@ RSpec.configure do |config|
   config.include(AuthenticationHelpers, type: :controller)
   config.include EmailValidationHelpers
 
+  config.include(Rails::Controller::Testing::Integration, type: :controller)
   config.before(:each, type: :helper) { initialize_view_helpers(helper) }
+  config.before(:each) { I18n.locale = :en }
 end
 
 RSpec::Matchers.define_negated_matcher :not_change, :change

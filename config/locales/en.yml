@@ -4,6 +4,10 @@ en:
     language: Cymraeg
     locale: cy
   dictionary:
+    select_language_question: &select_language_question "What language do you want us to use when we contact you?"
+    SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
+      english: English only
+      english_welsh: English and Welsh
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
@@ -523,6 +527,11 @@ en:
         lead_text: Creating an account will allow you to save an incomplete appeal and return to it later.
         lead_text_2: If you choose not to create an account and you do not submit your appeal, then any information you have provided will be lost, and you will need to start again.
         save_for_later: Create an account (optional)
+    select_language:
+      edit:
+        page_title: *select_language_question
+        heading: *select_language_question
+        lead_text: We'll send you emails as we progress your case. Choose which language you'd like these in.
 
   activemodel:
     errors:
@@ -531,6 +540,10 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
+        select_language/save_language_form:
+          attributes:
+            language:
+              inclusion: Select your preferred language
         steps/appeal/case_type_show_more_form:
           attributes:
             case_type:
@@ -796,6 +809,9 @@ en:
       cookie_setting_form:
         cookie_setting_options:
           <<: *YESNO
+      select_language_save_language_form:
+        language_options:
+          <<: *SUPPORTED_LANGUAGES
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
@@ -1077,6 +1093,11 @@ en:
       addresses_found: addresses found
       no_address_found: no address found
   check_answers:
+    selected_language:
+      question: *select_language_question
+      accessible_change_text: *select_language_question
+      answers:
+        <<: *SUPPORTED_LANGUAGES
     need_support:
       question: Do you need any support at the hearing?
       accessible_change_text: whether you need support at the hearing
@@ -1800,9 +1821,6 @@ en:
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
         <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
-        <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
-        </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
@@ -1817,9 +1835,6 @@ en:
       heading: Apply to close an enquiry
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
-        <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
-        </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>

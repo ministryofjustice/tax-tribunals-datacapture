@@ -1,5 +1,5 @@
 class SupportDocumentsPage < BasePage
-  set_url '/steps/closure/support_documents'
+  set_url '/en/steps/closure/support_documents'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Add documents to support your application (optional)'

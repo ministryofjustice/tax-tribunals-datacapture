@@ -1,5 +1,5 @@
 class DisputeTypePage < BasePage
-  set_url '/steps/appeal/dispute_type'
+  set_url '/en/steps/appeal/dispute_type'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What is your dispute about?'

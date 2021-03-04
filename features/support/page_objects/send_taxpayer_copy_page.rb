@@ -1,5 +1,5 @@
 class SendTaxpayerCopyPage < BasePage
-  set_url '/steps/details/send_taxpayer_copy'
+  set_url '/en/steps/details/send_taxpayer_copy'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Does the taxpayer want a copy of the case details sent by email?'

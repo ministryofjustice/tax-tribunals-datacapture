@@ -1,5 +1,5 @@
 class ConfirmationPage < BasePage
-  set_url_matcher %r{/confirmation$}
+  set_url_matcher %r{/en/confirmation$}
 
   section :content, '#main-content' do
     element :case_submitted_header, 'h1', text: 'Case submitted'

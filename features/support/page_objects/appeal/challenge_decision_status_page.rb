@@ -1,5 +1,5 @@
 class ChallengeDecisionStatusPage < BasePage
-  set_url '/steps/challenge/decision_status'
+  set_url '/en/steps/challenge/decision_status'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What response did you receive?'
