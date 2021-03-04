@@ -1,6 +1,4 @@
 en:
-  links:
-    form_t239: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf
   selector:
     language: Cymraeg
     locale: cy
@@ -98,7 +96,7 @@ en:
             </ul>
             <p class="govuk-body">
               If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-              <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
+              <a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">call charges</a>).
             </p>
           last_opportunity_warning: Warning
           last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
@@ -1437,7 +1435,7 @@ en:
       heading: You have already submitted this case
       lead_text_html: |
         To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
-        (find out about <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
+        (find out about <a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">call charges</a>).
       <<: *START_FINISH
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
@@ -1515,7 +1513,7 @@ en:
       lead_text: Useful information if you need help using this service.
       description_html: |
         <p class="govuk-body"><strong>Tax tribunal helpline</strong></p>
-        <p class="govuk-body">Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">find out about call charges)</a></p>
+        <p class="govuk-body">Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">find out about call charges)</a></p>
         <p class="govuk-body">Monday to Friday, 8:30am to 5pm</p>
         <p class="govuk-body">Please note: the helpline can't give you legal advice.</p>
         <p class="govuk-body"><strong>Other ways to get help</strong></p>

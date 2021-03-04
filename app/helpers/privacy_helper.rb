@@ -1,7 +1,7 @@
 module PrivacyHelper
   def call_charges_link
     link_to(t('privacy.call_charges'),
-      'https://www.gov.uk/call-charges',
+            t('links.call_charges_link'),
       target: '_blank',
       title: t('privacy.call_charges_title'),
       class: 'govuk-link'
@@ -10,7 +10,7 @@ module PrivacyHelper
 
   def moj_personal_character_link
     link_to(t('privacy.who_managing.personal_character'),
-      "https://www.gov.uk/government/organisations/ministry-of-justice/about/personal-information-charter",
+            t('links.moj_charter_link'),
       target: '_blank',
       title: t('privacy.who_managing.personal_character'),
       class: 'govuk-link'
@@ -84,7 +84,7 @@ module PrivacyHelper
 
   def complaints_procedure_link
     link_to(t('privacy.how_to_access.complaints.complaints_procedure'),
-      "https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure",
+            t('links.moj_complaint_procedure'),
       target: "_blank",
       title: t('privacy.how_to_access.complaints.complaints_procedure_title'),
       class: 'govuk-link'
