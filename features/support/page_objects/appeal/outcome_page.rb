@@ -1,5 +1,5 @@
 class OutcomePage < BasePage
-  set_url '/steps/details/outcome'
+  set_url '/en/steps/details/outcome'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Briefly say what outcome you would like'

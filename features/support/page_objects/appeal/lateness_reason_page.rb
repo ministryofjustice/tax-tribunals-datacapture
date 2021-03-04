@@ -1,5 +1,5 @@
 class LatenessReasonPage < BasePage
-  set_url '/steps/lateness/lateness_reason'
+  set_url '/en/steps/lateness/lateness_reason'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Why are you late with your appeal?'

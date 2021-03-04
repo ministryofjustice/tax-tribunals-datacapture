@@ -28,7 +28,7 @@ module CheckAnswers
       context 'for a single letter file upload' do
         before do
           allow(DocumentsSubmittedAnswer).to receive(:new).with(
-            :letter_uploaded, [], change_path: '/steps/details/letter_upload'
+            :letter_uploaded, [], change_path: "/#{I18n.locale}/steps/details/letter_upload"
           ).and_return(documents_submitted_answer)
         end
 
@@ -66,7 +66,7 @@ module CheckAnswers
 
         before do
           allow(DocumentsSubmittedAnswer).to receive(:new).with(
-            :letter_uploaded, [], change_path: '/steps/details/documents_upload'
+            :letter_uploaded, [], change_path: "/#{I18n.locale}/steps/details/documents_upload"
           ).and_return(documents_submitted_answer)
         end
 

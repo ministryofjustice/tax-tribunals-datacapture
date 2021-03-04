@@ -2,6 +2,7 @@ Given("I create an account in appeal journey") do
   expect(save_return_page.content).to have_header
   save_return_page.content.create_account_checkbox.click
   continue_or_save_continue
+  select_language_page.select_english_only
   expect(save_appeal_page.content).to have_appeal_header
   save_appeal_page.content.email_input.set 'test@email.net'
   save_appeal_page.content.password_input.set 'TaxTribun4!'
@@ -12,6 +13,7 @@ Given("I create an account in closure journey") do
   expect(save_return_page.content).to have_header
   save_return_page.content.create_account_checkbox.click
   continue_or_save_continue
+  select_language_page.select_english_only
   expect(save_appeal_page.content).to have_closure_header
   save_appeal_page.content.email_input.set 'test@email.net'
   save_appeal_page.content.password_input.set 'TaxTribun4!'

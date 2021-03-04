@@ -1,5 +1,5 @@
 class RepresentativeProfessionalPage < BasePage
-  set_url '/steps/details/representative_professional_status'
+  set_url '/en/steps/details/representative_professional_status'
 
   section :content, '#main-content' do
     element :representatives_header, 'h1', text: 'Who are you?'

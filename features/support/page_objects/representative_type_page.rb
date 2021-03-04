@@ -1,5 +1,5 @@
 class RepresentativeTypePage < BasePage
-  set_url '/steps/details/representative_type'
+  set_url '/en/steps/details/representative_type'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Is your representative an individual, company or other type of organisation?'

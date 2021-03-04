@@ -1,5 +1,5 @@
 class SendRepresentativeCopyPage < BasePage
-  set_url '/steps/details/send_representative_copy'
+  set_url '/en/steps/details/send_representative_copy'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Does the representative want a copy of the case details sent by email?'

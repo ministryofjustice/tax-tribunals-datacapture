@@ -1,5 +1,5 @@
 class RepresentativeDetailsPage < BasePage
-  set_url '/steps/details/representative_details'
+  set_url '/en/steps/details/representative_details'
 
   section :content, '#main-content' do
     element :header, 'h1', text: "Representative's details"

@@ -1,5 +1,5 @@
 class HardshipReasonPage < BasePage
-  set_url '/steps/hardship/hardship_reason'
+  set_url '/en/steps/hardship/hardship_reason'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Why will paying the tax under dispute cause financial hardship?'

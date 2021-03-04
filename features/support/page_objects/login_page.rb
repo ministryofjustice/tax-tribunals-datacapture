@@ -1,5 +1,5 @@
 class LoginPage < BasePage
-  set_url '/users/login'
+  set_url '/en/users/login'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Sign in'
