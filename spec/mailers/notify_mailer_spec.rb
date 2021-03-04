@@ -104,7 +104,7 @@ RSpec.describe NotifyMailer, type: :mailer do
         appeal_or_application: :appeal,
         draft_expire_in_days: 14,
         show_deadline_warning: 'yes',
-        resume_case_link: 'https://tax.justice.uk/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume'
+        resume_case_link: "https://tax.justice.uk/#{I18n.locale}/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume"
       })
     end
 
@@ -123,7 +123,7 @@ RSpec.describe NotifyMailer, type: :mailer do
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
-        reset_url: 'https://tax.justice.uk/users/password/edit?reset_password_token=0xDEADBEEF'
+        reset_url: "https://tax.justice.uk/#{I18n.locale}/users/password/edit?reset_password_token=0xDEADBEEF"
       })
     end
 
@@ -141,7 +141,7 @@ RSpec.describe NotifyMailer, type: :mailer do
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
-        portfolio_url: 'https://tax.justice.uk/users/cases'
+        portfolio_url: "https://tax.justice.uk/#{I18n.locale}/users/cases"
       })
     end
 

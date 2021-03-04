@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     session[:current_step_path]
   end
 
-  before_action :set_locale
+  around_action :switch_locale
 
   def default_url_options
     { locale: I18n.locale }
@@ -44,8 +44,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
   end
 
   def reset_tribunal_case_session

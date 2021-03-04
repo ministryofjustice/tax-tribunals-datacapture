@@ -1,5 +1,5 @@
 class CheckAnswersResumePage < BasePage
-  set_url '/steps/details/check_answers/resume'
+  set_url '/en/steps/details/check_answers/resume'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Resume your appeal'

@@ -1,5 +1,5 @@
 class PenaltyAndTaxAmountsPage < BasePage
-  set_url '/steps/appeal/penalty_and_tax_amounts'
+  set_url '/en/steps/appeal/penalty_and_tax_amounts'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What are the tax and penalty or surcharge amounts under dispute?'

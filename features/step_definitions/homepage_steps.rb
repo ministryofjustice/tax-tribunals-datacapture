@@ -49,5 +49,5 @@ When("I click on the '{word}' link") do |language|
 end
 
 Then("I am on the '{word}' locale") do |locale|
-  expect(page).to have_current_path(root_path(locale: locale))
+  expect(page).to have_current_path(local_root_path(locale: locale))
 end

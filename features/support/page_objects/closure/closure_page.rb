@@ -1,5 +1,5 @@
 class ClosurePage < BasePage
-  set_url '/closure'
+  set_url '/en/closure'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Apply to close an enquiry'

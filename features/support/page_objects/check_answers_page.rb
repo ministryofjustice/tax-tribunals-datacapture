@@ -1,5 +1,5 @@
 class CheckAnswersPage < BasePage
-  set_url '/steps/closure/check_answers'
+  set_url '/en/steps/closure/check_answers'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Check your answers'
