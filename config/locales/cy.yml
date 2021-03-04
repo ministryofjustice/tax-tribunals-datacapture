@@ -1,7 +1,5 @@
 ---
 cy:
-  links:
-    form_t239: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/952858/CYM_T239_AuthoriseARepresentative_06.18.pdf
   selector:
     language: English
     locale: en
@@ -70,7 +68,7 @@ cy:
             </ul>
             <p class="govuk-body">
               Os oes gennych unrhyw gwestiynau, gallwch gysylltu â’r tribiwnlys treth ar %{tax_tribunal_phone} (gwybodaeth am
-              <a href="https://www.gov.uk/call-charges" class="govuk-link">gost galwadau</a>).
+              <a href="https://www.gov.uk/costau-galwadau" class="govuk-link">gost galwadau</a>).
             </p>
 
     PENALTY_LEVELS: &PENALTY_LEVELS
@@ -692,7 +690,7 @@ cy:
       heading: "Rydych eisoes wedi cyflwyno'r achos hwn"
       lead_text_html: |
         I wneud newidiadau i'ch achos, cysylltwch â’r tribiwnlys treth ar %{tax_tribunal_phone}
-        (gwybodaeth am <a href="https://www.gov.uk/call-charges" class="govuk-link">brisiau galwadau</a>).
+        (gwybodaeth am <a href="https://www.gov.uk/costau-galwadau" class="govuk-link">brisiau galwadau</a>).
       note_number: "Gwnewch nodyn o'r rhif hwn rhag ofn y byddwch angen cysylltu â ni."
       page_title: "Achos eisoes wedi’i gyflwyno"
       save_or_print_pdf: "Cadw neu argraffu manylion eich achos"
@@ -1119,7 +1117,7 @@ cy:
     contact:
       description_html: |-
         <p class="govuk-body"><strong>Llinell gymorth y tribiwnlys treth</strong></p>
-        <p class="govuk-body">Ffôn: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">gwybodaeth am brisiau galwadau</a>)</p>
+        <p class="govuk-body">Ffôn: %{tax_tribunal_phone} (<a href="https://www.gov.uk/costau-galwadau" class="govuk-link">gwybodaeth am brisiau galwadau</a>)</p>
         <p class="govuk-body">Dydd Llun i ddydd Gwener, 8:30am tan 5pm</p>
         <p class="govuk-body">Noder: ni all staff y llinell gymorth roi cyngor cyfreithiol i chi.</p>
         <p class="govuk-body"><strong>Ffyrdd eraill o gael cymorth</strong></p>
