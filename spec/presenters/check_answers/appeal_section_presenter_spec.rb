@@ -8,6 +8,7 @@ module CheckAnswers
     let(:dispute_type) { CaseType.new(:something) }
 
     let(:answer) { instance_double(Answer, show?: true) }
+    let(:number_of_answers) { 7 }
 
     before do
       allow(tribunal_case).to receive(:documents).and_return([])
@@ -22,7 +23,7 @@ module CheckAnswers
 
     describe '#answers' do
       it 'has the correct rows' do
-        expect(subject.answers.count).to eq(6)
+        expect(subject.answers.count).to eq(number_of_answers)
 
         expect(subject.answers[0]).to eq(answer)
         expect(subject.answers[1]).to eq(answer)
@@ -36,7 +37,7 @@ module CheckAnswers
         let(:case_type) { CaseType::OTHER }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(6)
+          expect(subject.answers.count).to eq(number_of_answers)
 
           expect(subject.answers[0]).to eq(answer)
           expect(subject.answers[1]).to eq(answer)
@@ -51,7 +52,7 @@ module CheckAnswers
         let(:dispute_type) { DisputeType::OTHER }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(6)
+          expect(subject.answers.count).to eq(number_of_answers)
 
           expect(subject.answers[0]).to eq(answer)
           expect(subject.answers[1]).to eq(answer)
@@ -69,7 +70,7 @@ module CheckAnswers
         }
 
         it 'has the correct rows' do
-          expect(subject.answers.count).to eq(6)
+          expect(subject.answers.count).to eq(number_of_answers)
         end
       end
     end

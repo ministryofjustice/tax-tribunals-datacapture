@@ -3,6 +3,10 @@ en:
     language: Cymraeg
     locale: cy
   dictionary:
+    select_language_question: &select_language_question "What language do you want us to use when we contact you?"
+    SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
+      english: English only
+      english_welsh: English and Welsh
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
@@ -522,8 +526,8 @@ en:
         save_for_later: Create an account (optional)
     select_language:
       edit:
-        page_title: What language do you want us to use when we contact you?
-        heading: What language do you want us to use when we contact you?
+        page_title: *select_language_question
+        heading: *select_language_question
         lead_text: We'll send you emails as we progress your case. Choose which language you'd like these in.
 
   activemodel:
@@ -801,8 +805,7 @@ en:
     label:
       select_language_save_language_form:
         language_options:
-          english: English only
-          english_welsh: English and Welsh
+          <<: *SUPPORTED_LANGUAGES
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
@@ -1083,6 +1086,11 @@ en:
       addresses_found: addresses found
       no_address_found: no address found
   check_answers:
+    selected_language:
+      question: *select_language_question
+      accessible_change_text: *select_language_question
+      answers:
+        <<: *SUPPORTED_LANGUAGES
     need_support:
       question: Do you need any support at the hearing?
       accessible_change_text: whether you need support at the hearing
