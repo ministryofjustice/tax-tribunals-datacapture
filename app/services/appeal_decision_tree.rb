@@ -4,6 +4,8 @@ class AppealDecisionTree < TaxTribs::DecisionTree
 
     case step_name.to_sym
     when :save_and_return
+      edit(:select_language)
+    when :language
       after_case_type_step
     when :case_type, :case_type_show_more
       case_type_or_save_step
@@ -52,7 +54,7 @@ class AppealDecisionTree < TaxTribs::DecisionTree
 
   def case_type_or_save_step
     if tribunal_case.user_id.blank? && !on_show_more_step?
-      @next_step = after_case_type_step
+      @next_step = select_language_path
       save_return_path
     else
       after_case_type_step

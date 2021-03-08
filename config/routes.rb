@@ -116,6 +116,7 @@ Rails.application.routes.draw do
     end
 
     edit_step :save_and_return
+    edit_step :select_language
   end
 
   namespace :users do

@@ -520,6 +520,11 @@ en:
         lead_text: Creating an account will allow you to save an incomplete appeal and return to it later.
         lead_text_2: If you choose not to create an account and you do not submit your appeal, then any information you have provided will be lost, and you will need to start again.
         save_for_later: Create an account (optional)
+    select_language:
+      edit:
+        page_title: What language do you want us to use when we contact you?
+        heading: What language do you want us to use when we contact you?
+        lead_text: We'll send you emails as we progress your case. Choose which language you'd like these in.
 
   activemodel:
     errors:
@@ -528,6 +533,10 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
+        select_language/save_language_form:
+          attributes:
+            language:
+              inclusion: Select your preferred language
         steps/appeal/case_type_show_more_form:
           attributes:
             case_type:
@@ -790,6 +799,10 @@ en:
       surveys_feedback_form:
         assistance_level: Did you have any assistance with applying to Tax Tribunal today?
     label:
+      select_language_save_language_form:
+        language_options:
+          english: English only
+          english_welsh: English and Welsh
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through

@@ -1,0 +1,16 @@
+<% title t('.page_title') %>
+<% step_header %>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <%= govuk_error_summary %>
+        <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
+            <%= f.govuk_collection_radio_buttons :language,
+                 SelectLanguage::SaveLanguageForm.choices, :to_s, nil,
+                 legend: { text: t('.heading'), size: 'l' }, hint: { text: t('.lead_text') }
+            %>
+
+            <%= f.submit class: 'govuk-button' %>
+        <% end %>
+    </div>
+</div>
