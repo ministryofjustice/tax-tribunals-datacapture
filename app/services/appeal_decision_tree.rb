@@ -21,7 +21,9 @@ class AppealDecisionTree < TaxTribs::DecisionTree
   private
 
   def after_case_type_step
-    if answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
+    if tribunal_case.language.blank?
+      edit(:select_language)
+    elsif answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
     elsif tribunal_case.case_type == CaseType::TAX_CREDITS
       show(:tax_credits_kickout)

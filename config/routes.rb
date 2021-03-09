@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     match '*path' => redirect("#{public_domain}/%{path}", status: 301), via: :get
   end
 
-  scope "/:locale", locale: /en|cy/ do
+  scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     devise_for :users,
                controllers: {
                  registrations: 'users/registrations',
@@ -178,7 +178,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/:locale', to: 'home#index'
   get :start, to: redirect('/', status: 301)
-  scope "/:locale", locale: /en|cy/ do
+  scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     get :appeal, to: 'appeal_home#index'
     get :closure, to: 'closure_home#index'
 
