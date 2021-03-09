@@ -216,7 +216,7 @@ RSpec.describe TribunalCase, type: :model do
     end
   end
 
-  describe 'attributes' do
+  describe 'send application details attributes' do
     let(:attributes) do
       { send_taxpayer_copy: SendApplicationDetails.new('no'),
         send_representative_copy: SendApplicationDetails.new('yes') }
@@ -228,6 +228,30 @@ RSpec.describe TribunalCase, type: :model do
 
     it 'has send application details field for representative' do
       expect(subject.send_representative_copy.to_s).to eq('yes')
+    end
+  end
+
+  describe 'language attribute' do
+    let(:attributes) do
+      { language: Language.new('English') }
+    end
+
+    it 'returns selected language' do
+      expect(subject.language.to_s).to eq('English')
+    end
+  end
+
+  describe '#tax_appeal?' do
+    context 'for appeal' do
+      let(:attributes) { { intent: Intent::TAX_APPEAL } }
+
+      it { expect(subject).to be_tax_appeal }
+    end
+
+    context 'for closure' do
+      let(:attributes) { { intent: Intent::CLOSE_ENQUIRY } }
+
+      it { expect(subject).not_to be_tax_appeal }
     end
   end
 end

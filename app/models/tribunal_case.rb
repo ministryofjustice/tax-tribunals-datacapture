@@ -11,6 +11,7 @@ class TribunalCase < ApplicationRecord
 
   has_value_object :intent
   has_value_object :case_status
+  has_value_object :language
 
   # Appeal task
   has_value_object :challenged_decision

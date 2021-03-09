@@ -4,7 +4,7 @@ module Steps
     def edit
       @form_object = SelectLanguage::SaveLanguageForm.new(
         tribunal_case: current_tribunal_case,
-        language: nil # current_tribunal_case.lcurrent_tribunal_case,
+        language: current_tribunal_case.language,
       )
     end
 

@@ -9,6 +9,7 @@ module SelectLanguage
     validates_inclusion_of :language, in: choices
 
     private
+
     def language_value
       Language.new(language)
     end
