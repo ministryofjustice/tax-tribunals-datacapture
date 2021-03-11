@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe AppealDecisionTree, '#destination' do
-  let(:tribunal_case)     { instance_double(TribunalCase, case_type: case_type, user_id: user_id, navigation_stack: navigation_stack ) }
+  let(:tribunal_case)     { instance_double(TribunalCase, case_type: case_type, user_id: user_id, navigation_stack: navigation_stack, language: language) }
   let(:step_params)       { {case_type: 'anything'} }
   let(:next_step)         { nil }
   let(:case_type)         { nil }
   let(:user_id)           { nil }
-  let(:as)                { :save_and_return }
+  let(:as)                { :language }
   let(:navigation_stack)  { [] }
+  let(:language)          { 'en' }
 
 
   subject { described_class.new(tribunal_case: tribunal_case, step_params: step_params, next_step: next_step, as: as) }
@@ -19,7 +20,6 @@ RSpec.describe AppealDecisionTree, '#destination' do
 
   context 'for a case asking asking `challenged question`' do
     let(:case_type) { CaseType.new(:dummy, ask_challenged: true) }
-
     it { is_expected.to have_destination('/steps/challenge/decision', :edit) }
   end
 
@@ -39,7 +39,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
 
   context 'when the case type is TAX_CREDITS' do
     let(:case_type) { CaseType::TAX_CREDITS }
-    it { is_expected.to have_destination(:tax_credits_kickout, :show) }
+    it { is_expected.to have_destination('/steps/appeal/tax_credits_kickout', :show) }
   end
 
   context 'when the case type is OTHER' do
@@ -81,7 +81,7 @@ RSpec.describe AppealDecisionTree, '#destination' do
 
       it 'next_step value is set' do
         subject.destination
-        expect(subject.next_step).to eq({ action: :edit, controller: '/steps/appeal/dispute_type' })
+        expect(subject.next_step).to eq({ action: :edit, controller: '/steps/select_language' })
       end
     end
 

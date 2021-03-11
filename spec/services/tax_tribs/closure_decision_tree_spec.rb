@@ -40,7 +40,7 @@ RSpec.describe TaxTribs::ClosureDecisionTree do
 
           it 'next_step value is set' do
             subject.destination
-            expect(subject.next_step).to eq({ action: :edit, controller: '/steps/details/user_type' })
+            expect(subject.next_step).to eq({ action: :edit, controller: '/steps/select_language' })
           end
         end
       end

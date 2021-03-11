@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClosureHomeController do
+RSpec.describe ClosureHomeController, type: :controller do
   describe '#index' do
     it 'renders the expected page' do
       get :index

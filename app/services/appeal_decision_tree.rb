@@ -4,7 +4,7 @@ class AppealDecisionTree < TaxTribs::DecisionTree
 
     case step_name.to_sym
     when :save_and_return
-      edit(:select_language)
+      select_language_path
     when :language
       after_case_type_step
     when :case_type, :case_type_show_more
@@ -21,12 +21,12 @@ class AppealDecisionTree < TaxTribs::DecisionTree
   private
 
   def after_case_type_step
-    if tribunal_case.language.blank?
-      edit(:select_language)
-    elsif answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
+    if answer == Steps::Appeal::CaseTypeForm::SHOW_MORE
       edit(:case_type_show_more)
+    elsif tribunal_case.language.blank?
+      select_language_path
     elsif tribunal_case.case_type == CaseType::TAX_CREDITS
-      show(:tax_credits_kickout)
+      show('/steps/appeal/tax_credits_kickout')
     elsif tribunal_case.case_type.ask_challenged?
       edit('/steps/challenge/decision')
     else

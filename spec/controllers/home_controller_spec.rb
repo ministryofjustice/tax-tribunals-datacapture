@@ -13,22 +13,22 @@ RSpec.describe HomeController do
       name, time, link = assigns[:link_sections][0]
       expect(name).to eq(:appeal)
       expect(time).to eq(30)
-      expect(link).to eq('/appeal')
+      expect(link).to eq("/#{I18n.locale}/appeal")
 
       name, time, link = assigns[:link_sections][1]
       expect(name).to eq(:close)
       expect(time).to eq(15)
-      expect(link).to eq('/closure')
+      expect(link).to eq("/#{I18n.locale}/closure")
 
       name, time, link = assigns[:link_sections][2]
       expect(name).to eq(:home_login)
       expect(time).to eq(0)
-      expect(link).to eq('/users/login')
+      expect(link).to eq("/#{I18n.locale}/users/login")
 
       name, time, link = assigns[:link_sections][3]
       expect(name).to eq(:guidance)
       expect(time).to eq(0)
-      expect(link).to eq('/guidance')
+      expect(link).to eq("/#{I18n.locale}/guidance")
     end
 
     context 'when user is logged in' do
@@ -44,7 +44,7 @@ RSpec.describe HomeController do
         name, time, link = assigns[:link_sections][2]
         expect(name).to eq(:home_login)
         expect(time).to eq(0)
-        expect(link).to eq('/users/cases')
+        expect(link).to eq("/#{I18n.locale}/users/cases")
       end
     end
   end
