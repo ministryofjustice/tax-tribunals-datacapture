@@ -1,5 +1,5 @@
 class TaxpayerDetailsPage < BasePage
-  set_url '/steps/details/taxpayer_details'
+  set_url '/en/steps/details/taxpayer_details'
 
   section :content, '#main-content' do
     element :header, 'h1', text: "Enter taxpayer's details"

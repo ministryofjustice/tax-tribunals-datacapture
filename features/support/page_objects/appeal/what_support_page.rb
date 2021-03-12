@@ -1,5 +1,5 @@
 class WhatSupportPage < BasePage
-  set_url '/steps/details/what_support'
+  set_url '/en/steps/details/what_support'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Support at the hearing'

@@ -1,5 +1,5 @@
 class PenaltyAmountPage < BasePage
-  set_url '/steps/appeal/penalty_amount'
+  set_url '/en/steps/appeal/penalty_amount'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'How much is the penalty or surcharge you are disputing?'

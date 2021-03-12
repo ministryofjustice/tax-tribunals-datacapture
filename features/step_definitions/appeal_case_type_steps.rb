@@ -17,6 +17,7 @@ end
 
 When("I click on continue after selecting Income Tax option") do
   appeal_case_type_page.submit_income_tax
+  select_language_page.select_english_only
 end
 
 Then("I should be on the appeal challenge decision page") do
@@ -57,10 +58,12 @@ end
 When("I click on continue after providing an answer") do
   appeal_case_type_show_more_page.content.none_of_above_answer_box.set 'Reason'
   continue_or_save_continue
+  select_language_page.select_english_only
 end
 
 When("I click on continue after selecting Aggregates Levy option") do
   appeal_case_type_show_more_page.submit_aggregates_levy_option
+  select_language_page.select_english_only
 end
 
 Then("I should be on the challenge decision page") do

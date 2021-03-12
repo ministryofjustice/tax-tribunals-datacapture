@@ -176,7 +176,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
-  get '/:locale', to: 'home#index'
+  get '/:locale', to: 'home#index', as: :local_root
   get :start, to: redirect('/', status: 301)
   scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     get :appeal, to: 'appeal_home#index'

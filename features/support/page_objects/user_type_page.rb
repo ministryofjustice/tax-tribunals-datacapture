@@ -1,5 +1,5 @@
 class UserTypePage < BasePage
-  set_url '/steps/details/user_type'
+  set_url '/en/steps/details/user_type'
 
   section :content, '#main-content' do
     element :closure_header, 'h1', text: 'Are you the taxpayer making the application?'

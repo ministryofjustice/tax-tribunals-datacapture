@@ -1,5 +1,5 @@
 class SaveConfirmationPage < BasePage
-  set_url '/users/registration/save_confirmation'
+  set_url '/en/users/registration/save_confirmation'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Your case has been saved'

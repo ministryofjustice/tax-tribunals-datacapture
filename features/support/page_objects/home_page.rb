@@ -1,5 +1,5 @@
 class HomePage < BasePage
-  set_url '/'
+  set_url '/en/'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What do you want to do?'

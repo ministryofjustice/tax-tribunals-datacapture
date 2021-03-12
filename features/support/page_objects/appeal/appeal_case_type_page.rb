@@ -1,5 +1,5 @@
 class AppealCaseTypePage < BasePage
-  set_url '/steps/appeal/case_type'
+  set_url '/en/steps/appeal/case_type'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'What is your appeal about?'

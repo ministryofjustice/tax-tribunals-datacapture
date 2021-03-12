@@ -1,5 +1,5 @@
 class GuidancePage < BasePage
-  set_url '/guidance'
+  set_url '/en/guidance'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Guide to appealing a tax decision'

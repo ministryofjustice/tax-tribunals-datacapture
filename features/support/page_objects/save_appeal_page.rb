@@ -1,5 +1,5 @@
 class SaveAppealPage < BasePage
-  set_url '/users/sign_up'
+  set_url '/en/users/sign_up'
 
   section :content, '#main-content' do
     element :appeal_header, 'h2', text: 'Save your appeal'

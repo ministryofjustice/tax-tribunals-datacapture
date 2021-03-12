@@ -1,5 +1,5 @@
 class InTimePage < BasePage
-  set_url '/steps/lateness/in_time'
+  set_url '/en/steps/lateness/in_time'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Are you in time to appeal to the tax tribunal?'

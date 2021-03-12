@@ -174,6 +174,10 @@ def save_return_page
   @save_return_page ||= SaveReturnPage.new
 end
 
+def select_language_page
+  @select_language ||= SelectLanguagePage.new
+end
+
 def save_confirmation_page
   @save_confirmation_page ||= SaveConfirmationPage.new
 end

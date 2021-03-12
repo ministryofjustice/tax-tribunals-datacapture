@@ -1,5 +1,5 @@
 class YourSavedCasesPage < BasePage
-  set_url '/users/cases'
+  set_url '/en/users/cases'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Your saved cases'

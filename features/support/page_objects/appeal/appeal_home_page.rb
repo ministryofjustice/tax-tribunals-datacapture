@@ -1,5 +1,5 @@
 class AppealPage < BasePage
-  set_url '/appeal'
+  set_url '/en/appeal'
 
   section :content, '#main-content' do
     element :header, 'h2', text: 'Appeal against a tax decision'

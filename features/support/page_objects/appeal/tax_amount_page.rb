@@ -1,5 +1,5 @@
 class TaxAmountPage < BasePage
-  set_url '/steps/appeal/tax_amount'
+  set_url '/en/steps/appeal/tax_amount'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'How much tax is under dispute?'

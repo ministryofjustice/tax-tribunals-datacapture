@@ -1,5 +1,5 @@
 class HasRepresentativePage < BasePage
-  set_url '/steps/details/has_representative'
+  set_url '/en/steps/details/has_representative'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Do you have someone to represent you?'

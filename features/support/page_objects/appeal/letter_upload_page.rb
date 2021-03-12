@@ -1,5 +1,5 @@
 class LetterUploadPage < BasePage
-  set_url '/steps/details/letter_upload'
+  set_url '/en/steps/details/letter_upload'
 
   section :content, '#main-content' do
     element :header, 'h1', text: 'Upload the review conclusion letter'
