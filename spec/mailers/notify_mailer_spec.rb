@@ -6,6 +6,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     {
       id: '4a362e1c-48eb-40e3-9458-a31ead3f30a4',
       intent: intent,
+      language: language,
       user_type: user_type,
       taxpayer_type: taxpayer_type,
       representative_type: representative_type,
@@ -16,6 +17,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     }
   }
   let(:intent) { Intent::TAX_APPEAL }
+  let(:language) { Language::English }
   let(:user_type) { UserType::TAXPAYER }
   let(:taxpayer_type) { ContactableEntityType::INDIVIDUAL }
   let(:representative_type) { ContactableEntityType::INDIVIDUAL }
@@ -28,16 +30,35 @@ RSpec.describe NotifyMailer, type: :mailer do
       comment: 'Some text'
     )
   }
+  let(:govuk_notify_templates) do
+    {
+      english: {
+        new_case_saved_confirmation: 'NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID',
+        reset_password_instructions: 'NOTIFY_RESET_PASSWORD_TEMPLATE_ID',
+        password_change: 'NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID',
+        taxpayer_case_confirmation: 'NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID',
+        ftt_new_case_notification: 'NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID',
+        application_details_copy: 'NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID',
+        first_reminder: 'NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID',
+        last_reminder: 'NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID'
+      },
+      english_welsh: {
+        new_case_saved_confirmation: 'NOTIFY_NEW_CASE_SAVED_CY_TEMPLATE_ID',
+        reset_password_instructions: 'NOTIFY_RESET_PASSWORD_CY_TEMPLATE_ID',
+        password_change: 'NOTIFY_CHANGE_PASSWORD_CY_TEMPLATE_ID',
+        taxpayer_case_confirmation: 'NOTIFY_CASE_CONFIRMATION_CY_TEMPLATE_ID',
+        ftt_new_case_notification: 'NOTIFY_FTT_CASE_NOTIFICATION_CY_TEMPLATE_ID',
+        application_details_copy: 'NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID',
+        first_reminder: 'NOTIFY_CASE_FIRST_REMINDER_CY_TEMPLATE_ID',
+        last_reminder: 'NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID'
+      }
+    }
+  end
 
   before do
-    allow(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID').and_return('confirmation-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID').and_return('ftt-notification-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID').and_return('reset-password-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID').and_return('change-password-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID').and_return('new-case-saved-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
     allow(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID').and_return('report-problem-template')
-    allow(ENV).to receive(:fetch).with('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID').and_return('application-details-template')
+    stub_const('GOVUK_NOTIFY_TEMPLATES', govuk_notify_templates)
   end
 
   describe '#report_problem' do
@@ -97,20 +118,16 @@ RSpec.describe NotifyMailer, type: :mailer do
       allow(tribunal_case).to receive(:user).and_return(user)
     end
 
-    it_behaves_like 'a Notify mail', template_id: 'new-case-saved-template'
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID'
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
         appeal_or_application: :appeal,
         draft_expire_in_days: 14,
         show_deadline_warning: 'yes',
-        resume_case_link: "https://tax.justice.uk/#{I18n.locale}/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume"
+        resume_case_link: "https://tax.justice.uk/#{I18n.locale}/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume",
+        resume_case_cy_link: "https://tax.justice.uk/cy/users/cases/4a362e1c-48eb-40e3-9458-a31ead3f30a4/resume"
       })
-    end
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID')
-      mail.body
     end
   end
 
@@ -119,17 +136,15 @@ RSpec.describe NotifyMailer, type: :mailer do
     let(:user) { User.new(email: 'shirley.schmidt@cranepooleandschmidt.com') }
     let(:token) { '0xDEADBEEF' }
 
-    it_behaves_like 'a Notify mail', template_id: 'reset-password-template'
+    before { allow(TribunalCase).to receive(:latest_case).and_return(tribunal_case) }
+
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_RESET_PASSWORD_TEMPLATE_ID'
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
-        reset_url: "https://tax.justice.uk/#{I18n.locale}/users/password/edit?reset_password_token=0xDEADBEEF"
+        reset_url: "https://tax.justice.uk/#{I18n.locale}/users/password/edit?reset_password_token=0xDEADBEEF",
+        reset_cy_url: "https://tax.justice.uk/cy/users/password/edit?reset_password_token=0xDEADBEEF"
       })
-    end
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_RESET_PASSWORD_TEMPLATE_ID')
-      mail.body
     end
   end
 
@@ -137,29 +152,22 @@ RSpec.describe NotifyMailer, type: :mailer do
     let(:mail) { described_class.password_change(user) }
     let(:user) { User.new(email: 'shirley.schmidt@cranepooleandschmidt.com') }
 
-    it_behaves_like 'a Notify mail', template_id: 'change-password-template'
+    before { allow(TribunalCase).to receive(:latest_case).and_return(tribunal_case) }
+
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID'
 
     it 'has the right keys' do
       expect(mail.govuk_notify_personalisation).to eq({
-        portfolio_url: "https://tax.justice.uk/#{I18n.locale}/users/cases"
+        portfolio_url: "https://tax.justice.uk/#{I18n.locale}/users/cases",
+        portfolio_cy_url: "https://tax.justice.uk/cy/users/cases"
       })
-    end
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID')
-      mail.body
     end
   end
 
   describe 'taxpayer_case_confirmation' do
     let(:mail) { described_class.taxpayer_case_confirmation(tribunal_case) }
 
-    it_behaves_like 'a Notify mail', template_id: 'confirmation-template'
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID')
-      mail.body
-    end
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID'
 
     context 'personalisation' do
       it 'sets the personalisation' do
@@ -188,7 +196,7 @@ RSpec.describe NotifyMailer, type: :mailer do
         expect(Sentry).to receive(:capture_exception)
         expect(Sentry).to receive(:set_extras).with(
           {
-            template_id: 'confirmation-template',
+            template_id: 'NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID',
             personalisation: {
               recipient_name: '[FILTERED]',
               case_reference: 'TC/2017/00001',
@@ -213,7 +221,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       allow(ENV).to receive(:fetch).with('TAX_TRIBUNAL_EMAIL').and_return('ftt@email.com')
     end
 
-    it_behaves_like 'a Notify mail', template_id: 'ftt-notification-template'
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID'
 
     context 'recipient' do
       it { expect(mail.to).to eq(['ftt@email.com']) }
@@ -226,22 +234,17 @@ RSpec.describe NotifyMailer, type: :mailer do
         ).to eq([:recipient_name, :company_name, :show_company_name, :documents_url])
       end
     end
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID')
-      mail.body
-    end
   end
 
   describe 'incomplete_case_reminder' do
-    let(:mail) { described_class.incomplete_case_reminder(tribunal_case, 'reminder-template-id') }
+    let(:mail) { described_class.incomplete_case_reminder(tribunal_case, :first_reminder) }
     let(:user) { instance_double(User, email: 'user@example.com') }
 
     before do
       allow(tribunal_case).to receive(:user).and_return(user)
     end
 
-    it_behaves_like 'a Notify mail', template_id: 'reminder-template-id'
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID'
 
     context 'recipient' do
       it { expect(mail.to).to eq(['user@example.com']) }
@@ -251,7 +254,7 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'sets the personalisation' do
         expect(
           mail.govuk_notify_personalisation.keys
-        ).to eq([:appeal_or_application, :show_deadline_warning, :resume_case_link])
+        ).to eq([:appeal_or_application, :show_deadline_warning, :resume_case_link, :resume_case_cy_link])
       end
     end
   end
@@ -270,7 +273,7 @@ RSpec.describe NotifyMailer, type: :mailer do
         .and_return('taxpayer@email.com')
     end
 
-    it_behaves_like 'a Notify mail', template_id: 'application-details-template'
+    it_behaves_like 'a Notify mail', template_id: 'NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID'
 
     context 'recipient' do
       it { expect(mail.to).to eq(['taxpayer@email.com']) }
@@ -286,11 +289,6 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'uses provided email content' do
         expect(mail.govuk_notify_personalisation[:application_details]).to eq("email content")
       end
-    end
-
-    it "gets the template id from an env var" do
-      expect(ENV).to receive(:fetch).with('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID')
-      mail.body
     end
   end
 end

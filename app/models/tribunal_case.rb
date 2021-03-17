@@ -49,6 +49,10 @@ class TribunalCase < ApplicationRecord
     where(['created_at < ?', date]).delete_all
   end
 
+  def self.latest_case(user)
+    where(user: user).order(created_at: :desc).first
+  end
+
   def documents(document_key)
     # We do not return uploaded documents when the user states they have trouble uploading
     # because otherwise they may believe they don't have to send them in again
