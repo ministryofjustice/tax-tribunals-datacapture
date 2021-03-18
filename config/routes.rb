@@ -135,26 +135,14 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :admin do
-      resources :upload_problems_report, only: [:index]
-      resources :other_case_types_report, only: [:index]
-      resources :other_dispute_types_report, only: [:index]
-    end
+
+    delete '/session', to: 'sessions#destroy', as: 'session'
 
     scope 'uploader/:document_key' do
       resources :documents, only: [:create, :destroy]
     end
 
     resources :appeal_cases, :closure_cases, only: [:create]
-
-    resource :session, only: [:destroy] do
-      member do
-        get :ping
-        post :create_and_fill_appeal
-        post :create_and_fill_appeal_and_lateness
-        post :create_and_fill_appeal_and_lateness_and_appellant
-      end
-    end
 
     scope module: 'tax_tribs' do
       resources :status, only: [:index]
@@ -173,6 +161,21 @@ Rails.application.routes.draw do
         get :thanks
       end
     end
+  end
+
+  resource :session, only: [] do
+    member do
+      get :ping
+      post :create_and_fill_appeal
+      post :create_and_fill_appeal_and_lateness
+      post :create_and_fill_appeal_and_lateness_and_appellant
+    end
+  end
+
+  namespace :admin do
+    resources :upload_problems_report, only: [:index]
+    resources :other_case_types_report, only: [:index]
+    resources :other_dispute_types_report, only: [:index]
   end
 
   root to: 'home#index'
