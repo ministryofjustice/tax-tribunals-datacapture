@@ -19,7 +19,7 @@ module PrivacyHelper
 
   def terms_link
     link_to(t('privacy.terms'),
-      terms_page_path,
+      terms_page_path(locale: I18n.locale),
       target: '_blank',
       title: t('privacy.terms'),
       class: 'govuk-link'
@@ -111,7 +111,7 @@ module PrivacyHelper
 
   def cookies_page_link
     link_to(t('privacy.cookies.cookie'),
-      cookies_page_path,
+      cookies_page_path(locale: I18n.locale),
       target: '_blank',
       title: t('privacy.cookies.cookie_title'),
       class: 'govuk-link'
