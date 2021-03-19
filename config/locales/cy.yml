@@ -19,8 +19,8 @@ cy:
     default_service_title: &default_service_title "Apelio i’r tribiwnlys treth - GOV.UK"
     invalid_email: &invalid_email "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft enw@enghraifft.com"
     tax_tribunal_independent: &tax_tribunal_independent "Mae’r tribiwnlys treth yn annibynnol ac nid oes ganddo fynediad at ffeiliau gan Gyllid a Thollau EM."
-    blank_email: &blank_email "Please enter your email address"
-    blank_password: &blank_password "Please enter a password"
+    blank_email: &blank_email "Rhowch eich cyfeiriad e-bost"
+    blank_password: &blank_password "Teipiwch gyfrinair"
 
     CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
       heading: "Ynglŷn â beth yw eich apêl?"
@@ -37,11 +37,10 @@ cy:
       review_late_rejection: "Roedd fy nghais yn hwyr. Rwy’n gwneud cais am ganiatâd i ofyn am adolygiad hwyr"
 
     SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
-      heading: Does the %{entity} want a copy of the case details sent by email?
-      lead_text: If you select Yes, we will send a copy of the case details to the %{entity} when you submit the case. It is recommended that you keep a copy for your records.
-      page_title: Send case details copy
-      confirm_email_text: To protect privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
-
+      confirm_email_text: "I amddiffyn preifatrwydd, gofynnwn i chi gadarnhau’r cyfeiriad e-bost a roddoch yn flaenorol ar gyfer manylion y %{entity}."
+      heading: "A yw’r %{entity} eisiau copi o fanylion yr achos drwy e-bost? "
+      lead_text: "Os byddwch yn dewis Ydy, byddwn yn anfon copi o fanylion yr achos at y %{entity} pan fyddwch yn cyflwyno’r achos.  Argymhellir eich bod yn cadw copi ar gyfer eich cofnodion chi eich hun."
+      page_title: "Anfon copi o fanylion yr achos"
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
         resume:
@@ -95,6 +94,10 @@ cy:
       taxpayer_contact_email: "Cyfeiriad e-bost"
       taxpayer_contact_phone: "Rhif ffôn cyswllt (dewisol)"
       taxpayer_contact_postcode: "Cod post"
+
+    YESNO: &YESNO
+      'yes': 'Ydy'
+      'no': 'Nac ydy'
 
   activemodel:
     errors:
@@ -249,13 +252,13 @@ cy:
             what_support: "Dewiswch pa gefnogaeth ydych angen yn y gwrandawiad"
         steps/details/send_application_details_form:
           attributes:
-            send_application_details:
-              send_taxpayer_copy: Select if the taxpayer should receive a copy of the case details by email
-              send_representative_copy: Select if the representative should receive a copy of the case details by email
             email_address:
-              different_taxpayer: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
-              different_representative: Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect.
               blank: *blank_email
+              different_representative: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y cynrychiolydd.   Ewch yn ôl a newid cyfeiriad e-bost y cynrychiolydd os yw’n anghywir. "
+              different_taxpayer: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y trethdalwr.  Ewch yn ôl a newid cyfeiriad e-bost y trethdalwr os yw’n anghywir. "
+            send_application_details:
+              send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost "
+              send_taxpayer_copy: "Dewiswch a ddylai’r trethdalwr gael copi o fanylion yr achos drwy e-bost "
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -295,7 +298,7 @@ cy:
         user/signin:
           attributes:
             base:
-              invalid: Enter a valid email and password
+              invalid: "Rhowch gyfeiriad e-bost dilys a chyfrinair"
             email:
               blank: *blank_email
               invalid: *invalid_email
@@ -424,14 +427,12 @@ cy:
     challenged_decision_direct:
       accessible_change_text: "p’un a wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
       answers:
-        "no": "Nac oes"
-        "yes": Do
+        <<: *YESNO
       question: "A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM?"
     challenged_decision_indirect:
       accessible_change_text: "p’un a wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu"
       answers:
-        "no": "Nac oes"
-        "yes": Do
+        <<: *YESNO
       question: "A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?"
     challenged_decision_status:
       accessible_change_text: "beth oedd yr ymateb a gawsoch"
@@ -477,8 +478,7 @@ cy:
     disputed_tax_paid:
       accessible_change_text: "p’un a ydych wedi talu swm y dreth sy’n sail i’ch anghydfod"
       answers:
-        "no": "Nac oes"
-        "yes": Do
+        <<: *YESNO
       question: "Ydych chi wedi talu swm y dreth sy’n sail i’ch anghydfod?"
     documents_submitted:
       accessible_change_text: "dogfennau wedi’u llwytho"
@@ -512,8 +512,7 @@ cy:
     hardship_review_requested:
       accessible_change_text: "p’un a wnaethoch ofyn i Gyllid a Thollau EM a allech chi apelio i’r tribiwnlys heb orfod talu’r dreth yn gyntaf"
       answers:
-        "no": "Nac oes"
-        "yes": Do
+        <<: *YESNO
       question: "A wnaethoch chi ofyn i Gyllid a Thollau EM a allech chi apelio heb orfod talu’r dreth yn gyntaf?"
     hardship_review_status:
       accessible_change_text: "p’un a wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol"
@@ -525,9 +524,8 @@ cy:
     in_time:
       accessible_change_text: "p’un a yw eich %{appeal_or_application} mewn pryd"
       answers:
-        "no": "Nac oes"
+        <<: *YESNO
         unsure: "Nid wyf yn siŵr"
-        "yes": Do
       question: "A yw'r %{appeal_or_application} mewn pryd?"
     lateness_reason:
       accessible_change_text: "rhesymau dros gyflwyno %{appeal_or_application} yn hwyr"
@@ -539,8 +537,6 @@ cy:
     need_support:
       accessible_change_text: "p’un a ydych angen cefnogaeth yn y gwrandawiad"
       answers:
-        "no": Naddo
-        "yes": Do
       question: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
     organisation_registration_number: "Rhif Cofrestru"
     outcome:
@@ -594,17 +590,15 @@ cy:
       lateness: "Terfyn amser yr %{appeal_or_application_capitalised}"
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
-      question: Does the taxpayer want a copy of the case details sent by email?
-      accessible_change_text: does the representative want a copy of the case details sent by email?
+      question: "A yw’r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
+      accessible_change_text: "a yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     send_representative_copy:
-      question: Does the representative want a copy of the case details sent by email?
-      accessible_change_text: does the representative want a copy of the case details sent by email?
+      question: "A yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
+      accessible_change_text: "a yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
-        'yes': 'Yes'
-        'no': 'No'
+        <<: *YESNO
     tax_amount:
       accessible_change_text: "beth yw swm y dreth"
       question: "Beth yw swm y dreth?"
@@ -747,15 +741,15 @@ cy:
     page_title: *default_service_title
   helpers:
     address_lookup:
-      enter_a_uk_postcode: Enter a UK postcode
-      find_address: Find address
-      enter_address_manually: Enter address manually
-      select_an_address: Select an address
-      error: Error
-      please_enter_valid_postcode: Please enter a valid UK postcode
-      api_call_error: An error occurred, Please enter the address manually
-      addresses_found: addresses found
-      no_address_found: no address found
+      addresses_found: "daethpwyd o hyd i gyfeiriadau"
+      api_call_error: "Roedd gwall. Teipiwch y cyfeiriad â llaw"
+      enter_a_uk_postcode: "Rhowch god post yn y DU"
+      enter_address_manually: "Rhoi cyfeiriad â llaw"
+      error: Gwall
+      find_address: "Dod o hyd i gyfeiriad"
+      no_address_found: "heb gael hyd i gyfeiriad"
+      please_enter_valid_postcode: "Rhowch god post dilys yn y DU"
+      select_an_address: "Dewiswch gyfeiriad"
     fieldset:
       steps_appeal_case_type_form:
         case_type_html: "Ynglŷn â beth yw eich apêl?"
@@ -867,8 +861,7 @@ cy:
         tax_amount: "Rhowch swm y dreth sy’n sail i’ch anghydfod"
       steps_challenge_decision_form:
         challenged_decision_options:
-          "no": Naddo
-          "yes": Do
+          <<: *YESNO
       steps_challenge_decision_status_form:
         challenged_decision_status_options:
           <<: *CHALLENGE_STATUS
@@ -907,8 +900,7 @@ cy:
         grounds_for_appeal_document: ""
       steps_details_has_representative_form:
         has_representative_options:
-          "no": "Nac oes "
-          "yes": Oes
+          <<: *YESNO
       steps_details_letter_upload_form:
         having_problems_uploading_explanation: "Nodwch y rhesymau pam na allwch lwytho llythyr"
         having_problems_uploading_options:
@@ -923,8 +915,7 @@ cy:
           single_html: "<strong>Llwytho’r llythyr fel un ddogfen</strong><br>Rydych wedi cadw neu sganio'r llythyr fel un ffeil "
       steps_details_need_support_form:
         need_support_options:
-          "no": "Nac ydw"
-          "yes": Ydw
+          <<: *YESNO
       steps_details_outcome_form:
         outcome: "Eglurwch yn eglur mewn 2-3 brawddeg"
       steps_details_representative_approval_form:
@@ -956,10 +947,9 @@ cy:
           individual_html: <strong>Unigolyn</strong>
           other_organisation_html: "<strong>Math arall o sefydliad</strong><br>er enghraifft partneriaeth neu LLP (Partneriaeth Atebolrwydd Cyfyngedig)"
       steps_details_send_application_details_form:
-        email_address: Email address
+        email_address: "Cyfeiriad e-bost"
         send_application_details_options:
-          'yes': 'Yes'
-          'no': 'No'
+          <<: *YESNO
       steps_details_taxpayer_company_details_form:
         <<: *TAXPAYER_ADDRESS
         taxpayer_organisation_fao: "Enw cyswllt"
@@ -998,15 +988,13 @@ cy:
           sign_language_interpreter: "Dehonglydd iaith arwyddion"
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid_options:
-          "no": "Naddo "
-          "yes": Do
+          <<: *YESNO
       steps_hardship_hardship_reason_form:
         hardship_reason: "Rhowch eich rhesymau isod neu atodwch nhw fel dogfen"
         hardship_reason_document: ""
       steps_hardship_hardship_review_requested_form:
         hardship_review_requested_options:
-          "no": "Naddo "
-          "yes": Do
+          <<: *YESNO
       steps_hardship_hardship_review_status_form:
         hardship_review_status_options:
           granted: Do
@@ -1014,9 +1002,8 @@ cy:
           refused: Naddo
       steps_lateness_in_time_form:
         in_time_options:
-          "no": "Nac ydw, rwy’n hwyr"
+          <<: *YESNO
           unsure: "Nid wyf yn siŵr"
-          "yes": "Ydw, rwyf mewn pryd "
       steps_lateness_lateness_reason_form:
         lateness_reason: "Rhowch eich rhesymau isod neu atodwch nhw fel dogfen"
         lateness_reason_document: ""
@@ -1199,7 +1186,7 @@ cy:
       case_reference_pending: "Argymhellir yn gryf eich bod yn cadw neu’n argraffu copi o fanylion yr achos ar gyfer eich cofnodion. "
       case_submitted_successfully: "Cyflwynwyd eich achos yn llwyddiannus."
       note_number: "Gwnewch nodyn o'r rhif hwn rhag ofn y byddwch angen cysylltu â ni. Byddwn hefyd yn anfon y rhif hwn atoch mewn neges e-bost. "
-      case_reference_warning: If you chose not to receive a copy of the case details by email, it is highly recommended that you save or print them for your records.
+      case_reference_warning: "Os byddwch yn dewis peidio â chael copi o fanylion yr achos drwy e-bost, argymhellir yn gryf eich bod yn eu cadw neu’n eu hargraffu ar gyfer eich cofnodion. "
     file_upload:
       cancel_upload: Canslo
       confirm_cancel_upload: "Ydych chi’n siŵr eich bod eisiau canslo llwytho’r ddogfen?"
