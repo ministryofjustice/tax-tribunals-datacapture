@@ -1,161 +1,155 @@
 cy:
   privacy:
-    header: HMCTS Privacy Policy
-    last_update: '<strong>Last Updated:</strong> May 2018'
-    info_1: Your privacy is important to us. This privacy statement explains what personal data Her Majesty’s Courts and Tribunals (HMCTS) collects from you when you use this service, through our interactions with you and through our service, and how we use that data.
-    info_2: If you have any questions, you can contact the tax tribunal on 0300 123 1024 (Find out about %{call_charges}).
-    call_charges: call charges
-    call_charges_title: Find out about call_charges
-    terms: Terms and Conditions
-    privacy: Privacy policy
-    section_list:
-      who_managing: Who manages this service
-      why_collect: Why we collect your personal data
-      personal_data: Personal data that we collect
-      how_we_use: How we use your personal data
-      how_we_store: How we store your personal data
-      how_we_share: How we share your personal data
-      how_to_access: How to access & control your personal data
-      cookies: Cookies & similar technologies
-
-    who_managing:
-      header: Who manages this service
-      line_1: This service is managed by HMCTS, which is an executive agency of the Ministry of Justice (MoJ).
-      line_2: The MoJ is known as the data controller for data protection purposes. The %{moj_personal_character} explains how the MoJ processes personal data.
-      line_3: As part of the MoJ, HMCTS is responsible for deciding how your personal data is used and for protecting the personal data you provide.
-      line_4: More information about using this service is in the %{terms_condition}.
-      personal_character: MoJ personal information charter
-    why_collect:
-      header: Why we collect your personal data
-      line_1: "We collect your personal data to:"
-      line_2: Our staff use your personal data to process your appeal or application. They work in the UK and your data is stored in the UK.
-      line_3: Data used to improve this service does not identify you personally nor does it include any of the personal data specific to your case. Instead we use analytical data for how the service is used along with any feedback you provide. The email address attached to your feedback is treated with confidentiality and its use is limited to responses to any issues or queries you might have with the service, after which it is deleted when no longer needed.
-      list_1: process your appeal or application
-      list_2: meet legal requirements
-      list_3: make improvements to this service
-
-    personal_data:
-      header: Personal data that we collect
-      line_1: "We collect the following data when you use this service:"
-      line_2: You provide this data when you submit your appeal or application; after which you can no longer access your data online and all further business must be carried out directly with the tribunal
-      line_3: "If you have a representative, we will ask for:"
-      line_4: "If you are a representative acting on behalf of the appellant, you will need to provide information about the person who you are appealing on behalf of, including:"
-      list_1: your name and address
-      list_2: your email address and phone number (optional)
-      list_3: any other personal information you provide as part of your appeal or application such as within your ‘grounds for appeal’ and any documentation you upload
-      list_4: their name and address
-      list_5: their email address and phone number (optional)
-      list_6: their name and address
-      list_7: their email address and phone number (optional)
-      befor_you_submit:
-        header: Before you submit your information
-        line_1: To protect your personal information, any data you enter as your progress through the service is held temporarily until you submit your appeal or application, after which your appeal cannot be viewed or modified further online.
-        line_2: If you are unable to complete your appeal for any reason, you can use the ‘Save & Return’ feature (below) at any time to save and come back later.
-      using_save_return:
-        header: Using the ‘Save & Return’ feature
-        line_1: If you decide to make use of the ‘Save & Return’ feature within the service you will be required to provide your email address and a password to create a temporary account for the purpose of managing your appeal(s) or application/s, see ‘Storing on ‘Save & Return’ under %{how_we_use}
-      case_details_email:
-        header: Sending case details by email
-        line_1: You will be asked if you want a copy of your case details sent either to the taxpayer, representative or both by email. This is optional and we do not recommend that you do this if your case involves highly sensitive information. If you choose to receive a copy of the case details by email, this is done so at your own risk. We cannot guarantee that it will not be maliciously intercepted once it leaves our email notification service. Your case details are not visible in the email notification system. For more information, see %{how_we_use}.
-      after_you_submit:
-        header: After you submit your information
-        line_1: After you submit your claim you will see a confirmation page and receive a confirmation email containing your case reference number, however; if the link between the online and case management systems is unavailable you will not. Instead an email is automatically generated and forwarded to the tribunal containing a link to a PDF version of your case details along with any supporting documents you provided. These are subsequently downloaded by the tribunal to manually enter your details and register your case; after which you will receive your case reference directly from the tribunal.
-        line_2: The selections you make and any data you provide is transmitted directly to the tribunal and, if the link is available; recorded automatically within the case management system; otherwise the data is entered manually.
-        line_3: You can modify the information you have provided at any point in the process, however; once you submit your case the information you provided cannot be viewed or modified; to discuss your case further you will need to contact the tribunal on 0300 123 1024 (Find out about %{call_charges}).
-
-    how_we_use:
-      header: How we use your personal data
-      line_1: Your online submission contains a link to the PDF document containing the details of your case and any supporting documents you have provided which are then downloaded by the tribunal. All documents are automatically deleted after 60 days from the GOV.UK SignOn online service where they are temporarily stored.
-      line_2: We may ask for your permission to use your email address to send you emails using %{govuk_notify}. This includes sending your case details if you choose to partake in this option. This system processes emails only within the European Economic Area until the point where emails are handed over to the email provider that you use. User data is held for 7 days and the email address(es) and name(s) that you provide during your application or appeal may be visible in the system. Access to GOV.UK Notify is restricted to key members of the technical support team.
-      line_3: "We %{use_cookies} to collect data that tells us about how the service is used, including:"
-      list_1: your computer, phone or tablet’s IP address
-      list_2: the region or town where you are using your computer, phone or tablet
-      list_3: the operating system and web browser you use
-      use_cookies: use cookies
-      use_cookies_title: Managing cookies page
-      govuk_notify: GOV.UK Notify
-    how_we_store:
-      header: How we store your personal data
-      line_1: HMCTS takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure database is kept entirely within the European Economic Area (EEA).
-      line_2: HMCTS uses Microsoft Azure cloud platform to store your data. By submitting your information, you consent to the %{azure_terms}.
-      line_3: The service has been designed to keep your personal information secure, and as such the service has been configured to time out after 30 minutes of inactivity; after which any unsaved data you have provided will be deleted and you will need to start again.
-      line_4: Any supporting documents you provide are held for 60 days from the date you submitted your case, after which they are deleted.
-      line_5: A PDF document containing the details of your case, along with any supporting documentation is stored online within the document storage component of the service. This part of the online service is accessible only to key members of the tribunal who sign in securely using a link that is unique to your case from within the internal case management service.
-      line_6: After you complete your application the paper file generated by the tribunal will be stored for 12 months from the date of the final decision, after which it will be confidentially destroyed. Currently the digital record of your case will remain on the tribunal’s internal case management application, however; the 12-month retention period currently applied to paperbased files is planned to be introduced as an automatic function to align with current file retention and deletion policies, see ‘Your rights’ under %{how_to_access}.
-      azure_terms: Microsoft Azure Terms and Conditions
-      storing_save_return:
-        header: Storing on ‘Save & Return’
-        line_1: If you use the ‘Save & Return’ feature, anything you save using this feature remains accessible for 14 days from the date you first saved, after which, to protect your privacy and as you will be out of time to appeal; if you have not submitted your case during this time, all data is automatically deleted, and you will need to start again.
-        line_2: The account you create is temporary and only exists whilst you have 1 or more active cases saved. Once the final case is either submitted, deleted by you or deleted after the 14 days has expired; the account will also be deleted.
-        line_3: Any account that has not been accessed for more than 30 days, no matter how many appeals might be saved, will be deleted along with any unsubmitted cases.
-        line_4: Any supporting documents you have provided when you use this feature will be held for 60 days from the date you uploaded them, after which they are deleted whether you have submitted the case or not.
-
-    how_we_share:
-      header: How we share your personal data
-      line_1: Your data will be shared with the government department that made the decision you are appealing against. In this case HM Revenue and Customs, UK Border Force or the National Crime Agency depending on the nature of your case. This is necessary so that department can respond to your appeal.
-      line_2: It is important to note that the Tax Tribunal is entirely independent and has no record of any outstanding cases you might have with other government departments until such time that you submit an appeal or application using this online service, or directly by more conventional channels e.g. Post.
-      line_3: We use Google Analytics to collect our website statistics. This anonymous website usage data is shared with Google. See Google’s %{google_privacy} for more information.
-      google_privacy: Privacy Policy
-      google_privacy_title: Google’s Privacy Policy page
-    how_to_access:
-      header: How to access & control your personal data
-      your_rights:
-        header: Your rights
-        line_1: "You can ask:"
-        list_1: to see the personal data that we hold on you
-        list_2: to have the personal data corrected
-        list_3: to have the personal data removed or deleted (this will depend on the circumstances, for example if you decide not to continue your appeal or application)
-        list_4: that access to the personal data is restricted (for example, you can ask to have your data stored for longer and not automatically deleted, subject to the limitations of the technology being used)
-      getting_more:
-        header: Getting more information
-        line_1: "You can get more details on:"
-        list_1: Agreements we have with other organisations for sharing information;
-        list_2: Circumstances where we can pass on personal information without telling you, for example, to help with the prevention or detection of crime or to produce anonymised statistics;
-        list_3: Our instructions to staff on how to collect, use or delete your personal information;
-        list_4: How we check that the information we hold is accurate and up-to-date;
-        list_5: How to make a complaint
-        gov_uk_policy_html: Refer to <a href='https://www.gov.uk/help/privacy-notice' class="govuk-link" title="GOV.UK privacy policy page" target='_blank' rel='external'>GOV.UK privacy policy</a> here.
-        line_2: "By contacting the court handling your information or see the information provided when you accessed our services or were contacted by us. The MoJ Data Protection Officer can be contacted at:"
-        address:
-          street: 102 Petty France
-          city: London
-          postcode: SW1H 9AJ
-          email: data.compliance@justice.gov.uk
-      access:
-        header: Access to personal information
-        line_1: "You can find out if we hold any personal data about you by making a ‘%{subject_access}’. This request goes to the MoJ as data controller. Or you can contact the data disclosure team at:"
-        subject_access: subject access request
-        subject_access_title: How to request a copy of your personal data page
-        address:
-          header: Disclosure Team
-          post_point: Post point 10.38
-          street: 102 Petty France
-          city: London
-          postcode: SW1H 9AJ
-      complaints:
-        header: Complaints
-        line_1: If you want to complain about how we've handled your personal data see our %{complaints_procedure}.
-        complaints_procedure: complaints procedure
-        complaints_procedure_title: Complaints procedure page
-        line_2: "When we ask you for information, we will keep to the law. If you consider that your information has been handled incorrectly, you can contact the Information Commissioner for independent advice about data protection. You can contact the Information Commissioner at the following link: %{information_office}. You can also contact them at:"
-        information_office: Information Commissioner’s Office
-        information_office_title: Information Commissioner’s Office page
-        address:
-          header: Information Commissioner's Office
-          post_point: Wycliffe House
-          street: Water Lane
-          city: Wilmslow
-          county: Cheshire
-          postcode: SK9 5AF
-          phone: "Tel: 0303 123 1113"
-          url: www.ico.org.uk
-
+    call_charges: "gost galwadau"
+    call_charges_title: "Gwybodaeth am call_charges"
     cookies:
-      header: Cookies & similar technologies
-      line_1: HMCTS uses cookies (small text files placed on your device) and similar technologies to provide our online service and to help collect user interaction and performance data.
-      line_2: Cookies allow us, among other things, to store your preferences and settings, track progress through the service and to understand how you use the website so it can be updated and improved based on user needs. If you use the Save & Return feature of the service, then cookies help you with signing.
-      line_3: You have a variety of tools to control cookies and similar technologies, including browser controls to block and delete cookies and controls from thirdparty analytics service providers to opt out of data collection, however; your browser and other choices may affect your ability to interact with our service.
-      line_4: See our ‘%{cookies}’ policy for further information.
-      cookie: Cookie
-      cookie_title: Our ‘Cookie’ policy page
-
+      cookie: Cwci
+      cookie_title: "Ein tudalen Polisi ‘Cwcis’"
+      header: "Cwcis a thechnolegau tebyg"
+      line_1: "Mae GLlTEM yn defnyddio cwcis (ffeiliau testun bychain sy’n cael eu rhoi ar eich dyfais) a thechnolegau tebyg i ddarparu ein gwasanaeth ar-lein ac i gasglu data am ryngweithio â defnyddwyr a pherfformiad."
+      line_2: "Ymhlith pethau eraill, mae cwcis yn ein galluogi i storio eich dewisiadau a'ch gosodiadau, olrhain cynnydd trwy'r gwasanaeth a deall sut ydych chi'n defnyddio'r wefan fel bod modd ei diweddaru a'i gwella yn seiliedig ar anghenion defnyddwyr. Os ydych yn defnyddio nodwedd Cadw a Dychwelyd y gwasanaeth, yna mae’r cwcis yn eich helpu gyda mewngofnodi."
+      line_3: "Mae yna amrywiaeth o offerynnau i reoli cwcis a thechnolegau tebyg, gan gynnwys rheolyddion porwr i rwystro a dileu cwcis a rheolyddion gan ddarparwyr trydydd parti gwasanaethau dadansoddi er mwyn dewis peidio â chaniatáu casglu data. Fodd bynnag, gall eich porwr a dewisiadau eraill effeithio ar eich gallu i ryngweithio â’n gwasanaeth."
+      line_4: "Gweler ein polisi ‘%{cookies}’ am ragor o wybodaeth. "
+    header: "Polisi Preifatrwydd GLlTEM"
+    how_to_access:
+      access:
+        address:
+          city: Llundain
+          header: "Disclosure Team"
+          post_point: "Post point 10.38"
+          postcode: "SW1H 9AJ"
+          street: "102 Petty France"
+        header: "Mynediad at wybodaeth bersonol"
+        line_1: "Gallwch ganfod os oes gennym unrhyw ddata personol amdanoch drwy wneud ‘%{subject_access}’. Bydd y cais hwn yn mynd i’r rheolydd data, sef MoJ. Neu gallwch gysylltu â’r tîm datgelu data yn:"
+        subject_access: "cais gwrthrych am wybodaeth"
+        subject_access_title: "Tudalen sut i ofyn am gopi o’ch data personol"
+      complaints:
+        address:
+          city: Wilmslow
+          county: "Swydd Gaer"
+          header: "Swyddfa’r Comisiynydd Gwybodaeth"
+          phone: "Ffôn: 0303 123 1113"
+          post_point: "Wycliffe House"
+          postcode: "SK9 5AF"
+          street: "Water Lane"
+          url: www.ico.org.uk
+        complaints_procedure: "trefn gwyno"
+        complaints_procedure_title: "Tudalen Trefn gwyno"
+        header: Cwynion
+        information_office: "Swyddfa’r Comisiynydd Gwybodaeth"
+        information_office_title: "Tudalen Swyddfa’r Comisiynydd Gwybodaeth"
+        line_1: "Os ydych eisiau cwyno am y ffordd rydym wedi trin eich data personol gweler ein %{complaints_procedure}."
+        line_2: "Pan ofynnwn i chi am wybodaeth, byddwn yn cadw at y gyfraith. Os ydych yn teimlo bod eich gwybodaeth wedi cael ei thrin yn anghywir, gallwch gysylltu â’r Comisiynydd Gwybodaeth am gyngor annibynnol ar ddiogelu data. Gallwch gysylltu â’r Comisiynydd Gwybodaeth trwy ddilyn y ddolen ganlynol: %{information_office}. Gallwch gysylltu â nhw yn:"
+      getting_more:
+        address:
+          city: Llundain
+          email: data.compliance@justice.gov.uk
+          postcode: "SW1H 9AJ"
+          street: "102 Petty France"
+        gov_uk_policy_html: "Gallwch weld polisi preifatrwydd GOV.UK yma."
+        header: "Cael rhagor o wybodaeth"
+        line_1: "Gallwch gael rhagor o fanylion ynghylch:"
+        line_2: "Trwy gysylltu â’r llys sy’n delio â'ch gwybodaeth neu weld yr wybodaeth a ddarparwyd gennych wrth ichi ddefnyddio ein gwasanaethau neu oedden ni wedi cysylltu â chi. Gellir cysylltu â Swyddog Diogelu Data y Weinyddiaeth Gyfiawnder yn:"
+        list_1: ""
+        list_2: "Amgylchiadau lle gallwn drosglwyddo'ch gwybodaeth bersonol heb roi gwybod i chi, er enghraifft, i'n helpu i atal a datrys troseddau neu i gynhyrchu ystadegau dienw;"
+        list_3: "Ein cyfarwyddiadau i staff ynghylch sut mae casglu, defnyddio neu ddileu eich gwybodaeth bersonol"
+        list_4: ""
+        list_5: "Sut i gwyno"
+      header: "Sut i gael mynediad at eich data personol a’i reoli"
+      your_rights:
+        header: "Eich hawliau"
+        line_1: "Gallwch ofyn:"
+        list_1: "i gael gweld y data personol rydym yn ei gadw amdanoch"
+        list_2: "i'r data personol gael ei gywiro"
+        list_3: "i'r data personol gael ei symud neu ei ddileu (bydd hyn yn ddibynnol ar yr amgylchiadau, er enghraifft os ydych chi’n penderfynu peidio â pharhau â’ch apêl neu’ch cais)"
+        list_4: "i gyfyngu ar y mynediad at y data personol (er enghraifft, gallwch ofyn i'r data gael ei storio am gyfnod hirach a pheidio â chael ei ddileu'n awtomatig, yn amodol ar gyfyngiadau'r dechnoleg a ddefnyddir)"
+    how_we_share:
+      google_privacy: "Polisi Preifatrwydd"
+      google_privacy_title: "Tudalen Polisi Preifatrwydd Google"
+      header: "Sut rydym ni’n rhannu eich data personol"
+      line_1: "Bydd eich data yn cael ei rannu gydag adran o'r llywodraeth a wnaeth y penderfyniad rydych chi’n apelio yn ei erbyn. Yn yr achos hwn, Cyllid a Thollau EM, Asiantaeth Ffiniau’r DU neu’r Asiantaeth Troseddu Cenedlaethol, yn ddibynnol ar natur eich achos. Mae hyn yn angenrheidiol fel bod yr adran yn gallu ymateb i’ch apêl."
+      line_2: "Mae’n bwysig nodi bod y Tribiwnlys Treth yn gorff hollol annibynnol ac nid oes ganddo gofnod o unrhyw achosion sy'n weddill sydd gennych gydag adrannau eraill o'r llywodraeth hyd nes eich bod yn cyflwyno apêl neu gais trwy ddefnyddio'r gwasanaeth ar-lein hwn, neu drwy sianeli mwy confensiynol, e.e. trwy'r post."
+      line_3: "Rydym ni'n defnyddio Google Analytics i gasglu ystadegau am ein gwefan. Mae'r data dienw hwn am y defnydd o'r wefan yn cael ei rannu gyda Google. Gweler %{google_privacy} Google am fwy o wybodaeth. "
+    how_we_store:
+      azure_terms: "Telerau ac Amodau Microsoft Azure"
+      header: "Sut rydym ni’n storio eich data personol"
+      line_1: "Mae GLlTEM yn cymryd diogelu data o ddifrif ac yn cymryd pob cam posib i sicrhau bod eich data yn aros yn breifat ac yn ddiogel. Mae’r holl ddata a gesglir gan y gwasanaeth hwn ac sy'n cael ei storio ar ein cronfa ddata diogel yn cael ei gadw o fewn yr Ardal Economaidd Ewropeaidd (EEA)."
+      line_2: "Mae GLlTEM yn defnyddio platfform cwmwl Microsoft Azure i storio eich data. Trwy gyflwyno eich gwybodaeth, rydych yn cytuno i %{azure_terms}."
+      line_3: "Mae'r gwasanaeth wedi'i ddylunio i gadw eich gwybodaeth bersonol yn ddiogel, ac felly mae'r gwasanaeth wedi'i osod i ddod â’r sesiwn i ben ar ôl 30 munud o wneud dim. Ar ôl hynny, bydd unrhyw ddata sydd heb ei gadw yn cael ei ddileu a bydd rhaid ichi gychwyn eto."
+      line_4: "Mae unrhyw ddogfennau ategol rydych yn eu darparu yn cael eu cadw am 60 diwrnod o ddyddiad cyflwyno eich achos, ar ôl hynny maent yn cael eu dileu."
+      line_5: "Mae dogfen PDF sy’n cynnwys manylion eich achos, ynghyd ag unrhyw ddogfennau ategol, yn cael ei storio ar-lein o fewn adran storio dogfennau y gwasanaeth. Dim ond aelodau allweddol o'r tribiwnlys sydd â mynediad at y rhan hon o'r gwasanaeth ar-lein ac maent yn mewngofnodi yn ddiogel o fewn y gwasanaeth rheoli achosion mewnol trwy ddolen sy'n unigryw i'ch achos chi."
+      line_6: "Ar ôl ichi gwblhau eich cais, bydd y ffeil papur a gynhyrchir gan y tribiwnlys yn cael ei storio am 12 mis o ddyddiad y penderfyniad terfynol, ar ôl hynny bydd yn cael ei ddinistrio yn gyfrinachol. Ar hyn o bryd bydd cofnod digidol eich achos yn aros ar raglen rheoli achosion mewnol y tribiwnlys; fodd bynnag, y bwriad yw cyflwyno'r cyfnod cadw o 12 mis ar gyfer ffeiliau papurau gyda ffeiliau digidol hefyd, fel swyddogaeth awtomatig sydd wedi'i halinio â pholisïau cyfredol cadw a dileu ffeiliau, gweler ‘Eich hawliau’ o dan %{how_to_access}."
+      storing_save_return:
+        header: "Storio gan ddefnyddio’r nodwedd 'Cadw a Dychwelyd'"
+        line_1: "Os ydych yn defnyddio’r nodwedd ‘Cadw a Dychwelyd’, bydd unrhyw beth fyddwch yn ei gadw trwy ddefnyddio’r nodwedd hon yn parhau i fod ar gael am 14 diwrnod o'r dyddiad y cafodd ei gadw'n wreiddiol. Ar ôl hynny, er mwyn diogelu eich preifatrwydd ac oherwydd y bydd y cyfnod apelio wedi dod i ben, os na fyddwch wedi cyflwyno eich achos yn ystod y cyfnod hwn, bydd yr  holl ddata'n cael ei ddileu'n awtomatig, a bydd rhaid ichi gychwyn eto."
+        line_2: "Mae’r cyfrif rydych chi’n ei greu yn gyfrif dros dro ac mae'n bodoli dim ond tra bydd gennych 1 neu fwy o achosion gweithredol wedi'u cadw. Unwaith bydd yr achos terfynol yn cael ei gyflwyno, yn cael ei ddileu gennych chi neu'n cael ei ddileu ar ôl i'r cyfnod o 14 diwrnod ddod i ben, bydd y cyfrif yn cael ei ddileu."
+        line_3: "Bydd unrhyw gyfrif nad ydych wedi mewngofnodi iddo am fwy na 30 diwrnod yn cael ei ddileu, ynghyd ag unrhyw achosion sydd heb eu cyflwyno, ni waeth faint o apeliadau gall fod wedi'u cadw."
+        line_4: "Bydd unrhyw ddogfennau ategol rydych wedi’u darparu wrth ddefnyddio'r nodwedd hon yn cael eu cadw am 60 diwrnod o'r dyddiad llwytho, ar ôl hynny byddant yn cael eu dileu ni waeth os ydych chi wedi cyflwyno'r achos ai peidio."
+    how_we_use:
+      govuk_notify: "GOV.UK Notify"
+      header: "Sut rydym ni’n defnyddio eich data personol"
+      line_1: "Mae eich cais ar-lein yn cynnwys dolen i ddogfen PDF sy'n cynnwys manylion eich achos ac unrhyw ddogfennau ategol rydych chi wedi'u darparu. Mae'r rhain wedyn yn cael eu lawrlwytho gan y tribiwnlys. Ar ôl 60 diwrnod, bydd pob dogfen yn cael ei dileu o wasanaeth mewngofnodi ar-lein GOV.UK, lle maent yn cael eu cadw dros dro."
+      line_2: "Efallai y byddwn yn gofyn am eich caniatâd i ddefnyddio eich cyfeiriad e-bost i anfon negeseuon e-bost atoch trwy system %{govuk_notify}. Mae hyn yn cynnwys anfon manylion eich achos os byddwch yn dewis yr opsiwn hwn.  O fewn Ardal Economaidd Ewrop yn unig y mae’r system yn prosesu negeseuon e-bost tan y pwynt lle mae’r negeseuon e-bost yn cael eu trosglwyddo i’r darparwr rydych chi’n ei ddefnyddio. Cedwir data defnyddiwr am 7 diwrnod a gall y cyfeiriad(au) e-bost a'r enw(au) y byddwch yn eu rhoi pan fyddwch yn gwneud cais neu apêl fod yn weladwy yn y system.  Mae mynediad i GOV.UK Notify yn gyfyngedig i aelodau allweddol o’r tîm cefnogi technegol. "
+      line_3: "Rydym yn %{use_cookies} i gasglu data sy'n dweud wrthym am sut mae'r gwasanaeth yn cael ei ddefnyddio, gan gynnwys:"
+      list_1: "cyfeiriad IP eich cyfrifiadur, eich ffôn neu'ch tabled"
+      list_2: "yr ardal neu’r dref lle rydych yn defnyddio’ch cyfrifiadur, ffôn neu dabled"
+      list_3: "y system weithredu a'r porwr gwe rydych chi’n eu defnyddio"
+      use_cookies: "defnyddio cwcis"
+      use_cookies_title: "Tudalen rheoli cwcis"
+    info_1: "Mae eich preifatrwydd yn bwysig i ni. Mae’r datganiad preifatrwydd hwn yn egluro pa fath o ddata personol mae Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi (GLlTEM) yn ei gasglu gennych pan fyddwch yn defnyddio'r gwasanaeth hwn, trwy ryngweithio gyda chi a thrwy ein gwasanaeth, a sut byddwn yn defnyddio y data hwnnw."
+    info_2: "Os oes gennych unrhyw gwestiynau, gallwch gysylltu â’r tribiwnlys treth ar 0300 303 5176 (Gwybodaeth am %{call_charges})."
+    last_update: "Diweddarwyd diwethaf: Mai 2018"
+    personal_data:
+      after_you_submit:
+        header: "Ar ôl ichi gyflwyno eich gwybodaeth"
+        line_1: "Ar ôl ichi gyflwyno eich cais byddwch yn gweld tudalen gadarnhau a byddwch yn cael neges gadarnhau drwy e-bost gyda’ch cyfeirnod ar gyfer yr achos; fodd bynnag, os nad yw'r cysylltiad rhwng y system ar-lein a'r system rheoli achosion ar gael ni fyddwch yn cael neges e-bost. Yn hytrach, bydd neges e-bost yn cael ei chynhyrchu a’i hanfon yn awtomatig i’r tribiwnlys. Bydd yn cynnwys dolen i fersiwn PDF o fanylion eich achos ynghyd ag unrhyw ddogfennau ategol bu ichi eu darparu. Yna bydd y rhain yn cael eu lawrlwytho gan y tribiwnlys a bydd yn mewnbynnu eich manylion â llaw a chofrestru eich achos. Ar ôl hynny byddwch yn cael cyfeirnod eich achos yn uniongyrchol gan y tribiwnlys."
+        line_2: "Bydd unrhyw ddewisiadau y byddwch yn eu gwneud ac unrhyw ddata y byddwch yn ei ddarparu yn cael ei drosglwyddo’n uniongyrchol i'r tribiwnlys ac, os yw’r cysylltiad ar gael, ei gofnodi’n awtomatig yn y system rheoli achosion; fel arall bydd y data’n cael ei fewnbynnu â llaw. "
+        line_3: "Gallwch addasu’r wybodaeth rydych wedi’i darparu ar unrhyw bwynt yn y broses; fodd bynnag, unwaith y byddwch wedi cyflwyno'ch achos, ni fydd modd ichi weld neu addasu’r wybodaeth a ddarparwyd gennych. Bydd rhaid ichi gysylltu â’r tribiwnlys ar 0300 303 5176 i drafod eich achos ymhellach (Gwybodaeth am %{call_charges})."
+      befor_you_submit:
+        header: "Cyn ichi gyflwyno eich gwybodaeth"
+        line_1: "Er mwyn diogelu eich gwybodaeth bersonol, bydd unrhyw ddata a roddir gennych wrth ichi symud trwy’r gwasanaeth yn cael ei gadw dros dro hyd nes eich bod yn cyflwyno eich apêl neu’ch cais, ar ôl hynny ni fydd modd gweld neu addasu eich apêl ymhellach ar-lein."
+        line_2: "Os nad ydych yn gallu cwblhau eich apêl am unrhyw reswm, gallwch ddefnyddio’r nodwedd ‘Cadw a Dychwelyd (isod) ar unrhyw adeg a dychwelyd yn ddiweddarach."
+      case_details_email:
+        header: "Anfon manylion achos drwy neges e-bost"
+        line_1: "Fe ofynnir i chi os ydych eisiau i gopi o fanylion eich achos gael eu hanfon i naill ai'r trethdalwr, cynrychiolydd neu’r ddau drwy e-bost.  Mae hyn yn ddewisol ac nid ydym yn argymell eich bod yn gwneud hyn os yw eich achos yn cynnwys gwybodaeth sy’n hynod o sensitif.  Os byddwch yn dewis anfon copi o fanylion yr achos drwy e-bost, rydych yn gwneud hyn ar eich risg eich hun.  Ni allwn warantu na fydd y data’n cael ei ryng-gipio’n faleisus unwaith y bydd yn gadael eich gwasanaeth hysbysiadau e-bost ni.  Nid yw manylion eich achos yn weladwy yn y system hysbysiadau e-bost.  Am ragor o wybodaeth, ewch i %{how_we_use}. "
+      header: "Data personol rydym ni’n ei gasglu"
+      line_1: "Rydym ni’n casglu’r data canlynol pan fyddwch yn defnyddio’r gwasanaeth hwn:"
+      line_2: " after which you can no longer access your data online and all further business must be carried out directly with the tribunal"
+      line_3: "Os oes gennych gynrychiolydd, byddwn yn gofyn am:"
+      line_4: "Os ydych yn gynrychiolydd sy’n gweithredu ar ran yr apelydd, yna bydd angen ichi ddarparu gwybodaeth am yr unigolyn rydych yn apelio ar ei ran, gan gynnwys:"
+      list_1: "eich enw a’ch cyfeiriad"
+      list_2: "eich cyfeiriad e-bost a’ch rhif ffôn (dewisol)"
+      list_3: "unrhyw wybodaeth bersonol arall rydych yn ei darparu fel rhan o'ch apêl neu'ch cais, e.e. gwybodaeth sydd yn 'sail yr apêl’ ac unrhyw ddogfennau rydych yn eu llwytho"
+      list_4: "eu henw a’u cyfeiriad"
+      list_5: "eu cyfeiriad e-bost a’u rhif ffôn (dewisol)"
+      list_6: "eu henw a’u cyfeiriad"
+      list_7: "eu cyfeiriad e-bost a’u rhif ffôn (dewisol)"
+      using_save_return:
+        header: "Defnyddio'r nodwedd ‘Cadw a Dychwelyd’"
+        line_1: "Os byddwch yn penderfynu defnyddio nodwedd ‘Cadw a Dychwelyd’ y gwasanaeth hwn, bydd gofyn ichi ddarparu eich cyfeiriad e-bost a dewis cyfrinair i greu cyfrif dros dro i reoli eich apêl/apeliadau neu eich cais/ceisiadau, gweler 'Storio gan ddefnyddio’r nodwedd 'Cadw a Dychwelyd' o dan %{how_we_use}"
+    privacy: "Polisi preifatrwydd"
+    section_list:
+      cookies: "Cwcis a thechnolegau tebyg"
+      how_to_access: "Sut i gael mynediad at eich data personol a’i reoli"
+      how_we_share: "Sut rydym ni’n rhannu eich data personol"
+      how_we_store: "Sut rydym ni’n storio eich data personol"
+      how_we_use: "Sut rydym ni’n defnyddio eich data personol"
+      personal_data: "Data personol rydym ni’n ei gasglu"
+      who_managing: "Pwy sy’n rheoli'r gwasanaeth hwn"
+      why_collect: "Pam rydym ni’n casglu eich data personol"
+    terms: "Telerau ac amodau"
+    who_managing:
+      header: "Pwy sy’n rheoli'r gwasanaeth hwn"
+      line_1: "Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi (GLlTEM) sy’n rheoli’r gwasanaeth hwn, sef  un o asiantaethau gweithredol y Weinyddiaeth Gyfiawnder (MoJ)."
+      line_2: "MoJ yw’r rheolydd data at ddibenion diogelu data. Mae %{moj_personal_character} yn egluro sut mae’r MoJ yn prosesu data personol."
+      line_3: "Fel rhan o’r MoJ, mae GLlTEM yn gyfrifol am benderfynu sut mae eich data personol yn cael ei ddefnyddio ac am ddiogelu'r data personol rydych yn ei ddarparu."
+      line_4: "Mae yna ragor o wybodaeth am ddefnyddio’r gwasanaeth hwn yn y %{terms_condition}."
+      personal_character: "Siarter gwybodaeth bersonol y Weinyddiaeth Gyfiawnder"
+    why_collect:
+      header: "Pam rydym ni’n casglu eich data personol"
+      line_1: "Rydym ni’n casglu eich data personol i:"
+      line_2: "Mae ein staff yn defnyddio eich data personol i brosesu eich apêl neu'ch cais. Maent yn gweithio yn y DU ac mae eich data yn cael ei storio yn y DU."
+      line_3: "Nid yw’r data a ddefnyddir i wella'r gwasanaeth hwn yn eich adnabod yn bersonol ac nid yw’n cynnwys unrhyw ddata personol sy'n ymwneud â'ch achos chi. Yn hytrach, rydym yn defnyddio data dadansoddol am sut mae'r gwasanaeth yn cael ei ddefnyddio ynghyd ag unrhyw adborth a ddarperir gennych. Mae’r cyfeiriad e-bost sydd ynghlwm wrth eich adborth yn cael ei gadw’n gyfrinachol ac fe’i defnyddir ond ar gyfer ymateb i unrhyw broblemau neu ymholiadau sydd gennych ynghylch y gwasanaeth. Yn dilyn hynny, bydd yn cael ei ddileu pan ni fydd ei angen mwyach."
+      list_1: "brosesu eich apêl neu’ch cais"
+      list_2: "bodloni gofynion cyfreithiol"
+      list_3: "gwella’r gwasanaeth hwn"
