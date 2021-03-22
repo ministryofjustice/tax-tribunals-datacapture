@@ -17,7 +17,7 @@ RSpec.describe SessionsController, type: :controller do
 
       it 'redirects to the home page' do
         get :destroy
-        expect(subject).to redirect_to(root_path)
+        expect(subject).to redirect_to(local_root_path(locale: :en))
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe SessionsController, type: :controller do
 
         it 'redirects to the home page' do
           get :destroy, params: {survey: false}
-          expect(subject).to redirect_to(root_path)
+          expect(subject).to redirect_to(local_root_path(locale: :en))
         end
       end
     end
