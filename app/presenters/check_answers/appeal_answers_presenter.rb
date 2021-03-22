@@ -3,19 +3,19 @@ module CheckAnswers
     def sections
       if pdf?
         [
-          TaxpayerSectionPresenter.new(tribunal_case),
-          AppealSectionPresenter.new(tribunal_case),
-          HardshipSectionPresenter.new(tribunal_case),
-          LatenessSectionPresenter.new(tribunal_case),
-          DetailsSectionPresenter.new(tribunal_case)
+          TaxpayerSectionPresenter.new(tribunal_case, locale: locale),
+          AppealSectionPresenter.new(tribunal_case, locale: locale),
+          HardshipSectionPresenter.new(tribunal_case, locale: locale),
+          LatenessSectionPresenter.new(tribunal_case, locale: locale),
+          DetailsSectionPresenter.new(tribunal_case, locale: locale)
         ]
       else
         [
-          AppealSectionPresenter.new(tribunal_case),
-          HardshipSectionPresenter.new(tribunal_case),
-          LatenessSectionPresenter.new(tribunal_case),
-          DetailsSectionPresenter.new(tribunal_case),
-          TaxpayerSectionPresenter.new(tribunal_case)
+          AppealSectionPresenter.new(tribunal_case, locale: locale),
+          HardshipSectionPresenter.new(tribunal_case, locale: locale),
+          LatenessSectionPresenter.new(tribunal_case, locale: locale),
+          DetailsSectionPresenter.new(tribunal_case, locale: locale),
+          TaxpayerSectionPresenter.new(tribunal_case, locale: locale)
         ]
       end.select(&:show?)
     end

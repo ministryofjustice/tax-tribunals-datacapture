@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     match '*path' => redirect("#{public_domain}/%{path}", status: 301), via: :get
   end
 
-  scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
+  scope "/:locale", locale: /en|cy/ do
     devise_for :users,
                controllers: {
                  registrations: 'users/registrations',

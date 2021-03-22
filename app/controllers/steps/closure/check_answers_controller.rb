@@ -18,7 +18,7 @@ module Steps::Closure
     private
 
     def closure_presenter
-      CheckAnswers::ClosureAnswersPresenter.new(current_tribunal_case, format: request.format.symbol)
+      CheckAnswers::ClosureAnswersPresenter.new(current_tribunal_case, format: request.format.symbol, locale: I18n.locale)
     end
   end
 end
