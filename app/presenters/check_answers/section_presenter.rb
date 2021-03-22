@@ -2,10 +2,15 @@ module CheckAnswers
   class SectionPresenter
     include Rails.application.routes.url_helpers
 
-    attr_reader :tribunal_case
+    attr_reader :tribunal_case, :locale
 
-    def initialize(tribunal_case)
+    def initialize(tribunal_case, locale: I18n.default_locale)
       @tribunal_case = tribunal_case
+      @locale = locale
+    end
+
+    def default_url_options
+      { locale: locale}
     end
 
     # Used by Rails to determine which partial to render
