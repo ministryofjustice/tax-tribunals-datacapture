@@ -9,11 +9,12 @@ module CheckAnswers
       let(:taxpayer_section_presenter) { double(TaxpayerSectionPresenter, show?: true) }
       let(:closure_type_section_presenter) { double(ClosureTypeSectionPresenter, show?: true) }
       let(:closure_details_section_presenter) { double(ClosureDetailsSectionPresenter, show?: true) }
+      let(:options) { { locale: :en } }
 
       before do
-        allow(TaxpayerSectionPresenter).to receive(:new).with(tribunal_case).and_return(taxpayer_section_presenter)
-        allow(ClosureTypeSectionPresenter).to receive(:new).with(tribunal_case).and_return(closure_type_section_presenter)
-        allow(ClosureDetailsSectionPresenter).to receive(:new).with(tribunal_case).and_return(closure_details_section_presenter)
+        allow(TaxpayerSectionPresenter).to receive(:new).with(tribunal_case, options).and_return(taxpayer_section_presenter)
+        allow(ClosureTypeSectionPresenter).to receive(:new).with(tribunal_case, options).and_return(closure_type_section_presenter)
+        allow(ClosureDetailsSectionPresenter).to receive(:new).with(tribunal_case, options).and_return(closure_details_section_presenter)
       end
 
       context 'in HTML format' do

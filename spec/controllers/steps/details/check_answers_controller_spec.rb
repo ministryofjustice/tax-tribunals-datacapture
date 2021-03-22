@@ -8,7 +8,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
 
   context 'HTML format' do
     it 'assigns the presenter' do
-      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :html).and_return(presenter)
+      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :html, locale: :en).and_return(presenter)
 
       get :show, session: { tribunal_case_id: tribunal_case.id }
 
@@ -21,7 +21,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
     let(:format) { :pdf }
 
     it 'generates and sends the case details PDF' do
-      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :pdf).and_return(presenter)
+      expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :pdf, locale: :en).and_return(presenter)
 
       get :show, format: :pdf, session: { tribunal_case_id: tribunal_case.id }
 
