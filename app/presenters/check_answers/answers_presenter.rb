@@ -1,10 +1,11 @@
 module CheckAnswers
   class AnswersPresenter
-    attr_reader :tribunal_case, :format
+    attr_reader :tribunal_case, :format, :locale
 
-    def initialize(tribunal_case, format: :html)
+    def initialize(tribunal_case, format: :html, locale: I18n.default_locale)
       @tribunal_case = tribunal_case
       @format = format
+      @locale = locale
     end
 
     def case_reference?

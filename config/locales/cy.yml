@@ -4,6 +4,10 @@ cy:
     language: English
     locale: en
   dictionary:
+    select_language_question: &select_language_question Pa iaith ydych chi eisiau i ni ei defnyddio pan fyddwn yn cysylltu â chi?
+    SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
+      english: Saesneg yn unig
+      english_welsh: Cymraeg a Saesneg
     attach_reasons_blank_error: &attach_reasons_blank_error "Mae’n rhaid ichi roi rhesymau neu atodi dogfen"
     attach_reasons_document: &attach_reasons_document "<strong>Atodwch eich rhesymau fel dogfen</strong>"
     blank_address: &blank_address "Rhowch gyfeiriad"
@@ -106,6 +110,10 @@ cy:
           attributes:
             case_type:
               inclusion: "Dewiswch ynglŷn â beth yw eich apêl"
+        select_language/save_language_form:
+          attributes:
+            language:
+              inclusion: Dewiswch eich dewis iaith
         steps/appeal/case_type_show_more_form:
           attributes:
             case_type:
@@ -383,6 +391,11 @@ cy:
   application:
     name: "Apelio i’r tribiwnlys treth"
   check_answers:
+    selected_language:
+      question: *select_language_question
+      accessible_change_text: *select_language_question
+      answers:
+        <<: *SUPPORTED_LANGUAGES
     attached_document: "Dogfen a atodwyd"
     case_type:
       accessible_change_text: "ynglŷn â beth yw eich %{appeal_or_application}"
@@ -537,6 +550,7 @@ cy:
     need_support:
       accessible_change_text: "p’un a ydych angen cefnogaeth yn y gwrandawiad"
       answers:
+        <<: *YESNO
       question: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
     organisation_registration_number: "Rhif Cofrestru"
     outcome:
@@ -791,6 +805,9 @@ cy:
       user:
         current_password: "Rydym angen eich cyfrinair presennol i gadarnhau eich newidiadau"
     label:
+      select_language_save_language_form:
+        language_options:
+          <<: *SUPPORTED_LANGUAGES
       generic_representative_contact_labels:
         <<: *REP_ADDRESS
       generic_taxpayer_contact_labels:
@@ -1598,6 +1615,12 @@ cy:
         lead_text_2: "Os ydych chi’n dewis peidio â chreu cyfrif ac nad ydych yn cyflwyno eich apêl, yna byddwch yn colli unrhyw wybodaeth yr ydych wedi’i rhoi a bydd rhaid i chi ddechrau eto. "
         page_title: "Ydych chi eisiau gallu cadw a dychwelyd at yr apêl hon?"
         save_for_later: "Creu cyfrif (dewisol)"
+    select_language:
+      edit:
+        page_title: *select_language_question
+        heading: *select_language_question
+        lead_text: Byddwn yn anfon negeseuon e-bost atoch wrth i ni symud eich achos yn ei flaen. Dewiswch ym mha iaith yr hoffech gael y negeseuon hyn.
+
     shared:
       continue_or_save:
         timeout_note: "Bydd eich sesiwn yn dod i ben ar ôl %{session_timeout} munud o wneud dim. Cadwch eich manylion os ydych eisiau dod yn ôl yn hwyrach ymlaen. "

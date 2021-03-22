@@ -18,7 +18,7 @@ module Steps::Details
     private
 
     def appeal_presenter
-      CheckAnswers::AppealAnswersPresenter.new(current_tribunal_case, format: request.format.symbol)
+      CheckAnswers::AppealAnswersPresenter.new(current_tribunal_case, format: request.format.symbol, locale: I18n.locale)
     end
   end
 end
