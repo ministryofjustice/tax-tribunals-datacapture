@@ -44,8 +44,8 @@ class DisputeTypePage < BasePage
   end
 
   def submit_valid_nota_option
-    content.nota_option.click
     content.nota_option_textbox.set 'Thing'
+    content.nota_option.click
     continue_or_save_continue
   end
 end

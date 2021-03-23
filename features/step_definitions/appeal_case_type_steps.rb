@@ -17,7 +17,6 @@ end
 
 When("I click on continue after selecting Income Tax option") do
   appeal_case_type_page.submit_income_tax
-  select_language_page.select_english_only
 end
 
 Then("I should be on the appeal challenge decision page") do

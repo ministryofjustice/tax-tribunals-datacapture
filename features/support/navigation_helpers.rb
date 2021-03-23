@@ -14,6 +14,7 @@ def complete_valid_closure_application
     closure_case_type_page.submit_personal_return
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
+    select_language_page.select_english_only
     expect(user_type_page.content).to have_closure_header
     submit_yes
     expect(taxpayer_type_page.content).to have_closure_header
@@ -48,6 +49,7 @@ def complete_valid_appeal_application
     appeal_case_type_page.submit_income_tax
     expect(save_return_page.content).to have_header
     save_return_page.skip_save_and_return
+    select_language_page.select_english_only
     expect(challenge_decision_page.content).to have_appeal_header
     submit_yes
     expect(challenge_decision_status_page.content).to have_header
