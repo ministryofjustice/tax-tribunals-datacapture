@@ -1,4 +1,74 @@
 include RSpec::Mocks::ExampleMethods
+def closure
+  [
+    proc { home_page.load_page },
+    proc { home_page.close_enquiry },
+    proc { closure_page.continue },
+    proc { closure_case_type_page.submit_personal_return },
+    proc { save_return_page.skip_save_and_return },
+    proc { select_language_page.select_english_only },
+    proc { submit_yes },
+    proc { taxpayer_type_page.submit_individual },
+    proc { taxpayer_details_page.submit_taxpayer_details },
+    proc { submit_no },
+    proc { submit_no },
+    proc { enquiry_details_page.valid_submission },
+    proc { continue_or_save_continue },
+    proc { continue_or_save_continue },
+    proc { submit },
+  ]
+end
+
+def appeal
+  [
+    proc {  home_page.load_page },
+    proc {  home_page.appeal },
+    proc {  appeal_page.continue },
+    proc {  appeal_case_type_page.submit_income_tax },
+    proc {  save_return_page.skip_save_and_return },
+    proc {  select_language_page.select_english_only },
+    proc {  submit_yes },
+    proc {  challenge_decision_status_page.submit_review_conclusion_letter },
+    proc {  dispute_type_page.submit_penalty_or_surcharge },
+    proc {  penalty_amount_page.submit_100_or_less },
+    proc {  in_time_page.submit_yes },
+    proc {  submit_yes },
+    proc {  taxpayer_type_page.submit_individual },
+    proc {  taxpayer_details_page.submit_taxpayer_details },
+    proc {  submit_no },
+    proc {  submit_no },
+    proc {  grounds_for_appeal_page.valid_submission },
+    proc {  submit_yes },
+    proc {  outcome_page.valid_submission },
+    proc {  submit_no },
+    proc do
+      letter_upload_type_page.submit_one_document_option
+      identifier  = 'steps-details-letter-upload-form-supporting-letter-document-field'
+      filename    = 'features/support/sample_file/to_upload.jpg'
+      letter_upload_page.attach_file(identifier, filename)
+    end,
+    proc {  continue_or_save_continue },
+    proc {  submit  }
+  ]
+end
+
+def switch_locale
+  find('.selector-locale').click_link
+end
+
+def screenshot_closure_application(journey)
+  RSpec::Mocks.with_temporary_scope do
+    allow(Uploader).to receive(:list_files).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
+    (journey == 'appeal' ? appeal : closure)
+      .each do |step|
+      step.call
+      switch_locale
+      screenshot_and_save_page
+      switch_locale
+    end
+  end
+end
 
 # rubocop:disable MethodLength
 def complete_valid_closure_application
