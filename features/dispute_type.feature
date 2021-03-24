@@ -34,4 +34,3 @@ Feature: Dispute type options
     Given I click none of the above option and submit
     Then I should see please enter an answer error
     When I submit what my dispute is about
-    Then I should be on the lateness page

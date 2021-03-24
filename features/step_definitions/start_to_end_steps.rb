@@ -17,3 +17,9 @@ end
 Then("I should be on the Smart Survey link") do
   expect(page).to have_text "Thank you for taking your time to tell us what you think about the Tax Tribunal online service."
 end
+
+# rubocop:disable Lint/AmbiguousRegexpLiteral
+Given /^I take a screenshot of (.*)$/ do |journey|
+  screenshot_closure_application(journey)
+end
+# rubocop:enable Lint/AmbiguousRegexpLiteral
