@@ -47,8 +47,8 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.6.6'
-      bundlerVersion: '1.17.3'
+      rubyVersion: '= 2.7.2'
+      bundlerVersion: '2.2.15'
       env: 'test'
       external_url: 'test'
       govuk_notify_api_key: 'test'
