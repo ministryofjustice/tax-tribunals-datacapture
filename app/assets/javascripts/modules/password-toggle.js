@@ -35,8 +35,8 @@ moj.Modules.passwordToggle = {
 
     $els.after(
         '<p class="' + self.link_class + '">' +
-        '<a href="#" class="show toggle govuk-link">' + moj.Modules.showPasswordText + '</a>' +
-        '<a href="#" class="govuk-!-display-none hide toggle govuk-link">' + moj.Modules.hidePasswordText + '</a>' +
+            '<a href="#" class="show toggle govuk-link">' + moj.t('moj.Modules.showPasswordText') + '</a>' +
+            '<a href="#" class="govuk-!-display-none hide toggle govuk-link">' + moj.t('moj.Modules.hidePasswordText') + '</a>' +
         '</p>'
     );
   },

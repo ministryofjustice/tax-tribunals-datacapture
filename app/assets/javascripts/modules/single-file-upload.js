@@ -4,8 +4,8 @@ moj.Modules.singleFileUpload = {
   input_class: '.single-file-upload',
   spinnerImagePath: moj.Modules.fileUploadSpinnerPath,
   strings: {
-    selected: moj.Modules.fileUploadSelectedText,
-    uploading: moj.Modules.fileUploadUploadingText
+    selected: moj.t('moj.Modules.fileUploadSelectedText'),
+    uploading: moj.t('moj.Modules.fileUploadUploadingText')
   },
 
   init: function() {

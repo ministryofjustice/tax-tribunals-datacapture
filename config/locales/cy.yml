@@ -8,7 +8,7 @@ cy:
     SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
       english: Saesneg yn unig
       english_welsh: Cymraeg a Saesneg
-    attach_reasons_blank_error: &attach_reasons_blank_error "Mae’n rhaid ichi roi rhesymau neu atodi dogfen"
+    attach_reasons_blank_error: &attach_reasons_blank_error "Mae'n rhaid ichi roi rhesymau neu atodi dogfen"
     attach_reasons_document: &attach_reasons_document "<strong>Atodwch eich rhesymau fel dogfen</strong>"
     blank_address: &blank_address "Rhowch gyfeiriad"
     blank_city: &blank_city "Rhowch enw dinas neu dref"
@@ -17,33 +17,33 @@ cy:
     blank_last_name: &blank_last_name "Rhowch enw olaf"
     blank_organisation_fao: &blank_organisation_fao "Rhowch enw cyswllt"
     blank_organisation_name: &blank_organisation_name "Rhowch enw"
-    blank_penalty_amount: &blank_penalty_amount "Nodwch swm y gosb (neu rhowch ‘anhysbys’ os nad yw gennych)"
+    blank_penalty_amount: &blank_penalty_amount "Nodwch swm y gosb (neu rhowch ‘anhysbys' os nad yw gennych)"
     blank_postcode: &blank_postcode "Rhowch god post"
-    blank_tax_amount: &blank_tax_amount "Nodwch swm y dreth (neu rhowch ‘anhysbys’ os nad yw gennych)"
-    default_service_title: &default_service_title "Apelio i’r tribiwnlys treth - GOV.UK"
+    blank_tax_amount: &blank_tax_amount "Nodwch swm y dreth (neu rhowch ‘anhysbys' os nad yw gennych)"
+    default_service_title: &default_service_title "Apelio i'r tribiwnlys treth - GOV.UK"
     invalid_email: &invalid_email "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft enw@enghraifft.com"
-    tax_tribunal_independent: &tax_tribunal_independent "Mae’r tribiwnlys treth yn annibynnol ac nid oes ganddo fynediad at ffeiliau gan Gyllid a Thollau EM."
+    tax_tribunal_independent: &tax_tribunal_independent "Mae'r tribiwnlys treth yn annibynnol ac nid oes ganddo fynediad at ffeiliau gan Gyllid a Thollau EM."
     blank_email: &blank_email "Rhowch eich cyfeiriad e-bost"
     blank_password: &blank_password "Teipiwch gyfrinair"
 
     CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
       heading: "Ynglŷn â beth yw eich apêl?"
-      lead_text: "Dewiswch yr opsiwn sydd fwyaf perthnasol yn seiliedig ar yr hysbysiad gwreiddiol neu’r llythyr canlyniad adolygiad."
+      lead_text: "Dewiswch yr opsiwn sydd fwyaf perthnasol yn seiliedig ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad."
 
     CHALLENGE_STATUS: &CHALLENGE_STATUS
-      appeal_late_rejection: "Roedd fy apêl i Gyllid a Thollau EM yn hwyr. Rwy’n gwneud cais am ganiatâd i wneud apêl hwyr i Gyllid a Thollau EM"
-      appealing_directly: "Rwy’n apelio’n uniongyrchol i'r tribiwnlys cyn cael ymateb gan Gyllid a Thollau EM"
+      appeal_late_rejection: "Roedd fy apêl i Gyllid a Thollau EM yn hwyr. Rwy'n gwneud cais am ganiatâd i wneud apêl hwyr i Gyllid a Thollau EM"
+      appealing_directly: "Rwy'n apelio'n uniongyrchol i'r tribiwnlys cyn cael ymateb gan Gyllid a Thollau EM"
       not_required: "Cefais gynnig adolygiad ond ni wnes ei dderbyn"
       overdue: "Rwyf wedi bod yn aros am 45 diwrnod neu fwy i adolygiad ddod i ben"
       pending: "Rwyf wedi bod yn aros am llai na 45 diwrnod i adolygiad ddod i ben"
       received: "Mae gennyf lythyr canlyniad adolygiad"
       refused: "Gwrthodwyd fy nghais am adolygiad oherwydd roeddwn y tu allan i'r terfyn amser"
-      review_late_rejection: "Roedd fy nghais yn hwyr. Rwy’n gwneud cais am ganiatâd i ofyn am adolygiad hwyr"
+      review_late_rejection: "Roedd fy nghais yn hwyr. Rwy'n gwneud cais am ganiatâd i ofyn am adolygiad hwyr"
 
     SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
-      confirm_email_text: "I amddiffyn preifatrwydd, gofynnwn i chi gadarnhau’r cyfeiriad e-bost a roddoch yn flaenorol ar gyfer manylion y %{entity}."
-      heading: "A yw’r %{entity} eisiau copi o fanylion yr achos drwy e-bost? "
-      lead_text: "Os byddwch yn dewis Ydy, byddwn yn anfon copi o fanylion yr achos at y %{entity} pan fyddwch yn cyflwyno’r achos.  Argymhellir eich bod yn cadw copi ar gyfer eich cofnodion chi eich hun."
+      confirm_email_text: "I amddiffyn preifatrwydd, gofynnwn i chi gadarnhau'r cyfeiriad e-bost a roddoch yn flaenorol ar gyfer manylion y %{entity}."
+      heading: "A yw'r %{entity} eisiau copi o fanylion yr achos drwy e-bost? "
+      lead_text: "Os byddwch yn dewis Ydy, byddwn yn anfon copi o fanylion yr achos at y %{entity} pan fyddwch yn cyflwyno'r achos.  Argymhellir eich bod yn cadw copi ar gyfer eich cofnodion chi eich hun."
       page_title: "Anfon copi o fanylion yr achos"
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
@@ -55,22 +55,22 @@ cy:
           page_title: "Gwiriwch eich atebion"
       confirmation:
         show:
-          case_submitted: "Achos wedi’i gyflwyno"
+          case_submitted: "Achos wedi'i gyflwyno"
           confirmation_email: "Byddwn yn anfon e-bost cadarnhau atoch"
           last_opportunity_warning: Rhybudd
           last_opportunity_warning_message: "PWYSIG! Dyma eich cyfle olaf i gadw neu argraffu copi o fanylion eich achos ar-lein. "
-          page_title: "Achos wedi’i gyflwyno"
+          page_title: "Achos wedi'i gyflwyno"
           save_or_print_pdf: "Cadw neu argraffu manylion eich achos"
           what_happens_next_html: |-
             <h2 class="govuk-heading-m">Beth fydd yn digwydd nesaf?</h2>
             <p class="govuk-body">Bydd y tribiwnlys treth yn:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>gwirio eich manylion ac efallai y bydd yn gofyn am fwy o wybodaeth</li>
-              <li>ysgrifennu atoch i gadarnhau beth yw’r camau nesaf ac os bydd gwrandawiad</li>
+              <li>ysgrifennu atoch i gadarnhau beth yw'r camau nesaf ac os bydd gwrandawiad</li>
               <li>cysylltu ag unrhyw bartïon eraill a gofyn iddynt ymateb</li>
             </ul>
             <p class="govuk-body">
-              Os oes gennych unrhyw gwestiynau, gallwch gysylltu â’r tribiwnlys treth ar %{tax_tribunal_phone} (gwybodaeth am
+              Os oes gennych unrhyw gwestiynau, gallwch gysylltu â'r tribiwnlys treth ar %{tax_tribunal_phone} (gwybodaeth am
               <a href="https://www.gov.uk/costau-galwadau" class="govuk-link">gost galwadau</a>).
             </p>
 
@@ -164,7 +164,7 @@ cy:
           attributes:
             having_problems_uploading_explanation:
               blank: "Nodwch y rhesymau pam na allwch lwytho llythyr"
-          no_documents: "Mae’n rhaid ichi lwytho o leiaf un ffeil"
+          no_documents: "Mae'n rhaid ichi lwytho o leiaf un ffeil"
         steps/details/grounds_for_appeal_form:
           attributes:
             grounds_for_appeal:
@@ -172,17 +172,17 @@ cy:
         steps/details/has_representative_form:
           attributes:
             has_representative:
-              inclusion: "Dewiswch p’un a oes gennych chi rywun sy’n eich cynrychioli"
+              inclusion: "Dewiswch p'un a oes gennych chi rywun sy'n eich cynrychioli"
         steps/details/letter_upload_form:
           attributes:
             having_problems_uploading_explanation:
               blank: "Nodwch y rhesymau pam na allwch lwytho llythyr"
             supporting_letter_document:
-              blank: "Mae’n rhaid ichi ddewis ffeil i’w llwytho"
+              blank: "Mae'n rhaid ichi ddewis ffeil i'w llwytho"
         steps/details/letter_upload_type_form:
           attributes:
             letter_upload_type:
-              inclusion: "Dewiswch p’un a ydych angen llwytho un ffeil neu nifer o ffeiliau gwahanol"
+              inclusion: "Dewiswch p'un a ydych angen llwytho un ffeil neu nifer o ffeiliau gwahanol"
         steps/details/need_support_form:
           attributes:
             need_support:
@@ -215,11 +215,11 @@ cy:
         steps/details/representative_professional_status_form:
           attributes:
             representative_professional_status:
-              inclusion: "Dewiswch pwy sy’n eich cynrychioli chi"
+              inclusion: "Dewiswch pwy sy'n eich cynrychioli chi"
         steps/details/representative_type_form:
           attributes:
             representative_type:
-              inclusion: "Dewiswch p’un a ydych yn rhoi manylion unigolyn, cwmni neu sefydliad"
+              inclusion: "Dewiswch p'un a ydych yn rhoi manylion unigolyn, cwmni neu sefydliad"
         steps/details/taxpayer_details_form:
           attributes:
             taxpayer_contact_address:
@@ -244,11 +244,11 @@ cy:
         steps/details/taxpayer_type_form:
           attributes:
             taxpayer_type:
-              inclusion: "Dewiswch p’un a ydych yn rhoi manylion unigolyn, cwmni neu sefydliad"
+              inclusion: "Dewiswch p'un a ydych yn rhoi manylion unigolyn, cwmni neu sefydliad"
         steps/details/user_type_form:
           attributes:
             user_type:
-              inclusion: "Dewiswch p’un ai chi yw’r trethdalwr neu a ydych yn gweithredu ar eu rhan"
+              inclusion: "Dewiswch p'un ai chi yw'r trethdalwr neu a ydych yn gweithredu ar eu rhan"
         steps/details/what_support_form:
           attributes:
             language_interpreter_details:
@@ -262,15 +262,15 @@ cy:
           attributes:
             email_address:
               blank: *blank_email
-              different_representative: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y cynrychiolydd.   Ewch yn ôl a newid cyfeiriad e-bost y cynrychiolydd os yw’n anghywir. "
-              different_taxpayer: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y trethdalwr.  Ewch yn ôl a newid cyfeiriad e-bost y trethdalwr os yw’n anghywir. "
+              different_representative: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y cynrychiolydd.   Ewch yn ôl a newid cyfeiriad e-bost y cynrychiolydd os yw'n anghywir. "
+              different_taxpayer: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y trethdalwr.  Ewch yn ôl a newid cyfeiriad e-bost y trethdalwr os yw'n anghywir. "
             send_application_details:
               send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost "
-              send_taxpayer_copy: "Dewiswch a ddylai’r trethdalwr gael copi o fanylion yr achos drwy e-bost "
+              send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost "
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
-              inclusion: "Dewiswch p’un a wnaethoch dalu swm y dreth sy’n sail i’ch anghydfod"
+              inclusion: "Dewiswch p'un a wnaethoch dalu swm y dreth sy'n sail i'ch anghydfod"
         steps/hardship/hardship_reason_form:
           attributes:
             hardship_reason:
@@ -278,7 +278,7 @@ cy:
         steps/hardship/hardship_review_requested_form:
           attributes:
             hardship_review_requested:
-              inclusion: "Dewiswch p’un a ofynnoch i apelio heb dalu'r dreth yn gyntaf"
+              inclusion: "Dewiswch p'un a ofynnoch i apelio heb dalu'r dreth yn gyntaf"
         steps/hardship/hardship_review_status_form:
           attributes:
             hardship_review_status:
@@ -286,7 +286,7 @@ cy:
         steps/lateness/in_time_form:
           attributes:
             in_time:
-              inclusion: "Dewiswch p’un a ydych mewn pryd i apelio i’r tribiwnlys treth"
+              inclusion: "Dewiswch p'un a ydych mewn pryd i apelio i'r tribiwnlys treth"
         steps/lateness/lateness_reason_form:
           attributes:
             lateness_reason:
@@ -320,18 +320,18 @@ cy:
           attributes:
             current_password:
               blank: "Nodwch eich cyfrinair presennol"
-              invalid: "Nid yw’r cyfrinair yn ddilys"
+              invalid: "Nid yw'r cyfrinair yn ddilys"
             email:
               blank: "Rhowch eich cyfeiriad e-bost"
               invalid: "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft name@example.com"
-              taken: "Rydych eisoes wedi cadw achosion gan ddefnyddio’r cyfeiriad e-bost hwn. Ceisiwch fewngofnodi."
+              taken: "Rydych eisoes wedi cadw achosion gan ddefnyddio'r cyfeiriad e-bost hwn. Ceisiwch fewngofnodi."
             password:
               blank: "Teipiwch gyfrinair"
               too_long: "Ni ddylai eich cyfrinair fod yn hirach na %{count} o nodau"
               too_short: "Dewiswch gyfrinair cryfach"
             password_confirmation:
               blank: "Nodwch y cyfrinair eto"
-              confirmation: "Nid yw’r cyfrinair cadarnhau yn cyfateb"
+              confirmation: "Nid yw'r cyfrinair cadarnhau yn cyfateb"
               too_long: "Ni ddylai eich cyfrinair fod yn hirach na %{count} o nodau"
               too_short: "Dewiswch gyfrinair cryfach"
   admin:
@@ -376,20 +376,20 @@ cy:
     index:
       continue: Parhau
       description_html: |-
-        <p class="govuk-body">Mae’n bosib y gallwch apelio’n hwyr drwy roi rhesymau. Y barnwr fydd yn penderfynu a all eich apêl barhau.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys ar wahân i Gyllid a Thollau EM.</p>
+        <p class="govuk-body">Mae'n bosib y gallwch apelio'n hwyr drwy roi rhesymau. Y barnwr fydd yn penderfynu a all eich apêl barhau.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Mae'r tribiwnlys ar wahân i Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
-            <li><strong>sgan neu lun</strong> o’r hysbysiad gwreiddiol neu’r llythyr canlyniad adolygiad</li>
+            <li><strong>sgan neu lun</strong> o'r hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad</li>
             <li><strong>rhesymau dros eich apêl</strong> fel y gall y barnwr ddeall eich ochr chi</li>
         </ul>
-        <p class="govuk-body">Hefyd, bydd angen ichi lenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (agor mewn ffenestr newydd)</span></a> os ydych eisiau i rywun eich cynrychioli ac nad ydynt yn gyfreithiwr neu’n fargyfreithiwr sy’n ymarfer.</p>
+        <p class="govuk-body">Hefyd, bydd angen ichi lenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (agor mewn ffenestr newydd)</span></a> os ydych eisiau i rywun eich cynrychioli ac nad ydynt yn gyfreithiwr neu'n fargyfreithiwr sy'n ymarfer.</p>
       heading: "Apelio yn erbyn penderfyniad treth"
       impartial_decision: "Bydd eich apêl yn cael ei phenderfynu gan dribiwnlys annibynnol "
       lead_text_html: "Mae gennych 30 diwrnod i apelio. Bydd y cyfnod hwn yn dechrau o ddyddiad yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad."
       page_title: "Dechrau apêl"
   application:
-    name: "Apelio i’r tribiwnlys treth"
+    name: "Apelio i'r tribiwnlys treth"
   check_answers:
     selected_language:
       question: *select_language_question
@@ -438,12 +438,12 @@ cy:
         vat: "Treth Ar Werth (VAT)"
       question: "Ynglŷn â beth yw eich %{appeal_or_application}?"
     challenged_decision_direct:
-      accessible_change_text: "p’un a wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
+      accessible_change_text: "p'un a wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
       answers:
         <<: *YESNO
       question: "A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM?"
     challenged_decision_indirect:
-      accessible_change_text: "p’un a wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu"
+      accessible_change_text: "p'un a wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu"
       answers:
         <<: *YESNO
       question: "A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?"
@@ -462,7 +462,7 @@ cy:
         claim_or_amendment: "Hawliad neu ddiwygiad i hawliad"
         company_return: "Ffurflen dreth cwmni"
         enterprise_mgmt_incentives: "Cymelliadau Rheoli Mentrau (EMIs): opsiynau cymhwyso"
-        non_resident_capital_gains_tax: "Ffurflen dreth enillion cyfalaf person nad yw’n breswyl (NRCGT)"
+        non_resident_capital_gains_tax: "Ffurflen dreth enillion cyfalaf person nad yw'n breswyl (NRCGT)"
         partnership_return: "Ffurflen dreth partneriaeth"
         personal_return: "Ffurflen dreth bersonol"
         stamp_duty_land_tax_return: "Ffurflen Treth Dir y Toll Stamp (SDLT) neu Treth Trafodiadau Tir (yng Nghymru) "
@@ -470,7 +470,7 @@ cy:
         trustee_return: "Ffurflen dreth ymddiriedolwr"
       question: "Pa fath o ymholiad ydych chi eisiau cau?"
     closure_hmrc_officer:
-      question: "Swyddog Cyllid a Thollau EM sy’n cynnal yr ymholiad"
+      question: "Swyddog Cyllid a Thollau EM sy'n cynnal yr ymholiad"
     closure_hmrc_reference:
       accessible_change_text: "Cyfeirnod Cyllid a Thollau EM"
       question: "Cyfeirnod Cyllid a Thollau EM"
@@ -489,14 +489,14 @@ cy:
         refusal_to_register_applicant: "Gwrthod cofrestru ceisydd"
       question: "Ynglŷn â beth yw eich anghydfod?"
     disputed_tax_paid:
-      accessible_change_text: "p’un a ydych wedi talu swm y dreth sy’n sail i’ch anghydfod"
+      accessible_change_text: "p'un a ydych wedi talu swm y dreth sy'n sail i'ch anghydfod"
       answers:
         <<: *YESNO
-      question: "Ydych chi wedi talu swm y dreth sy’n sail i’ch anghydfod?"
+      question: "Ydych chi wedi talu swm y dreth sy'n sail i'ch anghydfod?"
     documents_submitted:
-      accessible_change_text: "dogfennau wedi’u llwytho"
+      accessible_change_text: "dogfennau wedi'u llwytho"
       quality_alert_html: ""
-      question: "Dogfennau wedi’u llwytho"
+      question: "Dogfennau wedi'u llwytho"
     email: E-bost
     eu_exit:
       accessible_change_text: "a yw eich apêl yn deillio o ymadawiad y DU o'r UE?"
@@ -507,35 +507,35 @@ cy:
     footer:
       appeal:
         declaration_of_truth: "Datganiad gwirionedd"
-        declaration_of_truth_message: "Trwy lenwi'r Hysbysiad o Apêl hwn i’r Tribiwnlys Haen Gyntaf (Siambr Treth) a chlicio'r botwm ‘Cyflwyno’, credaf bod yr wybodaeth yr wyf wedi’i rhoi yn wir hyd eithaf fy ngwybodaeth. \n"
+        declaration_of_truth_message: "Trwy lenwi'r Hysbysiad o Apêl hwn i'r Tribiwnlys Haen Gyntaf (Siambr Treth) a chlicio'r botwm ‘Cyflwyno', credaf bod yr wybodaeth yr wyf wedi'i rhoi yn wir hyd eithaf fy ngwybodaeth. \n"
       closure:
         declaration_of_truth: "Datganiad gwirionedd"
-        declaration_of_truth_message: "Trwy lenwi'r Cais i Gau Ymholiad hwn a chlicio'r botwm ‘Cyflwyno’, credaf bod yr wybodaeth yr wyf wedi’i rhoi yn wir hyd eithaf fy ngwybodaeth. "
+        declaration_of_truth_message: "Trwy lenwi'r Cais i Gau Ymholiad hwn a chlicio'r botwm ‘Cyflwyno', credaf bod yr wybodaeth yr wyf wedi'i rhoi yn wir hyd eithaf fy ngwybodaeth. "
       resume: "Parhau â'r %{appeal_or_application}"
       submit_and_continue: Cyflwyno
       submitting: Cyflwyno...
       warning: Rhybudd
-      warning_message: "Unwaith y byddwch yn clicio ‘Cyflwyno’, ni allwch newid eich atebion"
+      warning_message: "Unwaith y byddwch yn clicio ‘Cyflwyno', ni allwch newid eich atebion"
     grounds_for_appeal:
       accessible_change_text: "seiliau'r %{appeal_or_application}"
       question: "Seiliau'r %{appeal_or_application}"
     hardship_reason:
-      accessible_change_text: "pam y byddai talu’r dreth sy’n sail i’ch anghydfod yn achosi caledi ariannol"
-      question: "Pam y byddai talu’r dreth sy’n sail i’ch anghydfod yn achosi caledi ariannol i chi?"
+      accessible_change_text: "pam y byddai talu'r dreth sy'n sail i'ch anghydfod yn achosi caledi ariannol"
+      question: "Pam y byddai talu'r dreth sy'n sail i'ch anghydfod yn achosi caledi ariannol i chi?"
     hardship_review_requested:
-      accessible_change_text: "p’un a wnaethoch ofyn i Gyllid a Thollau EM a allech chi apelio i’r tribiwnlys heb orfod talu’r dreth yn gyntaf"
+      accessible_change_text: "p'un a wnaethoch ofyn i Gyllid a Thollau EM a allech chi apelio i'r tribiwnlys heb orfod talu'r dreth yn gyntaf"
       answers:
         <<: *YESNO
-      question: "A wnaethoch chi ofyn i Gyllid a Thollau EM a allech chi apelio heb orfod talu’r dreth yn gyntaf?"
+      question: "A wnaethoch chi ofyn i Gyllid a Thollau EM a allech chi apelio heb orfod talu'r dreth yn gyntaf?"
     hardship_review_status:
-      accessible_change_text: "p’un a wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol"
+      accessible_change_text: "p'un a wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol"
       answers:
         granted: Do
-        pending: "Rwy’n aros am benderfyniad"
+        pending: "Rwy'n aros am benderfyniad"
         refused: Naddo
       question: "A wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol?"
     in_time:
-      accessible_change_text: "p’un a yw eich %{appeal_or_application} mewn pryd"
+      accessible_change_text: "p'un a yw eich %{appeal_or_application} mewn pryd"
       answers:
         <<: *YESNO
         unsure: "Nid wyf yn siŵr"
@@ -544,11 +544,11 @@ cy:
       accessible_change_text: "rhesymau dros gyflwyno %{appeal_or_application} yn hwyr"
       question: "Rheswm dros gyflwyno %{appeal_or_application} yn hwyr"
     letter_uploaded:
-      accessible_change_text: "llythyr wedi’i lwytho"
-      quality_alert_html: "<div class=\"quality-alert\">Efallai y bydd rhaid dychwelyd eich %{appeal_or_application} i chi os na allwn ddarllen y llythyr, ac mae’n bosib y byddwch yn methu'r terfyn amser.</div>"
-      question: "Llythyr wedi’i lwytho"
+      accessible_change_text: "llythyr wedi'i lwytho"
+      quality_alert_html: "<div class=\"quality-alert\">Efallai y bydd rhaid dychwelyd eich %{appeal_or_application} i chi os na allwn ddarllen y llythyr, ac mae'n bosib y byddwch yn methu'r terfyn amser.</div>"
+      question: "Llythyr wedi'i lwytho"
     need_support:
-      accessible_change_text: "p’un a ydych angen cefnogaeth yn y gwrandawiad"
+      accessible_change_text: "p'un a ydych angen cefnogaeth yn y gwrandawiad"
       answers:
         <<: *YESNO
       question: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
@@ -563,13 +563,13 @@ cy:
         generated_at: "Cynhyrchwyd: %{date}"
         tax_chamber: "Tribiwnlys Haen Gyntaf (Siambr Treth) "
     penalty_amount:
-      accessible_change_text: "beth yw swm y gosb neu’r gordal"
-      question: "Beth yw swm y gosb neu’r gordal?"
+      accessible_change_text: "beth yw swm y gosb neu'r gordal"
+      question: "Beth yw swm y gosb neu'r gordal?"
     penalty_level:
-      accessible_change_text: "beth yw swm y gosb neu’r gordal"
+      accessible_change_text: "beth yw swm y gosb neu'r gordal"
       answers:
         <<: *PENALTY_LEVELS
-      question: "Beth yw swm y gosb neu’r gordal? "
+      question: "Beth yw swm y gosb neu'r gordal? "
     phone: Ffôn
     problems_uploading_documents:
       accessible_change_text: "problemau wrth lwytho dogfennau"
@@ -589,10 +589,10 @@ cy:
       accessible_change_text: "pwy yw eich cynrychiolydd"
       answers:
         accountant: "cyfrifydd "
-        england_or_wales_or_ni_legal_rep: "cyfreithiwr neu fargyfreithiwr sy’n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon"
+        england_or_wales_or_ni_legal_rep: "cyfreithiwr neu fargyfreithiwr sy'n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon"
         friend_or_family: "ffrind neu aelod o'r teulu"
         other: Arall
-        scotland_legal_rep: "cyfreithiwr neu eiriolwr sy’n ymarfer yn yr Alban"
+        scotland_legal_rep: "cyfreithiwr neu eiriolwr sy'n ymarfer yn yr Alban"
         tax_agent: "asiant treth"
       question: "Y cynrychiolydd yw"
     sections:
@@ -604,13 +604,13 @@ cy:
       lateness: "Terfyn amser yr %{appeal_or_application_capitalised}"
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
-      question: "A yw’r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
-      accessible_change_text: "a yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "A yw'r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
+      accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
     send_representative_copy:
-      question: "A yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
-      accessible_change_text: "a yw’r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "A yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
+      accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
     tax_amount:
@@ -640,10 +640,10 @@ cy:
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>manylion yr ymholiad</strong> gan gynnwys cyfeirnod Cyllid a Thollau EM a hyd yr ymholiad mewn blynyddoedd</li>
         </ul>
-        <p class="govuk-body">Gallwch hefyd ddarparu rhagor o wybodaeth a dogfennau ategol i egluro pam yr ydych yn credu y dylid cau’r ymholiad.</p>
-        <p class="govuk-body">Bydd angen ichi lenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi  (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (agor mewn ffenestr newydd)</span></a> os ydych eisiau i rywun eich cynrychioli ac nad ydynt yn gyfreithiwr neu’n fargyfreithiwr sy’n ymarfer.</p>
+        <p class="govuk-body">Gallwch hefyd ddarparu rhagor o wybodaeth a dogfennau ategol i egluro pam yr ydych yn credu y dylid cau'r ymholiad.</p>
+        <p class="govuk-body">Bydd angen ichi lenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi  (%{approval_form_format_and_size})<span class="govuk-visually-hidden"> (agor mewn ffenestr newydd)</span></a> os ydych eisiau i rywun eich cynrychioli ac nad ydynt yn gyfreithiwr neu'n fargyfreithiwr sy'n ymarfer.</p>
       heading: "Gwneud cais i gau ymholiad"
-      lead_text: "Gofyn i’r barnwr ddod ag ymholiad treth i ben gyda hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
+      lead_text: "Gofyn i'r barnwr ddod ag ymholiad treth i ben gyda hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
       page_title: "Dechrau cais i gau ymholiad"
   date:
     formats:
@@ -652,43 +652,43 @@ cy:
   devise:
     failure:
       already_authenticated: "Rydych eisoes wedi mewngofnodi. "
-      inactive: "Nid yw eich cyfrif wedi’i gadarnhau eto."
+      inactive: "Nid yw eich cyfrif wedi'i gadarnhau eto."
       invalid: "Mae gwall. Rhowch gyfeiriad e-bost a chyfrinair dilys. "
       last_attempt: "Mae gennych un ymgais arall cyn y bydd eich cyfrif yn cael ei gloi."
-      locked: "Mae eich cyfrif wedi’i gloi. "
+      locked: "Mae eich cyfrif wedi'i gloi. "
       not_found_in_database: "Mae gwall. Rhowch gyfeiriad e-bost a chyfrinair dilys."
       timeout: "Mae eich sesiwn wedi dod i ben. Mewngofnodwch eto i barhau. "
       unauthenticated: "Mae angen ichi fewngofnodi cyn parhau."
-      unconfirmed: "Mae’n rhaid ichi gadarnhau eich cyfeiriad e-bost cyn parhau. "
+      unconfirmed: "Mae'n rhaid ichi gadarnhau eich cyfeiriad e-bost cyn parhau. "
     passwords:
-      destroyed: "Hwyl fawr! Mae eich cyfrif wedi cael ei ganslo’n llwyddiannus. Gobeithiwn y byddwch yn dychwelyd eto’n fuan. "
-      invalid_token: "Nid yw’r URL i newid eich cyfrinair bellach yn ddilys neu mae wedi dod i ben. Teipiwch eich cyfeiriad e-bost i gael neges e-bost arall. "
-      no_token: "Gallwch ond newid eich cyfrinair drwy ddefnyddio’r ddolen sydd yn y neges e-bost ailosod cyfrinair. Os wnaethoch ddefnyddio’r ddolen a oedd yn y neges e-bost ailosod cyfrinair, gwnewch yn siŵr eich bod wedi defnyddio’r ddolen URL lawn. "
+      destroyed: "Hwyl fawr! Mae eich cyfrif wedi cael ei ganslo'n llwyddiannus. Gobeithiwn y byddwch yn dychwelyd eto'n fuan. "
+      invalid_token: "Nid yw'r URL i newid eich cyfrinair bellach yn ddilys neu mae wedi dod i ben. Teipiwch eich cyfeiriad e-bost i gael neges e-bost arall. "
+      no_token: "Gallwch ond newid eich cyfrinair drwy ddefnyddio'r ddolen sydd yn y neges e-bost ailosod cyfrinair. Os wnaethoch ddefnyddio'r ddolen a oedd yn y neges e-bost ailosod cyfrinair, gwnewch yn siŵr eich bod wedi defnyddio'r ddolen URL lawn. "
       send_instructions: "Byddwch yn cael neges e-bost a fydd yn cynnwys cyfarwyddiadau ichi ailosod eich cyfrinair ymhen ychydig o funudau. "
       send_paranoid_instructions: "Os yw eich cyfeiriad e-bost yn ein cronfa ddata, byddwch yn cael neges e-bost a fydd yn cynnwys dolen ichi ailosod eich cyfrinair ymhen ychydig o funudau. "
-      signed_up: "Croeso! Rydych wedi cofrestru’n llwyddiannus."
-      signed_up_but_inactive: "Rydych wedi cofrestru’n llwyddiannus. Fodd bynnag, nid oedd modd i ni eich mewngofnodi oherwydd nid ydych wedi cadarnhau eich cyfrif eto. "
-      signed_up_but_locked: "Rydych wedi cofrestru’n llwyddiannus. Fodd bynnag, nid oedd modd i ni eich mewngofnodi oherwydd mae eich cyfrif wedi’i gloi.  "
-      signed_up_but_unconfirmed: "Mae neges gyda dolen ichi gadarnhau eich cyfrif wedi’i anfon i'ch cyfeiriad e-bost. Cliciwch ar y ddolen i gadarnhau eich cyfrif."
-      update_needs_confirmation: "Rydych wedi diweddaru eich cyfrif yn llwyddiannus, ond mae angen i ni ddilysu eich cyfeiriad e-bost newydd. Gwiriwch eich negeseuon e-bost a chliciwch ar y ddolen sydd yn y neges e-bost rydym wedi’i hanfon atoch i gadarnhau eich cyfeiriad e-bost newydd. "
-      updated: "Mae eich cyfrif wedi’i ddiweddaru’n llwyddiannus. "
+      signed_up: "Croeso! Rydych wedi cofrestru'n llwyddiannus."
+      signed_up_but_inactive: "Rydych wedi cofrestru'n llwyddiannus. Fodd bynnag, nid oedd modd i ni eich mewngofnodi oherwydd nid ydych wedi cadarnhau eich cyfrif eto. "
+      signed_up_but_locked: "Rydych wedi cofrestru'n llwyddiannus. Fodd bynnag, nid oedd modd i ni eich mewngofnodi oherwydd mae eich cyfrif wedi'i gloi.  "
+      signed_up_but_unconfirmed: "Mae neges gyda dolen ichi gadarnhau eich cyfrif wedi'i anfon i'ch cyfeiriad e-bost. Cliciwch ar y ddolen i gadarnhau eich cyfrif."
+      update_needs_confirmation: "Rydych wedi diweddaru eich cyfrif yn llwyddiannus, ond mae angen i ni ddilysu eich cyfeiriad e-bost newydd. Gwiriwch eich negeseuon e-bost a chliciwch ar y ddolen sydd yn y neges e-bost rydym wedi'i hanfon atoch i gadarnhau eich cyfeiriad e-bost newydd. "
+      updated: "Mae eich cyfrif wedi'i ddiweddaru'n llwyddiannus. "
       updated_not_active: "Mae eich cyfrinair wedi cael ei newid yn llwyddiannus."
     sessions:
-      already_signed_out: "Wedi allgofnodi’n llwyddiannus."
-      signed_in: "Wedi mewngofnodi’n llwyddiannus. "
-      signed_out: "Wedi allgofnodi’n llwyddiannus. "
+      already_signed_out: "Wedi allgofnodi'n llwyddiannus."
+      signed_in: "Wedi mewngofnodi'n llwyddiannus. "
+      signed_out: "Wedi allgofnodi'n llwyddiannus. "
   document_upload:
     errors:
       content_type: "Mae %{file_name} mewn fformat ni allwn dderbyn. Gallwch lwytho ffeiliau JPG, PNG, GIF, PDF, Word neu Excel"
-      file_size: "Mae %{file_name} yn rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy’n llai na %{max_size} megabeit (MB)"
-      invalid_characters: "Mae %{file_name} yn cynnwys nodau annilys. Peidiwch â defnyddio nodau fel £ neu ¬ yn enw’r ffeil"
+      file_size: "Mae %{file_name} yn rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy'n llai na %{max_size} megabeit (MB)"
+      invalid_characters: "Mae %{file_name} yn cynnwys nodau annilys. Peidiwch â defnyddio nodau fel £ neu ¬ yn enw'r ffeil"
       response_error: "Ni lwyddwyd i lwytho %{file_name}. Rhowch gynnig arall arni."
       virus_detected: "Mae gan %{file_name} firws. Bydd angen ichi ailgyflwyno copi sydd ddim yn cynnwys firws"
-    file_selected: "FFEIL WEDI’I DETHOL"
+    file_selected: "FFEIL WEDI'I DETHOL"
     file_uploading: "FFEIL YN CAEL EI LLWYTHO"
   errors:
     case_not_found:
-      heading: "Mae’n ddrwg gennym, ond ni allwn ddod o hyd i’r achos hwn "
+      heading: "Mae'n ddrwg gennym, ond ni allwn ddod o hyd i'r achos hwn "
       lead_text: "Os bu ichi gopïo cyfeiriad gwefan, gwiriwch ei fod yn gywir."
       more_text: "Noder: bydd achos drafft yn dod i ben ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
       page_title: "Nis darganfuwyd yr achos"
@@ -697,10 +697,10 @@ cy:
       case_reference: "Cyfeirnod eich achos yw:"
       heading: "Rydych eisoes wedi cyflwyno'r achos hwn"
       lead_text_html: |
-        I wneud newidiadau i'ch achos, cysylltwch â’r tribiwnlys treth ar %{tax_tribunal_phone}
+        I wneud newidiadau i'ch achos, cysylltwch â'r tribiwnlys treth ar %{tax_tribunal_phone}
         (gwybodaeth am <a href="https://www.gov.uk/costau-galwadau" class="govuk-link">brisiau galwadau</a>).
       note_number: "Gwnewch nodyn o'r rhif hwn rhag ofn y byddwch angen cysylltu â ni."
-      page_title: "Achos eisoes wedi’i gyflwyno"
+      page_title: "Achos eisoes wedi'i gyflwyno"
       save_or_print_pdf: "Cadw neu argraffu manylion eich achos"
       <<: *START_FINISH
     error_summary:
@@ -708,13 +708,13 @@ cy:
       text: ""
     format: "%{message}"
     invalid_session:
-      heading: "Mae’n ddrwg gennym, ond bydd rhaid ichi ddechrau eto"
+      heading: "Mae'n ddrwg gennym, ond bydd rhaid ichi ddechrau eto"
       lead_text: "Mae eich sesiwn yn dod i ben yn awtomatig os nad ydych yn defnyddio'r gwasanaeth am %{session_timeout} munud neu ar ôl i chi gyflwyno eich achos. "
       more_text: "Rydym yn gwneud hyn i ddiogelu eich gwybodaeth. Bydd unrhyw fanylion sydd heb gael eu cadw yn cael eu dileu."
       page_title: "Sesiwn annilys"
       <<: *START_FINISH
     messages:
-      already_confirmed: "eisoes wedi’i gadarnhau, ceisiwch fewngofnodi"
+      already_confirmed: "eisoes wedi'i gadarnhau, ceisiwch fewngofnodi"
       blank: "Rhowch ateb"
       confirmation_period_expired: "angen ei gadarnhau o fewn %{period}, felly gofynnwch am un newydd"
       content_type: "Ni allwn dderbyn y math hwn o ffeil"
@@ -722,7 +722,7 @@ cy:
         special_characters: "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft enw@enghraifft.com. Ni all cyfeiriad e-bost gynnwys *()!&/;"
         too_long: "Mae'r cyfeiriad e-bost yn rhy hir (caniateir hyd at 256 o nodau)"
       expired: "wedi dirwyn i ben, gofynnwch am un newydd"
-      file_size: "Mae’r ffeil yn rhy fawr"
+      file_size: "Mae'r ffeil yn rhy fawr"
       invalid_characters: "Enw ffeil annilys"
       not_found: "nis darganfuwyd"
       not_locked: "heb ei gloi"
@@ -732,9 +732,9 @@ cy:
       password:
         password_strength: "Dewiswch gyfrinair cryfach"
       response_error: "Gwall ymateb"
-      virus_detected: "firws wedi’i ganfod "
+      virus_detected: "firws wedi'i ganfod "
     not_found:
-      heading: "Ni ellir dod o hyd i’r dudalen"
+      heading: "Ni ellir dod o hyd i'r dudalen"
       lead_text: "Os bu ichi deipio cyfeiriad gwefan, gwiriwch ei fod yn gywir."
       more_text_html: |-
         <p class="govuk-body">Gallwch hefyd geisio dechrau o'r dudalen gartref i ddod o hyd i'r wybodaeth yr ydych ei hangen.</p>
@@ -742,8 +742,8 @@ cy:
       page_title: "Nis darganfuwyd"
       <<: *START_FINISH
     unhandled:
-      heading: "Mae’n ddrwg gennym, aeth rhywbeth o’i le"
-      lead_text: "I gadw’r gwasanaeth hwn yn ddiogel, nid yw unrhyw wybodaeth rydych wedi’i rhoi wedi cael ei chadw."
+      heading: "Mae'n ddrwg gennym, aeth rhywbeth o'i le"
+      lead_text: "I gadw'r gwasanaeth hwn yn ddiogel, nid yw unrhyw wybodaeth rydych wedi'i rhoi wedi cael ei chadw."
       more_text: "Bydd angen ichi ddechrau eto."
       page_title: "Gwall annisgwyl"
       <<: *START_FINISH
@@ -772,7 +772,7 @@ cy:
       steps_appeal_dispute_type_form:
         dispute_type_html: "Ynglŷn â beth yw eich anghydfod?"
       steps_appeal_penalty_amount_form:
-        penalty_level_html: "Beth yw swm y gosb neu'r gordal sy’n sail i’ch anghydfod?"
+        penalty_level_html: "Beth yw swm y gosb neu'r gordal sy'n sail i'ch anghydfod?"
       steps_challenge_decision_form:
         challenged_decision_html: "A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM?"
       steps_challenge_decision_status_form:
@@ -780,27 +780,27 @@ cy:
       steps_closure_case_type_form:
         closure_case_type_html: "Pa fath o ymholiad ydych chi eisiau cau?"
       steps_details_has_representative_form:
-        has_representative_html: "A oes gennych chi rywun sy’n eich cynrychioli?"
+        has_representative_html: "A oes gennych chi rywun sy'n eich cynrychioli?"
       steps_details_letter_upload_type_form:
         letter_upload_type_html: "A ydych angen llwytho un ffeil neu nifer o ffeiliau gwahanol?"
       steps_details_representative_professional_status_form:
-        representative_professional_status_html: "Pwy sy’n eich cynrychioli chi?"
+        representative_professional_status_html: "Pwy sy'n eich cynrychioli chi?"
       steps_details_representative_type_form:
-        representative_type_html: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu’n fath arall o sefydliad?"
+        representative_type_html: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu'n fath arall o sefydliad?"
       steps_details_taxpayer_type_form:
-        taxpayer_type_html: "Pwy sy’n gwneud yr apêl?"
+        taxpayer_type_html: "Pwy sy'n gwneud yr apêl?"
       steps_details_user_type_form:
-        user_type_html: "Ai chi yw’r trethdalwr sy’n gwneud yr apêl?"
+        user_type_html: "Ai chi yw'r trethdalwr sy'n gwneud yr apêl?"
       steps_hardship_disputed_tax_paid_form:
-        disputed_tax_paid_html: "Ydych chi wedi talu swm y dreth sy’n sail i’ch anghydfod?"
+        disputed_tax_paid_html: "Ydych chi wedi talu swm y dreth sy'n sail i'ch anghydfod?"
       steps_hardship_hardship_review_requested_form:
-        hardship_review_requested_html: "A wnaethoch chi ofyn i Gyllid a Thollau EM adael ichi apelio i’r tribiwnlys heb orfod talu’r dreth yn gyntaf?"
+        hardship_review_requested_html: "A wnaethoch chi ofyn i Gyllid a Thollau EM adael ichi apelio i'r tribiwnlys heb orfod talu'r dreth yn gyntaf?"
       steps_hardship_hardship_review_status_form:
         hardship_review_status_html: "A wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol?"
       steps_lateness_in_time_form:
-        in_time_html: "A ydych mewn pryd i apelio i’r tribiwnlys treth?"
+        in_time_html: "A ydych mewn pryd i apelio i'r tribiwnlys treth?"
       surveys_feedback_form:
-        assistance_level: "A gawsoch gymorth i wneud cais i’r Tribiwnlys Treth heddiw?"
+        assistance_level: "A gawsoch gymorth i wneud cais i'r Tribiwnlys Treth heddiw?"
     hint:
       user:
         current_password: "Rydym angen eich cyfrinair presennol i gadarnhau eich newidiadau"
@@ -817,7 +817,7 @@ cy:
           _show_more_html: "<strong>Math arall o dreth, apêl neu gais</strong>"
           capital_gains_tax_html: "<strong>Treth Enillion Cyfalaf</strong>"
           corporation_tax_html: "<strong>Treth Gorfforaeth</strong>"
-          income_tax_html: "<strong>Treth Incwm</strong><br>gan gynnwys treth a delir drwy’r cynllun Talu wrth Ennill (PAYE) a Hunanasesiad"
+          income_tax_html: "<strong>Treth Incwm</strong><br>gan gynnwys treth a delir drwy'r cynllun Talu wrth Ennill (PAYE) a Hunanasesiad"
           information_notice_html: "<strong>Hysbysiad gwybodaeth</strong><br>cais am ragor o wybodaeth ynghylch eich sefyllfa dreth"
           ni_contributions_html: "<strong>Cyfraniadau Yswiriant Gwladol (NI)</strong>"
           self_assessment_late_penalty_html: "<strong>Cosb am ffeilio ffurflen dreth hunanasesiad yn hwyr</strong>"
@@ -826,7 +826,7 @@ cy:
         case_type_options:
           aggregates_levy_html: "<strong>Ardoll Agregau</strong>"
           air_passenger_duty_html: "<strong>Toll Teithwyr Awyr</strong>"
-          alcoholic_liquor_duties_html: "<strong>Tollau ar Ddiodydd Alcoholaidd</strong><br>mae’n cynnwys y Cynllun Cofrestru Cyfanwerthwr Alcohol (AWRS)"
+          alcoholic_liquor_duties_html: "<strong>Tollau ar Ddiodydd Alcoholaidd</strong><br>mae'n cynnwys y Cynllun Cofrestru Cyfanwerthwr Alcohol (AWRS)"
           apn_penalty_html: "<strong>Cosb Hysbysiad o Daliad Cyflymedig (APN)</strong>"
           bingo_duty_html: "<strong>Toll Bingo</strong>"
           climate_change_levy_html: "<strong>Ardoll Newid yn yr Hinsawdd</strong>"
@@ -844,17 +844,17 @@ cy:
           lottery_duty_html: "<strong>Toll y Loteri</strong>"
           money_laundering_decisions_html: "<strong>Penderfyniadau gwyngalchu arian</strong>"
           ni_contributions_html: "<strong>Cyfraniadau Yswiriant Gwladol (NI)</strong>"
-          other_html: "<strong>Dim un o’r uchod</strong>"
+          other_html: "<strong>Dim un o'r uchod</strong>"
           petroleum_revenue_tax_html: "<strong>Treth Refeniw Petroliwm</strong>"
           pool_betting_duty_html: "<strong>Toll Cronfa Betio</strong>"
           remote_gaming_duty_html: "<strong>Toll Hapchwarae o Bell</strong>"
           restoration_case_html: "<strong>Achos adfer</strong><br>gwneud cais i ddychwelyd nwyddau a atafaelwyd"
-          stamp_duties_html: "<strong>Tollau Stamp</strong><br>gan gynnwys Treth Gadw’r Toll Stamp (SDRT), Treth Dir y Toll Stamp (SDLT) a Threth Trafodiadau Tir (yng Nghymru)"
+          stamp_duties_html: "<strong>Tollau Stamp</strong><br>gan gynnwys Treth Gadw'r Toll Stamp (SDRT), Treth Dir y Toll Stamp (SDLT) a Threth Trafodiadau Tir (yng Nghymru)"
           statutory_payments_html: "<strong>Taliadau statudol</strong><br>er enghraifft tâl salwch statudol, tâl mamolaeth, tâl tadolaeth neu dâl mabwysiadu"
           student_loans_html: "<strong>Benthyciadau i fyfyrwyr</strong>"
           tax_credits_html: "<strong>Credydau treth</strong><br>gan gynnwys Credyd Treth Plant a Chredyd Treth Gwaith"
           tobacco_products_duty_html: "<strong>Toll Cynhyrchion Tybaco</strong>"
-        case_type_other_value: "Nodwch y math o dreth neu anghydfod sy’n gysylltiedig â’ch achos"
+        case_type_other_value: "Nodwch y math o dreth neu anghydfod sy'n gysylltiedig â'ch achos"
       steps_appeal_dispute_type_form:
         dispute_type_options:
           amount_and_penalty_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian a chosb neu gordal rhaid i'r</strong><br>ddau anghydfod fod ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad"
@@ -862,20 +862,20 @@ cy:
           amount_of_tax_owed_by_taxpayer_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian</strong>"
           cancellation_of_registration_html: "<strong>Canslo cofrestriad</strong>"
           information_notice_html: "<strong>Apelio yn erbyn hysbysiad gwybodaeth</strong>"
-          other_html: "<strong>Dim un o’r uchod</strong>"
-          paye_coding_notice_html: "<strong>Hysbysiad Cod Talu wrth Ennill (PAYE)</strong><br>y cod a ddefnyddir i gyfrifo faint o dreth i’w dynnu o’ch tâl"
+          other_html: "<strong>Dim un o'r uchod</strong>"
+          paye_coding_notice_html: "<strong>Hysbysiad Cod Talu wrth Ennill (PAYE)</strong><br>y cod a ddefnyddir i gyfrifo faint o dreth i'w dynnu o'ch tâl"
           penalty_html: "<strong>Cosb neu gordal</strong><br>er enghraifft taliad hwyr, ffurflenni gwallus neu fethiant i roi gwybod am rwymedigaeth treth "
           refusal_to_register_applicant_html: "<strong>Gwrthod cofrestru ceisydd</strong>"
         dispute_type_other_value: "Ynglŷn â beth yw eich anghydfod?"
       steps_appeal_penalty_amount_form:
-        penalty_amount: "Rhowch swm y gosb neu’r gordal "
+        penalty_amount: "Rhowch swm y gosb neu'r gordal "
         penalty_level_options:
           <<: *PENALTY_LEVELS
       steps_appeal_penalty_and_tax_amounts_form:
-        penalty_amount: "Rhowch swm y gosb neu’r gordal"
-        tax_amount: "Rhowch swm y dreth sy’n sail i’ch anghydfod"
+        penalty_amount: "Rhowch swm y gosb neu'r gordal"
+        tax_amount: "Rhowch swm y dreth sy'n sail i'ch anghydfod"
       steps_appeal_tax_amount_form:
-        tax_amount: "Rhowch swm y dreth sy’n sail i’ch anghydfod"
+        tax_amount: "Rhowch swm y dreth sy'n sail i'ch anghydfod"
       steps_challenge_decision_form:
         challenged_decision_options:
           <<: *YESNO
@@ -890,24 +890,24 @@ cy:
           claim_or_amendment_html: "Hawliad neu ddiwygiad i hawliad"
           company_return_html: "Ffurflen dreth cwmni"
           enterprise_mgmt_incentives_html: "Cymelliadau Rheoli Mentrau (EMIs): opsiynau cymhwyso "
-          non_resident_capital_gains_tax_html: "Ffurflen dreth enillion cyfalaf person nad yw’n breswyl (NRCGT)"
+          non_resident_capital_gains_tax_html: "Ffurflen dreth enillion cyfalaf person nad yw'n breswyl (NRCGT)"
           partnership_return_html: "Ffurflen dreth partneriaeth"
           personal_return_html: "Ffurflen dreth bersonol "
           stamp_duty_land_tax_return_html: "Treth Dir y Toll Stamp (SDLT) neu Treth Trafodiadau Tir (yng Nghymru): ffurflen dreth trafodiadau tir "
           transactions_in_securities_html: "Trafodiadau gwarannau: cyhoeddi hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio "
           trustee_return_html: "Ffurflen dreth ymddiriedolwr"
       steps_closure_enquiry_details_form:
-        closure_hmrc_officer: "Enw’r swyddog treth sy’n cynnal yr ymholiad (dewisol)"
+        closure_hmrc_officer: "Enw'r swyddog treth sy'n cynnal yr ymholiad (dewisol)"
         closure_hmrc_reference: "Cyfeirnod Cyllid a Thollau EM"
         closure_years_under_enquiry: "Hyd yr ymholiad mewn blynyddoedd   "
       steps_closure_support_documents_form:
         having_problems_uploading_explanation: "Nodwch y rhesymau pam na allwch lwytho dogfennau"
         having_problems_uploading_options:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy nogfennau"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy nogfennau"
       steps_details_documents_upload_form:
         having_problems_uploading_explanation: "Nodwch y rhesymau pam na allwch lwytho llythyr"
         having_problems_uploading_options:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy nogfennau"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy nogfennau"
       steps_details_eu_exit_form:
         eu_exit_options:
           "true": Ydy
@@ -921,15 +921,15 @@ cy:
       steps_details_letter_upload_form:
         having_problems_uploading_explanation: "Nodwch y rhesymau pam na allwch lwytho llythyr"
         having_problems_uploading_options:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy nogfen"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy nogfen"
         supporting_letter_document: ""
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
           multiple_html: |-
-            <strong>Llwytho’r llythyr fel tudalennau ar wahân</strong>
+            <strong>Llwytho'r llythyr fel tudalennau ar wahân</strong>
             <br>Rydych wedi cadw neu sganio tudalennau eich llythyr mewn nifer o ffeiliau gwahanol
-          no_letter_html: "<strong>Nid yw’r llythyr gennyf</strong><br>Rydych wedi colli'r llythyr neu nid yw wrth law"
-          single_html: "<strong>Llwytho’r llythyr fel un ddogfen</strong><br>Rydych wedi cadw neu sganio'r llythyr fel un ffeil "
+          no_letter_html: "<strong>Nid yw'r llythyr gennyf</strong><br>Rydych wedi colli'r llythyr neu nid yw wrth law"
+          single_html: "<strong>Llwytho'r llythyr fel un ddogfen</strong><br>Rydych wedi cadw neu sganio'r llythyr fel un ffeil "
       steps_details_need_support_form:
         need_support_options:
           <<: *YESNO
@@ -940,8 +940,8 @@ cy:
       steps_details_representative_company_details_form:
         <<: *REP_ADDRESS
         representative_organisation_fao: "Enw cyswllt"
-        representative_organisation_name: "Enw’r sefydliad"
-        representative_organisation_registration_number: "Rhif cofrestru’r cwmni (dewisol)"
+        representative_organisation_name: "Enw'r sefydliad"
+        representative_organisation_registration_number: "Rhif cofrestru'r cwmni (dewisol)"
       steps_details_representative_individual_details_form:
         <<: *REP_ADDRESS
         representative_individual_first_name: "Enw cyntaf"
@@ -953,10 +953,10 @@ cy:
       steps_details_representative_professional_status_form:
         representative_professional_status_options:
           accountant_html: Cyfrifydd
-          england_or_wales_or_ni_legal_rep_html: "Cyfreithiwr neu fargyfreithiwr sy’n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon"
+          england_or_wales_or_ni_legal_rep_html: "Cyfreithiwr neu fargyfreithiwr sy'n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon"
           friend_or_family_html: "Ffrind neu aelod o'r teulu"
-          other_html: "Dim un o’r uchod"
-          scotland_legal_rep_html: "Cyfreithiwr neu eiriolwr sy’n ymarfer yn yr Alban"
+          other_html: "Dim un o'r uchod"
+          scotland_legal_rep_html: "Cyfreithiwr neu eiriolwr sy'n ymarfer yn yr Alban"
           tax_agent_html: "Asiant treth"
       steps_details_representative_type_form:
         representative_type_options:
@@ -970,8 +970,8 @@ cy:
       steps_details_taxpayer_company_details_form:
         <<: *TAXPAYER_ADDRESS
         taxpayer_organisation_fao: "Enw cyswllt"
-        taxpayer_organisation_name: "Enw’r cwmni"
-        taxpayer_organisation_registration_number: "Rhif cofrestru’r cwmni (dewisol)"
+        taxpayer_organisation_name: "Enw'r cwmni"
+        taxpayer_organisation_registration_number: "Rhif cofrestru'r cwmni (dewisol)"
       steps_details_taxpayer_individual_details_form:
         <<: *TAXPAYER_ADDRESS
         taxpayer_individual_first_name: "Enw cyntaf"
@@ -979,7 +979,7 @@ cy:
       steps_details_taxpayer_organisation_details_form:
         <<: *TAXPAYER_ADDRESS
         taxpayer_organisation_fao: "Enw cyswllt"
-        taxpayer_organisation_name: "Enw’r sefydliad"
+        taxpayer_organisation_name: "Enw'r sefydliad"
       steps_details_taxpayer_type_form:
         taxpayer_type_options:
           company_html: <strong>Cwmni</strong>
@@ -987,7 +987,7 @@ cy:
           other_organisation_html: "<strong>Math arall o sefydliad</strong><br>er enghraifft partneriaeth, LLP (Partneriaeth Atebolrwydd Cyfyngedig), ymddiriedolaeth, clwb neu gymdeithas"
       steps_details_user_type_form:
         user_type_options:
-          representative: "Na, rwy’n gweithredu ar ran y trethdalwr "
+          representative: "Na, rwy'n gweithredu ar ran y trethdalwr "
           taxpayer: Ie
       steps_details_what_support_form:
         disabled_access_options:
@@ -1015,7 +1015,7 @@ cy:
       steps_hardship_hardship_review_status_form:
         hardship_review_status_options:
           granted: Do
-          pending: "Rwy’n aros am benderfyniad"
+          pending: "Rwy'n aros am benderfyniad"
           refused: Naddo
       steps_lateness_in_time_form:
         in_time_options:
@@ -1027,8 +1027,8 @@ cy:
       surveys_feedback_form:
         assistance_level_options:
           none: "Naddo, mi wnes gais i'r Tribiwnlys Treth fy hun"
-          partial: "Mi wnaeth rywun fy helpu i wneid cais i’r Tribiwnlys Treth ar-lein"
-          total: "Rwy’n cael trafferth defnyddio cyfrifiaduron, felly mi wnaeth rywun lenwi cais ar-lein y Treth Tribiwnlys i mi"
+          partial: "Mi wnaeth rywun fy helpu i wneid cais i'r Tribiwnlys Treth ar-lein"
+          total: "Rwy'n cael trafferth defnyddio cyfrifiaduron, felly mi wnaeth rywun lenwi cais ar-lein y Treth Tribiwnlys i mi"
         comment: "Disgrifiwch beth yr hoffech ei riportio"
         email: E-bost
         name: Enw
@@ -1048,15 +1048,15 @@ cy:
       create: Parhau
       create_account: Cadw
       reset_password: "Ailosod cyfrinair"
-      save_and_come_back_later: "Cadw’r cais a dychwelyd yn hwyrach ymlaen"
+      save_and_come_back_later: "Cadw'r cais a dychwelyd yn hwyrach ymlaen"
       save_and_continue: "Cadw a pharhau"
       sign_in: Mewngofnodi
       update: Parhau
   home:
     accessibility:
       description_html: |-
-        <p class="govuk-body">Mae’r datganiad hygyrchedd hwn yn berthnasol i’r gwasanaeth ar-lein ‘apelio yn erbyn penderfyniad treth’ a ‘gwneud cais i gau ymholiad treth’.</p>
-        <p class="govuk-body">Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi (GLlTEM) sy’n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl â phosibl allu defnyddio'r gwasanaeth hwn.  Er enghraifft, golyga hyn y dylech allu:</p>
+        <p class="govuk-body">Mae'r datganiad hygyrchedd hwn yn berthnasol i'r gwasanaeth ar-lein ‘apelio yn erbyn penderfyniad treth' a ‘gwneud cais i gau ymholiad treth'.</p>
+        <p class="govuk-body">Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi (GLlTEM) sy'n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl â phosibl allu defnyddio'r gwasanaeth hwn.  Er enghraifft, golyga hyn y dylech allu:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>newid lliwiau, lefelau cyferbyniad a ffontiau</li>
           <li>gwneud y testun hyd at 300% yn fwy heb iddo ddiflannu oddi ar y sgrin</li>
@@ -1066,16 +1066,16 @@ cy:
         <p class="govuk-body">Sylwch mai cydnawsedd â VoiceOver yn unig a gynhwyswyd yn y profion hygyrchedd a gynhaliwyd hyd yma.</p>
         <p class="govuk-body">Rydym hefyd wedi sicrhau ein bod wedi defnyddio iaith syml.</p>
         <p class="govuk-body">
-          Mae gan <a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Ability Net</a> gyngor ynghylch gwneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd.
+          Mae gan <a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Ability Net</a> gyngor ynghylch gwneud eich dyfais yn haws i'w defnyddio os oes gennych anabledd.
         </p>
         <h2 class="govuk-heading-m">Pa mor hygyrch yw'r wefan hon</h2>
         <p class="govuk-body">Rydym yn y broses o baratoi archwiliad llawn o Ganllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.1 ar gyfer y gwasanaeth hwn.</p>
-        <p class="govuk-body">Byddwn yn diweddaru’r datganiad hwn unwaith y byddwn wedi cael adroddiad craffu WCAG 2.1. Yn y cyfamser, rydym wedi cynnal rhai profion sylfaenol ac wedi rhoi sylw i’r materion a amlygwyd.</p>
+        <p class="govuk-body">Byddwn yn diweddaru'r datganiad hwn unwaith y byddwn wedi cael adroddiad craffu WCAG 2.1. Yn y cyfamser, rydym wedi cynnal rhai profion sylfaenol ac wedi rhoi sylw i'r materion a amlygwyd.</p>
         <p class="govuk-body">
-          Mi ddefnyddiom gydrannau o System Ddylunio GOV.UK i adeiladu’r gwasanaeth hwn. Mae <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">canllawiau hygyrchedd y System Ddylunio</a> yn egluro statws hygyrchedd cyfredol y cydrannau hyn.
+          Mi ddefnyddiom gydrannau o System Ddylunio GOV.UK i adeiladu'r gwasanaeth hwn. Mae <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">canllawiau hygyrchedd y System Ddylunio</a> yn egluro statws hygyrchedd cyfredol y cydrannau hyn.
         </p>
         <p class="govuk-body">
-          Mae’r cydrannau a restrir yng <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">nghanllawiau hygyrchedd y System Ddylunio</a> yn cydymffurfio’n llwyr â safon AA WCAG 2.1.
+          Mae'r cydrannau a restrir yng <a href="https://design-system.service.gov.uk/accessibility/" class="govuk-link">nghanllawiau hygyrchedd y System Ddylunio</a> yn cydymffurfio'n llwyr â safon AA WCAG 2.1.
         </p>
         <h2 class="govuk-heading-m">Adborth a gwybodaeth gyswllt</h2>
         <p class="govuk-body">Os ydych angen gwybodaeth sydd yn y gwasanaeth hwn mewn fformat arall megis ar ffurf PDF hygyrch, print bras, fformat hawdd ei ddarllen, recordiad sain neu braille:
@@ -1091,29 +1091,29 @@ cy:
         </p>
         <h2 class="govuk-heading-m">Riportio problemau hygyrchedd</h2>
         <p class="govuk-body">
-          Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau nad ydynt wedi’u cynnwys ar y dudalen hon, neu’n credu nad ydym yn bodloni’r rheoliadau hygyrchedd, anfonwch e-bost i:
+          Rydym wastad yn ceisio gwella hygyrchedd y wefan hon. Os byddwch yn cael unrhyw broblemau nad ydynt wedi'u cynnwys ar y dudalen hon, neu'n credu nad ydym yn bodloni'r rheoliadau hygyrchedd, anfonwch e-bost i:
           <a href="mailto:hmctsforms@justice.gov.uk" class="govuk-link">hmctsforms@justice.gov.uk</a>
           yn nodi manylion y broblem ac unrhyw dechnoleg gynorthwyol yr ydych yn ei defnyddio.
         </p>
         <h2 class="govuk-heading-m">Y Weithdrefn Orfodi</h2>
         <p class="govuk-body">
-          Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy’n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’).
-          Os nad ydych chi’n fodlon gyda’r ffordd rydym yn ymateb i’ch cwyn, <a href="https://www.equalityadvisoryservice.com/" class="govuk-link">cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS)</a>
+          Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy'n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd').
+          Os nad ydych chi'n fodlon gyda'r ffordd rydym yn ymateb i'ch cwyn, <a href="https://www.equalityadvisoryservice.com/" class="govuk-link">cysylltwch â'r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS)</a>
         </p>
         <h1 class="govuk-heading-l">Gwybodaeth dechnegol am hygyrchedd y wefan hon</h1>
-        <p class="govuk-body">Mae GLlTEM wedi ymrwymo i sicrhau bod ei ffurflenni ar-lein a’i wasanaethau yn hygyrch, a hynny yn unol â Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018.</p>
+        <p class="govuk-body">Mae GLlTEM wedi ymrwymo i sicrhau bod ei ffurflenni ar-lein a'i wasanaethau yn hygyrch, a hynny yn unol â Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018.</p>
         <h2 class="govuk-heading-m">Statws cydymffurfiaeth</h2>
         <p class="govuk-body">
-          Mae’r wefan hon yn cydymffurfio’n rhannol â <a href="https://www.w3.org/TR/WCAG21/" class="govuk-link">safon AA Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.1</a>, a hynny oherwydd y materion o beidio â chydymffurfio a restrir isod.
+          Mae'r wefan hon yn cydymffurfio'n rhannol â <a href="https://www.w3.org/TR/WCAG21/" class="govuk-link">safon AA Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.1</a>, a hynny oherwydd y materion o beidio â chydymffurfio a restrir isod.
         <h1 class="govuk-heading-l">Cynnwys anhygyrch</h1>
-        <p class="govuk-body">Mae’r cynnwys isod yn anhygyrch am y rhesymau canlynol.</p>
-        <h2 class="govuk-heading-m">Anghydymffurfio â’r rheoliadau hygyrchedd</h2>
+        <p class="govuk-body">Mae'r cynnwys isod yn anhygyrch am y rhesymau canlynol.</p>
+        <h2 class="govuk-heading-m">Anghydymffurfio â'r rheoliadau hygyrchedd</h2>
         <h3 class="govuk-heading-s">Diffyg profi hygyrchedd y wefan â llaw</h3>
-        <p class="govuk-body">Mae rhai profion sylfaenol wedi’u cynnal ar wasanaeth ar-lein y Tribiwnlys Treth. Yn benodol, sicrhawyd bod y gwasanaeth yn pasio profion safon AA WCAG 2.1 o ran adnoddau profi hygyrchedd gwefan HTML, <em>Pa11y</em> a <em>WAVE</em>. Hefyd, profwyd y gwasanaeth o’r dechrau i’r diwedd gan ddefnyddio VoiceOver, y bysellfwrdd yn unig, a gwnaethpwyd y testun 300% yn fwy.</p>
-        <p class="govuk-body">Fodd bynnag, oherwydd y diffyg i brofi hygyrchedd y wefan â llaw, nid yw’n bosib datgan bod y gwasanaeth yn cydymffurfio’n llwyr â’r rheoliadau. Bydd yr archwiliad llawn a gynhelir o WCAG 2.1 yn manylu ar hygyrchedd cyffredinol y gwasanaeth. Bydd hyn yn ein galluogi i gymryd camau i sicrhau bod y gwasanaeth yn cydymffurfio’n llwyr â’r rheoliadau.</p>
+        <p class="govuk-body">Mae rhai profion sylfaenol wedi'u cynnal ar wasanaeth ar-lein y Tribiwnlys Treth. Yn benodol, sicrhawyd bod y gwasanaeth yn pasio profion safon AA WCAG 2.1 o ran adnoddau profi hygyrchedd gwefan HTML, <em>Pa11y</em> a <em>WAVE</em>. Hefyd, profwyd y gwasanaeth o'r dechrau i'r diwedd gan ddefnyddio VoiceOver, y bysellfwrdd yn unig, a gwnaethpwyd y testun 300% yn fwy.</p>
+        <p class="govuk-body">Fodd bynnag, oherwydd y diffyg i brofi hygyrchedd y wefan â llaw, nid yw'n bosib datgan bod y gwasanaeth yn cydymffurfio'n llwyr â'r rheoliadau. Bydd yr archwiliad llawn a gynhelir o WCAG 2.1 yn manylu ar hygyrchedd cyffredinol y gwasanaeth. Bydd hyn yn ein galluogi i gymryd camau i sicrhau bod y gwasanaeth yn cydymffurfio'n llwyr â'r rheoliadau.</p>
         <h1 class="govuk-heading-l">Beth rydym yn ei wneud i wella hygyrchedd y gwasanaeth hwn</h1>
-        <p class="govuk-body">Rydym yn y broses o drefnu archwiliad llawn o WCAG 2.1. Byddwn wedyn yn diweddaru’r datganiad hwn. </p>
-        <h1 class="govuk-heading-l">Paratoi’r datganiad hygyrchedd hwn</h1>
+        <p class="govuk-body">Rydym yn y broses o drefnu archwiliad llawn o WCAG 2.1. Byddwn wedyn yn diweddaru'r datganiad hwn. </p>
+        <h1 class="govuk-heading-l">Paratoi'r datganiad hygyrchedd hwn</h1>
         <p class="govuk-body">Paratowyd y datganiad hwn ar y 23ain o Dachwedd 2020. Cafodd ei ddiweddaru ddiwethaf ar y 23ain o Dachwedd 2020.</p>
         <p class="govuk-body">Profwyd y wefan hon ddiwethaf ar y 23ain o Dachwedd 2020. Cynhaliwyd y profion gan Wasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi (GLlTEM).</p>
       heading_html: "Datganiad hygyrchedd ar gyfer y gwasanaeth Apelio i'r Tribiwnlys Treth"
@@ -1141,19 +1141,19 @@ cy:
       lead_text: "Defnyddiwch y gwasanaeth hwn i ddatrys anghydfod treth drwy gael dyfarniad diduedd gan farnwr. "
       link_descriptions:
         appeal: "Datrys anghydfod gyda Cyllid a Thollau EM (HMRC), Llu Ffiniau'r DU, yr Asiantaeth Troseddu Cenedlaethol neu Awdurdod Cyllid Cymru."
-        close: "Gofyn i’r barnwr am hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
-        guidance: "Canfod atebion i gwestiynau cyffredin, ac arweiniad cam wrth gam drwy’r gwasanaeth."
-        home_login: "Parhau i gwblhau achos nad ydych wedi’i gyflwyno. "
+        close: "Gofyn i'r barnwr am hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
+        guidance: "Canfod atebion i gwestiynau cyffredin, ac arweiniad cam wrth gam drwy'r gwasanaeth."
+        home_login: "Parhau i gwblhau achos nad ydych wedi'i gyflwyno. "
       link_titles:
         appeal: "Apelio yn erbyn penderfyniad treth"
         close: "Gwneud cais i gau ymholiad"
         guidance: "Darllen y canllawiau cyn i mi ddechrau"
-        home_login: "Dychwelyd at apêl neu gais sydd wedi’i gadw"
+        home_login: "Dychwelyd at apêl neu gais sydd wedi'i gadw"
   layouts:
     current_user_menu:
       change_password: "Newid fy nghyfrinair"
       logout: Allgofnodi
-      your_cases: "Achosion rydych wedi’u cadw"
+      your_cases: "Achosion rydych wedi'u cadw"
     footer_links:
       accessibility_statement: "Datganiad hygyrchedd"
       contact: "Cysylltu â ni"
@@ -1164,11 +1164,11 @@ cy:
       terms_and_conditions: "Telerau ac amodau"
     govuk_template:
       crown_copyright_html: "<a class=\"govuk-footer__link govuk-footer__copyright-logo\" href=\"https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\">© Hawlfraint y Goron</a>"
-      default_page_title: "GOV.UK - y lle gorau i ddod o hyd i wybodaeth a gwasanaethau’r llywodraeth"
-      ogl_html: "Mae’r holl gynnwys ar gael o dan <a class=\"govuk-footer__link\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" rel=\"license\">Drwydded Llywodraeth Agored f3.0</a>, oni bai pan nodir fel arall"
+      default_page_title: "GOV.UK - y lle gorau i ddod o hyd i wybodaeth a gwasanaethau'r llywodraeth"
+      ogl_html: "Mae'r holl gynnwys ar gael o dan <a class=\"govuk-footer__link\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" rel=\"license\">Drwydded Llywodraeth Agored f3.0</a>, oni bai pan nodir fel arall"
       skip_to_main_content: "Ymlaen i'r prif gynnwys"
     phase_banner:
-      phase_info_html: "Mae hwn yn wasanaeth newydd. <a href=\"%{feedback_url}\" class=\"govuk-link\" target=\"_blank\" rel=\"noopener\">Rhowch adborth (agor mewn ffenestr newydd)</a> i’n helpu ni i wella’r gwasanaeth i eraill. "
+      phase_info_html: "Mae hwn yn wasanaeth newydd. <a href=\"%{feedback_url}\" class=\"govuk-link\" target=\"_blank\" rel=\"noopener\">Rhowch adborth (agor mewn ffenestr newydd)</a> i'n helpu ni i wella'r gwasanaeth i eraill. "
   number:
     currency:
       format:
@@ -1177,52 +1177,52 @@ cy:
   session:
     canceled_message: "Mae eich achos wedi cael ei ddileu. Dechreuwch eto."
     expired:
-      description: "Mae’r wybodaeth rydych wedi’i rhoi wedi cael ei dileu’n awtomatig i ddiogelu eich manylion. "
+      description: "Mae'r wybodaeth rydych wedi'i rhoi wedi cael ei dileu'n awtomatig i ddiogelu eich manylion. "
       heading: "Mae eich achos wedi cael ei ganslo"
       restart: "Gallwch ddechrau eto isod."
       restart_button: "Dechrau eto"
       title: "Mae eich sesiwn wedi dod i ben"
-    expired_message: "Nid ydych wedi gwneud dim am 30 munud. Mae eich cais wedi cael ei ddileu’n awtomatig. Dechreuwch eto."
+    expired_message: "Nid ydych wedi gwneud dim am 30 munud. Mae eich cais wedi cael ei ddileu'n awtomatig. Dechreuwch eto."
     expiring:
       aria-warning: "Nid ydych wedi gwneud dim am dros %{passed} munud. Bydd eich sesiwn yn dod i ben mewn llai na %{remain} munud. Pwyswch y bylchwr i barhau am %{session_length} munud arall. "
-      destroy: "Nac ydw, hoffwn ddod â’r sesiwn i ben"
+      destroy: "Nac ydw, hoffwn ddod â'r sesiwn i ben"
       extend: "Ydw, hoffwn fwy o amser i barhau â fy nghais"
-      heading: "Ydych chi eisiau mwy o amser i barhau â’ch cais?"
+      heading: "Ydych chi eisiau mwy o amser i barhau â'ch cais?"
       in: "Bydd eich sesiwn yn dod i ben"
       security: "Am resymau diogelwch, bydd unrhyw fanylion sydd heb eu cadw yn cael eu dileu."
     minute_single: munud
     minutes_plural: munudau
     note:
       heading: "Saib diogelwch"
-      text: "Ar ôl %{session_length} munud o wneud dim, byddwn yn gwirio a ydych angen mwy o amser neu’n dileu’r manylion sydd heb eu cadw yn awtomatig am resymau diogelwch. "
+      text: "Ar ôl %{session_length} munud o wneud dim, byddwn yn gwirio a ydych angen mwy o amser neu'n dileu'r manylion sydd heb eu cadw yn awtomatig am resymau diogelwch. "
     second_single: eiliad
     seconds_plural: eiliadau
   shared:
     confirmation_case_reference:
       case_reference: "Cyfeirnod eich achos yw:"
-      case_reference_pending: "Argymhellir yn gryf eich bod yn cadw neu’n argraffu copi o fanylion yr achos ar gyfer eich cofnodion. "
+      case_reference_pending: "Argymhellir yn gryf eich bod yn cadw neu'n argraffu copi o fanylion yr achos ar gyfer eich cofnodion. "
       case_submitted_successfully: "Cyflwynwyd eich achos yn llwyddiannus."
       note_number: "Gwnewch nodyn o'r rhif hwn rhag ofn y byddwch angen cysylltu â ni. Byddwn hefyd yn anfon y rhif hwn atoch mewn neges e-bost. "
-      case_reference_warning: "Os byddwch yn dewis peidio â chael copi o fanylion yr achos drwy e-bost, argymhellir yn gryf eich bod yn eu cadw neu’n eu hargraffu ar gyfer eich cofnodion. "
+      case_reference_warning: "Os byddwch yn dewis peidio â chael copi o fanylion yr achos drwy e-bost, argymhellir yn gryf eich bod yn eu cadw neu'n eu hargraffu ar gyfer eich cofnodion. "
     file_upload:
       cancel_upload: Canslo
-      confirm_cancel_upload: "Ydych chi’n siŵr eich bod eisiau canslo llwytho’r ddogfen?"
-      confirm_delete: "Ydych chi’n siŵr eich bod eisiau dileu’r ffeil hon?"
+      confirm_cancel_upload: "Ydych chi'n siŵr eich bod eisiau canslo llwytho'r ddogfen?"
+      confirm_delete: "Ydych chi'n siŵr eich bod eisiau dileu'r ffeil hon?"
       dropzone_message_html: "Llusgwch a gollyngwch ffeiliau yma<br> <strong>neu</strong><br><span class=\"faux-link\" tabindex=\"-1\">cliciwch i ddewis ffeil</span>"
       explanation_html: |
-        <p class="govuk-body"><strong>Beth i’w wneud nesaf</strong></p>
+        <p class="govuk-body"><strong>Beth i'w wneud nesaf</strong></p>
         <ul class="govuk-list govuk-list--bullet">
           <li>Gweler y <a href="%{contact_url}" class="govuk-link">wybodaeth gyswllt ddefnyddiol</a> os ydych angen cymorth i ddefnyddio'r gwasanaeth hwn.</li>
           <li>Nodwch resymau os ydych dal i gael trafferth i lwytho dogfennau.</li>
-          <li>Cliciwch ‘parhau’ i argraffu ac anfon eich apêl drwy'r post.</li>
+          <li>Cliciwch ‘parhau' i argraffu ac anfon eich apêl drwy'r post.</li>
         </ul>
       file_list_html: |-
         <ul class="govuk-list govuk-list--bullet">
           <li>Fformatau ffeiliau: Word, Excel, PDF, JPG, GIF, PNG</li>
           <li>Maint ffeil: hyd at 20 megabeit (MB)</li>
-          <li>Ni ellir llwytho ffeiliau sydd wedi’u diogelu â chyfrinair</li>
+          <li>Ni ellir llwytho ffeiliau sydd wedi'u diogelu â chyfrinair</li>
         </ul>
-      file_too_big: " mae’n rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy’n llai na XXX megabeit (MB)."
+      file_too_big: " mae'n rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy'n llai na XXX megabeit (MB)."
       file_wrong_format: " mae mewn fformat ni allwn dderbyn. Gallwch lwytho ffeiliau JPG, PNG, GIF, PDF, Word neu Excel."
       footer: "Ni allwch lwytho ffeiliau gweithredu (.exe), ffeiliau zip neu ffeiliau archif eraill oherwydd y risg o firws. "
       header: "Gofynion llwytho ffeil"
@@ -1230,7 +1230,7 @@ cy:
       remove_file: Dileu
       technical_info_html: |
         Rydym yn derbyn sgan neu lun o <strong>ansawdd da ac eglur</strong>.
-        Efallai y bydd rhaid dychwelyd eich  %{appeal_or_application} i chi os na allwn ddarllen y llythyr, ac mae’n bosib y byddwch yn methu'r terfyn amser.
+        Efallai y bydd rhaid dychwelyd eich  %{appeal_or_application} i chi os na allwn ddarllen y llythyr, ac mae'n bosib y byddwch yn methu'r terfyn amser.
       uploaded_files_header: "Ffeiliau sydd wedi cael eu llwytho"
     finish: Diwedd
     language: (Saesneg)
@@ -1238,15 +1238,15 @@ cy:
       attach_document:
         late_appeal_refusal_letter_html: "<strong>Atodwch y llythyr yn gwrthod eich apêl hwyr</strong>"
         late_review_refusal_letter_html: "<strong>Atodwch y llythyr yn gwrthod eich adolygiad hwyr</strong>"
-        original_notice_letter_html: "<strong>Atodwch yr hysbysiad gwreiddiol neu’r llythyr penderfyniad</strong>"
+        original_notice_letter_html: "<strong>Atodwch yr hysbysiad gwreiddiol neu'r llythyr penderfyniad</strong>"
         review_conclusion_letter_html: "<strong>Atodwch y llythyr canlyniad adolygiad</strong>"
       heading:
         late_appeal_refusal_letter: "Llwythwch y llythyr yn gwrthod eich apêl hwyr"
         late_review_refusal_letter: "Llwythwch y llythyr yn gwrthod eich adolygiad hwyr"
-        original_notice_letter: "Llwythwch yr hysbysiad gwreiddiol neu’r llythyr penderfyniad"
+        original_notice_letter: "Llwythwch yr hysbysiad gwreiddiol neu'r llythyr penderfyniad"
         review_conclusion_letter: "Llwythwch y llythyr canlyniad adolygiad"
       lead_text: *tax_tribunal_independent
-      upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’."
+      upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
     password_toggle:
       hide_password: "Cuddio'r cyfrinair"
       show_password: "Dangos y cyfrinair"
@@ -1268,27 +1268,27 @@ cy:
           page_title: "Math o anghydfod"
       penalty_amount:
         edit:
-          heading: "Beth yw swm y gosb neu'r gordal sy’n sail i’ch anghydfod?"
+          heading: "Beth yw swm y gosb neu'r gordal sy'n sail i'ch anghydfod?"
           lead_text: "Gwiriwch yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad am yr wybodaeth hon. "
           page_title: "Swm y gosb"
           <<: *PENALTY_LEVELS
       penalty_and_tax_amounts:
         edit:
-          heading: "Beth yw swm y dreth a swm y gosb neu’r gordal sy’n sail i'ch anghydfod? "
+          heading: "Beth yw swm y dreth a swm y gosb neu'r gordal sy'n sail i'ch anghydfod? "
           lead_text: "Rhaid i'r ddau ffigur fod ar yr un llythyr, sef yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad. "
-          page_title: "Swm y gosb a’r dreth"
+          page_title: "Swm y gosb a'r dreth"
       start:
         show:
           page_title: "Dechrau eich apêl"
       tax_amount:
         edit:
-          heading: "Faint o dreth sy’n sail i’ch anghydfod?"
+          heading: "Faint o dreth sy'n sail i'ch anghydfod?"
           lead_text: "Gwiriwch yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad am yr wybodaeth hon."
           page_title: "Swm treth "
       tax_credits_kickout:
         show:
           appeal_button: "Apelio yn erbyn penderfyniad credyd treth"
-          appeal_text: "Bydd angen ichi apelio i’r Tribiwnlys Nawdd Cymdeithasol a Chynnal Plant."
+          appeal_text: "Bydd angen ichi apelio i'r Tribiwnlys Nawdd Cymdeithasol a Chynnal Plant."
           heading: "Bydd angen ichi apelio i dribiwnlys gwahanol"
           lead_text: "Mae yna ffordd wahanol i apelio ynghylch credydau treth, gan gynnwys Credyd Treth Plant a Chredyd Treth Gwaith. "
           page_title: "Credydau treth"
@@ -1315,7 +1315,7 @@ cy:
           page_title: "Statws yr apêl"
       must_ask_for_review:
         show:
-          heading: "Mae’n rhaid ichi ofyn i'r penderfyniad gwreiddiol gael ei adolygu"
+          heading: "Mae'n rhaid ichi ofyn i'r penderfyniad gwreiddiol gael ei adolygu"
           lead_text_html: "Bydd yr hysbysiad gwreiddiol yn egluro beth i'w wneud. "
           page_title: "Rhaid gofyn am adolygiad"
           review_text_html: |-
@@ -1328,26 +1328,26 @@ cy:
       must_challenge_hmrc:
         show:
           contact_hmrc_button: "Cysylltu â Cyllid a Thollau EM"
-          free_to_challenge_hmrc_guidance_html: "<p class=\"govuk-body\">Dylech apelio hyd yn oed os ydych yn credu eich bod yn hwyr. Bydd Cyllid a Thollau EM yn penderfynu p’un a fydd yn derbyn eich apêl neu’n egluro beth allwch wneud nesaf. </p>"
+          free_to_challenge_hmrc_guidance_html: "<p class=\"govuk-body\">Dylech apelio hyd yn oed os ydych yn credu eich bod yn hwyr. Bydd Cyllid a Thollau EM yn penderfynu p'un a fydd yn derbyn eich apêl neu'n egluro beth allwch wneud nesaf. </p>"
           free_to_challenge_hmrc_heading_html: "Dim ond ôl i chi ysgrifennu at Gyllid a Thollau EM y cewch apelio i'r tribiwnlys treth. Gwiriwch yr opsiynau pan fyddwch <a href=\"https://www.gov.uk/tax-appeals\" class=\"govuk-link\">yn anghytuno â phenderfyniad treth.</a>"
-          heading: "Mae’n rhaid ichi apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
+          heading: "Mae'n rhaid ichi apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
           lead_text: "Bydd yr hysbysiad gwreiddiol yn egluro beth i'w wneud."
           page_title: "Rhaid herio Cyllid a Thollau EM"
           <<: *START_FINISH
       must_wait_for_challenge_decision:
         show:
-          heading: "Mae’n rhaid ichi aros cyn y cewch apelio"
+          heading: "Mae'n rhaid ichi aros cyn y cewch apelio"
           lead_text_html: |-
-            <p class="govuk-body">Os ydych wedi derbyn adolygiad neu wedi gofyn am un, gallwch ond apelio i’r tribiwnlys treth pan fyddwch:</p> <ul class="govuk-list govuk-list--bullet">
+            <p class="govuk-body">Os ydych wedi derbyn adolygiad neu wedi gofyn am un, gallwch ond apelio i'r tribiwnlys treth pan fyddwch:</p> <ul class="govuk-list govuk-list--bullet">
               <li>wedi cael llythyr canlyniad adolygiad</li>
               <li>wedi aros am 45 diwrnod a heb gael llythyr</li>
             </ul>
           page_title: "Rhaid aros am benderfyniad"
       must_wait_for_review_decision:
         show:
-          heading: "Mae’n rhaid ichi aros cyn y cewch apelio"
+          heading: "Mae'n rhaid ichi aros cyn y cewch apelio"
           lead_text_html: |-
-            <p class="govuk-body">Os ydych wedi derbyn adolygiad neu wedi gofyn am un, gallwch ond apelio i’r tribiwnlys treth pan fyddwch:</p>
+            <p class="govuk-body">Os ydych wedi derbyn adolygiad neu wedi gofyn am un, gallwch ond apelio i'r tribiwnlys treth pan fyddwch:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>wedi cael llythyr canlyniad adolygiad</li>
               <li>wedi aros am 45 diwrnod a heb gael llythyr</li>
@@ -1361,12 +1361,12 @@ cy:
           page_title: "Gwybodaeth ychwanegol"
           textarea_label: "Nodwch y rhesymau (dewisol)"
           upload_explanation_html: |-
-            <p class="govuk-body">Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’.</p>
+            <p class="govuk-body">Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'.</p>
             <p class="govuk-body">Cewch gyfle i lwytho dogfennau ategol yn hwyrach ymlaen yn y broses.</p>
       case_type:
         edit:
           heading: "Pa fath o ymholiad ydych chi eisiau cau?"
-          lead_text: "Gall y tribiwnlys treth ond delio â cheisiadau i gau’r ymholiadau canlynol. "
+          lead_text: "Gall y tribiwnlys treth ond delio â cheisiadau i gau'r ymholiadau canlynol. "
           page_title: "Math o achos"
       enquiry_details:
         edit:
@@ -1378,25 +1378,25 @@ cy:
           page_title: "Dechrau eich cais i gau ymholiad "
       support_documents:
         edit:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy nogfennau"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy nogfennau"
           heading: "Ychwanegwch ddogfennau i gefnogi eich cais (dewisol)"
           lead_text: *tax_tribunal_independent
-          page_title: "Dogfennau wedi’u llwytho"
-          trouble_uploading_documents_question: "Ydych chi’n cael trafferth i lwytho eich dogfennau?"
+          page_title: "Dogfennau wedi'u llwytho"
+          trouble_uploading_documents_question: "Ydych chi'n cael trafferth i lwytho eich dogfennau?"
       <<: *CYA_CONFIRMATION
     details:
       documents_upload:
         edit:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy llythyr"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy llythyr"
           other_files_info_html: |
             <p class="govuk-body"><strong>Peidiwch â llwytho unrhyw ddogfennau heblaw am eich llythyr</strong></p>
             <p class="govuk-body">Bydd y tribiwnlys yn cysylltu â chi os bydd angen rhagor o ddogfennau gennych.</p>
           page_title: "Llwytho llythyr"
-          trouble_uploading_documents_question: "Ydych chi’n cael trafferth i lwytho eich dogfennau?"
+          trouble_uploading_documents_question: "Ydych chi'n cael trafferth i lwytho eich dogfennau?"
       documents_upload_problems:
         show:
           heading: "Anfon eich apêl drwy'r post"
-          lead_text: "Anfonwch bopeth fel ei fod yn cyrraedd o fewn y terfyn amser o 30 diwrnod, oni bai eich bod yn apelio’n hwyr."
+          lead_text: "Anfonwch bopeth fel ei fod yn cyrraedd o fewn y terfyn amser o 30 diwrnod, oni bai eich bod yn apelio'n hwyr."
           page_title: "Problemau wrth lwytho dogfennau"
           post_address_html: "<p class=\"govuk-body\">Unwaith bydd eich apêl wedi cyrraedd y tribiwnlys treth byddant yn ysgrifennu atoch i gadarnhau hynny ac i ddweud beth fydd y camau nesaf.</p>"
           post_text_html: |-
@@ -1409,16 +1409,16 @@ cy:
                      <p class="govuk-body"><strong><a href="%{download_pdf_url}" class="govuk-link" target="_blank" rel="noopener">Argraffu manylion eich apêl<span class="govuk-visually-hidden"> (agor mewn ffenestr newydd)</span></a></strong></p>
                     </li>
                     <li>
-                       <strong>Gwneud copïau o’r holl ddogfennau yr oeddech eisiau eu llwytho</strong>
-                  <p class="govuk-body">Mae’n rhaid ichi gynnwys:</p>
+                       <strong>Gwneud copïau o'r holl ddogfennau yr oeddech eisiau eu llwytho</strong>
+                  <p class="govuk-body">Mae'n rhaid ichi gynnwys:</p>
                   <ul class="govuk-list govuk-list--bullet">
                     <li>yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad</li>
                     <li>copïau o unrhyw ddogfennau y bu ichi eu hatodi megis seiliau'r apêl, rhesymau dros gyflwyno apêl yn hwyr, neu awdurdodi cynrychiolydd</li>
                         </ul>
                 </li>
                 <li>
-                 <strong>Anfonwch bopeth drwy’r post</strong>
-                  <p class="govuk-body">Rhowch fanylion eich apêl yr ydych wedi’u hargraffu a chopïau o’ch dogfennau mewn un amlen a’i phostio I:</p>
+                 <strong>Anfonwch bopeth drwy'r post</strong>
+                  <p class="govuk-body">Rhowch fanylion eich apêl yr ydych wedi'u hargraffu a chopïau o'ch dogfennau mewn un amlen a'i phostio I:</p>
                   <address>
                    Tribiwnlys Haen Gyntaf (Siambr Treth)<br>
                     PO Box 16972<br>
@@ -1432,7 +1432,7 @@ cy:
         edit:
           heading: "A yw eich apêl yn deillio o ymadawiad y Deyrnas Unedig o'r Undeb Ewropeaidd? (dewisol)"
           lead_text: ""
-          page_title: "Ymadael â’r Undeb Ewropeaidd"
+          page_title: "Ymadael â'r Undeb Ewropeaidd"
       grounds_for_appeal:
         edit:
           attach_document_html: "<strong>Atodwch eich rhesymau fel dogfen sengl</strong>"
@@ -1442,30 +1442,30 @@ cy:
           lead_text_html: |-
             <p>Eglurwch yn eglur pam rydych yn apelio, gan roi rhesymau dros bob penderfyniad rydych yn anghytuno ag o. Bydd y barnwr eisiau deall eich ochr chi.</p>
             <p>Rhowch eich rhesymau isod neu atodwch nhw fel dogfen.</p>
-          page_title: "Seiliau’r apêl"
+          page_title: "Seiliau'r apêl"
           upload_explanation_html: |-
-            <p class="govuk-body">Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’.</p>
-            <p class="govuk-body">Cewch gyfle i lwytho'r hysbysiad gwreiddiol, y llythyr penderfyniad neu’r llythyr canlyniad adolygiad yn hwyrach ymlaen yn y broses.</p>
+            <p class="govuk-body">Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'.</p>
+            <p class="govuk-body">Cewch gyfle i lwytho'r hysbysiad gwreiddiol, y llythyr penderfyniad neu'r llythyr canlyniad adolygiad yn hwyrach ymlaen yn y broses.</p>
       has_representative:
         edit:
-          heading: "A oes gennych chi rywun sy’n eich cynrychioli?"
-          lead_text: "Cynrychiolydd yw rhywun rydych eisiau iddynt gael gohebiaeth am eich apêl neu rywun a fyddai’n mynd i wrandawiad ar eich rhan. Gallwch awdurdodi cynrychiolydd ar unrhyw adeg yn ystod eich apêl. "
+          heading: "A oes gennych chi rywun sy'n eich cynrychioli?"
+          lead_text: "Cynrychiolydd yw rhywun rydych eisiau iddynt gael gohebiaeth am eich apêl neu rywun a fyddai'n mynd i wrandawiad ar eich rhan. Gallwch awdurdodi cynrychiolydd ar unrhyw adeg yn ystod eich apêl. "
           page_title: "Dethol cynrychiolydd"
       letter_upload:
         edit:
-          having_problems_uploading: "Rwy’n cael trafferth i lwytho fy llythyr"
+          having_problems_uploading: "Rwy'n cael trafferth i lwytho fy llythyr"
           page_title: "Llwytho llythyr"
-          trouble_uploading_document_question: "Ydych chi’n cael trafferth i lwytho eich dogfen?"
-          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’."
+          trouble_uploading_document_question: "Ydych chi'n cael trafferth i lwytho eich dogfen?"
+          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
       letter_upload_type:
         edit:
           no_letter_info_html: |
-            <p class="govuk-body"><strong>Mae’n rhaid ichi lwytho copi o’r llythyr i'ch apêl fod yn ddilys.</strong></p>
+            <p class="govuk-body"><strong>Mae'n rhaid ichi lwytho copi o'r llythyr i'ch apêl fod yn ddilys.</strong></p>
             <ul class="govuk-list govuk-list--bullet">
               <li>cadwch eich manylion a dewch yn ôl at eich cais yn hwyrach ymlaen pan fydd y llythyr gennych</li>
-              <li>cysylltwch â Chyllid a Thollau EM os ydych wedi colli’ch llythyr ac angen copi ohono</li>
+              <li>cysylltwch â Chyllid a Thollau EM os ydych wedi colli'ch llythyr ac angen copi ohono</li>
             </ul>
-          page_title: "Math o lythyr i’w lwytho"
+          page_title: "Math o lythyr i'w lwytho"
       need_support:
         edit:
           heading: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
@@ -1482,17 +1482,17 @@ cy:
           anytime_text: "Gallwch hefyd anfon yr awdurdod yn hwyrach ymlaen ar unrhyw adeg yn ystod yr apêl. "
           attach_document_html: |-
             <strong>Llwytho ffurflen awdurdodi</strong>
-            <p class="govuk-body">Gallwch anfon sgan o’r ffurflen neu luniau o ansawdd da.</p>
+            <p class="govuk-body">Gallwch anfon sgan o'r ffurflen neu luniau o ansawdd da.</p>
           details_example_html: |-
             <h2 class="govuk-heading-m">Esiampl</h2>
             <div class="panel">
               <div class="letter">
-                <p class="govuk-body">Enw’r trethdalwr:</p>
-                <p class="govuk-body">Rwy’n awdurdodi fy nghynrychiolydd i weithredu ar fy rhan yn y <span class="" data-dependent="application_type=appeal"> apêl</span><span class="js-hidden" data-dependent="application_type=closure"> cais</span> hwn.</p>
-                <p class="govuk-body">Enw’r cynrychiolydd:</p>
+                <p class="govuk-body">Enw'r trethdalwr:</p>
+                <p class="govuk-body">Rwy'n awdurdodi fy nghynrychiolydd i weithredu ar fy rhan yn y <span class="" data-dependent="application_type=appeal"> apêl</span><span class="js-hidden" data-dependent="application_type=closure"> cais</span> hwn.</p>
+                <p class="govuk-body">Enw'r cynrychiolydd:</p>
                 <p class="govuk-body">Cyfeiriad y cynrychiolydd:</p>
                 <p class="govuk-body">Llofnod y trethdalwr:</p>
-                <p class="govuk-body">Enw’r llofnodwr (llythrennau bras):</p>
+                <p class="govuk-body">Enw'r llofnodwr (llythrennau bras):</p>
                 <p class="govuk-body">Swydd:</p>
                 <p class="govuk-body">Dyddiad:</p>
               </div>
@@ -1504,9 +1504,9 @@ cy:
             as_representative_html: |-
               <ol class="govuk-list govuk-list--number">
                 <li>Copïwch a phastiwch y testun isod i neges e-bost, dogfen neu gallwch ei lawrlwytho fel PDF.</li>
-                <li>Anfonwch ef at y trethdalwr i’w lenwi.</li>
-                <li>Gofynnwch i'r trethdalwr anfon yr wybodaeth yn ôl mewn neges e-bost o’u cyfrif e-bost neu atodi ffurflen sydd wedi’i harwyddo.</li>
-                <li>Llwythwch gopi o'r neges e-bost neu'r ffurflen wedi’i harwyddo.</li>
+                <li>Anfonwch ef at y trethdalwr i'w lenwi.</li>
+                <li>Gofynnwch i'r trethdalwr anfon yr wybodaeth yn ôl mewn neges e-bost o'u cyfrif e-bost neu atodi ffurflen sydd wedi'i harwyddo.</li>
+                <li>Llwythwch gopi o'r neges e-bost neu'r ffurflen wedi'i harwyddo.</li>
               </ol>
               <p class="govuk-body">Os yw eich <span class="" data-dependent="application_type=appeal">apêl </span><span class="js-hidden" data-dependent="application_type=closure">cais </span>ar gyfer cwmni, bydd angen i gyfarwyddwr yn y cwmni arwyddo'r ffurflen.</p>
             as_taxpayer_html: |-
@@ -1522,27 +1522,27 @@ cy:
             as_taxpayer: "Ydych chi eisiau awdurdodi eich cynrychiolydd nawr? (dewisol)"
           lead_text:
             as_representative: "Llwythwch awdurdodiad i hysbysu'r tribiwnlys treth eich bod yn gweithredu ar ran y trethdalwr. "
-            as_taxpayer: "Os ydych eisiau i’ch cynrychiolydd ddechrau cael gohebiaeth gan y tribiwnlys treth, gallwch eu hawdurdodi nawr. "
+            as_taxpayer: "Os ydych eisiau i'ch cynrychiolydd ddechrau cael gohebiaeth gan y tribiwnlys treth, gallwch eu hawdurdodi nawr. "
           page_title: "Cymeradwyaeth y cynrychiolydd"
-          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’."
+          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
       representative_details:
         edit:
           heading: "Manylion y cynrychiolydd"
           lead_text:
-            as_representative: "Os yw’r trethdalwr wedi eich awdurdodi chi i weithredu ar eu rhan, fe anfonir yr holl ohebiaeth i'r cyfeiriad a'r cyfeiriad e-bost y byddwch yn ei roi isod."
+            as_representative: "Os yw'r trethdalwr wedi eich awdurdodi chi i weithredu ar eu rhan, fe anfonir yr holl ohebiaeth i'r cyfeiriad a'r cyfeiriad e-bost y byddwch yn ei roi isod."
             as_taxpayer: "Os ydych wedi awdurdodi eich cynrychiolydd i weithredu ar eich rhan, fe anfonir yr holl ohebiaeth i'r cyfeiriad neu'r cyfeiriad e-bost y byddwch yn ei roi isod. "
           page_title: "Manylion y cynrychiolydd"
       representative_professional_status:
         edit:
           heading:
             as_representative: "Pwy ydych chi?"
-            as_taxpayer: "Pwy sy’n eich cynrychioli chi?"
+            as_taxpayer: "Pwy sy'n eich cynrychioli chi?"
           page_title: "Statws proffesiynol"
       representative_type:
         edit:
           heading:
-            as_representative: "Ydych chi’n unigolyn, yn gwmni neu’n fath arall o sefydliad?"
-            as_taxpayer: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu’n fath arall o sefydliad? "
+            as_representative: "Ydych chi'n unigolyn, yn gwmni neu'n fath arall o sefydliad?"
+            as_taxpayer: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu'n fath arall o sefydliad? "
           page_title: "Math o gynrychiolydd"
       taxpayer_details:
         edit:
@@ -1551,12 +1551,12 @@ cy:
       taxpayer_type:
         edit:
           heading:
-            as_representative: "Ar gyfer pwy mae’r %{appeal_or_application}?"
-            as_taxpayer: "Pwy sy’n gwneud yr %{appeal_or_application}?"
+            as_representative: "Ar gyfer pwy mae'r %{appeal_or_application}?"
+            as_taxpayer: "Pwy sy'n gwneud yr %{appeal_or_application}?"
           page_title: "Math o drethdalwr"
       user_type:
         edit:
-          heading: "Ai chi yw’r trethdalwr sy’n gwneud yr %{appeal_or_application}?"
+          heading: "Ai chi yw'r trethdalwr sy'n gwneud yr %{appeal_or_application}?"
           page_title: "Math o ddefnyddiwr"
       what_support:
         edit:
@@ -1568,21 +1568,21 @@ cy:
     hardship:
       disputed_tax_paid:
         edit:
-          heading: "Ydych chi wedi talu swm y dreth sy’n sail i’ch anghydfod?"
-          lead_text: "Mae’n rhaid ichi dalu unrhyw dreth sy’n sail i’ch anghydfod, oni bai y byddai hynny’n achosi caledi ariannol. Nid oes rhaid ichi dalu unrhyw gosb neu gordal cyn y gallwch apelio. "
+          heading: "Ydych chi wedi talu swm y dreth sy'n sail i'ch anghydfod?"
+          lead_text: "Mae'n rhaid ichi dalu unrhyw dreth sy'n sail i'ch anghydfod, oni bai y byddai hynny'n achosi caledi ariannol. Nid oes rhaid ichi dalu unrhyw gosb neu gordal cyn y gallwch apelio. "
           page_title: "Swm a dalwyd"
       hardship_reason:
         edit:
           attach_document_html: *attach_reasons_document
-          heading: "Pam y byddai talu’r dreth sy’n sail i’ch anghydfod yn achosi caledi ariannol i chi?"
-          lead_text: "Bydd y barnwr yn penderfynu p’un a all eich apêl barhau heb ichi orfod talu’r dreth yn gyntaf. "
+          heading: "Pam y byddai talu'r dreth sy'n sail i'ch anghydfod yn achosi caledi ariannol i chi?"
+          lead_text: "Bydd y barnwr yn penderfynu p'un a all eich apêl barhau heb ichi orfod talu'r dreth yn gyntaf. "
           page_title: "Rheswm dros y caledi ariannol"
-          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’."
+          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
       hardship_review_requested:
         edit:
-          heading: "A wnaethoch chi ofyn i Gyllid a Thollau EM adael ichi apelio i’r tribiwnlys heb orfod talu’r dreth yn gyntaf?"
+          heading: "A wnaethoch chi ofyn i Gyllid a Thollau EM adael ichi apelio i'r tribiwnlys heb orfod talu'r dreth yn gyntaf?"
           lead_text: "Ni fydd eich apêl yn cael ei hystyried hyd nes y byddwch yn ysgrifennu at Gyllid a Thollau EM yn egluro pam y byddai talu yn achosi caledi ariannol. "
-          page_title: "Cais caledi ariannol wedi’i wneud "
+          page_title: "Cais caledi ariannol wedi'i wneud "
       hardship_review_status:
         edit:
           heading: "A wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol?"
@@ -1591,28 +1591,28 @@ cy:
     lateness:
       in_time:
         edit:
-          heading: "A ydych mewn pryd i apelio i’r tribiwnlys treth?"
+          heading: "A ydych mewn pryd i apelio i'r tribiwnlys treth?"
           lead_text: "Mae gennych 30 diwrnod yn dechrau o ddyddiad yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad. Os byddwch yn apelio ar ôl hynny, bydd angen ichi egluro pam."
-          page_title: "Apelio’n hwyr"
+          page_title: "Apelio'n hwyr"
       lateness_reason:
         edit:
           attach_document_html: *attach_reasons_document
-          heading: "Pam ydych chi’n hwyr gyda’ch %{appeal_or_application}?"
+          heading: "Pam ydych chi'n hwyr gyda'ch %{appeal_or_application}?"
           heading_unsure: "A oes yna resymau pam bod eich %{appeal_or_application} yn hwyr?"
           lead_text_html: |
             <p>Bydd y barnwr yn ystyried eich rhesymau ac unrhyw ymateb gan Gyllid a Thollau EM.
-            Efallai y cynhelir gwrandawiad i benderfynu a all eich %{appeal_or_application} barhau. Os na chaniateir ichi apelio’n hwyr, fe ddywedir wrthych pam.</p>
+            Efallai y cynhelir gwrandawiad i benderfynu a all eich %{appeal_or_application} barhau. Os na chaniateir ichi apelio'n hwyr, fe ddywedir wrthych pam.</p>
             <p>Rhowch eich rhesymau isod neu atodwch nhw fel dogfen.</p>
           lead_text_unsure_html: |
-            <p>I helpu i brosesu eich achos yn gyflym, dylech roi rhesymau pam bod eich %{appeal_or_application} yn hwyr. Y barnwr fydd yn penderfynu a all eich %{appeal_or_application} barhau os yw’n hwyr.</p>
+            <p>I helpu i brosesu eich achos yn gyflym, dylech roi rhesymau pam bod eich %{appeal_or_application} yn hwyr. Y barnwr fydd yn penderfynu a all eich %{appeal_or_application} barhau os yw'n hwyr.</p>
             <p>Rhowch eich rhesymau isod neu atodwch nhw fel dogfen.</p>
           page_title: "Rheswm dros fod yn hwyr"
-          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau’."
+          upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
     save_and_return:
       edit:
         heading: "Ydych chi eisiau gallu cadw a dychwelyd at yr apêl hon?"
         lead_text: "Bydd creu cyfrif yn eich galluogi i gadw apêl sydd heb ei chwblhau a dychwelyd ati yn hwyrach ymlaen. "
-        lead_text_2: "Os ydych chi’n dewis peidio â chreu cyfrif ac nad ydych yn cyflwyno eich apêl, yna byddwch yn colli unrhyw wybodaeth yr ydych wedi’i rhoi a bydd rhaid i chi ddechrau eto. "
+        lead_text_2: "Os ydych chi'n dewis peidio â chreu cyfrif ac nad ydych yn cyflwyno eich apêl, yna byddwch yn colli unrhyw wybodaeth yr ydych wedi'i rhoi a bydd rhaid i chi ddechrau eto. "
         page_title: "Ydych chi eisiau gallu cadw a dychwelyd at yr apêl hon?"
         save_for_later: "Creu cyfrif (dewisol)"
     select_language:
@@ -1633,10 +1633,10 @@ cy:
           <p class="govuk-body">Gall cynrychiolydd fod yn:</p>
           <ul class="govuk-list govuk-list--bullet">
               <li>gyfreithiwr proffesiynol, cynghorydd treth, cyfrifydd</li>
-              <li>ffrind neu’n aelod o'r teulu</li>
+              <li>ffrind neu'n aelod o'r teulu</li>
             </ul>
           <p class="govuk-body">Gallwch ddefnyddio cynrychiolydd os ydych yn teimlo eich bod angen cymorth neu gyngor. Gall cynrychiolydd gael gohebiaeth gan y tribiwnlys treth a mynychu unrhyw wrandawiadau ar eich rhan.</p>
-          <p class="govuk-body">Bydd angen ichi lawrlwytho a llenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi (%{approval_form_format_and_size})<span class="govuk-visually-hidden">(agor mewn ffenestr newydd) </span></a>os nad yw’r unigolyn sy’n eich cynrychioli yn gyfreithiwr neu’n fargyfreithiwr sy’n ymarfer.</p>
+          <p class="govuk-body">Bydd angen ichi lawrlwytho a llenwi <a href="%{approval_form_href}" class="govuk-link" target="_blank" rel="noopener">ffurflen awdurdodi (%{approval_form_format_and_size})<span class="govuk-visually-hidden">(agor mewn ffenestr newydd) </span></a>os nad yw'r unigolyn sy'n eich cynrychioli yn gyfreithiwr neu'n fargyfreithiwr sy'n ymarfer.</p>
         heading: "Beth yw cynrychiolydd a beth allant ei wneud?"
       send_application_details:
         <<: *SEND_CASE_DETAILS_COPY
@@ -1645,15 +1645,15 @@ cy:
       new:
         heading: "Riportio problem"
         lead_html: |-
-          <p class="govuk-body">Rhowch eich enw, cyfeiriad e-bost a disgrifiad byr o’r help yr ydych angen. Byddwn yn cysylltu â chi drwy e-bost yn ystod y diwrnod gwaith nesaf rhwng 9am a 5pm.</p>
+          <p class="govuk-body">Rhowch eich enw, cyfeiriad e-bost a disgrifiad byr o'r help yr ydych angen. Byddwn yn cysylltu â chi drwy e-bost yn ystod y diwrnod gwaith nesaf rhwng 9am a 5pm.</p>
           <p class="govuk-body">Byddwn bob amser yn ceisio eich helpu drwy e-bost, ond os hoffech inni eich ffonio, rhowch eich rhif ffôn yn y blwch disgrifiad. Dim ond ar gyfer cysylltu â chi y byddwn yn defnyddio eich manylion. Peidiwch â chynnwys unrhyw wybodaeth bersonol, er enghraifft, cyfeiriad neu ddyddiad geni.</p>
         notice: "Noder: ni allwn roi cyngor cyfreithiol ichi."
         page_title: Adborth
         submit: Cyflwyno
       thanks:
-        continue: "Yn ôl i’r dechrau"
+        continue: "Yn ôl i'r dechrau"
         heading: "Diolch am riportio'r broblem hon"
-        page_title: "Adborth wedi’i gyflwyno"
+        page_title: "Adborth wedi'i gyflwyno"
   time:
     years: o flynyddoedd
     case_expires_in:
@@ -1665,40 +1665,40 @@ cy:
       case_row:
         create_reference: "Ychwanegu cyfeirnod"
         delete: Dileu
-        delete_confirmation: "Ydych chi’n siŵr eich bod eisiau dileu’r achos hwn?"
+        delete_confirmation: "Ydych chi'n siŵr eich bod eisiau dileu'r achos hwn?"
         edit_reference: "Golygu'r cyfeirnod"
         name_not_entered: "Heb ei nodi"
         reference_not_entered: "Heb ei nodi "
         resume: Parhau
       edit:
         heading: "Cyfeirnod eich achos (dewisol)"
-        lead_text: "Rhowch gyfeirnod i'r achos fel y gallwch ddod i hyd iddo’n hawdd. "
+        lead_text: "Rhowch gyfeirnod i'r achos fel y gallwch ddod i hyd iddo'n hawdd. "
         page_title: "Golygu'r cyfeirnod"
       index:
-        cases_intro: "Parhau ag achos drafft nad ydych wedi’i gyflwyno eto. "
+        cases_intro: "Parhau ag achos drafft nad ydych wedi'i gyflwyno eto. "
         expire_warning_html: |-
           <p class="notice govuk-body>
             <i class="icon icon-important">
                  <span class="govuk-visually-hidden">Rhybudd</span>
             </i>
             <strong class="font-small">
-              Gwiriwch eich bod o fewn terfyn amser y tribiwnlys treth. Mae’n bosib y gallwch apelio’n hwyr drwy roi rhesymau.
+              Gwiriwch eich bod o fewn terfyn amser y tribiwnlys treth. Mae'n bosib y gallwch apelio'n hwyr drwy roi rhesymau.
             </strong>
           </p>
-        heading: "Achosion rydych wedi’u cadw"
+        heading: "Achosion rydych wedi'u cadw"
         new_case: "Dechrau apêl neu gais newydd"
         page_title: "Eich achosion drafft"
         table:
-          caption: "Tabl o apeliadau/ceisiadau sydd wedi’u cadw"
+          caption: "Tabl o apeliadau/ceisiadau sydd wedi'u cadw"
           heading:
             case_actions: "Camau gweithredu"
             expires_in: "Dod i ben mewn"
-            taxpayer_name: "Enw’r trethdalwr"
+            taxpayer_name: "Enw'r trethdalwr"
             your_reference: "Eich cyfeirnod"
     logins:
       logged_out:
         heading: "Rydych wedi allgofnodi"
-        lead_text: "Gallwch ddychwelyd at achos sydd wedi’i gadw drwy ddefnyddio’r ddolen a anfonwyd atoch yn y neges e-bost neu drwy ddychwelyd i ddechrau'r gwasanaeth hwn. "
+        lead_text: "Gallwch ddychwelyd at achos sydd wedi'i gadw drwy ddefnyddio'r ddolen a anfonwyd atoch yn y neges e-bost neu drwy ddychwelyd i ddechrau'r gwasanaeth hwn. "
         more_text_html: "Bydd achos drafft yn dod i ben ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
         page_title: Allgofnodi
       new:
@@ -1707,14 +1707,14 @@ cy:
         page_title: Mewngofnodi
       save_confirmation:
         heading: "Mae eich achos wedi cael ei gadw"
-        page_title: "Achos wedi’i gadw"
-        your_cases: "Mynd i'r achosion rydych wedi’u cadw "
+        page_title: "Achos wedi'i gadw"
+        your_cases: "Mynd i'r achosion rydych wedi'u cadw "
     passwords:
       edit:
         heading: "Newid eich cyfrinair"
         page_title: "Newid fy nghyfrinair "
       new:
-        account_text: "Cofiwch, os nad ydych wedi mewngofnodi i’ch cyfrif am 30 diwrnod, byddwn wedi dileu eich cyfrif am resymau diogelwch."
+        account_text: "Cofiwch, os nad ydych wedi mewngofnodi i'ch cyfrif am 30 diwrnod, byddwn wedi dileu eich cyfrif am resymau diogelwch."
         heading: "Wedi anghofio eich cyfrinair?"
         lead_text: "Rhowch eich cyfeiriad e-bost ac mi wnawn anfon dolen atoch i chi ailosod eich cyfrinair. "
         page_title: "Wedi anghofio eich cyfrinair?"
@@ -1723,12 +1723,12 @@ cy:
         heading: "Mae eich cyfrinair wedi cael ei newid"
         lead_text: "Rydych wedi dewis cyfrinair newydd yn llwyddiannus. "
         page_title: "Cyfrinair wedi ei newid"
-        sign_in: "Mewngofnodwch i weld eich achosion sydd wedi’u cadw"
+        sign_in: "Mewngofnodwch i weld eich achosion sydd wedi'u cadw"
       reset_sent:
         deleted_account: "Ni chewch neges e-bost os nad ydych wedi mewngofnodi i'ch cyfrif am 30 diwrnod. Rydym yn dileu eich manylion am resymau diogelwch. Crëwch gyfrif newydd i gadw achos."
         heading: "Gwiriwch eich negeseuon e-bost"
-        lead_text: "Rydym wedi anfon neges e-bost atoch gyda dolen i chi ailosod eich cyfrinair. Edrychwch yn eich mewnflwch a’r ffolder ‘spam’. "
-        page_title: "Dolen ailosod wedi’i anfon"
+        lead_text: "Rydym wedi anfon neges e-bost atoch gyda dolen i chi ailosod eich cyfrinair. Edrychwch yn eich mewnflwch a'r ffolder ‘spam'. "
+        page_title: "Dolen ailosod wedi'i anfon"
     registrations:
       edit:
         heading: "Newid eich cyfrinair"
@@ -1741,27 +1741,27 @@ cy:
         page_title: Cofrestru
       save_confirmation:
         heading: "Mae eich achos wedi cael ei gadw"
-        page_title: "Achos wedi’i gadw"
+        page_title: "Achos wedi'i gadw"
         sign_in: Mewngofnodi
       update_confirmation:
         heading: "Mae eich cyfrinair wedi cael ei newid"
-        lead_text: "Mae eich cyfrinair wedi cael ei ddiweddaru’n llwyddiannus."
-        page_title: "Cyfrinair wedi’i ddiweddaru"
-        your_cases: "Dychwelyd at yr achosion rydych wedi’u cadw"
+        lead_text: "Mae eich cyfrinair wedi cael ei ddiweddaru'n llwyddiannus."
+        page_title: "Cyfrinair wedi'i ddiweddaru"
+        your_cases: "Dychwelyd at yr achosion rydych wedi'u cadw"
     shared:
       case_saved:
         continue: Parhau
-        continue_hint: "Cliciwch ‘Parhau’ i gario ymlaen  "
-        expire_warning_html: "Byddwn yn cadw drafft o’ch achos am <strong>%{expire_in_days} diwrnod</strong> neu hyd nes y byddwch yn cyflwyno eich achos. Ar ôl y cyfnod hwn, bydd eich gwybodaeth yn cael ei dileu’n awtomatig i ddiogelu eich manylion. "
-        lead_text_html: "Mae e-bost cadarnhau wedi’i anfon i:<br><strong>%{email_address}</strong>"
+        continue_hint: "Cliciwch ‘Parhau' i gario ymlaen  "
+        expire_warning_html: "Byddwn yn cadw drafft o'ch achos am <strong>%{expire_in_days} diwrnod</strong> neu hyd nes y byddwch yn cyflwyno eich achos. Ar ôl y cyfnod hwn, bydd eich gwybodaeth yn cael ei dileu'n awtomatig i ddiogelu eich manylion. "
+        lead_text_html: "Mae e-bost cadarnhau wedi'i anfon i:<br><strong>%{email_address}</strong>"
         return_info: "Gallwch ddychwelyd i barhau mewnbynnu eich manylion ar unrhyw adeg. Gwiriwch eich bod dal o fewn terfyn amser y tribiwnlys treth a rhowch resymau os ydych yn credu eich bod yn hwyr. "
       password_guidelines_html: |-
-        <p class="govuk-body">Rhaid i’ch cyfrinair:</p>
+        <p class="govuk-body">Rhaid i'ch cyfrinair:</p>
         <ul class="govuk-list standard-list">
           <li>gynnwys o leiaf 8 nod</li>
           <li>cynnwys o leiaf un rhif (0-9)</li>
           <li>cynnwys o leiaf un priflythyren ac un llythyren fach</li>
           <li>cynnwys o leiaf un nod arbennig (#,?,!,@,$,%,^,&,*,-)</li>
           <li>bod yn wahanol i'ch cyfeiriad e-bost</li>
-          <li>peidio â bod yn anagram gwan neu’n gyfrinair cyffredin</li>
+          <li>peidio â bod yn anagram gwan neu'n gyfrinair cyffredin</li>
         </ul>
