@@ -10,6 +10,8 @@
     Events: $({}),
 
     init: function() {
+      moj.setLocale();
+
       for (var x in moj.Modules) {
         if (typeof moj.Modules[x].init === 'function') {
           moj.Modules[x].init();
@@ -37,7 +39,22 @@
       } else {
         return false;
       }
-    }
+    },
+
+    t: function(key) {
+      moj.setLocale();
+      var keys = key.split('.');
+      keys.push(moj.locale);
+      const translate = function (obj, key) { return obj[key]; };
+      return keys.reduce(translate, window);
+    },
+
+    setLocale: function() {
+      moj.locale = window.location.pathname.split('/')[1] || moj.defaultLocale;
+      return moj.locale;
+    },
+
+    defaultLocale: "<%= I18n.default_locale %>"
 
   };
 
