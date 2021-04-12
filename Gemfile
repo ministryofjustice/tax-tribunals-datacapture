@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.7.2'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
@@ -56,9 +56,9 @@ group :development, :test do
   gem 'mutant-rspec', '< 0.9'
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rspec', require: false
+#  gem 'rubocop', require: false
+#  gem 'rubocop-performance', require: false
+#  gem 'rubocop-rspec', require: false
 end
 
 group :test do
@@ -82,3 +82,5 @@ group :test do
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
+
+gem "rubocop", "~> 0.68.1"

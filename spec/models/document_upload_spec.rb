@@ -189,7 +189,7 @@ RSpec.describe DocumentUpload do
       context 'existing `image.`, uploading `image.`' do
         let(:new_filename) { 'image.' }
         let(:uploaded_files) { [{collection_ref: '123', name: 'image.'}] }
-        it { expect(subject.file_name).to eq('image.(1)') }
+        it { expect(subject.file_name).to eq('image.(1).') }
       end
 
       context 'existing `.image`, uploading `.image`' do
