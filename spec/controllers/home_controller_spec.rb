@@ -68,6 +68,32 @@ RSpec.describe HomeController do
       get :cookies
       expect(response).to render_template(:cookies)
     end
+
+    it 'sets for cookie_setting form object' do
+      get :cookies
+      expect(assigns(:form_object)).to be_a(Cookie::YesNoForm)
+    end
+  end
+
+  describe '#update' do
+    Cookie::YesNoForm.choices.each do |selection|
+      it "saves cookie preferences #{selection}" do
+        expect(Cookie::YesNoForm).to receive(:new)
+                                       .with(hash_including(cookie_setting: selection))
+                                       .and_return(Cookie::YesNoForm.new)
+        put :update, params: { cookie_yes_no_form: { cookie_setting: selection} }
+      end
+    end
+
+    it 'sets notification flag' do
+      put :update, params: { cookie_yes_no_form: { cookie_setting: 'yes'} }
+      expect(flash[:cookie_notification]).to be_present
+    end
+
+    it 'redirects to cookies page' do
+      put :update, params: { cookie_yes_no_form: { cookie_setting: 'yes'} }
+      expect(response).to redirect_to(:cookies)
+    end
   end
 
   describe '#terms' do

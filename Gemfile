@@ -55,6 +55,7 @@ group :development, :test do
   gem 'launchy'
   gem 'mutant-rspec'
   gem 'pry-byebug'
+  gem 'timecop'
   gem 'rspec-rails'
   gem 'rubocop', '~> 1', require: false
   gem 'rubocop-performance', require: false
