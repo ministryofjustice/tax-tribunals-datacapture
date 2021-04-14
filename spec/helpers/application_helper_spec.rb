@@ -118,9 +118,21 @@ RSpec.describe ApplicationHelper, type: :helper do
   end
 
   describe '#analytics_tracking_id' do
-    it 'retrieves the environment variable' do
-      expect(ENV).to receive(:[]).with('GTM_TRACKING_ID')
-      helper.analytics_tracking_id
+    context 'when accepted analytics cookies' do
+      before do
+        allow_any_instance_of(Cookie::YesNoForm).to receive(:accepted?).and_return(true)
+      end
+      it 'retrieves the environment variable' do
+        expect(ENV).to receive(:[]).with('GTM_TRACKING_ID')
+        helper.analytics_tracking_id
+      end
+    end
+
+    context 'when rejected analytics cookies' do
+      it 'retrieves the environment variable' do
+        expect(ENV).not_to receive(:[]).with('GTM_TRACKING_ID')
+        helper.analytics_tracking_id
+      end
     end
   end
 
