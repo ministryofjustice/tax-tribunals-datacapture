@@ -1,5 +1,6 @@
 en:
   cookies:
+    notification: "You've set your cookie preferences"
     page_title: Cookies
     heading: Cookies
     lead_text: Appeal to the tax tribunal puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.
@@ -7,6 +8,7 @@ en:
       further_information: Further information
       how_we_use: How cookies are used on Appeal to the tax tribunal
       analytics_cookies: Analytics cookies (optional)
+      accept_cookies: Do you want to accept analytics cookies?
 
     intro:
       line_1: "Cookies are used to:"

@@ -412,6 +412,7 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    timecop (0.9.4)
     typhoeus (1.1.2)
       ethon (>= 0.9.0)
     tzinfo (1.2.9)
@@ -523,6 +524,7 @@ DEPENDENCIES
   site_prism
   sprockets (= 3.7.2)
   strong_password (~> 0.0.8)
+  timecop
   uglifier
   valid_email2
   virtus
