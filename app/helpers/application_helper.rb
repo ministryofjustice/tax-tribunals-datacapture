@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def analytics_tracking_id
-    ENV['GTM_TRACKING_ID']
+    ENV['GTM_TRACKING_ID'] if Cookie::YesNoForm.new(request: request).accepted?
   end
 
   def login_or_portfolio_path
