@@ -118,4 +118,8 @@ module ApplicationHelper
   def form_t239_link
     'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf'
   end
+
+  def show_cookie_banner?
+    !Cookie::YesNoForm.new(request: request).preference_set?
+  end
 end

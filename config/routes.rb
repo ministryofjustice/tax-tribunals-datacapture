@@ -180,7 +180,7 @@ Rails.application.routes.draw do
   get :guidance, to: 'home#guidance'
   get :contact, to: 'home#contact', as: :contact_page
   get :cookies, to: 'home#cookies', as: :cookies_page
-  put :cookies, to: 'home#update'
+  put :cookies, to: 'home#update', as: :set_cookie_preference
 
   get 'terms-conditions', to: 'home#terms', as: :terms_page
   get 'privacy', to: 'home#privacy', as: :privacy_page
