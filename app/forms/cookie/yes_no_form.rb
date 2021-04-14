@@ -18,10 +18,22 @@ module Cookie
       super.blank? ? cookie_setting_value : super
     end
 
+    def accepted?
+      cookie_setting.to_s == YesNo::YES.to_s
+    end
+
+    def preference_set?
+      self.class.choices.include?(request&.cookies[COOKIE_NAME])
+    end
+
     private
 
     def cookie_setting_value
-      request&.cookies&.fetch(COOKIE_NAME) || YesNo::NO
+      if request.present?
+        request.cookies[COOKIE_NAME] || YesNo::NO
+      else
+        YesNo::NO
+      end
     end
 
     def persist!

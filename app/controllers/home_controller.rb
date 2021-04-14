@@ -30,8 +30,8 @@ class HomeController < ApplicationController
       cookie_setting: cookie_setting,
       response: response
     ).save
-    flash[:cookie_notification] = true
-    redirect_to :cookies
+    flash[:cookie_notification] = cookie_notification
+    redirect_to request.referer
   end
 
   private
@@ -41,6 +41,14 @@ class HomeController < ApplicationController
       .permit(:cookie_setting)
       .to_h
       .fetch(:cookie_setting)
+  end
+
+  def cookie_notification
+    if params[:cookie_banner].present?
+      cookie_setting
+    else
+      true
+    end
   end
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]

@@ -76,6 +76,12 @@ RSpec.describe HomeController do
   end
 
   describe '#update' do
+    let(:referer) { 'http://local.net/page' }
+
+    before do
+      request.env['HTTP_REFERER'] = referer
+    end
+
     Cookie::YesNoForm.choices.each do |selection|
       it "saves cookie preferences #{selection}" do
         expect(Cookie::YesNoForm).to receive(:new)
@@ -92,7 +98,7 @@ RSpec.describe HomeController do
 
     it 'redirects to cookies page' do
       put :update, params: { cookie_yes_no_form: { cookie_setting: 'yes'} }
-      expect(response).to redirect_to(:cookies)
+      expect(response).to redirect_to(referer)
     end
   end
 

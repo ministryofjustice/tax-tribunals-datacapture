@@ -137,7 +137,7 @@
     <p class="govuk-body"><%= t 'cookies.how_we_use.line_14_html' %></p>
 
 
-    <h2 class="govuk-heading-m"><%= t 'cookies.section_list.accept_cookies' %></h2>
+    <h2 id="cookie-settings" class="govuk-heading-m"><%= t 'cookies.section_list.accept_cookies' %></h2>
     <p class="govuk-body">
         <%= govuk_error_summary %>
         <%= step_form @form_object, html: { class: 'ga-radioButtonGroup'  } do |f| %>

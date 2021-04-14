@@ -1,5 +1,17 @@
 en:
   cookies:
+    banner:
+      heading: Cookies on appeal to the tax tribunal
+      content:
+        line_1: We use some essential cookies to make this service work.
+        line_2: "We'd also like to use analytics cookies so we can understand how you use the service and make improvements."
+        accepted_html: You've accepted analytics cookies. You can <a class="govuk-link" href="/cookies#cookie-settings"> change your cookie settings</a> at any time.
+        rejected_html: You've rejected analytics cookies. You can <a class="govuk-link" href="/cookies#cookie-settings"> change your cookie settings</a> at any time.
+      button:
+        accept: Accept analytics cookies
+        reject: Reject analytics cookies
+        hide: Hide this message
+      link: View cookies
     notification: "You've set your cookie preferences"
     page_title: Cookies
     heading: Cookies

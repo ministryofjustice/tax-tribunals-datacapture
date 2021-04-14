@@ -44,6 +44,46 @@ RSpec.describe Cookie::YesNoForm do
     end
   end
 
+  describe '.accepted?' do
+    context 'when cookie_setting is "yes"' do
+      let(:value) { 'yes' }
+
+      it 'returns true' do
+        expect(subject).to be_accepted
+      end
+    end
+
+    context 'when cookie_setting is "no"' do
+      let(:value) { 'no' }
+
+      it 'returns false' do
+        expect(subject).not_to be_accepted
+      end
+    end
+  end
+
+  describe '.preference_set?' do
+    context 'when cookie set to NO' do
+      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => 'no' }) }
+      specify { expect(subject).to be_preference_set }
+    end
+
+    context 'when cookie set to YES' do
+      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => 'yes' }) }
+      specify { expect(subject).to be_preference_set }
+    end
+
+    context 'when cookie has wrong value' do
+      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => '' }) }
+      specify { expect(subject).not_to be_preference_set }
+    end
+
+    context 'when cookie missing' do
+      let(:request) { double('request', cookies: {}) }
+      specify { expect(subject).not_to be_preference_set }
+    end
+  end
+
   describe '#save' do
     let(:response) { double('response') }
 
