@@ -63,6 +63,7 @@ EXPOSE $PUMA_PORT
 COPY . /home/app
 WORKDIR /home/app
 
+RUN bash -lc 'rvm get stable; rvm install 2.7.3; rvm --default use ruby-2.7.3'
 RUN gem install bundler -v 2.2.15
 RUN bundle install --without test development
 
