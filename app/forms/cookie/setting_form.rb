@@ -42,6 +42,7 @@ module Cookie
         COOKIE_NAME,
         {
           value: cookie_setting,
+          path: '/',
           expires: 1.year.from_now
         }
       )
