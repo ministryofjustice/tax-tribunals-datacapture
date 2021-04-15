@@ -142,7 +142,7 @@
         <%= govuk_error_summary %>
         <%= step_form @form_object, html: { class: 'ga-radioButtonGroup'  } do |f| %>
             <%= f.govuk_collection_radio_buttons :cookie_setting,
-             Cookie::YesNoForm.choices, :to_s, nil,
+             Cookie::SettingForm.choices, :to_s, nil,
              legend: { text: '', size: 'l' }
             %>
 

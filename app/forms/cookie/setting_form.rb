@@ -1,6 +1,6 @@
 module Cookie
-  class YesNoForm < BaseForm
-    COOKIE_NAME='cookie_setting'.freeze
+  class SettingForm < BaseForm
+    COOKIE_NAME = 'cookie_setting'.freeze
 
     attribute :cookie_setting, String
     attr_accessor :response, :request
@@ -23,7 +23,7 @@ module Cookie
     end
 
     def preference_set?
-      self.class.choices.include?(request&.cookies[COOKIE_NAME])
+      self.class.choices.include?(request.cookies[COOKIE_NAME])
     end
 
     private
@@ -46,7 +46,7 @@ module Cookie
         }
       )
 
-      return true
-   end
+      true
+    end
   end
 end

@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def cookies
-    @form_object = Cookie::YesNoForm.new(
+    @form_object = Cookie::SettingForm.new(
       request: request
     )
   end
@@ -26,7 +26,7 @@ class HomeController < ApplicationController
   end
 
   def update
-    Cookie::YesNoForm.new(
+    Cookie::SettingForm.new(
       cookie_setting: cookie_setting,
       response: response
     ).save
@@ -37,7 +37,7 @@ class HomeController < ApplicationController
   private
 
   def cookie_setting
-    params[:cookie_yes_no_form]
+    params[:cookie_setting_form]
       .permit(:cookie_setting)
       .to_h
       .fetch(:cookie_setting)

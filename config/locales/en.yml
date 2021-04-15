@@ -789,7 +789,7 @@ en:
       surveys_feedback_form:
         assistance_level: Did you have any assistance with applying to Tax Tribunal today?
     label:
-      cookie_yes_no_form:
+      cookie_setting_form:
         cookie_setting_options:
           <<: *YESNO
       steps_appeal_case_type_form:
