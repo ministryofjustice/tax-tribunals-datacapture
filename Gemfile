@@ -53,12 +53,12 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
-  gem 'mutant-rspec', '< 0.9'
+  gem 'mutant-rspec'
   gem 'pry-byebug'
   gem 'rspec-rails'
-#  gem 'rubocop', require: false
-#  gem 'rubocop-performance', require: false
-#  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '~> 1', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
@@ -82,5 +82,3 @@ group :test do
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', require: false
 end
-
-gem "rubocop", "~> 0.68.1"
