@@ -7,12 +7,16 @@ module CheckAnswers
     def answers
       [
         taxpayer_details_answer,
-        Answer.new(:send_taxpayer_copy, tribunal_case.send_taxpayer_copy.to_s, change_path: edit_steps_details_send_taxpayer_copy_path),
+        Answer.new(:send_taxpayer_copy, tribunal_case.send_taxpayer_copy.to_s,
+                   change_path: edit_steps_details_send_taxpayer_copy_path),
         representative_details_answer,
-        Answer.new(:send_representative_copy, tribunal_case.send_representative_copy.to_s, change_path: edit_steps_details_send_representative_copy_path),
-        Answer.new(:representative_professional_status, tribunal_case.representative_professional_status, change_path: edit_steps_details_representative_professional_status_path),
+        Answer.new(:send_representative_copy, tribunal_case.send_representative_copy.to_s,
+                   change_path: edit_steps_details_send_representative_copy_path),
+        Answer.new(:representative_professional_status, tribunal_case.representative_professional_status,
+                   change_path: edit_steps_details_representative_professional_status_path),
         # nil because there is no value
-        FileOrTextAnswer.new(:representative_approval, nil, tribunal_case.documents(:representative_approval).first, change_path: edit_steps_details_representative_approval_path)
+        FileOrTextAnswer.new(:representative_approval, nil, tribunal_case.documents(:representative_approval).first,
+                             change_path: edit_steps_details_representative_approval_path)
       ].select(&:show?)
     end
 
