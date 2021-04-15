@@ -2,15 +2,15 @@ class DisputeTypePage < BasePage
   set_url '/en/steps/appeal/dispute_type'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'What is your dispute about?'
-    element :penalty_or_surcharge_option, 'label', text: /Penalty or surcharge/
-    element :repay_option, 'label', text: 'You want HMRC to repay money'
-    element :owe_option, 'label', text: 'HMRC claim you owe money'
-    element :owe_and_penalty_option, 'label', text: /HMRC claim you owe money and a penalty or surcharge/
-    element :paye_option, 'label', text: /Pay As You Earn/
-    element :nota_option, 'label', text: 'None of the above'
+    element :header, 'h1', text: I18n.t('steps.appeal.dispute_type.edit.heading')
+    element :penalty_or_surcharge_option, 'label', text: I18n.t('check_answers.dispute_type.answers.penalty')
+    element :repay_option, 'label', text: I18n.t('helpers.label.steps_appeal_dispute_type_form.amount_of_tax_owed_by_hmrc')
+    element :owe_option, 'label', text: I18n.t('check_answers.dispute_type.answers.amount_of_tax_owed_by_taxpayer')
+    element :owe_and_penalty_option, 'label', text: I18n.t('')
+    element :paye_option, 'label', text: I18n.t('.check_answers.dispute_type.answers.amount_and_penalty')
+    element :nota_option, 'label', text: I18n.t('helpers.label.steps_details_representative_professional_status_form.representative_professional_status_options.other_html')
     element :nota_option_textbox, "input[name='steps_appeal_dispute_type_form[dispute_type_other_value]']"
-    element :enter_answer_error, 'a', text: 'Please enter an answer'
+    element :enter_answer_error, 'a', text: I18n.t('errors.messages.blank')
   end
 
   def submit_penalty_or_surcharge

@@ -860,6 +860,7 @@ en:
           other_html: "<strong>None of the above</strong>"
       steps_appeal_dispute_type_form:
         dispute_type_other_value: What is your dispute about?
+        amount_of_tax_owed_by_hmrc: You want HMRC to repay money
         dispute_type_options:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
@@ -1154,6 +1155,7 @@ en:
         apn_penalty: Accelerated Payment Notice (APN) penalty
         bingo_duty: Bingo Duty
         capital_gains_tax: Capital Gains Tax
+        other_tax: Other type of tax, appeal or application
         climate_change_levy: Climate Change Levy
         construction_industry_scheme: Construction Industry Scheme (CIS)
         corporation_tax: Corporation Tax
@@ -1513,6 +1515,8 @@ en:
       response_error: "%{file_name} failed to upload. Please try again"
     file_selected: SELECTED
     file_uploading: UPLOADING
+  guidance:
+    heading: 'Guide to appealing a tax decision'
   home:
     index:
       heading: What do you want to do?

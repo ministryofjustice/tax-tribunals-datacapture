@@ -2,9 +2,9 @@ class SendTaxpayerCopyPage < BasePage
   set_url '/en/steps/details/send_taxpayer_copy'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Does the taxpayer want a copy of the case details sent by email?'
+    element :header, 'h1', text: I18n.t('check_answers.send_taxpayer_copy.question')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
-    element :not_matching_error_message, 'a', text: "Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect."
+    element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_taxpayer')
   end
 
   def submit_yes_and_valid_email

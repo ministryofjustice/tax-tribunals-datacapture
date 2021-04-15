@@ -2,8 +2,8 @@ class ClosurePage < BasePage
   set_url '/en/closure'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Apply to close an enquiry'
-    element :continue_button, 'a', text: 'Continue'
+    element :header, 'h1', text: I18n.t('closure_home.index.heading')
+    element :continue_button, 'a', text: I18n.t('en.closure_home.index.continue')
   end
 
   def continue
