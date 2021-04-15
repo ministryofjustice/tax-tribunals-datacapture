@@ -194,6 +194,10 @@ def confirmation_page
   @confirmation_page ||= ConfirmationPage.new
 end
 
+def cookie_page
+  @cookie_page ||= CookiePage.new
+end
+
 def continue
   base_page.content.continue_button.click
 end
