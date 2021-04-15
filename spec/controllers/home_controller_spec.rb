@@ -71,7 +71,7 @@ RSpec.describe HomeController do
 
     it 'sets for cookie_setting form object' do
       get :cookies
-      expect(assigns(:form_object)).to be_a(Cookie::YesNoForm)
+      expect(assigns(:form_object)).to be_a(Cookie::SettingForm)
     end
   end
 
@@ -82,22 +82,22 @@ RSpec.describe HomeController do
       request.env['HTTP_REFERER'] = referer
     end
 
-    Cookie::YesNoForm.choices.each do |selection|
+    Cookie::SettingForm.choices.each do |selection|
       it "saves cookie preferences #{selection}" do
-        expect(Cookie::YesNoForm).to receive(:new)
+        expect(Cookie::SettingForm).to receive(:new)
                                        .with(hash_including(cookie_setting: selection))
-                                       .and_return(Cookie::YesNoForm.new)
-        put :update, params: { cookie_yes_no_form: { cookie_setting: selection} }
+                                       .and_return(Cookie::SettingForm.new)
+        put :update, params: { cookie_setting_form: { cookie_setting: selection} }
       end
     end
 
     it 'sets notification flag' do
-      put :update, params: { cookie_yes_no_form: { cookie_setting: 'yes'} }
+      put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
       expect(flash[:cookie_notification]).to be_present
     end
 
     it 'redirects to cookies page' do
-      put :update, params: { cookie_yes_no_form: { cookie_setting: 'yes'} }
+      put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
       expect(response).to redirect_to(referer)
     end
   end

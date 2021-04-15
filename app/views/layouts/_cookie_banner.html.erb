@@ -16,12 +16,12 @@
     <div class="govuk-button-group cookie-banner-button">
         <%= form_with url: set_cookie_preference_path, method: :put, local: true do |f| %>
             <%= hidden_field_tag 'cookie_banner', '1' %>
-            <%= hidden_field_tag 'cookie_yes_no_form[cookie_setting]', 'yes' %>
+            <%= hidden_field_tag 'cookie_setting_form[cookie_setting]', 'yes' %>
             <%= f.submit t('cookies.banner.button.accept'), class: 'govuk-button' %>
         <% end %>
         <%= form_with url: set_cookie_preference_path, method: :put, local: true do |f| %>
             <%= hidden_field_tag 'cookie_banner', '1' %>
-            <%= hidden_field_tag 'cookie_yes_no_form[cookie_setting]', 'no' %>
+            <%= hidden_field_tag 'cookie_setting_form[cookie_setting]', 'no' %>
             <%= f.submit t('cookies.banner.button.reject'), class: 'govuk-button' %>
         <% end %>
         <%= link_to t('cookies.banner.link'), cookies_page_path, class: 'govuk-link' %>

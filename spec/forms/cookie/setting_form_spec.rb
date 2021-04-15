@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Cookie::YesNoForm do
-  subject { Cookie::YesNoForm.new(cookie_setting: value, request: request, response: response) }
+RSpec.describe Cookie::SettingForm do
+  subject { Cookie::SettingForm.new(cookie_setting: value, request: request, response: response) }
   let(:value) { 'yes' }
   let(:request) { nil }
   let(:response) { nil }
@@ -32,7 +32,7 @@ RSpec.describe Cookie::YesNoForm do
 
     context 'when no value was set and cookie present' do
       let(:value) { nil }
-      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => 'yes' }) }
+      let(:request) { double('request', cookies: { Cookie::SettingForm::COOKIE_NAME => 'yes' }) }
 
       it 'returns value hold in cookie' do
         expect(subject.cookie_setting).to eq('yes')
@@ -64,17 +64,17 @@ RSpec.describe Cookie::YesNoForm do
 
   describe '.preference_set?' do
     context 'when cookie set to NO' do
-      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => 'no' }) }
+      let(:request) { double('request', cookies: { Cookie::SettingForm::COOKIE_NAME => 'no' }) }
       specify { expect(subject).to be_preference_set }
     end
 
     context 'when cookie set to YES' do
-      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => 'yes' }) }
+      let(:request) { double('request', cookies: { Cookie::SettingForm::COOKIE_NAME => 'yes' }) }
       specify { expect(subject).to be_preference_set }
     end
 
     context 'when cookie has wrong value' do
-      let(:request) { double('request', cookies: { Cookie::YesNoForm::COOKIE_NAME => '' }) }
+      let(:request) { double('request', cookies: { Cookie::SettingForm::COOKIE_NAME => '' }) }
       specify { expect(subject).not_to be_preference_set }
     end
 
@@ -88,9 +88,9 @@ RSpec.describe Cookie::YesNoForm do
     let(:response) { double('response') }
 
     it 'updates cookie preference' do
-      expect(response).to receive(:delete_cookie).with(Cookie::YesNoForm::COOKIE_NAME, {})
+      expect(response).to receive(:delete_cookie).with(Cookie::SettingForm::COOKIE_NAME, {})
       expect(response).to receive(:set_cookie).with(
-                            Cookie::YesNoForm::COOKIE_NAME,
+                            Cookie::SettingForm::COOKIE_NAME,
                             {
                               value: value,
                               expires: 1.year.from_now
