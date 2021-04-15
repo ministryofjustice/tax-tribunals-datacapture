@@ -18,7 +18,6 @@ class BasePage < SitePrism::Page
     element :yes_option, 'label', text: 'Yes'
     element :no_option, 'label', text: 'No'
     element :save_and_come_back_link, 'a', text: 'Save and come back later'
-    element :hide_message, "button[name='accept']"
   end
   section :footer, '.govuk-footer' do
     element :help_link, 'a', text: 'Help'

@@ -6,5 +6,5 @@ class CookiePage < BasePage
     element :header, 'h1', text: 'Cookies'
     element :save_cookies, "input[type='submit']"
   end
-
 end
+
