@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def analytics_tracking_id
-    ENV['GTM_TRACKING_ID']
+    ENV['GTM_TRACKING_ID'] if Cookie::SettingForm.new(request: request).accepted?
   end
 
   def login_or_portfolio_path
@@ -117,5 +117,9 @@ module ApplicationHelper
 
   def form_t239_link
     'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf'
+  end
+
+  def show_cookie_banner?
+    !Cookie::SettingForm.new(request: request).preference_set?
   end
 end

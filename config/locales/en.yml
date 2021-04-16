@@ -1,4 +1,5 @@
 en:
+  success: Success
   dictionary:
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
@@ -241,6 +242,7 @@ en:
         show:
           page_title: Start your closure
     shared:
+
       send_application_details:
         <<: *SEND_CASE_DETAILS_COPY
       document_upload:
@@ -787,6 +789,9 @@ en:
       surveys_feedback_form:
         assistance_level: Did you have any assistance with applying to Tax Tribunal today?
     label:
+      cookie_setting_form:
+        cookie_setting_options:
+          <<: *YESNO
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
@@ -1056,6 +1061,7 @@ en:
       reset_password: Reset password
       change_password: Change my password
       save_and_continue: "Save and continue"
+      cookie_setting: Save cookie settings
     address_lookup:
       enter_a_uk_postcode: Enter a UK postcode
       find_address: Find address
