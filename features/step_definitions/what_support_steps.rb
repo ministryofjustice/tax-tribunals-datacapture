@@ -22,8 +22,8 @@ Then("I should see three what support blank text errors") do
 end
 
 When("I fill in the three what support textboxes and submit") do
-  what_support_page.content.language_interpreter_textbox.set 'text'
-  what_support_page.content.sign_language_textbox.set 'text'
+  what_support_page.content.language_interpreter_textbox.find(:xpath, 'option[2]').select_option
+  what_support_page.content.sign_language_textbox.find(:xpath, 'option[2]').select_option
   what_support_page.content.other_support_textarea.set 'text'
   continue_or_save_continue
 end

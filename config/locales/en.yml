@@ -405,6 +405,7 @@ en:
           lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
           page_title: What Support?
           sign_language_interpreter_hint: Enter what type of sign language you need. For example, British Sign Language.
+          no_results: No results found
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
