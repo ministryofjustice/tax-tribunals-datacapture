@@ -47,3 +47,5 @@ if ENV['APP_HOST']
     Capybara.app_host += '/'
   end
 end
+
+I18n.locale = 'cy'

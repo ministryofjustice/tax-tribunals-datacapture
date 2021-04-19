@@ -1,4 +1,5 @@
 Given("I am on the appeal case type page") do
+  print("translate = " + I18n.t('helpers.submit.sign_in'))
   navigate_to_appeal_case_type_page
 end
 

@@ -6,7 +6,7 @@ class DisputeTypePage < BasePage
     element :penalty_or_surcharge_option, 'label', text: I18n.t('check_answers.dispute_type.answers.penalty')
     element :repay_option, 'label', text: I18n.t('helpers.label.steps_appeal_dispute_type_form.amount_of_tax_owed_by_hmrc')
     element :owe_option, 'label', text: I18n.t('check_answers.dispute_type.answers.amount_of_tax_owed_by_taxpayer')
-    element :owe_and_penalty_option, 'label', text: I18n.t('')
+    element :owe_and_penalty_option, 'label', text: I18n.t('check_answers.dispute_type.answers.amount_and_penalty')
     element :paye_option, 'label', text: I18n.t('.check_answers.dispute_type.answers.amount_and_penalty')
     element :nota_option, 'label', text: I18n.t('helpers.label.steps_details_representative_professional_status_form.representative_professional_status_options.other_html')
     element :nota_option_textbox, "input[name='steps_appeal_dispute_type_form[dispute_type_other_value]']"
