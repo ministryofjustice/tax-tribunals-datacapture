@@ -1,19 +1,18 @@
 cy:
   cookies:
     banner:
-      heading: Cookies on appeal to the tax tribunal
+      heading: Cwcis ar apêl i'r tribiwnlys treth
       content:
-        line_1: We use some essential cookies to make this service work.
-        line_2: "We'd also like to use analytics cookies so we can understand how you use the service and make improvements."
-        accepted_html: You've accepted analytics cookies. You can <a class="govuk-link" href="/cookies#cookie-settings"> change your cookie settings</a> at any time.
-        rejected_html: You've rejected analytics cookies. You can <a class="govuk-link" href="/cookies#cookie-settings"> change your cookie settings</a> at any time.
+        line_1: Rydym yn defnyddio rhai cwcis hanfodol i wneud i’r gwasanaeth hwn weithio..
+        line_2: "Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut mae pobl yn defnyddio’r gwasanaeth hwn a gwneud gwelliannau."
+        accepted_html: Rydych wedi derbyn cwcis dadansoddol. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
+        rejected_html: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
       button:
-        accept: Accept analytics cookies
-        reject: Reject analytics cookies
-        hide: Hide this message
-      link: View cookies
-    notification: "You've set your cookie preferences"
-
+        accept: Derbyn cwcis dadansoddol
+        reject: Gwrthod cwcis dadansoddol
+        hide: Cuddiwch y neges hon
+      link: Bwrw golwg dros y cwcis
+    notification: "Rydych wedi cadw eich dewisiadau cwcis"
     further_info:
       line_1_html: Gallwch weld <a class="govuk-link" rel="external" target="_blank" href="https://www.gov.uk/help/cookies" title='cwcis GOV.UK'>polisi cwcis GOV.UK yma</a>.
       line_2_html: Darganfyddwch <a class="govuk-link" rel="external" target="_blank" href="http://www.aboutcookies.org">fwy am sut i reoli cwcis.</a>
