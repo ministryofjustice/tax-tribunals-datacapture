@@ -32,7 +32,7 @@ moj.Modules.docUpload = {
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
     dzOptions = {
-      url: '/uploader/supporting_documents/documents',
+      url: '/' + moj.locale + '/uploader/supporting_documents/documents',
       paramName: 'document',
       parallelUploads: 10,
       maxFilesize: maxFilesize,
