@@ -3,7 +3,7 @@ class ClosurePage < BasePage
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('closure_home.index.heading')
-    element :continue_button, 'a', text: I18n.t('en.closure_home.index.continue')
+    element :continue_button, 'a', text: I18n.t('closure_home.index.continue')
   end
 
   def continue

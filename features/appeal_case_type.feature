@@ -2,7 +2,7 @@ Feature: Appeal case type page
 
   Background: Appeal case type page
     Given I am on the appeal case type page
-@test
+
   Scenario: Error message
     When I click on continue without selecting an option
     Then I should be on the appeal case type page

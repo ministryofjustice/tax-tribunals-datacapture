@@ -10,7 +10,7 @@ Feature: Save and return
     Given I am on the closure case type page
     When I submit that it is a personal return
     Then I should be on the closure user type page
-
+@test
   Scenario: User not signed in, create an account (appeal journey)
     Given I am on the appeal case type page without login
     And I click on continue after selecting Income Tax option

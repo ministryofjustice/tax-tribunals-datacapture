@@ -2,7 +2,7 @@ class LatenessReasonPage < BasePage
   set_url '/en/steps/lateness/lateness_reason'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Why are you late with your appeal?'
+    element :header, 'h1', text: I18n.t('helpers.label.steps_lateness_lateness_reason_form.heading')
     element :textarea, '.govuk-textarea'
   end
 
