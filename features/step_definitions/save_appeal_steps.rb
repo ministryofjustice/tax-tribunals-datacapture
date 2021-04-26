@@ -15,12 +15,12 @@ Then("I am taken to the save your appeal page") do
 end
 
 When("I enter a valid email address") do
-  expect(save_appeal_page.content.login_label[0].text).to eq 'Your email address'
+  expect(save_appeal_page.content.login_label[0].text).to eq I18n.t('helpers.label.user.email')
   save_appeal_page.content.email_input.set Faker::Internet.email
 end
 
 When("I enter a password that is not at least 8 characters") do
-  expect(save_appeal_page.content.login_label[1].text).to eq 'Choose password'
+  expect(save_appeal_page.content.login_label[1].text).to eq I18n.t('helpers.label.user.password')
   save_appeal_page.content.password_input.set 'Pa$0'
   save
 end

@@ -50,6 +50,7 @@ cy:
         resume:
           heading: "Parhau â'ch %{appeal_or_application}"
           page_title: "Parhau â'ch achos"
+          heading_appeal: Parhau â'ch apêl
         show:
           heading: "Gwiriwch eich atebion"
           page_title: "Gwiriwch eich atebion"
@@ -262,11 +263,11 @@ cy:
           attributes:
             email_address:
               blank: *blank_email
-              different_representative: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y cynrychiolydd.   Ewch yn ôl a newid cyfeiriad e-bost y cynrychiolydd os yw'n anghywir. "
+              different_representative: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y cynrychiolydd. Ewch yn ôl a newid cyfeiriad e-bost y cynrychiolydd os yw'n anghywir."
               different_taxpayer: "Nodwch yr un cyfeiriad e-bost a roddoch ar gyfer manylion y trethdalwr.  Ewch yn ôl a newid cyfeiriad e-bost y trethdalwr os yw'n anghywir. "
             send_application_details:
-              send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost "
-              send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost "
+              send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost"
+              send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost"
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -406,6 +407,7 @@ cy:
         apn_penalty: "Cosb Hysbysiad o Daliad Cyflymedig (APN)"
         bingo_duty: "Toll Bingo"
         capital_gains_tax: "Treth Enillion Cyfalaf"
+        other_tax: Math arall o dreth, apêl neu gais
         climate_change_levy: "Ardoll Newid yn yr Hinsawdd"
         construction_industry_scheme: "Cynllun y Diwydiant Adeiladu (CIS)"
         corporation_tax: "Treth Gorfforaeth"
@@ -485,7 +487,7 @@ cy:
         cancellation_of_registration: "Canslo cofrestriad"
         information_notice: "Apelio yn erbyn hysbysiad gwybodaeth"
         paye_coding_notice: "Hysbysiad Cod Talu wrth Ennill (PAYE)"
-        penalty: "Cosb neu gordal "
+        penalty: "Cosb neu gordal"
         refusal_to_register_applicant: "Gwrthod cofrestru ceisydd"
       question: "Ynglŷn â beth yw eich anghydfod?"
     disputed_tax_paid:
@@ -604,12 +606,12 @@ cy:
       lateness: "Terfyn amser yr %{appeal_or_application_capitalised}"
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
-      question: "A yw'r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "A yw'r taxpayer eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
     send_representative_copy:
-      question: "A yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "A yw'r representative eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
@@ -791,6 +793,7 @@ cy:
         taxpayer_type_html: "Pwy sy'n gwneud yr apêl?"
       steps_details_user_type_form:
         user_type_html: "Ai chi yw'r trethdalwr sy'n gwneud yr apêl?"
+        user_type_application: "Ai chi yw'r trethdalwr sy'n gwneud yr cais?"
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid_html: "Ydych chi wedi talu swm y dreth sy'n sail i'ch anghydfod?"
       steps_hardship_hardship_review_requested_form:
@@ -856,6 +859,7 @@ cy:
           tobacco_products_duty_html: "<strong>Toll Cynhyrchion Tybaco</strong>"
         case_type_other_value: "Nodwch y math o dreth neu anghydfod sy'n gysylltiedig â'ch achos"
       steps_appeal_dispute_type_form:
+        amount_of_tax_owed_by_hmrc: Rydych eisiau i Gyllid a Thollau EM ad-dalu arian
         dispute_type_options:
           amount_and_penalty_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian a chosb neu gordal rhaid i'r</strong><br>ddau anghydfod fod ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad"
           amount_of_tax_owed_by_hmrc_html: "<strong>Rydych eisiau i Gyllid a Thollau EM ad-dalu arian</strong>"
@@ -925,6 +929,8 @@ cy:
         supporting_letter_document: ""
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
+          single_test: Llwytho'r llythyr fel un ddogfen
+          single_html: "<strong>Llwytho'r llythyr fel un ddogfen</strong><br>Rydych wedi cadw neu sganio'r llythyr fel un ffeil"
           multiple_html: |-
             <strong>Llwytho'r llythyr fel tudalennau ar wahân</strong>
             <br>Rydych wedi cadw neu sganio tudalennau eich llythyr mewn nifer o ffeiliau gwahanol
@@ -1168,6 +1174,7 @@ cy:
       ogl_html: "Mae'r holl gynnwys ar gael o dan <a class=\"govuk-footer__link\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" rel=\"license\">Drwydded Llywodraeth Agored f3.0</a>, oni bai pan nodir fel arall"
       skip_to_main_content: "Ymlaen i'r prif gynnwys"
     phase_banner:
+      feedback_link: Rhowch adborth (agor mewn ffenestr newydd)
       phase_info_html: "Mae hwn yn wasanaeth newydd. <a href=\"%{feedback_url}\" class=\"govuk-link\" target=\"_blank\" rel=\"noopener\">Rhowch adborth (agor mewn ffenestr newydd)</a> i'n helpu ni i wella'r gwasanaeth i eraill. "
   number:
     currency:
@@ -1245,6 +1252,7 @@ cy:
         late_review_refusal_letter: "Llwythwch y llythyr yn gwrthod eich adolygiad hwyr"
         original_notice_letter: "Llwythwch yr hysbysiad gwreiddiol neu'r llythyr penderfyniad"
         review_conclusion_letter: "Llwythwch y llythyr canlyniad adolygiad"
+        lead_text: Rydym yn derbyn sgan neu lun o ansawdd da ac eglur. Efallai y bydd rhaid dychwelyd eich apêl i chi os na allwn ddarllen y llythyr, ac mae'n bosib y byddwch yn methu'r terfyn amser.
       lead_text: *tax_tribunal_independent
       upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
     password_toggle:
@@ -1263,7 +1271,7 @@ cy:
           <<: *CASE_TYPE_QUESTION
       dispute_type:
         edit:
-          heading: "Ynglŷn â beth yw eich anghydfod? "
+          heading: "Ynglŷn â beth yw eich anghydfod?"
           lead_text: "Gwiriwch yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad."
           page_title: "Math o anghydfod"
       penalty_amount:
@@ -1296,7 +1304,7 @@ cy:
       decision:
         edit:
           heading_direct: "A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM?"
-          heading_indirect: "A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu? "
+          heading_indirect: "A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?"
           help_panel:
             content_html: |-
               <p class="govuk-body">Bydd yr hysbysiad gwreiddiol yn nodi beth y gallwch wneud pan fyddwch yn anghytuno â phenderfyniad treth. </p>
@@ -1538,12 +1546,16 @@ cy:
             as_representative: "Pwy ydych chi?"
             as_taxpayer: "Pwy sy'n eich cynrychioli chi?"
           page_title: "Statws proffesiynol"
+          practising_solicitor_option: "Cyfreithiwr neu fargyfreithiwr sy'n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon"
       representative_type:
         edit:
           heading:
             as_representative: "Ydych chi'n unigolyn, yn gwmni neu'n fath arall o sefydliad?"
             as_taxpayer: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu'n fath arall o sefydliad? "
           page_title: "Math o gynrychiolydd"
+          individual: Unigolyn
+          company: Cwmni
+          other: Math arall o sefydliad
       taxpayer_details:
         edit:
           heading: "Nodwch fanylion y trethdalwr"
@@ -1553,6 +1565,8 @@ cy:
           heading:
             as_representative: "Ar gyfer pwy mae'r %{appeal_or_application}?"
             as_taxpayer: "Pwy sy'n gwneud yr %{appeal_or_application}?"
+            appeal_test: Pwy sy'n gwneud yr apêl?
+            application_test: Pwy sy'n gwneud yr cais?
           page_title: "Math o drethdalwr"
       user_type:
         edit:
@@ -1738,6 +1752,8 @@ cy:
         email_confirmation: "Byddwn yn anfon neges e-bost i:"
         existing_account: "Mewngofnodi i gyfrif sydd eisoes yn bodoli"
         heading: "Cadw eich %{appeal_or_application}"
+        appeal_test: Cadw eich apêl
+        application_test: Cadw eich
         page_title: Cofrestru
       save_confirmation:
         heading: "Mae eich achos wedi cael ei gadw"

@@ -1,5 +1,5 @@
 class OutcomePage < BasePage
-  set_url '/en/steps/details/outcome'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/outcome'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.details.outcome.edit.heading')

@@ -1,5 +1,5 @@
 class AppealCaseTypePage < BasePage
-  set_url '/en/steps/appeal/case_type'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/appeal/case_type'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('dictionary.CASE_TYPE_QUESTION.heading')

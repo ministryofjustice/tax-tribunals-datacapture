@@ -1,5 +1,5 @@
 class ChallengeDecisionStatusPage < BasePage
-  set_url '/en/steps/challenge/decision_status'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/challenge/decision_status'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.challenge.decision_status.edit.heading')

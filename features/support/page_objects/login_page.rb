@@ -1,5 +1,5 @@
 class LoginPage < BasePage
-  set_url '/en/users/login'
+  set_url '/' + ENV['TEST_LOCALE'] + '/users/login'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('helpers.submit.sign_in')

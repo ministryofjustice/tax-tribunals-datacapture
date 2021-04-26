@@ -1,5 +1,5 @@
 class TaxpayerDetailsPage < BasePage
-  set_url '/en/steps/details/taxpayer_details'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/taxpayer_details'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.details.taxpayer_details.edit.heading')

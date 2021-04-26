@@ -1,5 +1,4 @@
 Feature: Send details
-@test
   Scenario: Started by taxpayer and send to taxpayer and representative
     Given I navigate to the send taxpayer copy page as the taxpayer
     And I select yes and submit a valid email on the send taxpayer copy page

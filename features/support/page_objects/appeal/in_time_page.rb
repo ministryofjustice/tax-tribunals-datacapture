@@ -1,5 +1,5 @@
 class InTimePage < BasePage
-  set_url '/en/steps/lateness/in_time'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/lateness/in_time'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.lateness.in_time.edit.heading')

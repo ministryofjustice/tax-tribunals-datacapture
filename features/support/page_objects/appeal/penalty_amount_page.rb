@@ -1,5 +1,5 @@
 class PenaltyAmountPage < BasePage
-  set_url '/en/steps/appeal/penalty_amount'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/appeal/penalty_amount'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.appeal.penalty_amount.edit.heading')

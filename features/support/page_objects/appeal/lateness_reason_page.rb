@@ -1,5 +1,5 @@
 class LatenessReasonPage < BasePage
-  set_url '/en/steps/lateness/lateness_reason'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/lateness/lateness_reason'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('helpers.label.steps_lateness_lateness_reason_form.heading')

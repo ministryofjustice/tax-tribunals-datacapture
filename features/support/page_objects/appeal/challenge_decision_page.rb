@@ -1,5 +1,5 @@
 class ChallengeDecisionPage < BasePage
-  set_url '/en/steps/challenge/decision'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/challenge/decision'
 
   section :content, '#main-content' do
     element :appeal_header, 'h1', text: I18n.t('steps.challenge.decision.edit.heading_direct')

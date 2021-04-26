@@ -1,5 +1,5 @@
 class SelectLanguagePage < BasePage
-  set_url '/en/steps/select_language'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/select_language'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('dictionary.select_language_question')

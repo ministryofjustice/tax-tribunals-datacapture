@@ -1,5 +1,5 @@
 class RepresentativeProfessionalPage < BasePage
-  set_url '/en/steps/details/representative_professional_status'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/representative_professional_status'
 
   section :content, '#main-content' do
     element :representatives_header, 'h1', text: I18n.t('steps.details.representative_professional_status.edit.heading.as_representative')

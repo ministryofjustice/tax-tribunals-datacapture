@@ -1,5 +1,5 @@
 class TaxAmountPage < BasePage
-  set_url '/en/steps/appeal/tax_amount'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/appeal/tax_amount'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.appeal.tax_amount.edit.heading')

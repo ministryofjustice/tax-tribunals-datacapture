@@ -86,7 +86,11 @@ def complete_valid_closure_application
     save_return_page.skip_save_and_return
     select_language_page.select_english_only
     expect(user_type_page.content).to have_closure_header
-    submit_yes
+    if ENV['TEST_LOCALE'] == 'cy'
+      submit_yes_2
+    else
+      submit_yes
+    end
     expect(taxpayer_type_page.content).to have_closure_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header
@@ -131,7 +135,11 @@ def complete_valid_appeal_application
     expect(in_time_page.content).to have_header
     in_time_page.submit_yes
     expect(user_type_page.content).to have_appeal_header
-    submit_yes
+    if ENV['TEST_LOCALE'] == 'cy'
+      submit_yes_2
+    else
+      submit_yes
+    end
     expect(taxpayer_type_page.content).to have_appeal_header
     taxpayer_type_page.submit_individual
     expect(taxpayer_details_page.content).to have_header

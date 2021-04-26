@@ -1,5 +1,5 @@
 class SaveReturnPage < BasePage
-  set_url '/en/steps/save_and_return'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/save_and_return'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.save_and_return.edit.page_title')

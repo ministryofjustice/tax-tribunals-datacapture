@@ -2,7 +2,7 @@ Feature: One email required
 
   Background: Go to closure user type page
     Given I navigate to closure user type page
-@test
+
   Scenario: Started by taxpayer with representative
     Given I submit that I am the tax payer making the application
     And I submit that I am an individual

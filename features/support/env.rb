@@ -48,4 +48,6 @@ if ENV['APP_HOST']
   end
 end
 
-I18n.locale = 'en'
+if ENV['TEST_LOCALE'] == "cy"
+  I18n.locale = 'cy'
+end

@@ -1,5 +1,5 @@
 class SendRepresentativeCopyPage < BasePage
-  set_url '/en/steps/details/send_representative_copy'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/send_representative_copy'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('check_answers.send_representative_copy.question')

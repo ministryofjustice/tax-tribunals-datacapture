@@ -1,5 +1,5 @@
 class EnquiryDetailsPage < BasePage
-  set_url '/en/steps/closure/enquiry_details'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/closure/enquiry_details'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.closure.enquiry_details.edit.heading')

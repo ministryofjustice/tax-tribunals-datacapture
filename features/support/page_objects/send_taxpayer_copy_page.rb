@@ -1,5 +1,5 @@
 class SendTaxpayerCopyPage < BasePage
-  set_url '/en/steps/details/send_taxpayer_copy'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/send_taxpayer_copy'
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('check_answers.send_taxpayer_copy.question')

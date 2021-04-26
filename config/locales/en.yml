@@ -84,6 +84,7 @@ en:
         resume:
           page_title: Resume your case
           heading: Resume your %{appeal_or_application}
+          heading_appeal: Resume your appeal
       confirmation:
         show:
           page_title: Case submitted
@@ -994,7 +995,7 @@ en:
           <<: *TRUEFALSE
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
-          single: Upload the letter as one document
+          single_test: Upload the letter as one document
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
             the letter as one file'
           multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
@@ -1495,10 +1496,11 @@ en:
       help: Help
       contact: Contact
       cookies: Cookies
-      terms_and_conditions: Terms and conditions
+      terms_and_conditions: Terms and Conditions
       privacy_policy: Privacy policy
       accessibility_statement: Accessibility statement
     phase_banner:
+      feedback_link: Provide feedback (opens in a new tab)
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback (opens in a new tab)</a> and help improve the service for others.
     current_user_menu:
