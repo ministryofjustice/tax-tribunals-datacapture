@@ -31,7 +31,7 @@ RSpec.configure do |config|
 
   config.include(Rails::Controller::Testing::Integration, type: :controller)
   config.before(:each, type: :helper) { initialize_view_helpers(helper) }
-  config.before(:each) { I18n.locale = :cy }
+  config.before(:each) { I18n.locale = :en }
 end
 
 RSpec::Matchers.define_negated_matcher :not_change, :change
