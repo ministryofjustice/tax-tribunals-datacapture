@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.3'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap', require: false
@@ -33,6 +33,7 @@ gem 'sprockets', '3.7.2'
 # PDF generation
 gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
+gem "select2-rails", '4.0.13'
 
 group :production do
   gem 'lograge'
@@ -53,10 +54,11 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker', '~> 1.6', '>= 1.6.3'
   gem 'launchy'
-  gem 'mutant-rspec', '< 0.9'
+  gem 'mutant-rspec'
   gem 'pry-byebug'
+  gem 'timecop'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 1', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
 end

@@ -1,0 +1,58 @@
+<% if show_cookie_banner? %>
+<div class="govuk-cookie-banner " role="region" aria-label="<%= t('cookies.banner.heading') %>">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m"><%= t('cookies.banner.heading') %></h2>
+
+        <div class="govuk-cookie-banner__content">
+            <p><%= t('cookies.banner.content.line_1') %></p>
+            <p><%= t('cookies.banner.content.line_2') %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group cookie-banner-button">
+        <%= form_with url: set_cookie_preference_path, method: :put, local: true do |f| %>
+            <%= hidden_field_tag 'cookie_banner', '1' %>
+            <%= hidden_field_tag 'cookie_setting_form[cookie_setting]', 'yes' %>
+            <%= f.submit t('cookies.banner.button.accept'), class: 'govuk-button' %>
+        <% end %>
+        <%= form_with url: set_cookie_preference_path, method: :put, local: true do |f| %>
+            <%= hidden_field_tag 'cookie_banner', '1' %>
+            <%= hidden_field_tag 'cookie_setting_form[cookie_setting]', 'no' %>
+            <%= f.submit t('cookies.banner.button.reject'), class: 'govuk-button' %>
+        <% end %>
+        <%= link_to t('cookies.banner.link'), cookies_page_path, class: 'govuk-link' %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if %w(yes no).include?(flash[:cookie_notification]) %>
+<div class="govuk-cookie-banner " role="region" aria-label="<%= t('cookies.banner.heading') %>">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-cookie-banner__content">
+            <% if flash[:cookie_notification] == 'no' %>
+                <p> <%= t('cookies.banner.content.rejected_html') %> </p>
+            <% else %>
+                <p> <%= t('cookies.banner.content.accepted_html') %> </p>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+        <button value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button" onClick="window.location.reload(true)">
+            <%= t('cookies.banner.button.hide') %>
+        </button>
+    </div>
+  </div>
+</div>
+
+<% end %>

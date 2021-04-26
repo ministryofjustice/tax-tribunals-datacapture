@@ -1,6 +1,5 @@
 module Steps
   class SelectLanguageController < StepController
-
     def edit
       @form_object = SelectLanguage::SaveLanguageForm.new(
         tribunal_case: current_tribunal_case,

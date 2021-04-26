@@ -35,7 +35,7 @@ module Steps::Appeal
         DisputeType::PENALTY,
         DisputeType::INFORMATION_NOTICE,
         DisputeType::OTHER
-     ]
+      ]
     end
 
     def income_tax_choices

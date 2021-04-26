@@ -1,4 +1,4 @@
-class  HasRepresentativePage < BasePage
+class HasRepresentativePage < BasePage
   set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/has_representative'
 
   section :content, '#main-content' do

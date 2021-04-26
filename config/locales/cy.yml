@@ -1,5 +1,6 @@
 ---
 cy:
+  success: Success
   selector:
     language: English
     locale: en

@@ -181,13 +181,14 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/:locale', to: 'home#index', as: :local_root
   get :start, to: redirect('/', status: 301)
-  scope "/:locale", locale: /en|cy/ do
+  scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     get :appeal, to: 'appeal_home#index'
     get :closure, to: 'closure_home#index'
 
     get :guidance, to: 'home#guidance'
     get :contact, to: 'home#contact', as: :contact_page
     get :cookies, to: 'home#cookies', as: :cookies_page
+    put :cookies, to: 'home#update', as: :set_cookie_preference
     get 'terms-conditions', to: 'home#terms', as: :terms_page
     get 'privacy', to: 'home#privacy', as: :privacy_page
     get 'accessibility-statement', to: 'home#accessibility', as: :accessibility_page

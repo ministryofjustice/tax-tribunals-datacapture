@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   end
 
   def cookies
+    @form_object = Cookie::SettingForm.new(
+      request: request
+    )
   end
 
   def terms
@@ -22,7 +25,31 @@ class HomeController < ApplicationController
   def guidance
   end
 
+  def update
+    Cookie::SettingForm.new(
+      cookie_setting: cookie_setting,
+      response: response
+    ).save
+    flash[:cookie_notification] = cookie_notification
+    redirect_to request.referer
+  end
+
   private
+
+  def cookie_setting
+    params[:cookie_setting_form]
+      .permit(:cookie_setting)
+      .to_h
+      .fetch(:cookie_setting)
+  end
+
+  def cookie_notification
+    if params[:cookie_banner].present?
+      cookie_setting
+    else
+      true
+    end
+  end
 
   # [task name (used for i18n), estimated minutes to complete this task, path/url to the task]
   # Use '0' minutes to hide the time to complete paragraph
