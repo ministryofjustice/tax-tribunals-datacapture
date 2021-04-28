@@ -4,6 +4,8 @@ en:
     language: Cymraeg
     locale: cy
   dictionary:
+    taxpayer: taxpayer
+    representative: :representative
     select_language_question: &select_language_question "What language do you want us to use when we contact you?"
     SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
       english: English only

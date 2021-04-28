@@ -6,7 +6,8 @@
         <%= govuk_error_summary %>
 
         <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
-            <%= f.govuk_radio_buttons_fieldset :send_application_details, inline: false, legend: { text: t('.heading', entity: @form_object.send_to), size: 'l' }, hint: { text: t('.lead_text', entity: @form_object.send_to) } do %>
+            <% entity = t(['dictionary', @form_object.send_to].join('.')) %>
+            <%= f.govuk_radio_buttons_fieldset :send_application_details, inline: false, legend: { text: t('.heading', entity: entity), size: 'l' }, hint: { text: t('.lead_text', entity: entity) } do %>
                 <%= f.govuk_radio_button :send_application_details,
                        Steps::Details::SendApplicationDetailsForm.choices.first, link_errors: true %>
 

@@ -5,6 +5,8 @@ cy:
     language: English
     locale: en
   dictionary:
+    taxpayer: trethdalwr
+    representative: representative
     select_language_question: &select_language_question Pa iaith ydych chi eisiau i ni ei defnyddio pan fyddwn yn cysylltu â chi?
     SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
       english: Saesneg yn unig
@@ -101,8 +103,8 @@ cy:
       taxpayer_contact_postcode: "Cod post"
 
     YESNO: &YESNO
-      'yes': 'Ydy'
-      'no': 'Nac ydy'
+      'yes': 'Do'
+      'no': 'Naddo'
 
   activemodel:
     errors:
@@ -605,7 +607,7 @@ cy:
       lateness: "Terfyn amser yr %{appeal_or_application_capitalised}"
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
-      question: "A yw'r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "Trwy anfon yr trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
@@ -691,7 +693,7 @@ cy:
     case_not_found:
       heading: "Mae'n ddrwg gennym, ond ni allwn ddod o hyd i'r achos hwn "
       lead_text: "Os bu ichi gopïo cyfeiriad gwefan, gwiriwch ei fod yn gywir."
-      more_text: "Noder: bydd achos drafft yn dod i ben ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
+      more_text: "Noder: bydd achos drafft yn cael ei ddileu ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
       page_title: "Nis darganfuwyd yr achos"
       <<: *START_FINISH
     case_submitted:
@@ -789,7 +791,7 @@ cy:
       steps_details_representative_type_form:
         representative_type_html: "A yw eich cynrychiolydd yn unigolyn, yn gwmni neu'n fath arall o sefydliad?"
       steps_details_taxpayer_type_form:
-        taxpayer_type_html: "Pwy sy'n gwneud yr apêl?"
+        taxpayer_type_html: "Pwy sy'n gwneud yr apêl y cais?"
       steps_details_user_type_form:
         user_type_html: "Ai chi yw'r trethdalwr sy'n gwneud yr apêl?"
       steps_hardship_disputed_tax_paid_form:
@@ -858,7 +860,7 @@ cy:
         case_type_other_value: "Nodwch y math o dreth neu anghydfod sy'n gysylltiedig â'ch achos"
       steps_appeal_dispute_type_form:
         dispute_type_options:
-          amount_and_penalty_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian a chosb neu gordal rhaid i'r</strong><br>ddau anghydfod fod ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad"
+          amount_and_penalty_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian a chosb neu gordal</strong><br>rhaid i'r ddau anghydfod fod ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad"
           amount_of_tax_owed_by_hmrc_html: "<strong>Rydych eisiau i Gyllid a Thollau EM ad-dalu arian</strong>"
           amount_of_tax_owed_by_taxpayer_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian</strong>"
           cancellation_of_registration_html: "<strong>Canslo cofrestriad</strong>"
@@ -1020,7 +1022,8 @@ cy:
           refused: Naddo
       steps_lateness_in_time_form:
         in_time_options:
-          <<: *YESNO
+          'yes': Ydw, rwyf mewn pryd
+          'no': Nac ydw, rwyf yn hwyr
           unsure: "Nid wyf yn siŵr"
       steps_lateness_lateness_reason_form:
         lateness_reason: "Rhowch eich rhesymau isod neu atodwch nhw fel dogfen"
@@ -1297,7 +1300,7 @@ cy:
       decision:
         edit:
           heading_direct: "A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM?"
-          heading_indirect: "A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu? "
+          heading_indirect: "A wnaethoch ofyn am adolygiad o'r penderfyniad gwreiddiol?"
           help_panel:
             content_html: |-
               <p class="govuk-body">Bydd yr hysbysiad gwreiddiol yn nodi beth y gallwch wneud pan fyddwch yn anghytuno â phenderfyniad treth. </p>
@@ -1330,7 +1333,7 @@ cy:
         show:
           contact_hmrc_button: "Cysylltu â Cyllid a Thollau EM"
           free_to_challenge_hmrc_guidance_html: "<p class=\"govuk-body\">Dylech apelio hyd yn oed os ydych yn credu eich bod yn hwyr. Bydd Cyllid a Thollau EM yn penderfynu p'un a fydd yn derbyn eich apêl neu'n egluro beth allwch wneud nesaf. </p>"
-          free_to_challenge_hmrc_heading_html: "Dim ond ôl i chi ysgrifennu at Gyllid a Thollau EM y cewch apelio i'r tribiwnlys treth. Gwiriwch yr opsiynau pan fyddwch <a href=\"https://www.gov.uk/tax-appeals\" class=\"govuk-link\">yn anghytuno â phenderfyniad treth.</a>"
+          free_to_challenge_hmrc_heading_html: "Dim ond ar ol i chi ysgrifennu at Gyllid a Thollau EM y cewch apelio i'r tribiwnlys treth. Gwiriwch yr opsiynau pan fyddwch <a href=\"https://www.gov.uk/tax-appeals\" class=\"govuk-link\">yn anghytuno â phenderfyniad treth.</a>"
           heading: "Mae'n rhaid ichi apelio yn erbyn y penderfyniad gwreiddiol i Gyllid a Thollau EM"
           lead_text: "Bydd yr hysbysiad gwreiddiol yn egluro beth i'w wneud."
           page_title: "Rhaid herio Cyllid a Thollau EM"
@@ -1499,7 +1502,7 @@ cy:
               </div>
             </div>
           details_heading:
-            as_representative: "Sut i gael awdurdod gan y trethdalwr"
+            as_representative: "Sut i awdurdodi eich cynrychiolydd"
             as_taxpayer: "Sut i awdurdodi eich cynrychiolydd"
           details_info_html:
             as_representative_html: |-
@@ -1519,10 +1522,10 @@ cy:
                <p class="govuk-body">Os yw eich <span class="" data-dependent="application_type=appeal">apêl </span><span class="js-hidden" data-dependent="application_type=closure">cais </span>ar gyfer cwmni, bydd angen i gyfarwyddwr yn y cwmni arwyddo'r ffurflen.</p>
           download_button_text: "Lawrlwytho PDF"
           heading:
-            as_representative: "Ydych chi eisiau dechrau cael gohebiaeth gan y tribiwnlys?  (dewisol)"
+            as_representative: "Ydych chi eisiau awdurdodi eich cynrychiolydd nawr? (dewisol)"
             as_taxpayer: "Ydych chi eisiau awdurdodi eich cynrychiolydd nawr? (dewisol)"
           lead_text:
-            as_representative: "Llwythwch awdurdodiad i hysbysu'r tribiwnlys treth eich bod yn gweithredu ar ran y trethdalwr. "
+            as_representative: "Os ydych eisiau i'ch cynrychiolydd ddechrau cael gohebiaeth gan y tribiwnlys treth, gallwch ei awdurdodi nawr."
             as_taxpayer: "Os ydych eisiau i'ch cynrychiolydd ddechrau cael gohebiaeth gan y tribiwnlys treth, gallwch eu hawdurdodi nawr. "
           page_title: "Cymeradwyaeth y cynrychiolydd"
           upload_explanation_html: "Bydd eich dogfen yn cael ei llwytho pan fyddwch yn clicio ‘Parhau'."
@@ -1537,7 +1540,7 @@ cy:
         edit:
           heading:
             as_representative: "Pwy ydych chi?"
-            as_taxpayer: "Pwy sy'n eich cynrychioli chi?"
+            as_taxpayer: "Pwy ydych chi?"
           page_title: "Statws proffesiynol"
       representative_type:
         edit:
@@ -1553,11 +1556,11 @@ cy:
         edit:
           heading:
             as_representative: "Ar gyfer pwy mae'r %{appeal_or_application}?"
-            as_taxpayer: "Pwy sy'n gwneud yr %{appeal_or_application}?"
+            as_taxpayer: "Pwy sy'n gwneud yr %{appeal_or_application} y cais?"
           page_title: "Math o drethdalwr"
       user_type:
         edit:
-          heading: "Ai chi yw'r trethdalwr sy'n gwneud yr %{appeal_or_application}?"
+          heading: "Ai chi yw'r trethdalwr sy'n gwneud yr y %{appeal_or_application}?"
           page_title: "Math o ddefnyddiwr"
       what_support:
         edit:
@@ -1598,7 +1601,7 @@ cy:
       lateness_reason:
         edit:
           attach_document_html: *attach_reasons_document
-          heading: "Pam ydych chi'n hwyr gyda'ch %{appeal_or_application}?"
+          heading: "Pam ydych chi'n hwyr cyflwyno'ch %{appeal_or_application} yn hwyr?"
           heading_unsure: "A oes yna resymau pam bod eich %{appeal_or_application} yn hwyr?"
           lead_text_html: |
             <p>Bydd y barnwr yn ystyried eich rhesymau ac unrhyw ymateb gan Gyllid a Thollau EM.
@@ -1700,7 +1703,7 @@ cy:
       logged_out:
         heading: "Rydych wedi allgofnodi"
         lead_text: "Gallwch ddychwelyd at achos sydd wedi'i gadw drwy ddefnyddio'r ddolen a anfonwyd atoch yn y neges e-bost neu drwy ddychwelyd i ddechrau'r gwasanaeth hwn. "
-        more_text_html: "Bydd achos drafft yn dod i ben ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
+        more_text_html: "Bydd achos drafft yn cael ei ddileu ar ôl %{expire_in_days} diwrnod iddo gael ei greu neu pan fyddwch yn ei gyflwyno i'r tribiwnlys treth. "
         page_title: Allgofnodi
       new:
         forgot_password: "Wedi anghofio eich cyfrinair?"
