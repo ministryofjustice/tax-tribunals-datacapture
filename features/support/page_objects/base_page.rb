@@ -1,9 +1,9 @@
 class BasePage < SitePrism::Page
 
   section :cookie, '.govuk-cookie-banner' do
-    element :header, 'h2', text: 'Cookies on appeal to the tax tribunal'
-    element :accept_button, "input[value='Accept analytics cookies']"
-    element :reject_button, "input[value='Reject analytics cookies']"
+    element :header, 'h2', text: I18n.t('cookies.banner.heading')
+    element :accept_button, "input[value='"+ I18n.t('cookies.banner.button.accept') +"']"
+    element :reject_button, "input[value='"+ I18n.t('cookies.banner.button.reject') +"']"
   end
 
   section :content, '#main-content' do

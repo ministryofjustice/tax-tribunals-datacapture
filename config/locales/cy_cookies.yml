@@ -1,10 +1,10 @@
 cy:
   cookies:
     banner:
-      heading: Cwcis ar apêl i'r tribiwnlys treth
+      heading: Cwcis ar gyfer Apelio i'r Tribiwnlys Treth
       content:
-        line_1: Rydym yn defnyddio rhai cwcis hanfodol i wneud i’r gwasanaeth hwn weithio..
-        line_2: "Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut mae pobl yn defnyddio’r gwasanaeth hwn a gwneud gwelliannau."
+        line_1: Rydym yn defnyddio cwcis hanfodol i wneud i'r wefan hon weithio.
+        line_2: Hoffem osod cwcis ychwanegol i ddeall sut rydych yn defnyddio'r wefan a gwella gwasanaethau'r llywodraeth.
         accepted_html: Rydych wedi derbyn cwcis dadansoddol. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
         rejected_html: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
       button:
@@ -38,6 +38,8 @@ cy:
           col_1: seen_cookie_message
           col_2: Saves a message to let us know that you've seen our cookie message
           col_3: 1 month
+
+
       intro_message: "Ein neges cyflwyno"
       line_1: "Efallai y byddwch yn gweld neges yn eich croesawu pan fyddwch yn ymweld â'r gwasanaeth Apelio i'r tribiwnlys treth am y tro cyntaf. Byddwn yn storio cwci ar eich cyfrifiadur fel ei fod yn gwybod i beidio â'i dangos eto."
       line_10: "Nid ydym yn caniatáu i Google ddefnyddio na rhannu ein data dadansoddi."
