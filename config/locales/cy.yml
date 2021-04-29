@@ -1056,6 +1056,7 @@ cy:
       save_and_continue: "Cadw a pharhau"
       sign_in: Mewngofnodi
       update: Parhau
+      cookie_setting: cadw gosodiadau
   home:
     accessibility:
       description_html: |-
@@ -1568,6 +1569,7 @@ cy:
           lead_text: "Dewiswch pa gefnogaeth y byddwch angen yn eich gwrandawiad. Dewiswch bob un sy'n berthnasol:"
           page_title: "Pa fath o gefnogaeth?"
           sign_language_interpreter_hint: "Nodwch pa fath o iaith arwyddion y byddwch angen. Er enghraifft, Iaith Arwyddion Prydain."
+          no_results: Ni ddarganfuwyd unrhyw ganlyniadau
       <<: *CYA_CONFIRMATION
     hardship:
       disputed_tax_paid:
