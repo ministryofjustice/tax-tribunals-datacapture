@@ -19,6 +19,14 @@ Then("I am taken to the appeal page") do
   expect(appeal_page.content).to have_header
 end
 
+Then("I should not see tax time information") do
+  expect(home_page.content).to have_no_time_information_tax
+end
+
+Then("I should not see enquiry time information") do
+  expect(home_page.content).to have_no_time_information_enquiry
+end
+
 When("I click the return to a saved appeal button") do
   home_page.return
 end

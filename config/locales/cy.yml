@@ -6,7 +6,7 @@ cy:
     locale: en
   dictionary:
     taxpayer: trethdalwr
-    representative: representative
+    representative: cynrychiolydd
     select_language_question: &select_language_question Pa iaith ydych chi eisiau i ni ei defnyddio pan fyddwn yn cysylltu â chi?
     SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
       english: Saesneg yn unig
@@ -610,7 +610,7 @@ cy:
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
       #question: "A yw'r taxpayer eisiau copi o fanylion yr achos drwy e-bost?"
-      question: "Trwy anfon yr trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
+      question: "A yw'r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
@@ -797,7 +797,7 @@ cy:
       steps_details_taxpayer_type_form:
         taxpayer_type_html: "Pwy sy'n gwneud yr apêl?"
       steps_details_user_type_form:
-        user_type_html: "Ai chi yw'r trethdalwr sy'n gwneud yr apêl?"
+        user_type_html: "Ai chi yw'r trethdalwr sy'n gwneud yr y apêl?"
         user_type_application: "Ai chi yw'r trethdalwr sy'n gwneud yr y cais?"
       steps_hardship_disputed_tax_paid_form:
         disputed_tax_paid_html: "Ydych chi wedi talu swm y dreth sy'n sail i'ch anghydfod?"
@@ -1552,6 +1552,7 @@ cy:
             as_representative: "Pwy ydych chi?"
             as_taxpayer: "Pwy ydych chi?"
           page_title: "Statws proffesiynol"
+          practising_solicitor_option: Cyfreithiwr neu fargyfreithiwr sy'n ymarfer yng Nghymru, Lloegr neu yng Ngogledd Iwerddon
       representative_type:
         edit:
           heading:
@@ -1570,8 +1571,8 @@ cy:
           heading:
             as_representative: "Ar gyfer pwy mae'r %{appeal_or_application}?"
             as_taxpayer: "Pwy sy'n gwneud yr %{appeal_or_application} y cais?"
-            appeal_test: Pwy sy'n gwneud yr apêl?
-            application_test: Pwy sy'n gwneud yr cais?
+            appeal_test: Pwy sy'n gwneud yr apêl y cais?
+            application_test: Pwy sy'n gwneud yr cais y cais?
           page_title: "Math o drethdalwr"
       user_type:
         edit:

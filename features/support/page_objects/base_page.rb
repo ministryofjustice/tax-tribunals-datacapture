@@ -19,8 +19,10 @@ class BasePage < SitePrism::Page
     element :no_option, 'label', text: I18n.t('dictionary.YESNO.no')
     element :yes_option_welsh, 'label', text: I18n.t('check_answers.hardship_review_status.answers.granted')
     element :yes_option_welsh_2, 'label', text: "Ie"
+    element :yes_option_welsh_3, 'label', text: "Ydy"
     element :no_option_welsh, 'label', text: I18n.t('check_answers.hardship_review_status.answers.refused')
     element :no_option_welsh_2, 'label', text: "Na, rwy'n gweithredu ar ran y trethdalwr"
+    element :no_option_welsh_3, 'label', text: "Nac ydy"
     element :save_and_come_back_link, 'a', text: I18n.t('helpers.submit.save_and_come_back_later')
   end
   section :footer, '.govuk-footer' do

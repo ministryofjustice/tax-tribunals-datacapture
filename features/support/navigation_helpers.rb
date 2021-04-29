@@ -151,7 +151,11 @@ def complete_valid_appeal_application
     expect(grounds_for_appeal_page.content).to have_header
     grounds_for_appeal_page.valid_submission
     expect(eu_exit_page.content).to have_header
-    submit_yes
+    if ENV['TEST_LOCALE'] == 'cy'
+      submit_yes_3
+    else
+      submit_yes
+    end
     expect(outcome_page.content).to have_header
     outcome_page.valid_submission
     expect(need_support_page.content).to have_header
