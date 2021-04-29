@@ -93,6 +93,7 @@ RSpec.describe Cookie::SettingForm do
                             Cookie::SettingForm::COOKIE_NAME,
                             {
                               value: value,
+                              path: '/',
                               expires: 1.year.from_now
                             }
                           )
