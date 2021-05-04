@@ -609,13 +609,11 @@ cy:
       lateness: "Terfyn amser yr %{appeal_or_application_capitalised}"
       taxpayer: "Manylion y trethdalwr"
     send_taxpayer_copy:
-      #question: "A yw'r taxpayer eisiau copi o fanylion yr achos drwy e-bost?"
       question: "A yw'r trethdalwr eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
         <<: *YESNO
     send_representative_copy:
-  #question: "A yw'r representative eisiau copi o fanylion yr achos drwy e-bost?"
       question: "A yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       accessible_change_text: "a yw'r cynrychiolydd eisiau copi o fanylion yr achos drwy e-bost?"
       answers:
