@@ -7,7 +7,6 @@ Given("I am on the appeal case type page without login") do
 end
 
 When("I click on continue without selecting an option") do
-  print("LOCALE IS ======" + ENV['TEST_LOCALE'])
   continue_or_save_continue
 end
 

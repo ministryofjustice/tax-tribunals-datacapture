@@ -10,7 +10,7 @@ require 'capybara-screenshot/cucumber'
 require 'cucumber/rails'
 require 'rest-client'
 require 'selenium-webdriver'
-
+ENV['TEST_LOCALE'] = "en" if ENV['TEST_LOCALE'] != "cy"
 require_relative './page_objects/base_page'
 
 Dir[File.dirname(__FILE__) + '/page_objects/**/*.rb'].each { |f| require f }

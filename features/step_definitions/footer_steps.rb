@@ -1,5 +1,5 @@
 Then("I am able to click on the external Help link") do
-  expect(base_page.footer.help_link["href"]).to eq "https://www.gov.uk/help"
+  expect(base_page.footer.help_link["href"]).to eq I18n.locale == :en ? 'https://www.gov.uk/help' : 'https://www.gov.uk/cymraeg'
 end
 
 Then("I am able to click on the Smart Survey link") do

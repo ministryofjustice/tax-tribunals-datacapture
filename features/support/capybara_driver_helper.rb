@@ -1,7 +1,7 @@
 Selenium::WebDriver.logger.level = :error
 
 Capybara.configure do |config|
-  driver = ENV['DRIVER']&.to_sym || :chrome
+  driver = ENV['DRIVER']&.to_sym || :headless
   config.default_driver = driver
   config.default_max_wait_time = 30
   config.match = :prefer_exact
@@ -15,7 +15,7 @@ end
 
 
 Capybara.register_driver :headless do |app|
-  chrome_options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu', 'window-size=1200,1100'])
+  chrome_options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu', 'window-size=1280,720'])
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: chrome_options)
 end
 
