@@ -1,9 +1,9 @@
 class SupportDocumentsPage < BasePage
-  set_url '/en/steps/closure/support_documents'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/closure/support_documents'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Add documents to support your application (optional)'
-    element :trouble_checkbox, 'label', text: 'I am having trouble uploading my documents'
+    element :header, 'h1', text: I18n.t('steps.closure.support_documents.edit.heading')
+    element :trouble_checkbox, 'label', text: I18n.t('steps.closure.support_documents.edit.having_problems_uploading')
     element :trouble_textarea, '#steps-closure-support-documents-form-having-problems-uploading-explanation-field'
   end
 end

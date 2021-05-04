@@ -29,11 +29,6 @@ Feature: Layout
     When I click on the Accessibility statement link
     Then I am on the Accessibility statement page
 
-  Scenario: Verify Welsh language selector link
-    When I click on the 'Cymraeg' link
-    Then I am on the 'cy' locale
-
-  Scenario: Verify English language selector link
-    When I click on the 'Cymraeg' link
-    And I click on the 'English' link
-    Then I am on the 'en' locale
+  Scenario: Verify language selector links
+    When I select language link
+    Then I will see the website open in that language

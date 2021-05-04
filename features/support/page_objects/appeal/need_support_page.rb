@@ -1,7 +1,7 @@
 class NeedSupportPage < BasePage
-  set_url '/en/steps/details/need_support'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/need_support'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Do you need any support at the hearing?'
+    element :header, 'h1', text: I18n.t('check_answers.need_support.question')
   end
 end

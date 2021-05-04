@@ -1,14 +1,14 @@
 class AppealCaseTypeShowMorePage < BasePage
-  set_url '/en/steps/appeal/case_type_show_more'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/appeal/case_type_show_more'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'What is your appeal about?'
-    element :aggregates_levy_option,'.govuk-label', text: 'Aggregates Levy'
-    element :none_of_above_option,'.govuk-label', text: 'None of the above'
+    element :header, 'h1', text: I18n.t('dictionary.CASE_TYPE_QUESTION.heading')
+    element :aggregates_levy_option,'.govuk-label', text: I18n.t('check_answers.case_type.answers.aggregates_levy')
+    element :none_of_above_option,'.govuk-label', text: I18n.t('helpers.label.steps_details_representative_professional_status_form.representative_professional_status_options.other_html')
     element :none_of_above_answer_box, '#steps-appeal-case-type-show-more-form-case-type-other-value-field'
     section :error, '.govuk-error-summary' do
-      element :answer_error_heading, '#error-summary-title', text: 'There is a problem'
-      element :answer_error_link, 'a', text: 'Please enter an answer'
+      element :answer_error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+      element :answer_error_link, 'a', text: I18n.t('errors.messages.blank')
     end
   end
 

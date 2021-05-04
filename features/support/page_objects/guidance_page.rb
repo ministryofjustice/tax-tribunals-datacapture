@@ -1,8 +1,8 @@
 class GuidancePage < BasePage
-  set_url '/en/guidance'
+  set_url '/' + ENV['TEST_LOCALE'] + '/guidance'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Guide to appealing a tax decision'
+    element :header, 'h1', text: I18n.t('guidance.heading')
     element :visible_first_question, '#accordion-1-heading-0', visible: true
     element :visible_second_question, '#accordion-1-heading-1', visible: true
     element :visible_first_answer, '#accordion-1-content-0', visible: true

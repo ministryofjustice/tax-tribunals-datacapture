@@ -1,10 +1,10 @@
 class SelectLanguagePage < BasePage
-  set_url '/en/steps/select_language'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/select_language'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'What language do you want us to use when we contact you?'
-    element :english_only_checkbox, 'label', text: 'English only'
-    element :english_welsh_checkbox, 'label', text: 'English and Welsh'
+    element :header, 'h1', text: I18n.t('dictionary.select_language_question')
+    element :english_only_checkbox, 'label', text: I18n.t('dictionary.SUPPORTED_LANGUAGES.english')
+    element :english_welsh_checkbox, 'label', text: I18n.t('dictionary.SUPPORTED_LANGUAGES.english_welsh')
   end
 
   def skip_save_and_return

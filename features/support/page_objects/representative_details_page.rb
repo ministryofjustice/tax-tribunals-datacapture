@@ -1,8 +1,8 @@
 class RepresentativeDetailsPage < BasePage
-  set_url '/en/steps/details/representative_details'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/representative_details'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: "Representative's details"
+    element :header, 'h1', text: I18n.t('steps.details.representative_details.edit.heading')
     sections :input_field, '.govuk-form-group' do
       element :input_label, '.govuk-label'
       element :first_name_input, "input[name='steps_details_representative_individual_details_form[representative_individual_first_name]']"

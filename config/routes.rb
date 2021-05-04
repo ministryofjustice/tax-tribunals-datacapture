@@ -182,6 +182,7 @@ Rails.application.routes.draw do
   get '/:locale', to: 'home#index', as: :local_root
   get :start, to: redirect('/', status: 301)
 
+
   scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     get :appeal, to: 'appeal_home#index'
     get :closure, to: 'closure_home#index'

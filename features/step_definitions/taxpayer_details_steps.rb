@@ -8,14 +8,14 @@ end
 
 When("I successfully submit taxpayers details") do
   expect(taxpayer_details_page.content).to have_header
-  expect(taxpayer_details_page.content.input_field[0].input_label.text).to eq 'First name'
-  expect(taxpayer_details_page.content.input_field[1].input_label.text).to eq 'Last name'
-  expect(taxpayer_details_page.content.input_field[2].input_label.text).to eq 'Address'
-  expect(taxpayer_details_page.content.input_field[3].input_label.text).to eq 'Town/City'
-  expect(taxpayer_details_page.content.input_field[4].input_label.text).to eq 'Postcode'
-  expect(taxpayer_details_page.content.input_field[5].input_label.text).to eq 'Country'
-  expect(taxpayer_details_page.content.input_field[6].input_label.text).to eq 'Email address'
-  expect(taxpayer_details_page.content.input_field[7].input_label.text).to eq 'Contact phone number (optional)'
+  expect(taxpayer_details_page.content.input_field[0].input_label.text).to eq I18n.t('helpers.label.steps_details_taxpayer_individual_details_form.taxpayer_individual_first_name')
+  expect(taxpayer_details_page.content.input_field[1].input_label.text).to eq I18n.t('helpers.label.steps_details_taxpayer_individual_details_form.taxpayer_individual_last_name')
+  expect(taxpayer_details_page.content.input_field[2].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_address')
+  expect(taxpayer_details_page.content.input_field[3].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_city')
+  expect(taxpayer_details_page.content.input_field[4].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_postcode')
+  expect(taxpayer_details_page.content.input_field[5].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_country')
+  expect(taxpayer_details_page.content.input_field[6].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_email')
+  expect(taxpayer_details_page.content.input_field[7].input_label.text).to eq I18n.t('dictionary.TAXPAYER_ADDRESS.taxpayer_contact_phone')
   taxpayer_details_page.submit_taxpayer_details
 end
 
@@ -29,13 +29,13 @@ Then("I am taken to the send taxpayer copy page") do
 end
 
 Then("I am shown all the taxpayer details errors") do
-  expect(taxpayer_details_page.content.input_field[0].input_error.text).to have_content(/Please enter a first name/)
-  expect(taxpayer_details_page.content.input_field[1].input_error.text).to have_content(/Please enter a last name/)
-  expect(taxpayer_details_page.content.input_field[2].input_error.text).to have_content(/Please enter an address/)
-  expect(taxpayer_details_page.content.input_field[3].input_error.text).to have_content(/Please enter a city/)
-  expect(taxpayer_details_page.content.input_field[4].input_error.text).to have_content(/Please enter a postcode/)
-  expect(taxpayer_details_page.content.input_field[5].input_error.text).to have_content(/Please enter a country/)
-  expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content(/Please enter your email address/)
+  expect(taxpayer_details_page.content.input_field[0].input_error.text).to have_content(I18n.t('dictionary.blank_first_name'))
+  expect(taxpayer_details_page.content.input_field[1].input_error.text).to have_content(I18n.t('dictionary.blank_last_name'))
+  expect(taxpayer_details_page.content.input_field[2].input_error.text).to have_content(I18n.t('dictionary.blank_address'))
+  expect(taxpayer_details_page.content.input_field[3].input_error.text).to have_content(I18n.t('dictionary.blank_city'))
+  expect(taxpayer_details_page.content.input_field[4].input_error.text).to have_content(I18n.t('dictionary.blank_postcode'))
+  expect(taxpayer_details_page.content.input_field[5].input_error.text).to have_content(I18n.t('dictionary.blank_country'))
+  expect(taxpayer_details_page.content.input_field[6].input_error.text).to have_content(I18n.t('dictionary.blank_email'))
 end
 
 Then("I am on the taxpayer details page") do

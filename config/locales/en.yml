@@ -5,7 +5,7 @@ en:
     locale: cy
   dictionary:
     taxpayer: taxpayer
-    representative: :representative
+    representative: representative
     select_language_question: &select_language_question "What language do you want us to use when we contact you?"
     SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
       english: English only
@@ -87,6 +87,7 @@ en:
         resume:
           page_title: Resume your case
           heading: Resume your %{appeal_or_application}
+          heading_appeal: Resume your appeal
       confirmation:
         show:
           page_title: Case submitted
@@ -280,6 +281,8 @@ en:
           heading:
             as_taxpayer: Who is making the %{appeal_or_application}?
             as_representative: Who is the %{appeal_or_application} for?
+            appeal_test: Who is making the appeal?
+            application_test: Who is making the application?
           page_title: Taxpayer type
       taxpayer_details:
         edit:
@@ -298,6 +301,7 @@ en:
             as_taxpayer: Who is representing you?
             as_representative: Who are you?
           page_title: Professional status
+          practising_solicitor_option: Practising solicitor or barrister in England, Wales or Northern Ireland
       representative_approval:
         edit:
           heading:
@@ -358,6 +362,9 @@ en:
             as_representative: Are you an individual,
               company or other type of organisation?
           page_title: Representative type
+          individual: Individual
+          company: Company
+          other: Other type of organisation
       representative_details:
         edit:
           heading: Representative's details
@@ -787,6 +794,7 @@ en:
         closure_case_type_html: What type of enquiry do you want to close?
       steps_details_user_type_form:
         user_type_html: Are you the taxpayer making the appeal?
+        user_type_application: Are you the taxpayer making the application?
       steps_details_taxpayer_type_form:
         taxpayer_type_html: Who is making the appeal?
       steps_details_representative_professional_status_form:
@@ -868,6 +876,7 @@ en:
           other_html: "<strong>None of the above</strong>"
       steps_appeal_dispute_type_form:
         dispute_type_other_value: What is your dispute about?
+        amount_of_tax_owed_by_hmrc: You want HMRC to repay money
         dispute_type_options:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
@@ -994,6 +1003,7 @@ en:
           <<: *TRUEFALSE
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
+          single_test: Upload the letter as one document
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
             the letter as one file'
           multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
@@ -1048,6 +1058,7 @@ en:
           'no': No, I am late
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
+        heading: Why are you late with your appeal?
         lateness_reason: Enter reasons below or attach as a document
         lateness_reason_document: ''
       steps_details_representative_approval_form:
@@ -1163,6 +1174,7 @@ en:
         apn_penalty: Accelerated Payment Notice (APN) penalty
         bingo_duty: Bingo Duty
         capital_gains_tax: Capital Gains Tax
+        other_tax: Other type of tax, appeal or application
         climate_change_levy: Climate Change Levy
         construction_industry_scheme: Construction Industry Scheme (CIS)
         corporation_tax: Corporation Tax
@@ -1414,6 +1426,7 @@ en:
         review_conclusion_letter: Upload the review conclusion letter
         late_review_refusal_letter: Upload the letter refusing your late review
         late_appeal_refusal_letter: Upload the letter refusing your late appeal
+        lead_text: We accept a good quality and legible scan or photograph. Your appeal may be returned if we can't read the letter, and you risk missing the deadline.
       attach_document:
         original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
         review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
@@ -1492,10 +1505,11 @@ en:
       help: Help
       contact: Contact
       cookies: Cookies
-      terms_and_conditions: Terms and conditions
+      terms_and_conditions: Terms and Conditions
       privacy_policy: Privacy policy
       accessibility_statement: Accessibility statement
     phase_banner:
+      feedback_link: Provide feedback (opens in a new tab)
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback (opens in a new tab)</a> and help improve the service for others.
     current_user_menu:
@@ -1522,6 +1536,8 @@ en:
       response_error: "%{file_name} failed to upload. Please try again"
     file_selected: SELECTED
     file_uploading: UPLOADING
+  guidance:
+    heading: 'Guide to appealing a tax decision'
   home:
     index:
       heading: What do you want to do?
@@ -1726,6 +1742,8 @@ en:
     registrations:
       new:
         heading: Save your %{appeal_or_application}
+        appeal_test: Save your appeal
+        application_test: Save your application
         existing_account: Sign into an existing account
         account_warning_html: |
           <p class="govuk-body">Choose an email address and password so you can sign in and complete your case later.</p>

@@ -1,9 +1,9 @@
 Then("I am able to click on the external Help link") do
-  expect(base_page.footer.help_link["href"]).to eq "https://www.gov.uk/help"
+  expect(base_page.footer.help_link["href"]).to eq I18n.locale == :en ? 'https://www.gov.uk/help' : 'https://www.gov.uk/cymraeg'
 end
 
 Then("I am able to click on the Smart Survey link") do
-  expect(home_page).to have_link('Provide feedback (opens in a new tab)', href: 'https://www.smartsurvey.co.uk/s/TTFeed20/')
+  expect(home_page).to have_link(I18n.t('layouts.phase_banner.feedback_link'), href: 'https://www.smartsurvey.co.uk/s/TTFeed20/')
 end
 
 When("I click on the Contact link") do
@@ -27,21 +27,25 @@ When("I click on the Terms and conditions link") do
 end
 
 Then("I am on the Contact page") do
-  expect(page).to have_selector('h1', text: "Contact")
+  expect(page).to have_selector('h1', text: I18n.t('layouts.footer_links.contact'))
 end
 
 Then("I am on the Cookies page") do
-  expect(page).to have_selector('h1', text: "Cookies")
+  expect(page).to have_selector('h1', text: I18n.t('layouts.footer_links.cookies'))
 end
 
 Then("I am on the Privacy policy page") do
-  expect(page).to have_selector('h1', text: "HMCTS Privacy Policy")
+  expect(page).to have_selector('h1', text: I18n.t('privacy.header'))
 end
 
 Then("I am on the Accessibility statement page") do
-  expect(page).to have_selector('h1', text: "Accessibility statement for appealing to the Tax Tribunal")
+  expect(page).to have_selector('h1', text: I18n.t('home.accessibility.heading_html'))
+end
+
+Then("Verify language selector links") do
+  expect(page).to have_selector('a', text: I18n.t('selector.language'))
 end
 
 Then("I am on the Terms and conditions page") do
-  expect(page).to have_selector('h1', text: "Terms and Conditions")
+  expect(page).to have_selector('h1', text: I18n.t('layouts.footer_links.terms_and_conditions'))
 end
