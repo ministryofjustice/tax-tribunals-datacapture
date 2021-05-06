@@ -4,11 +4,11 @@ RSpec.describe HomeController do
   describe '#index' do
     it 'resets the tribunal case in the session' do
       expect(subject).to receive(:reset_tribunal_case_session)
-      get :index
+      local_get :index
     end
 
     it 'assigns the expected link sections' do
-      get :index
+      local_get :index
 
       name, time, link = assigns[:link_sections][0]
       expect(name).to eq(:appeal)
@@ -39,7 +39,7 @@ RSpec.describe HomeController do
       end
 
       it 'the link to login points to the cases portfolio' do
-        get :index
+        local_get :index
 
         name, time, link = assigns[:link_sections][2]
         expect(name).to eq(:home_login)
@@ -51,26 +51,26 @@ RSpec.describe HomeController do
 
   describe '#guidance' do
     it 'renders the expected page' do
-      get :guidance
+      local_get :guidance
       expect(response).to render_template(:guidance)
     end
   end
 
   describe '#contact' do
     it 'renders the expected page' do
-      get :contact
+      local_get :contact
       expect(response).to render_template(:contact)
     end
   end
 
   describe '#cookies' do
     it 'renders the expected page' do
-      get :cookies
+      local_get :cookies
       expect(response).to render_template(:cookies)
     end
 
     it 'sets for cookie_setting form object' do
-      get :cookies
+      local_get :cookies
       expect(assigns(:form_object)).to be_a(Cookie::SettingForm)
     end
   end
@@ -87,38 +87,38 @@ RSpec.describe HomeController do
         expect(Cookie::SettingForm).to receive(:new)
                                        .with(hash_including(cookie_setting: selection))
                                        .and_return(Cookie::SettingForm.new)
-        put :update, params: { cookie_setting_form: { cookie_setting: selection} }
+        local_put :update, params: { cookie_setting_form: { cookie_setting: selection} }
       end
     end
 
     it 'sets notification flag' do
-      put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
+      local_put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
       expect(flash[:cookie_notification]).to be_present
     end
 
     it 'redirects to cookies page' do
-      put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
+      local_put :update, params: { cookie_setting_form: { cookie_setting: 'yes'} }
       expect(response).to redirect_to(referer)
     end
   end
 
   describe '#terms' do
     it 'renders the expected page' do
-      get :terms
+      local_get :terms
       expect(response).to render_template(:terms)
     end
   end
 
   describe '#privacy' do
     it 'renders the expected page' do
-      get :privacy
+      local_get :privacy
       expect(response).to render_template(:privacy)
     end
   end
 
   describe '#accessibility' do
     it 'renders the expected page' do
-      get :accessibility
+      local_get :accessibility
       expect(response).to render_template(:accessibility)
     end
   end

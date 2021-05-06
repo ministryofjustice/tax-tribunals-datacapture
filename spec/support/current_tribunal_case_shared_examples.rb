@@ -31,7 +31,7 @@ RSpec.shared_examples 'checks the validity of the current tribunal case on creat
     before do
       additional_params ||= {}
       allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-      post :create, params: additional_params
+      local_post :create, params: additional_params
     end
 
     include_examples 'checks the validity of the current tribunal case'
@@ -43,7 +43,7 @@ RSpec.shared_examples 'checks the validity of the current tribunal case on destr
     before do
       additional_params ||= {}
       allow(subject).to receive(:current_tribunal_case).and_return(current_tribunal_case)
-      delete :destroy, params: {id: 'anything'}.merge(additional_params)
+      local_delete :destroy, params: {id: 'anything'}.merge(additional_params)
     end
 
     include_examples 'checks the validity of the current tribunal case'

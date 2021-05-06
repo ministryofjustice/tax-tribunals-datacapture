@@ -10,7 +10,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
     it 'assigns the presenter' do
       expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :html, locale: :en).and_return(presenter)
 
-      get :show, session: { tribunal_case_id: tribunal_case.id }
+      local_get :show, session: { tribunal_case_id: tribunal_case.id }
 
       expect(subject).to render_template(:show)
       expect(assigns[:presenter]).to eq(presenter)
@@ -23,7 +23,7 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
     it 'generates and sends the case details PDF' do
       expect(CheckAnswers::AppealAnswersPresenter).to receive(:new).with(tribunal_case, format: :pdf, locale: :en).and_return(presenter)
 
-      get :show, format: :pdf, session: { tribunal_case_id: tribunal_case.id }
+      local_get :show, format: :pdf, session: { tribunal_case_id: tribunal_case.id }
 
       expect(subject).to render_template(:show)
       expect(assigns[:presenter]).to eq(presenter)
@@ -40,14 +40,14 @@ RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
       end
 
       it 'renders the expected page' do
-        get :resume, session: { tribunal_case_id: tribunal_case.id }
+        local_get :resume, session: { tribunal_case_id: tribunal_case.id }
         expect(response).to render_template(:resume)
       end
     end
 
     context 'when user is not signed in' do
       it 'redirects to the sign-in page' do
-        get :resume, session: { tribunal_case_id: tribunal_case.id }
+        local_get :resume, session: { tribunal_case_id: tribunal_case.id }
         expect(response).to redirect_to(user_session_path)
       end
     end

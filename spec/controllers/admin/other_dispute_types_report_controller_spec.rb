@@ -17,13 +17,13 @@ RSpec.describe Admin::OtherDisputeTypesReportController, type: :controller do
       end
 
       it 'returns http success' do
-        get :index
+        local_get :index
         expect(response).to have_http_status(:success)
       end
 
       it 'retrieves the cases where case type is `other`' do
         expect(TribunalCase).to receive(:with_other_dispute_type).and_return(double.as_null_object)
-        get :index
+        local_get :index
       end
     end
   end

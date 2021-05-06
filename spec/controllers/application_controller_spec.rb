@@ -19,7 +19,7 @@ RSpec.describe ApplicationController do
 
         expect(Sentry).not_to receive(:capture_exception)
 
-        get :invalid_session
+        local_get :invalid_session
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe ApplicationController do
 
         expect(Sentry).not_to receive(:capture_exception)
 
-        get :case_not_found
+        local_get :case_not_found
         expect(response).to redirect_to(case_not_found_errors_path)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe ApplicationController do
 
         expect(Sentry).not_to receive(:capture_exception)
 
-        get :case_submitted
+        local_get :case_submitted
         expect(response).to redirect_to(case_submitted_errors_path)
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe ApplicationController do
 
         expect(Sentry).to receive(:capture_exception)
 
-        get :another_exception
+        local_get :another_exception
         expect(response).to redirect_to(unhandled_errors_path)
       end
     end

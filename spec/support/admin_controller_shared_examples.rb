@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.shared_examples 'a password-protected admin controller' do
   context 'missing credentials' do
     it 'requires basic auth' do
-      get :index
+      local_get :index
       expect(response).to have_http_status(:unauthorized)
     end
   end
@@ -14,7 +14,7 @@ RSpec.shared_examples 'a password-protected admin controller' do
     end
 
     it 'returns http unauthorized' do
-      get :index
+      local_get :index
       expect(response).to have_http_status(:unauthorized)
     end
   end

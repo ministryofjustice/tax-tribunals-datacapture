@@ -22,7 +22,7 @@ RSpec.describe DummyStepController, type: :controller do
     let!(:tribunal_case) { TribunalCase.create(navigation_stack: navigation_stack) }
 
     before do
-      get :show, session: { tribunal_case_id: tribunal_case.id }
+      local_get :show, session: { tribunal_case_id: tribunal_case.id }
       tribunal_case.reload
     end
 
@@ -55,7 +55,7 @@ RSpec.describe DummyStepController, type: :controller do
     let!(:tribunal_case) { TribunalCase.create(navigation_stack: navigation_stack) }
 
     before do
-      get :show, session: { tribunal_case_id: tribunal_case.id }
+      local_get :show, session: { tribunal_case_id: tribunal_case.id }
     end
 
     context 'when the stack is empty' do

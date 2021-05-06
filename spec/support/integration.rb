@@ -15,10 +15,11 @@ module Rails
         end
 
         http_verbs.each do |method|
-          define_method(method) do |*args, **kwargs|
+          new_method = "local_#{method}"
+          define_method(new_method) do |*args, **kwargs|
             reset_template_assertion
             kwargs[:params] = locale_params.merge(kwargs.fetch(:params, {}))
-            super(*args, **kwargs)
+            send(method.to_sym, *args, **kwargs)
           end
         end
       end

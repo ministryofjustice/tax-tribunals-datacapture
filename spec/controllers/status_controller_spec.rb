@@ -28,12 +28,12 @@ RSpec.describe TaxTribs::StatusController do
   # status is tested in spec/services/status_spec.rb.
   describe '#index' do
     specify do
-      get :index, format: :json
+      local_get :index, format: :json
       expect(response.status).to eq(200)
     end
 
     it 'returns json' do
-      get :index, format: :json
+      local_get :index, format: :json
       expect(response.body).to eq(status)
     end
   end

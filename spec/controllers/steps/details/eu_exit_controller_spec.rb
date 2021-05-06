@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Steps::Details::EuExitController, type: :controller do
   describe '#edit' do
     let!(:existing_case) { TribunalCase.create }
-    before { get :edit, session: { tribunal_case_id: existing_case.id } }
+    before { local_get :edit, session: { tribunal_case_id: existing_case.id } }
 
     it { expect(response).to be_successful }
     it { expect(assigns(:form_object)).to be_a_kind_of(Steps::Details::EuExitForm) }
@@ -19,7 +19,7 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       end
 
       it 'redirects to the invalid session error page' do
-        put :update, params: expected_params
+        local_put :update, params: expected_params
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
@@ -32,7 +32,7 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       end
 
       it 'redirects to the case already submitted error page' do
-        put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
+        local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
         expect(response).to redirect_to(case_submitted_errors_path)
       end
     end
@@ -51,7 +51,7 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
 
         it 'redirects to the outcome page' do
           allow(form_object).to receive(:save).and_return true
-          put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
+          local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
           expect(response).to redirect_to(edit_steps_details_outcome_path)
         end
 
@@ -62,7 +62,7 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
 
         it 'redirects to the outcome page' do
           allow(form_object).to receive(:save).and_return true
-          put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
+          local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
           expect(response).to redirect_to(edit_steps_details_outcome_path)
         end
 

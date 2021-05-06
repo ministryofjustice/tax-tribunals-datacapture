@@ -7,14 +7,14 @@ RSpec.describe Users::PasswordsController do
 
   describe '#new' do
     it 'responds with HTTP success' do
-      get :new
+      local_get :new
       expect(response).to be_successful
     end
   end
 
   describe '#create' do
     def do_post
-      post :create, params: {'user' => {
+      local_post :create, params: {'user' => {
         email: email
       }}
     end
@@ -69,7 +69,7 @@ RSpec.describe Users::PasswordsController do
 
   describe '#update' do
     def do_update
-      put :update, params: { 'user' => {
+      local_put :update, params: { 'user' => {
         password: 'foo@bar.com',
         password_confirmation: 'passw0rd',
         reset_password_token: 'whatever'
@@ -99,14 +99,14 @@ RSpec.describe Users::PasswordsController do
 
   describe '#reset_sent' do
     it 'renders the expected page' do
-      get :reset_sent
+      local_get :reset_sent
       expect(response).to render_template(:reset_sent)
     end
   end
 
   describe '#reset_sent' do
     it 'renders the expected page' do
-      get :reset_confirmation
+      local_get :reset_confirmation
       expect(response).to render_template(:reset_confirmation)
     end
   end

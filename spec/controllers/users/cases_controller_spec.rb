@@ -6,7 +6,7 @@ RSpec.describe Users::CasesController, type: :controller do
   describe '#index' do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
-        get :index
+        local_get :index
         expect(response).to redirect_to(user_session_path)
       end
     end
@@ -20,14 +20,14 @@ RSpec.describe Users::CasesController, type: :controller do
       end
 
       it 'renders the cases portfolio page' do
-        get :index
+        local_get :index
         expect(assigns[:tribunal_cases]).not_to be_nil
         expect(response).to render_template(:index)
       end
 
       it 'sorts the resulting cases by ascending `created_at`' do
         expect(finder_double).to receive(:order).with(created_at: :asc)
-        get :index
+        local_get :index
       end
     end
   end
@@ -43,14 +43,14 @@ RSpec.describe Users::CasesController, type: :controller do
       expect(user).to receive(:pending_tribunal_cases).and_return(tribunal_cases)
       expect(tribunal_cases).to receive(:find_by).with(id: '124').and_return(double)
 
-      get :edit, params: { id: 124 }
+      local_get :edit, params: { id: 124 }
       expect(assigns[:tribunal_case]).not_to be_nil
       expect(response).to render_template(:edit)
     end
 
     context 'when tribunal case does not exist' do
       it 'redirects to the case not found error page' do
-        get :edit, params: { id: 123 }
+        local_get :edit, params: { id: 123 }
         expect(response).to redirect_to(case_not_found_errors_path)
       end
     end
@@ -69,13 +69,13 @@ RSpec.describe Users::CasesController, type: :controller do
       expect(tribunal_cases).to receive(:find_by).with(id: '124').and_return(tribunal_case)
       expect(tribunal_case).to receive(:update).with(user_case_reference: 'lolz')
 
-      patch :update, params: { id: 124, tribunal_case: { user_case_reference: 'lolz' } }
+      local_patch :update, params: { id: 124, tribunal_case: { user_case_reference: 'lolz' } }
       expect(response).to redirect_to(users_cases_path)
     end
 
     context 'when tribunal case does not exist' do
       it 'redirects to the case not found error page' do
-        patch :update, params: { id: 123 }
+        local_patch :update, params: { id: 123 }
         expect(response).to redirect_to(case_not_found_errors_path)
       end
     end
@@ -84,7 +84,7 @@ RSpec.describe Users::CasesController, type: :controller do
   describe '#destroy' do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
-        delete :destroy, params: { id: 'any' }
+        local_delete :destroy, params: { id: 'any' }
         expect(response).to redirect_to(user_session_path)
       end
     end
@@ -99,7 +99,7 @@ RSpec.describe Users::CasesController, type: :controller do
 
       context 'when tribunal case does not exist' do
         it 'redirects to the case not found error page' do
-          delete :destroy, params: {id: '123'}
+          local_delete :destroy, params: {id: '123'}
           expect(response).to redirect_to(case_not_found_errors_path)
         end
       end
@@ -112,12 +112,12 @@ RSpec.describe Users::CasesController, type: :controller do
 
         it 'deletes the tribunal case by ID' do
           expect {
-            delete :destroy, params: {id: tribunal_case.id}
+            local_delete :destroy, params: {id: tribunal_case.id}
           }.to change { TribunalCase.count }.by(-1)
         end
 
         it 'redirects to the cases portfolio' do
-          delete :destroy, params: {id: tribunal_case.id}
+          local_delete :destroy, params: {id: tribunal_case.id}
           expect(response).to redirect_to(users_cases_path)
         end
       end
@@ -127,7 +127,7 @@ RSpec.describe Users::CasesController, type: :controller do
   describe '#resume' do
     context 'when user is logged out' do
       it 'redirects to the sign-in page' do
-        get :resume, params: { id: 'any' }
+        local_get :resume, params: { id: 'any' }
         expect(response).to redirect_to(user_session_path)
       end
     end
@@ -146,7 +146,7 @@ RSpec.describe Users::CasesController, type: :controller do
 
       context 'when tribunal case does not exist' do
         it 'redirects to the case not found error page' do
-          get :resume, params: {id: '123'}
+          local_get :resume, params: {id: '123'}
           expect(response).to redirect_to(case_not_found_errors_path)
         end
       end
@@ -159,13 +159,13 @@ RSpec.describe Users::CasesController, type: :controller do
 
         it 'assigns the chosen tribunal case to the current session' do
           expect(session[:tribunal_case_id]).to be_nil
-          get :resume, params: {id: tribunal_case.id}
+          local_get :resume, params: {id: tribunal_case.id}
           expect(session[:tribunal_case_id]).to eq(tribunal_case.id)
         end
 
         context 'redirects to the corresponding resume page' do
           before do
-            get :resume, params: {id: tribunal_case.id}
+            local_get :resume, params: {id: tribunal_case.id}
           end
 
           context 'for an appeal case' do

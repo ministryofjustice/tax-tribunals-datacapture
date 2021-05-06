@@ -7,7 +7,7 @@ RSpec.describe Steps::SelectLanguageController, type: :controller do
   end
 
   describe '#edit' do
-    before { get :edit }
+    before { local_get :edit }
 
     it { expect(response).to be_successful }
     it { expect(assigns(:form_object)).to be_a_kind_of(SelectLanguage::SaveLanguageForm) }
@@ -17,7 +17,7 @@ RSpec.describe Steps::SelectLanguageController, type: :controller do
   describe '#update' do
     it 'invokes method #update_and_advance' do
       expect(subject).to receive(:update_and_advance).with(SelectLanguage::SaveLanguageForm)
-      post :update, params: { language: 'EnglishWelsh' }
+      local_post :update, params: { language: 'EnglishWelsh' }
     end
 
     context 'appeal case' do
