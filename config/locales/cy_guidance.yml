@@ -1,0 +1,110 @@
+cy:
+  guidance:
+    page_title: Arweiniad
+    heading: Arweiniad i apelio yn erbyn penderfyniad treth
+    lead_text: Canfod atebion i gwestiynau cyffredin, ac arweiniad cam wrth gam drwy’r gwasanaeth. Gallwch adael yr arweiniad hwn drwy glicio ar y botwm Yn ôl. Oddi yno gallwch ‘Apelio yn erbyn penderfyniad treth’ neu ‘Gwneud cais i gau ymholiad’.
+    subheading_1: "Cwestiynau cyffredin"
+    accordion_1:
+      - question_html: "A yw’r tribiwnlys treth yn gwybod fy mod wedi cysylltu â HMRC yn barod?"
+        answer_html: |
+          <p class="govuk-body">Mae'r tribiwnlys treth yn annibynnol ac nid oes ganddo unrhyw wybodaeth am eich cysylltiadau â HMRC. Dim ond ar ôl ichi gyflwyno eich achos y byddwn yn gofyn am fanylion gan HMRC er mwyn i farnwr allu gwneud penderfyniad diduedd ynghylch eich apêl.</p>
+      - question_html: "A yw’n bosib i mi gadw fy manylion a dychwelyd yn hwyrach ymlaen?"
+        answer_html: |
+          <p class="govuk-body">Trwy gydol y gwasanaeth gallwch gadw'r hyn rydych wedi’i wneud a pharhau yn hwyrach ymlaen.  Mae’r nodwedd cadw a pharhau wedi’i greu er eich budd chi rhag ofn na allwch gwblhau eich apêl neu eich bod eisiau cyflwyno eich apêl yn hwyrach ymlaen.</p>
+      - question_html: "Sut ydw i’n defnyddio’r nodwedd cadw a dychwelyd?"
+        answer_html: |
+          <p class="govuk-body">Mae’r nodwedd cadw a dychwelyd ar gael ar bob sgrin unwaith y byddwch wedi dewis p’un a ydych eisiau “Apelio yn erbyn penderfyniad treth” neu “Gwneud cais i gau ymholiad”.  Mae ar gael fel dolen yn agos at waelod y sgrin, o dan y blychau yr ydych yn eu llenwi.</p>
+      - question_html: "Beth fydd yn digwydd pan fyddaf yn defnyddio'r nodwedd cadw a dychwelyd?"
+        answer_html: |
+          <p class="govuk-body">Pan fyddwch yn dewis cadw a dychwelyd fe ofynnir i chi roi cyfeiriad e-bost a chyfrinair.  Bydd hyn yn creu cyfrif dros dro a fydd yn weithredol am 30 diwrnod o'r dyddiad y gwnaethoch fewngofnodi diwethaf; ar ôl hynny, bydd y cyfrif ac unrhyw apeliadau sydd heb eu cyflwyno yn cael eu dileu er mwyn diogelu eich data ac i amddiffyn eich preifatrwydd.</p>
+          <p class="govuk-body">Caiff apeliadau sydd wedi’u cadw eu dileu’n awtomatig 14 diwrnod ar ôl y dyddiad y bu ichi eu cadw gyntaf, ac unwaith y byddwch wedi’u cyflwyno ni fyddant i'w gweld.</p>
+      - question_html: "Beth sy’n digwydd pan fyddaf yn cyflwyno fy apêl?"
+        answer_html: |
+          <p class="govuk-body">Ar ôl ichi gyflwyno apêl, hyd yn oed os gwnaethoch ei chadw’n flaenorol, ni fydd yn bodoli ar-lein mwyach ac ni allwch ei newid neb gysylltu â’r tribiwnlys yn uniongyrchol.  Eto, gwneir hyn i ddiogelu eich data ac i amddiffyn eich preifatrwydd.</p>
+          <p class="govuk-body">Os hoffech gael copi o’ch apêl, gallwch lawrlwytho ac/neu argraffu copi o'r PDF fydd ar gael ar y sgrin cadarnhau ar ôl ichi gyflwyno eich apêl yn llwyddiannus.  Fel rhan o’ch apêl gallwch ddewis anfon copi o fanylion yr achos mewn neges e-bost at y trethdalwr, y cynrychiolydd, neu'r ddau.   Ar ôl ichi gyflwyno eich apêl, fe anfonir y neges e-bost hon i'r cyfeiriad(au) e-bost a roddwyd, felly mae’n bwysig gwirio eich bod wedi nodi'r manylion hyn yn gywir.  Gallwch hefyd ofyn am gopïau ychwanegol drwy gysylltu’n uniongyrchol â’r tribiwnlys.</p>
+      - question_html: "Pam fod y sesiwn ar-lein yn dod i ben ar ôl 30 munud o wneud dim?"
+        answer_html: |
+          <p class="govuk-body">"I amddiffyn eich preifatrwydd, bydd y sesiwn ar-lein yn dod i ben ar ôl 30 munud o wneud dim.  Oni bai eich bod yn clicio ar ‘cadw’ byddwch yn colli unrhyw ddata yr ydych wedi’i roi a bydd rhaid ichi ddechrau eto.  I osgoi hyn rhag digwydd, fe’ch cynghorir i ddefnyddio'r nodwedd cadw a dychwelyd.</p>
+      - question_html: "A allaf gadw copi o fy apêl?"
+        answer_html: |
+          <p class="govuk-body">"Fel rhan o’ch apêl gallwch ddewis anfon copi o fanylion yr achos mewn neges e-bost at y trethdalwr, y cynrychiolydd, neu'r ddau. Gallwch hefyd gadw ac/neu argraffu copi ar ôl ichi gyflwyno eich apêl gan ddefnyddio'r ddolen a ddangosir ar y dudalen cadarnhau.  Fodd bynnag, unwaith y byddwch wedi cau'r dudalen cadarnhau ni allwch gael mynediad at y dudalen hon eto.  Os byddwch angen copi o fanylion yr achos ar ôl cau'r dudalen cadarnhau gallwch wneud cais am un drwy gysylltu â’r tribiwnlys yn uniongyrchol.</p>
+      - question_html: "A allaf atodi dogfennau ategol? "
+        answer_html: |
+          <p class="govuk-body">Wrth ichi gwblhau eich apêl ar-lein, cewch gyfle i atodi dogfennau ategol.</p>
+          <p class="govuk-body">Ar hyn o bryd, dim ond dau set o ddogfennau y mae’r tribiwnlys eu hangen i gefnogi eich apêl:</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+            <li>“Seiliau’r apêl” sy’n disgrifio pam rydych yn apelio, sy’n gallu bod yn destun rhydd, yn ddogfen sengl neu'r ddau.</li>
+            <li>Y llythyr canlyniad adolygiad y dylech fod wedi’i gael ar ôl ichi apelio i HMRC, er enghraifft.  Er gallwch atodi mwy nag un ddogfen sengl yma, nid yw hyn yn angenrheidiol oherwydd bydd y tribiwnlys yn cysylltu â chi pan fydd angen hyn.  I gynorthwyo'r tribiwnlys i brosesu eich apêl, dylech osgoi darparu mwy o ddogfennau na sydd angen ar hyn o bryd pa bynnag y bo hynny’n bosibl.</li>
+            </ul>
+    subheading_2: "Beth yw’r camau sy’n gysylltiedig ag apêl ar-lein arferol?"
+    steps_details_html: |
+       <p class="govuk-body">Mae yna nifer o gamau gwahanol yn dibynnu ar a ydych eisiau “Apelio yn erbyn penderfyniad treth” neu “Gwneud cais i gau ymholiad”.</p>
+       <p class="govuk-body">Rydym wedi defnyddio “Apelio yn erbyn penderfyniad treth” ar gyfer yr arweiniad hwn.  Mae’r canlynol yn enghraifft nodweddiadol o gamau'r gwasanaeth ar-lein, er efallai bydd eich taith chi drwy'r gwasanaeth yn wahanol gan ddibynnu ar eich dewisiadau.</p>
+    accordion_2:
+      - question_html: "1. Ynglŷn â beth yw eich apêl?"
+        answer_html: |
+         <p class="govuk-body">Dewiswch yr opsiwn sy’n berthnasol i’ch apêl neu fel arall dewiswch “Math arall o dreth, apêl neu gais” os nad yw’r opsiwn rydych ei angen wedi’i restru.</p>
+            <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+              <li>Os byddwch yn dewis “Math arall o dreth, apêl neu gais” fe gewch ragor o opsiynau ar y sgrin nesaf.  Os na allwch ddod o hyd i'r opsiwn yr ydych ei angen, gallwch ddewis “Dim un o'r uchod” a nodi’r math o dreth neu anghydfod sy’n berthnasol i barhau.</li>
+              </ul>
+          <p class="govuk-body">Yn amodol ar yr opsiwn y bu ichi ddewis ar y sgrin flaenorol fe ofynnir i chi, “A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i HMRC?” neu fel arall “A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?”.</p>
+      - question_html: "2. A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol neu ofyn iddo gael ei adolygu?"
+        answer_html: |
+          <p class="govuk-body">Gan ddibynnu ar y math o apêl y bu ichi ddewis ar y sgrin flaenorol fe ofynnir i chi, “A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol i HMRC?” neu fel arall “A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?”.</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+            <li><b>A wnaethoch apelio yn erbyn y penderfyniad gwreiddiol?</b><br> Os dewiswch ‘Naddo’ i'r cwestiwn hwn yna bydd y sgrin nesaf yn dweud “Mae’n rhaid ichi apelio yn erbyn y penderfyniad gwreiddiol i HMRC” oherwydd gallwch ond apelio i'r tribiwnlys treth unwaith y byddwch wedi ysgrifennu at HMRC ac wedi cael eu hymateb.</li>
+            <br>
+            <li><b>A wnaethoch ofyn i'r penderfyniad gwreiddiol gael ei adolygu?</b><br> Os dewiswch ‘Do’ neu ‘Naddo’ ar gyfer y cwestiwn hwn bydd y sgrin nesaf yn cynnwys set arall o opsiynau i chi ddewis o’u plith:</li>
+          </ul>
+          <p style="margin-left: 100px" class="govuk-body"><b>Do - Beth oedd yr ymateb a gawsoch?<br> Naddo - Ynglŷn â beth yw eich anghydfod?</b></p>
+          <p class="govuk-body">Bydd dewis ‘Do’ yn dangos sgrin a fydd yn gofyn; “Beth oedd yr ymateb a gawsoch?”, a bydd hefyd yn cynnwys opsiynau ychwanegol i wirio os gallwch barhau gyda’ch apêl.  Gwneir hyn er mwyn sicrhau nad ydych yn gwastraffu eich amser yn cyflwyno apêl a allai yn ddiweddarach gael ei dychwelyd fel apêl annilys gan y tribiwnlys.</p>
+      - question_html: "3. Ynglŷn â beth yw eich anghydfod?"
+        answer_html: |
+          <p class="govuk-body">Bydd y sgriniau dilynol yn amrywio gan ddibynnu ar yr opsiwn y byddwch yn ei ddewis yma, naill ai yn gofyn i chi ddewis swm o fewn amrediad penodol, i swm gael ei nodi gennych chi neu mewn rhai achosion efallai na fydd rhaid nodi swm.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Dalier sylw:</b> Pan ofynnir am swm, ni fyddwch yn gallu parhau hyd nes y byddwch wedi dewis neu nodi’r swm, fodd bynnag, os nad yw unrhyw un o'r opsiynau yn berthnasol i chi gallwch ddewis “Dim un o'r uchod” a nodi’r math o anghydfod eich hun i barhau.  Drwy wneud hyn ni ofynnir ichi ddewis neu nodi swm sy’n sail i’ch anghydfod.</p>
+          <p class="govuk-body">Mae’r sgrin nesaf yn gofyn y cwestiwn “A ydych mewn pryd i apelio i’r tribiwnlys treth?” Os byddwch yn dewis unrhyw opsiwn heblaw am “Ydw, rwyf mewn pryd” byddwch yn gweld sgriniau ychwanegol ble y gallwch egluro paham yr ydych yn apelio’n hwyr neu roi rhesymau dros pam fod eich apêl yn hwyr.</p>
+          <p class="govuk-body">Drwy ddewis <b>“Nac ydw, rwy’n hwyr”</b> neu <b>“Nid wyf yn siŵr”</b> cewch yr opsiwn am y tro cyntaf i roi gwybodaeth, llwytho dogfen neu’r ddau.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Dalier sylw:</b> Cewch lwytho dogfen sengl yn unig ar y cam hwn, fodd bynnag, cewch gyfle i lwytho rhagor o ddogfennau yn hwyrach ymlaen yn y broses, cyn ichi gyflwyno eich apêl.</p>
+      - question_html: "4. Ai chi yw’r trethdalwr sy’n gwneud yr apêl?"
+        answer_html: |
+          <p class="govuk-body">Mae’r sgrin hon yn cynnwys dau opsiwn “Ie” neu “Na, rwy’n gweithredu ar ran y trethdalwr”.  Pwrpas y sgrin hon yw sicrhau bod unrhyw un sy’n gweithredu ar eich rhan wedi cael ei awdurdodi gennych chi i wneud hynny.</p>
+          <p style="margin-left: 40px" class="govuk-body">Os dewiswch “Ie” byddwch wedyn yn gweld sgrin o opsiynau a fydd yn gofyn, “Pwy sy’n gwneud yr apêl?” er mwyn i chi nodi p’un a ydych yn “Unigolyn”, “Cwmni” neu’n “Math arall o sefydliad”.</p>
+          <p style="margin-left: 40px" class="govuk-body">Os dewiswch “Na, rwy’n gweithredu ar ran y trethdalwr” byddwch wedyn yn gweld sgrin a fydd yn gofyn, “Pwy ydych chi?”. Yma gallwch ddewis un o’r opsiynau sydd wedi’u rhestru neu ddewis “Dim un o'r uchod”.</p>
+          <p class="govuk-body">Gan ddibynnu ar yr opsiwn y byddwch yn ei ddewis yma, bydd y sgrin nesaf naill ai’n gofyn “Ydych chi’n unigolyn, yn gwmni neu’n fath arall o sefydliad?” neu “Ydych chi eisiau dechrau cael gohebiaeth gan y tribiwnlys? (dewisol)”</p>
+          <p class="govuk-body">Ar gyfer y cwestiwn “Ydych chi eisiau dechrau cael gohebiaeth gan y tribiwnlys?” bydd angen ichi lwytho copi o'r <a href="%{approval_form_href}" class="govuk-link">ffurflen awdurdodi</a>.</p>
+          <p style="margin-left: 40px" class="govuk-body">Drwy ddewis “Na, rwy’n gweithredu ar ran y trethdalwr” bydd sgrin ychwanegol yn ymddangos a fydd yn gofyn, “Pwy sy’n gwneud yr apêl?” a bydd rhaid ichi nodi p’un a ydych yn Unigolyn, Cwmni neu Math arall o sefydliad.
+          <p class="govuk-body">Mae'r sgrin nesaf yn gofyn am enw, cyfeiriad, cyfeiriad e-bost a rhif ffôn cyswllt (dewisol) a bydd yn amrywio gan ddibynnu p’un ai chi yw’r trethdalwr neu gynrychiolydd.  Bydd y sgriniau a welwch nesaf ychydig yn wahanol ond byddant er hynny yn debyg gan eu bod yn ceisio deall p’un a yw'r trethdalwr yn apelio’n bersonol neu a yw’n cael ei gynrychioli, ar yr un pryd â gofyn am yr enw a'r cyfeiriad perthnasol.</p>
+          <p class="govuk-body">Bydd clicio Parhau wedyn yn eich tywys drwy’r broses o ganfod p’un a oes gennych rywun i’ch cynrychioli chi.  Er pwrpas yr enghraifft hon, fe dybir eich bod yn cynrychioli eich hun drwy ddewis “Na”.</p>
+      - question_html: "5. Seiliau’r apêl"
+        answer_html: |
+          <p class="govuk-body">Dyma’ch cyfle chi i roi gwybodaeth, llwytho dogfen neu’r ddau, er mwyn egluro paham yr ydych yn apelio ac i roi rhesymau dros bob penderfyniad yr ydych yn ei herio.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Dalier sylw:</b> Gallwch ond darparu dogfen sengl yma.  Fodd bynnag, cewch gyfle yn ddiweddarach yn y broses i lwytho rhagor o ddogfennau, cyn ichi gyflwyno eich apêl.</p>
+          <p style="margin-left: 40px" class="govuk-body">Ni fydd y ddogfen y byddwch yn ei dewis yn cael ei llwytho hyd nes y byddwch yn clicio “Parhau”. Os byddwch yn penderfynu eich bod eisiau dileu’r ddogfen, gallwch ddychwelyd i'r dudalen hon a chlicio “Dileu”.  Bydd hyn yn eich galluogi i ddewis dogfen arall.</p>
+      - question_html: "6. Dywedwch yn gryno pa ganlyniad yr hoffech gael"
+        answer_html: |
+          <p class="govuk-body">"Yma gallwch ddweud pa ganlyniad yr hoffech gael"</p>
+      - question_html: "7. Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
+        answer_html: |
+          <p class="govuk-body">This is to help the tribunal with understanding your needs and make any necessary arrangements to welcome you at a face-to-face hearing.</p>
+          <p class="govuk-body">Selecting “Yes” will present you with several options for the type of support you will need at your hearing:</p>
+          <ul style="margin-left: 40px" class="govuk-list govuk-list--bullet">
+           <li>Cyfieithydd</li>
+           <li>Dehonglydd iaith arwyddion</li>
+           <li>Dolen Glyw</li>
+           <li>Ystafell wrandawiadau hygyrch</li>
+           <li>Math arall o gefnogaeth</li>
+          </ul>
+          <p class="govuk-body">Bydd dewis “Nac ydw” yn mynd â chi i'r sgrin “Llwythwch yr hysbysiad gwreiddiol neu’r llythyr penderfyniad”.</p>
+      - question_html: "8. Llwythwch yr hysbysiad gwreiddiol neu’r llythyr penderfyniad"
+        answer_html: |
+          <p class="govuk-body">Mae hon yn rhan sylfaenol o'r gwasanaeth ar-lein a bydd yr opsiwn y byddwch yn ei ddewis yma yn pennu p’un a allwch lwytho dogfen sengl, amryw o ddogfennau neu, os nad yw'r dogfennau gennych wrth law, cadw eich cais a dychwelyd ato yn ddiweddarach.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Nodyn pwysig:</b> Er bod modd ichi lwytho amryw o ddogfennau, dylech ond wneud hynny os yw eich hysbysiad gwreiddiol neu'r llythyr penderfyniad gan HMRC yn sawl tudalen o hyd yn hytrach na bod yn un ddogfen sengl.</p>
+          <p style="margin-left: 40px" class="govuk-body">Nid oes angen ichi ddarparu rhagor o dystiolaeth ar y cam hwn oherwydd bydd y tribiwnlys yn gofyn am hyn gennych yn ddiweddarach pan, ac os bydd ei hangen.</p>
+      - question_html: "9. Gwiriwch eich atebion"
+        answer_html: |
+          <p class="govuk-body">Dyma eich cyfle olaf i wneud unrhyw newidiadau cyn i chi gyflwyno eich apêl i’r tribiwnlys.  Ar ôl ichi gyflwyno eich apêl, gallwch weld a lawrlwytho fersiwn PDF o’ch apêl, ond ar ôl hynny ni fyddwch yn gallu gweld neu newid eich apêl eto heb orfod cysylltu’n uniongyrchol â’r tribiwnlys.</p>
+          <p style="margin-left: 40px" class="govuk-body"><b>Nodiadau pwysig:</b> Os byddwch yn dewis mynd yn ôl a newid unrhyw ran o’ch apêl cyn i chi glicio “Cyflwyno”, peidiwch â defnyddio botymau mynd yn ôl eich porwr oherwydd gall hyn olygu y bydd gwybodaeth ar goll yn eich apêl, a allai arwain at gyflwyno apêl annilys.  Yn hytrach, parhewch drwy’r gwasanaeth hyd nes y byddwch yn cyrraedd y sgrin “Gwiriwch eich atebion”.</p>
+          <p style="margin-left: 40px" class="govuk-body">Os byddwch yn defnyddio'r nodwedd cadw a dychwelyd ar unrhyw bwynt yn y broses, er mwyn diogelu eich data ac i amddiffyn eich preifatrwydd, ni fydd eich apêl sydd wedi’i chadw ar gael mwyach ar-lein, a bydd rhaid ichi gysylltu â’r tribiwnlys yn uniongyrchol os byddwch angen gwneud unrhyw newidiadau iddi.</p>
+    feedback_html: |
+      <p class="govuk-body">Ydych chi’n credu bod angen gwella’r arweiniad hwn? Cysylltwch â chi i ddweud wrthym.</p>
+    print: "Argraffu'r dudalen hon"

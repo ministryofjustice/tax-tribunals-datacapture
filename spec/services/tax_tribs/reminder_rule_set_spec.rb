@@ -22,7 +22,7 @@ RSpec.describe TaxTribs::ReminderRuleSet do
     end
 
     context '#email_template_id' do
-      it { expect(subject.email_template_id).to eq('first-reminder-template') }
+      it { expect(subject.email_template_id).to eq(:first_reminder) }
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe TaxTribs::ReminderRuleSet do
     end
 
     context '#email_template_id' do
-      it { expect(subject.email_template_id).to eq('last-reminder-template') }
+      it { expect(subject.email_template_id).to eq(:last_reminder) }
     end
   end
 

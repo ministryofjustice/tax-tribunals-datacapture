@@ -1,0 +1,240 @@
+cy:
+  languages:
+    acholi: Acholi
+    afrikaans: Afrikaans
+    akan: Akan
+    albanian: Albanian
+    algerian: Algerian
+    amharic: Amharic
+    arabic: Arabic
+    arabic__middle_eastern_: Arabic (Middle Eastern)
+    arabic__north_african_: Arabic (North African)
+    armenian: Armenian
+    ashanti: Ashanti
+    assyrian: Assyrian
+    ateso: Ateso
+    azari: Azari
+    azerbajani__aka_nth_azari_: Azerbajani (aka Nth Azari)
+    bajan__west_indian_: Bajan (West Indian)
+    bajuni: Bajuni
+    baluchi: Baluchi
+    bambara: Bambara
+    banjuni: Banjuni
+    bardini: Bardini
+    bassa: Bassa
+    belorussian: Belorussian
+    benba__bemba_: Benba (Bemba)
+    bengali: Bengali
+    bengali__sylheti_: Bengali (Sylheti)
+    benin_edo: Benin/Edo
+    berber: Berber
+    bharuchi: Bharuchi
+    bhutanese: Bhutanese
+    bihari: Bihari
+    bilin: Bilin
+    bravanese: Bravanese
+    brong: Brong
+    bulgarian: Bulgarian
+    burmese: Burmese
+    cambellpuri: Cambellpuri
+    cantonese: Cantonese
+    cebuano: Cebuano
+    chechen: Chechen
+    chichewa: Chichewa
+    chittagonain: Chittagonain
+    creole__english_: Creole (English)
+    creole__french_: Creole (French)
+    creole__portuguese_: Creole (Portuguese)
+    creole__spanish_: Creole (Spanish)
+    czech: Czech
+    danish: Danish
+    dari: Dari
+    dinka: Dinka
+    dioula: Dioula
+    douala: Douala
+    dutch: Dutch
+    edo_benin: Edo/Benin
+    efik: Efik
+    emakhuna: Emakhuna
+    estonian: Estonian
+    ewe: Ewe
+    ewondo: Ewondo
+    fanti: Fanti
+    farsi: Farsi
+    feili: Feili
+    fijian: Fijian
+    flemish: Flemish
+    french: French
+    french__arabic_: French (Arabic)
+    french_african_: French(African)
+    fula: Fula
+    ga: Ga
+    gallacian: Gallacian
+    georgian: Georgian
+    german: German
+    gorani: Gorani
+    greek: Greek
+    gujarati: Gujarati
+    gurage: Gurage
+    guran: Guran
+    hakka: Hakka
+    hausa: Hausa
+    hebrew: Hebrew
+    hendko: Hendko
+    herero: Herero
+    hindi: Hindi
+    hindko: Hindko
+    hokkien: Hokkien
+    hungarian: Hungarian
+    ibibio: Ibibio
+    igbo__also_known_as_ibo_: Igbo (Also Known As Ibo)
+    ilocano: Ilocano
+    indonesian: Indonesian
+    ishan: Ishan
+    isoko: Isoko
+    italian: Italian
+    jamaican: Jamaican
+    japanese: Japanese
+    javanese: Javanese
+    kachi: Kachi
+    karaninka: Karaninka
+    kashmiri: Kashmiri
+    khalanga: Khalanga
+    khmer: Khmer
+    khymer_khymer: Khymer Khymer
+    kibajuni_kibanjuni_bajuni_ban: Kibajuni,Kibanjuni,Bajuni,Ban
+    kibanjuni: Kibanjuni
+    kichagga: Kichagga
+    kikongo: Kikongo
+    kikuyu: Kikuyu
+    kinyarwandan: Kinyarwandan
+    kirundi: Kirundi
+    kisakata: Kisakata
+    kiswahili: Kiswahili
+    konkani: Konkani
+    korean: Korean
+    krio__sierra_leone_: Krio (Sierra Leone)
+    kru: Kru
+    kurdish__bardini_: Kurdish (Bardini)
+    kurdish__kurmanji_: Kurdish (Kurmanji)
+    kurdish__sorani_: Kurdish (Sorani)
+    kutchi: Kutchi
+    kyrgyz: Kyrgyz
+    lango: Lango
+    latvian: Latvian
+    lingala: Lingala
+    lithuanian: Lithuanian
+    luba__tshiluba_: Luba (Tshiluba)
+    lugandan: Lugandan
+    lugisa: Lugisa
+    lunyankole: Lunyankole
+    luo: Luo
+    luo__kenyan_: Luo (Kenyan)
+    luo__ugandan[acholi_district]_: Luo (Ugandan[Acholi District])
+    luo__ugandan[lango_district]_: Luo (Ugandan[Lango District])
+    lusoga: Lusoga
+    lutoro: Lutoro
+    macedonian: Macedonian
+    maghreb: Maghreb
+    malay: Malay
+    malayalam: Malayalam
+    maldivian: Maldivian
+    malinke: Malinke
+    maltese: Maltese
+    mandarin: Mandarin
+    mandinka: Mandinka
+    marathi: Marathi
+    mende: Mende
+    mina: Mina
+    mirpuri: Mirpuri
+    moldovan: Moldovan
+    mongolian: Mongolian
+    monokutuba: Monokutuba
+    navsari: Navsari
+    ndebele: Ndebele
+    nepali: Nepali
+    ngwa: Ngwa
+    norwegian: Norwegian
+    nzima: Nzima
+    oromo: Oromo
+    pahari: Pahari
+    pampangan: Pampangan
+    pangasinan: Pangasinan
+    pathwari: Pathwari
+    patois: Patois
+    pidgin_english: Pidgin English
+    polish: Polish
+    portuguese: Portuguese
+    pothohari: Pothohari
+    punjabi: Punjabi
+    punjabi__indian_: Punjabi (Indian)
+    punjabi__pakistani_: Punjabi (Pakistani)
+    pushtu__also_known_as_pashto_: Pushtu (Also Known As Pashto)
+    putonghue: Putonghue
+    roma: Roma
+    romanian: Romanian
+    romany: Romany
+    rukiga: Rukiga
+    runyoro: Runyoro
+    russian: Russian
+    rutoro: Rutoro
+    sarahuleh: Sarahuleh
+    saraiki__seraiki_: Saraiki (Seraiki)
+    sarpo: Sarpo
+    senegal__french__olof_dialect: Senegal (French) Olof Dialect
+    senegal__wolof_: Senegal (Wolof)
+    serbo‑croatian: Serbo‑Croatian
+    setswana: Setswana
+    shina: Shina
+    shona: Shona
+    sindhi: Sindhi
+    sinhalese: Sinhalese
+    slovak: Slovak
+    slovenian: Slovenian
+    somali: Somali
+    spanish: Spanish
+    susu: Susu
+    swahili: Swahili
+    swedish: Swedish
+    sylheti: Sylheti
+    tagalog: Tagalog
+    taiwanese: Taiwanese
+    tamil: Tamil
+    telugu: Telugu
+    temne: Temne
+    thai: Thai
+    tibetan: Tibetan
+    tigre: Tigre
+    tigrinya: Tigrinya
+    toura: Toura
+    training: Training
+    turkish: Turkish
+    turkmen: Turkmen
+    twi: Twi
+    uighur: Uighur
+    ukrainian: Ukrainian
+    urdu: Urdu
+    urohobo: Urohobo
+    uzbek: Uzbek
+    vietnamese: Vietnamese
+    visayan: Visayan
+    welsh: Welsh
+    wolof: Wolof
+    xhosa: Xhosa
+    yoruba: Yoruba
+    zaghawa: Zaghawa
+    zaza: Zaza
+    zulu: Zulu
+  sign_languages:
+    american_sign_language__asl_: American Sign Language (ASL)
+    british_sign_language__bsl_: British Sign Language (BSL)
+    hands_on_signing: Hands on signing
+    international_sign__is_: International Sign (IS)
+    lipspeaker: Lipspeaker
+    makaton: Makaton
+    deafblind_manual_alphabet: Deafblind manual alphabet
+    notetaker: Notetaker
+    deaf_relay: Deaf Relay
+    speech_supported_english__sse_: Speech Supported English (SSE)
+    visual_frame_signing: Visual frame signing
+    palantypist___speech_to_text: Palantypist / Speech to text

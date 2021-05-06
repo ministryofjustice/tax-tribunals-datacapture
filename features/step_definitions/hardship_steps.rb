@@ -21,7 +21,11 @@ end
 When("I submit that HMRC did not allow me to defer paying") do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    submit_no
+    if ENV['TEST_LOCALE'] == 'cy'
+      submit_no_welsh
+    else
+      submit_no
+    end
     expect(hardship_reason_page.content).to have_header
   end
 end
@@ -30,7 +34,11 @@ end
 When("I submit that HMRC did allow me to defer paying") do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    submit_yes
+    if ENV['TEST_LOCALE'] == 'cy'
+      submit_yes_welsh
+    else
+      submit_yes
+    end
   end
 end
 

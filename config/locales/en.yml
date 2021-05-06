@@ -1,6 +1,15 @@
 en:
   success: Success
+  selector:
+    language: Cymraeg
+    locale: cy
   dictionary:
+    taxpayer: taxpayer
+    representative: representative
+    select_language_question: &select_language_question "What language do you want us to use when we contact you?"
+    SUPPORTED_LANGUAGES: &SUPPORTED_LANGUAGES
+      english: English only
+      english_welsh: English and Welsh
     default_service_title: &default_service_title "Appeal to the tax tribunal - GOV.UK"
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
@@ -78,6 +87,7 @@ en:
         resume:
           page_title: Resume your case
           heading: Resume your %{appeal_or_application}
+          heading_appeal: Resume your appeal
       confirmation:
         show:
           page_title: Case submitted
@@ -94,7 +104,7 @@ en:
             </ul>
             <p class="govuk-body">
               If you have any questions, you can contact the tax tribunal on %{tax_tribunal_phone} (find out about
-              <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
+              <a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">call charges</a>).
             </p>
           last_opportunity_warning: Warning
           last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
@@ -271,6 +281,8 @@ en:
           heading:
             as_taxpayer: Who is making the %{appeal_or_application}?
             as_representative: Who is the %{appeal_or_application} for?
+            appeal_test: Who is making the appeal?
+            application_test: Who is making the application?
           page_title: Taxpayer type
       taxpayer_details:
         edit:
@@ -289,6 +301,7 @@ en:
             as_taxpayer: Who is representing you?
             as_representative: Who are you?
           page_title: Professional status
+          practising_solicitor_option: Practising solicitor or barrister in England, Wales or Northern Ireland
       representative_approval:
         edit:
           heading:
@@ -349,6 +362,9 @@ en:
             as_representative: Are you an individual,
               company or other type of organisation?
           page_title: Representative type
+          individual: Individual
+          company: Company
+          other: Other type of organisation
       representative_details:
         edit:
           heading: Representative's details
@@ -520,6 +536,11 @@ en:
         lead_text: Creating an account will allow you to save an incomplete appeal and return to it later.
         lead_text_2: If you choose not to create an account and you do not submit your appeal, then any information you have provided will be lost, and you will need to start again.
         save_for_later: Create an account (optional)
+    select_language:
+      edit:
+        page_title: *select_language_question
+        heading: *select_language_question
+        lead_text: We'll send you emails as we progress your case. Choose which language you'd like these in.
 
   activemodel:
     errors:
@@ -528,6 +549,10 @@ en:
           attributes:
             case_type:
               inclusion: Select what your appeal is about
+        select_language/save_language_form:
+          attributes:
+            language:
+              inclusion: Select your preferred language
         steps/appeal/case_type_show_more_form:
           attributes:
             case_type:
@@ -769,6 +794,7 @@ en:
         closure_case_type_html: What type of enquiry do you want to close?
       steps_details_user_type_form:
         user_type_html: Are you the taxpayer making the appeal?
+        user_type_application: Are you the taxpayer making the application?
       steps_details_taxpayer_type_form:
         taxpayer_type_html: Who is making the appeal?
       steps_details_representative_professional_status_form:
@@ -793,6 +819,9 @@ en:
       cookie_setting_form:
         cookie_setting_options:
           <<: *YESNO
+      select_language_save_language_form:
+        language_options:
+          <<: *SUPPORTED_LANGUAGES
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
@@ -847,6 +876,7 @@ en:
           other_html: "<strong>None of the above</strong>"
       steps_appeal_dispute_type_form:
         dispute_type_other_value: What is your dispute about?
+        amount_of_tax_owed_by_hmrc: You want HMRC to repay money
         dispute_type_options:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
@@ -973,6 +1003,7 @@ en:
           <<: *TRUEFALSE
       steps_details_letter_upload_type_form:
         letter_upload_type_options:
+          single_test: Upload the letter as one document
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
             the letter as one file'
           multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
@@ -1027,6 +1058,7 @@ en:
           'no': No, I am late
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
+        heading: Why are you late with your appeal?
         lateness_reason: Enter reasons below or attach as a document
         lateness_reason_document: ''
       steps_details_representative_approval_form:
@@ -1074,6 +1106,11 @@ en:
       addresses_found: addresses found
       no_address_found: no address found
   check_answers:
+    selected_language:
+      question: *select_language_question
+      accessible_change_text: *select_language_question
+      answers:
+        <<: *SUPPORTED_LANGUAGES
     need_support:
       question: Do you need any support at the hearing?
       accessible_change_text: whether you need support at the hearing
@@ -1137,6 +1174,7 @@ en:
         apn_penalty: Accelerated Payment Notice (APN) penalty
         bingo_duty: Bingo Duty
         capital_gains_tax: Capital Gains Tax
+        other_tax: Other type of tax, appeal or application
         climate_change_levy: Climate Change Levy
         construction_industry_scheme: Construction Industry Scheme (CIS)
         corporation_tax: Corporation Tax
@@ -1331,6 +1369,7 @@ en:
       compact: '%d/%m/%Y'
       long: '%e %B %Y'
   time:
+    years: years
     case_expires_in:
       zero: Today
       one: '%{count} day'
@@ -1387,6 +1426,7 @@ en:
         review_conclusion_letter: Upload the review conclusion letter
         late_review_refusal_letter: Upload the letter refusing your late review
         late_appeal_refusal_letter: Upload the letter refusing your late appeal
+        lead_text: We accept a good quality and legible scan or photograph. Your appeal may be returned if we can't read the letter, and you risk missing the deadline.
       attach_document:
         original_notice_letter_html: "<strong>Attach the original notice or decision letter</strong>"
         review_conclusion_letter_html: "<strong>Attach the review conclusion letter</strong>"
@@ -1438,7 +1478,7 @@ en:
       heading: You have already submitted this case
       lead_text_html: |
         To make changes to your case, please contact the tax tribunal on %{tax_tribunal_phone}
-        (find out about <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges</a>).
+        (find out about <a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">call charges</a>).
       <<: *START_FINISH
       case_reference: 'Your case reference number is:'
       note_number: Please make a note of this number in case you need to contact us.
@@ -1465,10 +1505,11 @@ en:
       help: Help
       contact: Contact
       cookies: Cookies
-      terms_and_conditions: Terms and conditions
+      terms_and_conditions: Terms and Conditions
       privacy_policy: Privacy policy
       accessibility_statement: Accessibility statement
     phase_banner:
+      feedback_link: Provide feedback (opens in a new tab)
       phase_info_html: |
         This is a new service. <a href="%{feedback_url}" class="govuk-link" target="_blank" rel="noopener">Provide feedback (opens in a new tab)</a> and help improve the service for others.
     current_user_menu:
@@ -1495,6 +1536,8 @@ en:
       response_error: "%{file_name} failed to upload. Please try again"
     file_selected: SELECTED
     file_uploading: UPLOADING
+  guidance:
+    heading: 'Guide to appealing a tax decision'
   home:
     index:
       heading: What do you want to do?
@@ -1516,7 +1559,7 @@ en:
       lead_text: Useful information if you need help using this service.
       description_html: |
         <p class="govuk-body"><strong>Tax tribunal helpline</strong></p>
-        <p class="govuk-body">Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges" class="govuk-link">find out about call charges)</a></p>
+        <p class="govuk-body">Telephone: %{tax_tribunal_phone} (<a href="https://www.gov.uk/call-charges?_ga=2.133422285.259545069.1613375547-566027510.1611311315" class="govuk-link">find out about call charges)</a></p>
         <p class="govuk-body">Monday to Friday, 8:30am to 5pm</p>
         <p class="govuk-body">Please note: the helpline can't give you legal advice.</p>
         <p class="govuk-body"><strong>Other ways to get help</strong></p>
@@ -1699,6 +1742,8 @@ en:
     registrations:
       new:
         heading: Save your %{appeal_or_application}
+        appeal_test: Save your appeal
+        application_test: Save your application
         existing_account: Sign into an existing account
         account_warning_html: |
           <p class="govuk-body">Choose an email address and password so you can sign in and complete your case later.</p>
@@ -1796,9 +1841,6 @@ en:
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
         <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
-        <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/notice-of-appeal-ask-a-tax-judge-to-examine-a-dispute-form-t240" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
-        </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
@@ -1813,9 +1855,6 @@ en:
       heading: Apply to close an enquiry
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
-        <div role="note" aria-label="Information" class="govuk-inset-text">
-          <p class="govuk-body">This service is not currently available in Welsh, please continue or alternatively <a href="https://www.gov.uk/government/publications/form-t245-application-to-close-enquiry" class="govuk-link">apply in Welsh (Cymraeg)</a> using the paper form.</p>
-        </div>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>

@@ -28,3 +28,7 @@ Feature: Layout
   Scenario: Verify accessibility statement link
     When I click on the Accessibility statement link
     Then I am on the Accessibility statement page
+
+  Scenario: Verify language selector links
+    When I select language link
+    Then I will see the website open in that language

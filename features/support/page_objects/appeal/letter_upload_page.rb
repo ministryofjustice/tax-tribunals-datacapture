@@ -1,8 +1,8 @@
 class LetterUploadPage < BasePage
-  set_url '/steps/details/letter_upload'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/letter_upload'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Upload the review conclusion letter'
-    element :lead_text, 'p', text: "We accept a good quality and legible scan or photograph. Your appeal may be returned if we can't read the letter, and you risk missing the deadline."
+    element :header, 'h1', text: I18n.t('shared.letter_upload.heading.review_conclusion_letter')
+    element :lead_text, 'p', text: I18n.t('shared.letter_upload.heading.lead_text')
   end
 end

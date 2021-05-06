@@ -53,13 +53,30 @@ jobs:
       external_url: 'test'
       govuk_notify_api_key: 'test'
       moj_file_uploader_endpoint: 'http://127.0.0.1:9292'
-      notify_reset_password_template_id: 'test'
       payement_endpoint: 'http://localhost:4500'
       fees_external_url: 'http://localhost:3003/case_requests'
       tax_tribunals_downloader_url: 'http://localhost:9393'
-      aptDependencies: 'postgresql-client'
+      aptDependencies: 'postgresql-client shared-mime-info'
       nocoverage: true
       address_lookup_endpoint: 'https://api.os.uk'
+
+      notify_case_confirmation_template_id: 'confirmation'
+      notify_ftt_case_notification_template_id: 'fft_confirmation'
+      notify_case_first_reminder_template_id: 'first'
+      notify_case_last_reminder_template_id: 'last'
+      notify_new_case_saved_template_id: 'case_saved'
+      notify_reset_password_template_id: 'reset'
+      notify_change_password_template_id: 'change'
+      notify_send_application_detail_template_id: 'application_details'
+
+      notify_case_confirmation_cy_template_id: 'confirmation'
+      notify_ftt_case_notification_cy_template_id: 'fft_confirmation'
+      notify_case_first_reminder_cy_template_id: 'first'
+      notify_case_last_reminder_cy_template_id: 'last'
+      notify_new_case_saved_cy_template_id: 'case_saved'
+      notify_reset_password_cy_template_id: 'reset'
+      notify_change_password_cy_template_id: 'change'
+      notify_send_application_detail_cy_template_id: 'application_details'
 
 
     steps:

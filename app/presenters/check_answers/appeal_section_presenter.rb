@@ -7,6 +7,7 @@ module CheckAnswers
     def answers
       [
         case_type_answer,
+        Answer.new(:selected_language, tribunal_case.language, change_path: edit_steps_select_language_path),
         challenged_decision_answer,
         Answer.new(:challenged_decision_status, tribunal_case.challenged_decision_status,
                    change_path: edit_steps_challenge_decision_status_path),

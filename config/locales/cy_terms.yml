@@ -1,0 +1,40 @@
+cy:
+  terms:
+    header: Telerau ac Amodau
+    last_update: "<strong>Diweddarwyd diwethaf: Mai 2018</strong>"
+    info: "Trwy ddefnyddio’r gwasanaeth ‘Gwneud Cais i'r Tribiwnlys Treth’ hwn, rydych yn cytuno i’n %{privacy_link} a’r telerau ac amodau hyn. Darllenwch nhw’n ofalus, os gwelwch yn dda."
+    privacy: "Polisi preifatrwydd"
+    section_list:
+      applicable_law: "Y gyfraith sy’n berthnasol"
+      disclaimer: Ymwrthodiad
+      gdpr: "Rheoliadau Cyffredinol Diogelu Data (GDPR)"
+      general: "Telerau ac amodau cyffredinol"
+      responsible: "Defnyddio'r gwasanaeth hwn yn gyfrifol"
+    applicable_law:
+      header: "Y gyfraith sy’n berthnasol"
+      line_1: "Bydd y defnydd a wnewch o’r gwasanaeth hwn ac unrhyw anghydfod sy’n codi o’i ddefnyddio yn cael eu rheoli a’u dehongli yn unol â chyfreithiau Cymru a Lloegr, gan gynnwys, ond nid yn gyfyngedig i:"
+      list_1: "Deddf Camddefnyddio Cyfrifiaduron 1990"
+      list_2: "Rheoliadau Cyffredinol Diogelu Data 2018"
+      list_3: "Deddf Diogelu Data 2018"
+      list_4: "Deddf Galluedd Meddyliol 2005"
+    disclaimer:
+      header: Ymwrthodiad
+      line_1: "Nid ydym yn derbyn cyfrifoldeb am golled neu ddifrod sy’n dod i ran defnyddwyr y gwasanaeth hwn, naill ai’n uniongyrchol, yn anuniongyrchol neu’n ganlyniadol, pa un ai a yw’n cael ei achosi drwy gamwedd, tor-cytundeb neu fel arall. Mae hyn yn cynnwys colli incwm neu refeniw, busnes, elw neu gontractau, arbedion a ragwelwyd, data, ewyllys da, eiddo diriaethol neu wastraff amser sy’n gysylltiedig â’r gwasanaeth hwn neu unrhyw wefannau sy’n gysylltiedig ag ef ac unrhyw ddeunydd sy’n cael ei bostio arni. Ni fydd yr amod hwn yn atal hawliadau am golled neu ddifrod i’ch eiddo diriaethol nac unrhyw hawliadau eraill am golled ariannol uniongyrchol nad ydynt wedi’u heithrio gan unrhyw rai o’r categorïau uchod."
+      line_2: "Nid yw hyn yn effeithio ar ein hatebolrwydd am farwolaeth neu anaf personol sy’n deillio o’n hesgeuluster, nac ar ein hatebolrwydd am gamliwio twyllodrus neu gamliwio mewn perthynas â mater sylfaenol, nac unrhyw atebolrwydd arall na ellir ei eithrio neu ei gyfyngu dan y gyfraith berthnasol."
+    gdpr:
+      header: "Rheoliadau Cyffredinol Diogelu Data (GDPR)"
+      line_1: "Mae'r gwasanaeth hwn yn cydymffurfio â holl egwyddorion y GDPR. Y Weinyddiaeth Gyfiawnder (MoJ) yw'r ‘rheolydd data’ at ddibenion y Ddeddf."
+      line_2: "Mae gennych hawl, fel defnyddiwr o’r gwasanaeth hwn, i ddileu unrhyw neu’r holl ddata a gwybodaeth bersonol ar unrhyw bryd lle mae’n bosibl inni wneud hynny, yn amodol ar gyfyngiadau’r dechnoleg rydym yn ei defnyddio i ddarparu’r gwasanaeth. Rhaid nodi bod unrhyw ddata a gyflwynir ar-lein ond yn cael ei storio am gyfnod byr o amser. Ar ôl hynny, mae’n cael ei ddileu ac nid oes modd ei adennill. Am ragor o wybodaeth cyfeiriwch at y %{privacy_link} o dan ‘Sut rydym yn storio eich data personol’."
+      line_3: "Ar ôl cyflwyno eich cais, ni fyddwch yn gallu ei weld mwyach na’i ddiwygio ar-lein. Mae gan unrhyw un sy’n credu bod ei ddata personol yn cael ei gadw o fewn y gwasanaeth hwn yr hawl i gyflwyno Cais Gwrthrych am Wybodaeth i’r Weinyddiaeth Gyfiawnder, a fydd yn rhoi manylion ynghylch yr wybodaeth sydd wedi’i storio ar y gweinydd. Os bydd Cais Gwrthrych am Wybodaeth yn dangos bod yr wybodaeth yn anghywir, bydd MoJ yn diwygio neu'n dileu’r wybodaeth yn y gronfa ddata, fel y gofynnwyd, o fewn 5 diwrnod. Yn yr amgylchiadau hyn, byddwn yn rhybuddio'r defnyddiwr cofrestredig yn gyntaf drwy anfon neges e-bost atynt."
+      line_4: "Dim ond staff GLlTEM sy’n gyfrifol am gefnogi’r gwasanaeth fydd yn cael mynediad at y dogfennau a ddarperir gennych ar-lein, am 60 diwrnod o’r dyddiad y bu ichi gyflwyno eich achos, a’r data o fewn y system rheoli achosion mewnol lle mae'r holl wybodaeth bersonol a roddir ar y wefan ar-lein yn cael ei storio ar gyfer rheoli eich achos."
+    general:
+      header: "Telerau ac amodau cyffredinol"
+      line_1: "Mae’r telerau ac amodau hyn yn effeithio ar eich hawliau a’ch rhwymedigaethau dan y gyfraith. Maent yn rheoli eich defnydd o, a’ch perthynas â'r gwasanaeth 'gwneud cais i dribiwnlys cyflogaeth’ hwn. Gall y telerau ac amodau hyn fod yn wahanol i delerau ac amodau gwasanaethau ar-lein eraill y llywodraeth ac felly dylid eu derbyn yng nghyd-destun y gwasanaeth hwn yn unig. Nid ydynt yn berthnasol i unrhyw adran neu wasanaeth arall sy’n gysylltiedig â’r gwasanaeth hwn."
+      line_2: "Efallai byddwn yn diweddaru’r telerau ac amodau hyn o dro i dro. Gall hyn ddigwydd os bydd newid i'r gyfraith neu newid i’r ffordd mae'r gwasanaeth yn gweithio. Os bydd newid, gofynnir ichi gytuno i’r telerau ac amodau newydd y tro nesaf y byddwch yn defnyddio'r gwasanaeth, er mwyn ichi allu parhau i ddefnyddio'r gwasanaeth hwn."
+      line_3: "Os nad ydych yn cytuno â’r telerau ac amodau a’r polisi preifatrwydd a nodir yn y ddogfen hon, yna peidiwch â defnyddio'r gwasanaeth hwn."
+    responsible:
+      header: "Defnyddio'r gwasanaeth hwn yn gyfrifol"
+      line_1: "Bwriedir i’r gwasanaeth hwn gael ei ddefnyddio gan apelyddion a cheiswyr, neu gan eraill (cynrychiolwyr) ar eich rhan chi a dim ond gyda’ch caniatâd. Os byddwch yn defnyddio nodwedd ‘Cadw a Dychwelyd’ y gwasanaeth, yna eich cyfrifoldeb chi yw cadw eich manylion mewngofnodi yn ddiogel. Ni ddylech rannu eich manylion mewngofnodi na’ch cyfeirnod achos gydag unrhyw un nad ydych yn ymddiried ynddynt. Nid yw GLlTEM yn gyfrifol am unrhyw doriad posibl i ddiogelwch gwybodaeth oherwydd bod manylion mewngofnodi neu fanylion achos wedi cael eu rhannu."
+      line_2: "Er bydd y gwasanaeth yn eich allgofnodi yn awtomatig ar ôl 30 munud o wneud dim (a bydd unrhyw ddata sydd heb ei gadw yn cael ei golli), mae defnyddio cyfrifiadur sy'n cael ei rannu (e.e. mewn caffi rhyngrwyd) i ddefnyddio’r gwasanaeth hwn yn peri risg. Eich cyfrifoldeb chi yw bod yn ymwybodol o’r peryglon hyn ac osgoi defnyddio unrhyw gyfrifiadur lle mae posibilrwydd y gall eraill weld eich gwybodaeth bersonol. Chi sy’n gyfrifol os ydych chi’n dewis gadael cyfrifiadur heb ei ddiogelu tra rydych wedi mewngofnodi i’r gwasanaeth."
+      line_3: "Byddwn yn gwneud pob ymdrech i wirio a phrofi’r gwasanaeth hwn pryd bynnag y byddwn yn ei ddiwygio neu yn ei ddiweddaru. Fodd bynnag, mae’n rhaid i chi gymryd gofal eich hunan i sicrhau nad yw’r ffordd yr ydych yn cael mynediad at y gwasanaeth hwn yn eich gadael yn agored i’r perygl o firysau, cod cyfrifiadur maleisus neu ymyrraeth o fath arall a allai achosi difrod i’ch system gyfrifiadurol eich hunan."
+      line_4: "Ni ddylech gamddefnyddio'r gwasanaeth hwn drwy gyflwyno’n fwriadol firysau, ymwelwyr diwahoddiad, mwydod, bomiau rhesymeg neu unrhyw ddeunydd maleisus arall neu sy’n niweidiol i dechnoleg. Ni ddylech geisio cael mynediad heb awdurdod at y gwasanaeth hwn, y system lle caiff ei storio nac at unrhyw weinydd, cyfrifiadur neu gronfa ddata sy’n gysylltiedig â’r gwasanaeth. Ni ddylech ymosod ar ein gwefan drwy ymosodiad gwrthod gwasanaeth neu ymosodiad gwrthod gwasanaeth a ddosbarthwyd."

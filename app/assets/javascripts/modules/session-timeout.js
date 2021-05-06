@@ -12,8 +12,8 @@ moj.Modules.sessionTimeout = {
     sessionWarnWhenRemaining: moj.Modules.sessionWarnWhenRemaining * 60 * 1000,
     // URLs
     pingUrl: '/session/ping',
-    destroySessionUrl: '/session',
-    expiredUrl: '/errors/invalid_session',
+    destroySessionUrl: ['/', moj.Modules.locale, '/session'].join(''),
+    expiredUrl: ['/', moj.Modules.locale, '/errors/invalid_session'].join(''),
     abortedUrl: '/',
     // i18n for minutes/seconds/expired
     inString: "in",

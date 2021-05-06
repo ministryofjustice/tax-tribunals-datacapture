@@ -63,7 +63,11 @@ module ApplicationHelper
   end
 
   def login_or_portfolio_path
-    user_signed_in? ? users_cases_path : user_session_path
+    user_signed_in? ? users_cases_path(locale: I18n.locale) : user_session_path(locale: I18n.locale)
+  end
+
+  def govuk_help_page_path
+    I18n.locale == :en ? 'https://www.gov.uk/help' : 'https://www.gov.uk/cymraeg'
   end
 
   def service_homepage_url
@@ -116,7 +120,7 @@ module ApplicationHelper
   end
 
   def form_t239_link
-    'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/797547/t239-eng.pdf'
+    t('links.form_t239')
   end
 
   def show_cookie_banner?

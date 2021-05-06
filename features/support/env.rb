@@ -3,7 +3,6 @@
 # newer version of cucumber-rails. Consider adding your own code to a new file
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
-
 require 'capybara/cucumber'
 require 'capybara/dsl'
 require 'capybara/apparition'
@@ -11,7 +10,7 @@ require 'capybara-screenshot/cucumber'
 require 'cucumber/rails'
 require 'rest-client'
 require 'selenium-webdriver'
-
+ENV['TEST_LOCALE'] = "en" if ENV['TEST_LOCALE'] != "cy"
 require_relative './page_objects/base_page'
 
 Dir[File.dirname(__FILE__) + '/page_objects/**/*.rb'].each { |f| require f }
@@ -46,4 +45,8 @@ if ENV['APP_HOST']
   if Capybara.app_host.chars.last != '/'
     Capybara.app_host += '/'
   end
+end
+
+if ENV['TEST_LOCALE'] == "cy"
+  I18n.locale = 'cy'
 end

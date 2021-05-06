@@ -11,6 +11,7 @@ class TribunalCase < ApplicationRecord
 
   has_value_object :intent
   has_value_object :case_status
+  has_value_object :language
 
   # Appeal task
   has_value_object :challenged_decision
@@ -46,6 +47,10 @@ class TribunalCase < ApplicationRecord
 
   def self.purge!(date)
     where(['created_at < ?', date]).delete_all
+  end
+
+  def self.latest_case(user)
+    where(user: user).order(created_at: :desc).first
   end
 
   def documents(document_key)
@@ -88,8 +93,12 @@ class TribunalCase < ApplicationRecord
     user_type.eql?(UserType::REPRESENTATIVE)
   end
 
+  def tax_appeal?
+    intent.eql?(Intent::TAX_APPEAL)
+  end
+
   def intent_case_type
-    intent.eql?(Intent::TAX_APPEAL) ? case_type : closure_case_type
+    tax_appeal? ? case_type : closure_case_type
   end
 
   # With our current implementation, we consider a case as `blank` if

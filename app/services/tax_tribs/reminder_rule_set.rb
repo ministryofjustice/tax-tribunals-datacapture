@@ -18,7 +18,7 @@ class TaxTribs::ReminderRuleSet
       created_days_ago: 9,
       status: nil,
       status_transition_to: CaseStatus::FIRST_REMINDER_SENT,
-      email_template_id: ENV.fetch('NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID')
+      email_template_id: :first_reminder
     )
   end
 
@@ -27,7 +27,7 @@ class TaxTribs::ReminderRuleSet
       created_days_ago: 13,
       status: CaseStatus::FIRST_REMINDER_SENT,
       status_transition_to: CaseStatus::LAST_REMINDER_SENT,
-      email_template_id: ENV.fetch('NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID')
+      email_template_id: :last_reminder
     )
   end
 

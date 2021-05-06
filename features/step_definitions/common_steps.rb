@@ -21,3 +21,7 @@ end
 When("I click the continue button") do
   continue_or_save_continue
 end
+
+Given('I select english only') do
+  select_language_page.select_english_only
+end

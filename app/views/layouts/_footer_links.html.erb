@@ -2,21 +2,21 @@
 
 <ul class="govuk-footer__inline-list">
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.help'), 'https://www.gov.uk/help', class: 'govuk-footer__link' %>
+    <%= link_to t('.help'), govuk_help_page_path, class: 'govuk-footer__link' %>
   </li>
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.contact'), contact_page_path, class: 'govuk-footer__link' %>
+      <%= link_to t('.contact'), contact_page_path(locale: I18n.locale), class: 'govuk-footer__link' %>
   </li>
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.cookies'), cookies_page_path, class: 'govuk-footer__link' %>
+      <%= link_to t('.cookies'), cookies_page_path(locale: I18n.locale), class: 'govuk-footer__link' %>
   </li>
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.terms_and_conditions'), terms_page_path, class: 'govuk-footer__link' %>
+      <%= link_to t('.terms_and_conditions'), terms_page_path(locale: I18n.locale), class: 'govuk-footer__link' %>
   </li>
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.privacy_policy'), privacy_page_path, class: 'govuk-footer__link' %>
+      <%= link_to t('.privacy_policy'), privacy_page_path(locale: I18n.locale), class: 'govuk-footer__link' %>
   </li>
   <li class="govuk-footer__inline-list-item">
-    <%= link_to t('.accessibility_statement'), accessibility_page_path, class: 'govuk-footer__link' %>
+      <%= link_to t('.accessibility_statement'), accessibility_page_path(locale: I18n.locale), class: 'govuk-footer__link' %>
   </li>
 </ul>

@@ -1,10 +1,10 @@
 class SendRepresentativeCopyPage < BasePage
-  set_url '/steps/details/send_representative_copy'
+  set_url '/' + ENV['TEST_LOCALE'] + '/steps/details/send_representative_copy'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Does the representative want a copy of the case details sent by email?'
+    element :header, 'h1', text: I18n.t('check_answers.send_representative_copy.question')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
-    element :not_matching_error_message, 'a', text: "Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect."
+    element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_representative')
   end
 
   def submit_yes_and_valid_email

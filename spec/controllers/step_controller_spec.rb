@@ -30,15 +30,15 @@ RSpec.describe DummyStepController, type: :controller do
       let(:navigation_stack) { [] }
 
       it 'adds the page to the stack' do
-        expect(tribunal_case.navigation_stack).to eq(['/dummy_step'])
+        expect(tribunal_case.navigation_stack).to eq(['/dummy_step?locale=en'])
       end
     end
 
     context 'when the current page is on the stack' do
-      let(:navigation_stack) { ['/foo', '/bar', '/dummy_step', '/baz'] }
+      let(:navigation_stack) { ['/foo', '/bar', '/dummy_step?locale=en', '/baz'] }
 
       it 'rewinds the stack to the appropriate point' do
-        expect(tribunal_case.navigation_stack).to eq(['/foo', '/bar', '/dummy_step'])
+        expect(tribunal_case.navigation_stack).to eq(['/foo', '/bar', '/dummy_step?locale=en'])
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe DummyStepController, type: :controller do
       let(:navigation_stack) { ['/foo', '/bar', '/baz'] }
 
       it 'adds it to the end of the stack' do
-        expect(tribunal_case.navigation_stack).to eq(['/foo', '/bar', '/baz', '/dummy_step'])
+        expect(tribunal_case.navigation_stack).to eq(['/foo', '/bar', '/baz', '/dummy_step?locale=en'])
       end
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe DummyStepController, type: :controller do
       let(:navigation_stack) { [] }
 
       it 'returns the root path' do
-        expect(subject.previous_step_path).to eq('/')
+        expect(subject.previous_step_path).to eq('/?locale=en')
       end
     end
 

@@ -13,11 +13,11 @@ module CheckAnswers
       let(:details_section_presenter) { double(DetailsSectionPresenter, show?: true) }
 
       before do
-        allow(TaxpayerSectionPresenter).to receive(:new).with(tribunal_case).and_return(taxpayer_section_presenter)
-        allow(AppealSectionPresenter).to receive(:new).with(tribunal_case).and_return(appeal_section_presenter)
-        allow(HardshipSectionPresenter).to receive(:new).with(tribunal_case).and_return(hardship_section_presenter)
-        allow(LatenessSectionPresenter).to receive(:new).with(tribunal_case).and_return(lateness_section_presenter)
-        allow(DetailsSectionPresenter).to receive(:new).with(tribunal_case).and_return(details_section_presenter)
+        allow(TaxpayerSectionPresenter).to receive(:new).with(tribunal_case, locale: :en).and_return(taxpayer_section_presenter)
+        allow(AppealSectionPresenter).to receive(:new).with(tribunal_case, locale: :en).and_return(appeal_section_presenter)
+        allow(HardshipSectionPresenter).to receive(:new).with(tribunal_case, locale: :en).and_return(hardship_section_presenter)
+        allow(LatenessSectionPresenter).to receive(:new).with(tribunal_case, locale: :en).and_return(lateness_section_presenter)
+        allow(DetailsSectionPresenter).to receive(:new).with(tribunal_case, locale: :en).and_return(details_section_presenter)
       end
 
       context 'in HTML format' do

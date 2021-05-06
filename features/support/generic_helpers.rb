@@ -174,6 +174,10 @@ def save_return_page
   @save_return_page ||= SaveReturnPage.new
 end
 
+def select_language_page
+  @select_language ||= SelectLanguagePage.new
+end
+
 def save_confirmation_page
   @save_confirmation_page ||= SaveConfirmationPage.new
 end
@@ -225,6 +229,31 @@ end
 
 def submit_no
   base_page.content.no_option.click
+  continue_or_save_continue
+end
+
+def submit_yes_welsh
+  base_page.content.yes_option_welsh.click
+  continue_or_save_continue
+end
+
+def submit_yes_2
+  base_page.content.yes_option_welsh_2.click
+  continue_or_save_continue
+end
+
+def submit_yes_3
+  base_page.content.yes_option_welsh_3.click
+  continue_or_save_continue
+end
+
+def submit_no_welsh
+  base_page.content.no_option_welsh.click
+  continue_or_save_continue
+end
+
+def submit_no_welsh_2
+  base_page.content.no_option_welsh_2.click
   continue_or_save_continue
 end
 

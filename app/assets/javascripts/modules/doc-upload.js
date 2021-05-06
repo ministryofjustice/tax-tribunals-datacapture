@@ -32,7 +32,7 @@ moj.Modules.docUpload = {
     previewTemplate = $(self.preview_template).remove()[0].outerHTML;
 
     dzOptions = {
-      url: '/uploader/supporting_documents/documents',
+      url: '/' + moj.locale + '/uploader/supporting_documents/documents',
       paramName: 'document',
       parallelUploads: 10,
       maxFilesize: maxFilesize,
@@ -45,9 +45,9 @@ moj.Modules.docUpload = {
       forceFallback: false,
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
 
-      dictCancelUploadConfirmation: moj.Modules.dropzoneStrings.confirmCancelUpload,
-      dictInvalidFileType: moj.Modules.dropzoneStrings.invalidFileType,
-      dictFileTooBig: moj.Modules.dropzoneStrings.fileTooBig.replace('XXX', maxFilesize),
+      dictCancelUploadConfirmation: moj.t('moj.Modules.dropzoneStrings.confirmCancelUpload'),
+      dictInvalidFileType: moj.t('moj.Modules.dropzoneStrings.invalidFileType'),
+      dictFileTooBig: moj.t('moj.Modules.dropzoneStrings.fileTooBig').replace('XXX', maxFilesize),
 
       success: function (file, response) {
         self.removeDropzonePreview(file);
@@ -108,7 +108,7 @@ moj.Modules.docUpload = {
     var self = this;
 
     self.$fileList.find('.no-files').hide();
-    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="govuk-button govuk-button--secondary">' + moj.Modules.dropzoneStrings.docUploadRemoveFile + '</a></li>');
+    self.$fileList.append('<li class="file js-only">' + file.name + ' <a href="#" data-delete-name="'+file.encoded_name+'" class="govuk-button govuk-button--secondary">' + moj.t('moj.Modules.dropzoneStrings.docUploadRemoveFile') + '</a></li>');
   },
 
   removeDropzonePreview: function(file) {

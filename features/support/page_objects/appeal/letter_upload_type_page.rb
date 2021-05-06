@@ -1,9 +1,9 @@
 class LetterUploadTypePage < BasePage
-  set_url '/steps/details/letter_upload_type'
+  set_url '/en/steps/details/letter_upload_type'
 
   section :content, '#main-content' do
-    element :header, 'h1', text: 'Upload the review conclusion letter'
-    element :one_doc_option, 'label', text: %r{Upload the letter as one document}
+    element :header, 'h1', text: I18n.t('shared.letter_upload.heading.review_conclusion_letter')
+    element :one_doc_option, 'label', text: I18n.t('helpers.label.steps_details_letter_upload_type_form.letter_upload_type_options.single_test')
   end
 
   def submit_one_document_option

@@ -16,13 +16,14 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def new_case_saved_confirmation(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(ENV.fetch('NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID'))
+    set_template(template(tribunal_case.language, :new_case_saved_confirmation))
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,
       draft_expire_in_days: mail_presenter.draft_expire_in_days,
       show_deadline_warning: mail_presenter.show_deadline_warning?,
-      resume_case_link: resume_users_case_url(tribunal_case)
+      resume_case_link: resume_users_case_url(tribunal_case, locale: :en),
+      resume_case_cy_link: resume_users_case_url(tribunal_case, locale: :cy)
     )
 
     mail(to: tribunal_case.user.email)
@@ -30,10 +31,12 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
   # Triggered automatically by Devise when the user resets its password
   def reset_password_instructions(user, token, _opts={})
-    set_template(ENV.fetch('NOTIFY_RESET_PASSWORD_TEMPLATE_ID'))
+    tribunal_case = TribunalCase.latest_case(user)
+    set_template(template(tribunal_case.language, :reset_password_instructions))
 
     set_personalisation(
-      reset_url: edit_user_password_url(reset_password_token: token)
+      reset_url: edit_user_password_url(reset_password_token: token, locale: :en),
+      reset_cy_url: edit_user_password_url(reset_password_token: token, locale: :cy)
     )
 
     mail(to: user.email)
@@ -41,10 +44,12 @@ class NotifyMailer < GovukNotifyRails::Mailer
 
   # Triggered automatically by Devise when the user changes its password
   def password_change(user, _opts={})
-    set_template(ENV.fetch('NOTIFY_CHANGE_PASSWORD_TEMPLATE_ID'))
+    tribunal_case = TribunalCase.latest_case(user)
+    set_template(template(tribunal_case.language, :password_change))
 
     set_personalisation(
-      portfolio_url: users_cases_url
+      portfolio_url: users_cases_url(locale: :en),
+      portfolio_cy_url: users_cases_url(locale: :cy)
     )
 
     mail(to: user.email)
@@ -53,7 +58,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def taxpayer_case_confirmation(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(ENV.fetch('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID'))
+    set_template(template(tribunal_case.language, :taxpayer_case_confirmation))
 
     set_personalisation(
       recipient_name: mail_presenter.recipient_name,
@@ -70,7 +75,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def ftt_new_case_notification(tribunal_case)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(ENV.fetch('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID'))
+    set_template(template(tribunal_case.language, :ftt_new_case_notification))
 
     set_personalisation(
       recipient_name: mail_presenter.recipient_name,
@@ -85,7 +90,7 @@ class NotifyMailer < GovukNotifyRails::Mailer
   def application_details_copy(tribunal_case, entity, application_details)
     recipient_email = tribunal_case.send("#{entity}_contact_email".to_sym)
 
-    set_template(ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID'))
+    set_template(template(tribunal_case.language, :application_details_copy))
 
     set_personalisation(
       appeal_or_application: tribunal_case.appeal_or_application,
@@ -95,15 +100,16 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: recipient_email)
   end
 
-  def incomplete_case_reminder(tribunal_case, template_id)
+  def incomplete_case_reminder(tribunal_case, template_key)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
-    set_template(template_id)
+    set_template(template(tribunal_case.language, template_key))
 
     set_personalisation(
       appeal_or_application: mail_presenter.appeal_or_application,
       show_deadline_warning: mail_presenter.show_deadline_warning?,
-      resume_case_link: resume_users_case_url(tribunal_case)
+      resume_case_link: resume_users_case_url(tribunal_case, locale: :en),
+      resume_case_cy_link: resume_users_case_url(tribunal_case, locale: :cy)
     )
 
     mail(to: mail_presenter.account_user_email)
@@ -126,6 +132,10 @@ class NotifyMailer < GovukNotifyRails::Mailer
   end
 
   private
+
+  def template(language, method_name)
+    GOVUK_NOTIFY_TEMPLATES.dig(language&.value || :english, method_name)
+  end
 
   def log_errors(exception)
     Rails.logger.info({caller: self.class.name, method: self.action_name, error: exception}.to_json)

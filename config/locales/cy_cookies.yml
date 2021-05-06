@@ -1,0 +1,124 @@
+cy:
+  cookies:
+    banner:
+      heading: Cwcis ar gyfer Apelio i'r Tribiwnlys Treth
+      content:
+        line_1: Rydym yn defnyddio cwcis hanfodol i wneud i'r wefan hon weithio.
+        line_2: Hoffem osod cwcis ychwanegol i ddeall sut rydych yn defnyddio'r wefan a gwella gwasanaethau'r llywodraeth.
+        accepted_html: Rydych wedi derbyn cwcis dadansoddol. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
+        rejected_html: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch<a class="govuk-link" href="/cookies#cookie-settings"> newid eich dewisiadau cwcis</a> ar unrhyw adeg.
+      button:
+        accept: Derbyn cwcis dadansoddol
+        reject: Gwrthod cwcis dadansoddol
+        hide: Cuddiwch y neges hon
+      link: Bwrw golwg dros y cwcis
+    notification: "Rydych wedi cadw eich dewisiadau cwcis"
+    further_info:
+      line_1_html: Gallwch weld <a class="govuk-link" rel="external" target="_blank" href="https://www.gov.uk/help/cookies" title='cwcis GOV.UK'>polisi cwcis GOV.UK yma</a>.
+      line_2_html: Darganfyddwch <a class="govuk-link" rel="external" target="_blank" href="http://www.aboutcookies.org">fwy am sut i reoli cwcis.</a>
+    heading: Cwcis
+    how_we_use:
+      cookies_message:
+        header: Neges yn ymwneud â chwcis
+        line1: Efallai y gwelwch faner pan fyddwch yn ymweld â’r dudalen Help i Dalu Ffioedd yn eich gwahodd i dderbyn neu wrthod cwcis dewisol. Byddwn yn gosod cwcis ar eich cyfrifiadur fel ei fod yn gwybod eich bod wedi'i weld ac nad oes angen ei ddangos eto, a hefyd i storio eich gosodiadau.
+        table:
+          header_1: Enw
+          header_2: Pwrpas
+          header_3: "Dyddiad darfod"
+          col_1: cookie_setting
+          col_2: Cadw eich gosodiadau caniatáu cwcis.
+          col_3: 1 blwyddyn.
+      essential_cookies: Cwcis Hanfodol
+      line_1: Mae angen cwcis hanfodol er mwyn i'r gwasanaeth weithio. Nid oes angen inni ofyn am ganiatâd i'w defnyddio.
+      table_1:
+        header_1: Enw
+        header_2: Pwrpas
+        header_3: "Dyddiad darfod"
+        row_1:
+          col_1: seen_cookie_message
+          col_2: Saves a message to let us know that you've seen our cookie message
+          col_3: 1 month
+
+
+      intro_message: "Ein neges cyflwyno"
+      line_1: "Efallai y byddwch yn gweld neges yn eich croesawu pan fyddwch yn ymweld â'r gwasanaeth Apelio i'r tribiwnlys treth am y tro cyntaf. Byddwn yn storio cwci ar eich cyfrifiadur fel ei fod yn gwybod i beidio â'i dangos eto."
+      line_10: "Nid ydym yn caniatáu i Google ddefnyddio na rhannu ein data dadansoddi."
+      line_11: "Mae Google Analytics yn gosod y cwcis canlynol:"
+      line_12: "Universal Analytics"
+      line_13: "Google Analytics"
+      line_14_html: Nid oes rhaid ichi <a class="govuk-link" rel="external" target="_blank" href="https://tools.google.com/dlpage/gaoptout">dderbyn cwcis Google Analytics</a>
+      line_2: "Byddwn yn storio cwci i gofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac i ddod â'ch sesiwn i ben pan fyddwch heb wneud dim am 30 munud. "
+      line_3_html: Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am y ffordd rydych yn defnyddio’r gwasanaeth Apelio i’r tribiwnlys treth. Rydym yn gwneud hyn i helpu i sicrhau bod y wefan yn diwallu anghenion defnyddwyr ac i'n helpu i wneud gwelliannau, er enghraifft gwella’r <a class="govuk-link" rel="external" target="_blank" href="https://insidegovuk.blog.gov.uk/2015/03/26/new-tool-to-see-trending-searches/">cyfleuster chwilio.</a>
+      line_4: "Mae Google Analytics yn storio gwybodaeth am:"
+      line_5: "y tudalennau rydych yn ymweld â nhw yn y gwasanaeth Apelio i'r tribiwnlys treth"
+      line_6: "faint o amser y byddwch yn ei dreulio ar bob tudalen o'r gwasanaeth Apelio i’r tribiwnlys treth"
+      line_7: "sut wnaethoch gyrraedd y wefan"
+      line_8: "ar beth fyddwch chi’n clicio wrth ymweld â’r wefan"
+      line_9: "Nid ydym yn casglu nac yn cadw’ch gwybodaeth bersonol (er enghraifft, eich enw neu’ch cyfeiriad) felly ni ellir defnyddio’r wybodaeth hon i’ch adnabod."
+      measuring_usage: "Mesur defnydd o’r wefan (Google Analytics)"
+      remembering_progress: "Cofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth "
+      table_1:
+        header_1: Enw
+        header_2: Pwrpas
+        header_3: "Dyddiad darfod"
+        row_1:
+          col_1: seen_cookie_message
+          col_2: "Cadw neges i roi gwybod inni eich bod wedi gweld ein neges ynglŷn â chwcis"
+          col_3: "1 mis"
+      table_2:
+        header_1: Enw
+        header_2: Pwrpas
+        header_3: "Dyddiad darfod"
+        row_1:
+          col_1: _tax-tribunals-datacapture_session
+          col_2: "Cofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac olrhain pan fyddwch heb wneud dim. "
+          col_3: "Ar ôl 30 munud i chi wneud dim byd neu pan fyddwch yn cau eich porwr gwe"
+      table_3:
+        header_1: Enw
+        header_2: Pwrpas
+        header_3: "Dyddiad darfod"
+        row_1:
+          col_1: _ga
+          col_2: "Mae hyn yn ein helpu i gyfrif faint o bobl sy'n ymweld â'r gwasanaeth Apelio i'r tribiwnlys treth drwy olrhain os ydych wedi ymweld o'r blaen"
+          col_3: "2 flynedd"
+        row_2:
+          col_1: _gid
+          col_2: "Mae hyn yn ein helpu i gyfrif faint o bobl sy'n ymweld â'r gwasanaeth apelio i'r tribiwnlys treth drwy olrhain os ydych wedi ymweld o'r blaen"
+          col_3: "24 awr"
+        row_3:
+          col_1: _gat
+          col_2: "Rheoli faint o bobl sy’n ymweld â’r dudalen"
+          col_3: "10 munud"
+      table_4:
+        header_1: Enw
+        header_2: Pwrpas
+        header_3: "Dyddiad darfod"
+        row_1:
+          col_1: _utma
+          col_2: "Fel _ga, mae’n gadael i ni wybod os ydych wedi ymweld o'r blaen fel y gallwn gyfrif faint o’n ymwelwyr sy’n newydd i'r gwasanaeth Apelio i'r tribiwnlys treth neu i dudalen benodol"
+          col_3: "2 flynedd"
+        row_2:
+          col_1: _utmb
+          col_2: "Mae’n gweithio ar y cyd â _utmc i gyfrifo’r cyfnod cyfartalog yr ydych yn ei dreulio ar y gwasanaeth Apelio i'r tribiwnlys treth"
+          col_3: "30 munud"
+        row_3:
+          col_1: _utmc
+          col_2: "Mae’n gweithio ar y cyd â _utmb i gyfrifo pa bryd yr ydych chi’n cau’ch porwr"
+          col_3: "pan fyddwch chi’n cau’ch porwr"
+        row_4:
+          col_1: _utmz
+          col_2: "Mae’n dweud wrthym sut y gwnaethoch gyrraedd y gwasanaeth Apelio i’r tribiwnlys treth (er enghraifft drwy wefan arall neu chwilotwr)"
+          col_3: "6 mis"
+    intro:
+      line_1: "Mae cwcis yn cael eu defnyddio i:"
+      line_2: "gofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth"
+      line_3: "asesu sut yr ydych chi’n defnyddio’r wefan er mwyn ei diweddaru a’i gwella ar sail eich anghenion"
+      line_4: "Nid yw cwcis Apelio i’r tribiwnlys treth yn cael eu defnyddio i’ch adnabod yn bersonol."
+      line_5: "Fel arfer, byddwch yn gweld neges ar y wefan cyn i ni storio cwci ar eich cyfrifiadur."
+    lead_text: "Mae’r gwasanaeth Apelio i’r tribiwnlys treth yn rhoi ffeiliau bach (a elwir yn 'cwcis') ar eich cyfrifiadur i gasglu gwybodaeth am y ffordd yr ydych chi’n pori drwy’r wefan."
+    page_title: Cwcis
+    section_list:
+      further_information: "Rhagor o wybodaeth"
+      how_we_use: "Sut ydym yn defnyddio cwcis yn y gwasanaeth Apelio i'r tribiwnlys treth"
+      analytics_cookies: Analytics cwcis (dewisol)
+      accept_cookies: Ydych chi eisiau dechrau analytics cwcis?

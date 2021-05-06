@@ -18,6 +18,10 @@ $ DRIVER=chrome cucumber
 
 $ DRIVER=firefox cucumber
 
+To run in welsh:
+
+$ TEST_LOCALE=cy cucumber
+
 
 ### Running cross browser and device tests using Sauce Labs
 Replace 'SAUCE_USERNAME' and 'SAUCE_ACCESS_KEY' in tax-tribunals-datacapture/.env with your account details
