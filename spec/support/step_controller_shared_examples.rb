@@ -4,7 +4,7 @@ RSpec.shared_examples 'a generic step controller' do |form_class, decision_tree_
   describe '#update' do
     let(:form_object) { instance_double(form_class, attributes: { foo: double }) }
     let(:form_class_params_name) { form_class.name.underscore }
-    let(:expected_params) { { form_class_params_name => { foo: 'bar' } } }
+    let(:expected_params) { { form_class_params_name => { foo: 'bar' }, :locale => I18n.locale } }
 
     context 'when there is no case in the session' do
       before do
@@ -83,11 +83,11 @@ RSpec.shared_examples 'a starting point step controller' do |options|
 
     context 'when no case exists in the session yet' do
       it 'creates a new case' do
-        expect { get :edit }.to change { TribunalCase.count }.by(1)
+        expect { get :edit, params: { locale: I18n.locale } }.to change { TribunalCase.count }.by(1)
       end
 
       it 'responds with HTTP success' do
-        get :edit
+        get :edit, params: { locale: I18n.locale }
         expect(response).to be_successful
       end
 
@@ -96,11 +96,11 @@ RSpec.shared_examples 'a starting point step controller' do |options|
           intent: intent
         ).at_least(:once).and_return(double.as_null_object)
 
-        get :edit
+        get :edit, params: { locale: I18n.locale }
       end
 
       it 'sets the case ID in the session' do
-        get :edit
+        get :edit, params: { locale: I18n.locale }
         expect(session[:tribunal_case_id]).to eq(TribunalCase.first.id)
       end
     end
@@ -110,22 +110,22 @@ RSpec.shared_examples 'a starting point step controller' do |options|
 
       it 'does not create a new case' do
         expect {
-          get :edit, session: { tribunal_case_id: existing_case.id }
+          get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         }.to_not change { TribunalCase.count }
       end
 
       it 'responds with HTTP success' do
-        get :edit, session: { tribunal_case_id: existing_case.id }
+        get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         expect(response).to be_successful
       end
 
       it 'does not change the case ID in the session' do
-        get :edit, session: { tribunal_case_id: existing_case.id }
+        get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         expect(session[:tribunal_case_id]).to eq(existing_case.id)
       end
 
       it 'clears the navigation stack in the session' do
-        get :edit, session: { tribunal_case_id: existing_case.id }
+        get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         existing_case.reload
 
         expect(existing_case.navigation_stack).to eq([controller.request.fullpath])
@@ -142,7 +142,7 @@ RSpec.shared_examples 'a starting point step controller' do |options|
 
         it 'does not save the case for later' do
           expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
-          get :edit
+          get :edit, params: { locale: I18n.locale }
         end
       end
     end
@@ -163,14 +163,14 @@ RSpec.shared_examples 'a starting point step controller' do |options|
             user
           ).and_return(double.as_null_object)
 
-          put :update, params: {}
+          put :update, params: { locale: I18n.locale }
         end
       end
 
       context 'for a signed out user' do
         it 'does not save the case for later' do
           expect(TaxTribs::SaveCaseForLater).not_to receive(:new)
-          put :update, params: {}
+          put :update, params: { locale: I18n.locale }
         end
       end
     end
@@ -189,7 +189,7 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
       end
 
       it 'redirects to the invalid session error page' do
-        get :edit
+        get :edit, params: { locale: I18n.locale }
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
@@ -198,7 +198,7 @@ RSpec.shared_examples 'an intermediate step controller' do |form_class, decision
       let!(:existing_case) { TribunalCase.create }
 
       it 'responds with HTTP success' do
-        get :edit, session: { tribunal_case_id: existing_case.id }
+        get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         expect(response).to be_successful
       end
     end
@@ -212,14 +212,14 @@ RSpec.shared_examples 'an intermediate step controller without update' do
 
   context '#update' do
     it 'raises an exception' do
-      expect { put :update }.to raise_error(AbstractController::ActionNotFound)
+      expect { put :update, params: { locale: I18n.locale } }.to raise_error(AbstractController::ActionNotFound)
     end
   end
 
   describe '#edit' do
     context 'when no case exists in the session yet' do
       it 'raises an exception' do
-        expect { get :edit }.to raise_error(RuntimeError)
+        expect { get :edit, params: { locale: I18n.locale } }.to raise_error(RuntimeError)
       end
     end
 
@@ -227,7 +227,7 @@ RSpec.shared_examples 'an intermediate step controller without update' do
       let!(:existing_case) { TribunalCase.create }
 
       it 'responds with HTTP success' do
-        get :edit, session: { tribunal_case_id: existing_case.id }
+        get :edit, params: { locale: I18n.locale }, session: { tribunal_case_id: existing_case.id }
         expect(response).to be_successful
       end
     end
