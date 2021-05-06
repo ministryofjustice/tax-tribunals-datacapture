@@ -1,5 +1,6 @@
 require 'action_pack'
 
+puts '------------------>>>>>>>'
 module Rails
   module Controller
     module Testing
@@ -18,7 +19,6 @@ module Rails
           define_method(method) do |*args, **kwargs|
             reset_template_assertion
             kwargs[:params] = locale_params.merge(kwargs.fetch(:params, {}))
-            puts '------------------>', kwargs.inspect
             super(*args, **kwargs)
           end
         end
