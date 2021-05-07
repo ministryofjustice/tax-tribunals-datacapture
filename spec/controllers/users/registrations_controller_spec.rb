@@ -13,14 +13,14 @@ RSpec.describe Users::RegistrationsController do
       let(:tribunal_case) { nil }
 
       it 'redirects to the invalid session error page' do
-        get :new
+        local_get :new
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 
     context 'when there is a case in the session' do
       it 'responds with HTTP success' do
-        get :new
+        local_get :new
         expect(response).to be_successful
       end
     end
@@ -31,14 +31,14 @@ RSpec.describe Users::RegistrationsController do
       let(:tribunal_case) { nil }
 
       it 'redirects to the invalid session error page' do
-        post :create, params: { doesnt: 'matter' }
+        local_post :create, params: { doesnt: 'matter' }
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 
     context 'when there is a case in the session' do
       def do_post
-        post :create, params: { 'user' => {
+        local_post :create, params: { 'user' => {
             'email' => 'foo@bar.com',
             'password' => 'K#9f@vP(va'
         } }
@@ -74,7 +74,7 @@ RSpec.describe Users::RegistrationsController do
         end
 
         it 'does not create the user and re-renders the page' do
-          post :create, params: { 'user' => {
+          local_post :create, params: { 'user' => {
               'email' => 'foo@bar.com',
               'password' => 'short'
           } }
@@ -89,20 +89,20 @@ RSpec.describe Users::RegistrationsController do
       let(:tribunal_case) { nil }
 
       it 'redirects to the invalid session error page' do
-        get :save_confirmation
+        local_get :save_confirmation
         expect(response).to redirect_to(invalid_session_errors_path)
       end
     end
 
     context 'when there is a case in the session' do
       it 'renders the expected page' do
-        get :save_confirmation
+        local_get :save_confirmation
         expect(response).to render_template(:save_confirmation)
       end
 
       it 'resets the session after rendering the page' do
         expect(subject).to receive(:reset_tribunal_case_session)
-        get :save_confirmation
+        local_get :save_confirmation
       end
     end
 
@@ -110,20 +110,20 @@ RSpec.describe Users::RegistrationsController do
       before { session[:save_for_later] = true }
 
       it 'renders the expected page' do
-        get :save_confirmation
+        local_get :save_confirmation
         expect(response).to render_template(:save_confirmation)
       end
 
       it 'resets the session after rendering the page' do
         expect(subject).not_to receive(:reset_tribunal_case_session)
-        get :save_confirmation
+        local_get :save_confirmation
       end
     end
   end
 
   describe '#update_confirmation' do
     it 'renders the expected page' do
-      get :update_confirmation
+      local_get :update_confirmation
       expect(response).to render_template(:update_confirmation)
     end
   end
@@ -136,7 +136,7 @@ RSpec.describe Users::RegistrationsController do
     end
 
     it 'responds with HTTP success' do
-      get :edit
+      local_get :edit
       expect(response).to be_successful
     end
   end
@@ -151,7 +151,7 @@ RSpec.describe Users::RegistrationsController do
     end
 
     def do_update
-      put :update, params: { 'user' => {
+      local_put :update, params: { 'user' => {
           current_password: 'passw0rd',
           password: new_password
       }}

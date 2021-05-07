@@ -15,7 +15,7 @@ RSpec.describe Steps::Closure::SupportDocumentsController, type: :controller do
     let!(:existing_case) { TribunalCase.create }
 
     it 'assigns previously uploaded files' do
-      get :edit, session: { tribunal_case_id: existing_case.id }
+      local_get :edit, session: { tribunal_case_id: existing_case.id }
 
       documents = assigns[:document_list]
       expect(documents.size).to eq(1)

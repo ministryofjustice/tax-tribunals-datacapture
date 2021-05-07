@@ -10,7 +10,7 @@ RSpec.describe Users::LoginsController do
 
   describe '#new' do
     it 'responds with HTTP success' do
-      get :new
+      local_get :new
       expect(response).to be_successful
     end
   end
@@ -19,7 +19,7 @@ RSpec.describe Users::LoginsController do
     let(:user) { User.new(email: 'foo@bar.com') }
 
     def do_post
-      post :create, params: { 'user' => {
+      local_post :create, params: { 'user' => {
         email: 'foo@bar.com',
         password: 'passw0rd'
       }}
@@ -71,21 +71,21 @@ RSpec.describe Users::LoginsController do
 
   describe '#destroy' do
     it 'redirects to the logged out page' do
-      delete :destroy
+      local_delete :destroy
       expect(subject).to redirect_to(users_login_logged_out_path)
     end
   end
 
   describe '#logged_out' do
     it 'renders the expected page' do
-      get :logged_out
+      local_get :logged_out
       expect(response).to render_template(:logged_out)
     end
   end
 
   describe '#save_confirmation' do
     it 'renders the expected page' do
-      get :save_confirmation
+      local_get :save_confirmation
       expect(response).to render_template(:save_confirmation)
     end
   end

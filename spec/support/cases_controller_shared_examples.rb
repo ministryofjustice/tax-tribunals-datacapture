@@ -29,16 +29,16 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
       it 'should generate and upload the case details PDF' do
         allow(subject).to receive(:generate_and_upload_pdf).and_call_original
         expect_any_instance_of(TaxTribs::CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
-        post :create
+        local_post :create
       end
 
       it 'should send a case submitted email' do
         expect(taxpayer_case_confirmation_mail_double).to receive(:deliver_later)
-        post :create
+        local_post :create
       end
 
       it 'should redirect to the confirmation page' do
-        post :create
+        local_post :create
         expect(response).to redirect_to(confirmation_path)
       end
     end
@@ -49,21 +49,21 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
       it 'should generate and upload the case details PDF' do
         allow(subject).to receive(:generate_and_upload_pdf).and_call_original
         expect_any_instance_of(TaxTribs::CaseDetailsPdf).to receive(:generate_and_upload).and_return(true)
-        post :create
+        local_post :create
       end
 
       it 'should send a `case submitted` email' do
         expect(taxpayer_case_confirmation_mail_double).to receive(:deliver_later)
-        post :create
+        local_post :create
       end
 
       it 'should send a `case with errors` email' do
         expect(ftt_new_case_notification_mail_double).to receive(:deliver_later)
-        post :create
+        local_post :create
       end
 
       it 'should redirect to the confirmation page' do
-        post :create
+        local_post :create
         expect(response).to redirect_to(confirmation_path)
       end
     end
@@ -77,7 +77,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
           .with(current_tribunal_case, :taxpayer, 'string content')
           .and_return(mail_double)
 
-        post :create
+        local_post :create
       end
 
       it 'should render email content' do
@@ -85,7 +85,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
         expect(subject).to receive(:render_to_string)
           .with(template: subject.pdf_template, formats: [:text], encoding: 'UTF-8')
 
-        post :create
+        local_post :create
       end
     end
 
@@ -98,7 +98,7 @@ RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
           .with(current_tribunal_case, :representative, 'string content')
           .and_return(mail_double)
 
-        post :create
+        local_post :create
       end
     end
   end

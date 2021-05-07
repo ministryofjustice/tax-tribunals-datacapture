@@ -17,13 +17,13 @@ RSpec.describe Admin::UploadProblemsReportController, type: :controller do
       end
 
       it 'returns http success' do
-        get :index
+        local_get :index
         expect(response).to have_http_status(:success)
       end
 
       it 'retrieves the cases with document upload problems' do
         expect(TribunalCase).to receive(:with_upload_problems).and_return(double.as_null_object)
-        get :index
+        local_get :index
       end
     end
   end

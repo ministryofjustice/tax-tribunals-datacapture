@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Surveys::FeedbackController, type: :controller do
   describe '#new' do
     it 'responds with HTTP success' do
-      get :new
+      local_get :new
       expect(response).to be_successful
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe Surveys::FeedbackController, type: :controller do
       let(:saved) { true }
 
       it 'redirects to thanks page' do
-        post :create, params: {surveys_feedback_form: {
+        local_post :create, params: {surveys_feedback_form: {
           referrer: '/my/step',
           rating: rating,
           comment: 'my feedback here'
@@ -42,7 +42,7 @@ RSpec.describe Surveys::FeedbackController, type: :controller do
       let(:saved) { false }
 
       it 're-renders the form' do
-        post :create, params: {surveys_feedback_form: {
+        local_post :create, params: {surveys_feedback_form: {
           referrer: '/my/step',
           rating: rating,
           comment: 'my feedback here'

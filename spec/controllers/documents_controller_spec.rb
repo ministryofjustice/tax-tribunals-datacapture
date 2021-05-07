@@ -30,7 +30,7 @@ RSpec.describe DocumentsController, type: :controller do
     let(:format) { :html }
 
     before do
-      post :create, params: {document: file, document_key: 'foo'}, format: format
+      local_post :create, params: {document: file, document_key: 'foo'}, format: format
     end
 
     context 'document is valid' do
@@ -111,14 +111,14 @@ RSpec.describe DocumentsController, type: :controller do
 
       context 'HTML format' do
         it 'should delete the file and redirect to the step' do
-          delete :destroy, params: params
+          local_delete :destroy, params: params
           expect(subject).to redirect_to('step/to/redirect')
         end
       end
 
       context 'JSON format' do
         it 'should respond with an empty body and success status code' do
-          delete :destroy, params: params, format: :json
+          local_delete :destroy, params: params, format: :json
           expect(response.status).to eq(204)
           expect(response.body).to eq('')
         end
@@ -131,7 +131,7 @@ RSpec.describe DocumentsController, type: :controller do
 
       it 'encode square brackets' do
         expect(Uploader).to receive(:delete_file).with(hash_including(filename: 'file%20%5Bname%5D%2Etxt'))
-        delete :destroy, params: {document_key: 'test', id: base64_filename}
+        local_delete :destroy, params: {document_key: 'test', id: base64_filename}
       end
     end
   end
