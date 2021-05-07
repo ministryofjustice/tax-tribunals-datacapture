@@ -144,10 +144,6 @@ Rails.application.routes.draw do
 
     resources :appeal_cases, :closure_cases, only: [:create]
 
-    scope module: 'tax_tribs' do
-      resources :status, only: [:index]
-    end
-
     resource :errors, only: [] do
       get :invalid_session
       get :case_not_found
@@ -182,6 +178,9 @@ Rails.application.routes.draw do
   get '/:locale', to: 'home#index', as: :local_root
   get :start, to: redirect('/', status: 301)
 
+  scope module: 'tax_tribs' do
+    resources :status, only: [:index]
+  end
 
   scope "/:locale", locale: /en|cy/, defaults: { locale: 'en'} do
     get :appeal, to: 'appeal_home#index'
