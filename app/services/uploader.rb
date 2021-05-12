@@ -46,7 +46,13 @@ class Uploader
       Rails.logger.tagged('add_file') {
         Rails.logger.warn('MojFileUploaderApiClient::RequestError': {error: e.inspect, backtrace: e.backtrace})
       }
-      raise UploaderError.new(e)
+      BackupNoa.keep_noa(
+        collection_ref: collection_ref,
+        folder: document_key.to_s,
+        filename: filename,
+        data: data
+      )
+      raise UploaderError.new(e) unless BackupNoa.is_noa?(filename)
     end
   end
 
