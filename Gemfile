@@ -66,6 +66,7 @@ end
 group :test do
   gem 'brakeman'
   gem 'apparition'
+  gem 'brakeman'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
