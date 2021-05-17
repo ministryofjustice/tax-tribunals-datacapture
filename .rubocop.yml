@@ -24,7 +24,7 @@ LineLength:
   Max: 140
 
 MethodLength:
-  Max: 30
+  Max: 35
 
 AbcSize:
   Max: 35

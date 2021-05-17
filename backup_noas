@@ -1,0 +1,1 @@
+0 2 */1 * * root /bin/bash -l -c 'cd /home/app && RAILS_ENV=production bundle exec rake backup_noas' > /proc/$(pgrep cron)/fd/1 2>&1
