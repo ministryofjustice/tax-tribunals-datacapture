@@ -77,8 +77,11 @@ RUN bash -c "bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY
 RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
 RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
 
-# adding daily export cron job
+## adding daily export cron job
 ADD daily-export /etc/cron.d/
+
+## adding backup noa cron job
+ADD backup_noas /etc/cron.d/
 
 # running app as a servive
 ENV PHUSION true

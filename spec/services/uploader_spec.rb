@@ -6,10 +6,11 @@ RSpec.describe Uploader do
   let(:another_error) { StandardError.new('boom!') }
 
   describe '.add_file' do
+    let(:filename) { 'file_name.doc' }
     let(:params) { {
       collection_ref: '123',
       document_key: :doc_key,
-      filename: 'file_name.doc',
+      filename: filename,
       data: 'data'
     } }
 
@@ -55,6 +56,21 @@ RSpec.describe Uploader do
       expect(described_class).to receive(:sleep).once.with(2)
 
       expect { described_class.add_file(params) }.to raise_error(Uploader::UploaderError)
+    end
+
+    context 'when filename is a Notice of Appeal' do
+      let(:filename) { 'TC_2022_000753_hulk_hogan.pdf' }
+      it 'keeps the notice of appeal when upload fails and is abandoned' do
+        allow(MojFileUploaderApiClient).to receive(:add_file).and_raise(error)
+
+        expect(BackupNoa).to receive(:keep_noa).with(
+                               collection_ref: params[:collection_ref],
+                               folder: params[:document_key].to_s,
+                               filename: filename,
+                               data: params[:data]
+                             )
+        expect { described_class.add_file(params) }.not_to raise_error(Uploader::UploaderError)
+      end
     end
   end
 
