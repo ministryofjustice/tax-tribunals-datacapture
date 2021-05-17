@@ -39,3 +39,7 @@ steps:
 - script: |
     bundle exec cucumber --fail-fast
   displayName: 'test cucumber'
+
+- script: |
+    bundle exec brakeman
+  displayName: 'brakeman'
