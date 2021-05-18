@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby27
+FROM ruby:2.7.3-alpine
 
 # Adding argument support for ping.json
 ARG APP_VERSION=unknown
@@ -47,29 +47,58 @@ ENV  NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID         replace_this_at_build_time
 ENV  NOTIFY_REPORT_PROBLEM_CY_TEMPLATE_ID             replace_this_at_build_time
 ENV  NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID    replace_this_at_build_time
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-# fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -q && \
-    apt-get install -qy yarn tzdata libcurl4-gnutls-dev libxrender-dev libfontconfig libxext6 libjpeg-turbo8 shared-mime-info --no-install-recommends && apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
-    truncate -s 0 /var/log/*log
+RUN apk --no-cache add --virtual build-deps \
+  build-base \
+  libxml2-dev \
+  libxslt-dev \
+  postgresql-dev \
+  git \
+  curl \
+&& apk --no-cache add \
+  postgresql-client \
+  shared-mime-info \
+  linux-headers \
+  xz-libs \
+  tzdata \
+  nodejs \
+  yarn
+
+# Install dependencies for wkhtmltopdf and microsoft fonts
+RUN apk --no-cache add \
+  libx11 \
+  libxrender \
+  libxext \
+  fontconfig \
+  ttf-ubuntu-font-family \
+&& apk --no-cache add --virtual fonts-deps \
+  msttcorefonts-installer \
+&& update-ms-fonts && fc-cache -f
+
+# ensure everything is executable
+RUN chmod +x /usr/local/bin/*
+
+# add non-root user and group with alpine first available uid, 1000
+RUN addgroup -g 1000 -S appgroup && \
+    adduser -u 1000 -S appuser -G appgroup
 
 ENV PUMA_PORT 8000
 EXPOSE $PUMA_PORT
 
-COPY . /home/app
+RUN mkdir -p /home/app
 WORKDIR /home/app
+COPY Gemfile* .ruby-version ./
 
-RUN bash -lc 'rvm get stable; rvm install 2.7.3; rvm --default use ruby-2.7.3'
-RUN gem install bundler -v 2.2.15
-RUN bundle install --without test development
+RUN gem install bundler -v 2.2.15 && \
+    bundle config set frozen 'true' && \
+    bundle config without test:development && \
+    bundle install
 
-RUN bash -c "yarn install --check-files"
+COPY . .
 
-RUN bash -c "bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets"
+RUN yarn install --check-files
+
+RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets
 
 # Copy fonts and images (without digest) along with the digested ones,
 # as there are some hardcoded references in the `govuk-frontend` files
@@ -77,11 +106,10 @@ RUN bash -c "bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY
 RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
 RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
 
-## adding daily export cron job
-ADD daily-export /etc/cron.d/
+## adding cron jobs
+ADD daily-export /etc/periodic/daily
 
-## adding backup noa cron job
-ADD backup_noas /etc/cron.d/
+RUN chmod +x /etc/periodic/daily/*
 
 # running app as a servive
 ENV PHUSION true
