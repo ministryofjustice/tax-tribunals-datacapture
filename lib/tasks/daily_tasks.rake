@@ -13,6 +13,9 @@ task :daily_tasks do
   puts "#{Time.now} reports:cases_by_date_csv"
   Rake::Task['reports:cases_by_date_csv'].invoke
 
+  puts "Backup noas"
+  Rake::Task['backup_noas'].invoke
+
   puts "#{Time.now} Finished daily tasks"
 end
 

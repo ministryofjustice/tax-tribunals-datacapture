@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PHUSION_SERVICE="${PHUSION:-false}"
 case ${PHUSION_SERVICE} in
