@@ -113,6 +113,7 @@ RUN chmod +x /etc/periodic/daily/*
 
 # running app as a servive
 ENV PHUSION true
+ENV OPENSSL_CONF /home/app/openssl.cnf
 COPY run.sh /home/app/run
 RUN chmod +x /home/app/run
 CMD ["./run"]
