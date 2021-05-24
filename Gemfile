@@ -7,7 +7,7 @@ gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.7.3'
 gem "valid_email2"
-gem 'glimr-api-client', github: 'ministryofjustice/glimr-api-client', tag: 'v0.4.0'
+gem 'glimr-api-client', github: 'ministryofjustice/glimr-api-client', tag: 'v0.4.1'
 gem 'govuk_design_system_formbuilder', '~> 2.1.5'
 gem 'govuk_notify_rails', '~> 2.0.0'
 gem 'jquery-rails'
@@ -66,7 +66,6 @@ end
 group :test do
   gem 'brakeman'
   gem 'apparition'
-  gem 'brakeman'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper', '~> 2.1'
