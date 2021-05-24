@@ -7,8 +7,8 @@ GIT
 
 GIT
   remote: https://github.com/ministryofjustice/glimr-api-client.git
-  revision: 2bffa236f82fc2b72d785a033d5fe3f0febe9237
-  tag: v0.4.0
+  revision: 6579fb7e144d5202e277fda733a3659b301d9feb
+  tag: v0.4.1
   specs:
     glimr-api-client (0.4.0)
       typhoeus (~> 1.1.2)
