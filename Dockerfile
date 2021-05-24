@@ -66,6 +66,7 @@ RUN apk --no-cache add --virtual build-deps \
 
 # Install dependencies for wkhtmltopdf and microsoft fonts
 RUN apk --no-cache add \
+  wkhtmltopdf \
   libx11 \
   libxrender \
   libxext \
@@ -105,6 +106,9 @@ RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=req
 # that will not be able to use the rails digest mechanism.
 RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
 RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
+
+## copy wkhtmltopdf bin
+RUN cd /usr/local/bundle/gems/wkhtmltopdf-binary-*/bin && ln -s /usr/bin/wkhtmltopdf wkhtmltopdf_"$(. /etc/os-release 2> /dev/null && echo ${ID}_${VERSION_ID})"_amd64
 
 ## adding cron jobs
 ADD daily-export /etc/periodic/daily
