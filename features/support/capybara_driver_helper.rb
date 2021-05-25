@@ -54,12 +54,12 @@ Capybara.register_driver :firefox_saucelabs do |app|
   profile['browser.cache.disk.enable'] = false
   profile['browser.cache.memory.enable'] = false
   caps = Selenium::WebDriver::Remote::Capabilities.firefox(idle_timeout: 150)
-  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub")
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
 end
 
 Capybara.register_driver :internet_explorer_saucelabs do |app|
   browser = {:browserName=>"MicrosoftEdge", :name=>"IEEdge_LATEST", :platform=>"Windows 10", :version=>"latest"}
-  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: browser, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub")
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: browser, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
 end
 
 Capybara.register_driver :safari_saucelabs do |app|
@@ -68,7 +68,7 @@ end
 
 Capybara.javascript_driver = Capybara.default_driver
 Capybara.current_driver = Capybara.default_driver
-Capybara.always_include_port = true
-Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', "http://#{ENV.fetch('HOSTNAME', 'localhost')}")
+Capybara.always_include_port = false
+Capybara.app_host = "https://appeal-tax-tribunal.service.gov.uk"
 Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME', 'localhost'))
 Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000') unless ENV['CAPYBARA_SERVER_PORT'] == 'random'
