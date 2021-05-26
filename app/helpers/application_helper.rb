@@ -26,6 +26,8 @@ module ApplicationHelper
   def govuk_error_summary(form_object = @form_object)
     return unless form_object.try(:errors).present?
 
+    form_object.errors.messages.delete_if { |_, v| v.blank? }
+
     fields_for(form_object, form_object) do |f|
       f.govuk_error_summary t('errors.error_summary.heading')
     end
