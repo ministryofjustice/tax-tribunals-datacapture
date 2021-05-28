@@ -34,6 +34,11 @@ input[type="file"] {
   text-align: right;
   vertical-align: middle;
   display: block;
+  float: left;
+  line-height: 43px;
+  margin: 0;
+  padding: 0;
+  height: 40px;
 
   img {
     vertical-align: middle;
