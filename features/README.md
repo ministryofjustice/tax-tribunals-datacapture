@@ -53,7 +53,9 @@ Go to your tax-tribunals-datacapture folder path
 Run Below command
 Example:
 
-`$ DRIVER=chrome_saucelabs cucumber --tags @saucelabs`
+`$ DRIVER=chrome_saucelabs cucumber features/start_to_end.feature`
+
+Running saucelab drivers on localhost can be tricky so to run in production environment, follow line 88 on features/support/capybara_driver_helper.rb
 
 ### Stubbing
 
