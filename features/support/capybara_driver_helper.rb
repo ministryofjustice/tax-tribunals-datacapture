@@ -45,30 +45,52 @@ end
 #............. Sauce Labs .............#
 
 Capybara.register_driver :chrome_saucelabs do |app|
-  browser = {:browserName=>"chrome", :name=>"MAC_CHROME_LATEST", :platform=>"OS X 10.12", :version=>"latest"}
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub", desired_capabilities: browser)
+  browser = {:browserName=>"chrome", :name=>"WIN_CHROME_LATEST", :platform=>"Windows 10", :version=>"latest"}
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub", desired_capabilities: browser)
 end
 
-Capybara.register_driver :firefox_saucelabs do |app|
-  profile = Selenium::WebDriver::Firefox::Profile.new
-  profile['browser.cache.disk.enable'] = false
-  profile['browser.cache.memory.enable'] = false
-  caps = Selenium::WebDriver::Remote::Capabilities.firefox(idle_timeout: 150)
-  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
-end
-
-Capybara.register_driver :internet_explorer_saucelabs do |app|
-  browser = {:browserName=>"MicrosoftEdge", :name=>"IEEdge_LATEST", :platform=>"Windows 10", :version=>"latest"}
+Capybara.register_driver :ms_edge_saucelabs do |app|
+  browser = {:browserName=>"MicrosoftEdge", :name=>"EDGE_LATEST", :platform=>"Windows 10", :version=>"latest"}
   Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: browser, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
 end
 
+Capybara.register_driver :ff_saucelabs do |app|
+  browser = {:browserName=>"firefox", :name=>"FIREFOX_LATEST", :platform=>"Windows 10", :version=>"latest", :acceptInsecureCerts=>true}
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: browser, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
+end
+
+# Doesn't go past the home page
 Capybara.register_driver :safari_saucelabs do |app|
-  Capybara::Selenium::Driver.new(app, browser: :safari, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub" )
+  capabilities = {
+      browser: 'safari',
+      version: 'latest',
+      platform: 'macOS 10.15',
+      "sauce:options" => {
+          screen_resolution: '2360x1770',
+      }
+  }
+  caps = Selenium::WebDriver::Remote::Capabilities.send('safari', capabilities)
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
+end
+
+Capybara.register_driver :ie_saucelabs do |app|
+  capabilities = {
+      browser: 'internet_explorer',
+      version: 'latest',
+      platform: 'Windows 10',
+  }
+  caps = Selenium::WebDriver::Remote::Capabilities.send('internet_explorer', capabilities)
+  Capybara::Selenium::Driver.new(app, browser: :remote, desired_capabilities: caps, url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.eu-central-1.saucelabs.com:80/wd/hub")
 end
 
 Capybara.javascript_driver = Capybara.default_driver
 Capybara.current_driver = Capybara.default_driver
+=begin
+To run tests on production url and for running any saucelab driver. Replace line 93 and 94 with this:
 Capybara.always_include_port = false
 Capybara.app_host = "https://appeal-tax-tribunal.service.gov.uk"
+=end
+Capybara.always_include_port = true
+Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', "http://#{ENV.fetch('HOSTNAME', 'localhost')}")
 Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME', 'localhost'))
 Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000') unless ENV['CAPYBARA_SERVER_PORT'] == 'random'
