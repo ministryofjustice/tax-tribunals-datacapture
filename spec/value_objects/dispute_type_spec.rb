@@ -15,6 +15,8 @@ RSpec.describe DisputeType do
         information_notice
         refusal_to_register_applicant
         cancellation_of_registration
+        security_notice
+        registration
         other
       ))
     end

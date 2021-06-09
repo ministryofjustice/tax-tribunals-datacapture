@@ -69,6 +69,8 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
           amount_of_tax_owed_by_hmrc
           amount_of_tax_owed_by_taxpayer
           amount_and_penalty
+          security_notice
+          registration
           other
         ))
       end

@@ -8,6 +8,8 @@ class DisputeType < ValueObject
     INFORMATION_NOTICE             = new(:information_notice),
     REFUSAL_TO_REGISTER_APPLICANT  = new(:refusal_to_register_applicant),
     CANCELLATION_OF_REGISTRATION   = new(:cancellation_of_registration),
+    SECURITY_NOTICE                = new(:security_notice),
+    REGISTRATION                   = new(:registration),
     OTHER                          = new(:other)
   ].freeze
 

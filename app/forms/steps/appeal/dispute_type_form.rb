@@ -64,6 +64,8 @@ module Steps::Appeal
         DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
         DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
         DisputeType::AMOUNT_AND_PENALTY,
+        DisputeType::SECURITY_NOTICE,
+        DisputeType::REGISTRATION,
         DisputeType::OTHER
       ]
     end

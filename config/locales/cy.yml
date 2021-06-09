@@ -492,6 +492,8 @@ cy:
         paye_coding_notice: "Hysbysiad Cod Talu wrth Ennill (PAYE)"
         penalty: "Cosb neu gordal"
         refusal_to_register_applicant: "Gwrthod cofrestru ceisydd"
+        registration: Cofrestru
+        security_notice: Hysbysiad o ofyniad i ddarparu diogelwch
       question: "Ynglŷn â beth yw eich anghydfod?"
     disputed_tax_paid:
       accessible_change_text: "p'un a ydych wedi talu swm y dreth sy'n sail i'ch anghydfod"
@@ -868,6 +870,10 @@ cy:
           amount_of_tax_owed_by_hmrc_html: "<strong>Rydych eisiau i Gyllid a Thollau EM ad-dalu arian</strong>"
           amount_of_tax_owed_by_taxpayer_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian</strong>"
           cancellation_of_registration_html: "<strong>Canslo cofrestriad</strong>"
+          security_notice_html: "<strong>Hysbysiad o ofyniad i ddarparu diogelwch</strong><BR>
+          Mae HMRC wedi gofyn am flaendal neu fond"
+          registration_html: "<strong>Cofrestru</strong><br>
+          er enghraifft, gwrthod eithrio, dadgofrestru neu atal rhag cofrestru ar gyfer TAW"
           information_notice_html: "<strong>Apelio yn erbyn hysbysiad gwybodaeth</strong>"
           other_html: "<strong>Dim un o'r uchod</strong>"
           paye_coding_notice_html: "<strong>Hysbysiad Cod Talu wrth Ennill (PAYE)</strong><br>y cod a ddefnyddir i gyfrifo faint o dreth i'w dynnu o'ch tâl"
