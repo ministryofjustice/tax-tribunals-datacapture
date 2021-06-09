@@ -1,18 +1,31 @@
-version: '2'
+version: '3.9'
 services:
   db:
     image: postgres
+    environment:
+      POSTGRES_PASSWORD: hmcts
+      POSTGRES_USER: hmcts
+      POSTGRES_DB: tax-tribunals-datacapture
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.development
+    # network_mode: "host"
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.development
+    image: tt-dc:alpine-dev
     env_file: .env
     environment:
+      DATABASE_URL: postgresql://hmcts:@db/tax-tribunals-datacapture
+      MOJ_FILE_UPLOADER_ENDPOINT: http://uploader:8000
       RAILS_ENV: development
-    command: bundle exec puma -b tcp://0.0.0.0:3000
+      DB_HOST: db
+    command: bundle exec rails s -b 0.0.0.0 -p 3000
     volumes:
-      - .:/usr/src/app
+      - .:/home/app
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - db
+      - uploader
+  uploader:
+    # https://github.com/ministryofjustice/mojfile-uploader-emulator
+    image: tt-uploader:emulator
