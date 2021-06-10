@@ -16,6 +16,8 @@ module Steps::Appeal
         income_tax_choices
       when CaseType::MONEY_LAUNDERING_DECISIONS
         money_laundering_choices
+      when CaseType::VAT
+        vat_choices
       else
         default_choices
       end.map(&:to_s)
@@ -58,7 +60,7 @@ module Steps::Appeal
       ]
     end
 
-    def default_choices
+    def vat_choices
       [
         DisputeType::PENALTY,
         DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
@@ -66,6 +68,16 @@ module Steps::Appeal
         DisputeType::AMOUNT_AND_PENALTY,
         DisputeType::SECURITY_NOTICE,
         DisputeType::REGISTRATION,
+        DisputeType::OTHER
+      ]
+    end
+
+    def default_choices
+      [
+        DisputeType::PENALTY,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
+        DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
+        DisputeType::AMOUNT_AND_PENALTY,
         DisputeType::OTHER
       ]
     end
