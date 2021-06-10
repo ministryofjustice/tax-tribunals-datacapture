@@ -78,7 +78,6 @@ end
 
 Given("I click notice of requirement option and submit") do
   dispute_type_page.submit_notice_of_requirement_option
-  sleep(50)
 end
 
 Given("I click registration option and submit") do
