@@ -867,13 +867,13 @@ cy:
         amount_of_tax_owed_by_hmrc: Rydych eisiau i Gyllid a Thollau EM ad-dalu arian
         dispute_type_options:
           amount_and_penalty_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian a chosb neu gordal rhaid i'r</strong><br>ddau anghydfod fod ar yr hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad"
-          amount_of_tax_owed_by_hmrc_html: "<strong>Rydych eisiau i Gyllid a Thollau EM ad-dalu arian</strong>"
-          amount_of_tax_owed_by_taxpayer_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian</strong>"
+          amount_of_tax_owed_by_hmrc_html: "<strong>Rydych eisiau i Gyllid a Thollau EM ad-dalu arian</strong><br>er enghraifft, mae HMRC wedi gwrthod eich cais am ad-daliad am VAT"
+          amount_of_tax_owed_by_taxpayer_html: "<strong>Mae Cyllid a Thollau EM yn honni bod arnoch chi arian</strong><br>er enghraifft, mae HMRC wedi rhoi asesiad i chi"
           cancellation_of_registration_html: "<strong>Canslo cofrestriad</strong>"
           security_notice_html: "<strong>Hysbysiad o ofyniad i ddarparu diogelwch</strong><BR>
           Mae HMRC wedi gofyn am flaendal neu fond"
           registration_html: "<strong>Cofrestru</strong><br>
-          er enghraifft, gwrthod eithrio, dadgofrestru neu atal rhag cofrestru ar gyfer TAW"
+          er enghraifft, gwrthod eithrio, dadgofrestru neu atal rhag cofrestru ar gyfer VAT"
           information_notice_html: "<strong>Apelio yn erbyn hysbysiad gwybodaeth</strong>"
           other_html: "<strong>Dim un o'r uchod</strong>"
           paye_coding_notice_html: "<strong>Hysbysiad Cod Talu wrth Ennill (PAYE)</strong><br>y cod a ddefnyddir i gyfrifo faint o dreth i'w dynnu o'ch tâl"

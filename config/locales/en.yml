@@ -880,8 +880,10 @@ en:
         dispute_type_options:
           penalty_html: "<strong>Penalty or surcharge</strong><br>for example late
             payment, inaccurate returns or failure to notify tax liability"
-          amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay money</strong>"
-          amount_of_tax_owed_by_taxpayer_html: "<strong>HMRC claim you owe money</strong>"
+          amount_of_tax_owed_by_hmrc_html: "<strong>You want HMRC to repay money</strong><br>
+          for example HMRC refused your repayment claim for VAT"
+          amount_of_tax_owed_by_taxpayer_html: "<strong>HMRC claim you owe money</strong><br>
+          for example HMRC have issued you with an assessment"
           amount_and_penalty_html: "<strong>HMRC claim you owe money and a penalty or
             surcharge</strong><br>both disputes must be shown on the original notice
             or review conclusion letter"
