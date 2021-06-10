@@ -60,6 +60,22 @@ RSpec.describe Steps::Appeal::DisputeTypeForm do
       end
     end
 
+    context 'when the appeal is about VAT' do
+      let(:case_type) { CaseType::VAT }
+
+      it 'shows only the relevant choices' do
+        expect(subject.choices).to eq(%w(
+          penalty
+          amount_of_tax_owed_by_hmrc
+          amount_of_tax_owed_by_taxpayer
+          amount_and_penalty
+          security_notice
+          registration
+          other
+        ))
+      end
+    end
+
     context 'when the appeal is about anything else' do
       let(:case_type) { CaseType.new(:anything) }
 

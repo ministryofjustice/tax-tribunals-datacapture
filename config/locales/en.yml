@@ -890,6 +890,10 @@ en:
           information_notice_html: "<strong>Appeal against an information notice</strong>"
           refusal_to_register_applicant_html: "<strong>Refusal to register an applicant</strong>"
           cancellation_of_registration_html: "<strong>Cancellation of registration</strong>"
+          security_notice_html: "<strong>Notice of requirement to provide security</strong><br>
+          HMRC have asked for a deposit or bond"
+          registration_html: "<strong>Registration</strong><br>
+          for example refused exemption, deregistered or prevented from registering for VAT"
           other_html: "<strong>None of the above</strong>"
       steps_appeal_penalty_amount_form:
         penalty_amount: Enter the penalty or surcharge amount
@@ -1232,6 +1236,8 @@ en:
         information_notice: Appeal against an information notice
         refusal_to_register_applicant: Refusal to register an applicant
         cancellation_of_registration: Cancellation of registration
+        security_notice: Notice of requirement to provide security
+        registration: Registration
     penalty_level:
       question: What is the penalty or surcharge amount?
       accessible_change_text: what the penalty or surcharge amount is

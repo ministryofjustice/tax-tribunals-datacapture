@@ -7,6 +7,11 @@ Given("I am on the dispute type page") do
   expect(dispute_type_page.content).to have_header
 end
 
+Given("I am on the dispute type page through vat") do
+  navigate_to_dispute_type_page(:vat_case)
+  expect(dispute_type_page.content).to have_header
+end
+
 Given("I click the penalty or surcharge option and submit") do
   dispute_type_page.submit_penalty_or_surcharge
   expect(penalty_amount_page.content).to have_header
@@ -69,4 +74,13 @@ end
 
 When("I submit both tax and penalty amount values") do
   penalty_and_tax_amounts_page.valid_submission
+end
+
+Given("I click notice of requirement option and submit") do
+  dispute_type_page.submit_notice_of_requirement_option
+  sleep(50)
+end
+
+Given("I click registration option and submit") do
+  dispute_type_page.submit_registration_option
 end
