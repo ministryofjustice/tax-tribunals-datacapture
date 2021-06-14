@@ -32,7 +32,11 @@ class TaxTribs::HardshipDecisionTree < TaxTribs::DecisionTree
     when HardshipReviewRequested::YES
       { controller: :hardship_review_status, action: :edit }
     when HardshipReviewRequested::NO
-      { controller: '/steps/lateness/in_time', action: :edit }
+      if case_rejected?(tribunal_case)
+        { controller: '/steps/hardship/hardship_contact_hmrc', action: :edit }
+      else
+        { controller: '/steps/lateness/in_time', action: :edit }
+      end
     end
   end
 
@@ -45,5 +49,12 @@ class TaxTribs::HardshipDecisionTree < TaxTribs::DecisionTree
     when HardshipReviewStatus::REFUSED
       { controller: :hardship_reason, action: :edit }
     end
+  end
+
+  def case_rejected?(tribunal_case)
+    [
+      tribunal_case.case_type.vat?,
+      tribunal_case.dispute_type.ask_hardship?
+    ].all?
   end
 end
