@@ -80,4 +80,8 @@ appeal_or_application: :appeal)
   def self.values
     VALUES
   end
+
+  def vat?
+    self == VAT
+  end
 end
