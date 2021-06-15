@@ -567,7 +567,9 @@ en:
             penalty_level:
               inclusion: Select a penalty or surcharge amount
             penalty_amount:
+              not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
+              greater_than: Tax amount must be greater than 20,000
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:

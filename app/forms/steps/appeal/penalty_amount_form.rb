@@ -7,9 +7,17 @@ module Steps::Appeal
       PenaltyLevel.values.map(&:to_s)
     end
     validates_inclusion_of :penalty_level, in: choices
-    validates_presence_of :penalty_amount, if: :amount_required?
+    validates_numericality_of :penalty_amount, greater_than: 20_000, if: :validation_required?
 
     private
+
+    def validation_required?
+      amount_required? && !unknown_entered?
+    end
+
+    def unknown_entered?
+      penalty_amount&.downcase == I18n.t('dictionary.unknown')
+    end
 
     def amount_required?
       [

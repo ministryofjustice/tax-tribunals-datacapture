@@ -71,13 +71,33 @@ RSpec.describe Steps::Appeal::PenaltyAmountForm do
           end
         end
 
-        context 'when penalty amount is supplied' do
-          let(:penalty_amount) {'about 12345'}
+        context 'when penalty amount supplied is less than 20,000' do
+          let(:penalty_amount) {'19999'}
+
+          it 'saves the record' do
+            expect(subject.save).to be(false)
+          end
+        end
+
+        context 'when penalty amount supplied is greater than 20,000' do
+          let(:penalty_amount) {'20001'}
+
+          it 'saves the record' do
+            expect(tribunal_case).to receive(:update).with(
+                                       penalty_level: PenaltyLevel::PENALTY_LEVEL_2,
+                                       penalty_amount: '20001'
+                                     ).and_return(true)
+            expect(subject.save).to be(true)
+          end
+        end
+
+        context 'when penalty amount supplied is unknown' do
+          let(:penalty_amount) {'unknown'}
 
           it 'saves the record' do
             expect(tribunal_case).to receive(:update).with(
               penalty_level: PenaltyLevel::PENALTY_LEVEL_2,
-              penalty_amount: 'about 12345'
+              penalty_amount: 'unknown'
             ).and_return(true)
             expect(subject.save).to be(true)
           end
