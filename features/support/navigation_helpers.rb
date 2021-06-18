@@ -346,3 +346,7 @@ def go_to_accessibility_page
   home_page.load_page
   base_page.footer.accessibility_link.click
 end
+
+def go_to_contact_hmrc_page                 
+  contact_hmrc_page.load_page
+end
