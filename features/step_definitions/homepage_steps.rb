@@ -56,9 +56,10 @@ When("I select language link") do
 end
 
 Then("I will see the website open in that language") do
+  locale = current_path.split('/')[1]
   if ENV['TEST_LOCALE'] == 'cy'
-    expect(page).to have_current_path('/en')
+    expect(locale).to eq('en')
   else
-    expect(page).to have_current_path('/cy')
+    expect(locale).to eq('cy')
   end
 end
