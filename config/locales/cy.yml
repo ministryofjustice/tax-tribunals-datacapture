@@ -22,6 +22,7 @@ cy:
     blank_organisation_name: &blank_organisation_name "Rhowch enw"
     blank_penalty_amount: &blank_penalty_amount "Nodwch swm y gosb (neu rhowch ‘anhysbys' os nad yw gennych)"
     blank_postcode: &blank_postcode "Rhowch god post"
+    unknown: &unknown "anhysbys"
     blank_tax_amount: &blank_tax_amount "Nodwch swm y dreth (neu rhowch ‘anhysbys' os nad yw gennych)"
     default_service_title: &default_service_title "Apelio i'r tribiwnlys treth - GOV.UK"
     invalid_email: &invalid_email "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft enw@enghraifft.com"
@@ -129,19 +130,27 @@ cy:
         steps/appeal/penalty_amount_form:
           attributes:
             penalty_amount:
+              not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
+              greater_than: Rhaid i'r swm treth fod yn fwy na 20,000
             penalty_level:
               inclusion: "Dewiswch swm cosb neu swm gordal"
         steps/appeal/penalty_and_tax_amounts_form:
           attributes:
             penalty_amount:
+              not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
+              greater_than: Rhaid i'r swm treth fod yn fwy na 0
             tax_amount:
+              not_a_number: *blank_tax_amount
               blank: *blank_tax_amount
+              greater_than: Rhaid i'r swm treth fod yn fwy na 0
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:
+              not_a_number: *blank_tax_amount
               blank: *blank_tax_amount
+              greater_than: Rhaid i'r swm treth fod yn fwy na 0
         steps/challenge/decision_form:
           attributes:
             challenged_decision:

@@ -7,8 +7,8 @@ RSpec.describe Steps::Appeal::PenaltyAndTaxAmountsForm do
     tax_amount: tax_amount
   } }
   let(:tribunal_case)  { instance_double(TribunalCase, penalty_amount: nil, tax_amount: nil) }
-  let(:penalty_amount) { 'value 1' }
-  let(:tax_amount)     { 'value 2' }
+  let(:penalty_amount) { '1' }
+  let(:tax_amount)     { '2' }
 
   subject { described_class.new(arguments) }
 
@@ -64,11 +64,37 @@ RSpec.describe Steps::Appeal::PenaltyAndTaxAmountsForm do
       end
     end
 
+    context 'when tax_amount is unknown' do
+      let(:tax_amount) { 'unknown' }
+
+      it 'returns true' do
+        expect(tribunal_case).to receive(:update).with(
+                                   tax_amount: 'unknown',
+                                   penalty_amount: '1'
+                                 ).and_return(true)
+
+        expect(subject.save).to be(true)
+      end
+    end
+
+    context 'when penalty_amount is unknown' do
+      let(:penalty_amount) { 'unknown' }
+
+      it 'returns true' do
+        expect(tribunal_case).to receive(:update).with(
+                                   penalty_amount: 'unknown',
+                                   tax_amount: '2'
+                                 ).and_return(true)
+
+        expect(subject.save).to be(true)
+      end
+    end
+
     context 'when penalty and tax amounts are given' do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          penalty_amount: 'value 1',
-          tax_amount: 'value 2'
+          penalty_amount: '1',
+          tax_amount: '2'
         ).and_return(true)
         expect(subject.save).to be(true)
       end
