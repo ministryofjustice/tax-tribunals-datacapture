@@ -35,7 +35,7 @@ Feature: Hardship journey
     When I submit a tax amount value
     And I submit that I have not paid the tax under dispute
     And I submit that I have not asked HMRC if I could appeal to tribunal
-    Then I should be on the lateness page
+    Then I should be on the contact HMRC page
 
   Scenario: Yes HMRC allowed me to defer paying because of financial hardship
     Given I create an indirect tax application where HMRC claim I owe money

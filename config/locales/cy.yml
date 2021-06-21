@@ -1618,6 +1618,13 @@ cy:
           heading: "A wnaethoch chi ofyn i Gyllid a Thollau EM adael ichi apelio i'r tribiwnlys heb orfod talu'r dreth yn gyntaf?"
           lead_text: "Ni fydd eich apêl yn cael ei hystyried hyd nes y byddwch yn ysgrifennu at Gyllid a Thollau EM yn egluro pam y byddai talu yn achosi caledi ariannol. "
           page_title: "Cais caledi ariannol wedi'i wneud "
+      hardship_contact_hmrc:
+        edit:
+          heading: Mae rhaid ichi ofyn i HMRC a allwch ohirio talu treth cyn y caniateir i’ch apêl barhau.
+          lead_text: I apelio yn erbyn llawer o asesiadau TAW, tollau a thollau cartref, mae'n ofynnol i'r dreth gael ei thalu cyn i'r apêl fynd rhagddi yn y Tribiwnlys. Yr unig eithriad yw pan fo HMRC yn caniatáu rhyddhad ar y sail y byddai talu'r dreth yn achosi caledi ariannol i'r trethdalwr.
+          lead_text_details: Gellir dod o hyd i ragor o fanylion am sut i ofyn i HMRC ohirio eich taliad yma. Sylwch fod angen i chi wneud cais am galedi cyn cyflwyno eich apêl i'r Tribiwnlys.
+          page_title: Cysylltwch â HMRC
+          contact_hmrc: Cysylltwch â HMRC
       hardship_review_status:
         edit:
           heading: "A wnaeth Cyllid a Thollau EM ganiatáu ichi ohirio talu oherwydd caledi ariannol?"

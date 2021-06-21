@@ -1,0 +1,20 @@
+<% title t('.page_title') %>
+<% step_header %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading"><%= t('.heading') %></h1>
+      </legend>
+      <div class="govuk-form-group">
+        <span class="govuk-hint" id="steps-hardship-hardship-ask-hmrc"><%= t('.lead_text') %></span>
+        <span class="govuk-hint" id="steps-hardship-hardship-ask-hmrc-details"><%= t('.lead_text_details') %></span>
+      </div>
+      <%= button_to t('.contact_hmrc'),
+       steps_hardship_hardship_contact_hmrc_path,
+       method: :put,
+       class: 'govuk-button' %>
+    </fieldset>
+  </div>
+</div>

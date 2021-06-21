@@ -483,6 +483,13 @@ en:
           heading: Have you paid the amount of tax under dispute?
           lead_text: You must pay any tax under dispute, unless it will cause financial hardship. You do not have to pay a penalty or surcharge before you can appeal.
           page_title: Amount paid
+      hardship_contact_hmrc:
+        edit:
+          heading: You must ask HMRC if you can defer payment of tax before your appeal is allowed to proceed
+          lead_text: Appeals against many VAT, customs and excise duty assessments require the tax to be paid in advance of the appeal proceeding with the Tribunal. The only exception is where the HMRC grants relief on the grounds that to pay the tax would cause the taxpayer financial hardship.
+          lead_text_details: More details on how to ask HMRC to defer payment can be found here. Please note you need to make an application for hardship prior to submitting  your appeal to the Tribunal.
+          page_title: Contact HMRC
+          contact_hmrc: Contact HMRC
       hardship_review_requested:
         edit:
           heading: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
