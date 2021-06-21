@@ -98,6 +98,10 @@ def in_time_page
   @in_time_page ||= InTimePage.new
 end
 
+def contact_hmrc_page
+  @contact_hmrc_page ||= ContactHmrcPage.new
+end
+
 def lateness_reason_page
   @lateness_reason_page ||= LatenessReasonPage.new
 end

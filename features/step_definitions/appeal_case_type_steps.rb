@@ -72,3 +72,7 @@ end
 Then("I should be on the lateness page") do
   expect(in_time_page.content).to have_header
 end
+
+Then("I should be on the contact HMRC page") do
+  expect(contact_hmrc_page.content).to have_header
+end
