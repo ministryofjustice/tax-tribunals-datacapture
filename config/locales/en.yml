@@ -14,6 +14,7 @@ en:
     tax_tribunal_independent: &tax_tribunal_independent "The tax tribunal is independent and doesn't have access to files from HMRC."
     attach_reasons_document: &attach_reasons_document "<strong>Attach reasons as a document</strong>"
     attach_reasons_blank_error: &attach_reasons_blank_error "You must enter reasons or attach a document"
+    unknown: &unknown "unknown"
     blank_penalty_amount: &blank_penalty_amount "Enter the penalty amount (or 'unknown' if you don't have it)"
     blank_tax_amount: &blank_tax_amount "Enter the tax amount (or 'unknown' if you don't have it)"
     blank_first_name: &blank_first_name "Please enter a first name"
@@ -482,6 +483,13 @@ en:
           heading: Have you paid the amount of tax under dispute?
           lead_text: You must pay any tax under dispute, unless it will cause financial hardship. You do not have to pay a penalty or surcharge before you can appeal.
           page_title: Amount paid
+      hardship_contact_hmrc:
+        edit:
+          heading: You must ask HMRC if you can defer payment of tax before your appeal is allowed to proceed
+          lead_text: Appeals against many VAT, customs and excise duty assessments require the tax to be paid in advance of the appeal proceeding with the Tribunal. The only exception is where the HMRC grants relief on the grounds that to pay the tax would cause the taxpayer financial hardship.
+          lead_text_details: More details on how to ask HMRC to defer payment can be found here. Please note you need to make an application for hardship prior to submitting  your appeal to the Tribunal.
+          page_title: Contact HMRC
+          contact_hmrc: Contact HMRC
       hardship_review_requested:
         edit:
           heading: Did you ask HMRC if you could appeal to the tribunal without paying the tax first?
@@ -566,17 +574,25 @@ en:
             penalty_level:
               inclusion: Select a penalty or surcharge amount
             penalty_amount:
+              not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
+              greater_than: Tax amount must be greater than 20,000
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:
+              not_a_number: *blank_tax_amount
               blank: *blank_tax_amount
+              greater_than: Tax amount must be greater than 0
         steps/appeal/penalty_and_tax_amounts_form:
           attributes:
             tax_amount:
+              not_a_number: *blank_tax_amount
               blank: *blank_tax_amount
+              greater_than: Tax amount must be greater than 0
             penalty_amount:
+              not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
+              greater_than: Tax amount must be greater than 0
         steps/challenge/decision_form:
           attributes:
             challenged_decision:

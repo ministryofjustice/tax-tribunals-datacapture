@@ -72,6 +72,7 @@ Rails.application.routes.draw do
         edit_step :hardship_review_requested
         edit_step :hardship_review_status
         edit_step :hardship_reason
+        edit_step :hardship_contact_hmrc
       end
 
       namespace :lateness do

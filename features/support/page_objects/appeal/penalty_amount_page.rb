@@ -24,7 +24,7 @@ class PenaltyAmountPage < BasePage
 
   def submit_valid_100_to_20000
     content.one_hundred_to_twenty_thousand_option.click
-    content.penalty_amount_input.set '200'
+    content.penalty_amount_input.set '20001'
     continue_or_save_continue
   end
 end

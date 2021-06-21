@@ -39,7 +39,16 @@ RSpec.describe TaxTribs::HardshipDecisionTree do
 
     context 'when the step is `hardship_review_requested`' do
       let(:step_params) { { hardship_review_requested: 'anything' } }
-      let(:tribunal_case) { instance_double(TribunalCase, hardship_review_requested: hardship_review_requested) }
+      let(:case_type) { CaseType::INCOME_TAX }
+      let(:dispute_type) { DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER }
+      let(:tribunal_case) do
+        instance_double(
+          TribunalCase,
+          case_type: case_type,
+          dispute_type: dispute_type,
+          hardship_review_requested: hardship_review_requested
+        )
+      end
 
       context 'and a hardship review has been requested' do
         let(:hardship_review_requested) { HardshipReviewRequested::YES }
@@ -51,8 +60,16 @@ RSpec.describe TaxTribs::HardshipDecisionTree do
         let(:hardship_review_requested) { HardshipReviewRequested::NO }
 
         it { is_expected.to have_destination('/steps/lateness/in_time', :edit) }
+
+        context 'when case rejected' do
+          let(:hardship_review_requested) { HardshipReviewRequested::NO }
+          let(:case_type) { CaseType::VAT }
+          let(:dispute_type) { DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER }
+
+          it { is_expected.to have_destination('/steps/hardship/hardship_contact_hmrc', :edit) }
+        end
       end
-    end
+   end
 
     context 'when the step is `hardship_review_status`' do
       let(:step_params) { { hardship_review_status: 'anything' } }

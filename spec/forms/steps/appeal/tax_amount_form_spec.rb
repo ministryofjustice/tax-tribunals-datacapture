@@ -6,7 +6,7 @@ RSpec.describe Steps::Appeal::TaxAmountForm do
     tax_amount: tax_amount
   } }
   let(:tribunal_case) { instance_double(TribunalCase, tax_amount: nil) }
-  let(:tax_amount) { 'about 12345' }
+  let(:tax_amount) { '12345' }
 
   subject { described_class.new(arguments) }
 
@@ -32,10 +32,22 @@ RSpec.describe Steps::Appeal::TaxAmountForm do
       end
     end
 
+    context 'when tax_amount is unknown' do
+      let(:tax_amount) { 'unknown' }
+
+      it 'returns true' do
+        expect(tribunal_case).to receive(:update).with(
+          tax_amount: 'unknown'
+        ).and_return(true)
+
+        expect(subject.save).to be(true)
+      end
+    end
+
     context 'when tax_amount is given' do
       it 'saves the record' do
         expect(tribunal_case).to receive(:update).with(
-          tax_amount: 'about 12345'
+          tax_amount: '12345'
         ).and_return(true)
         expect(subject.save).to be(true)
       end
