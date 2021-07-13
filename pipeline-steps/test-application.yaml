@@ -41,5 +41,9 @@ steps:
   displayName: 'test cucumber'
 
 - script: |
+    bundle exec rails s -p 3000 & sleep 5; npm run pa11y-ci
+  displayName: 'run pa11y'
+
+- script: |
     bundle exec brakeman
   displayName: 'brakeman'

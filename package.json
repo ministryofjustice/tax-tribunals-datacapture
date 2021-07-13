@@ -4,5 +4,12 @@
   "private": true,
   "dependencies": {
     "govuk-frontend": "^3.12.0"
+  },
+  "devDependencies": {
+    "pa11y-ci": "2.4.1"
+    },
+
+"scripts": {
+  "pa11y-ci": "pa11y-ci --config pa11y/tests/appeal/.pa11yci.json"
   }
 }
