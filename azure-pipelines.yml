@@ -35,6 +35,10 @@ resources:
     env: { POSTGRES_HOST_AUTH_METHOD: trust }
     ports:
     - 5432:5432
+  - container: uploader
+    image: employmenttribunal.azurecr.io/tt-uploader:emulator
+    ports:
+    - 8000:8000
 
 jobs:
 
@@ -45,6 +49,7 @@ jobs:
 
     services:
       postgres: postgres
+      uploader: uploader
 
     variables:
       rubyVersion: '= 2.7.3'
@@ -52,7 +57,7 @@ jobs:
       env: 'test'
       external_url: 'test'
       govuk_notify_api_key: 'test'
-      moj_file_uploader_endpoint: 'http://127.0.0.1:9292'
+      moj_file_uploader_endpoint: 'http://uploader:8000'
       payement_endpoint: 'http://localhost:4500'
       fees_external_url: 'http://localhost:3003/case_requests'
       tax_tribunals_downloader_url: 'http://localhost:9393'
