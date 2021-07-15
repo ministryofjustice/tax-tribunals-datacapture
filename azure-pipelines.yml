@@ -36,7 +36,7 @@ resources:
     ports:
     - 5432:5432
   - container: uploader
-    image: employmenttribunal.azurecr.io/tt-uploader:emulator
+    image: jhmcts/tt-uploader:emulator
     ports:
     - 8000:8000
 
