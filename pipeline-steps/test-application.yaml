@@ -17,7 +17,7 @@ steps:
   displayName: 'bundle install'
 
 - script: |
-    npm install --production
+    npm install
   displayName: 'npm install'
 
 - script: |

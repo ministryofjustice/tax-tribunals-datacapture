@@ -7,9 +7,8 @@
   },
   "devDependencies": {
     "pa11y-ci": "2.4.1"
-    },
-
-"scripts": {
-  "pa11y-ci": "pa11y-ci --config pa11y/tests/appeal/.pa11yci.json"
+  },
+  "scripts": {
+    "pa11y-ci": "./node_modules/pa11y-ci/bin/pa11y-ci.js --config pa11y/tests/appeal/.pa11yci.json"
   }
 }
