@@ -13,7 +13,6 @@ Sentry.init do |config|
  # Rails.application.config.filter_parameters.map(&:to_s) values
  # config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
 
- # Old config value. I didn't find the alternative in a new gem.
- # config.ssl_verification = ENV['SENTRY_SSL_VERIFICATION'] == true
+  config.transport.ssl_verification = true
 end
 # :nocov:
