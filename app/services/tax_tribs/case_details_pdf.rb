@@ -19,6 +19,9 @@ class TaxTribs::CaseDetailsPdf
 
   def generate
     @pdf = controller_ctx.render_to_string(render_options)
+  rescue StandardError => exception
+    Sentry.capture_exception(exception)
+    raise exception
   end
 
   def generate_and_upload
