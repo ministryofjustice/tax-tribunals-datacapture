@@ -18,8 +18,8 @@ class LoginPage < BasePage
   end
 
   def invalid_sign_in
-    content.email_input.set 'Invalid@email.com'
-    content.password_input.set 'Invalid password'
+
+
     content.sign_in_button.click
   end
 end
