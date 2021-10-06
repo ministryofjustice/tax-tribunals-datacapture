@@ -35,6 +35,10 @@ gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
 gem "select2-rails", '4.0.13'
 
+source 'https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev' do
+  gem 'mutant-license'
+end
+
 group :production do
   gem 'lograge'
   gem 'logstash-event'

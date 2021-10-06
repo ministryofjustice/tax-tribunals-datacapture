@@ -14,6 +14,11 @@ GIT
       typhoeus (~> 1.1.2)
 
 GEM
+  remote: https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev/
+  specs:
+    mutant-license (0.1.1.2.1739399027284447558325915053311580324856.4)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (6.0.4.1)
@@ -518,6 +523,7 @@ DEPENDENCIES
   lograge
   logstash-event
   mojfile-uploader-api-client (~> 0.8)
+  mutant-license!
   mutant-rspec
   nokogiri (~> 1.12.5)
   pg
