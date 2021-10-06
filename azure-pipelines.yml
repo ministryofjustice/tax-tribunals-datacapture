@@ -48,7 +48,7 @@ jobs:
 
     variables:
       rubyVersion: '= 2.7.4'
-      bundlerVersion: '2.2.15'
+      bundlerVersion: '2.2.28'
       env: 'test'
       external_url: 'test'
       govuk_notify_api_key: 'test'
