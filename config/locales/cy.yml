@@ -133,8 +133,8 @@ cy:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
               greater_than: Rhaid i'r swm treth fod yn fwy na 20,000
-              too_small: ENTER WELSH TRANSLATION HERE. DO NOT MERGE TO MASTER BRANCH UNTIL PROVIDED
-              too_large: ENTER WELSH TRANSLATION HERE. DO NOT MERGE TO MASTER BRANCH UNTIL PROVIDED
+              too_small: Dewiswch y categori cywir (swm a gofnodwyd yn rhy isel)
+              too_large: Dewiswch y categori cywir (swm a gofnodwyd yn rhy uchel)
             penalty_level:
               inclusion: "Dewiswch swm cosb neu swm gordal"
         steps/appeal/penalty_and_tax_amounts_form:
