@@ -1479,7 +1479,7 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       password:
-        password_strength: This password is too commonly used or contains a common word.
+        password_strength: This password is too commonly used or contains a common word
       email:
         special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
         too_long: "Email is too long (maximum is 256 characters)"
@@ -1844,7 +1844,7 @@ en:
           <p class="govuk-body">Your password must:</p>
           <ul class="govuk-list standard-list">
             <li>be at least 8 characters</li>
-            <li>not be the same with the email address field</li>
+            <li>not be the same as your email address</li>
             <li>not be a weak anagram or commonly used password</li>
           </ul>
       case_saved:

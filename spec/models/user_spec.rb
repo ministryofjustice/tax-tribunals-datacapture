@@ -134,6 +134,16 @@ RSpec.describe User, type: :model do
             end
           end
         end
+
+        context "is not the same as the user's email" do
+          let(:password) { 'test@example.com' }
+          it "" do
+            user.email = 'test@example.com'
+            user.valid?
+            expect(user.errors[:password]).to include(
+              I18n.t('errors.messages.password.password_strength'))
+          end
+        end
       end
     end
   end

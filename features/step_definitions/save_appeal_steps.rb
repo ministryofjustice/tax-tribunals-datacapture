@@ -25,23 +25,9 @@ When("I enter a password that is not at least 8 characters") do
   save
 end
 
-When("I enter a password that does not have at least one number") do
-  save_appeal_page.content.password_input.set 'Pa$$word'
-  save
-end
-
-When("I enter a password that does not have an upper and lower case") do
-  save_appeal_page.content.password_input.set 'pa$$word2020'
-  save
-end
-
-When("I enter a password that does not have a special character") do
-  save_appeal_page.content.password_input.set 'password2020'
-  save
-end
-
-When("I enter a password that is the same as my email address") do
-  save_appeal_page.content.password_input.set 'test@test.com'
+When("I enter the same password as the email address") do
+  save_appeal_page.content.email_input.set    '23lk21j3@alsdnklas.com'
+  save_appeal_page.content.password_input.set '23lk21j3@alsdnklas.com'
   save
 end
 
@@ -50,7 +36,7 @@ And("I enter a valid password") do
   save
 end
 
-Then("I should see a password error messages") do
+Then("I should see a password error message") do
   expect(save_appeal_page.content).to have_error_message
 end
 

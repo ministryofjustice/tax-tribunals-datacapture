@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable, :validatable, :trackable, :lockable
 
+  validate :password_is_not_email, unless: -> { errors[:password].any? || password.blank? }
   validates :password, password_strength: { use_dictionary: true, min_entropy: 15.5 }, unless: lambda {
  errors[:password].any? || password.blank? }
 
@@ -50,6 +51,12 @@ class User < ApplicationRecord
   end
 
   private
+
+  def password_is_not_email
+    return if password != email
+
+    errors.add :password, I18n.t('errors.messages.password.password_strength')
+  end
 
   def should_validate_email
     special_chars_in_mail.blank? && email_too_long.blank?
