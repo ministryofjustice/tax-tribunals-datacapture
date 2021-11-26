@@ -2,6 +2,14 @@ Then("I should see an enter penalty amount error") do
   expect(penalty_amount_page.content.error_summary).to have_enter_penalty_error
 end
 
+Then("I should see an penalty amount too small error") do
+  expect(penalty_amount_page.content.error_summary).to have_amount_too_small_error
+end
+
+Then("I should see an penalty amount too large error") do
+  expect(penalty_amount_page.content.error_summary).to have_amount_too_large_error
+end
+
 Given("I am on the dispute type page") do
   navigate_to_dispute_type_page(:income_tax_case)
   expect(dispute_type_page.content).to have_header
@@ -25,6 +33,16 @@ end
 When("I select 100 to 20000 option and submit") do
   expect(penalty_amount_page.content).to have_header
   penalty_amount_page.submit_invalid_100_to_20000
+end
+
+When("I input too small an amount") do
+  expect(penalty_amount_page.content).to have_header
+  penalty_amount_page.submit_too_small_100_to_20000
+end
+
+When("I input too large an amount") do
+  expect(penalty_amount_page.content).to have_header
+  penalty_amount_page.submit_too_large_100_to_20000
 end
 
 When("I submit a penalty amount value") do
