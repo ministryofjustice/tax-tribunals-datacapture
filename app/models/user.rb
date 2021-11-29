@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable, :validatable, :trackable, :lockable
 
-  validate :password_complexity, unless: -> { errors[:password].any? || password.blank? }
+  validate :password_is_not_email, unless: -> { errors[:password].any? || password.blank? }
   validates :password, password_strength: { use_dictionary: true, min_entropy: 15.5 }, unless: lambda {
  errors[:password].any? || password.blank? }
 
@@ -52,9 +52,8 @@ class User < ApplicationRecord
 
   private
 
-  def password_complexity
-    return if password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/ &&
-    password.downcase != email.downcase
+  def password_is_not_email
+    return if password != email
 
     errors.add :password, I18n.t('errors.messages.password.password_strength')
   end
