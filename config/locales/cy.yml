@@ -133,6 +133,8 @@ cy:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
               greater_than: Rhaid i'r swm treth fod yn fwy na 20,000
+              too_small: Dewiswch y categori cywir (swm a gofnodwyd yn rhy isel)
+              too_large: Dewiswch y categori cywir (swm a gofnodwyd yn rhy uchel)
             penalty_level:
               inclusion: "Dewiswch swm cosb neu swm gordal"
         steps/appeal/penalty_and_tax_amounts_form:
@@ -341,12 +343,12 @@ cy:
             password:
               blank: "Teipiwch gyfrinair"
               too_long: "Ni ddylai eich cyfrinair fod yn hirach na %{count} o nodau"
-              too_short: "Dewiswch gyfrinair cryfach"
+              too_short: "Rhaid i'ch cyfrinair gynnwys o leiaf 8 nod"
             password_confirmation:
               blank: "Nodwch y cyfrinair eto"
               confirmation: "Nid yw'r cyfrinair cadarnhau yn cyfateb"
               too_long: "Ni ddylai eich cyfrinair fod yn hirach na %{count} o nodau"
-              too_short: "Dewiswch gyfrinair cryfach"
+              too_short: "Rhaid i'ch cyfrinair gynnwys o leiaf 8 nod"
   admin:
     menu_header:
       other_case_types_link: "Other case types"
@@ -1809,9 +1811,6 @@ cy:
         <p class="govuk-body">Rhaid i'ch cyfrinair:</p>
         <ul class="govuk-list standard-list">
           <li>gynnwys o leiaf 8 nod</li>
-          <li>cynnwys o leiaf un rhif (0-9)</li>
-          <li>cynnwys o leiaf un priflythyren ac un llythyren fach</li>
-          <li>cynnwys o leiaf un nod arbennig (#,?,!,@,$,%,^,&,*,-)</li>
           <li>bod yn wahanol i'ch cyfeiriad e-bost</li>
           <li>peidio â bod yn anagram gwan neu'n gyfrinair cyffredin</li>
         </ul>

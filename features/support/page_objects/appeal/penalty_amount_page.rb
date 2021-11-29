@@ -8,7 +8,12 @@ class PenaltyAmountPage < BasePage
     element :penalty_amount_input, "input[name='steps_appeal_penalty_amount_form[penalty_amount]']"
     section :error_summary, '.govuk-error-summary__body' do
       element :enter_penalty_error, 'a', text: I18n.t('dictionary.blank_penalty_amount')
-      element :select_option_error, 'a', text: I18n.t('activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_level.inclusion')
+      element :amount_too_small_error, 'a', text: I18n.t(
+'activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_amount.too_small')
+      element :amount_too_large_error, 'a', text: I18n.t(
+'activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_amount.too_large')
+      element :select_option_error, 'a', text: I18n.t(
+'activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_level.inclusion')
     end
   end
 
@@ -22,9 +27,21 @@ class PenaltyAmountPage < BasePage
     continue_or_save_continue
   end
 
-  def submit_valid_100_to_20000
+  def submit_too_small_100_to_20000
+    content.one_hundred_to_twenty_thousand_option.click
+    content.penalty_amount_input.set '50'
+    continue_or_save_continue
+  end
+
+  def submit_too_large_100_to_20000
     content.one_hundred_to_twenty_thousand_option.click
     content.penalty_amount_input.set '20001'
+    continue_or_save_continue
+  end
+
+  def submit_valid_100_to_20000
+    content.one_hundred_to_twenty_thousand_option.click
+    content.penalty_amount_input.set '10000'
     continue_or_save_continue
   end
 end

@@ -7,6 +7,6 @@ class SaveAppealPage < BasePage
     elements :login_label, '.govuk-label'
     element :email_input, '#user-email-field'
     element :password_input, '#user-password-field'
-    element :error_message, '.govuk-error-message', text: I18n.t('activerecord.errors.models.user.attributes.password.too_short')
+    element :error_message, '.govuk-error-message'
   end
 end

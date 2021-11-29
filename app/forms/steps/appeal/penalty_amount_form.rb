@@ -4,15 +4,24 @@ module Steps::Appeal
     attribute :penalty_amount, String
 
     def self.choices
-      PenaltyLevel.values.map(&:to_s)
+      PenaltyLevel.names
     end
     validates_inclusion_of :penalty_level, in: choices
-    validates_numericality_of :penalty_amount, greater_than: 20_000, if: :validation_required?
+    validates_numericality_of :penalty_amount, if: :validation_required?
+    validate :amount_in_bounds?, if: :validation_required?
 
     private
 
     def validation_required?
       amount_required? && !unknown_entered?
+    end
+
+    def amount_in_bounds?
+      if amount_too_small?
+        amount_too_small_error
+      elsif amount_too_large?
+        amount_too_large_error
+      end
     end
 
     def unknown_entered?
@@ -36,6 +45,26 @@ module Steps::Appeal
         penalty_level: penalty_level_value,
         penalty_amount: penalty_amount
       )
+    end
+
+    def amount_too_small?
+      penalty_amount.to_f <= PenaltyLevel.lower_bound(penalty_level)
+    end
+
+    def amount_too_large?
+      penalty_amount.to_f > PenaltyLevel.upper_bound(penalty_level)
+    end
+
+    def amount_too_small_error
+      errors.add(:penalty_amount, I18n.t(
+                                    'activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_amount.too_small'
+                                  ))
+    end
+
+    def amount_too_large_error
+      errors.add(:penalty_amount, I18n.t(
+                                    'activemodel.errors.models.steps/appeal/penalty_amount_form.attributes.penalty_amount.too_large'
+                                  ))
     end
   end
 end

@@ -576,7 +576,8 @@ en:
             penalty_amount:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
-              greater_than: Tax amount must be greater than 20,000
+              too_small: Please choose the correct category for this amount (amount entered too small)
+              too_large: Please choose the correct category for this amount (amount entered too large)
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:
@@ -782,11 +783,11 @@ en:
               taken: You already have cases saved with this email address. Try signing in.
             password:
               blank: Please enter a password
-              too_short: Enter a stronger password
+              too_short: Your password must be at least 8 characters long
               too_long: Your password must be no longer than %{count} characters
             password_confirmation:
               blank: Please enter the password again
-              too_short: Enter a stronger password
+              too_short: Your password must be at least 8 characters long
               too_long: Your password must be no longer than %{count} characters
               confirmation: The password confirmation doesn't match
             current_password:
@@ -1479,7 +1480,7 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       password:
-        password_strength: Enter a stronger password
+        password_strength: This password is too commonly used or contains a common word
       email:
         special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
         too_long: "Email is too long (maximum is 256 characters)"
@@ -1844,10 +1845,7 @@ en:
           <p class="govuk-body">Your password must:</p>
           <ul class="govuk-list standard-list">
             <li>be at least 8 characters</li>
-            <li>have at least one number (0-9)</li>
-            <li>have at least one uppercase and one lowercase letter</li>
-            <li>have at least one special character (#,?,!,@,$,%,^,&,*,-)</li>
-            <li>not be the same with the email address field</li>
+            <li>not be the same as your email address</li>
             <li>not be a weak anagram or commonly used password</li>
           </ul>
       case_saved:
