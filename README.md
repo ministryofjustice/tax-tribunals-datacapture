@@ -5,44 +5,24 @@ Status](https://travis-ci.org/ministryofjustice/tax-tribunals-datacapture.svg?br
 
 Ruby on Rails Web application for making an appeal to the Tax Tribunal.
 
-## Setup & Run (locally)
+## Running Locally
 
-This app uses Docker Compose to run locally, which lets you spin up an app container and a database with minimal effort:
+This is using your local Ruby-ready environment and a PostgreSQL server that you can set up.
 
-```
-# Set up environment variables
-cp .env.example .env
+Set up environment variables `cp .env.example .env`.
 
-# Create the database
-docker-compose run web rails db:create db:migrate
+You will need to instal the GovUK FrontEnd package
+https://frontend.design-system.service.gov.uk/installing-with-npm/#requirements
+`npm install govuk-frontend --save`
 
-# Run the containers
-docker-compose up
-```
+And then precompile the assets 
+`rake assets:precompile`
 
-## Heroku demo environment
+Create the database with `rake db:setup db:migrate`
 
-Can be found at: https://tax-tribunals-demo.herokuapp.com/
+Then run `rails server`
 
-It automatically tracks `master`, and deploys after each successful
-CircleCI run.
 
-It depends on the heroku apps:
-
- https://glimr-api-emulator.herokuapp.com/
-
-and
-
- https://mojfile-uploader-emulator.herokuapp.com/
-
-Which also track their respective master branches.
-
-It is running on a free dyno, so there may be a short delay while it
-starts up.
-
-### Running the app directly on your machine
-
-You are of course free to run the app directly too, in which case you will need to bring your own Ruby-ready environment and PostgreSQL server. You will also need to tweak the `DATABASE_URL` environment variable in `.env`.
 
 ## Mutation testing performance issues and resolution
 
@@ -76,7 +56,3 @@ variables are set directly in the trais configuration:
 [1]: At the time of writing, `TribunalCase` brings in 17 other objects via the
 `.has_value_object` call.  Any mutation referencing a `self` call will
 need to include all of these in its syntax tree.
-
-### Update October 2020 ###
-
-We migrated to latest MOJ design systemL https://design-system.service.gov.uk/
