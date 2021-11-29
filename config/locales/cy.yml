@@ -1770,6 +1770,10 @@ cy:
         deleted_account: "Ni chewch neges e-bost os nad ydych wedi mewngofnodi i'ch cyfrif am 30 diwrnod. Rydym yn dileu eich manylion am resymau diogelwch. Crëwch gyfrif newydd i gadw achos."
         heading: "Gwiriwch eich negeseuon e-bost"
         lead_text: "Rydym wedi anfon neges e-bost atoch gyda dolen i chi ailosod eich cyfrinair. Edrychwch yn eich mewnflwch a'r ffolder ‘spam'. "
+        saved_appeals:
+        no_email_heading:
+        no_email_delay:
+        no_email_incorrect_entry:
         page_title: "Dolen ailosod wedi'i anfon"
     registrations:
       edit:

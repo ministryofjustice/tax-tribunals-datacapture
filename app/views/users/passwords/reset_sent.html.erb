@@ -4,9 +4,17 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l"><%= t '.heading' %></h1>
 
-    <p class="govuk-body-l"><%=t '.lead_text' %></p>
+    <p class="govuk-body-l"><%= t '.lead_text' %></p>
 
-    <p class="govuk-body"><%=t '.deleted_account' %></p>
+    <p class="govuk-body"><%= t '.deleted_account' %></p>
+
+    <p class="govuk-body"><%= t '.saved_appeals' %></p>
+
+    <h2 class="govuk-heading-m"><%= t '.no_email_heading' %></h1>
+
+    <p class="govuk-body"><%= t '.no_email_delay' %></p>
+
+    <p class="govuk-body"><%= t '.no_email_incorrect_entry' %></p>
 
     <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.start_again'), show_survey: false} %>
   </div>
