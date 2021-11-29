@@ -1796,9 +1796,14 @@ cy:
       case_saved:
         continue: Parhau
         continue_hint: "Cliciwch ‘Parhau' i gario ymlaen  "
-        expire_warning_html: "Byddwn yn cadw drafft o'ch achos am <strong>%{expire_in_days} diwrnod</strong> neu hyd nes y byddwch yn cyflwyno eich achos. Ar ôl y cyfnod hwn, bydd eich gwybodaeth yn cael ei dileu'n awtomatig i ddiogelu eich manylion. "
+        expire_warning_html: Bydd unrhyw apeliadau a gadwyd neu apeliadau nas cyflwynwyd yn cael eu dileu 14 diwrnod ar ôl y dyddiad y cawsant eu cadw'n wreiddiol.
         lead_text_html: "Mae e-bost cadarnhau wedi'i anfon i:<br><strong>%{email_address}</strong>"
-        await_confirmation_html: "XXXX"
+        await_confirmation: Arhoswch ar y dudalen hon nes i chi gael yr e-bost cadarnhau, oherwydd gall gymryd ychydig funudau i gyrraedd.
+        no_email_heading: Methu gweld yr e-bost?
+        no_email_junk: Gall gymryd ychydig funudau i gyrraedd. Gwiriwch eich blwch junk os na allwch ei weld yn eich mewnflwch.
+        no_email_invalid_entry_html: Os cafodd yr e-bost a ddarparwyd gennych yn wreiddiol pan wnaethoch greu'r cyfrif ei nodi’n anghywir, neu os nad yw'r e-bost yr ydych newydd ei ddarparu wedi'i gysylltu â chyfrif, ni fyddwch yn cael e-bost a bydd angen i chi
+        no_email_invalid_entry_link: ddechrau eto
+        no_email_signed_out: Byddwch yn cael eich allgofnodi o'ch cyfrif presennol.
         return_info: "Gallwch ddychwelyd i barhau mewnbynnu eich manylion ar unrhyw adeg. Gwiriwch eich bod dal o fewn terfyn amser y tribiwnlys treth a rhowch resymau os ydych yn credu eich bod yn hwyr. "
       password_guidelines_html: |-
         <p class="govuk-body">Rhaid i'ch cyfrinair:</p>

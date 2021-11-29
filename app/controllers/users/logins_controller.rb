@@ -24,6 +24,11 @@ module Users
       super
     end
 
+    def restart
+      current_user&.invalidate_all_sessions!
+      redirect_to root_path
+    end
+
     protected
 
     def sign_in(_resource_name, user)

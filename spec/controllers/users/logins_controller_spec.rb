@@ -89,4 +89,31 @@ RSpec.describe Users::LoginsController do
       expect(response).to render_template(:save_confirmation)
     end
   end
+
+  describe '#restart' do
+    context 'when logged in' do
+
+      let(:user) { User.new(email: 'foo@bar.com') }
+
+      it 'renders the expected page' do
+        expect(warden).to receive(:authenticate).and_return(user)
+        local_delete :restart
+        expect(response).to redirect_to root_path
+      end
+
+      it 'logs the user out' do
+        expect(warden).to receive(:authenticate).and_return(user)
+        expect(subject.current_user.session_token).to be_nil
+        local_delete :restart
+        expect(subject.current_user.session_token).not_to be_nil
+      end
+    end
+
+    context 'when not logged in' do
+      it 'renders the expected page' do
+        local_delete :restart
+        expect(response).to redirect_to root_path
+      end
+    end
+  end
 end
