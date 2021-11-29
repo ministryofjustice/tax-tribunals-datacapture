@@ -10,9 +10,9 @@ Feature: Dispute type options
     When I select 100 to 20000 option and submit
     Then I should see an enter penalty amount error
     When I input too small an amount
-    Then I should see an enter penalty amount too small error
+    Then I should see a penalty amount too small error
     When I input too large an amount
-    Then I should see an enter penalty amount too large error
+    Then I should see a penalty amount too large error
     When I submit a penalty amount value
     Then I should be on the lateness page
 

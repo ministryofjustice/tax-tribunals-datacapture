@@ -2,11 +2,11 @@ Then("I should see an enter penalty amount error") do
   expect(penalty_amount_page.content.error_summary).to have_enter_penalty_error
 end
 
-Then("I should see an penalty amount too small error") do
+Then("I should see a penalty amount too small error") do
   expect(penalty_amount_page.content.error_summary).to have_amount_too_small_error
 end
 
-Then("I should see an penalty amount too large error") do
+Then("I should see a penalty amount too large error") do
   expect(penalty_amount_page.content.error_summary).to have_amount_too_large_error
 end
 
