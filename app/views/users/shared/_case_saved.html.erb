@@ -6,8 +6,18 @@
   TODO: Revisit this to use a helper method to say "Your case will be deleted in #{N} days"
   where N counts down from the case creation date.
 -->
-<p class="govuk-body"><%=t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
+<p class="govuk-body"><%= t('.expire_warning_html', expire_in_days: Rails.configuration.x.cases.expire_in_days) %></p>
+<p class="govuk-body"><%= t('.await_confirmation_html' %></p>
 
+<p class="govuk-body"><%#=t('.await_confirmation' %></p>
+
+<h2 class="govuk-heading-m"><%#=t '.no_email_heading' %></h1>
+
+<p class="govuk-body"><%#=t('.no_email_junk' %></p>
+
+<p class="govuk-body"><%#=t('.no_email_invalid_entry' %></p>
+
+<p class="govuk-body"><%#=t('.no_email_signed_out' %></p>
 
 <%- if current_user %>
   <p class="govuk-body"><%=t '.continue_hint' %></p>

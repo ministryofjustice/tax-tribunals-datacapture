@@ -1798,6 +1798,7 @@ cy:
         continue_hint: "Cliciwch ‘Parhau' i gario ymlaen  "
         expire_warning_html: "Byddwn yn cadw drafft o'ch achos am <strong>%{expire_in_days} diwrnod</strong> neu hyd nes y byddwch yn cyflwyno eich achos. Ar ôl y cyfnod hwn, bydd eich gwybodaeth yn cael ei dileu'n awtomatig i ddiogelu eich manylion. "
         lead_text_html: "Mae e-bost cadarnhau wedi'i anfon i:<br><strong>%{email_address}</strong>"
+        await_confirmation_html: "XXXX"
         return_info: "Gallwch ddychwelyd i barhau mewnbynnu eich manylion ar unrhyw adeg. Gwiriwch eich bod dal o fewn terfyn amser y tribiwnlys treth a rhowch resymau os ydych yn credu eich bod yn hwyr. "
       password_guidelines_html: |-
         <p class="govuk-body">Rhaid i'ch cyfrinair:</p>
