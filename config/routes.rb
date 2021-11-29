@@ -124,6 +124,7 @@ Rails.application.routes.draw do
     namespace :users do
       devise_scope :user do
         get 'login/logged_out', to: 'logins#logged_out'
+        delete 'login/restart', to: 'logins#restart'
         get 'password/reset_sent', to: 'passwords#reset_sent'
         get 'password/reset_confirmation', to: 'passwords#reset_confirmation'
         get 'registration/update_confirmation', to: 'registrations#update_confirmation'
