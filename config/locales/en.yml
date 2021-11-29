@@ -576,7 +576,8 @@ en:
             penalty_amount:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
-              greater_than: Tax amount must be greater than 20,000
+              too_small: Please choose the correct category for this amount (amount entered too small)
+              too_large: Please choose the correct category for this amount (amount entered too large)
         steps/appeal/tax_amount_form:
           attributes:
             tax_amount:
