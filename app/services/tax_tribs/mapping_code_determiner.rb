@@ -42,7 +42,11 @@ module TaxTribs::MappingCodeDeterminer
     when DisputeType::AMOUNT_OF_TAX_OWED_BY_HMRC,
          DisputeType::AMOUNT_OF_TAX_OWED_BY_TAXPAYER,
          DisputeType::AMOUNT_AND_PENALTY,
-         DisputeType::OTHER
+         DisputeType::OTHER,
+         DisputeType::REFUSAL_TO_REGISTER_APPLICANT,
+         DisputeType::CANCELLATION_OF_REGISTRATION,
+         DisputeType::SECURITY_NOTICE,
+         DisputeType::REGISTRATION
       MappingCode::APPEAL_OTHER
     end
   end

@@ -96,6 +96,30 @@ RSpec.describe TaxTribs::MappingCodeDeterminer do
     it { is_expected.to have_mapping_code(:appeal_other) }
   end
 
+  context 'when the dispute is about a refusal to register the application' do
+    let(:dispute_type) { DisputeType::REFUSAL_TO_REGISTER_APPLICANT }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
+  end
+
+  context 'when the dispute is about a cancellation of registration' do
+    let(:dispute_type) { DisputeType::CANCELLATION_OF_REGISTRATION }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
+  end
+
+  context 'when the dispute is about a security notice' do
+    let(:dispute_type) { DisputeType::SECURITY_NOTICE }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
+  end
+
+  context 'when the dispute is about a registration issue' do
+    let(:dispute_type) { DisputeType::REGISTRATION }
+
+    it { is_expected.to have_mapping_code(:appeal_other) }
+  end
+
   context 'when the dispute is about penalty but there is no penalty amount' do
     let(:dispute_type) { DisputeType::PENALTY }
 
