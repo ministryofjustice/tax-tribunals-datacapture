@@ -24,9 +24,9 @@ module Users
       super
     end
 
-    def restart
+    def restart_account_creation
       current_user&.invalidate_all_sessions!
-      redirect_to root_path
+      redirect_to user_registration_path
     end
 
     protected
