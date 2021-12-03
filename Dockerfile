@@ -87,7 +87,6 @@ RUN apk --no-cache add --virtual fonts-deps
 RUN apk --no-cache add --virtual msttcorefonts-installer
 RUN update-ms-fonts
 RUN fc-cache -f
-fc-cache -f
 
 
 # ensure everything is executable
