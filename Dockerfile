@@ -82,7 +82,7 @@ RUN apk --no-cache add libx11
 RUN apk --no-cache add libxrender
 RUN apk --no-cache add libxext
 RUN apk --no-cache add fontconfig
-RUN apk --no-cache add ttf-ubuntu-font-family
+RUN apk --no-cache add ttf-freefont
 RUN apk --no-cache add --virtual fonts-deps
 RUN apk --no-cache add --virtual msttcorefonts-installer
 RUN update-ms-fonts
