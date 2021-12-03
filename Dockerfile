@@ -65,16 +65,30 @@ RUN apk --no-cache add --virtual build-deps \
   yarn
 
 # Install dependencies for wkhtmltopdf and microsoft fonts
-RUN apk --no-cache add \
-  wkhtmltopdf \
-  libx11 \
-  libxrender \
-  libxext \
-  fontconfig \
-  ttf-ubuntu-font-family \
-&& apk --no-cache add --virtual fonts-deps \
-  msttcorefonts-installer \
-&& update-ms-fonts && fc-cache -f
+# RUN apk --no-cache add \
+#   wkhtmltopdf \
+#   libx11 \
+#   libxrender \
+#   libxext \
+#   fontconfig \
+#   ttf-ubuntu-font-family \
+# && apk --no-cache add --virtual fonts-deps \
+#   msttcorefonts-installer \
+# && update-ms-fonts && fc-cache -f
+
+# Break out for debug purposes
+RUN apk --no-cache add wkhtmltopdf
+RUN apk --no-cache add libx11
+RUN apk --no-cache add libxrender
+RUN apk --no-cache add libxext
+RUN apk --no-cache add fontconfig
+RUN apk --no-cache add ttf-ubuntu-font-family
+RUN apk --no-cache add --virtual fonts-deps
+RUN apk --no-cache add --virtual msttcorefonts-installer
+RUN update-ms-fonts
+RUN fc-cache -f
+fc-cache -f
+
 
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
