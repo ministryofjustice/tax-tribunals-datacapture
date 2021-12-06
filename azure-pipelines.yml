@@ -59,6 +59,7 @@ jobs:
       aptDependencies: 'postgresql-client shared-mime-info'
       nocoverage: true
       address_lookup_endpoint: 'https://api.os.uk'
+      BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
       notify_case_confirmation_template_id: 'confirmation'
       notify_ftt_case_notification_template_id: 'fft_confirmation'
