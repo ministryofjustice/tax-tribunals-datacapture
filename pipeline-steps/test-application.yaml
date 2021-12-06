@@ -2,6 +2,8 @@ parameters:
   rubyVersion: ''
   bundlerVersion: ''
 
+variables:
+  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
 steps:
 - task: UseRubyVersion@0
@@ -12,8 +14,19 @@ steps:
     gem install bundler -v $(bundlerVersion)
   displayName: 'install bundler'
 
+- task: Cache@2
+  inputs:
+    key: 'gems | "$(Agent.OS)" | Gemfile.lock'
+    restoreKeys: |
+      gems | "$(Agent.OS)"
+      gems
+    path: $(BUNDLE_PATH)
+    cacheHitVar: GEM_CACHE_RESTORED
+  displayName: 'Cache gems'
+
 - script: |
     bundle install --retry=3 --jobs=4
+  condition: ne(variables.GEM_CACHE_RESTORED, 'true')
   displayName: 'bundle install'
 
 - script: |
