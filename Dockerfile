@@ -1,4 +1,4 @@
-FROM ruby:2.7.5-alpine3.15
+FROM ruby:2.7.5-alpine3.14
 
 # Adding argument support for ping.json
 ARG APP_VERSION=unknown
@@ -74,7 +74,7 @@ RUN apk --no-cache add \
   ttf-ubuntu-font-family \
 && apk --no-cache add --virtual fonts-deps \
   msttcorefonts-installer \
-&& update-ms-fonts && fc-cache -f
+&& fc-cache -f
 
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
