@@ -84,9 +84,9 @@ RUN apk --no-cache add libxext
 RUN apk --no-cache add fontconfig
 RUN apk --no-cache add ttf-freefont
 RUN apk --no-cache add --virtual fonts-deps
-RUN apk --no-cache add --virtual msttcorefonts-installer
-RUN update-ms-fonts
-RUN fc-cache -f
+RUN apk --no-cache add --virtual msttcorefonts-installer && \
+update-ms-fonts && \
+fc-cache -f
 
 
 # ensure everything is executable
