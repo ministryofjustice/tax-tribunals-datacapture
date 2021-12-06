@@ -2,9 +2,6 @@ parameters:
   rubyVersion: ''
   bundlerVersion: ''
 
-variables:
-  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
-
 steps:
 - task: UseRubyVersion@0
   inputs:
