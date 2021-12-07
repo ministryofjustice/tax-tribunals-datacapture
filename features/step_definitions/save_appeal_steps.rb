@@ -43,3 +43,7 @@ end
 Then("I should be taken to the saved confirmation page") do
   expect(save_confirmation_page.content).to have_header
 end
+
+When ("I click 'start again'") do
+  click_link(I18n.t('users.shared.case_saved.no_email_invalid_entry_link'))
+end
