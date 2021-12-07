@@ -98,7 +98,7 @@ RSpec.describe Users::LoginsController do
       it 'renders the expected page' do
         expect(warden).to receive(:authenticate).and_return(user)
         local_delete :restart_account_creation
-        expect(response).to redirect_to user_registration_path
+        expect(response).to redirect_to new_user_registration_path
       end
 
       it 'logs the user out' do
@@ -112,7 +112,7 @@ RSpec.describe Users::LoginsController do
     context 'when not logged in' do
       it 'renders the expected page' do
         local_delete :restart_account_creation
-        expect(response).to redirect_to user_registration_path
+        expect(response).to redirect_to new_user_registration_path
       end
     end
   end

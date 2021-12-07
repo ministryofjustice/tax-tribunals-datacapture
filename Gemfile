@@ -51,6 +51,9 @@ group :development do
   gem 'listen', '~> 3.0.5',            '3.0.8'
   gem 'hashdiff', '>= 0.4.0',          '1.0.1'
   gem 'web-console',                   '4.1.0'
+  gem 'spring',                        '3.1.1'
+  gem 'spring-commands-rspec',         '1.0.4'
+  gem "spring-commands-cucumber",      '1.0.1'
 end
 
 group :development, :test do

@@ -99,11 +99,6 @@ RSpec.describe Users::RegistrationsController do
         local_get :save_confirmation
         expect(response).to render_template(:save_confirmation)
       end
-
-      it 'resets the session after rendering the page' do
-        expect(subject).to receive(:reset_tribunal_case_session)
-        local_get :save_confirmation
-      end
     end
 
     context 'when the registration is from save_for_later' do
