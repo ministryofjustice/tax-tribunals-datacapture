@@ -26,7 +26,7 @@ module Users
 
     def restart_account_creation
       current_user&.invalidate_all_sessions!
-      redirect_to user_registration_path
+      redirect_to new_user_registration_path
     end
 
     protected
