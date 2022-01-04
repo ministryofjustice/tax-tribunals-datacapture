@@ -3,8 +3,10 @@ class RepresentativeDetailsPage < BasePage
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.details.representative_details.edit.heading')
+    element :individual_rep,  'govuk-label', text: I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_first_name')
     sections :input_field, '.govuk-form-group' do
       element :input_label, '.govuk-label'
+      element :individual_rep,  'govuk-label', text: I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_first_name')
       element :first_name_input, "input[name='steps_details_representative_individual_details_form[representative_individual_first_name]']"
       element :last_name_input, "input[name='steps_details_representative_individual_details_form[representative_individual_last_name]']"
       element :address_input, "textarea[name='steps_details_representative_individual_details_form[representative_contact_address]']"
@@ -14,7 +16,20 @@ class RepresentativeDetailsPage < BasePage
       element :email_input, "input[name='steps_details_representative_individual_details_form[representative_contact_email]']"
       element :phone_input, "input[name='steps_details_representative_individual_details_form[representative_contact_phone]']"
       element :input_error, '.govuk-error-message'
+      end
+      section :error, '.govuk-error-summary' do
+        # element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+        element :address_error, 'a', text: I18n.t('dictionary.blank_address')
+        element :city_error, 'a', text: I18n.t('dictionary.blank_city')
+        element :postcode_error, 'a', text: I18n.t('dictionary.blank_postcode')
+        element :country_error, 'a', text: I18n.t('dictionary.blank_country')
+        element :first_name_error, 'a', text: I18n.t('dictionary.blank_first_name')
+        element :last_name_error, 'a', text: I18n.t('dictionary.blank_last_name')
+      end
     end
+
+  def individual_label
+    expect(representative_details_page.content).to have_header
   end
 
   def submit_representative_details_with_email
