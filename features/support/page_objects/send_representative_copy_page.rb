@@ -4,11 +4,11 @@ class SendRepresentativeCopyPage < BasePage
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('check_answers.send_representative_copy.question')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
-    #element :yes_option,
     element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_representative')
     section :error, '.govuk-error-summary' do
       element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
-  end
+    end
+    end
 
   def submit_yes_and_a_valid_email
     base_page.content.yes_option.click
@@ -22,4 +22,3 @@ class SendRepresentativeCopyPage < BasePage
     continue_or_save_continue
   end
 end
-  end
