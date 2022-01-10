@@ -10,3 +10,5 @@ Feature: User type page
   Scenario: I am not the tax payer making the application
     When I submit that I am not the tax payer making the application
     Then I am taken to the representative type page
+
+    #no selection to add and dropdown investigation to add

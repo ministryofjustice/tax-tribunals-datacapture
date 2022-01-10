@@ -300,6 +300,16 @@ def navigate_to_dispute_type_page(case_type)
   end
 end
 
+def navigate_to_the_in_time_page
+  RSpec::Mocks.with_temporary_scope do
+    create_user
+    FactoryBot.create(:appeal_case, :income_tax_case, :yes_review, :received_letter, :penalty, :penalty_100_or_less)
+    stub_uploader_and_go_to_login_page
+    login_and_resume
+    in_time_page.load_page
+  end
+end
+
 def navigate_to_representative_page
   RSpec::Mocks.with_temporary_scope do
     create_user

@@ -10,7 +10,7 @@ Feature: Appeal case type page
 
   Scenario: Successful step (Income tax)
     When I click on continue after selecting Income Tax option
-    And I select english only
+    And I select nothing then english only
     Then I should be on the appeal challenge decision page
 
   Scenario: Successful step (Other)

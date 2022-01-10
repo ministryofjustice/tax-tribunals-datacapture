@@ -1082,6 +1082,7 @@ en:
           unsure: I am not sure
       steps_lateness_lateness_reason_form:
         heading: Why are you late with your appeal?
+        not_sure_heading: Are there reasons why your appeal might be late?
         lateness_reason: Enter reasons below or attach as a document
         lateness_reason_document: ''
       steps_details_representative_approval_form:
