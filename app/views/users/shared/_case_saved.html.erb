@@ -6,12 +6,20 @@
 
 <p class="govuk-body"><%= t('.await_confirmation') %></p>
 
+<% if current_user %>
+  <p class="govuk-body"><%=t '.return_info' %></p>
+<% end %>
+
+<p class="govuk-body"><%=t '.not_available_online' %></p>
+
 <h2 class="govuk-heading-m"><%=t ('.no_email_heading') %></h1>
 
 <p class="govuk-body"><%=t('.no_email_junk') %></p>
 
-<p class="govuk-body"><%=t('.no_email_invalid_entry_html') %>
-  <%= link_to t('.no_email_invalid_entry_link'), users_login_restart_account_creation_path, method: :delete %>.
+<p class="govuk-body">
+  <%=t('.no_email_invalid_entry') %>
+  <%= link_to t('.no_email_invalid_entry_link'), users_login_restart_account_creation_path, method: :delete %>, 
+  <%=t('.no_email_invalid_entry_end') %>
 </p>
 
 <p class="govuk-body"><%=t('.no_email_signed_out') %></p>
