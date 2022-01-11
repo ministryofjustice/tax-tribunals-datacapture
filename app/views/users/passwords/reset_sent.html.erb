@@ -6,7 +6,15 @@
 
     <p class="govuk-body-l"><%=t '.lead_text' %></p>
 
-    <p class="govuk-body"><%=t '.deleted_account' %></p>
+    <p class="govuk-body"><%=t '.deleted_account_html' %></p>
+
+    <h2 class="govuk-heading-m"><%=t ('.no_email_heading') %></h2>
+    
+    <p class="govuk-body"><%=t '.no_email_junk' %></p>
+    
+    <p class="govuk-body"><%=t '.no_email_incorrect' %></p>
+    
+    <p class="govuk-body"><%=t '.start_again_deleted', expire_in_days: Rails.configuration.x.cases.expire_in_days %></p>
 
     <%= render partial: 'steps/shared/finish_button', locals: {name: t('shared.start_again'), show_survey: false} %>
   </div>
