@@ -34,3 +34,20 @@ end
 Then("I should be on the enquiry details page") do
   expect(enquiry_details_page.content).to have_header
 end
+
+Then("I see the error") do
+  expect(send_taxpayer_copy_page.content.error).to have_error_heading
+end
+
+When("I submit no") do
+  submit_no
+end
+
+Then("I am on the has representative page") do
+  expect(has_representative_page.content).to have_header
+end
+
+Given(/^Given I navigate to the send taxpayer copy page as the taxpayer$/) do
+    navigate_to_send_taxpayer_copy_page
+    expect(send_taxpayer_copy_page.content).to have_header
+  end

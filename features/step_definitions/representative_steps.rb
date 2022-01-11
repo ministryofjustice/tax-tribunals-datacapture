@@ -74,9 +74,6 @@ Then("I will see the information provided") do
   expect(has_representative_page.content).to have_dropdown_content
 end
 
-And("If I click the authorisation form") do
-  has_representative_page.pdf_link
-end
 
 When("I advance to the representative professional status page") do
   submit_yes
@@ -108,5 +105,29 @@ When("I select that the representative is a company then that is 'other'") do
   expect(representative_details_page.content).to have_header
   back
   representative_type_page.submit_other
+  expect(representative_details_page.content).to have_header
+end
+
+When("I navigate to the authorise representative page") do
+  submit_yes
+  expect(representative_professional_page.content).to have_individuals_header
+  representative_professional_page.submit_tax_agent
+  expect(representative_approval_page.content).to have_header
+end
+
+And("I upload a file and continue to the representative type page") do
+  identifier  = 'steps-details-representative-approval-form-representative-approval-document-field'
+  filename    = 'features/support/sample_file/to_upload.jpg'
+  representative_approval_page.attach_file(identifier, filename)
+  continue_or_save_continue
+end
+
+And("submit that my representation is other") do
+  expect(representative_type_page.content).to have_header
+  representative_type_page.submit_other
+end
+
+
+Then(/^I am taken to the representative details page \(other\)$/) do
   expect(representative_details_page.content).to have_header
 end

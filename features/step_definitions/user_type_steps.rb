@@ -19,3 +19,15 @@ When("I submit that I am not the tax payer making the application") do
     submit_no
   end
 end
+
+Then("I should see the taxpayer_error") do
+  expect(user_type_page.content.error).to have_error_heading
+end
+
+When("I click on the information dropdown") do
+  user_type_page.representative_dropdown
+end
+
+Then("I shall see the what is a representative information") do
+  expect(user_type_page.content).to have_representative_dropdown_content
+end

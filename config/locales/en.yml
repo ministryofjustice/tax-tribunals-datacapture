@@ -1029,8 +1029,10 @@ en:
           single_test: Upload the letter as one document
           single_html: '<strong>Upload the letter as one document</strong><br>You have saved or scanned
             the letter as one file'
+          multiple_test: Upload the letter as multiple pages
           multiple_html: '<strong>Upload the letter as multiple pages</strong><br>You have saved or scanned
             the sides of your letter in several files'
+          no_letter_test: I do not have the letter
           no_letter_html: "<strong>I do not have the letter</strong><br>You have lost the letter or do not
             have it handy"
       steps_details_letter_upload_form:
