@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '2.7.5'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap',                        '1.7.3', require: false
@@ -52,6 +52,9 @@ group :development do
   gem 'listen', '~> 3.0.5',            '3.0.8'
   gem 'hashdiff', '>= 0.4.0',          '1.0.1'
   gem 'web-console',                   '4.1.0'
+  gem 'spring',                        '3.1.1'
+  gem 'spring-commands-rspec',         '1.0.4'
+  gem "spring-commands-cucumber",      '1.0.1'
 end
 
 group :development, :test do

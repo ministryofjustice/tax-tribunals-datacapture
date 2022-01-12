@@ -17,3 +17,10 @@ Feature: Save appeal
       When I enter a valid email address
       And I enter a valid password
       Then I should be taken to the saved confirmation page
+
+    Scenario: I create an account then start again
+      Given I enter a valid email address
+      And I enter a valid password
+      Then I should be taken to the saved confirmation page
+      When I click 'start again'
+      Then I am taken to the save your appeal page

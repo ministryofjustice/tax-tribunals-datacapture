@@ -47,7 +47,7 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.7.4'
+      rubyVersion: '= 2.7.5'
       bundlerVersion: '2.2.28'
       env: 'test'
       external_url: 'test'
@@ -59,6 +59,7 @@ jobs:
       aptDependencies: 'postgresql-client shared-mime-info'
       nocoverage: true
       address_lookup_endpoint: 'https://api.os.uk'
+      BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
       notify_case_confirmation_template_id: 'confirmation'
       notify_ftt_case_notification_template_id: 'fft_confirmation'

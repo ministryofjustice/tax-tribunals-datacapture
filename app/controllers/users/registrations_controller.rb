@@ -3,9 +3,6 @@ module Users
     # We are allowing to create new accounts only as part of saving a case in progress
     before_action :check_tribunal_case_presence, only: [:new, :create, :save_confirmation]
 
-    # Using an after filter so we maintain the session for analytics purposes when rendering the view
-    after_action :reset_tribunal_case_session, only: [:save_confirmation], if: -> { session[:save_for_later].nil? }
-
     def save_confirmation
       @email_address = current_tribunal_case.user.email
     end
