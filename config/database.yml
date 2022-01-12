@@ -17,6 +17,7 @@ test: &test
   database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>
 production:
   <<: *default
+  sslmode: 'require'
 
 cucumber:
   <<: *test
