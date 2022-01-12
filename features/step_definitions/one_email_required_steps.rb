@@ -1,24 +1,8 @@
 When("I successfully submit representative details with email") do
-  #expect(representative_details_page.content.input_field[0].input_label.text).to eq I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_first_name')
-  #expect(representative_details_page.content.input_field[1].input_label.text).to eq I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_last_name')
-  #expect(representative_details_page.content.input_field[2].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_address')
-  #expect(representative_details_page.content.input_field[3].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_city')
-  #expect(representative_details_page.content.input_field[4].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_postcode')
-  #expect(representative_details_page.content.input_field[5].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_country')
-  # expect(representative_details_page.content.input_field[6].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_email')
-  #expect(representative_details_page.content.input_field[7].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_phone')
   representative_details_page.submit_representative_details_with_email
 end
 
 When("I successfully submit representative details without email") do
-  # expect(representative_details_page.content.input_field[0].input_label.text).to eq I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_first_name')
-  #expect(representative_details_page.content.input_field[1].input_label.text).to eq I18n.t('helpers.label.steps_details_representative_individual_details_form.representative_individual_last_name')
-  #expect(representative_details_page.content.input_field[2].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_address')
-  #expect(representative_details_page.content.input_field[3].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_city')
-  #expect(representative_details_page.content.input_field[4].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_postcode')
-  #expect(representative_details_page.content.input_field[5].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_country')
-  #expect(representative_details_page.content.input_field[6].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_email')
-  #expect(representative_details_page.content.input_field[7].input_label.text).to eq I18n.t('dictionary.REP_ADDRESS.representative_contact_phone')
   representative_details_page.submit_representative_details_without_email
 end
 
