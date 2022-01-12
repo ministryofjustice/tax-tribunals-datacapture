@@ -6,7 +6,7 @@ default: &default
   adapter: postgresql
   database: <%= ENV["DB_NAME"] %>
   username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
+  password: '<%= ENV["DB_PASSWORD"] %>'
   host: <%= ENV.fetch('DB_HOST', 'localhost') %>
 
 development:
