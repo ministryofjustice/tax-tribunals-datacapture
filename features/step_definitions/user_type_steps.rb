@@ -20,6 +20,11 @@ When("I submit that I am not the tax payer making the application") do
   end
 end
 
+
+Then("I see the representative professional page") do
+  expect(representative_professional_page.content).to have_representatives_header
+end
+
 Then("I should see the taxpayer_error") do
   expect(user_type_page.content.error).to have_error_heading
 end

@@ -10,11 +10,11 @@ When("I submit yes and submit blank email field") do
 end
 
 When("I submit an email that doesn't match on the send representative copy page") do
-  send_representative_copy_page.submit_yes_and_invalid_email
+  send_representative_copy_page.submit_yes_and_a_invalid_email
 end
 
 When("I submit an email that does match on the send representative copy page") do
-  send_representative_copy_page.submit_yes_and_valid_email
+  send_representative_copy_page.submit_yes_and_a_valid_email
 end
 
 Then("I should see not matching email error") do

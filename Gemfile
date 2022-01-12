@@ -85,7 +85,7 @@ group :test do
   gem 'rails-controller-testing', '1.0.5'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '0.21.2', require: false
+  gem 'simplecov', '0.21.2', require: false, group: :test
   gem 'simplecov-rcov', '0.2.3'
   gem 'site_prism', '3.7.1'
   gem 'webdrivers', '~> 4.4'

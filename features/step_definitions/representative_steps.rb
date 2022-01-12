@@ -30,6 +30,7 @@ Then("I am taken to the representative type page") do
   expect(representative_type_page.content).to have_header
 end
 
+
 Then("I am shown the no representative selection error") do
   expect(representative_type_page.content.error).to have_error_heading
 end

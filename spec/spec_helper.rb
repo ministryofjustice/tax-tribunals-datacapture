@@ -1,4 +1,7 @@
 require 'webmock/rspec'
+require 'simplecov'
+SimpleCov.start
+
 
 ENV['RAILS_ENV'] ||= 'test'
 
