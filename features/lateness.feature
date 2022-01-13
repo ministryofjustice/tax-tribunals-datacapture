@@ -16,7 +16,7 @@ Feature: In time feature
     Then I am taken to the lateness reason page
     When I choose the file requirements dropdown
     Then I see the dropdown information
-    When I click the continue button
+    When I click continue
     Then I see the submission error message
     When I enter a valid reason
     Then I am taken to the user type page

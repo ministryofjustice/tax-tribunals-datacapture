@@ -16,7 +16,11 @@ Then("I am taken to the user type page") do
 end
 
 When("I select that i am not in time") do
+  RSpec::Mocks.with_temporary_scope do
+    allow(Uploader).to receive(:list_files).and_return([])
+    allow(Uploader).to receive(:add_file).and_return({})
   in_time_page.submit_no
+    end
 end
 
 Then("I am taken to the lateness reason page") do
@@ -48,4 +52,11 @@ end
 
 Then("I am taken to the reasons page") do
   expect(lateness_reason_page.content).to have_not_sure_header
+end
+
+When(/^I click continue$/) do
+  RSpec::Mocks.with_temporary_scope do
+    stub_uploader
+    continue_or_save_continue
+  end
 end
