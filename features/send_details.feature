@@ -13,3 +13,10 @@ Feature: Send details
     Given I go back to representative details page and add an email address and submit
     When I submit an email that does match on the send representative copy page
     Then I should be on the enquiry details page
+
+    Scenario:
+      Given Given I navigate to the send taxpayer copy page as the taxpayer
+      When I click the continue button
+      Then I see the error
+      When I submit no
+      Then I am on the has representative page
