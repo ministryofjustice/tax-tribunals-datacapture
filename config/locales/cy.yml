@@ -1050,7 +1050,7 @@ cy:
           unsure: "Nid wyf yn siŵr"
       steps_lateness_lateness_reason_form:
         heading: Pam ydych chi'n hwyr cyflwyno'ch apêl yn hwyr?
-          not_sure_heading: A oes yna resymau pam bod eich apêl yn hwyr?
+        not_sure_heading: A oes yna resymau pam bod eich apêl yn hwyr?
         lateness_reason: "Rhowch eich rhesymau isod neu atodwch nhw fel dogfen"
         lateness_reason_document: ""
       surveys_feedback_form:
