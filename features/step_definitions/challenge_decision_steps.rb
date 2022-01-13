@@ -23,8 +23,11 @@ Then("I am taken to the challenge decision status page") do
 end
 
 When("I select no") do
+  RSpec::Mocks.with_temporary_scope do
+    stub_uploader
   submit_no
-end
+  end
+  end
 
 Then("I am taken to the must appeal decision status page") do
   expect(page).to have_text 'You must appeal the original decision to HMRC'
