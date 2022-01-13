@@ -47,8 +47,11 @@ When("I enter a valid reason") do
 end
 
 When("I select that I am not sure") do
+  RSpec::Mocks.with_temporary_scope do
+    stub_uploader
   in_time_page.submit_not_sure
-end
+  end
+  end
 
 Then("I am taken to the reasons page") do
   expect(lateness_reason_page.content).to have_not_sure_header
