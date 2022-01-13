@@ -7,6 +7,9 @@ class TaxpayerTypePage < BasePage
     element :individual, 'label', text: I18n.t('steps.details.representative_type.edit.individual')
     element :company, 'label', text: I18n.t('steps.details.representative_type.edit.company')
     element :other, 'label', text: I18n.t('steps.details.representative_type.edit.other')
+    section :error, '.govuk-error-summary' do
+      element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+    end
   end
 
   def submit_individual

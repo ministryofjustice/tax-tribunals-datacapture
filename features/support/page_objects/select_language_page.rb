@@ -5,6 +5,9 @@ class SelectLanguagePage < BasePage
     element :header, 'h1', text: I18n.t('dictionary.select_language_question')
     element :english_only_checkbox, 'label', text: I18n.t('dictionary.SUPPORTED_LANGUAGES.english')
     element :english_welsh_checkbox, 'label', text: I18n.t('dictionary.SUPPORTED_LANGUAGES.english_welsh')
+    section :error, '.govuk-error-summary' do
+      element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+      end
   end
 
   def skip_save_and_return
