@@ -1,3 +1,11 @@
+When("I dont select a dispute type") do
+  continue_or_save_continue
+end
+
+Then("I should see the no selection error") do
+  expect(dispute_type_page.content.error).to have_error_heading
+end
+
 Then("I should see an enter penalty amount error") do
   expect(penalty_amount_page.content.error_summary).to have_enter_penalty_error
 end
@@ -101,3 +109,4 @@ end
 Given("I click registration option and submit") do
   dispute_type_page.submit_registration_option
 end
+

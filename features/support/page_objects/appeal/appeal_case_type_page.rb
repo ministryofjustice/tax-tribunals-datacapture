@@ -15,21 +15,21 @@ class AppealCaseTypePage < BasePage
 
   def submit_income_tax
     content.income_tax.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_vat
     content.vat.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_other
     content.other_option.click
-    continue
+    continue_or_save_continue
   end
 
   def submit_capital_gains_option
     content.capital_gains_option.click
-    continue
+    continue_or_save_continue
   end
 end
