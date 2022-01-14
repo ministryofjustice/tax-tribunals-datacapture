@@ -1798,15 +1798,17 @@ cy:
       case_saved:
         continue: Parhau
         continue_hint: "Cliciwch ‘Parhau' i gario ymlaen  "
-        expire_warning_html: Bydd unrhyw apeliadau a gadwyd neu apeliadau nas cyflwynwyd yn cael eu dileu 14 diwrnod ar ôl y dyddiad y cawsant eu cadw'n wreiddiol.
+        expire_warning_html: "Bydd unrhyw apeliadau a gadwyd neu na chafodd eu cyflwyno yn cael eu dileu 14 diwrnod o’r dyddiad y cawsant eu cadw. Os na fyddwch chi’n cwblhau a chyflwyno eich achos o fewn yr amser hwn, bydd eich achos yn cael ei ddileu yn awtomatig er eich diogelwch, a bydd angen i chi ddechrau eto."
+        return_info: "Os ydych yn bwriadu cwblhau eich apêl yn ddiweddarach, gwiriwch eich bod yn parhau i fodloni dyddiad cau y tribiwnlys a nodwch  resymau os ydych yn credu y gallwch fod yn hwyr, os gwelwch yn dda."
+        not_available_online: "Pan fyddwch chi wedi cyflwyno eich achos, ni fyddwch yn gallu ei weld ar-lein."
         lead_text_html: "Mae e-bost cadarnhau wedi'i anfon i:<br><strong>%{email_address}</strong>"
         await_confirmation: Arhoswch ar y dudalen hon nes i chi gael yr e-bost cadarnhau, oherwydd gall gymryd ychydig funudau i gyrraedd.
         no_email_heading: Methu gweld yr e-bost?
         no_email_junk: Gall gymryd ychydig funudau i gyrraedd. Gwiriwch eich blwch junk os na allwch ei weld yn eich mewnflwch.
-        no_email_invalid_entry_html: Os cafodd yr e-bost a ddarparwyd gennych yn wreiddiol pan wnaethoch greu'r cyfrif ei nodi’n anghywir, neu os nad yw'r e-bost yr ydych newydd ei ddarparu wedi'i gysylltu â chyfrif, ni fyddwch yn cael e-bost a bydd angen i chi
-        no_email_invalid_entry_link: ddechrau eto
-        no_email_signed_out: Byddwch yn cael eich allgofnodi o'ch cyfrif presennol.
-        return_info: "Gallwch ddychwelyd i barhau mewnbynnu eich manylion ar unrhyw adeg. Gwiriwch eich bod dal o fewn terfyn amser y tribiwnlys treth a rhowch resymau os ydych yn credu eich bod yn hwyr. "
+        no_email_invalid_entry: "Os na fyddwch yn cael y neges e-bost cadarnhad, efallai eich bod wedi cyflwyno’r cyfeiriad e-bost anghywir. Argymhellir eich bod yn"
+        no_email_invalid_entry_link: "rhoi cynnig arall arni"
+        no_email_invalid_entry_end: "fel arall ni fyddwch yn gallu cyrchu eich achos yn ddiweddarach a bydd rhaid i chi ddechrau eto."
+        no_email_signed_out: "Os byddwch chi’n dewis rhoi cynnig arall arni, cedwir eich cynnydd ac fe’ch allgofnodir o’ch cyfrif cyfredol, a fydd yn cael ei ddileu ar ôl 30 diwrnod."
       password_guidelines_html: |-
         <p class="govuk-body">Rhaid i'ch cyfrinair:</p>
         <ul class="govuk-list standard-list">
