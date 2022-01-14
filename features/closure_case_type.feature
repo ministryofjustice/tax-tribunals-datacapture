@@ -9,3 +9,7 @@ Feature: Case type page
     Scenario: Personal return
       When I submit that it is a personal return
       Then I should be on the closure user type page
+
+  Scenario: I press continue with no option selected
+    When I press continue with nothing selected
+      Then The error should appear

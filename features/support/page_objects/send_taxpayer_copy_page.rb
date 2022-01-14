@@ -5,6 +5,9 @@ class SendTaxpayerCopyPage < BasePage
     element :header, 'h1', text: I18n.t('check_answers.send_taxpayer_copy.question')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
     element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_taxpayer')
+    section :error, '.govuk-error-summary' do
+      element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+    end
   end
 
   def submit_yes_and_valid_email

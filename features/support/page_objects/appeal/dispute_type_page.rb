@@ -13,6 +13,9 @@ class DisputeTypePage < BasePage
     element :nota_option, 'label', text: I18n.t('helpers.label.steps_details_representative_professional_status_form.representative_professional_status_options.other_html')
     element :nota_option_textbox, "input[name='steps_appeal_dispute_type_form[dispute_type_other_value]']"
     element :enter_answer_error, 'a', text: I18n.t('errors.messages.blank')
+    section :error, '.govuk-error-summary' do
+      element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+    end
   end
 
   def submit_penalty_or_surcharge
