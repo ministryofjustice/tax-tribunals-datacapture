@@ -1783,12 +1783,12 @@ cy:
         account_warning_html: "<p class=\"govuk-body\">Dewiswch gyfeiriad e-bost a chyfrinair fel y gallwch fewngofnodi a chwblhau eich cais yn hwyrach ymlaen.</p>"
         email_confirmation: "Byddwn yn anfon neges e-bost i:"
         existing_account: "Mewngofnodi i gyfrif sydd eisoes yn bodoli"
-        heading: "Cadw eich %{appeal_or_application}"
+        heading: "Cadw eich achos"
         appeal_test: Cadw eich apêl
         application_test: Cadw eich
         page_title: Cofrestru
       save_confirmation:
-        heading: "Mae eich achos wedi cael ei gadw"
+        heading: "Cadwyd eich achos"
         page_title: "Achos wedi'i gadw"
         sign_in: Mewngofnodi
       update_confirmation:
