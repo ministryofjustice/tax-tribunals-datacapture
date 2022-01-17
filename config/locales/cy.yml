@@ -1772,6 +1772,7 @@ cy:
         heading: "Gwiriwch eich negeseuon e-bost"
         lead_text: "Rydym wedi anfon neges e-bost atoch gyda dolen i chi ailosod eich cyfrinair. Edrychwch yn eich mewnflwch a'r ffolder ‘spam'. "
         deleted_account: "Ni fyddwch yn cael neges e-bost os nad ydych wedi mewngofnodi am 30 diwrnod. Byddwn yn dileu’r cyfrif er eich diogelwch chi. Bydd angen i chi ddechrau eto."
+        no_email_heading: "Methu gweld yr e-bost?"
         no_email_junk: "Gall gymryd rhai munudau i gyrraedd. Gwiriwch eich e-byst yn y ffolder sothach os nad yw’r neges yn eich mewnflwch."
         no_email_incorrect: "Os rhoddwyd y cyfeiriad e-bost anghywir pan wnaethoch greu eich cyfrif yn wreiddiol, neu os nad yw’r cyfeiriad e-bost yr ydych newydd ei ddarparu yn gysylltiedig â chyfrif, ni fyddwch yn cael neges e-bost a bydd angen i chi ddechrau eto."
         start_again_deleted: "Er eich diogelwch chi, os byddwch yn dechrau eto, bydd unrhyw negeseuon drafft a gadwyd yn flaenorol yn cael eu dileu ar ôl 14 diwrnod, a bydd y cyfrif yn cael ei ddileu ar ôl 30 diwrnod."
