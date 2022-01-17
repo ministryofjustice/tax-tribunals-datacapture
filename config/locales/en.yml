@@ -1836,7 +1836,11 @@ en:
       reset_sent:
         heading: Please check your email
         lead_text: We have sent you an email with a link to reset your password. Please check your inbox and spam folder.
-        deleted_account: You won't get an email if you haven't signed in for 30 days. We delete your details for security reasons. Create a new account to save a case.
+        deleted_account_html: You won't get an email if you haven't signed in for <strong>30 days</strong>. We delete your account  for your security. You will need to start again. 
+        no_email_heading: Can't see the email?
+        no_email_junk: It can take a few minutes to arrive. Check your junk mail if you can't see it in your inbox.
+        no_email_incorrect: If the email was entered incorrectly when you originally created your account, or the email you have just provided is not connected to an account, you will not receive an email and you will need to start again.
+        start_again_deleted: For your security, if you start again, any previously saved drafts will be deleted after %{expire_in_days} days and the account will be deleted after 30 days.
         page_title: Reset link sent
       reset_confirmation:
         heading: Your password has been changed
