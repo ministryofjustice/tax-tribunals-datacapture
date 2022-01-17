@@ -1764,14 +1764,14 @@ en:
         more_text_html: A draft case expires %{expire_in_days} days after it was created or when you submit it to the tax tribunal.
         page_title: Signed out
       save_confirmation:
-        heading: Saving your case
+        heading: Your case has been saved
         your_cases: Go to your saved cases
         page_title: Case saved
     registrations:
       new:
         heading: Saving your %{appeal_or_application}
-        appeal_test: Save your appeal
-        application_test: Save your application
+        heading_test_fixed_as_appeal: Saving your appeal
+        heading_test_fixed_as_application: Saving your application
         existing_account: Sign into an existing account
         account_warning_html: |
           <p class="govuk-body">Choose an email address and password so you can sign in and complete your case later.</p>
