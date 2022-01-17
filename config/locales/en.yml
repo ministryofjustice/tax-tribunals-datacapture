@@ -1764,21 +1764,21 @@ en:
         more_text_html: A draft case expires %{expire_in_days} days after it was created or when you submit it to the tax tribunal.
         page_title: Signed out
       save_confirmation:
-        heading: Saving your case
+        heading: Your case has been saved
         your_cases: Go to your saved cases
         page_title: Case saved
     registrations:
       new:
-        heading: Save your %{appeal_or_application}
-        appeal_test: Save your appeal
-        application_test: Save your application
+        heading: Saving your %{appeal_or_application}
+        heading_test_fixed_as_appeal: Saving your appeal
+        heading_test_fixed_as_application: Saving your application
         existing_account: Sign into an existing account
         account_warning_html: |
           <p class="govuk-body">Choose an email address and password so you can sign in and complete your case later.</p>
         email_confirmation: "An email will be sent to:"
         page_title: Sign up
       save_confirmation:
-        heading: Saving your case
+        heading: Your case has been saved
         sign_in: Sign in
         page_title: Case saved
       edit:
@@ -1857,14 +1857,16 @@ en:
           </ul>
       case_saved:
         lead_text_html: A confirmation email has been sent to:<br><strong>%{email_address}</strong>
-        expire_warning_html: Any saved or unsubmitted appeals will be deleted <strong>%{expire_in_days} days</strong> after the date that they were originally saved.
-        return_info: You can return to continue entering details at any time. Please check you still meet the tribunal deadline and enter reasons if you think you may be late.        
+        expire_warning_html: Any saved or unsubmitted appeals are deleted <strong>%{expire_in_days} days</strong> from the date they were saved. If you do not complete and submit your case within this time, your case will be automatically deleted for your security and you will need to start again.
+        return_info: If you intend to continue completing your appeal later, please check you still meet the tribunal deadline and enter reasons if you think you may be late.
+        not_available_online: Once you submit your case, you will not be able to view it online.
         await_confirmation: Please remain on this page until you receive the confirmation email, as it may take a few minutes to arrive.
         no_email_heading: Can't see the email?
         no_email_junk: Check your junk mail if you can't see it in your inbox.
-        no_email_invalid_entry_html: If you have entered an email address incorrectly, you will not receive an email and you will need to
-        no_email_invalid_entry_link: start again
-        no_email_signed_out: You will be signed out of your existing account.
+        no_email_invalid_entry: If you do not receive the confirmation email, you might have entered your email address incorrectly. It is recommended that you 
+        no_email_invalid_entry_link: try again
+        no_email_invalid_entry_end: otherwise you will be unable to access your case later and will have to start again.
+        no_email_signed_out: If you choose to try again, your current progress will be saved and you will be signed out of your existing account, which will be automatically deleted after 30 days.
         continue_hint: Click 'Continue' to resume.
         continue: Continue
   appeal_home:
