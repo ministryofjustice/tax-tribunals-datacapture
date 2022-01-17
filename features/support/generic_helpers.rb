@@ -146,6 +146,10 @@ def representative_professional_page
   @representative_professional_page ||= RepresentativeProfessionalPage.new
 end
 
+def representative_approval_page
+  @representative_approval_page ||= RepresentativeApprovalPage.new
+end
+
 def taxpayer_type_page
   @taxpayer_type_page ||= TaxpayerTypePage.new
 end
@@ -229,6 +233,10 @@ end
 def submit_yes
   base_page.content.yes_option.click
   continue_or_save_continue
+end
+
+def yes_option
+  base_page.content.yes_option.click
 end
 
 def submit_no

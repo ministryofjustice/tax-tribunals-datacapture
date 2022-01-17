@@ -163,7 +163,7 @@
 
 .select2-container--govuk
 .select2-selection--single:focus {
-    @extend .govuk-input:focus;
+    @extend .govuk-input, :focus;
 }
 
 .select2-container--govuk

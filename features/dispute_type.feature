@@ -4,6 +4,8 @@ Feature: Dispute type options
     Given I am on the dispute type page
 
   Scenario: Penalty or surcharge option
+    When I dont select a dispute type
+    Then I should see the no selection error
     Given I click the penalty or surcharge option and submit
     When I click the continue button
     Then I should see a select penalty or surcharge amount error
@@ -22,6 +24,8 @@ Feature: Dispute type options
     Then I should see an enter the tax amount error
     When I submit a tax amount value
     Then I should be on the lateness page
+
+    #add lateness/in time test progression through the pages - may be better as a seperate page as not linked
 
   Scenario: Owe money and a penalty or surcharge option
     Given I click owe money and a penalty or surcharge option and submit

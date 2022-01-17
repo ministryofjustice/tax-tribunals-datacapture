@@ -76,3 +76,9 @@ end
 Then("I should be on the contact HMRC page") do
   expect(contact_hmrc_page.content).to have_header
 end
+
+And("I select nothing then english only") do
+  continue_or_save_continue
+  expect(select_language_page.content.error).to have_error_heading
+  select_language_page.select_english_only
+end
