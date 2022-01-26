@@ -593,7 +593,7 @@ en:
             penalty_amount:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
-              greater_than: Tax amount must be greater than 0
+              greater_than: Penalty amount must be greater than 0
         steps/challenge/decision_form:
           attributes:
             challenged_decision:
