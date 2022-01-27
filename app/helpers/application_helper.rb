@@ -95,13 +95,14 @@ module ApplicationHelper
   end
 
   def address_lookup(record:, entity: , &block)
-    if address_lookup_access_token
+    if address_lookup_access_token && \
+       !(show_details = address_lookup_details_filled?(record, entity))
       content_for(:form, &block)
       render(
         partial: 'steps/shared/address_lookup',
         locals: {
           access_token: address_lookup_access_token,
-          show_details: address_lookup_details_filled?(record, entity)
+          show_details: show_details
         }
       )
     else
