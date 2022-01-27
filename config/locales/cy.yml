@@ -1249,8 +1249,8 @@ cy:
         </ul>
       file_list_html: |-
         <ul class="govuk-list govuk-list--bullet">
-          <li>Fformatau ffeiliau: Word, Excel, PDF, JPG, GIF, PNG</li>
-          <li>Maint ffeil: hyd at 20 megabeit (MB)</li>
+          <li>Fformatau ffeiliau: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF</li>
+          <li>Maint ffeil fesul dogfen: hyd at 20 megabeit (MB)</li>
           <li>Ni ellir llwytho ffeiliau sydd wedi'u diogelu â chyfrinair</li>
         </ul>
       file_too_big: " mae'n rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy'n llai na XXX megabeit (MB)."

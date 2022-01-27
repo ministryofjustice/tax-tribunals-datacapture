@@ -1420,8 +1420,8 @@ en:
       header: File upload requirements
       file_list_html: |
         <ul class="govuk-list govuk-list--bullet">
-          <li>File formats: Word, Excel, PDF, JPG, GIF, PNG</li>
-          <li>File size: up to 20 megabytes (MB)</li>
+          <li>File formats: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF</li>
+          <li>File size per document: up to 20 megabytes (MB)</li>
           <li>Files cannot be password protected</li>
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
