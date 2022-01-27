@@ -142,7 +142,7 @@ cy:
             penalty_amount:
               not_a_number: *blank_penalty_amount
               blank: *blank_penalty_amount
-              greater_than: Rhaid i'r swm treth fod yn fwy na 0
+              greater_than: Rhaid i'r swm cosb fod yn fwy na 0
             tax_amount:
               not_a_number: *blank_tax_amount
               blank: *blank_tax_amount
