@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
+  before_action :show_maintenance_page
 
   # This is required to get request attributes in to the production logs.
   # See the various lograge configurations in `production.rb`.
@@ -65,5 +66,11 @@ class ApplicationController < ActionController::Base
 
   def check_tribunal_case_status
     raise Errors::CaseSubmitted if current_tribunal_case.case_status&.submitted?
+  end
+
+  def show_maintenance_page(config = Rails.application.config)
+    return if !config.maintenance_enabled || config.maintenance_allowed_ips.include?(request.remote_ip)
+
+    render 'static_pages/maintenance', status: :service_unavailable
   end
 end
