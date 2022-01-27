@@ -1,0 +1,14 @@
+<% title 'Sorry, the service is unavailable – Tax Tribunals – GOV.UK' %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l" style="margin-top: 20px">Sorry, the service is undergoing routine maintenance</h1>
+
+    <% if Rails.application.config.maintenance_end.present? %>
+      <p class="govuk-body">You will be able to use the service from <%= Rails.application.config.maintenance_end %></p>
+    <% else %>
+      <p class="govuk-body">You will be able to use the service later</p>
+    <% end %>
+    <p class="govuk-body" style="margin-bottom: 400px">Any applications in progress will have been saved.</p>
+  </div>
+</div>
