@@ -7,7 +7,7 @@ Feature: Grounds for Appeal
     When I press continue with nothing entered
     Then I should see the empty page error
     When I submit a response with text entered
-    Then I can navigate to the eu exit page
+    Then I can navigate to the details-pathway eu exit page
     When I click the continue button
     Then I am on the outcome page
     When I complete a blank then valid submission
@@ -22,7 +22,7 @@ Feature: Grounds for Appeal
     When I select 'File upload requirements'
     Then I will see the file requirements
     When I then upload a valid file type
-    Then I can navigate to the eu exit page
+    Then I can navigate to the details-pathway eu exit page
     When I submit no and then yes
     Then I am on the outcome page
     When I complete a valid submission
