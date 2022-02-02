@@ -103,6 +103,8 @@ def complete_valid_closure_application
     enquiry_details_page.valid_submission
     expect(additional_info_page.content).to have_header
     continue_or_save_continue
+    expect(eu_exit_page('closure').content).to have_header
+    submit_no
     expect(support_documents_page.content).to have_header
     continue_or_save_continue
     expect(check_answers_page.content).to have_header
@@ -150,7 +152,7 @@ def complete_valid_appeal_application
     submit_no
     expect(grounds_for_appeal_page.content).to have_header
     grounds_for_appeal_page.valid_submission
-    expect(eu_exit_page.content).to have_header
+    expect(eu_exit_page('details').content).to have_header
     if ENV['TEST_LOCALE'] == 'cy'
       submit_yes_3
     else

@@ -12,6 +12,8 @@ class TaxTribs::ClosureDecisionTree < TaxTribs::DecisionTree
     when :enquiry_details
       edit(:additional_info)
     when :additional_info
+      edit(:eu_exit)
+    when :eu_exit
       edit(:support_documents)
     when :support_documents
       show(:check_answers)

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::EuExitForm do
+RSpec.describe Steps::Shared::EuExitForm do
   let(:arguments) { {
       tribunal_case: tribunal_case,
       eu_exit: eu_exit

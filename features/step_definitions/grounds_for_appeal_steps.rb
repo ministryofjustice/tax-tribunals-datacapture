@@ -22,8 +22,8 @@ When("I submit a response with text entered") do
   end
   end
 
-Then("I can navigate to the eu exit page") do
-  expect(eu_exit_page.content).to have_header
+Then("I can navigate to the details-pathway eu exit page") do
+  expect(eu_exit_page('details').content).to have_header
 end
 
 When(/^I then upload a valid file type$/) do

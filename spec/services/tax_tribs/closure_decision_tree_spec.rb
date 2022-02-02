@@ -55,6 +55,12 @@ RSpec.describe TaxTribs::ClosureDecisionTree do
     context 'when the step is `additional_info`' do
       let(:step_params) { { additional_info: 'anything' } }
 
+      it { is_expected.to have_destination(:eu_exit, :edit) }
+    end
+
+    context 'when the step is `eu_exit`' do
+      let(:step_params) { { eu_exit: 'anything' } }
+
       it { is_expected.to have_destination(:support_documents, :edit) }
     end
 

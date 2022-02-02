@@ -1,4 +1,4 @@
-module Steps::Details
+module Steps::Shared
   class EuExitForm < BaseForm
     attribute :eu_exit, Boolean
 
@@ -10,7 +10,7 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update(
-          eu_exit: eu_exit
+        eu_exit: eu_exit
       )
     end
   end

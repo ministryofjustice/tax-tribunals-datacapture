@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Steps::Details::EuExitController, type: :controller do
+RSpec.describe Steps::Closure::EuExitController, type: :controller do
   describe '#edit' do
     let!(:existing_case) { TribunalCase.create }
     before { local_get :edit, session: { tribunal_case_id: existing_case.id } }
@@ -49,10 +49,10 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       context 'when the form saves successfully' do
         let(:expected_params) { { 'steps_shared_eu_exit_form' => { 'eu_exit': 'true' } } }
 
-        it 'redirects to the outcome page' do
+        it 'redirects to the support document page' do
           allow(form_object).to receive(:save).and_return true
           local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
-          expect(response).to redirect_to(edit_steps_details_outcome_path)
+          expect(response).to redirect_to(edit_steps_closure_support_documents_path)
         end
 
       end
@@ -60,10 +60,10 @@ RSpec.describe Steps::Details::EuExitController, type: :controller do
       context 'when no option is selected and the form is submitted' do
         let(:expected_params) { { 'steps_shared_eu_exit_form' => { 'eu_exit': nil } } }
 
-        it 'redirects to the outcome page' do
+        it 'redirects to the support document page' do
           allow(form_object).to receive(:save).and_return true
           local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
-          expect(response).to redirect_to(edit_steps_details_outcome_path)
+          expect(response).to redirect_to(edit_steps_closure_support_documents_path)
         end
 
       end

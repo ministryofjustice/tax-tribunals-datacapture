@@ -110,8 +110,8 @@ def grounds_for_appeal_page
   @grounds_for_appeal_page ||= GroundsForAppealPage.new
 end
 
-def eu_exit_page
-  @eu_exit_page ||= EuExitPage.new
+def eu_exit_page(pathway)
+  @eu_exit_page ||= EuExitPage.new(pathway)
 end
 
 def outcome_page
