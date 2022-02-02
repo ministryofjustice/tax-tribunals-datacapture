@@ -1,4 +1,4 @@
-module Steps::Details
+module Steps::Shared
   class EuExitForm < BaseForm
     attribute :eu_exit, Boolean
 

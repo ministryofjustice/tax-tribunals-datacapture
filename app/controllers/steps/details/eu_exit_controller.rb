@@ -1,17 +1,18 @@
 module Steps::Details
   class EuExitController < Steps::DetailsStepController
     def edit
-      @form_object = EuExitForm.new(
+      @form_object = Steps::Shared::EuExitForm.new(
           tribunal_case: current_tribunal_case,
           eu_exit: current_tribunal_case.eu_exit
       )
+      render template: 'steps/shared/eu_exit/edit'
     end
 
     def update
-      if params[:steps_details_eu_exit_form].nil?
+      if params[:steps_shared_eu_exit_form].nil?
         skip_eu_exit_page
       else
-        update_and_advance(EuExitForm)
+        update_and_advance(Steps::Shared::EuExitForm)
       end
     end
 

@@ -253,7 +253,11 @@ en:
         show:
           page_title: Start your closure
     shared:
-
+      eu_exit:
+        edit:
+          heading: Is your appeal as a result of the exit by the United Kingdom from the European Union? (optional)
+          lead_text: ''
+          page_title: Exit of European Union
       send_application_details:
         <<: *SEND_CASE_DETAILS_COPY
       document_upload:
