@@ -6,6 +6,7 @@ class EuExitPage < BasePage
   end
 
   section :content, '#main-content' do
-    element :header, 'h1', text: I18n.t('steps.details.eu_exit.edit.heading')
+    element :header, 'h1'
   end
+
 end

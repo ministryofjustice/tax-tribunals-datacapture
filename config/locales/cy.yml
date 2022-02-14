@@ -107,7 +107,9 @@ cy:
     YESNO: &YESNO
       'yes': 'Do'
       'no': 'Naddo'
-
+    TRUEFALSE: &TRUEFALSE
+      'true': 'Do'
+      'false': 'Naddo'
   activemodel:
     errors:
       models:
@@ -487,6 +489,11 @@ cy:
       question: "Pa fath o ymholiad ydych chi eisiau cau?"
     closure_hmrc_officer:
       question: "Swyddog Cyllid a Thollau EM sy'n cynnal yr ymholiad"
+    closure_eu_exit:
+      question: "A yw eich cais yn deillio o ymadawiad y Deyrnas Unedig o'r Undeb Ewropeaidd?"
+      accessible_change_text: "A yw eich cais yn deillio o ymadawiad y Deyrnas Unedig o'r Undeb Ewropeaidd?"
+      answers:
+        <<: *TRUEFALSE
     closure_hmrc_reference:
       accessible_change_text: "Cyfeirnod Cyllid a Thollau EM"
       question: "Cyfeirnod Cyllid a Thollau EM"
@@ -1666,8 +1673,12 @@ cy:
         page_title: *select_language_question
         heading: *select_language_question
         lead_text: Byddwn yn anfon negeseuon e-bost atoch wrth i ni symud eich achos yn ei flaen. Dewiswch ym mha iaith yr hoffech gael y negeseuon hyn.
-
     shared:
+      eu_exit:
+        edit:
+          heading: "A yw eich %{appeal_or_application} yn deillio o ymadawiad y Deyrnas Unedig o'r Undeb Ewropeaidd? (dewisol)"
+          lead_text: ""
+          page_title: "Ymadael â'r Undeb Ewropeaidd"
       continue_or_save:
         timeout_note: "Bydd eich sesiwn yn dod i ben ar ôl %{session_timeout} munud o wneud dim. Cadwch eich manylion os ydych eisiau dod yn ôl yn hwyrach ymlaen. "
       document_upload:

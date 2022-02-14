@@ -25,14 +25,15 @@ module CheckAnswers
 
     describe '#answers' do
       it 'has the correct rows' do
-        expect(subject.answers.count).to eq(6)
+        expect(subject.answers.count).to eq(7)
 
         expect(subject.answers[0]).to eq(answer)
         expect(subject.answers[1]).to eq(answer)
         expect(subject.answers[2]).to eq(answer)
-        expect(subject.answers[3]).to eq(file_or_text_answer)
-        expect(subject.answers[4]).to eq(documents_submitted_answer)
-        expect(subject.answers[5]).to eq(answer)
+        expect(subject.answers[3]).to eq(answer)
+        expect(subject.answers[4]).to eq(file_or_text_answer)
+        expect(subject.answers[5]).to eq(documents_submitted_answer)
+        expect(subject.answers[6]).to eq(answer)
       end
     end
   end
