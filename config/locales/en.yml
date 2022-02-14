@@ -31,11 +31,9 @@ en:
     YESNO: &YESNO
       'yes': 'Yes'
       'no': 'No'
-
     TRUEFALSE: &TRUEFALSE
       'true': 'Yes'
       'false': 'No'
-
     REP_ADDRESS: &REP_ADDRESS
       representative_contact_address: Address
       representative_contact_postcode: Postcode
@@ -255,7 +253,7 @@ en:
     shared:
       eu_exit:
         edit:
-          heading: Is your appeal as a result of the exit by the United Kingdom from the European Union? (optional)
+          heading: Is your %{appeal_or_application} as a result of the exit by the United Kingdom from the European Union? (optional)
           lead_text: ''
           page_title: Exit of European Union
       send_application_details:
@@ -398,11 +396,6 @@ en:
           upload_explanation_html: |
             <p class="govuk-body">Your document will upload when you click 'Continue'.</p>
             <p class="govuk-body">You will have an opportunity to upload the original notice, decision letter or review conclusion letter later in the process.</p>
-      eu_exit:
-        edit:
-          heading: Is your appeal as a result of the exit by the United Kingdom from the European Union? (optional)
-          lead_text: ''
-          page_title: Exit of European Union
       letter_upload:
         edit:
           page_title: Letter upload
@@ -1388,6 +1381,11 @@ en:
       question: Years under enquiry
     closure_hmrc_officer:
       question: HMRC officer conducting enquiry
+    closure_eu_exit:
+      question: Is your application as a result of the exit by the United Kingdom from the European Union?
+      accessible_change_text: Is your application as a result of the exit by the United Kingdom from the European Union?
+      answers:
+        <<: *TRUEFALSE
     closure_additional_info:
       question: Additional information
       accessible_change_text: additional information
