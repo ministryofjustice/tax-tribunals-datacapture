@@ -1,4 +1,4 @@
-module Steps::Details
+module Steps::Shared
   class WhatSupportForm < BaseForm
 
     attribute :language_interpreter, Boolean
@@ -50,7 +50,7 @@ module Steps::Details
 
     def at_least_one_checkbox_validation
       unless any_answers?
-        i18n_scope = 'activemodel.errors.models.steps/details/what_support_form.attributes'
+        i18n_scope = 'activemodel.errors.models.steps/shared/what_support_form.attributes'
         errors.add(:what_support, I18n.t('what_support', scope: i18n_scope))
       end
     end

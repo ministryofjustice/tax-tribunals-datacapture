@@ -1,7 +1,7 @@
-module Steps::Details
-  class WhatSupportController < Steps::DetailsStepController
+module Steps::Closure
+  class WhatSupportController < Steps::ClosureStepController
     def edit
-      @form_object = WhatSupportForm.new(
+      @form_object = Steps::Shared::WhatSupportForm.new(
         tribunal_case: current_tribunal_case,
         language_interpreter: current_tribunal_case.language_interpreter,
         language_interpreter_details: current_tribunal_case.language_interpreter_details,
@@ -12,10 +12,12 @@ module Steps::Details
         other_support: current_tribunal_case.other_support,
         other_support_details: current_tribunal_case.other_support_details,
       )
+      render template: 'steps/shared/what_support/edit'
     end
 
     def update
-      update_and_advance(WhatSupportForm, as: :what_support)
+      update_and_advance(Steps::Shared::WhatSupportForm, as: :what_support,
+        render: 'steps/shared/what_support/edit')
     end
   end
 end

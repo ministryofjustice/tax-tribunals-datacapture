@@ -105,6 +105,8 @@ def complete_valid_closure_application
     continue_or_save_continue
     expect(eu_exit_page('closure').content).to have_header
     submit_no
+    expect(need_support_page.content).to have_header
+    submit_no
     expect(support_documents_page.content).to have_header
     continue_or_save_continue
     expect(check_answers_page.content).to have_header

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::WhatSupportForm do
+RSpec.describe Steps::Shared::WhatSupportForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     language_interpreter: language_interpreter,

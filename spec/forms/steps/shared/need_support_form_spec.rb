@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::NeedSupportForm do
+RSpec.describe Steps::Shared::NeedSupportForm do
   let(:arguments) { {
     tribunal_case: tribunal_case,
     need_support: need_support

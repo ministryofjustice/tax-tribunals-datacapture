@@ -1,4 +1,4 @@
-module Steps::Details
+module Steps::Shared
   class NeedSupportForm < BaseForm
     attribute :need_support, String
 

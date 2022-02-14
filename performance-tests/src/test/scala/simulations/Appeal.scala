@@ -93,7 +93,7 @@ with HttpConfiguration
 
     .exec(http("Need support")
         .get("/steps/details/need_support")
-        .formParam("steps_details_need_support_form[need_support]", "yes")
+        .formParam("steps_shared_need_support_form[need_support]", "yes")
         .check(status.is(200)))
 
     .exec(http("What support")
