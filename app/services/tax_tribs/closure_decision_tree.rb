@@ -14,6 +14,10 @@ class TaxTribs::ClosureDecisionTree < TaxTribs::DecisionTree
     when :additional_info
       edit(:eu_exit)
     when :eu_exit
+      edit(:need_support)
+    when :need_support
+      after_need_support_step
+    when :what_support
       edit(:support_documents)
     when :support_documents
       show(:check_answers)
@@ -32,6 +36,15 @@ class TaxTribs::ClosureDecisionTree < TaxTribs::DecisionTree
       edit('/steps/save_and_return')
     else
       edit('/steps/details/user_type')
+    end
+  end
+
+  def after_need_support_step
+    case tribunal_case.need_support
+    when 'yes'
+      edit(:what_support)
+    when 'no'
+      edit(:support_documents)
     end
   end
 
