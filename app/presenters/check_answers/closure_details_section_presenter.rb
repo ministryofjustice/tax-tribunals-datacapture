@@ -10,6 +10,7 @@ module CheckAnswers
                    change_path: edit_steps_closure_enquiry_details_path, raw: true),
         Answer.new(:closure_years_under_enquiry, tribunal_case.closure_years_under_enquiry, raw: true),
         Answer.new(:closure_hmrc_officer, tribunal_case.closure_hmrc_officer, raw: true),
+        Answer.new(:closure_eu_exit, tribunal_case.eu_exit.to_s, change_path: edit_steps_closure_eu_exit_path),
         FileOrTextAnswer.new(:closure_additional_info, tribunal_case.closure_additional_info,
                              tribunal_case.documents(:closure_additional_info).first, change_path: edit_steps_closure_additional_info_path),
         *support_answers,
