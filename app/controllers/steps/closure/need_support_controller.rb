@@ -10,7 +10,7 @@ module Steps::Closure
 
     def update
       update_and_advance(Steps::Shared::NeedSupportForm,
-        render: 'steps/shared/need_support/edit')
+                         render: 'steps/shared/need_support/edit')
     end
   end
 end
