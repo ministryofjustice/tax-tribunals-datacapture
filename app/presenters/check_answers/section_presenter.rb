@@ -31,13 +31,6 @@ module CheckAnswers
     end
     # :nocov:
 
-    def support_answers
-      [
-        Answer.new(:need_support, tribunal_case.need_support, change_path: edit_steps_details_need_support_path),
-        MultiAnswer.new(:what_support, what_support_with_details, change_path: edit_steps_details_what_support_path),
-      ] if tribunal_case.need_support == NeedSupport::YES.to_s
-    end
-
     def what_support
       [
         :language_interpreter,
