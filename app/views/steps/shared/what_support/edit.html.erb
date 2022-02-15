@@ -5,7 +5,7 @@
   <div class="govuk-grid-column-two-thirds">
     <%= govuk_error_summary %>
 
-    <span id="steps-details-what-support-form-what-support-field-error"></span>
+    <span id="steps-shared-what-support-form-what-support-field-error"></span>
     <%= step_form @form_object do |f| %>
       <%= f.govuk_check_boxes_fieldset :what_support, legend: { text: t('.heading'), size: 'l' }, hint: { text: t('.lead_text') }  do %>
         <%= f.govuk_check_box :language_interpreter, :language_interpreter, multiple: false, link_errors: true  do %>

@@ -7,7 +7,7 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <%= f.govuk_collection_radio_buttons :need_support,
-        Steps::Details::NeedSupportForm.choices, :to_s, nil,
+        Steps::Shared::NeedSupportForm.choices, :to_s, nil,
         legend: { text: t('.heading'), size: 'l' }, hint: { text: t('.lead_text') } %>
 
       <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>

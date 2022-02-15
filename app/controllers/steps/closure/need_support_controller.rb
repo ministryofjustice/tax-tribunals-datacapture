@@ -1,5 +1,5 @@
-module Steps::Details
-  class NeedSupportController < Steps::DetailsStepController
+module Steps::Closure
+  class NeedSupportController < Steps::ClosureStepController
     def edit
       @form_object = Steps::Shared::NeedSupportForm.new(
         tribunal_case: current_tribunal_case,

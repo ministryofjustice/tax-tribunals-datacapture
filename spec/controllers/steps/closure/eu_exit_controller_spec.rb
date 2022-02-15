@@ -52,7 +52,7 @@ RSpec.describe Steps::Closure::EuExitController, type: :controller do
         it 'redirects to the support document page' do
           allow(form_object).to receive(:save).and_return true
           local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
-          expect(response).to redirect_to(edit_steps_closure_support_documents_path)
+          expect(response).to redirect_to(edit_steps_closure_need_support_path)
         end
 
       end
@@ -63,7 +63,7 @@ RSpec.describe Steps::Closure::EuExitController, type: :controller do
         it 'redirects to the support document page' do
           allow(form_object).to receive(:save).and_return true
           local_put :update, params: expected_params, session: { tribunal_case_id: existing_case.id }
-          expect(response).to redirect_to(edit_steps_closure_support_documents_path)
+          expect(response).to redirect_to(edit_steps_closure_need_support_path)
         end
 
       end

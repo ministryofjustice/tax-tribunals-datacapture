@@ -200,7 +200,7 @@ cy:
           attributes:
             letter_upload_type:
               inclusion: "Dewiswch p'un a ydych angen llwytho un ffeil neu nifer o ffeiliau gwahanol"
-        steps/details/need_support_form:
+        steps/shared/need_support_form:
           attributes:
             need_support:
               inclusion: "Dewiswch a ydych angen cefnogaeth yn y gwrandawiad ai peidio"
@@ -266,7 +266,7 @@ cy:
           attributes:
             user_type:
               inclusion: "Dewiswch p'un ai chi yw'r trethdalwr neu a ydych yn gweithredu ar eu rhan"
-        steps/details/what_support_form:
+        steps/shared/what_support_form:
           attributes:
             language_interpreter_details:
               blank: "Nodwch pa iaith sydd angen ei chyfieithu"
@@ -963,7 +963,7 @@ cy:
             <br>Rydych wedi cadw neu sganio tudalennau eich llythyr mewn nifer o ffeiliau gwahanol
           no_letter_html: "<strong>Nid yw'r llythyr gennyf</strong><br>Rydych wedi colli'r llythyr neu nid yw wrth law"
           single_html: "<strong>Llwytho'r llythyr fel un ddogfen</strong><br>Rydych wedi cadw neu sganio'r llythyr fel un ffeil "
-      steps_details_need_support_form:
+      steps_shared_need_support_form:
         need_support_options:
           <<: *YESNO
       steps_details_outcome_form:
@@ -1022,7 +1022,7 @@ cy:
         user_type_options:
           representative: "Na, rwy'n gweithredu ar ran y trethdalwr "
           taxpayer: Ie
-      steps_details_what_support_form:
+      steps_shared_what_support_form:
         disabled_access_options:
           disabled_access: "Ystafell wrandawiadau hygyrch"
         hearing_loop_options:
@@ -1505,11 +1505,6 @@ cy:
               <li>cysylltwch â Chyllid a Thollau EM os ydych wedi colli'ch llythyr ac angen copi ohono</li>
             </ul>
           page_title: "Math o lythyr i'w lwytho"
-      need_support:
-        edit:
-          heading: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
-          lead_text: "Gellir trefnu cefnogaeth ar gyfer eich gwrandawiad, er enghraifft cyfieithydd, dolen glyw neu ystafell wrandawiadau hygyrch. "
-          page_title: "Angen cefnogaeth?"
       outcome:
         edit:
           heading: "Dywedwch yn gryno pa ganlyniad yr hoffech gael"
@@ -1674,6 +1669,11 @@ cy:
         heading: *select_language_question
         lead_text: Byddwn yn anfon negeseuon e-bost atoch wrth i ni symud eich achos yn ei flaen. Dewiswch ym mha iaith yr hoffech gael y negeseuon hyn.
     shared:
+      need_support:
+        edit:
+          heading: "Ydych chi angen unrhyw gefnogaeth yn y gwrandawiad?"
+          lead_text: "Gellir trefnu cefnogaeth ar gyfer eich gwrandawiad, er enghraifft cyfieithydd, dolen glyw neu ystafell wrandawiadau hygyrch. "
+          page_title: "Angen cefnogaeth?"
       eu_exit:
         edit:
           heading: "A yw eich %{appeal_or_application} yn deillio o ymadawiad y Deyrnas Unedig o'r Undeb Ewropeaidd? (dewisol)"

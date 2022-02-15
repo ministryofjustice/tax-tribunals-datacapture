@@ -87,6 +87,8 @@ Rails.application.routes.draw do
         edit_step :enquiry_details
         edit_step :additional_info
         edit_step :eu_exit
+        edit_step :need_support
+        edit_step :what_support
         edit_step :support_documents
         show_step :check_answers
         collection_step :check_answers, :resume

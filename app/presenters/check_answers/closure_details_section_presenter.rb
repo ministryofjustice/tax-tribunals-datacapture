@@ -13,6 +13,7 @@ module CheckAnswers
         Answer.new(:closure_eu_exit, tribunal_case.eu_exit.to_s, change_path: edit_steps_closure_eu_exit_path),
         FileOrTextAnswer.new(:closure_additional_info, tribunal_case.closure_additional_info,
                              tribunal_case.documents(:closure_additional_info).first, change_path: edit_steps_closure_additional_info_path),
+        *support_answers,
         DocumentsSubmittedAnswer.new(:documents_submitted, tribunal_case.documents(:supporting_documents),
                                      change_path: edit_steps_closure_support_documents_path),
         Answer.new(:problems_uploading_documents, tribunal_case.having_problems_uploading_explanation, raw: true,

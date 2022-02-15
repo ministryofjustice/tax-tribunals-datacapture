@@ -256,6 +256,19 @@ en:
           heading: Is your %{appeal_or_application} as a result of the exit by the United Kingdom from the European Union? (optional)
           lead_text: ''
           page_title: Exit of European Union
+      need_support:
+        edit:
+          heading: Do you need any support at the hearing?
+          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or an accessible hearing room.
+          page_title: Need Support?
+      what_support:
+        edit:
+          heading: Support at the hearing
+          lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
+          page_title: What Support?
+          sign_language_interpreter_hint: Enter what type of sign language you need. For example, British Sign Language.
+          no_results: No results found
+      <<: *CYA_CONFIRMATION
       send_application_details:
         <<: *SEND_CASE_DETAILS_COPY
       document_upload:
@@ -407,19 +420,6 @@ en:
           heading: Briefly say what outcome you would like
           lead_text: Clearly explain in 2-3 sentences
           page_title: Outcome
-      <<: *CYA_CONFIRMATION
-      need_support:
-        edit:
-          heading: Do you need any support at the hearing?
-          lead_text: Support for your visit can be arranged such as an interpreter, hearing loop or an accessible hearing room.
-          page_title: Need Support?
-      what_support:
-        edit:
-          heading: Support at the hearing
-          lead_text: "Choose what support you'll need at your hearing. Select all that apply:"
-          page_title: What Support?
-          sign_language_interpreter_hint: Enter what type of sign language you need. For example, British Sign Language.
-          no_results: No results found
       <<: *CYA_CONFIRMATION
       documents_upload_problems:
         show:
@@ -696,11 +696,11 @@ en:
             outcome:
               # TODO: Josh to come up with some better error message
               blank: Please enter some text
-        steps/details/need_support_form:
+        steps/shared/need_support_form:
           attributes:
             need_support:
               inclusion: Select whether you need support at the hearing or not
-        steps/details/what_support_form:
+        steps/shared/what_support_form:
           attributes:
             what_support: Select what support you need at the hearing
             language_interpreter_details:
@@ -1041,10 +1041,10 @@ en:
         having_problems_uploading_options:
           having_problems_uploading: I am having trouble uploading my documents
         having_problems_uploading_explanation: Enter reasons why you can't upload a letter
-      steps_details_need_support_form:
+      steps_shared_need_support_form:
         need_support_options:
           <<: *YESNO
-      steps_details_what_support_form:
+      steps_shared_what_support_form:
         language_interpreter_details: Enter the language
         sign_language_interpreter_details: Enter the language
         other_support_details: Explain what other support you will need at your tribunal
