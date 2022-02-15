@@ -47,7 +47,7 @@ steps:
   displayName: 'test rspec'
 
 - script: |
-    echo "skipping 'bundle exec cucumber --fail-fast'"
+    bundle exec cucumber --fail-fast
   displayName: 'test cucumber'
 
 - script: |
