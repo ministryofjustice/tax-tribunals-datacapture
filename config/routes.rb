@@ -199,7 +199,6 @@ Rails.application.routes.draw do
     get 'privacy', to: 'home#privacy', as: :privacy_page
     get 'accessibility-statement', to: 'home#accessibility', as: :accessibility_page
   end
-
   # catch-all route
   # :nocov:
   match '*path', to: 'errors#not_found', via: :all, constraints:
