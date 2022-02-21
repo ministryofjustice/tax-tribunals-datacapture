@@ -50,7 +50,7 @@ Rails.application.configure do
   # get the constantized attribute name itself, in form labels.
   config.action_view.raise_on_missing_translations = false
 
-  config.force_ssl = false
+  config.force_ssl = true
   config.ssl_options = {
     hsts: { expires: 1.year, preload: true },
     redirect: { exclude: ->(request) { /status\.json/.match?(request.path) } }
