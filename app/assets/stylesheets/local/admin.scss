@@ -1,0 +1,28 @@
+#glimr-generation{
+  #date-group{
+    margin-top: 20px;
+  }
+
+  legend#date-legend{
+    margin-bottom: 5px;
+  }
+
+  [for=track-description],
+  [for=contactFirstName],
+  [for=contactLastName],
+  [for=contactPreference],
+  [for=repOrganisationName]{
+    margin-top: 10px;
+  }
+
+  #logout{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .govuk-date-input label{
+    color: #505a5f;
+    font-size: 1rem;
+  }
+}

@@ -20,6 +20,7 @@ $govuk-assets-path: '/assets/govuk-frontend/govuk/assets/';
 @import 'local/js_enabled';
 @import 'local/send_application_details';
 @import 'local/hearing_support';
+@import 'local/admin';
 
 // Dropzone vendor styling + local customization
 @import 'dropzone';

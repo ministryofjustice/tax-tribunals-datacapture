@@ -177,6 +177,7 @@ Rails.application.routes.draw do
     resources :upload_problems_report, only: [:index]
     resources :other_case_types_report, only: [:index]
     resources :other_dispute_types_report, only: [:index]
+    resources :glimr_generation, only: [:new, :create]
   end
 
   scope module: 'tax_tribs' do

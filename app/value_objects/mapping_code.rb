@@ -14,4 +14,8 @@ class MappingCode < ValueObject
   def to_glimr_str
     to_s.upcase
   end
+
+  def self.values
+    VALUES.map(&:to_glimr_str)
+  end
 end

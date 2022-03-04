@@ -1,0 +1,97 @@
+<% title t('.page_title') %>
+
+<div id="glimr-generation">
+  <h1 class="heading-large">Auto generation of bulk records in GLiMR</h1>
+
+  <% if @flash && @flash == "success" %>
+  <div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title">
+      Records created
+    </h1>
+    <p>All records were successfully created in GLiMR</p>
+  </div>
+  <% end %>
+
+  <%= form_tag admin_glimr_generation_index_path do %>
+    <label class="govuk-label" for="number-of-records">
+      No. of records to generate
+    </label>
+    <input required class="govuk-input govuk-input--width-5" id="number-of-records" name="number-of-records" type="text" value="<%= @number_of_records %>">
+
+    <div class="govuk-form-group
+    <% if @errors && @errors[:date] %>govuk-form-group--error<% end %>
+    " id="date-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend" id="date-legend">
+          Date of receipt
+        </legend>
+        <% if @errors && @errors[:date] %>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> <%= @errors[:date] %>
+          </p>
+        <% end %>
+        <div class="govuk-date-input" id="receipt-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-day">
+                Day
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-2" id="receipt-date-day" name="receipt-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= @day %>">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-month">
+                Month
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-2" id="receipt-date-month" name="receipt-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= @month %>">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-year">
+                Year
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-4" id="receipt-date-year" name="receipt-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= @year %>">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+      <label class="govuk-label" for="onlineMappingCode">
+        Online mapping code
+      </label>
+      <%= select_tag "onlineMappingCode", options_for_select(MappingCode.values), include_blank: true, class: "govuk-select", required: true %>
+
+    <label class="govuk-label" for="track-description">
+      Track description [n/a]
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="track-description" name="track-description" type="text" value="<%= @desc %>">
+
+    <label class="govuk-label" for="contactFirstName">
+      Appellant first name
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactFirstName" name="contactFirstName" type="text" value="<%= @contactFirstName %>">
+
+    <label class="govuk-label" for="contactLastName">
+      Appellant last name
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactLastName" name="contactLastName" type="text" value="<%= @contactLastName %>">
+
+    <label class="govuk-label" for="contactPreference">
+      Contact plan
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactPreference" name="contactPreference" type="text" value="<%= @contact_plan %>">
+
+    <label class="govuk-label" for="repOrganisationName">
+      Respondent organisation [n/a]
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="repOrganisationName" name="repOrganisationName" type="text" value="<%= @respondent %>">
+    <br>
+    <br>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Submit
+    </button>
+  <% end %>
+</div>
