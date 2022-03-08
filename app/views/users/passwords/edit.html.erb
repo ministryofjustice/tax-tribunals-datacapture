@@ -2,7 +2,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= error_summary(resource) %>
+    <%= govuk_error_summary(resource) %>
 
     <h1 class="govuk-heading-l"><%=t '.heading' %></h1>
 
@@ -10,10 +10,12 @@
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :patch }) do |f| %>
         <%= f.hidden_field :reset_password_token %>
-
-        <%= f.password_field :password, class: 'js-toggleable-password', autofocus: true, autocomplete: "off" %>
-        <%= f.password_field :password_confirmation, class: 'js-toggleable-password', autocomplete: "off" %>
-
+        <div class="govuk-form-group">
+          <%= f.label :password, class:"govuk-label"  %>
+          <%= f.password_field :password, class: 'js-toggleable-password govuk-input govuk-input--width-20', autofocus: true, autocomplete: "off" %>
+          <%= f.label :password_confirmation, class:"govuk-label" %>
+          <%= f.password_field :password_confirmation, class: 'js-toggleable-password govuk-input govuk-input--width-20', autocomplete: "off" %>
+        </div>
         <%= f.submit t('helpers.submit.change_password'), class: 'govuk-button' %>
     <% end %>
   </div>
