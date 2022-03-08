@@ -6,7 +6,7 @@
   <body>
     <h3>The GLiMR Record  Generation Complete</h3>
 
-    <p><%= @status.total - 1 - @status.failures %> / <%= @status.total - 1 %> successful.</p>
+    <p><%= @status.total - @status.failures %> / <%= @status.total %> successful.</p>
     <p>Return to the generation form to generate <%= @status.failures %> additional GLiMR <%= "record".pluralize(@status.failures) %>.</p>
   </body>
 </html>

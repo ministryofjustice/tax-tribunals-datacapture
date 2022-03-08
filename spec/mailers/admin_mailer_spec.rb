@@ -14,7 +14,7 @@ RSpec.describe AdminMailer, :type => :mailer do
 
     it "renders the body" do
       expect(mail.body.encoded).to include("2 / 3 successful")
-      expect(mail.body.encoded).to include("generate 1 additional GLiMR Record")
+      expect(mail.body.encoded).to include("generate 1 additional GLiMR record")
     end
   end
 end
