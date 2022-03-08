@@ -25,7 +25,19 @@ services:
       - 3000:3000
     depends_on:
       - db
+      - redis
       - uploader
   uploader:
     # https://github.com/ministryofjustice/mojfile-uploader-emulator
     image: tt-uploader:emulator
+  sidekiq:
+    build: .
+    links:
+      - db
+      - redis
+    env_file: .env
+    command: bash -c "bundle exec sidekiq -c 5 -v -e local"
+  redis:
+    image: redis
+    ports:
+      - 6379:6379

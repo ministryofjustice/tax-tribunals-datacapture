@@ -6,13 +6,14 @@ class Admin::GlimrGenerationController < AdminController
 
   # Will need to be an ajax call
   def create
-    num = params[:number_of_records].to_i
-    if !num.is_a? Numeric || num < 1
-      errors = { number_of_records: "Not a valid number" }
+    num = params['number-of-records'].to_i
+    if (!num.is_a? Numeric) || (num < 1)
+      @errors = { number_of_records: "Not a valid number" }
       render :new and return
     end
 
     queue_creation(num)
+    render :new
   end
 
   private
@@ -38,6 +39,8 @@ class Admin::GlimrGenerationController < AdminController
   end
 
   def queue_creation(num)
+    # Admin::GenerateGlimrRecordJob.perform_async(payload)
+
     batch = Sidekiq::Batch.new
     batch.description = "Glimr batch @ #{Time.now}, n = #{num}"
     batch.on(:complete, Admin::GenerateGlimrRecordsComplete, to: params[:email])
@@ -46,6 +49,7 @@ class Admin::GlimrGenerationController < AdminController
         Admin::GenerateGlimrRecordJob.perform_async(payload)
       end
     end
+    logger.info "Queued jobs"
   end
 
 end

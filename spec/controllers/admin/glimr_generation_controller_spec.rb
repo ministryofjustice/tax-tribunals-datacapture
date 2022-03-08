@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::GlimrGenerationController, type: :controller, focus: true do
+RSpec.describe Admin::GlimrGenerationController, type: :controller do
   before do
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_USER').and_return('admin')
     allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST').and_return(
@@ -37,9 +37,10 @@ RSpec.describe Admin::GlimrGenerationController, type: :controller, focus: true 
       end
 
       it 'creates a batch of jobs' do
-        # expect_any_instance_of(Admin::GenerateGlimrRecordJob).to \
-        #   receive(:perform).exactly(3).times.and_return(nil)
-        stub_request(:any, "http://glimr/registernewcase")
+        receive_count = 0
+        allow_any_instance_of(Admin::GenerateGlimrRecordJob).to \
+          receive(:perform) { receive_count += 1 }
+        stub_request(:any, "http://glimr/registernewcase").to_return(body: {"abc":"def"}.to_json)
 
         Sidekiq::Testing.inline! do
           local_post :create, params: {
@@ -51,6 +52,7 @@ RSpec.describe Admin::GlimrGenerationController, type: :controller, focus: true 
             email: 'test@example.com'
           }
         end
+        expect(receive_count).to eq 3
       end
     end
   end
