@@ -1,5 +1,4 @@
 class AdminMailer < ApplicationMailer
-
   def complete
     @status = params[:status]
     puts "In mailer, status: #{@status}"
@@ -10,5 +9,4 @@ class AdminMailer < ApplicationMailer
          to: params[:to],
          subject: "GLiMR Record Generation Complete")
   end
-
 end

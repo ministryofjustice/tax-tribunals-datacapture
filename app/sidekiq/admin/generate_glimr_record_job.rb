@@ -10,9 +10,7 @@ class Admin::GenerateGlimrRecordJob
     logger.info "Creating GLiMR Records with args #{payload.symbolize_keys}"
     res = GlimrApiClient::RegisterNewCase.call(payload.symbolize_keys)
     logger.info res.response_body
-    if !res.response_body
-      raise GlimrError, "No response provided"
-    end
-  end
 
+    raise GlimrError, "No response provided" unless res.response_body
+  end
 end

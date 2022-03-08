@@ -1,8 +1,7 @@
 require 'glimr_api_client'
 
 class Admin::GlimrGenerationController < AdminController
-  def new
-  end
+  def new; end
 
   # Will need to be an ajax call
   def create
@@ -35,7 +34,7 @@ class Admin::GlimrGenerationController < AdminController
       :contactLastName,
       :contactPreference
     ).permit(:onlineMappingCode, :contactFirstName,
-      :contactLastName, :contactPreference)
+             :contactLastName, :contactPreference)
   end
 
   def queue_creation(num)
@@ -51,5 +50,4 @@ class Admin::GlimrGenerationController < AdminController
     end
     logger.info "Queued jobs"
   end
-
 end
