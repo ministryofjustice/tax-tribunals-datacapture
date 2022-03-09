@@ -1,4 +1,4 @@
-require 'sidekiq/web'
+# require 'sidekiq/web'
 
 class ActionDispatch::Routing::Mapper
   def edit_step(name)
