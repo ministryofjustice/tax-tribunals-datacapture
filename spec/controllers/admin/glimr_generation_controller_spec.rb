@@ -44,8 +44,7 @@ RSpec.describe Admin::GlimrGenerationController, type: :controller do
 
         Sidekiq::Testing.inline! do
           local_post :create, params: {
-            number_of_records: 3,
-            onlineMappingCode: 8,
+            'number-of-records': 3,
             contactFirstName: 'Joe',
             contactLastName: 'Bloggs',
             contactPreference: 'email',
