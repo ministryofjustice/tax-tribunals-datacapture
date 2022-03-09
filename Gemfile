@@ -31,7 +31,7 @@ gem 'application_insights',            '~> 0.5.6'
 gem 'sprockets',                       '3.7.2'
 
 # Admin
-# gem 'sidekiq',                         '6.4.1', source: 'https://rubygems.org'
+gem 'sidekiq',                         '6.4.1'
 # gem 'sidekiq-batch',                   '0.1.6'                   
 # gem 'sidekiq_alive',                   '2.1.4'
 
