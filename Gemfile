@@ -31,9 +31,9 @@ gem 'application_insights',            '~> 0.5.6'
 gem 'sprockets',                       '3.7.2'
 
 # Admin
-gem 'sidekiq',                         '6.4.1', source: 'https://rubygems.org'
-gem 'sidekiq-batch',                   '0.1.6'                   
-gem 'sidekiq_alive',                   '2.1.4'
+# gem 'sidekiq',                         '6.4.1', source: 'https://rubygems.org'
+# gem 'sidekiq-batch',                   '0.1.6'                   
+# gem 'sidekiq_alive',                   '2.1.4'
 
 # PDF generation
 gem 'wicked_pdf',                      '~> 1.1.0'
@@ -95,5 +95,5 @@ group :test do
   gem 'site_prism', '3.7.1'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', '3.12.2', require: false
-  gem 'rspec-sidekiq', '3.1.0'
+  # gem 'rspec-sidekiq', '3.1.0'
 end
