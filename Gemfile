@@ -95,5 +95,5 @@ group :test do
   gem 'site_prism', '3.7.1'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', '3.12.2', require: false
-  # gem 'rspec-sidekiq', '3.1.0'
+  gem 'rspec-sidekiq', '3.1.0'
 end
