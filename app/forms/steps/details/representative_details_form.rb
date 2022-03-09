@@ -10,7 +10,8 @@ module Steps::Details
     validates_presence_of :representative_contact_address,
                           :representative_contact_postcode,
                           :representative_contact_city,
-                          :representative_contact_country
+                          :representative_contact_country,
+                          :representative_contact_email
 
     # rubocop:disable Lint/LiteralAsCondition
     validate :special_chars_in_mail if :started_by_representative_or_present?
