@@ -42,14 +42,14 @@ RSpec.describe Admin::GlimrGenerationController, type: :controller do
           receive(:perform) { receive_count += 1 }
         stub_request(:any, "http://glimr/registernewcase").to_return(body: {"abc":"def"}.to_json)
 
-        Sidekiq::Testing.inline! do
-          local_post :create, params: {
-            'number-of-records': 3,
-            contactFirstName: 'Joe',
-            contactLastName: 'Bloggs',
-            contactPreference: 'email',
-            email: 'test@example.com'
-          }
+        # Sidekiq::Testing.inline! do
+        #   local_post :create, params: {
+        #     'number-of-records': 3,
+        #     contactFirstName: 'Joe',
+        #     contactLastName: 'Bloggs',
+        #     contactPreference: 'email',
+        #     email: 'test@example.com'
+        #   }
         end
         expect(receive_count).to eq 3
       end

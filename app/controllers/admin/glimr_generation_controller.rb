@@ -39,14 +39,14 @@ class Admin::GlimrGenerationController < AdminController
 
   def queue_creation(num)
     # Admin::GenerateGlimrRecordJob.perform_async(payload)
-    batch = Sidekiq::Batch.new
-    batch.description = "Glimr batch @ #{Time.now}, n = #{num}"
-    batch.on(:complete, Admin::GenerateGlimrRecordsComplete, to: params[:email])
-    batch.jobs do
-      num.times do
-        Admin::GenerateGlimrRecordJob.perform_async(payload)
-      end
-    end
-    logger.info "Queued jobs"
+    # batch = Sidekiq::Batch.new
+    # batch.description = "Glimr batch @ #{Time.now}, n = #{num}"
+    # batch.on(:complete, Admin::GenerateGlimrRecordsComplete, to: params[:email])
+    # batch.jobs do
+    #   num.times do
+    #     Admin::GenerateGlimrRecordJob.perform_async(payload)
+    #   end
+    # end
+    # logger.info "Queued jobs"
   end
 end
