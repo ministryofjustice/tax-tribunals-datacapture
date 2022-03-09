@@ -4,7 +4,7 @@ class GlimrError < StandardError
 end
 
 class Admin::GenerateGlimrRecordJob
-  # include Sidekiq::Job
+  include Sidekiq::Job
 
   def perform(payload)
     logger.info "Creating GLiMR Records with args #{payload.symbolize_keys}"

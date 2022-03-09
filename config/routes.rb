@@ -1,4 +1,4 @@
-# require 'sidekiq/web'
+require 'sidekiq/web'
 
 class ActionDispatch::Routing::Mapper
   def edit_step(name)
@@ -180,15 +180,15 @@ Rails.application.routes.draw do
     resources :other_case_types_report, only: [:index]
     resources :other_dispute_types_report, only: [:index]
     resources :glimr_generation, only: [:new, :create]
-    # Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-    #   ActiveSupport::SecurityUtils.secure_compare(
-    #     username,
-    #     ENV["UPLOAD_PROBLEMS_REPORT_AUTH_USER"]) &
-    #     ActiveSupport::SecurityUtils.secure_compare(
-    #       Digest::SHA256.hexdigest(password),
-    #       ENV["UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST"])
-    # end
-    # mount Sidekiq::Web => "/sidekiq"
+    Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+      ActiveSupport::SecurityUtils.secure_compare(
+        username,
+        ENV["UPLOAD_PROBLEMS_REPORT_AUTH_USER"]) &
+        ActiveSupport::SecurityUtils.secure_compare(
+          Digest::SHA256.hexdigest(password),
+          ENV["UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST"])
+    end
+    mount Sidekiq::Web => "/sidekiq"
   end
 
   scope module: 'tax_tribs' do
