@@ -52,4 +52,4 @@ public/assets/
 /pa11y/screenshots/
 
 # Redis
-dump.rdb
+*.rdb
