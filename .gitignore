@@ -50,3 +50,6 @@ public/assets/
 
 # Ignore pa11y screenshots
 /pa11y/screenshots/
+
+# Redis
+*.rdb

@@ -1,0 +1,110 @@
+<% title t('.page_title') %>
+
+<div id="glimr-generation">
+  <h1 class="heading-large">Auto generation of bulk records in GLiMR</h1>
+
+  <% if flash[:notice] == "success" %>
+  <div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title">
+      Started creating records
+    </h1>
+    <p>All records were successfully created in GLiMR</p>
+  </div>
+  <% end %>
+
+  <%= form_tag admin_glimr_generation_index_path do %>
+    <div class="govuk-form-group
+      <% if @errors && @errors[:number_of_records] %>govuk-form-group--error<% end %>"
+    >
+      <label class="govuk-label" for="number-of-records">
+        No. of records to generate
+      </label>
+      <% if @errors && @errors[:number_of_records] %>
+        <p id="number-of-records-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Not a valid number
+        </p>
+      <% end %>
+      <input required class="govuk-input govuk-input--width-5" id="number-of-records" name="number-of-records" type="text" value="<%= params['number-of-records'] %>">
+      </div>
+    <div class="govuk-form-group
+    <% if @errors && @errors[:date] %>govuk-form-group--error<% end %>
+    " id="date-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend" id="date-legend">
+          Date of receipt
+        </legend>
+        <% if @errors && @errors[:date] %>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> <%= @errors[:date] %>
+          </p>
+        <% end %>
+        <div class="govuk-date-input" id="receipt-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-day">
+                Day
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-2" id="receipt-date-day" name="receipt-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= params['receipt-date-day'] %>">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-month">
+                Month
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-2" id="receipt-date-month" name="receipt-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= params['receipt-date-month'] %>">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="receipt-date-year">
+                Year
+              </label>
+              <input required class="govuk-input govuk-date-input__input govuk-input--width-4" id="receipt-date-year" name="receipt-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="<%= params['receipt-date-year'] %>">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+      <label class="govuk-label" for="onlineMappingCode">
+        Online mapping code
+      </label>
+      <%= select_tag "onlineMappingCode", options_for_select(MappingCode.values, params[:onlineMappingCode]), include_blank: true, class: "govuk-select", required: true %>
+
+    <label class="govuk-label" for="track-description">
+      Track description [n/a]
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="track-description" name="track-description" type="text" value="<%= params['track-description'] %>">
+
+    <label class="govuk-label" for="contactFirstName">
+      Appellant first name
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactFirstName" name="contactFirstName" type="text" value="<%= params[:contactFirstName] %>">
+
+    <label class="govuk-label" for="contactLastName">
+      Appellant last name
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactLastName" name="contactLastName" type="text" value="<%= params[:contactLastName] %>">
+
+    <label class="govuk-label" for="contactPreference">
+      Contact plan
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="contactPreference" name="contactPreference" type="text" value="<%= params[:contactPreference] %>">
+
+    <label class="govuk-label" for="repOrganisationName">
+      Respondent organisation [n/a]
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="repOrganisationName" name="repOrganisationName" type="text" value="<%= params[:repOrganisationName] %>">
+
+    <label class="govuk-label" for="email">
+      Address to send "Job Completed" email to
+    </label>
+    <input required class="govuk-input govuk-input--width-20" id="email" name="email" type="email" value="<%= params[:email] %>">
+    <br>
+    <br>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Submit
+    </button>
+  <% end %>
+</div>

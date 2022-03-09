@@ -1916,6 +1916,9 @@ en:
         heading: Thank you for reporting this problem
         continue: Back to start
   admin:
+    glimr_generation:
+      new:
+        page_title: Generate GLiMR records
     upload_problems_report:
       index:
         page_title: Upload problems report
