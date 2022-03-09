@@ -419,6 +419,9 @@ GEM
       redis (>= 4.2.0)
     sidekiq-batch (0.1.6)
       sidekiq (>= 3)
+    sidekiq_alive (2.1.4)
+      sidekiq
+      webrick
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -485,6 +488,7 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
+    webrick (1.7.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -559,6 +563,7 @@ DEPENDENCIES
   sentry-ruby (~> 4.6)
   sidekiq (= 6.4.1)
   sidekiq-batch (= 0.1.6)
+  sidekiq_alive (= 2.1.4)
   simplecov (= 0.21.2)
   simplecov-rcov (= 0.2.3)
   site_prism (= 3.7.1)
