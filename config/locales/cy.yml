@@ -1551,6 +1551,7 @@ cy:
                </ol>
                <p class="govuk-body">Os yw eich <span class="" data-dependent="application_type=appeal">apêl </span><span class="js-hidden" data-dependent="application_type=closure">cais </span>ar gyfer cwmni, bydd angen i gyfarwyddwr yn y cwmni arwyddo'r ffurflen.</p>
           download_button_text: "Lawrlwytho PDF"
+          download_button_aria_label: "Lawrlwytho PDF - Agor mewn ffenestr newydd"
           heading:
             as_representative: "Ydych chi eisiau awdurdodi eich cynrychiolydd nawr? (dewisol)"
             as_taxpayer: "Ydych chi eisiau awdurdodi eich cynrychiolydd nawr? (dewisol)"

@@ -365,6 +365,7 @@ en:
               </div>
             </div>
           download_button_text: Download PDF
+          download_button_aria_label: Download PDF - opens in a new page
           attach_document_html: |
             <strong>Upload authorisation form</strong>
             <p class="govuk-body">You can send scanned images of the form or a good quality photo.</p>
