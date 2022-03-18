@@ -71,7 +71,5 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = '172.23.0.0/16'
 end
 
-Faker::Config.locale = 'en-GB' # For the development tools
-
 # Use env var to enable i18n-debug gem on demand
 I18n::Debug.logger = Logger.new("/dev/null") unless ENV['ENABLE_I18N_DEBUG']

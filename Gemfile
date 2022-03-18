@@ -64,7 +64,7 @@ end
 group :development, :test do
   gem 'byebug', '11.1.3', platform: :mri
   gem 'dotenv-rails',                  '2.7.6'
-  gem 'faker', '~> 1.6', '>= 1.6.3',   '1.9.6'
+  gem 'faker',                         '2.20.0'
   gem 'launchy',                       '2.5.0'
   gem 'mutant-rspec',                  '0.10.29'
   gem 'pry-byebug',                    '3.9.0'
