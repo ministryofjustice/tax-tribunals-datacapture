@@ -115,7 +115,11 @@ ADD daily-export /etc/periodic/daily
 
 RUN chmod +x /etc/periodic/daily/*
 
-# running app as a servive
+## Set up sidekiq
+COPY run_sidekiq.sh /home/app/run_sidekiq
+RUN chmod +x /home/app/run_sidekiq
+
+# running app as a service
 ENV PHUSION true
 COPY run.sh /home/app/run
 RUN chmod +x /home/app/run
