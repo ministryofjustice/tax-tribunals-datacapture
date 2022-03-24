@@ -13,6 +13,6 @@ class AdminController < ApplicationController
   # If in the future a different set of credentials were to be preferred, just implement
   # this method in each of the subclasses.
   def credentials
-    { ENV.fetch('UPLOAD_PROBLEMS_REPORT_AUTH_USER') => ENV.fetch('UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST') }
+    { ENV.fetch('ADMIN_USERNAME') => ENV.fetch('ADMIN_PASSWORD') }
   end
 end

@@ -12,6 +12,7 @@ class Admin::GlimrGenerationController < AdminController
     end
 
     queue_creation(num)
+    flash[:notice] = 'success'
     render :new
   end
 
@@ -39,12 +40,13 @@ class Admin::GlimrGenerationController < AdminController
 
   def queue_creation(num)
     # Admin::GenerateGlimrRecordJob.perform_async(payload)
+    delay = 1.seconds
     batch = Sidekiq::Batch.new
     batch.description = "Glimr batch @ #{Time.now}, n = #{num}"
     batch.on(:complete, Admin::GenerateGlimrRecordsComplete, to: params[:email])
     batch.jobs do
-      num.times do
-        Admin::GenerateGlimrRecordJob.perform_async(payload)
+      num.times do |index|
+        Admin::GenerateGlimrRecordJob.perform_in(index * delay, payload)
       end
     end
     logger.info "Queued jobs"

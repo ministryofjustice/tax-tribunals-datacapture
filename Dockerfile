@@ -27,6 +27,8 @@ ENV ZENDESK_USERNAME             replace_this_at_build_time
 ENV ZENDESK_TOKEN                replace_this_at_build_time
 ENV  UPLOAD_PROBLEMS_REPORT_AUTH_USER                 replace_this_at_build_time
 ENV  UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST               replace_this_at_build_time
+ENV  ADMIN_USERNAME                                   replace_this_at_build_time
+ENV  ADMIN_PASSWORD                                   replace_this_at_build_time
 ENV  NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID             replace_this_at_build_time
 ENV  NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID         replace_this_at_build_time
 ENV  NOTIFY_NEW_CASE_SAVED_TEMPLATE_ID                replace_this_at_build_time
