@@ -7,13 +7,11 @@
     margin-bottom: 5px;
   }
 
-  [for=track-description],
-  [for=contactFirstName],
-  [for=contactLastName],
-  [for=contactPreference],
-  [for=repOrganisationName]
-  [for=email]{
+  .space-above{
     margin-top: 10px;
+  }
+  .big-space-above{
+    margin-top: 30px;
   }
 
   #logout{

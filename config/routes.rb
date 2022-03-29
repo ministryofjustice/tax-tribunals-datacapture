@@ -183,10 +183,10 @@ Rails.application.routes.draw do
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
       ActiveSupport::SecurityUtils.secure_compare(
         username,
-        ENV["UPLOAD_PROBLEMS_REPORT_AUTH_USER"]) &
+        ENV["ADMIN_USERNAME"]) &
         ActiveSupport::SecurityUtils.secure_compare(
           Digest::SHA256.hexdigest(password),
-          ENV["UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST"])
+          ENV["ADMIN_PASSWORD"])
     end
     mount Sidekiq::Web => "/sidekiq"
   end

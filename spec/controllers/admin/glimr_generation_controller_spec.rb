@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Admin::GlimrGenerationController, type: :controller do
   before do
-    allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_USER').and_return('admin')
-    allow(ENV).to receive(:fetch).with('UPLOAD_PROBLEMS_REPORT_AUTH_DIGEST').and_return(
+    allow(ENV).to receive(:fetch).with('ADMIN_USERNAME').and_return('admin')
+    allow(ENV).to receive(:fetch).with('ADMIN_PASSWORD').and_return(
       '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08'
     )
     allow(ENV).to receive(:fetch).with('GLIMR_API_URL',
