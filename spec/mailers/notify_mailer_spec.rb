@@ -58,6 +58,7 @@ RSpec.describe NotifyMailer, type: :mailer do
   before do
     allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
     allow(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID').and_return('report-problem-template')
+    allow(ENV).to receive(:fetch).with('NOTIFY_GLIMR_GENERATION_COMPLETE_ID').and_return('glimr-generation-template')
     stub_const('GOVUK_NOTIFY_TEMPLATES', govuk_notify_templates)
   end
 
@@ -160,6 +161,20 @@ RSpec.describe NotifyMailer, type: :mailer do
       expect(mail.govuk_notify_personalisation).to eq({
         portfolio_url: "https://tax.justice.uk/#{I18n.locale}/users/cases",
         portfolio_cy_url: "https://tax.justice.uk/cy/users/cases"
+      })
+    end
+  end
+
+  describe '#glimr_batch_complete' do
+    let(:status) { double('status', total: 3, failures: 1) }
+    let(:mail) { described_class.glimr_batch_complete('test@example.com', status) }
+
+    it_behaves_like 'a Notify mail', template_id: 'glimr-generation-template'
+
+    it "has the right keys" do
+      expect(mail.govuk_notify_personalisation).to eq({
+        successes: 2,
+        total: 3
       })
     end
   end
