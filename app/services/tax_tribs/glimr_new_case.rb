@@ -10,10 +10,20 @@ module TaxTribs
     end
 
     def call
-      GlimrApiClient::RegisterNewCase.call(params).tap { |api|
-        @case_reference = api.response_body.fetch(:tribunalCaseNumber)
-        @confirmation_code = api.response_body.fetch(:confirmationCode)
-      }
+      # TEMPORARILY REMOVE GLIMR - MUST NOT GO TO PRODUCTION
+      # DATE: 30 MARCH 2022 - 7th APRIL 2022
+
+      # REASON: WE ARE TEMPORARILY USING STAGING FOR
+      # GLIMR MASS UPLOAD WHILE WE FIX THE STAGING -> PRODUCTION
+      # DEPLOYMENT PIPELINE
+
+      # UNCOMMENT THIS TO REACTIVATE IF YOU MUST DEPLOY TO PRODUCTION
+      # IN AN EMERGENCY
+
+      # GlimrApiClient::RegisterNewCase.call(params).tap { |api|
+      #   @case_reference = api.response_body.fetch(:tribunalCaseNumber)
+      #   @confirmation_code = api.response_body.fetch(:confirmationCode)
+      # }
       self
     rescue => e
       Rails.logger.info({ caller: self.class.name, method: __callee__, error: e }.to_json)
