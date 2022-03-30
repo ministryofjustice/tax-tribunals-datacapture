@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/ClassLength
 class NotifyMailer < GovukNotifyRails::Mailer
   rescue_from Exception, with: :log_errors
 
@@ -168,4 +167,3 @@ class NotifyMailer < GovukNotifyRails::Mailer
     PERSONALISATION_ERROR_FILTER.include?(key)
   end
 end
-# rubocop:enable Metrics/ClassLength
