@@ -122,13 +122,6 @@ class NotifyMailer < GovukNotifyRails::Mailer
       successes: status.total - status.failures,
       total: status.total
     )
-    Rails.logger.info "IN GLIMR BATCH COMPLETE"
-    Rails.logger.info "Template: #{ENV.fetch('NOTIFY_GLIMR_GENERATION_COMPLETE_ID')}"
-    Rails.logger.info "Personalisation: #{{
-      successes: status.total - status.failures,
-      total: status.total
-    }}"
-    Rails.logger.info "To: #{email}"
     mail(to: email)
   end
 
