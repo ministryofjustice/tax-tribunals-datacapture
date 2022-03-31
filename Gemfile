@@ -40,6 +40,9 @@ gem 'wicked_pdf',                      '~> 1.1.0'
 gem 'wkhtmltopdf-binary',              '0.12.6.5'
 gem "select2-rails",                   '4.0.13'
 
+# Azure blob storage
+gem 'azure-storage-blob', '~> 2'
+
 source 'https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev' do
   gem 'mutant-license',                '0.1.1.2.1739399027284447558325915053311580324856.4'
 end
