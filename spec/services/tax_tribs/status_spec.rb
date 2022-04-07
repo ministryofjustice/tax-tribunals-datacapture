@@ -15,7 +15,8 @@ RSpec.describe TaxTribs::Status do
       dependencies: {
         glimr_status: glimr_status,
         database_status: database_status,
-        uploader_status: uploader_status
+        uploader_status: uploader_status,
+        virus_scanner_status: virus_scanner_status
       }
     }
   end
@@ -26,11 +27,14 @@ RSpec.describe TaxTribs::Status do
   let(:glimr_status) { 'ok' }
   let(:database_status) { 'ok' }
   let(:uploader_status) { 'ok' }
+  let(:virus_scanner_status) { 'ok' }
 
   before do
     allow(GlimrApiClient::Available).to receive(:call).and_return(glimr_available)
     allow(ActiveRecord::Base).to receive(:connection).and_return(double)
     allow(MojFileUploaderApiClient::Status).to receive(:new).and_return(uploader_client)
+    allow(VirusScanner).to receive(:available?).and_return(true)
+
     allow_any_instance_of(described_class).to receive(:`).with('git rev-parse HEAD').and_return('ABC123')
     allow(ENV).to receive(:[]).with('APP_GIT_COMMIT').and_return(commit_id)
   end
@@ -129,6 +133,16 @@ RSpec.describe TaxTribs::Status do
         specify { expect(described_class.check).to eq(status) }
       end
 
+    end
+
+    context 'virus scanner unavailable' do
+      let(:service_status) { 'failed' }
+      let(:virus_scanner_status) { 'failed' }
+      before do
+        allow(VirusScanner).to receive(:available?).and_return(false)
+      end
+
+      specify { expect(described_class.check).to eq(status) }
     end
   end
 end
