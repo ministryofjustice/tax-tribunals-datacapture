@@ -2,42 +2,26 @@ require 'spec_helper'
 
 RSpec.describe Document do
   let(:collection_ref) { '12345' }
-  let(:attrs) do
-    {
-        collection_ref: collection_ref,
-        name: 'test.doc',
-        last_modified: '2016-12-05T12:20:02.000Z'
-    }
-  end
+  let(:date) { DateTime.parse('Wed, 13 Apr 2022 11:03:21 +0000') }
+  let(:attrs) {{ name: '123/foo/test.doc', 
+                 collection_ref: collection_ref,
+                 last_modified: date }}
 
   subject { described_class.new(attrs) }
 
   describe '.new' do
     it 'build a document with all required attributes' do
-      document = described_class.new(collection_ref: '12345', name: 'test.doc', last_modified: '2016-12-05T12:20:02.000Z')
-      expect(document.collection_ref).to eq('12345')
-      expect(document.name).to eq('test.doc')
-      expect(document.last_modified).to eq('2016-12-05T12:20:02.000Z')
+      expect(subject.collection_ref).to eq('12345')
+      expect(subject.name).to eq('test.doc')
     end
 
-    it 'accepts name or title attributes' do
-      document = described_class.new(collection_ref: '12345', title: 'test.doc', last_modified: '2016-12-05T12:20:02.000Z')
-      expect(document.title).to eq('test.doc')
-      expect(document.name).to eq('test.doc')
-    end
-
-    it 'accepts missing last_modified attributes' do
-      document = described_class.new(collection_ref: '12345', title: 'test.doc')
-      expect(document.title).to eq('test.doc')
-      expect(document.last_modified).to be_nil
-    end
 
     it 'fails if no collection_ref attribute provided' do
-      expect { described_class.new(title: 'test.doc') }.to raise_exception(KeyError)
+      expect { described_class.new(attrs.except(:collection_ref)) }.to raise_exception(KeyError)
     end
 
-    it 'fails if no name nor title attribute provided' do
-      expect { described_class.new(collection_ref: '12345') }.to raise_exception(KeyError)
+    it 'fails if no filename provided' do
+      expect { described_class.new(attrs.except(:name)) }.to raise_exception(KeyError)
     end
   end
 
@@ -66,8 +50,10 @@ RSpec.describe Document do
       let(:document_key) { :foo }
 
       let(:result) { [
-        { key: '12345/foo/test.doc', title: 'test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
-        { key: '12345/foo/another.doc', title: 'another.doc', last_modified: '2016-12-05T12:20:02.000Z' }
+        double('uploader', name: '12345/foo/test.doc', properties: {
+          last_modified: 'Thu, 14 Apr 2022 11:03:21 +0000' }),
+        double('uploader', name: '12345/foo/another.doc', properties: {
+          last_modified: 'Wed, 13 Apr 2022 11:03:21 +0000'})
       ] }
 
       it 'returns the sorted documents' do
@@ -81,10 +67,14 @@ RSpec.describe Document do
       let(:document_key) { nil }
 
       let(:result) { [
-        { key: '12345/supporting_documents/test.doc', title: 'supporting_documents/test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
-        { key: '12345/supporting_documents/another.doc', title: 'supporting_documents/another.doc', last_modified: '2016-12-05T12:20:02.000Z' },
-        { key: '12345/other/test.doc', title: 'other/test.doc', last_modified: '2016-12-05T12:24:02.000Z' },
-        { key: '12345/foo/test.doc', title: 'foo/test.doc', last_modified: '2016-12-05T12:24:02.000Z' }
+        double('uploader', name: '12345/supporting_documents/test.doc', properties: {
+          last_modified: 'Thu, 14 Apr 2022 11:03:21 +0000'}),
+        double('uploader', name: '12345/supporting_documents/another.doc', properties: {
+          last_modified: 'Wed, 13 Apr 2022 11:03:21 +0000'}),
+        double('uploader', name: '12345/other/test.doc', properties: {
+          last_modified: 'Wed, 13 Apr 2022 11:03:21 +0000'}),
+        double('uploader', name: '12345/foo/test.doc', properties: {
+          last_modified: 'Wed, 13 Apr 2022 11:03:21 +0000'})
       ] }
 
       it 'returns the sorted documents' do

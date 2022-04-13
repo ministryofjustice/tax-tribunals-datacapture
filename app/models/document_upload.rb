@@ -53,7 +53,7 @@ class DocumentUpload
       filename: file_name,
       data: file_data
     )
-    @file_name = response[:key]
+    @file_name = response.name.split('/')[-1]
   rescue Uploader::InfectedFileError
     add_error(:virus_detected)
   rescue Uploader::UploaderError => e
@@ -97,6 +97,7 @@ class DocumentUpload
     Base64.encode64(tempfile.read)
   end
 
+  # returns array of documents
   def uploaded_documents
     @uploaded_documents ||= Document.for_collection(collection_ref, document_key: document_key)
   end
@@ -106,7 +107,7 @@ class DocumentUpload
     found_copies = 0
     previous_suffix = ''
 
-    while uploaded_documents.include?(Document.new(name: new_filename, collection_ref: collection_ref))
+    while uploaded_documents.map(&:name_with_collection).include?("#{collection_ref}/#{new_filename}")
       current_suffix = suffix % (found_copies += 1)
 
       basename  = Pathname(new_filename).sub_ext('').to_s

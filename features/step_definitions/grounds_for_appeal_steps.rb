@@ -5,7 +5,7 @@ end
 When("I press continue with nothing entered") do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   continue_or_save_continue
   end
   end
@@ -17,7 +17,7 @@ end
 When("I submit a response with text entered") do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   grounds_for_appeal_page.valid_submission
   end
   end
@@ -29,7 +29,7 @@ end
 When(/^I then upload a valid file type$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   identifier  = 'steps-details-grounds-for-appeal-form-grounds-for-appeal-document-field'
   filename    = 'features/support/sample_file/to_upload.jpg'
   grounds_for_appeal_page.attach_file(identifier, filename)
