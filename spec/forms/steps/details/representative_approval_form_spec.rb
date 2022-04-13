@@ -47,7 +47,9 @@ RSpec.describe Steps::Details::RepresentativeApprovalForm do
 
         context 'document upload successful' do
           it 'uploads the file' do
-            expect(Uploader).to receive(:add_file).with(hash_including(document_key: :representative_approval)).and_return({})
+            expect(Uploader).to receive(:add_file).
+              with(hash_including(document_key: :representative_approval)).
+              and_return(double(name: '123/foo/bar.png'))
             expect(subject.save).to be(true)
           end
         end

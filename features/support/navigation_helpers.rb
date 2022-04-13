@@ -59,7 +59,7 @@ end
 def screenshot_closure_application(journey)
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
     (journey == 'appeal' ? appeal : closure)
       .each do |step|
       step.call
@@ -74,7 +74,7 @@ end
 def complete_valid_closure_application
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.close_enquiry
@@ -117,7 +117,7 @@ end
 def complete_valid_appeal_application
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
     home_page.load_page
     expect(home_page.content).to have_header
     home_page.appeal
@@ -202,13 +202,13 @@ end
 
 def stub_uploader_and_go_to_login_page
   allow(Uploader).to receive(:list_files).and_return([])
-  allow(Uploader).to receive(:add_file).and_return({})
+  allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   go_to_login_page
 end
 
 def stub_uploader
   allow(Uploader).to receive(:list_files).and_return([])
-  allow(Uploader).to receive(:add_file).and_return({})
+  allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
 end
 
 def navigate_to_closure_case_type_page

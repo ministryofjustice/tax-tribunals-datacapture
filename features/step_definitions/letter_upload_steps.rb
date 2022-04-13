@@ -5,7 +5,7 @@ end
 When(/^I press one document option$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   letter_upload_type_page.submit_one_document_option
   end
   end
@@ -13,7 +13,7 @@ When(/^I press one document option$/) do
 Then(/^I am on the letter upload page$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   expect(letter_upload_page.content).to have_header
   end
   end
@@ -21,7 +21,7 @@ Then(/^I am on the letter upload page$/) do
 When(/^I press upload as multiple pages option$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   letter_upload_type_page.submit_multiple_option
   end
   end
@@ -41,7 +41,7 @@ end
 When(/^I successfully upload a document$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   expect(letter_upload_page.content).to have_lead_text
   identifier  = 'steps-details-letter-upload-form-supporting-letter-document-field'
   filename    = 'features/support/sample_file/to_upload.jpg'
@@ -57,7 +57,7 @@ end
 When(/^I press continue with no file uploaded$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return({})
+    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
   continue_or_save_continue
   end
   end

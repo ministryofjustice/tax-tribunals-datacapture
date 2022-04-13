@@ -73,7 +73,9 @@ RSpec.describe Steps::Details::LetterUploadForm do
 
         context 'document upload successful' do
           it 'uploads the file' do
-            expect(Uploader).to receive(:add_file).with(hash_including(document_key: :supporting_letter)).and_return({})
+            expect(Uploader).to receive(:add_file).
+              with(hash_including(document_key: :supporting_letter)).
+              and_return(double(name: '123/foo/bar.png'))
 
             expect(tribunal_case).to receive(:update).with(
               having_problems_uploading: having_problems_uploading,
