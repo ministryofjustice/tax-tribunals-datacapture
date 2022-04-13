@@ -19,7 +19,7 @@ gem 'puma',                            '~> 5.6'
 gem 'rack-attack',                     '~> 5.4.2'
 gem 'rails',                           '~> 6.0.4.6'
 gem 'responders',                      '3.0.1'
-gem 'sanitize',                        '5.2.3'
+gem 'sanitize',                        '~> 6.0'                        
 gem 'sassc-rails',                     '~> 2.1.2'
 gem 'sentry-ruby',                     '~> 4.6'
 gem 'sentry-rails',                    '~> 4.6'
@@ -39,6 +39,10 @@ gem 'sidekiq_alive',                   '2.1.4'
 gem 'wicked_pdf',                      '~> 1.1.0'
 gem 'wkhtmltopdf-binary',              '0.12.6.5'
 gem "select2-rails",                   '4.0.13'
+
+# Azure blob storage
+gem 'azure-storage-blob', '~> 2'
+gem 'mimemagic', '~> 0.3.3'
 
 source 'https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev' do
   gem 'mutant-license',                '0.1.1.2.1739399027284447558325915053311580324856.4'

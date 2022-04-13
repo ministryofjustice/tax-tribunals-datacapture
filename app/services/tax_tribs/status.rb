@@ -13,7 +13,8 @@ module TaxTribs
         dependencies: {
           glimr_status: glimr_status,
           database_status: database_status,
-          uploader_status: uploader_status
+          uploader_status: uploader_status,
+          virus_scanner_status: virus_scanner_status
         }
       }
     end
@@ -64,10 +65,17 @@ module TaxTribs
         end
     end
 
+    def virus_scanner_status
+      VirusScanner.available? ? 'ok' : 'failed'
+    rescue StandardError
+      'failed'
+    end
+
     def service_status
       if database_status.eql?('ok') &&
           glimr_status.eql?('ok') &&
-          uploader_status.eql?('ok')
+          uploader_status.eql?('ok') &&
+          virus_scanner_status.eql?('ok')
         'ok'
       else
         'failed'
