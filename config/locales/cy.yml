@@ -1265,6 +1265,7 @@ cy:
       footer: "Ni allwch lwytho ffeiliau gweithredu (.exe), ffeiliau zip neu ffeiliau archif eraill oherwydd y risg o firws. "
       header: "Gofynion llwytho ffeil"
       no_uploaded_files: "Nid oes ffeiliau wedi cael eu llwytho"
+      select_file: Dewis ffeiliau
       remove_file: Dileu
       technical_info_html: |
         Rydym yn derbyn sgan neu lun o <strong>ansawdd da ac eglur</strong>.

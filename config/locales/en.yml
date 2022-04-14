@@ -1444,6 +1444,7 @@ en:
           <li>Enter reasons if you are still having trouble uploading.</li>
           <li>Click 'continue' to print and complete your appeal by post.</li>
         </ul>
+      select_file: Select file
       remove_file: Remove
       cancel_upload: Cancel
       confirm_cancel_upload: Are you sure you want to cancel this upload?
