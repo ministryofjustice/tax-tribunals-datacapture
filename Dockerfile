@@ -92,10 +92,10 @@ RUN mkdir -p /home/app
 WORKDIR /home/app
 COPY Gemfile* .ruby-version ./
 
-RUN gem install bundler -v 2.2.28
-RUN bundle config set frozen 'true'
-RUN bundle config without test:development
-RUN bundle install
+RUN gem install bundler -v 2.2.28 && \
+    bundle config set frozen 'true' && \
+    bundle config without test:development && \
+    bundle install
 
 COPY . .
 
