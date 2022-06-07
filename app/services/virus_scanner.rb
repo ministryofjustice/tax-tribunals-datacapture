@@ -15,6 +15,8 @@ class VirusScanner
   end
 
   def self.available?
+    return true unless should_scan?
+
     safe_file = 'I am safe'
     test_infected_file = 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*'
 
