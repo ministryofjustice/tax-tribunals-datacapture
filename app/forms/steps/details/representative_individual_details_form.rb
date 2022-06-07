@@ -25,14 +25,6 @@ module Steps::Details
 
     private
 
-    def name_length
-      name_fields.each do |name_field|
-        if send(name_field).length > 256
-          errors.add name_field, I18n.t("errors.messages.name.too_long")
-        end
-      end
-    end
-
     def persist!
       super(
         representative_individual_first_name: representative_individual_first_name,
