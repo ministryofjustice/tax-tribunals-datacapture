@@ -6,6 +6,11 @@ module Steps::Details
     validates_presence_of :representative_individual_first_name,
                           :representative_individual_last_name
 
+    validates :representative_individual_first_name,
+              length: { maximum: 256, message: I18n.t("errors.messages.name.too_long") }
+    validates :representative_individual_last_name,
+              length: { maximum: 256, message: I18n.t("errors.messages.name.too_long") }
+
     def name_fields
       [:representative_individual_first_name, :representative_individual_last_name]
     end
