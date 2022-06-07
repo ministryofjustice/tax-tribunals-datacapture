@@ -6,6 +6,11 @@ module Steps::Details
     validates_presence_of :representative_individual_first_name,
                           :representative_individual_last_name
 
+    validates :representative_individual_first_name,
+              length: { maximum: 256, message: I18n.t("errors.messages.name.too_long") }
+    validates :representative_individual_last_name,
+              length: { maximum: 256, message: I18n.t("errors.messages.name.too_long") }
+
     def name_fields
       [:representative_individual_first_name, :representative_individual_last_name]
     end
@@ -19,6 +24,14 @@ module Steps::Details
     end
 
     private
+
+    def name_length
+      name_fields.each do |name_field|
+        if send(name_field).length > 256
+          errors.add name_field, I18n.t("errors.messages.name.too_long")
+        end
+      end
+    end
 
     def persist!
       super(
