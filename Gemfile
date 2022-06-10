@@ -40,6 +40,8 @@ gem 'wicked_pdf',                      '~> 1.1.0'
 gem 'wkhtmltopdf-binary',              '0.12.6.5'
 gem "select2-rails",                   '4.0.13'
 
+gem 'grover'
+
 # Azure blob storage
 gem 'azure-storage-blob', '~> 2'
 gem 'mimemagic', '~> 0.3.3'

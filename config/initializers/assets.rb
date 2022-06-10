@@ -24,6 +24,7 @@ Rails.application.config.assets.precompile += ['govuk-frontend/govuk/assets/font
 Rails.application.config.assets.precompile += ['govuk-frontend/govuk/assets/fonts/bold-b542beb274-v2.woff2']
 Rails.application.config.assets.precompile += ['govuk-frontend/govuk/assets/fonts/light-94a07e06a1-v2.woff2']
 Rails.application.config.assets.precompile += ['govuk-frontend/govuk/assets/fonts/light-f591b13f7d-v2.woff']
+Rails.application.config.assets.precompile += ['local/case_details_pdf.css']
 
 
 Rails.application.config.assets.configure do |env|

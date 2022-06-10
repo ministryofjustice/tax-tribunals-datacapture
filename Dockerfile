@@ -66,18 +66,6 @@ RUN apk --no-cache add --virtual build-deps \
   nodejs \
   yarn
 
-# Install dependencies for wkhtmltopdf and microsoft fonts
-RUN apk --no-cache add \
-  wkhtmltopdf \
-  libx11 \
-  libxrender \
-  libxext \
-  fontconfig \
-  ttf-freefont \
-&& apk --no-cache add --virtual fonts-deps \
-  msttcorefonts-installer \
-&& fc-cache -f
-
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
 
@@ -92,7 +80,7 @@ RUN mkdir -p /home/app
 WORKDIR /home/app
 COPY Gemfile* .ruby-version ./
 
-RUN gem install bundler -v 2.2.28 && \
+RUN gem install bundler -v 2.3.15 && \
     bundle config set frozen 'true' && \
     bundle config without test:development && \
     bundle install
@@ -108,9 +96,6 @@ RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=req
 # that will not be able to use the rails digest mechanism.
 RUN cp node_modules/govuk-frontend/govuk/assets/fonts/*  public/assets/govuk-frontend/govuk/assets/fonts
 RUN cp node_modules/govuk-frontend/govuk/assets/images/* public/assets/govuk-frontend/govuk/assets/images
-
-## copy wkhtmltopdf bin
-RUN cd /usr/local/bundle/gems/wkhtmltopdf-binary-*/bin && ln -s /usr/bin/wkhtmltopdf wkhtmltopdf_"$(. /etc/os-release 2> /dev/null && echo ${ID}_${VERSION_ID})"_amd64
 
 ## adding cron jobs
 ADD daily-export /etc/periodic/daily
