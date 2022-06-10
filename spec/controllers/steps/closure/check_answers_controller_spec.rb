@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
+RSpec.describe Steps::Closure::CheckAnswersController, type: :controller, focus: true do
   it_behaves_like 'an end point step controller'
 
   let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }
-  let(:presenter) { instance_double(CheckAnswers::ClosureAnswersPresenter, pdf_params: { pdf: 'check_answers' }) }
+  let(:presenter) { instance_double(CheckAnswers::ClosureAnswersPresenter, pdf_filename: 'check_answers.pdf') }
 
   context 'HTML format' do
     it 'assigns the presenter' do
@@ -25,9 +25,9 @@ RSpec.describe Steps::Closure::CheckAnswersController, type: :controller do
 
       local_get :show, format: :pdf, session: { tribunal_case_id: tribunal_case.id }
 
-      expect(subject).to render_template(:show)
+      expect(subject).to render_template("steps/closure/check_answers/show.pdf.erb")
       expect(assigns[:presenter]).to eq(presenter)
-      expect(response.headers['Content-Disposition']).to eq('inline; filename="check_answers.pdf"; filename*=UTF-8\'\'check_answers.pdf')
+      expect(response.headers['Content-Disposition']).to eq('attachment; filename="check_answers.pdf"; filename*=UTF-8\'\'check_answers.pdf')
     end
   end
 
