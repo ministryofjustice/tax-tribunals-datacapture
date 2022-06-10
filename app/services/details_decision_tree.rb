@@ -18,7 +18,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
     when :representative_professional_status
       after_representative_professional_status_step
     when :representative_approval
-      edit(:representative_type)
+      after_representative_approval_step
     when :representative_type
       edit(:representative_details)
     when :representative_details
@@ -84,6 +84,14 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       edit(:representative_type)
     else
       edit(:representative_approval)
+    end
+  end
+  def after_representative_approval_step
+    case tribunal_case.representative_professional_status
+    when RepresentativeProfessionalStatus::FRIEND_OR_FAMILY
+      edit(:representative_details)
+    else
+      edit(:representative_type)
     end
   end
 

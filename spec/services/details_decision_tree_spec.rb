@@ -109,10 +109,25 @@ RSpec.describe DetailsDecisionTree do
       end
     end
 
-    context 'when the step is `representative_approval`' do
+    shared_context 'when the step is `representative_approval and representative_professional_status is friends or family`' do
       let(:step_params) { { representative_approval: 'anything'  } }
+      let(:tribunal_case) { instance_double(TribunalCase, representative_professional_status: RepresentativeProfessionalStatus::FRIEND_OR_FAMILY) }
+
+      it { is_expected.to have_destination(:representative_details, :edit) }
+    end
+
+    shared_context 'when the step is `representative_approval and representative_professional_status is not friends or family`' do
+      expected_values = [ENGLAND_OR_WALES_OR_NI_LEGAL_REP,
+                         SCOTLAND_LEGAL_REP,
+                         TAX_AGENT,
+                         ACCOUNTANT,
+                         OTHER]
+      expected_values.each do |value|
+      let(:step_params) { { representative_approval: 'anything'  } }
+      let(:tribunal_case) { instance_double(TribunalCase, representative_professional_status: RepresentativeProfessionalStatus::value) }
 
       it { is_expected.to have_destination(:representative_type, :edit) }
+      end
     end
 
     context 'when the step is `representative_type`' do
