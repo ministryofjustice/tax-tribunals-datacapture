@@ -86,6 +86,7 @@ class DetailsDecisionTree < TaxTribs::DecisionTree
       edit(:representative_approval)
     end
   end
+
   def after_representative_approval_step
     case tribunal_case.representative_professional_status
     when RepresentativeProfessionalStatus::FRIEND_OR_FAMILY
