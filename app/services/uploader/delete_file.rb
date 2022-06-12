@@ -20,7 +20,7 @@ class Uploader
       log_uploader_error(err)
       raise Uploader::UploaderError, err
     end
-
+ 
     private
 
     def log_delete

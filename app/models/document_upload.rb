@@ -47,6 +47,7 @@ class DocumentUpload
   end
 
   def upload!(collection_ref: nil, document_key: nil)
+    debugger
     response = Uploader.add_file(
       collection_ref: collection_ref || self.collection_ref,
       document_key: document_key || self.document_key,
@@ -94,7 +95,8 @@ class DocumentUpload
   # We encode the file data in order to post it to the MOJ File Uploader app endpoint.
   #
   def file_data
-    Base64.encode64(tempfile.read)
+    tempfile.read
+    # Base64.encode64(tempfile.read)
   end
 
   # returns array of documents
