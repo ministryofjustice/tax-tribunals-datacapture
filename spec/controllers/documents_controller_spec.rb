@@ -125,7 +125,7 @@ RSpec.describe DocumentsController, type: :controller do
       end
     end
 
-    context 'URI encode square brackets', focus: true do
+    context 'URI encode square brackets' do
       let(:filename) {'file [name].txt'}
       let(:base64_filename) { Base64.encode64(filename) }
 
