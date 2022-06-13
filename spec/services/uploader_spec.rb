@@ -30,7 +30,7 @@ RSpec.describe Uploader do
         @container, # container_name
         '123/folder/file_name.doc', # blob_name
         'data', # file_data
-        options: { content_type: 'application/msword' }
+        { content_type: 'application/msword' }
       ).and_return('result')
 
       expect(described_class.add_file(**params)).to eq('result')
@@ -69,7 +69,7 @@ RSpec.describe Uploader do
         @container, # container_name
         '123/folder/filenamedroptable.doc', # blob_name
         'data', # file_data
-        options: { content_type: 'application/msword' }
+        { content_type: 'application/msword' }
       ).and_return('result')
       
       described_class.add_file(**params,

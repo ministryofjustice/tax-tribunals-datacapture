@@ -28,15 +28,11 @@ class Uploader
     end
 
     def upload
-      debugger
       @client.create_block_blob(
         ENV.fetch('AZURE_STORAGE_CONTAINER'),
         blob_name,
         @data,
-        options: { 
-          content_type: content_type,
-          blob_content_type: content_type
-        }
+        { content_type: content_type }
       )
     rescue KeyError => err # e.g. Env not found
       raise KeyError, err

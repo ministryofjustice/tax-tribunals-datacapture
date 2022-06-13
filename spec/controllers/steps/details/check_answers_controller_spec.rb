@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Steps::Details::CheckAnswersController, type: :controller, focus: true do
+RSpec.describe Steps::Details::CheckAnswersController, type: :controller do
   it_behaves_like 'an end point step controller'
 
   let!(:tribunal_case) { TribunalCase.create(case_type: CaseType::OTHER) }

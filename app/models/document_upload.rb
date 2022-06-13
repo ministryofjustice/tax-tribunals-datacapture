@@ -47,7 +47,6 @@ class DocumentUpload
   end
 
   def upload!(collection_ref: nil, document_key: nil)
-    debugger
     response = Uploader.add_file(
       collection_ref: collection_ref || self.collection_ref,
       document_key: document_key || self.document_key,
