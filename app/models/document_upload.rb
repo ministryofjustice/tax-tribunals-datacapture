@@ -91,11 +91,11 @@ class DocumentUpload
 
   private
 
-  # We encode the file data in order to post it to the MOJ File Uploader app endpoint.
+  # We encode and decode the file data because this fixes
+  # issues with UTF-8 encoding
   #
   def file_data
-    tempfile.read
-    # Base64.encode64(tempfile.read)
+    Base64.decode64(Base64.encode64(tempfile.read))
   end
 
   # returns array of documents
