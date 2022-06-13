@@ -21,10 +21,18 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
       return true unless changed?
 
-      tribunal_case.update(
-        has_representative: HasRepresentative::YES,
-        representative_professional_status: representative_professional_status_value
-      )
+      if representative_professional_status_value == RepresentativeProfessionalStatus::FRIEND_OR_FAMILY
+        tribunal_case.update(
+          has_representative: HasRepresentative::YES,
+          representative_professional_status: representative_professional_status_value,
+          representative_type: ContactableEntityType::INDIVIDUAL
+        )
+      else
+        tribunal_case.update(
+          has_representative: HasRepresentative::YES,
+          representative_professional_status: representative_professional_status_value
+        )
+      end
     end
   end
 end
