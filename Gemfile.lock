@@ -524,8 +524,6 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wicked_pdf (1.1.0)
-    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.4)
@@ -616,8 +614,6 @@ DEPENDENCIES
   web-console (= 4.1.0)
   webdrivers (~> 4.4)
   webmock (= 3.12.2)
-  wicked_pdf (~> 1.1.0)
-  wkhtmltopdf-binary (= 0.12.6.5)
   zendesk_api (~> 1.28)
 
 RUBY VERSION
