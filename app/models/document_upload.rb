@@ -94,7 +94,8 @@ class DocumentUpload
   # We encode the file data in order to post it to the MOJ File Uploader app endpoint.
   #
   def file_data
-    Base64.encode64(tempfile.read)
+    tempfile.read
+    # Base64.encode64(tempfile.read)
   end
 
   # returns array of documents
