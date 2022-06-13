@@ -64,7 +64,8 @@ RUN apk --no-cache add --virtual build-deps \
   xz-libs \
   tzdata \
   nodejs \
-  yarn
+  yarn \
+  less
 
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
