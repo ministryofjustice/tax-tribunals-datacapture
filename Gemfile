@@ -36,8 +36,6 @@ gem 'sidekiq-batch',                   '0.1.6'
 gem 'sidekiq_alive',                   '2.1.4'
 
 # PDF generation
-gem 'wicked_pdf',                      '~> 1.1.0'
-gem 'wkhtmltopdf-binary',              '0.12.6.5'
 gem "select2-rails",                   '4.0.13'
 
 gem 'grover'

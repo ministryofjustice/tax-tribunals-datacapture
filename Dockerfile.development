@@ -66,18 +66,6 @@ RUN apk --no-cache add --virtual build-deps \
   nodejs \
   yarn
 
-# Install dependencies for wkhtmltopdf and microsoft fonts
-RUN apk --no-cache add \
-  wkhtmltopdf \
-  libx11 \
-  libxrender \
-  libxext \
-  fontconfig \
-  ttf-ubuntu-font-family \
-&& apk --no-cache add --virtual fonts-deps \
-  msttcorefonts-installer \
-&& update-ms-fonts && fc-cache -f
-
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
 
