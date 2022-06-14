@@ -279,8 +279,6 @@ GEM
       rake
     mini_mime (1.1.2)
     minitest (5.15.0)
-    mojfile-uploader-api-client (0.8)
-      rest-client (~> 2.0.0)
     msgpack (1.5.2)
     multi_json (1.15.0)
     multi_test (1.1.0)
@@ -570,7 +568,6 @@ DEPENDENCIES
   lograge (= 0.11.2)
   logstash-event (= 1.2.02)
   mimemagic (~> 0.3.3)
-  mojfile-uploader-api-client (~> 0.8)
   mutant-license (= 0.1.1.2.1739399027284447558325915053311580324856.4)!
   mutant-rspec (= 0.10.29)
   nokogiri (~> 1.13.4)
@@ -584,6 +581,7 @@ DEPENDENCIES
   rails (~> 6.0.4.6)
   rails-controller-testing (= 1.0.5)
   responders (= 3.0.1)
+  rest-client (= 2.0.2)
   rspec-rails (= 5.0.1)
   rspec-sidekiq (= 3.1.0)
   rspec_junit_formatter (~> 0.4.1)

@@ -50,7 +50,6 @@ variables are set directly in the trais configuration:
 * `DATABASE_URL`
 * `GLIMR_API_URL`
 * `GOVUK_NOTIFY_API_KEY`
-* `MOJ_FILE_UPLOADER_ENDPOINT`
 * `TAX_TRIBUNALS_DOWNLOADER_URL`
 
 [1]: At the time of writing, `TribunalCase` brings in 17 other objects via the

@@ -11,7 +11,6 @@ gem 'glimr-api-client', github: 'ministryofjustice/glimr-api-client', tag: 'v0.4
 gem 'govuk_design_system_formbuilder', '~> 2.5'
 gem 'govuk_notify_rails',              '~> 2.1'
 gem 'jquery-rails',                    '4.4.0'
-gem 'mojfile-uploader-api-client',     '~> 0.8'
 gem 'nokogiri',                        '~> 1.13.4'
 gem 'pg',                              '1.2.3'
 gem 'pry-rails',                       '0.3.9'
@@ -29,6 +28,7 @@ gem 'virtus',                          '1.0.5'
 gem 'zendesk_api',                     '~> 1.28'
 gem 'application_insights',            '~> 0.5.6'
 gem 'sprockets',                       '3.7.2'
+gem 'rest-client',                     '2.0.2'
 
 # Admin
 gem 'sidekiq',                         '6.4.1'

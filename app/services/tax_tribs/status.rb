@@ -13,7 +13,6 @@ module TaxTribs
         dependencies: {
           glimr_status: glimr_status,
           database_status: database_status,
-          uploader_status: uploader_status,
           virus_scanner_status: virus_scanner_status
         }
       }
@@ -23,21 +22,6 @@ module TaxTribs
 
     def version
       ENV['APP_GIT_COMMIT'] || 'unknown'
-    end
-
-    def uploader_status
-      @uploader_status ||=
-        if uploader_client.call && uploader_client.available?
-          'ok'
-        else
-          'failed'
-        end
-    rescue Errno::ECONNREFUSED
-      'failed'
-    end
-
-    def uploader_client
-      @uploader_client_call ||= MojFileUploaderApiClient::Status.new
     end
 
     def database_status
@@ -74,7 +58,6 @@ module TaxTribs
     def service_status
       if database_status.eql?('ok') &&
           glimr_status.eql?('ok') &&
-          uploader_status.eql?('ok') &&
           virus_scanner_status.eql?('ok')
         'ok'
       else

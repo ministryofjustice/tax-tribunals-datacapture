@@ -8,7 +8,6 @@ RSpec.describe TaxTribs::StatusController do
       dependencies: {
       glimr_status: 'ok',
       database_status: 'ok',
-      uploader_status: 'ok',
       virus_scanner_status: 'ok'
     }
     }.to_json
