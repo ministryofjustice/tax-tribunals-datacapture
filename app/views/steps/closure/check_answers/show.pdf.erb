@@ -7,6 +7,7 @@
   </head>
 
   <body id="case-details-pdf">
+    <%= stylesheet_link_tag ('local/case_details_pdf') -%>
     <%= render partial: 'application/check_answers_header', locals: {heading_key: 'closure_heading'} %>
     <%= render @presenter.sections %>
   </body>
