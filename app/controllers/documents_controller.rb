@@ -26,7 +26,7 @@ class DocumentsController < ApplicationController
     Uploader.delete_file(
       collection_ref: collection_ref,
       document_key: document_key_param,
-      filename: filename
+      filename: decoded_filename
     )
 
     respond_to do |format|
@@ -40,13 +40,6 @@ class DocumentsController < ApplicationController
 
   def collection_ref
     current_tribunal_case.files_collection_ref
-  end
-
-  # The regexp as second argument to encode() will ensure all non-word characters are encoded,
-  # and not only those included in the REGEXP::UNSAFE which is the default behaviour.
-  # Specifically we are looking to encode problematic characters like '[' and ']'
-  def filename
-    URI.encode(decoded_filename, /\W/)
   end
 
   def decoded_filename

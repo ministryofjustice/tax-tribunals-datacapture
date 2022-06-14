@@ -124,15 +124,5 @@ RSpec.describe DocumentsController, type: :controller do
         end
       end
     end
-
-    context 'URI encode square brackets' do
-      let(:filename) {'file [name].txt'}
-      let(:base64_filename) { Base64.encode64(filename) }
-
-      it 'encode square brackets' do
-        expect(Uploader).to receive(:delete_file).with(hash_including(filename: 'file%20%5Bname%5D%2Etxt'))
-        local_delete :destroy, params: {document_key: 'test', id: base64_filename}
-      end
-    end
   end
 end
