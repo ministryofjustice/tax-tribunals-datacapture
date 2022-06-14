@@ -49,7 +49,8 @@ ENV  NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID         replace_this_at_build_time
 ENV  NOTIFY_REPORT_PROBLEM_CY_TEMPLATE_ID             replace_this_at_build_time
 ENV  NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID    replace_this_at_build_time
 
-
+# Chromium onwards is latest Chromium (100) package
+# for Puppeteer for Grover
 RUN apk --no-cache add --virtual build-deps \
   build-base \
   libxml2-dev \
@@ -65,7 +66,17 @@ RUN apk --no-cache add --virtual build-deps \
   tzdata \
   nodejs \
   yarn \
-  less
+  less \
+  chromium \
+  nss \
+  freetype \
+  harfbuzz \
+  ca-certificates \
+  ttf-freefont
+
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # ensure everything is executable
 RUN chmod +x /usr/local/bin/*
