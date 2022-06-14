@@ -101,15 +101,6 @@ COPY . .
 
 RUN yarn install --check-files
 
-# Add user for puppeteer to avoid unsupported --no-sandbox.
-RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
-    && mkdir -p /home/pptruser/Downloads /app \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /app
-
-# Run everything after as non-privileged user.
-USER pptruser
-
 RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=required_but_does_not_matter_for_assets
 
 # Copy fonts and images (without digest) along with the digested ones,
