@@ -18,7 +18,8 @@ class TaxTribs::CaseDetailsPdf
   end
 
   def generate
-    @pdf = controller_ctx.render_to_string(render_options)
+    html = controller_ctx.render_to_string(render_options)
+    @pdf = Grover.new(html, format: 'A4').to_pdf
   rescue StandardError => exception
     Sentry.capture_exception(exception)
     raise exception
