@@ -26,6 +26,7 @@ class Admin::RestoreImagesJob
       uploader.upload! if uploader.valid?
       # sleep(1)
 
+
       raise UploadError, uploader.errors if uploader.errors?
       puts "finished: #{name}"
     end
