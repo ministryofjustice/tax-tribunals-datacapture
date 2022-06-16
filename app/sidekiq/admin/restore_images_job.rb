@@ -5,7 +5,8 @@ class Admin::RestoreImagesJob
     puts "starting: #{name}"
     @client = Azure::Storage::Blob::BlobService.create(
       storage_account_name: ENV.fetch('AZURE_STORAGE_ACCOUNT'),
-      storage_access_key: ENV.fetch('AZURE_STORAGE_KEY'))
+      storage_access_key: ENV.fetch('AZURE_STORAGE_KEY')
+    )
 
     # Extract separate parts
     collection_ref, folder, filename = name.split('/')
@@ -15,7 +16,6 @@ class Admin::RestoreImagesJob
 
     # Create a temporary file
     Tempfile.create('tmpfile') do |temp|
-      
       # Fix the file data and save to temp file
       File.binwrite(temp, Base64.decode64(data).force_encoding('utf-8'))
 
@@ -26,7 +26,8 @@ class Admin::RestoreImagesJob
       uploader.upload! if uploader.valid?
       # sleep(1)
 
-      raise UploadError.new(uploader.errors) if uploader.errors?
+
+      raise UploadError, uploader.errors if uploader.errors?
       puts "finished: #{name}"
     end
   end
