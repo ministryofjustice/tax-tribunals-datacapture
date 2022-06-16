@@ -20,12 +20,16 @@ class Admin::RestoreImagesJob
       File.binwrite(temp, Base64.decode64(data).force_encoding('utf-8'))
 
       # Upload new file
-      uploader = DocumentUpload.new(temp, document_key: folder, filename: "restored_#{filename}", content_type: MimeMagic.by_path(name).try(:type),
-    collection_ref: collection_ref)
+      uploader = DocumentUpload.new(
+        temp,
+        document_key: folder,
+        filename: "restored_#{filename}",
+        content_type: MimeMagic.by_path(name).try(:type),
+        collection_ref: collection_ref
+      )
 
       uploader.upload! if uploader.valid?
       # sleep(1)
-
 
       raise UploadError, uploader.errors if uploader.errors?
       puts "finished: #{name}"
