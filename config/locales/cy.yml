@@ -1243,6 +1243,7 @@ cy:
       note_number: "Gwnewch nodyn o'r rhif hwn rhag ofn y byddwch angen cysylltu â ni. Byddwn hefyd yn anfon y rhif hwn atoch mewn neges e-bost. "
       case_reference_warning: "Os byddwch yn dewis peidio â chael copi o fanylion yr achos drwy e-bost, argymhellir yn gryf eich bod yn eu cadw neu'n eu hargraffu ar gyfer eich cofnodion. "
     file_upload:
+      file_warning: "Ni allwch weld dogfen unwaith y bydd wedi'i llwytho i fyny na gweld dogfen sydd wedi ei dileu. Gwiriwch y dogfennau cyn eu llwytho i fyny."
       cancel_upload: Canslo
       confirm_cancel_upload: "Ydych chi'n siŵr eich bod eisiau canslo llwytho'r ddogfen?"
       confirm_delete: "Ydych chi'n siŵr eich bod eisiau dileu'r ffeil hon?"

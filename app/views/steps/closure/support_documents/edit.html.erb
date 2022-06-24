@@ -9,6 +9,8 @@
 
     <p class="govuk-caption-m"><%=t '.lead_text' %></p>
 
+    <p class="govuk-body"><%= t 'shared.file_upload.file_warning' %></p>
+
     <%= render partial: 'steps/shared/file_upload_requirements' %>
 
     <%= form_tag documents_url(document_key: :supporting_documents), multipart: true, class: 'no-js-only' do %>
