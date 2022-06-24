@@ -1421,6 +1421,7 @@ en:
       note_number: Make a note of this number in case you need to contact us. We will also email the number to you.
     file_upload:
       header: File upload requirements
+      file_warning: You cannot view a document once it has been uploaded nor view a document to be removed. Please check documents prior to upload.
       file_list_html: |
         <ul class="govuk-list govuk-list--bullet">
           <li>File formats: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF</li>
