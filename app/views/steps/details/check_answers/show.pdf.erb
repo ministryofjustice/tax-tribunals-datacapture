@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8"/>
     <title><%= translate_with_appeal_or_application('check_answers.pdf.header.appeal_heading') %> <%=t 'shared.language' %></title>
-    <%#= stylesheet_link_tag wicked_pdf_asset_base64('local/case_details_pdf') -%>
-    <%= stylesheet_link_tag 'local/case_details_pdf' -%>
   </head>
 
   <body id="case-details-pdf">
-    <%= stylesheet_link_tag ('local/case_details_pdf') -%>
+    <%= render partial: 'application/check_answers_css' %>
     <%= render partial: 'application/check_answers_header', locals: {heading_key: 'appeal_heading'} %>
     <%= render @presenter.sections %>
   </body>
