@@ -7,7 +7,6 @@ module Steps::Details
 
       respond_to do |format|
         format.html
-        # format.pdf { render @presenter.pdf_params }
         format.pdf {
           summary = render_to_string "show.pdf.erb"
           render_pdf summary, filename: @presenter.pdf_filename

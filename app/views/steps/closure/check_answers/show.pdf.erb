@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8"/>
     <title><%=t 'check_answers.pdf.header.closure_heading' %> <%=t 'shared.language' %></title>
-    <%#= stylesheet_link_tag wicked_pdf_asset_base64('local/case_details_pdf') -%>
   </head>
 
   <body id="case-details-pdf">
-    <%= stylesheet_link_tag ('local/case_details_pdf') -%>
+    <%= render partial: 'application/check_answers_css' %>
     <%= render partial: 'application/check_answers_header', locals: {heading_key: 'closure_heading'} %>
     <%= render @presenter.sections %>
   </body>

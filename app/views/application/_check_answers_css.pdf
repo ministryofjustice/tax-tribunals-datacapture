@@ -1,0 +1,95 @@
+<style type="text/css">
+  #case-details-pdf {
+    font-family: "nta", Arial, sans-serif;
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+
+    .pdf-header {
+      h1 {
+        font-size: 110%;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 110%;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+
+    p.generated-at {
+      font-size: 60%;
+    }
+
+    h2.section-header {
+      font-size: 110%;
+      font-weight: 700;
+      border-bottom: 1px solid #6f777b;
+      margin: 40px 0 0;
+      padding: 5px 0;
+    }
+
+    table {
+      border-spacing: 0;
+      width: 100%;
+    }
+
+    td {
+      vertical-align: top;
+      font-size: 80%;
+      border-bottom: 1px solid #bfc1c3;
+      margin: 0;
+      padding: 10px 5px;
+    }
+
+    td.question {
+      font-weight: 700;
+      width: 30%;
+      padding-right: 10px;
+    }
+
+    .user-text {
+      p {
+        margin-top: 0;
+      }
+    }
+
+    .attached-file {
+      h4 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .answer-documents-submitted, .answer-multi-choice {
+      ul {
+        margin: 0;
+        padding: 0 0 0 15px;
+      }
+    }
+
+    .answer-contact-details {
+      p {
+        margin: 0;
+      }
+
+      p:last-child {
+        margin-top: 10px;
+      }
+    }
+
+    div.newpage {
+      page-break-before: always;
+    }
+
+    span.case-reference {
+      font-size: 80%;
+    }
+  }
+
+</style>
