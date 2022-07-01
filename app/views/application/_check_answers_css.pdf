@@ -1,95 +1,100 @@
 <style type="text/css">
+  /* line 1, app/assets/stylesheets/local/case_details_pdf.scss */
   #case-details-pdf {
     font-family: "nta", Arial, sans-serif;
     padding: 20px;
     width: 70%;
     margin: 0 auto;
-
-    .pdf-header {
-      h1 {
-        font-size: 110%;
-        font-weight: 700;
-        margin: 0;
-      }
-
-      h2 {
-        font-size: 110%;
-        font-weight: 400;
-        margin: 0;
-      }
-    }
-
-    p.generated-at {
-      font-size: 60%;
-    }
-
-    h2.section-header {
-      font-size: 110%;
-      font-weight: 700;
-      border-bottom: 1px solid #6f777b;
-      margin: 40px 0 0;
-      padding: 5px 0;
-    }
-
-    table {
-      border-spacing: 0;
-      width: 100%;
-    }
-
-    td {
-      vertical-align: top;
-      font-size: 80%;
-      border-bottom: 1px solid #bfc1c3;
-      margin: 0;
-      padding: 10px 5px;
-    }
-
-    td.question {
-      font-weight: 700;
-      width: 30%;
-      padding-right: 10px;
-    }
-
-    .user-text {
-      p {
-        margin-top: 0;
-      }
-    }
-
-    .attached-file {
-      h4 {
-        margin: 0;
-      }
-
-      p {
-        margin: 0;
-      }
-    }
-
-    .answer-documents-submitted, .answer-multi-choice {
-      ul {
-        margin: 0;
-        padding: 0 0 0 15px;
-      }
-    }
-
-    .answer-contact-details {
-      p {
-        margin: 0;
-      }
-
-      p:last-child {
-        margin-top: 10px;
-      }
-    }
-
-    div.newpage {
-      page-break-before: always;
-    }
-
-    span.case-reference {
-      font-size: 80%;
-    }
   }
 
+  /* line 8, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .pdf-header h1 {
+    font-size: 110%;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* line 14, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .pdf-header h2 {
+    font-size: 110%;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /* line 21, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf p.generated-at {
+    font-size: 60%;
+  }
+
+  /* line 25, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf h2.section-header {
+    font-size: 110%;
+    font-weight: 700;
+    border-bottom: 1px solid #6f777b;
+    margin: 40px 0 0;
+    padding: 5px 0;
+  }
+
+  /* line 33, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf table {
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  /* line 38, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf td {
+    vertical-align: top;
+    font-size: 80%;
+    border-bottom: 1px solid #bfc1c3;
+    margin: 0;
+    padding: 10px 5px;
+  }
+
+  /* line 46, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf td.question {
+    font-weight: 700;
+    width: 30%;
+    padding-right: 10px;
+  }
+
+  /* line 53, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .user-text p {
+    margin-top: 0;
+  }
+
+  /* line 59, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .attached-file h4 {
+    margin: 0;
+  }
+
+  /* line 63, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .attached-file p {
+    margin: 0;
+  }
+
+  /* line 69, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .answer-documents-submitted ul, #case-details-pdf .answer-multi-choice ul {
+    margin: 0;
+    padding: 0 0 0 15px;
+  }
+
+  /* line 76, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .answer-contact-details p {
+    margin: 0;
+  }
+
+  /* line 80, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf .answer-contact-details p:last-child {
+    margin-top: 10px;
+  }
+
+  /* line 85, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf div.newpage {
+    page-break-before: always;
+  }
+
+  /* line 89, app/assets/stylesheets/local/case_details_pdf.scss */
+  #case-details-pdf span.case-reference {
+    font-size: 80%;
+  }
 </style>
