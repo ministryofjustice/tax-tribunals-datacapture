@@ -11,10 +11,11 @@ RSpec.describe TaxTribs::CaseDetailsPdf do
   }
   let(:controller_ctx) {
     double(
-      ApplicationController,
+      AppealCasesController,
       pdf_template: 'show_this',
       render_to_string: 'this is a pdf',
-      current_tribunal_case: tribunal_case
+      current_tribunal_case: tribunal_case,
+      name: 'AppealCasesController'
     )
   }
   let(:presenter) { instance_double(CheckAnswers::AnswersPresenter, pdf_filename: 'TC_2016_12345_FirstnameLastname') }

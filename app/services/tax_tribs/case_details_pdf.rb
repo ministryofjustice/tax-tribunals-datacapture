@@ -19,10 +19,7 @@ class TaxTribs::CaseDetailsPdf
 
   def generate
     html = controller_ctx.render_to_string(render_options)
-    @pdf = Grover.new(html, format: 'A4').to_pdf
-  rescue StandardError => exception
-    Sentry.capture_exception(exception)
-    raise exception
+    @pdf = TaxTribs::GroverPdf.new(@tribunal_case, html, @controller_ctx.name)
   end
 
   def generate_and_upload
