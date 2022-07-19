@@ -3,11 +3,11 @@ class ClosureCasesController < GlimrCasesController
     'steps/closure/check_answers/show'
   end
 
-  private
-
   def presenter_class
     CheckAnswers::ClosureAnswersPresenter
   end
+
+  private
 
   def confirmation_path
     steps_closure_confirmation_path

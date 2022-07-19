@@ -16,6 +16,9 @@ task :daily_tasks do
   puts "Backup noas"
   Rake::Task['backup_noas'].invoke
 
+  puts "Uncreated pdfs"
+  Rake::Task['uncreated_pdfs'].invoke
+
   puts "#{Time.now} Finished daily tasks"
 end
 
