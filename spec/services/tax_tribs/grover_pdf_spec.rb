@@ -26,7 +26,7 @@ RSpec.describe TaxTribs::GroverPdf do
       end
       it 'should mark the tribunal case as attempted' do
         described_class.
-          new(tribunal_case, 'ABC', controller_name, true)
+          new(tribunal_case, 'ABC', controller_name, test_early_exit: true)
           .generate
         expect(tribunal_case.pdf_generation_status).to eq(
           'APPEAL_ATTEMPT'
@@ -67,7 +67,7 @@ RSpec.describe TaxTribs::GroverPdf do
         expect(Grover).to receive(:new).and_raise(StandardError)
       end
       it 'should mark the tribunal case as attempted' do
-        described_class.new(tribunal_case, 'ABC', controller_name, true).generate
+        described_class.new(tribunal_case, 'ABC', controller_name, test_early_exit: true).generate
         expect(tribunal_case.pdf_generation_status).to eq(
           'CLOSURE_ATTEMPT'
         )
