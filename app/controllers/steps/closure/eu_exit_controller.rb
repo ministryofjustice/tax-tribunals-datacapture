@@ -9,7 +9,17 @@ module Steps::Closure
     end
 
     def update
-      update_and_advance(Steps::Shared::EuExitForm)
+      if params[:steps_shared_eu_exit_form].nil?
+        skip_eu_exit_page
+      else
+        update_and_advance(Steps::Shared::EuExitForm)
+      end
+    end
+
+    private
+
+    def skip_eu_exit_page
+      redirect_to steps_closure_need_support_path
     end
   end
 end
