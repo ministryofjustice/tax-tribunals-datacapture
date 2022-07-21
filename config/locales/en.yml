@@ -541,7 +541,9 @@ en:
         heading: Do you want to be able to save and return to this appeal?
         lead_text: Creating an account will allow you to save an incomplete appeal and return to it later.
         lead_text_2: If you choose not to create an account and you do not submit your appeal, then any information you have provided will be lost, and you will need to start again.
-        save_for_later: Create an account (optional)
+        answers:
+            save_for_later: Create an account (optional)
+            return_to_saved_appeal: Return to a saved appeal or application (optional)
     select_language:
       edit:
         page_title: *select_language_question
@@ -837,6 +839,10 @@ en:
       select_language_save_language_form:
         language_options:
           <<: *SUPPORTED_LANGUAGES
+      save_or_return_save_form:
+        save_or_return_options:
+            save_for_later: Create an account (optional)
+            return_to_saved_appeal: Return to a saved appeal or application (optional)
       steps_appeal_case_type_form:
         case_type_options:
           income_tax_html: "<strong>Income Tax</strong><br>including tax paid through
