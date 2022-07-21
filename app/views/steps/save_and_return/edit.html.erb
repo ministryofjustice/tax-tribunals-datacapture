@@ -10,7 +10,8 @@
 
     <%= step_form @form_object, html:{ class: 'ga-radioButtonGroup'  } do |f| %>
       <div class="govuk-form-group">
-        <%= f.govuk_check_box :save_for_later, true, multiple: false, link_errors: true, label: { text: t('.save_for_later') } %>
+        <%= f.govuk_radio_button :save_or_return, :save_for_later, label: { text: t('helpers.label.save_or_return_save_form.save_or_return_options.save_for_later') } %>
+        <%= f.govuk_radio_button :save_or_return, :return_to_saved_appeal, label: { text: t('helpers.label.save_or_return_save_form.save_or_return_options.return_to_saved_appeal') } %>
       </div>
 
       <%= f.govuk_submit t('helpers.submit.update') %>

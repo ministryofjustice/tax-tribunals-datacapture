@@ -834,6 +834,10 @@ cy:
       select_language_save_language_form:
         language_options:
           <<: *SUPPORTED_LANGUAGES
+      save_or_return_save_form:
+        save_or_return_options:
+            save_for_later: "Creu cyfrif (dewisol)"
+            return_to_saved_appeal: "Dychwelyd at apêl neu gais sydd wedi'i gadw (dewisol)"
       generic_representative_contact_labels:
         <<: *REP_ADDRESS
       generic_taxpayer_contact_labels:
@@ -1666,6 +1670,10 @@ cy:
         lead_text_2: "Os ydych chi'n dewis peidio â chreu cyfrif ac nad ydych yn cyflwyno eich apêl, yna byddwch yn colli unrhyw wybodaeth yr ydych wedi'i rhoi a bydd rhaid i chi ddechrau eto. "
         page_title: "Ydych chi eisiau gallu cadw a dychwelyd at yr apêl hon?"
         save_for_later: "Creu cyfrif (dewisol)"
+        return_to_saved_appeal: "Dychwelyd at apêl neu gais sydd wedi'i gadw (dewisol)"
+        answers:
+            save_for_later: "Creu cyfrif (dewisol)"
+            return_to_saved_appeal: "Dychwelyd at apêl neu gais sydd wedi'i gadw (dewisol)"
     select_language:
       edit:
         page_title: *select_language_question

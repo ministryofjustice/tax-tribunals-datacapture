@@ -1,13 +1,7 @@
 module SaveAndReturn
   class SaveForm < BaseForm
-    attribute :save_for_later, Boolean
+    attribute :save_or_return, String
 
-    def decision_tree(intent_value)
-      if intent_value == :tax_appeal
-        AppealDecisionTree
-      elsif intent_value ==  :close_enquiry
-        TaxTribs::ClosureDecisionTree
-      end
-    end
+    validates :save_or_return, inclusion: { in: [:save_for_later, :return_to_saved_appeal] }, allow_nil: true
   end
 end
