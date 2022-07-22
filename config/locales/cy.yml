@@ -64,6 +64,9 @@ cy:
           confirmation_email: "Byddwn yn anfon e-bost cadarnhau atoch"
           last_opportunity_warning: Rhybudd
           last_opportunity_warning_message: "PWYSIG! Dyma eich cyfle olaf i gadw neu argraffu copi o fanylion eich achos ar-lein. "
+          taxpayer_copy_message: "Os ydych am i gopi o fanylion yr achos gael ei anfon at y trethdalwr, y cynrychiolydd, neu'r ddau, bydd yr achos a gyflwynwyd gennych yn cael ei anfon mewn e-bost ar wahân."
+          tax_chamber_success_message: "Mae eich wedi’i chyflwyno’n llwyddiannus i’r Tribiwnlys Haen Gyntaf (Siambr Treth)."
+          tax_chamber_success_evidence_message: "Mae hyn yn cynnwys unrhyw dystiolaeth a ddarperir."
           page_title: "Achos wedi'i gyflwyno"
           save_or_print_pdf: "Cadw neu argraffu manylion eich achos"
           what_happens_next_html: |-
