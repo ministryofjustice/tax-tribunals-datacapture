@@ -107,6 +107,9 @@ en:
             </p>
           last_opportunity_warning: Warning
           last_opportunity_warning_message: IMPORTANT! This is your last opportunity to save or print a copy of your case details online.
+          taxpayer_copy_message: If you chose to have a copy of the case details sent to the taxpayer, representative, or both, your submitted case will be sent as a separate email.
+          tax_chamber_success_message: Your appeal to the First-tier Tribunal (Tax Chamber) has been submitted successfully.
+          tax_chamber_success_evidence_message: This includes any evidence provided.
   application:
     name: Appeal to the tax tribunal
   steps:
