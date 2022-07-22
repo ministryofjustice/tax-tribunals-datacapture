@@ -5,8 +5,8 @@
   <div class="govuk-panel__body"><%= t '.confirmation_email' %></div>
 </div>
 
-<p class="govuk-body"><%= t '.tax_chamber_success_message'%></p>
-<p class="govuk-body"><%= t '.tax_chamber_success_evidence_message'%></p>
+<p class="govuk-body"><%= t '.tax_chamber_success_message' %></p>
+<p class="govuk-body"><%= t '.tax_chamber_success_evidence_message' %></p>
 
 <%= render partial: 'shared/confirmation_case_reference', locals: {tribunal_case: @tribunal_case} %>
 
@@ -22,7 +22,7 @@
   </strong>
 </div>
 
-<p class="govuk-body"><%= t '.taxpayer_copy_message'%></p>
+<p class="govuk-body"><%= t '.taxpayer_copy_message' %></p>
 
 <%= t '.what_happens_next_html', tax_tribunal_phone: Rails.application.config.tax_tribunal_phone  %>
 
