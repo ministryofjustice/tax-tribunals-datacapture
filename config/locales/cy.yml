@@ -1267,6 +1267,9 @@ cy:
           <li>Fformatau ffeiliau: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF</li>
           <li>Maint ffeil fesul dogfen: hyd at 20 megabeit (MB)</li>
           <li>Ni ellir llwytho ffeiliau sydd wedi'u diogelu â chyfrinair</li>
+          <li>Peidiwch â defnyddio’r nodau (penodol) hyn mewn enw ffeil - #, $, +, %, &, {}, [], <>,*, =, a ? Gall y rhain achosi problem wrth geisio uwchlwytho’r ffeil neu ddod o hyd i’r ffeil wedi i chi ei huwchlwytho</li>
+          <li>Peidiwch â defnyddio bylchau neu atalnodau llawn ('.') ar ddechrau neu ddiwedd enw ffeil. Gall hyn achosi problem wrth geisio uwchlwytho’r ffeil neu ddod o hyd i’r ffeil wedi i chi ei uwchlwytho</li>
+          <li>Os caiff nodau annilys eu defnyddio mewn enw ffeil, bydd y system yn ceisio tynnu'r rhain, gan olygu bydd enw’r ffeil a uwchlwythwyd yn newid ar y pwynt uwchlwytho. Gall problemau godi wrth geisio dod o hyd i’r ffeil wedi i chi ei huwchlwytho</li>
         </ul>
       file_too_big: " mae'n rhy fawr. Bydd angen ichi ailgyflwyno fersiwn sy'n llai na XXX megabeit (MB)."
       file_wrong_format: " mae mewn fformat ni allwn dderbyn. Gallwch lwytho ffeiliau JPG, PNG, GIF, PDF, Word neu Excel."
