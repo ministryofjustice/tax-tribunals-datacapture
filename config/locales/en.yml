@@ -1436,6 +1436,9 @@ en:
           <li>File formats: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF</li>
           <li>File size per document: up to 20 megabytes (MB)</li>
           <li>Files cannot be password protected</li>
+          <li>Do not use the following (reserved) characters in the filename - #, $, +, %, &, {}, [], <>,*, =, and ? as these may result in a problem uploading the file or retrieving the file once uploaded</li>
+          <li>Do not use spaces and full stops ('.') at the start or end of the filename as this may result in a problem uploading the file or retrieving the file once uploaded</li>
+          <li>If invalid characters are left within the filename, the system will attempt to remove these, resulting in the uploaded filename being different to the filename at the point of upload. A problem may also be encountered when retrieving the file once uploaded</li>
         </ul>
       footer: You can’t upload executable (.exe), zip or other archive files due to
         virus risks.
