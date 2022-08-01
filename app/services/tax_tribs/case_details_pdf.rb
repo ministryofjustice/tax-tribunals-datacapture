@@ -19,7 +19,7 @@ class TaxTribs::CaseDetailsPdf
 
   def generate
     html = controller_ctx.render_to_string(render_options)
-    @pdf = TaxTribs::GroverPdf.new(@tribunal_case, html, @controller_ctx.class.name)
+    @pdf = TaxTribs::GroverPdf.new(@tribunal_case, html, @controller_ctx.class.name).generate
   end
 
   def generate_and_upload
