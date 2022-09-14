@@ -180,6 +180,7 @@ Rails.application.routes.draw do
     resources :other_case_types_report, only: [:index]
     resources :other_dispute_types_report, only: [:index]
     resources :glimr_generation, only: [:new, :create]
+    resources :case_documents, only: [:show]
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
       ActiveSupport::SecurityUtils.secure_compare(
         username,
