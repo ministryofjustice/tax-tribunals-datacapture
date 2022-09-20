@@ -14,7 +14,7 @@
         <%= f.govuk_radio_button :save_or_return, :return_to_saved_appeal, label: { text: t('helpers.label.save_or_return_save_form.save_or_return_options.return_to_saved_appeal') } %>
       </div>
 
-      <%= f.govuk_submit t('helpers.submit.update') %>
+      <%= f.submit class: 'govuk-button' %>
     <% end %>
 
   </div>
