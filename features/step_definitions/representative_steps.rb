@@ -109,7 +109,7 @@ end
 Then("I will see the additional information and move to the next page") do
   expect(representative_approval_page.content).to have_authorise_dropdown_content
   expect(representative_approval_page.content).to have_file_requirements_dropdown_content
-  continue_or_save_continue
+  save_and_continue
   expect(representative_type_page.content).to have_header
 end
 

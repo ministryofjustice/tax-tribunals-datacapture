@@ -3,7 +3,7 @@ class SaveReturnPage < BasePage
 
   section :content, '#main-content' do
     element :header, 'h1', text: I18n.t('steps.save_and_return.edit.page_title')
-    element :create_account_checkbox, 'label', text: I18n.t('steps.save_and_return.edit.save_for_later')
+    element :create_account_checkbox, 'label', text: I18n.t('steps.save_and_return.edit.answers.save_for_later')
   end
 
   def skip_save_and_return
