@@ -28,8 +28,4 @@ class Uploader
       filename:       args[:filename],
     ).call
   end
-
-  def self.signer
-    Azure::Storage::Common::Core::Auth::SharedAccessSignature.new
-  end
 end

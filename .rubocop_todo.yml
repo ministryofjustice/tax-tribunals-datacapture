@@ -490,6 +490,7 @@ Naming/HeredocDelimiterCase:
 Naming/MemoizedInstanceVariableName:
   Exclude:
     - 'app/services/tax_tribs/status.rb'
+    - 'app/controllers/admin/case_documents_controller.rb'
 
 # Offense count: 1
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.

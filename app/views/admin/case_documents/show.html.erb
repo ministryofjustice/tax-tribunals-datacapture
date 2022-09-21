@@ -1,6 +1,6 @@
 <% title 'Download case files' %>
 
-<div class="grid-row">
+<div class="grid-row" style="min-height: 600px;">
   <% if @tribunal_case.nil? %>
     <div class="column-full">
       <h2 class="heading-medium">Case not found</h2>
@@ -25,7 +25,6 @@
           <ul class="font-xsmall">
             <li>Right mouse click the link and select "Save Target As."</li>
             <li>Follow prompts to save the file to your location.</li>
-            <li><a href='/logout'>Logout</a></li>
           </ul>
         </nav>
       </aside>

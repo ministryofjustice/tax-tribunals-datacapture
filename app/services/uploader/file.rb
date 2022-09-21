@@ -5,11 +5,12 @@ class Uploader
     attr_reader :key
 
     def initialize(key)
+      super
       @key = key
     end
 
     def url
-      file_uri = storage.generate_uri("#{ENV.fetch('AZURE_STORAGE_ACCOUNT')}/#{key}")
+      file_uri = @client.generate_uri("#{ENV.fetch('AZURE_STORAGE_CONTAINER')}/#{key}")
 
       signer.signed_uri(
         file_uri,
@@ -25,25 +26,19 @@ class Uploader
       key.partition('/').last
     end
 
+    # Allow two File objects to be compared
+    def ==(other)
+      key == other.key
+    end
+
+    def hash
+      key.hash
+    end
+
     private
 
     def expires_at
-      EXPIRES_IN ? (Time.now + EXPIRES_IN).utc.iso8601 : nil
+      (Time.now + EXPIRES_IN).utc.iso8601
     end
-
-    def signer
-      Azure::Storage::Common::Core::Auth::SharedAccessSignature.new(
-        ENV.fetch('AZURE_STORAGE_ACCOUNT'),
-        ENV.fetch('AZURE_STORAGE_KEY')
-      )
-    end
-
-    def storage
-      Azure::Storage::Blob::BlobService.create(
-        storage_account_name: ENV.fetch('AZURE_STORAGE_ACCOUNT'),
-        storage_access_key: ENV.fetch('AZURE_STORAGE_KEY')
-      )
-    end
-
   end
 end

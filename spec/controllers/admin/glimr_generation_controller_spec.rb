@@ -14,22 +14,11 @@ RSpec.describe Admin::GlimrGenerationController, type: :controller do
   end
 
   describe '#new' do
-    it_behaves_like 'a password-protected admin controller (#new)'
-
-    context 'correct credentials' do
-      before do
-        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('admin', 'test')
-      end
-
-      it 'returns http success' do
-        local_get :new
-        expect(response).to have_http_status(:success)
-      end
-    end
+    it_behaves_like 'a password-protected admin controller', :new
   end
 
   describe '#create' do
-    it_behaves_like 'a password-protected admin controller (#create)'
+    it_behaves_like 'a password-protected admin controller', :create
 
     context 'correct credentials' do
       before do
