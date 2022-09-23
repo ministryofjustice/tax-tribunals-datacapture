@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::OtherCaseTypesReportController, type: :controller do
+
   before do
     allow(ENV).to receive(:fetch).with('ADMIN_USERNAME').and_return('admin')
     allow(ENV).to receive(:fetch).with('ADMIN_PASSWORD').and_return(
@@ -8,23 +9,6 @@ RSpec.describe Admin::OtherCaseTypesReportController, type: :controller do
     )
   end
 
-  describe '#index' do
-    it_behaves_like 'a password-protected admin controller'
+  it_behaves_like 'a password-protected admin controller', :index
 
-    context 'correct credentials' do
-      before do
-        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('admin', 'test')
-      end
-
-      it 'returns http success' do
-        local_get :index
-        expect(response).to have_http_status(:success)
-      end
-
-      it 'retrieves the cases where case type is `other`' do
-        expect(TribunalCase).to receive(:with_other_case_type).and_return(double.as_null_object)
-        local_get :index
-      end
-    end
-  end
 end
