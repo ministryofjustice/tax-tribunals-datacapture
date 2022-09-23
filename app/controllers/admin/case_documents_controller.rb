@@ -20,5 +20,4 @@ class Admin::CaseDocumentsController < AdminController
     @tribunal_case = TribunalCase.find_by_files_collection_ref params[:id]
     return unless @tribunal_case
   end
-
 end
