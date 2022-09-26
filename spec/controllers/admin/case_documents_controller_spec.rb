@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::CaseDocumentsController, type: :controller, focus: true do
+RSpec.describe Admin::CaseDocumentsController, type: :controller do
 
   let(:tribunal_case){ double('tc', files_collection_ref: 'TC/123') }
   let(:params){ { id: 'TC/123' } }

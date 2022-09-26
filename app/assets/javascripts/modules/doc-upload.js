@@ -85,7 +85,7 @@ moj.Modules.docUpload = {
     if (name) {
       $.ajax({
         type: 'DELETE',
-        url: '/uploader/supporting_documents/documents/' + name,
+        url: '/' + moj.locale +'/uploader/supporting_documents/documents/' + name,
         contentType: 'application/json',
         dataType: 'json',
 
