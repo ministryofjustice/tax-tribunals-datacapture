@@ -160,11 +160,11 @@ class DocumentUpload
 
   def valid_characters?
     return true if file_name.ascii_only?
-    filename = file_name.unicode_normalize(:nfkc)
-    filename = filename.gsub(Regexp.union(WelshCharacters::MAPPING_TO_ASCII.keys), WelshCharacters::MAPPING_TO_ASCII)
-    unless filename.ascii_only?
-      filename = filename.encode(Encoding.find('ASCII'), encoding_options)
+    @file_name = file_name.unicode_normalize(:nfkc)
+    @file_name = @file_name.gsub(Regexp.union(WelshCharacters::MAPPING_TO_ASCII.keys), WelshCharacters::MAPPING_TO_ASCII)
+    unless @file_name.ascii_only?
+      @file_name = @file_name.encode(Encoding.find('ASCII'), encoding_options)
     end
-    filename.ascii_only?
+    @file_name.ascii_only?
   end
 end

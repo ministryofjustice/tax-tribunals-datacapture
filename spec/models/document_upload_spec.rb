@@ -2,7 +2,7 @@ require 'spec_helper'
 
 include ActionDispatch::TestProcess
 
-RSpec.describe DocumentUpload do
+RSpec.describe DocumentUpload, focus: true do
   let(:file_path) { 'files/image.jpg' }
   let(:content_type) { 'image/jpeg' }
   let(:file) { fixture_file_upload(file_path, content_type) }
@@ -112,22 +112,15 @@ RSpec.describe DocumentUpload do
       end
     end
 
-    context 'file is not checked for asci-characters only' do
+    context 'file is checked for ascii-characters' do
       before do
         allow(subject).to receive(:original_filename).and_return('invalid £ name.txt')
       end
 
-      it 'should not be valid' do
-        expect(subject).to receive(:add_error).with(:invalid_characters).and_call_original
-        expect(subject.valid?).to eq(false)
-        expect(subject.errors).not_to be_empty
+      it 'should change the name' do
+        subject.valid?
+        expect(subject.file_name).to eq ('invalid * name.txt')
       end
-
-      it 'and the exception is raised' do
-        allow(subject).to receive(:unique_filename).and_raise(ArgumentError.new)
-        expect(subject.valid?).to eq(false)
-      end
-
     end
 
     context 'file is valid with welsh characters' do
