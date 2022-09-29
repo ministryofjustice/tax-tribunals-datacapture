@@ -134,7 +134,7 @@ class DocumentUpload
   end
 
   def validate
-    add_error(:invalid_characters) unless invalid_characters?
+    add_error(:invalid_characters) unless valid_characters?
     add_error(:file_size) if file_size > MAX_FILE_SIZE.megabytes
     add_error(:content_type) unless content_type.downcase.in?(ALLOWED_CONTENT_TYPES)
   rescue ArgumentError
@@ -149,10 +149,22 @@ class DocumentUpload
     I18n.translate("errors.#{key}", scope: 'document_upload', file_name: original_filename, max_size: MAX_FILE_SIZE)
   end
 
-  def invalid_characters?
+  def encoding_options
+    {
+      invalid: :replace,  # Replace invalid byte sequences
+      undef: :replace,  # Replace anything not defined in ASCII
+      replace: '*',        # Use a blank for those replacements
+      universal_newline: true       # Always break lines with \n
+    }
+  end
+
+  def valid_characters?
     return true if file_name.ascii_only?
-    filename = file_name.unicode_normalize(:nfkc)
-    filename = filename.gsub(Regexp.union(WelshCharacters::MAPPING_TO_ASCII.keys), WelshCharacters::MAPPING_TO_ASCII)
-    filename.ascii_only?
+    @file_name = file_name.unicode_normalize(:nfkc)
+    @file_name = @file_name.gsub(Regexp.union(WelshCharacters::MAPPING_TO_ASCII.keys), WelshCharacters::MAPPING_TO_ASCII)
+    unless @file_name.ascii_only?
+      @file_name = @file_name.encode(Encoding.find('ASCII'), encoding_options)
+    end
+    @file_name.ascii_only?
   end
 end
