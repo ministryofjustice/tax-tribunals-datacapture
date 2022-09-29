@@ -151,10 +151,10 @@ class DocumentUpload
 
   def encoding_options
     {
-      :invalid           => :replace,  # Replace invalid byte sequences
-      :undef             => :replace,  # Replace anything not defined in ASCII
-      :replace           => '*',        # Use a blank for those replacements
-      :universal_newline => true       # Always break lines with \n
+      invalid: :replace,  # Replace invalid byte sequences
+      undef: :replace,  # Replace anything not defined in ASCII
+      replace: '*',        # Use a blank for those replacements
+      universal_newline: true       # Always break lines with \n
     }
   end
 
