@@ -181,6 +181,7 @@ Rails.application.routes.draw do
     resources :other_dispute_types_report, only: [:index]
     resources :glimr_generation, only: [:new, :create]
     resources :case_documents, only: [:show]
+    get 'documents/*path', to: 'case_documents#tc'
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
       ActiveSupport::SecurityUtils.secure_compare(
         username,
