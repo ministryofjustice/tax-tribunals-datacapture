@@ -15,7 +15,7 @@ class Admin::CaseDocumentsController < AdminController
   end
 
   def tc
-    tc = request.url.split('/')[-3..-1].join('/')
+    tc = request.url.split('/')[-3..].join('/')
     @tribunal_case = TribunalCase.find_by_case_reference tc
     return unless @tribunal_case
 
