@@ -146,12 +146,13 @@ moj.Modules.addressLookup = {
   renderAddressOptions: function(data) {
     const self = this,
           $addressBox = $(self.selectors.addressOptions),
+          $formGroup = $(self.selectors.formGroup),
           adrFound = $(self.selectors.addressesFound).text(),
           noAdrFound = $(self.selectors.noAddressFound).text();
 
     self.addresses = data.results;
 
-    if (self.addresses.length > 0) {
+    if (self.addresses) {
       var options = $.map(self.addresses, (self.formatOptions).bind(self));
       options.unshift('<option>' + options.length + ' ' + adrFound + '</option>');
       $addressBox.find('p').hide();
@@ -162,6 +163,8 @@ moj.Modules.addressLookup = {
       $addressBox.find('select').hide();
       $addressBox.find('p').html(noAdrFound).show();
       $addressBox.show();
+      $formGroup.addClass(self.classes.formGroupError);
+      $formGroup.find(self.selectors.postcode).addClass(self.classes.inputError);
     }
   },
 
