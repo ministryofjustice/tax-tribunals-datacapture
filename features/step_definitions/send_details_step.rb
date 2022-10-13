@@ -6,7 +6,6 @@ end
 When("I submit yes and submit blank email field") do
   expect(send_representative_copy_page.content).to have_header
   submit_yes
-  expect(send_representative_copy_page.content).to have_header
 end
 
 When("I submit an email that doesn't match on the send representative copy page") do

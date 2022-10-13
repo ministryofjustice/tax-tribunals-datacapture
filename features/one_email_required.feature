@@ -14,7 +14,7 @@ Feature: One email required
     And I submit that the representative is a practising solicitor
     And I submit that the representative is an individual
     And I submit a blank representative details form
-    Then I should not see an email error
+    Then I should see a blank email error
 
   Scenario: Started by representative
     Given I submit that I am not the tax payer making the application

@@ -6,8 +6,8 @@ Feature: Send details
     And I submit that the representative is a practising solicitor
     And I submit that the representative is an individual
     And I successfully submit representative details without email
-    When I submit yes and submit blank email field
     Then I should see a blank email error
+    And I successfully submit representative details with email
     When I submit an email that doesn't match on the send representative copy page
     Then I should see not matching email error
     Given I go back to representative details page and add an email address and submit
