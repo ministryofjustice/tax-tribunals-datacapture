@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_19_111322) do
+ActiveRecord::Schema.define(version: 2022_12_16_104212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_07_19_111322) do
     t.string "send_representative_copy"
     t.string "language"
     t.string "pdf_generation_status"
+    t.boolean "taxpayer_feedback_consent", default: false
+    t.boolean "representative_feedback_consent", default: false
     t.index ["case_reference"], name: "index_tribunal_cases_on_case_reference", unique: true
     t.index ["user_id"], name: "index_tribunal_cases_on_user_id"
   end

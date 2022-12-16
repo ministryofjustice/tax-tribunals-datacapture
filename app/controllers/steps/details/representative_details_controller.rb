@@ -17,7 +17,8 @@ module Steps::Details
         representative_contact_city: current_tribunal_case.representative_contact_city,
         representative_contact_country: current_tribunal_case.representative_contact_country,
         representative_contact_email: current_tribunal_case.representative_contact_email,
-        representative_contact_phone: current_tribunal_case.representative_contact_phone
+        representative_contact_phone: current_tribunal_case.representative_contact_phone,
+        representative_feedback_consent: current_tribunal_case.representative_feedback_consent
       )
     end
 

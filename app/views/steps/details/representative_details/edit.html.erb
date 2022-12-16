@@ -25,6 +25,8 @@
           <%= f.govuk_text_field :representative_organisation_fao, width: 'one-half' %>
       <% end %>
       <%= f.govuk_text_field :representative_contact_email, width: 'one-half' %>
+      <%= f.govuk_check_box :representative_feedback_consent, :representative_feedback_consent, multiple: false, label: { text: t('.representative_feedback_consent_question'), size: 's', style: 'padding-top: 0;padding-bottom: 14px;font-weight: normal;' } %>
+
       <%= f.govuk_text_field :representative_contact_phone, width: 'one-half' %>
       <% if @form_object.show_registration_number? %>
           <%= f.govuk_text_field :representative_organisation_registration_number, width: 'one-half' %>

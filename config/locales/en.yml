@@ -307,6 +307,7 @@ en:
         edit:
           heading: Enter taxpayer's details
           page_title: Taxpayer's details
+          taxpayer_feedback_consent_question: Check this box if you're willing to share your experience of this service. A member of our team may contact you. We won't use your email address for any other reason.
       has_representative:
         edit:
           heading: Do you have someone to represent you?
@@ -396,6 +397,7 @@ en:
               behalf, all correspondence will be sent to the address and email address
               you enter below.
           page_title: Representative's details
+          representative_feedback_consent_question: Check this box if you're willing to share your experience of this service. A member of our team may contact you. We won't use your email address for any other reason.
       grounds_for_appeal:
         edit:
           heading: Grounds for %{appeal_or_application}

@@ -17,7 +17,8 @@ module Steps::Details
         taxpayer_contact_city: current_tribunal_case.taxpayer_contact_city,
         taxpayer_contact_country: current_tribunal_case.taxpayer_contact_country,
         taxpayer_contact_email: current_tribunal_case.taxpayer_contact_email,
-        taxpayer_contact_phone: current_tribunal_case.taxpayer_contact_phone
+        taxpayer_contact_phone: current_tribunal_case.taxpayer_contact_phone,
+        taxpayer_feedback_consent: current_tribunal_case.taxpayer_feedback_consent
       )
     end
 

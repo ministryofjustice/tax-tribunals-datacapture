@@ -1579,6 +1579,7 @@ cy:
             as_representative: "Os yw'r trethdalwr wedi eich awdurdodi chi i weithredu ar eu rhan, fe anfonir yr holl ohebiaeth i'r cyfeiriad a'r cyfeiriad e-bost y byddwch yn ei roi isod."
             as_taxpayer: "Os ydych wedi awdurdodi eich cynrychiolydd i weithredu ar eich rhan, fe anfonir yr holl ohebiaeth i'r cyfeiriad neu'r cyfeiriad e-bost y byddwch yn ei roi isod. "
           page_title: "Manylion y cynrychiolydd"
+          representative_feedback_consent_question: "Ticiwch y blwch hwn os ydych chi'n barod i rannu'ch profiad o'r gwasanaeth hwn. Efallai y bydd aelod o'r tîm yn cysylltu â chi. Ni fyddwn yn defnyddio'ch cyfeiriad e-bost at unrhyw bwrpas arall."
       representative_professional_status:
         edit:
           heading:
@@ -1599,6 +1600,7 @@ cy:
         edit:
           heading: "Nodwch fanylion y trethdalwr"
           page_title: "Manylion y trethdalwr"
+          taxpayer_feedback_consent_question: "Ticiwch y blwch hwn os ydych chi'n barod i rannu'ch profiad o'r gwasanaeth hwn. Efallai y bydd aelod o'r tîm yn cysylltu â chi. Ni fyddwn yn defnyddio'ch cyfeiriad e-bost at unrhyw bwrpas arall."
       taxpayer_type:
         edit:
           heading:

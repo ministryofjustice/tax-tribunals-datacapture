@@ -6,6 +6,7 @@ module Steps::Details
     attribute :taxpayer_contact_country, StrippedString
     attribute :taxpayer_contact_email, NormalisedEmail
     attribute :taxpayer_contact_phone, StrippedString
+    attribute :taxpayer_feedback_consent, Boolean
 
     validates_presence_of :taxpayer_contact_address,
                           :taxpayer_contact_postcode,
@@ -58,7 +59,8 @@ module Steps::Details
         taxpayer_contact_city:     taxpayer_contact_city,
         taxpayer_contact_country:  taxpayer_contact_country,
         taxpayer_contact_email:    taxpayer_contact_email,
-        taxpayer_contact_phone:    taxpayer_contact_phone
+        taxpayer_contact_phone:    taxpayer_contact_phone,
+        taxpayer_feedback_consent: taxpayer_feedback_consent
       }.merge(additional_attributes))
     end
   end

@@ -21,6 +21,11 @@
           <%= f.govuk_text_field :taxpayer_organisation_fao, width: 'one-half' %>
         <% end %>
         <%= f.govuk_text_field :taxpayer_contact_email, width: 'one-half' %>
+
+        <%= f.govuk_check_box :taxpayer_feedback_consent, :taxpayer_feedback_consent, multiple: false,
+        label: { text: t('.taxpayer_feedback_consent_question'), size: 's',
+        style: 'padding-top: 0;padding-bottom: 14px;font-weight: normal;' } %>
+
         <%= f.govuk_text_field :taxpayer_contact_phone, width: 'one-half' %>
         <% if @form_object.show_registration_number? %>
           <%= f.govuk_text_field :taxpayer_organisation_registration_number, width: 'one-half' %>
