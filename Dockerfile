@@ -71,7 +71,13 @@ RUN apk --no-cache add --virtual build-deps \
   freetype \
   harfbuzz \
   ca-certificates \
-  ttf-freefont
+  ttf-freefont \
+  clamav \
+  clamav-daemon
+
+RUN freshclam
+RUN mkdir -p var/run/clamav && chmod 777 /var/run/clamav
+RUN clamd
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \

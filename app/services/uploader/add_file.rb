@@ -21,7 +21,12 @@ class Uploader
     private
 
     def scan_file
-      return if VirusScanner.scan_clear?(@filename, @data)
+      return if ENV.fetch('VIRUS_SCANNER_ENABLED', '') != 'true'
+
+      file_to_test = Tempfile.new
+      file_to_test << @data.force_encoding("UTF-8")
+      file_to_test.rewind
+      return if Clamby.safe?(file_to_test.path)
 
       log_infected_file
       raise Uploader::InfectedFileError
