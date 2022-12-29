@@ -6,7 +6,6 @@ module Steps::Details
     attribute :representative_contact_country, StrippedString
     attribute :representative_contact_email, NormalisedEmail
     attribute :representative_contact_phone, StrippedString
-    attribute :representative_feedback_consent, Boolean
 
     validates_presence_of :representative_contact_address,
                           :representative_contact_postcode,
@@ -56,8 +55,7 @@ module Steps::Details
         representative_contact_city:     representative_contact_city,
         representative_contact_country:  representative_contact_country,
         representative_contact_email:    representative_contact_email,
-        representative_contact_phone:    representative_contact_phone,
-        representative_feedback_consent: representative_feedback_consent
+        representative_contact_phone:    representative_contact_phone
       }.merge(additional_attributes))
     end
   end
