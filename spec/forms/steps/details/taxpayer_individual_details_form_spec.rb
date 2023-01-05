@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm, focus: true do
+RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
   it_behaves_like 'a contactable entity form',
     entity_type: :taxpayer,
     additional_fields: [

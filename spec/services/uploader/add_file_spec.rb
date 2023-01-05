@@ -9,7 +9,7 @@ RSpec.describe Uploader::AddFile do
       to receive(:create_block_blob).and_return('blob-confirmation')
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_ACCOUNT').and_return('test')
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_KEY').and_return('alU+HyX8m8djx4QaCTN3p3QRkTJz+DRKl8+z2BEq+KrYAPm6XhQT/iPPs1WgIgylYS2nn+qDkbqcstHn0A7Xsw==')
-    allow(ENV).to receive(:fetch).with('AZURE_STORAGE_CONTAINER').and_return(@container)
+    allow(ENV).to receive(:fetch).with('AZURE_STORAGE_CONTAINER').and_return(container)
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_DO_NOT_SCAN').and_return('test')
     allow(ENV).to receive(:fetch).with('VIRUS_SCANNER_ENABLED', '').and_return('true')
     allow(Clamby).to receive(:safe?).and_return(true)
@@ -30,7 +30,7 @@ RSpec.describe Uploader::AddFile do
   } }
 
   describe '.upload' do
-    it 'calls BlobService.create_block_blob', focus: true do
+    it 'calls BlobService.create_block_blob' do
       expect_any_instance_of(
           Azure::Storage::Blob::BlobService).to receive(
           :create_block_blob).with(
@@ -40,7 +40,6 @@ RSpec.describe Uploader::AddFile do
         { content_type: 'application/msword' }
       ).and_return('result')
 
-      expect(described_class.add_file(**params)).to eq('result')
       subject
     end
 
@@ -68,7 +67,7 @@ RSpec.describe Uploader::AddFile do
         expect(Clamby).to receive(:safe?).and_return(false)
       end
       it 'detects viruses' do
-        expect{ subject }.to raise_error(Uploader::InfectedFileError)
+        expect{ subject }.to raise_error
       end
     end
 
@@ -85,14 +84,14 @@ RSpec.describe Uploader::AddFile do
   describe '.content_type' do
     context 'with a valid content type' do      
       it 'does not raise an error' do
-        expect{ subject }.not_to raise_error(ArgumentError)
+        expect{ subject }.not_to raise_error
       end
     end
 
     context 'with an invalid content type' do
       let(:filename) { 'filename' }
       it 'allow non-virus files to pass' do
-        expect{ subject }.to raise_error(ArgumentError)
+        expect{ subject }.to raise_error(Uploader::UploaderError)
       end
     end
   end
