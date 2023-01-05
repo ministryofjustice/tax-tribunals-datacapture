@@ -7,8 +7,7 @@ RSpec.describe TaxTribs::StatusController do
       version: 'ABC123',
       dependencies: {
       glimr_status: 'ok',
-      database_status: 'ok',
-      virus_scanner_status: 'ok'
+      database_status: 'ok'
     }
     }.to_json
   end
@@ -21,7 +20,6 @@ RSpec.describe TaxTribs::StatusController do
     stub_request(:get, /status/).
       to_return(status: 200, body: { service_status: 'ok' }.to_json)
     expect(ActiveRecord::Base).to receive(:connection).and_return(double)
-    allow(VirusScanner).to receive(:available?).and_return(true)
     allow_any_instance_of(TaxTribs::Status).to receive(:version).and_return('ABC123')
   end
 

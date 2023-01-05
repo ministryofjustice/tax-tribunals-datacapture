@@ -8,8 +8,8 @@ RSpec.describe Uploader do
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_KEY').and_return('alU+HyX8m8djx4QaCTN3p3QRkTJz+DRKl8+z2BEq+KrYAPm6XhQT/iPPs1WgIgylYS2nn+qDkbqcstHn0A7Xsw==')
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_CONTAINER').and_return(@container)
     allow(ENV).to receive(:fetch).with('AZURE_STORAGE_DO_NOT_SCAN').and_return('test')
-    allow(ENV).to receive(:fetch).with('CLAMAV_URL').and_return('test')
-    allow(VirusScanner).to receive(:scan_clear?).and_return(true)
+    allow(ENV).to receive(:fetch).with('VIRUS_SCANNER_ENABLED', '').and_return('true')
+    allow(Clamby).to receive(:safe?).and_return(true)
     allow_any_instance_of(Azure::Storage::Blob::BlobService).
       to receive(:create_block_blob).and_return('blob-confirmation')
     allow_any_instance_of(described_class::AddFile).to receive(:sleep).and_return(nil)
@@ -47,15 +47,15 @@ RSpec.describe Uploader do
     end
 
     it 'scans files' do
-      expect(VirusScanner).
-        to receive(:scan_clear?).and_return(true)
+      expect(Clamby).
+        to receive(:safe?).and_return(true)
 
       described_class.add_file(**params)
     end
 
     it 'raises an infected file error' do
-      expect(VirusScanner).
-        to receive(:scan_clear?).and_return(false)
+      expect(Clamby).
+        to receive(:safe?).and_return(false)
 
       expect{
         described_class.add_file(**params)
