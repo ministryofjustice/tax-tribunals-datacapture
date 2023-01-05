@@ -14,8 +14,12 @@ GIT
       typhoeus (~> 1.1.2)
 
 GEM
-  remote: https://rubygems.org/
   remote: https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev/
+  specs:
+    mutant-license (0.1.1.2.1739399027284447558325915053311580324856.4)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (6.0.4.8)
       actionpack (= 6.0.4.8)
@@ -286,7 +290,6 @@ GEM
       parser (~> 3.0.0)
       regexp_parser (~> 2.0, >= 2.0.3)
       unparser (~> 0.6.0)
-    mutant-license (0.1.1.2.1739399027284447558325915053311580324856.4)
     mutant-rspec (0.10.29)
       mutant (= 0.10.29)
       rspec-core (>= 3.8.0, < 4.0.0)
@@ -294,12 +297,12 @@ GEM
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.6)
+    nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-darwin)
+    nokogiri (1.13.10-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     notifications-ruby-client (5.3.0)
       jwt (>= 1.5, < 3)
@@ -324,7 +327,7 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
-    racc (1.6.0)
+    racc (1.6.2)
     rack (2.2.3.1)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
@@ -574,7 +577,7 @@ DEPENDENCIES
   mimemagic (~> 0.3.3)
   mutant-license (= 0.1.1.2.1739399027284447558325915053311580324856.4)!
   mutant-rspec (= 0.10.29)
-  nokogiri (~> 1.13.4)
+  nokogiri (~> 1.13.10)
   pg (= 1.2.3)
   phantomjs (= 2.1.1.0)
   poltergeist (~> 1.18, >= 1.18.1)
