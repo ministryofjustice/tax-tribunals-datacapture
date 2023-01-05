@@ -12,8 +12,9 @@ RSpec.shared_examples 'a validated email' do |params|
   ].map(&:to_sym)
 
   additional_fields = params.fetch(:additional_fields, [])
+  optional_fields = params.fetch(:optional_fields, [])
 
-  fields = default_fields + additional_fields
+  fields = default_fields + additional_fields + optional_fields
 
   let(:fields_with_dummy_values) { fields.map {|k| [k, 'dummy_value'] }.to_h }
   let(:arguments) { fields_with_dummy_values.merge({ tribunal_case: tribunal_case }) }

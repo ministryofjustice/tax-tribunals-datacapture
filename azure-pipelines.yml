@@ -47,7 +47,7 @@ jobs:
       postgres: postgres
 
     variables:
-      rubyVersion: '= 2.7.6'
+      rubyVersion: '= 2.7.7'
       bundlerVersion: '2.2.28'
       env: 'test'
       external_url: 'test'

@@ -5,9 +5,11 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
     entity_type: :taxpayer,
     additional_fields: [
       :taxpayer_individual_first_name,
-      :taxpayer_individual_last_name,
+      :taxpayer_individual_last_name
+    ],
+    optional_fields: [
       :taxpayer_feedback_consent
-  ]
+    ]
 
   it_behaves_like 'a validated email', entity_type: :taxpayer,
     additional_fields: [

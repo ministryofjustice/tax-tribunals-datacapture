@@ -16,7 +16,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
     "#{entity_type}_contact_phone"
   ].map(&:to_sym)
 
-  fields = default_fields + additional_fields
+  fields = default_fields + additional_fields + optional_fields
   required_fields = fields - optional_fields
 
   let(:fields_with_dummy_values) { fields.map {|k|
@@ -55,6 +55,7 @@ RSpec.shared_examples 'a contactable entity form' do |params|
       end
     end
 
+    # default_fields.without("#{entity_type}_feedback_consent".to_sym).each do |field|
     default_fields.each do |field|
       context "when #{field} contains spaces" do
         let(:fields_with_dummy_values) { super().merge(field => '  dummy value  ') }
