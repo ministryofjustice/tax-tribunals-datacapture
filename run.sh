@@ -1,5 +1,8 @@
 #!/bin/sh
 
+sed -i 's/LocalSocketGroup clamav/LocalSocketGroup appgroup/g' /etc/clamav/clamd.conf
+clamd
+
 PHUSION_SERVICE="${PHUSION:-false}"
 case ${PHUSION_SERVICE} in
 true)
@@ -35,7 +38,4 @@ true)
     echo "normal startup"
     bundle exec puma -p $PUMA_PORT
     ;;
-
-    sed -i 's/LocalSocketGroup clamav/LocalSocketGroup appgroup/g' /etc/clamav/clamd.conf
-    clamd
 esac
