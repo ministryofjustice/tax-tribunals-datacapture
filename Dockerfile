@@ -128,9 +128,6 @@ RUN chmod +x /etc/periodic/daily/*
 COPY run_sidekiq.sh /home/app/run_sidekiq
 RUN chmod +x /home/app/run_sidekiq
 
-ENV APPUID=1000
-USER $APPUID
-
 # running app as a service
 ENV PHUSION true
 COPY run.sh /home/app/run
