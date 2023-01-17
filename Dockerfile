@@ -76,19 +76,11 @@ RUN apk --no-cache add --virtual build-deps \
   clamav-daemon
 
 RUN freshclam
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 RUN mkdir -p var/run/clamav && \
  chmod -R 777 /var/run/clamav && \
  mkdir -p var/log/clamav && \
  chmod -R 777 /var/log/clamav && \
  mkdir -p var/lib/clamav
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 RUN clamd
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
