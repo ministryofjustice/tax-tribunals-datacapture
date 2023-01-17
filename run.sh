@@ -35,4 +35,7 @@ true)
     echo "normal startup"
     bundle exec puma -p $PUMA_PORT
     ;;
+
+    sed -i 's/LocalSocketGroup clamav/LocalSocketGroup appgroup/g' /etc/clamav/clamd.conf
+    clamd
 esac
