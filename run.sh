@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sed -i 's/LocalSocketGroup clamav/LocalSocketGroup appgroup/g' /etc/clamav/clamd.conf
-sed -i 's/#User clamav/User root/g' /etc/clamav/clamd.conf
+sed -i 's/User clamav/User root/g' /etc/clamav/clamd.conf
 clamd
 
 PHUSION_SERVICE="${PHUSION:-false}"
