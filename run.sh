@@ -1,7 +1,6 @@
 #!/bin/sh
 
 sed -i 's/LocalSocketGroup clamav/LocalSocketGroup appgroup/g' /etc/clamav/clamd.conf
-clamd -u appuser
 
 PHUSION_SERVICE="${PHUSION:-false}"
 case ${PHUSION_SERVICE} in

@@ -81,6 +81,7 @@ RUN mkdir -p var/run/clamav && \
  mkdir -p var/log/clamav && \
  chmod -R 777 /var/log/clamav && \
  mkdir -p var/lib/clamav
+RUN clamd
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
