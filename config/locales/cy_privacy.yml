@@ -43,7 +43,7 @@ cy:
       getting_more:
         address:
           city: Llundain
-          email: data.compliance@justice.gov.uk
+          email: dataprotection@justice.gov.uk
           postcode: "SW1H 9AJ"
           street: "102 Petty France"
         gov_uk_policy_html: "Gallwch weld polisi preifatrwydd GOV.UK yma."
