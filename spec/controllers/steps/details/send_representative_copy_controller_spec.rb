@@ -13,7 +13,7 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: SendApplicationDetails::YES,
+        send_representative_copy: SendApplicationDetails::EMAIL,
         representative_contact_email: email_address
       )
     end
@@ -27,7 +27,7 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: SendApplicationDetails::NO,
+        send_representative_copy: SendApplicationDetails::NONE,
       )
     end
 

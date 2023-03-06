@@ -27,6 +27,7 @@ en:
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
     invalid_email: &invalid_email "Enter an email address in the correct format, like name@example.com"
     blank_email: &blank_email "Please enter your email address"
+    blank_phone_number: &blank_phone_number "Please enter your phone number"
     blank_password: &blank_password "Please enter a password"
     YESNO: &YESNO
       'yes': 'Yes'
@@ -51,10 +52,13 @@ en:
       taxpayer_contact_phone: Contact phone number (optional)
 
     SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
-      heading: Does the %{entity} want a copy of the case details sent by email?
-      lead_text: If you select Yes, we will send a copy of the case details to the %{entity} when you submit the case. It is recommended that you keep a copy for your records.
-      page_title: Send case details copy
+      heading: Select the %{entity}'s contact preference for a copy of the case details
+      lead_text: If you select email and/or text message, we will send a copy of the case details to the %{entity} when you submit the case. It is recommended that you keep a copy for your records.
+      page_title: Select contact preference
       confirm_email_text: To protect privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
+      confirm_email_text_no_js: If you have selected that you would like to receive an email, confirm the email address you provided earlier for the %{entity}'s details.
+      confirm_phone_text: Enter the contact phone number for the %{entity}'s details.
+      confirm_phone_text_no_js: If you have selected that you would like to receive a text, enter the contact phone number for the %{entity}'s details.
 
     PENALTY_LEVELS: &PENALTY_LEVELS
       penalty_level_1: "£100 or less"
@@ -77,6 +81,12 @@ en:
     START_FINISH: &START_FINISH
       start_again: Start again
       finish: Finish
+
+    CONTACT_PREFERENCES: &CONTACT_PREFERENCES
+      'email': 'Email only'
+      'text': 'Text message (SMS) only'
+      'both': 'Both email and text message (SMS)'
+      'none': 'No email or text message (SMS)'
 
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
@@ -675,12 +685,16 @@ en:
         steps/details/send_application_details_form:
           attributes:
             send_application_details:
-              send_taxpayer_copy: Select if the taxpayer should receive a copy of the case details by email
-              send_representative_copy: Select if the representative should receive a copy of the case details by email
+              send_taxpayer_copy: Select contact detail preferences for the taxpayer
+              send_representative_copy: Select contact detail preferences for the representative
             email_address:
               different_taxpayer: Enter the same email address you provided for the taxpayer's details. Press back and change the taxpayer's email address if this is incorrect.
               different_representative: Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect.
               blank: *blank_email
+            phone_number:
+              different_taxpayer: Enter the same phone number you provided for the taxpayer's details. Press back and change the taxpayer's phone number if this is incorrect.
+              different_representative: Enter the same phone number you provided for the representative's details. Press back and change the representative's phone number if this is incorrect.
+              blank: *blank_phone_number
 
         steps/details/representative_professional_status_form:
           attributes:
@@ -976,11 +990,12 @@ en:
             example a partnership, LLP (Limited Liability Partnership), trust, club or association"
       steps_details_send_application_details_form:
         email_address: Email address
+        phone_number: Phone number
         send_application_details_options:
-          <<: *YESNO
+          <<: *CONTACT_PREFERENCES
       steps_details_has_representative_form:
         has_representative_options:
-          <<: *YESNO
+          <<: *CONTACT_PREFERENCES
       steps_details_representative_professional_status_form:
         representative_professional_status_options:
           england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
@@ -1340,15 +1355,15 @@ en:
       question: Reasons why you can't upload a letter
       accessible_change_text: reasons why you can't upload a letter
     send_taxpayer_copy:
-      question: Does the taxpayer want a copy of the case details sent by email?
-      accessible_change_text: does the representative want a copy of the case details sent by email?
+      question: Select the taxpayer's contact preference for a copy of the case details
+      accessible_change_text: Select the taxpayer's contact preference for a copy of the case details
       answers:
-        <<: *YESNO
+        <<: *CONTACT_PREFERENCES
     send_representative_copy:
-      question: Does the representative want a copy of the case details sent by email?
-      accessible_change_text: does the representative want a copy of the case details sent by email?
+      question: Select the representative's contact preference for a copy of the case details
+      accessible_change_text: Select the representative's contact preference for a copy of the case details
       answers:
-        <<: *YESNO
+        <<: *CONTACT_PREFERENCES
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is

@@ -70,9 +70,9 @@ expect(send_representative_copy_page.content.error).to have_error_heading
 When("I press yes and enter a invalid then valid email") do
   RSpec::Mocks.with_temporary_scope do
     stub_uploader
-  send_representative_copy_page.submit_yes_and_a_invalid_email
+  send_representative_copy_page.submit_email_and_a_invalid_email
   expect(send_representative_copy_page.content.error).to have_error_heading
-  send_representative_copy_page.submit_yes_and_a_valid_email
+  send_representative_copy_page.submit_email_and_a_valid_email
   end
   end
 

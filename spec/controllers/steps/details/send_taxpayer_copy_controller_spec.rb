@@ -13,7 +13,7 @@ RSpec.describe Steps::Details::SendTaxpayerCopyController, type: :controller do
     let(:tribunal_case) do
       TribunalCase.new(
         taxpayer_type: UserType::TAXPAYER,
-        send_taxpayer_copy: SendApplicationDetails::YES,
+        send_taxpayer_copy: SendApplicationDetails::EMAIL,
         taxpayer_contact_email: email_address
       )
     end
@@ -27,7 +27,7 @@ RSpec.describe Steps::Details::SendTaxpayerCopyController, type: :controller do
     let(:tribunal_case) do
       TribunalCase.new(
         taxpayer_type: UserType::TAXPAYER,
-        send_taxpayer_copy: SendApplicationDetails::NO,
+        send_taxpayer_copy: SendApplicationDetails::NONE,
       )
     end
 

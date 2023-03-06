@@ -35,10 +35,10 @@ end
 
 When("I submit that I don't want a copy of the case details emailed to the taxpayer") do
   expect(send_taxpayer_copy_page.content).to have_header
-  submit_no
+  submit_none
 end
 
 When("I submit that I don't want a copy of the case details emailed to the representative") do
   expect(send_representative_copy_page.content).to have_header
-  submit_no
+  submit_none
 end

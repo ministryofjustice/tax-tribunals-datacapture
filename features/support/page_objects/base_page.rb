@@ -17,6 +17,7 @@ class BasePage < SitePrism::Page
     element :other, 'label', text: I18n.t('steps.details.representative_type.edit.other')
     element :yes_option, 'label', text: I18n.t('dictionary.YESNO.yes')
     element :no_option, 'label', text: I18n.t('dictionary.YESNO.no')
+    element :none_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.none')
     element :yes_option_welsh, 'label', text: I18n.t('check_answers.hardship_review_status.answers.granted')
     element :yes_option_welsh_2, 'label', text: "Ie"
     element :yes_option_welsh_3, 'label', text: "Ydy"
