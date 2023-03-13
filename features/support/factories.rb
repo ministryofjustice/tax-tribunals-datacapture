@@ -65,7 +65,7 @@ FactoryBot.define do
     end
 
     trait :has_representative_no do
-      has_representative { HasRepresentative::NONE }
+      has_representative { HasRepresentative::NO }
     end
 
     trait :valid_gfa do

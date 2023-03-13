@@ -6,6 +6,7 @@ GOVUK_NOTIFY_TEMPLATES = {
     taxpayer_case_confirmation: ENV.fetch('NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID'),
     ftt_new_case_notification: ENV.fetch('NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID'),
     application_details_copy: ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID'),
+    application_details_text: ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_TEXT_TEMPLATE_ID'),
     first_reminder: ENV.fetch('NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID'),
     last_reminder: ENV.fetch('NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID')
   },
@@ -16,6 +17,7 @@ GOVUK_NOTIFY_TEMPLATES = {
     taxpayer_case_confirmation: ENV.fetch('NOTIFY_CASE_CONFIRMATION_CY_TEMPLATE_ID'),
     ftt_new_case_notification: ENV.fetch('NOTIFY_FTT_CASE_NOTIFICATION_CY_TEMPLATE_ID'),
     application_details_copy: ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID'),
+    application_details_text: ENV.fetch('NOTIFY_SEND_APPLICATION_DETAIL_TEXT_CY_TEMPLATE_ID'),
     first_reminder: ENV.fetch('NOTIFY_CASE_FIRST_REMINDER_CY_TEMPLATE_ID'),
     last_reminder: ENV.fetch('NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID')
   }

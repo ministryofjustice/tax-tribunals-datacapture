@@ -27,7 +27,7 @@ en:
     blank_organisation_fao: &blank_organisation_fao "Please enter a contact name"
     invalid_email: &invalid_email "Enter an email address in the correct format, like name@example.com"
     blank_email: &blank_email "Please enter your email address"
-    blank_phone_number: &blank_phone_number "Please enter your phone number"
+    blank_phone_number: &blank_phone_number "Enter a phone number in the correct format, like 07700 900 982"
     blank_password: &blank_password "Please enter a password"
     YESNO: &YESNO
       'yes': 'Yes'
@@ -56,9 +56,7 @@ en:
       lead_text: If you select email and/or text message, we will send a copy of the case details to the %{entity} when you submit the case. It is recommended that you keep a copy for your records.
       page_title: Select contact preference
       confirm_email_text: To protect privacy, we ask you to confirm the email address you provided earlier for the %{entity}'s details.
-      confirm_email_text_no_js: If you have selected that you would like to receive an email, confirm the email address you provided earlier for the %{entity}'s details.
       confirm_phone_text: Enter the contact phone number for the %{entity}'s details.
-      confirm_phone_text_no_js: If you have selected that you would like to receive a text, enter the contact phone number for the %{entity}'s details.
 
     PENALTY_LEVELS: &PENALTY_LEVELS
       penalty_level_1: "£100 or less"
@@ -87,6 +85,12 @@ en:
       'text': 'Text message (SMS) only'
       'both': 'Both email and text message (SMS)'
       'none': 'No email or text message (SMS)'
+
+    CONTACT_PREFERENCES_CYA: &CONTACT_PREFERENCES_CYA
+      'email': 'Email'
+      'text': 'Text message (SMS)'
+      'both': 'Email and text message (SMS)'
+      'none': 'None'
 
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
@@ -995,7 +999,7 @@ en:
           <<: *CONTACT_PREFERENCES
       steps_details_has_representative_form:
         has_representative_options:
-          <<: *CONTACT_PREFERENCES
+          <<: *YESNO
       steps_details_representative_professional_status_form:
         representative_professional_status_options:
           england_or_wales_or_ni_legal_rep_html: Practising solicitor or barrister
@@ -1358,12 +1362,12 @@ en:
       question: Select the taxpayer's contact preference for a copy of the case details
       accessible_change_text: Select the taxpayer's contact preference for a copy of the case details
       answers:
-        <<: *CONTACT_PREFERENCES
+        <<: *CONTACT_PREFERENCES_CYA
     send_representative_copy:
       question: Select the representative's contact preference for a copy of the case details
       accessible_change_text: Select the representative's contact preference for a copy of the case details
       answers:
-        <<: *CONTACT_PREFERENCES
+        <<: *CONTACT_PREFERENCES_CYA
     representative_professional_status:
       question: The representative is
       accessible_change_text: who your representative is

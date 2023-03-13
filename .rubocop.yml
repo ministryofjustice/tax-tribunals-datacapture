@@ -22,6 +22,8 @@ ClassLength:
 
 LineLength:
   Max: 140
+  Exclude:
+    - 'app/mailers/notify_mailer.rb'
 
 MethodLength:
   Max: 35

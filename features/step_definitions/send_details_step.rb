@@ -20,8 +20,8 @@ Then("I should see not matching email error") do
   expect(send_representative_copy_page.content).to have_not_matching_error_message
 end
 
-When("I select yes and submit a valid email on the send taxpayer copy page") do
-  send_taxpayer_copy_page.submit_email_and_valid_email
+When("I select 'email' and submit a valid email on the send taxpayer copy page") do
+  send_taxpayer_copy_page.submit_email_and_a_valid_email
 end
 
 Given("I go back to representative details page and add an email address and submit") do
