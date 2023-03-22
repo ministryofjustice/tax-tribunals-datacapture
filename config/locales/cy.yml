@@ -397,7 +397,7 @@ cy:
       continue: Parhau
       description_html: |-
         <p class="govuk-body">Mae'n bosib y gallwch apelio'n hwyr drwy roi rhesymau. Y barnwr fydd yn penderfynu a all eich apêl barhau.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">Mae'r tribiwnlys ar wahân i Gyllid a Thollau EM.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">WELSH_TRANSLATION_HERE_FOR_trib is seperate for hmcts</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
             <li><strong>sgan neu lun</strong> o'r hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad</li>
@@ -664,6 +664,7 @@ cy:
     index:
       continue: Parhau
       description_html: |-
+        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys yn annibynnol ar Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>manylion yr ymholiad</strong> gan gynnwys cyfeirnod Cyllid a Thollau EM a hyd yr ymholiad mewn blynyddoedd</li>
@@ -673,6 +674,7 @@ cy:
       heading: "Gwneud cais i gau ymholiad"
       lead_text: "Gofyn i'r barnwr ddod ag ymholiad treth i ben gyda hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
       page_title: "Dechrau cais i gau ymholiad"
+      impartial_decision: "Tribiwnlys annibynnol fydd yn penderfynu ar eich cais"
   date:
     formats:
       compact: "%d/%m/%B"

@@ -1898,7 +1898,7 @@ en:
         date of the original notice or review conclusion letter.
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal is separate from HMRC.</p>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
@@ -1909,10 +1909,12 @@ en:
       page_title: Start an appeal
   closure_home:
     index:
+      impartial_decision: Your application will be decided by an independent tribunal
       continue: Continue
       heading: Apply to close an enquiry
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal is separate from HMRC.</p>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
