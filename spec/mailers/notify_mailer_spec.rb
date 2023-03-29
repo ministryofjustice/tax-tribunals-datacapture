@@ -311,6 +311,12 @@ RSpec.describe NotifyMailer, type: :mailer do
   end
 
   describe 'application_details_text' do
+    before do
+      Timecop.freeze(Time.zone.local(2017, 1, 1, 12, 0, 0))
+    end
+    after do
+      Timecop.return
+    end
     it 'sends the text' do
       expect(tribunal_case).to receive(:send)
         .with(:taxpayer_contact_phone)
@@ -323,7 +329,7 @@ RSpec.describe NotifyMailer, type: :mailer do
           reference: case_reference,
           personalisation: {
             appeal_or_application: :appeal,
-            application_details: 'text content'
+            submission_date_and_time: '1 January 2017 12:00hrs',
           },
         })
       NotifyMailer.new.application_details_text(tribunal_case, :taxpayer, "text content")
