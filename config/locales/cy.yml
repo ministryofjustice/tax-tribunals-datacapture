@@ -303,7 +303,6 @@ cy:
               send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost"
               send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost"
             phone_number:
-              different_taxpayer: "Nodwch yr un rhif ffôn cyswllt a roddoch ar gyfer manylion y trethdalwr. Ewch yn ôl a newid rhif ffôn cyswllt y trethdalwr os yw'n anghywir."
               different_representative: "Nodwch yr un rhif ffôn cyswllt a roddoch ar gyfer manylion y cynrychiolydd. Ewch yn ôl a newid rhif ffôn cyswllt y cynrychiolydd os yw'n anghywir."
               blank: *blank_phone_number
 
