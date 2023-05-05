@@ -46,6 +46,7 @@ module Steps::Details
 
     def phone_number_identical
       return unless errors.blank?
+      return if send_to == UserType::TAXPAYER
       if saved_phone_number != phone_number
         key = "different_#{send_to}".to_sym
         errors.add(:phone_number, key, message: "#{send_to}'s phone number does not match entered phone number")
