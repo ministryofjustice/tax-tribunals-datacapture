@@ -69,12 +69,6 @@ RSpec.describe Steps::Details::SendApplicationDetailsForm do
           specify { expect(subject.errors.details[:email_address]).to eq([{error: "different_#{entity}".to_sym}])}
         end
 
-        context 'when send_application_details value is text and phone_number doesnt match' do
-          let(:attributes) { {send_application_details: 'text', phone_number: '0111'} }
-          specify { expect(subject).not_to be_valid }
-          specify { expect(subject.errors.details[:phone_number]).to eq([{error: "different_#{entity}".to_sym}])}
-        end
-
         context 'when send_application_detail value is both and both match' do
           specify { expect(subject).to be_valid }
         end
@@ -107,6 +101,23 @@ RSpec.describe Steps::Details::SendApplicationDetailsForm do
           specify { expect(subject.errors.details[:phone_number]).to eq([{error: :blank}]) }
         end
       end
+    end
+  end
+
+  describe 'validations for phone_number match' do
+    let(:attributes) { {send_application_details: 'text', phone_number: '0111'} }
+    before { subject.valid? }
+
+    context 'when send_application_details value is text, phone_number doesnt match and is taxpayer' do
+      let(:user_type) { UserType::TAXPAYER }
+
+      specify { expect(subject).to be_valid }
+    end
+
+    context 'when send_application_details value is text, phone_number doesnt match and is representative' do
+      let(:user_type) { UserType::REPRESENTATIVE }
+      specify { expect(subject).not_to be_valid }
+      specify { expect(subject.errors.details[:phone_number]).to eq([{error: "different_#{user_type}".to_sym}])}
     end
   end
 end
