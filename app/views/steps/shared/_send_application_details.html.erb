@@ -23,7 +23,7 @@
         </div>
         <div id="confirm-phone" class="<%= @form_object.send_text_copy? ? '' : 'hide' %> govuk-form-group">
           <%= f.govuk_text_field :phone_number, width: 'one-half' do %>
-              <span class="govuk-hint"><%= t('.confirm_phone_text', entity: @form_object.send_to) %> </span>
+            <span class="govuk-hint"><%= @form_object.send_to == UserType::REPRESENTATIVE ? t('.confirm_phone_text', entity: @form_object.send_to) : '' %> </span>
           <% end %>
         </div>
       <% end %>

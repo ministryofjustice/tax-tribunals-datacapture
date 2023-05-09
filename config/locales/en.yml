@@ -696,7 +696,6 @@ en:
               different_representative: Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect.
               blank: *blank_email
             phone_number:
-              different_taxpayer: Enter the same phone number you provided for the taxpayer's details. Press back and change the taxpayer's phone number if this is incorrect.
               different_representative: Enter the same phone number you provided for the representative's details. Press back and change the representative's phone number if this is incorrect.
               blank: *blank_phone_number
 
