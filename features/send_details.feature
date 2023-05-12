@@ -14,9 +14,15 @@ Feature: Send details
     When I submit an email that does match on the send representative copy page
     Then I should be on the enquiry details page
 
-    Scenario:
-      Given Given I navigate to the send taxpayer copy page as the taxpayer
-      When I click the continue button
-      Then I see the error
-      When I submit no
-      Then I am on the has representative page
+  Scenario:
+    Given Given I navigate to the send taxpayer copy page as the taxpayer
+    When I click the continue button
+    Then I see the error
+    When I submit no
+    Then I am on the has representative page
+
+  Scenario: Timeout test - should trigger
+    Given I navigate to the send taxpayer copy page as the taxpayer
+    When I wait for 11 minutes
+    And I click the continue button
+    Then I will see the invalid session timeout error

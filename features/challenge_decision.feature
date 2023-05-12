@@ -7,16 +7,16 @@ Background: Appeal decision question page
     When I select no
     Then I am taken to the must appeal decision status page
 
-Scenario: No option chosen
-  When I continue with no option selected
-  Then I see the problem error message
-  And I am still on the challenge decision page
+  Scenario: No option chosen
+    When I continue with no option selected
+    Then I see the problem error message
+    And I am still on the challenge decision page
 
-Scenario: Path to dispute type page (review conclusion letter)
-  When I select yes
-  Then I am taken to the challenge decision status page
-  When I select I have a review conclusion letter
-  Then I should be on the dispute type page
+  Scenario: Path to dispute type page (review conclusion letter)
+    When I select yes
+    Then I am taken to the challenge decision status page
+    When I select I have a review conclusion letter
+    Then I should be on the dispute type page
 
   Scenario: Challenge decision page error and less than 45 days
     When I select yes
@@ -48,3 +48,8 @@ Scenario: Path to dispute type page (review conclusion letter)
     When I press 'Help with challenging a decision'
     And I press how to 'challenge a national crime agency'
     Then I will be on the appeal home page
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click continue
+    Then I will see the invalid session timeout error
