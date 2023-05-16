@@ -1,7 +1,7 @@
 Feature: Taxpayer details page
 
-Background: Taxpayer details page
-  Given I navigate to the closure taxpayer details page as a taxpayer
+  Background: Taxpayer details page
+    Given I navigate to the closure taxpayer details page as a taxpayer
 
   Scenario: Successfully submit taxpayer details
     When I successfully submit taxpayers details

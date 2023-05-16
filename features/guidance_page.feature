@@ -17,4 +17,8 @@ Feature: Guidance page
   Scenario: Accordion all expanded
     When I click open all
     Then I can see all questions and answers
-    
+
+  Scenario: Timeout test - shouldn't trigger
+    When I wait for 11 minutes
+    And I click the back button
+    Then I am on the home page

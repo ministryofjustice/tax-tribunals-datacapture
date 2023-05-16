@@ -1,7 +1,8 @@
 Feature: Send details
   Scenario: Started by taxpayer and send to taxpayer and representative
     Given I navigate to the send taxpayer copy page as the taxpayer
-    And I select yes and submit a valid email on the send taxpayer copy page
+#    And I select yes and submit a valid email on the send taxpayer copy page
+    And I submit a valid email on the send taxpayer copy page
     And I submit that I have a representative
     And I submit that the representative is a practising solicitor
     And I submit that the representative is an individual
