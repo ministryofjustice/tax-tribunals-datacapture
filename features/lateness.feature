@@ -24,3 +24,8 @@ Feature: In time feature
   Scenario: I select I am not sure
     When I select that I am not sure
     Then I am taken to the reasons page
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click continue
+    Then I will see the invalid session timeout error

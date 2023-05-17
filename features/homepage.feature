@@ -22,3 +22,8 @@ Feature: Homepage
   Scenario: View guidance page
     When I click the view guidance before I start link
     Then I am taken to the guidance page
+
+  Scenario: Timeout test - shouldn't trigger
+    When I wait for 11 minutes
+    And I click the appeal a tax decision
+    Then I am taken to the appeal page

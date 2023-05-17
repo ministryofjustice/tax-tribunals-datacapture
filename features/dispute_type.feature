@@ -42,3 +42,8 @@ Feature: Dispute type options
     Given I click none of the above option and submit
     Then I should see please enter an answer error
     When I submit what my dispute is about
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click continue
+    Then I will see the invalid session timeout error

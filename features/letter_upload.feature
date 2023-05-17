@@ -1,4 +1,3 @@
-
 Feature: Letter upload type page (review conclusion letter)
 
   Background: Navigate to the letter upload type page
@@ -33,3 +32,12 @@ Feature: Letter upload type page (review conclusion letter)
     Then I am on the letter upload page
     When I select I am having trouble uploading my document
     Then I am on the complete appeal by post page
+
+  Scenario: Not uploading anything error message
+    When I press continue with no file uploaded
+    Then I see the error
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click continue
+    Then I will see the invalid session timeout error
