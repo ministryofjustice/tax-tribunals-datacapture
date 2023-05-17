@@ -11,3 +11,8 @@ Feature: Taxpayer details page
     When I submit a blank taxpayers details form
     Then I am shown all the taxpayer details errors
     And I am on the taxpayer details page
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I successfully submit taxpayers details
+    Then I will see the invalid session timeout error
