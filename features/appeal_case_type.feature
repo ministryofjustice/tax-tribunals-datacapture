@@ -48,3 +48,4 @@ Feature: Appeal case type page
     And I click continue
     Then I should be on the appeal case type page
     And I should see appeal case type error message
+    And I will not see the invalid timeout error

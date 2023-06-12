@@ -17,3 +17,35 @@ end
 Then("The error should appear") do
   expect(closure_case_type_page.content).to have_content("There is a problem")
 end
+
+When(/^I submit that it is a company return$/) do
+  closure_case_type_page.submit_company_return
+end
+
+When(/^I submit that it is a partnership return$/) do
+  closure_case_type_page.submit_partnership_return
+end
+
+When(/^I submit that it is a trustee return$/) do
+  closure_case_type_page.submit_trustee_return
+end
+
+When(/^I submit that it is an enterprise management incentive \(EMI\)$/) do
+  closure_case_type_page.submit_enterprise_mgmt_incentives
+end
+
+When(/^I submit that is is a non\-resident Capital Gains Tax \(NRCGT\) return$/) do
+  closure_case_type_page.submit_non_resident_capital_gains_tax
+end
+
+When(/^I submit that it is a Stamp Duty Land Tax \(SDLT\) or Land Transaction Tax \(in Wales\): land transaction return$/) do
+  closure_case_type_page.submit_stamp_duty_land_tax_return
+end
+
+When(/^I submit that is a Transactions in securities: issue of counteraction or no\-counteraction notice$/) do
+  closure_case_type_page.submit_transactions_in_securities
+end
+
+When(/^I submit that is a Claim or amendment of a claim$/) do
+  closure_case_type_page.submit_claim_or_amendment
+end
