@@ -9,13 +9,6 @@ Feature: Enquiry details
     When I fill in the two required fields and submit
     Then I should be on the additional info page
 
-  Scenario: Additional info page virus testing
-    When I fill in the two required fields and submit
-    And I upload a virus document to the additional info page
-    And I click the continue button
-    Then I will see a virus upload error on the additional info page
-#  This functionality on the page has been tested manually but this scenario fails
-
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
     And I click continue

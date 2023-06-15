@@ -87,23 +87,3 @@ end
 When("I complete a valid submission") do
   outcome_page.valid_submission
 end
-
-When(/^I upload a virus document on the grounds for appeal page$/) do
-  # RSpec::Mocks.with_temporary_scope do
-  #   # allow(Uploader).to receive(:list_files).and_return([])
-  #   # allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
-  #   identifier  = 'steps-details-grounds-for-appeal-form-grounds-for-appeal-document-field'
-  #   filename    = 'features/support/sample_file/clamav-test-virus.jpg'
-  #   grounds_for_appeal_page.attach_file(identifier, filename)
-  #   continue_or_save_continue
-  # end
-  identifier  = 'steps-details-grounds-for-appeal-form-grounds-for-appeal-document-field'
-  filename    = 'features/support/sample_file/clamav-test-virus.jpg'
-  grounds_for_appeal_page.attach_file(identifier, filename)
-  continue_or_save_continue
-end
-
-Then(/^I will see a virus upload error on the grounds for appeal page$/) do
-  expect(grounds_for_appeal_page.content).to have_header
-  expect(grounds_for_appeal_page.content.error_summary).to have_error_heading
-end

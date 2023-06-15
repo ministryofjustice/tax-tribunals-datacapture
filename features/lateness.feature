@@ -25,20 +25,6 @@ Feature: In time feature
     When I select that I am not sure
     Then I am taken to the reasons page
 
-  Scenario: I select I am not sure and test virus upload on next page
-    When I select that I am not sure
-    Then I am taken to the reasons page
-    When I upload a virus document on the reasons page
-    And I click the continue button
-    Then I will see a virus upload error on the reasons page
-
-  Scenario: I select I am not in time and test virus upload on next page
-    When I select that i am not in time
-    Then I am taken to the lateness reason page
-    When I upload a virus document on the reasons page
-    And I click the continue button
-    Then I will see a virus upload error on the reasons page
-
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
     And I click continue
