@@ -17,7 +17,6 @@ Feature: Grounds for Appeal
     When I submit no support needed
     Then I should be on the letter upload page
 
-
   Scenario: File uploaded information span selected then valid submission
     When I select 'File upload requirements'
     Then I will see the file requirements
@@ -29,3 +28,13 @@ Feature: Grounds for Appeal
     Then I am on the need support page
     When I submit yes
     Then I should be on the what support page
+
+  Scenario: Virus file upload test
+    When I upload a virus document on the grounds for appeal page
+    Then I will see a virus upload error on the grounds for appeal page
+#  This functionality on the page has been tested manually but this scenario fails
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I press continue with nothing entered
+    Then I will see the invalid session timeout error

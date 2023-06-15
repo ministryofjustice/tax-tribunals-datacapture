@@ -65,14 +65,18 @@ When(/^I click continue$/) do
 end
 
 When(/^I upload a virus document on the reasons page$/) do
-  RSpec::Mocks.with_temporary_scope do
-    allow(Uploader).to receive(:list_files).and_return([])
-    allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
+  # RSpec::Mocks.with_temporary_scope do
+  #   allow(Uploader).to receive(:list_files).and_return([])
+  #   allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))
+  #   identifier  = 'steps-lateness-lateness-reason-form-lateness-reason-document-field'
+  #   filename    = 'features/support/sample_file/clamav-test-virus.jpg'
+  #   lateness_reason_page.attach_file(identifier, filename)
+  #   continue_or_save_continue
+  # end
     identifier  = 'steps-lateness-lateness-reason-form-lateness-reason-document-field'
     filename    = 'features/support/sample_file/clamav-test-virus.jpg'
     lateness_reason_page.attach_file(identifier, filename)
     continue_or_save_continue
-  end
 end
 
 Then(/^I will see a virus upload error on the reasons page$/) do
