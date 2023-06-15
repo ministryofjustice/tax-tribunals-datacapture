@@ -33,8 +33,8 @@ Feature: Case type page
 #  Scenario: Stamp Duty Land Tax (SDLT) or Land Transaction Tax (in Wales)
 #    When I submit that it is a Stamp Duty Land Tax (SDLT) or Land Transaction Tax (in Wales): land transaction return
 #    Then I should be on the closure user type page
-# This test will fail while the extra bit of text ':land transaction return' remains on the staging environment
-# Staging environment text option should be: Stamp Duty Land Tax (SDLT) or Land Transaction Tax (in Wales) return
+# This test will fail while the extra bit of text ':land transaction return' is not in the en.yml
+# Staging environment text option should be: Stamp Duty Land Tax (SDLT) or Land Transaction Tax (in Wales) return: land transaction return
 
   Scenario: Transactions in securities: issue of counteraction or no-counteraction notice
     When I submit that is a Transactions in securities: issue of counteraction or no-counteraction notice
