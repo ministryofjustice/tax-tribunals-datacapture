@@ -27,3 +27,4 @@ Feature: Homepage
     When I wait for 11 minutes
     And I click the appeal a tax decision
     Then I am taken to the appeal page
+    And I will not see the invalid timeout error

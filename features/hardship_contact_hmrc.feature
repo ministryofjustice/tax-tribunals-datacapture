@@ -14,3 +14,8 @@ Feature: Hardship contact HMRC page
   Scenario: Verify Welsh language link
     When I click on the 'Cymraeg' link
     Then I will see the website open in that language
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I select the button to contact HMRC
+    Then I will see the invalid session timeout error
