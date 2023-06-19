@@ -26,3 +26,19 @@ end
 Given("I fill in invalid log in details") do
   login_page.invalid_sign_in
 end
+
+When(/^I click the 'Forgot your password\?' link$/) do
+  click_link('Forgot your password?')
+end
+
+Then(/^I will be on the 'Forgot your password' page$/) do
+  expect(page).to have_text("Forgot your password")
+end
+
+When(/^I click the reset button password without an email$/) do
+  click_button 'Reset password'
+end
+
+Then(/^I will see a blank email error message$/) do
+  expect(page).to have_text("Please enter your email address")
+end
