@@ -82,3 +82,7 @@ And("I select nothing then english only") do
   expect(select_language_page.content.error).to have_error_heading
   select_language_page.select_english_only
 end
+
+Then(/^I should see a 'Select what your appeal is about' error$/) do
+  expect(appeal_case_type_page).to have_text("Select what your appeal is about")
+end

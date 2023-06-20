@@ -49,3 +49,7 @@ end
 When(/^I submit that is a Claim or amendment of a claim$/) do
   closure_case_type_page.submit_claim_or_amendment
 end
+
+Then(/^I should see a 'Select the type of enquiry you want to close' error$/) do
+  expect(appeal_case_type_page).to have_text("Select the type of enquiry you want to close")
+end
