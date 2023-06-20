@@ -19,6 +19,8 @@ Feature: Logging in
     Then I will be on the 'Forgot your password' page
     When I click the reset button password without an email
     Then I will see a blank email error message
+    When I click the go back link
+    Then I should see the sign in page
 
   Scenario: Timeout test - shouldn't trigger
     When I wait for 11 minutes

@@ -13,6 +13,11 @@ Feature: Save appeal
     And I enter the same password as the email address
     Then I should see a password error message
 
+  Scenario: Invalid email
+    When I enter an invalid email address
+    And I enter a valid password
+    Then I will see an invalid email error message
+
   Scenario: Successfully create an account
     When I enter a valid email address
     And I enter a valid password
@@ -25,4 +30,11 @@ Feature: Save appeal
     When I click 'start again'
     Then I am taken to the save your appeal page
 
+  Scenario: Sign into an existing account and check bad login, forgot password
+    When I click the 'Sign into an existing account' link
+    Then I should see the sign in page
 
+  Scenario: Timeout test - shouldn't trigger
+    When I wait for 11 minutes
+    And I enter a valid email address
+    Then I will not see the invalid timeout error

@@ -42,3 +42,7 @@ end
 Then(/^I will see a blank email error message$/) do
   expect(page).to have_text("Please enter your email address")
 end
+
+When(/^I click the go back link$/) do
+  click_link('Go back and sign in')
+end
