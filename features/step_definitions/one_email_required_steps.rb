@@ -42,3 +42,11 @@ When("I submit that I don't want a copy of the case details emailed to the repre
   expect(send_representative_copy_page.content).to have_header
   submit_none
 end
+
+And(/^I submit that the representative is a tax agent$/) do
+  representative_professional_page.submit_tax_agent
+end
+
+Then(/^I should see 'Do you want to start receiving correspondence from the tribunal\?'$/) do
+  expect(page).to have_text('Do you want to start receiving correspondence from the tribunal')
+end

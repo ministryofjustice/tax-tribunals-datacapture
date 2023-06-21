@@ -1,7 +1,7 @@
 Feature: Send details
+
   Scenario: Started by taxpayer and send to taxpayer and representative
     Given I navigate to the send taxpayer copy page as the taxpayer
-#    And I select yes and submit a valid email on the send taxpayer copy page
     And I submit a valid email on the send taxpayer copy page
     And I submit that I have a representative
     And I submit that the representative is a practising solicitor
@@ -13,6 +13,14 @@ Feature: Send details
     Then I should see not matching email error
     Given I go back to representative details page and add an email address and submit
     When I submit an email that does match on the send representative copy page
+    Then I should be on the enquiry details page
+
+  Scenario: No representative
+    Given I navigate to the send taxpayer copy page as the taxpayer
+    When I submit an invalid email on the send taxpayer copy page
+    Then I will see a non matching email error
+    When I select no email or text
+    And I submit that I do not have a representative
     Then I should be on the enquiry details page
 
   Scenario:

@@ -8,7 +8,7 @@ Feature: Letter upload type page (review conclusion letter)
     Then I am on the letter upload page
     When I select 'File upload requirements'
     Then I will see the file requirements
-    When I successfully upload a document
+    When I successfully upload a document to the letter page
     Then I am on the check answers page
 
   Scenario: Error Message
@@ -20,6 +20,8 @@ Feature: Letter upload type page (review conclusion letter)
   Scenario: I press upload as multiple pages
     When I press upload as multiple pages option
     Then I am on the documents upload page
+    When I press continue with no file uploaded
+    Then I see the no upload error
 
   Scenario: I press I do not have a letter
     When I press I do not have a letter

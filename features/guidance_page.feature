@@ -22,3 +22,4 @@ Feature: Guidance page
     When I wait for 11 minutes
     And I click the back button
     Then I am on the home page
+    And I will not see the invalid timeout error
