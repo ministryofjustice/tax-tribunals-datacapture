@@ -18,6 +18,7 @@ module Steps::Closure
       errors.add(:closure_years_under_enquiry,
                  I18n.t('activemodel.errors.models.steps/closure/enquiry_details_form.attributes.closure_years_under_enquiry.range'))
     end
+
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
 
