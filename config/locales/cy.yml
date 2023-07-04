@@ -191,6 +191,7 @@ cy:
               blank: "Nodwch gyfeirnod Gyllid a Thollau EM"
             closure_years_under_enquiry:
               blank: "Nodwch hyd yr ymholiad mewn blynyddoedd"
+              range: "Rhowch y nifer o flynyddoedd sydd dan ymchwiliad (0-20)"
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
