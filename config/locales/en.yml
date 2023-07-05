@@ -1524,6 +1524,8 @@ en:
       email:
         special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
         too_long: "Email is too long (maximum is 256 characters)"
+      phone:
+        invalid_characters: "Enter a phone number in the correct format, like 07700 900 982. A phone number cannot contain *!&/;"
       name:
         too_long: "Name is too long (maximum is 256 characters)"
     error_summary:
