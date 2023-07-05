@@ -8,6 +8,12 @@ RSpec.describe Steps::Details::RepresentativeOrganisationDetailsForm do
       :representative_organisation_fao
     ]
 
+  it_behaves_like 'a validated phone number', entity_type: :representative,
+    additional_fields: [
+      :representative_organisation_name,
+      :representative_organisation_fao
+    ]
+
   describe '#name_fields' do
     specify { expect(subject.name_fields).to eq([:representative_organisation_name]) }
   end
