@@ -14,8 +14,12 @@ GIT
       typhoeus (~> 1.1.2)
 
 GEM
-  remote: https://rubygems.org/
   remote: https://oss:Q7U7p2q2XlpY45kwqjCpXLIPf122rjkR@gem.mutant.dev/
+  specs:
+    mutant-license (0.1.1.2.1739399027284447558325915053311580324856.4)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (6.0.4.8)
       actionpack (= 6.0.4.8)
@@ -290,7 +294,6 @@ GEM
       parser (~> 3.0.0)
       regexp_parser (~> 2.0, >= 2.0.3)
       unparser (~> 0.6.0)
-    mutant-license (0.1.1.2.1739399027284447558325915053311580324856.4)
     mutant-rspec (0.10.29)
       mutant (= 0.10.29)
       rspec-core (>= 3.8.0, < 4.0.0)
@@ -333,7 +336,7 @@ GEM
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
-    racc (1.6.2)
+    racc (1.7.1)
     rack (2.2.7)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
@@ -432,7 +435,7 @@ GEM
     ruby-rc4 (0.1.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sanitize (6.0.1)
+    sanitize (6.0.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     sassc (2.4.0)
