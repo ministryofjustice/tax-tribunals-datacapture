@@ -631,6 +631,7 @@ en:
               blank: Please enter the HMRC reference number
             closure_years_under_enquiry:
               blank: Please enter the years under enquiry
+              range: Enter the years under enquiry (0 to 20)
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
