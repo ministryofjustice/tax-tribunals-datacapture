@@ -16,7 +16,7 @@ module Steps::Closure
       return if closure_years_under_enquiry.scan(/\D/).empty? && (0..20).include?(closure_years_under_enquiry.to_i)
 
       errors.add(:closure_years_under_enquiry,
-                 I18n.t('activemodel.errors.models.steps/closure/enquiry_details_form.attributes.closure_years_under_enquiry.range'))
+                 I18n.t('activemodel.errors.models.steps/closure/enquiry_details_form.attributes.closure_years_under_enquiry.blank'))
     end
 
     def persist!
