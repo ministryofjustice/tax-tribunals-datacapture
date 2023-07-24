@@ -18,7 +18,7 @@ module Steps::Details
     validates_presence_of :email_address, if: :send_email_copy?
     validate :email_address_identical, if: :send_email_copy?
     validates_presence_of :phone_number, if: :send_text_copy?
-    validate :phone_number_identical, if: :send_text_copy?
+    validate :phone_number_identical, if: :send_text_copy_and_not_representative?
 
     def send_email_copy?
       send_application_details&.to_s.in?(['email', 'both'])
@@ -26,6 +26,10 @@ module Steps::Details
 
     def send_text_copy?
       send_application_details&.to_s.in?(['text', 'both'])
+    end
+
+    def send_text_copy_and_not_representative?
+      send_text_copy? && send_to != UserType::REPRESENTATIVE
     end
 
     private
