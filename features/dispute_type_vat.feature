@@ -10,3 +10,8 @@ Feature: Dispute type options for VAT
   Scenario: Registration option
     Given I click registration option and submit
     Then I should be on the lateness page
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click registration option and submit
+    Then I will see the invalid session timeout error

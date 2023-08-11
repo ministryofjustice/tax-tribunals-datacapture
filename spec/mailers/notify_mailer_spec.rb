@@ -39,6 +39,7 @@ RSpec.describe NotifyMailer, type: :mailer do
         taxpayer_case_confirmation: 'NOTIFY_CASE_CONFIRMATION_TEMPLATE_ID',
         ftt_new_case_notification: 'NOTIFY_FTT_CASE_NOTIFICATION_TEMPLATE_ID',
         application_details_copy: 'NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID',
+        application_details_text: 'NOTIFY_SEND_APPLICATION_DETAIL_TEXT_TEMPLATE_ID',
         first_reminder: 'NOTIFY_CASE_FIRST_REMINDER_TEMPLATE_ID',
         last_reminder: 'NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID'
       },
@@ -49,6 +50,7 @@ RSpec.describe NotifyMailer, type: :mailer do
         taxpayer_case_confirmation: 'NOTIFY_CASE_CONFIRMATION_CY_TEMPLATE_ID',
         ftt_new_case_notification: 'NOTIFY_FTT_CASE_NOTIFICATION_CY_TEMPLATE_ID',
         application_details_copy: 'NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID',
+        application_details_text: 'NOTIFY_SEND_APPLICATION_DETAIL_TEXT_CY_TEMPLATE_ID',
         first_reminder: 'NOTIFY_CASE_FIRST_REMINDER_CY_TEMPLATE_ID',
         last_reminder: 'NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID'
       }
@@ -59,6 +61,7 @@ RSpec.describe NotifyMailer, type: :mailer do
     allow(ENV).to receive(:fetch).with('NOTIFY_STATISTICS_REPORT_TEMPLATE_ID').and_return('statistics-report')
     allow(ENV).to receive(:fetch).with('NOTIFY_REPORT_PROBLEM_TEMPLATE_ID').and_return('report-problem-template')
     allow(ENV).to receive(:fetch).with('NOTIFY_GLIMR_GENERATION_COMPLETE_ID').and_return('glimr-generation-template')
+    allow(ENV).to receive(:fetch).with('GOVUK_NOTIFY_API_KEY').and_return('dev_test-7bdad799-cfd7-4b9c-aafd-5d3162595af8-9e8cfc38-73f5-4164-b2f5-d5a9aa25bcdb')
     stub_const('GOVUK_NOTIFY_TEMPLATES', govuk_notify_templates)
   end
 
@@ -304,6 +307,32 @@ RSpec.describe NotifyMailer, type: :mailer do
       it 'uses provided email content' do
         expect(mail.govuk_notify_personalisation[:application_details]).to eq("email content")
       end
+    end
+  end
+
+  describe 'application_details_text' do
+    before do
+      Timecop.freeze(Time.zone.local(2017, 1, 1, 12, 0, 0))
+    end
+    after do
+      Timecop.return
+    end
+    it 'sends the text' do
+      expect(tribunal_case).to receive(:send)
+        .with(:taxpayer_contact_phone)
+        .and_return('07777777777')
+
+      expect_any_instance_of(Notifications::Client).to receive(:send_sms).
+        with({
+          phone_number: '07777777777',
+          template_id: 'NOTIFY_SEND_APPLICATION_DETAIL_TEXT_TEMPLATE_ID',
+          reference: case_reference,
+          personalisation: {
+            appeal_or_application: :appeal,
+            submission_date_and_time: '1 January 2017 12:00hrs',
+          },
+        })
+      NotifyMailer.new.application_details_text(tribunal_case, :taxpayer, "text content")
     end
   end
 end

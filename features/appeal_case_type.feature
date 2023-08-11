@@ -6,7 +6,7 @@ Feature: Appeal case type page
   Scenario: Error message
     When I click on continue without selecting an option
     Then I should be on the appeal case type page
-   And I should see appeal case type error message
+    And I should see appeal case type error message
 
   Scenario: Successful step (Income tax)
     When I click on continue after selecting Income Tax option
@@ -42,3 +42,10 @@ Feature: Appeal case type page
     And I click on None of the above option
     And I click on continue after providing an answer
     Then I should be on the lateness page
+
+  Scenario: Timeout test - shouldn't trigger
+    When I wait for 11 minutes
+    And I click continue
+    Then I should be on the appeal case type page
+    And I should see appeal case type error message
+    And I will not see the invalid timeout error

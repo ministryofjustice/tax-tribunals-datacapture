@@ -112,3 +112,11 @@ end
 Then("I am taken to the are you in time page") do
   expect(in_time_page.content).to have_header
 end
+
+When(/^I select I have been waiting for fourty five days or more for a review to finish$/) do
+  challenge_decision_status_page.more_than_fourtyfive
+end
+
+When(/^I select I am appealing direct to the tribunal before receiving a response from HMRC$/) do
+  challenge_decision_status_page.direct
+end

@@ -3,7 +3,6 @@ Feature: Representative Path
   Background: Navigate to representative page
     Given I navigate to the has representative page
 
-
   Scenario: When I select nothing then no representative
     When I click the drop down information bar
     Then I will see the information provided
@@ -11,7 +10,7 @@ Feature: Representative Path
     Then I see the selection error message
     When I select no
     Then I see the grounds for appeal page
-#must have moj file uploader running to access ground page
+    #must have moj file uploader running to access ground page
 
   Scenario: Have representation
     When I select yes
@@ -28,8 +27,11 @@ Feature: Representative Path
     Then I will see the pages error messages
     When I fill in the details and progress to the representative copy page
     When I select nothing and see the error messages
-    When I press yes and enter a invalid then valid email
-    Then I see the grounds for appeal page
+#    When I press yes and enter a invalid then valid email
+    When I enter an invalid non matching email address
+    Then I will see the error response
+    Then I enter a valid matching email address
+#    Then I see the grounds for appeal page
 
   Scenario: Representative type page alternative route
     When I advance to the representative professional status page
@@ -46,4 +48,7 @@ Feature: Representative Path
     And submit that my representation is other
     Then I am taken to the representative details page (other)
 
-
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I select yes
+    Then I will see the invalid session timeout error

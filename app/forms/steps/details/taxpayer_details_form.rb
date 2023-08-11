@@ -16,6 +16,7 @@ module Steps::Details
     validate :special_chars_in_mail if :started_by_taxpayer_or_present?
     validate :email_too_long if :started_by_taxpayer_or_present?
     validates :taxpayer_contact_email, presence: true, 'valid_email_2/email': true, if: :extra_email_validation?
+    validate :valid_phone_number
     # rubocop:enable Lint/LiteralAsCondition
 
     private
@@ -40,6 +41,15 @@ module Steps::Details
       return if taxpayer_contact_email.blank?
       if taxpayer_contact_email.length > 256
         errors.add :taxpayer_contact_email, I18n.t('errors.messages.email.too_long')
+      end
+    end
+
+    def valid_phone_number
+      return if taxpayer_contact_phone.blank?
+
+      phone_number = taxpayer_contact_phone.gsub(/[-() ]/, '')
+      if phone_number =~ /\D/ || taxpayer_contact_phone =~ /[*!&\/;]/
+        errors.add :taxpayer_contact_phone, I18n.t('errors.messages.phone.invalid_characters')
       end
     end
 

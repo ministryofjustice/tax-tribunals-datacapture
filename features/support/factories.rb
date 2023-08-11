@@ -61,7 +61,7 @@ FactoryBot.define do
     end
 
     trait :no_email do
-      send_taxpayer_copy { SendApplicationDetails::NO }
+      send_taxpayer_copy { SendApplicationDetails::NONE }
     end
 
     trait :has_representative_no do
@@ -121,7 +121,7 @@ FactoryBot.define do
     end
 
     trait :no_email do
-      send_taxpayer_copy { SendApplicationDetails::NO }
+      send_taxpayer_copy { SendApplicationDetails::NONE }
     end
 
     trait :has_representative_no do

@@ -100,6 +100,20 @@ class NotifyMailer < GovukNotifyRails::Mailer
     mail(to: recipient_email)
   end
 
+  def application_details_text(tribunal_case, entity, _application_details)
+    recipient_number = tribunal_case.send("#{entity}_contact_phone".to_sym)
+
+    client.send_sms(
+      phone_number: recipient_number,
+      reference: tribunal_case.case_reference || '',
+      personalisation: {
+        appeal_or_application: tribunal_case.appeal_or_application,
+        submission_date_and_time: Time.now.strftime('%e %B %Y %H:%Mhrs').strip
+      },
+      template_id: template(tribunal_case.language, :application_details_text)
+    )
+  end
+
   def incomplete_case_reminder(tribunal_case, template_key)
     mail_presenter = CaseMailPresenter.new(tribunal_case)
 
@@ -141,6 +155,10 @@ class NotifyMailer < GovukNotifyRails::Mailer
   end
 
   private
+
+  def client
+    @client ||= Notifications::Client.new(ENV.fetch('GOVUK_NOTIFY_API_KEY'))
+  end
 
   def template(language, method_name)
     GOVUK_NOTIFY_TEMPLATES.dig(language&.value || :english, method_name)

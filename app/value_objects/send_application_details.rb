@@ -1,7 +1,9 @@
 class SendApplicationDetails < ValueObject
   VALUES = [
-    YES = new(:yes),
-    NO  = new(:no),
+    EMAIL = new(:email),
+    TEXT  = new(:text),
+    BOTH  = new(:both),
+    NONE  = new(:none),
   ].freeze
 
   def self.values

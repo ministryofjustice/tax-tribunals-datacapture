@@ -4,7 +4,8 @@ moj.Modules.sendApplicationDetails = {
     selectors: {
         sendDetailsForm: '#new_steps_details_send_application_details_form',
         radioInput: 'input:radio',
-        emailField: "#confirm-email"
+        emailField: "#confirm-email",
+        phoneField: "#confirm-phone"
     },
 
     emailFieldTemplate: "",
@@ -18,17 +19,21 @@ moj.Modules.sendApplicationDetails = {
 
     bindEvents: function() {
         const self = this;
-        $(self.selectors.radioInput).on('change', (self.confirmEmail).bind(self));
+        $(self.selectors.radioInput).on('change', (self.showConfirmations).bind(self));
     },
 
-    confirmEmail: function(e) {
+    showConfirmations: function(e) {
         const self = this,
               value = e.target.attributes.value.nodeValue;
-        if (value == 'yes') {
+        if (value == 'email' || value == 'both') {
             $(self.selectors.emailField).removeClass('hide');
-        }
-        else {
+        } else {
             $(self.selectors.emailField).addClass('hide');
+        }
+        if (value == 'text' || value == 'both') {
+            $(self.selectors.phoneField).removeClass('hide');
+        } else {
+            $(self.selectors.phoneField).addClass('hide');
         }
     }
 };

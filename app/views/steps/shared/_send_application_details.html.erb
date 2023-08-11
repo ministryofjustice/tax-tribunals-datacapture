@@ -2,24 +2,32 @@
 <% step_header %>
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <%= govuk_error_summary %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_error_summary %>
 
-        <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
-            <% entity = t(['dictionary', @form_object.send_to].join('.')) %>
-            <%= f.govuk_radio_buttons_fieldset :send_application_details, inline: false, legend: { text: t('.heading', entity: entity), size: 'l' }, hint: { text: t('.lead_text', entity: entity) } do %>
-                <%= f.govuk_radio_button :send_application_details,
-                       Steps::Details::SendApplicationDetailsForm.choices.first, link_errors: true %>
-
-                <div id="confirm-email" class="<%= @form_object.send_copy? ? '' : 'hide' %> govuk-form-group">
-                <%= f.govuk_text_field :email_address, width: 'one-half' do %>
-                    <span class="govuk-hint"><%= t('.confirm_email_text', entity: @form_object.send_to) %> </span>
-                <% end %>
-                </div>
-                <%= f.govuk_radio_button :send_application_details,
-                       Steps::Details::SendApplicationDetailsForm.choices.last %>
-            <% end %>
-            <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
-        <% end %>
-    </div>
+    <%= step_form @form_object, html:{ class: 'gtm-radioButtonGroup'  } do |f| %>
+      <% entity = t(['dictionary', @form_object.send_to].join('.')) %>
+      <%= f.govuk_radio_buttons_fieldset :send_application_details, inline: false, legend: { text: t('.heading', entity: entity), size: 'l' }, hint: { text: t('.lead_text', entity: entity) } do %>
+        <%= f.govuk_radio_button :send_application_details,
+               Steps::Details::SendApplicationDetailsForm.choices[0], link_errors: true %>
+        <%= f.govuk_radio_button :send_application_details,
+               Steps::Details::SendApplicationDetailsForm.choices[1] %>
+        <%= f.govuk_radio_button :send_application_details,
+               Steps::Details::SendApplicationDetailsForm.choices[2] %>
+        <%= f.govuk_radio_button :send_application_details,
+               Steps::Details::SendApplicationDetailsForm.choices[3] %>
+        <div id="confirm-email" class="<%= @form_object.send_email_copy? ? '' : 'hide' %> govuk-form-group">
+          <%= f.govuk_text_field :email_address, width: 'one-half' do %>
+              <span class="govuk-hint"><%= t('.confirm_email_text', entity: @form_object.send_to) %> </span>
+          <% end %>
+        </div>
+        <div id="confirm-phone" class="<%= @form_object.send_text_copy? ? '' : 'hide' %> govuk-form-group">
+          <%= f.govuk_text_field :phone_number, width: 'one-half' do %>
+            <span class="govuk-hint"><%= @form_object.send_to == UserType::REPRESENTATIVE ? t('.confirm_phone_text', entity: @form_object.send_to) : '' %> </span>
+          <% end %>
+        </div>
+      <% end %>
+      <%= render partial: 'steps/shared/continue_or_save', locals: {f: f} %>
+    <% end %>
+  </div>
 </div>

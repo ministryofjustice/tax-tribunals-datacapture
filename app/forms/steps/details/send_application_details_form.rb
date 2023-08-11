@@ -7,6 +7,7 @@ module Steps::Details
 
     attribute :send_application_details, String
     attribute :email_address, NormalisedEmail
+    attribute :phone_number, StrippedString
     attr_accessor :send_to
 
     def self.choices
@@ -14,19 +15,24 @@ module Steps::Details
     end
 
     validate :selected_option
-    validates_presence_of :email_address, if: :send_copy?
+    validates_presence_of :email_address, if: :send_email_copy?
+    validate :email_address_identical, if: :send_email_copy?
+    validates_presence_of :phone_number, if: :send_text_copy?
+    validate :phone_number_identical, if: :send_text_copy?
 
-    validate :email_address_identical, if: :send_copy?
+    def send_email_copy?
+      send_application_details&.to_s.in?(['email', 'both'])
+    end
 
-    def send_copy?
-      send_application_details&.to_s == 'yes'
+    def send_text_copy?
+      send_application_details&.to_s.in?(['text', 'both'])
     end
 
     private
 
     def selected_option
       if not self.class.choices.include?(send_application_details)
-        errors.add(:send_application_details, tribunal_case_entity, message: 'should you receive an emailed copy?')
+        errors.add(:send_application_details, tribunal_case_entity, message: 'what are your contect preferences?')
       end
     end
 
@@ -34,7 +40,15 @@ module Steps::Details
       return unless errors.blank?
       if saved_email != email_address
         key = "different_#{send_to}".to_sym
-        errors.add(:email_address, key, message: "#{send_to}'s email does not match entered email address")
+        errors.add(:email_address, key, message: "#{send_to.to_s.capitalize}'s email does not match entered email address")
+      end
+    end
+
+    def phone_number_identical
+      return unless errors.blank?
+      if saved_phone_number != phone_number
+        key = "different_#{send_to}".to_sym
+        errors.add(:phone_number, key, message: "#{send_to.to_s.capitalize}'s phone number does not match entered phone number")
       end
     end
 
@@ -43,6 +57,14 @@ module Steps::Details
         tribunal_case.taxpayer_contact_email
       else
         tribunal_case.representative_contact_email
+      end
+    end
+
+    def saved_phone_number
+      if send_to == UserType::TAXPAYER
+        tribunal_case.taxpayer_contact_phone
+      else
+        tribunal_case.representative_contact_phone
       end
     end
 

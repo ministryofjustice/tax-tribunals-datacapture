@@ -120,7 +120,7 @@ en:
           street: 102 Petty France
           city: London
           postcode: SW1H 9AJ
-          email: data.compliance@justice.gov.uk
+          email: dataprotection@justice.gov.uk
       access:
         header: Access to personal information
         line_1: "You can find out if we hold any personal data about you by making a ‘%{subject_access}’. This request goes to the MoJ as data controller. Or you can contact the data disclosure team at:"

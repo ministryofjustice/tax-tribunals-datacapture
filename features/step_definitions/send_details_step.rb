@@ -9,19 +9,19 @@ When("I submit yes and submit blank email field") do
 end
 
 When("I submit an email that doesn't match on the send representative copy page") do
-  send_representative_copy_page.submit_yes_and_a_invalid_email
+  send_representative_copy_page.submit_invalid_email
 end
 
 When("I submit an email that does match on the send representative copy page") do
-  send_representative_copy_page.submit_yes_and_a_valid_email
+  send_representative_copy_page.submit_valid_email
 end
 
 Then("I should see not matching email error") do
   expect(send_representative_copy_page.content).to have_not_matching_error_message
 end
 
-When("I select yes and submit a valid email on the send taxpayer copy page") do
-  send_taxpayer_copy_page.submit_yes_and_valid_email
+When("I select 'email' and submit a valid email on the send taxpayer copy page") do
+  send_taxpayer_copy_page.submit_email_and_a_valid_email
 end
 
 Given("I go back to representative details page and add an email address and submit") do
@@ -50,3 +50,26 @@ Given(/^Given I navigate to the send taxpayer copy page as the taxpayer$/) do
     navigate_to_send_taxpayer_copy_page
     expect(send_taxpayer_copy_page.content).to have_header
   end
+
+And(/^I submit a valid email on the send taxpayer copy page$/) do
+  expect(send_taxpayer_copy_page.content).to have_header
+  send_taxpayer_copy_page.submit_email_and_valid_email
+end
+
+When(/^I submit an invalid email on the send taxpayer copy page$/) do
+  expect(send_taxpayer_copy_page.content).to have_header
+  send_taxpayer_copy_page.submit_email_and_invalid_email
+end
+
+Then(/^I will see a non matching email error$/) do
+  expect(send_taxpayer_copy_page.content.error).to have_error_heading
+end
+
+When(/^I select no email or text$/) do
+  send_taxpayer_copy_page.submit_no_contact
+end
+
+And(/^I submit that I do not have a representative$/) do
+  expect(has_representative_page.content).to have_header
+  submit_no
+end

@@ -3,7 +3,13 @@ require 'rails_helper'
 RSpec.shared_examples 'submits the tribunal case to GLiMR' do |options|
   let(:confirmation_path) { options.fetch(:confirmation_path) }
 
-  let(:current_tribunal_case) { instance_double(TribunalCase, case_status: nil, case_reference: case_reference, send_taxpayer_copy?: send_taxpayer_copy, send_representative_copy?: send_representative_copy) }
+  let(:current_tribunal_case) { instance_double(TribunalCase,
+    case_status: nil,
+    case_reference: case_reference,
+    send_taxpayer_copy?: send_taxpayer_copy,
+    send_taxpayer_text_copy?: false,
+    send_representative_copy?: send_representative_copy,
+    send_representative_text_copy?: false) }
   let(:case_creator_double) { instance_double(TaxTribs::CaseCreator, call: true) }
   let(:taxpayer_case_confirmation_mail_double) { double(deliver_later: true) }
   let(:ftt_new_case_notification_mail_double) { double(deliver_later: true) }

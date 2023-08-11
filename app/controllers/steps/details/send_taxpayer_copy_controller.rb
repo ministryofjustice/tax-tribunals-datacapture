@@ -5,6 +5,7 @@ module Steps::Details
         tribunal_case: current_tribunal_case,
         send_application_details: current_tribunal_case.send_taxpayer_copy,
         email_address: email_address,
+        phone_number: phone_number,
         send_to: UserType::TAXPAYER
       )
     end
@@ -23,6 +24,10 @@ module Steps::Details
 
     def email_address
       current_tribunal_case.taxpayer_contact_email if current_tribunal_case.send_taxpayer_copy?
+    end
+
+    def phone_number
+      current_tribunal_case.taxpayer_contact_phone if current_tribunal_case.send_taxpayer_text_copy?
     end
   end
 end
