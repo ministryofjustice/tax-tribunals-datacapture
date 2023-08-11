@@ -16,3 +16,8 @@ Feature: What support page
     When I click all of the what support checkboxes
     And I fill in the three what support textboxes and submit
     Then I should be on the letter upload page
+
+  Scenario: Timeout test - should trigger
+    When I wait for 11 minutes
+    And I click on continue without selecting an option
+    Then I will see the invalid session timeout error

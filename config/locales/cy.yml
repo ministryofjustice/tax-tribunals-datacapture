@@ -190,7 +190,7 @@ cy:
             closure_hmrc_reference:
               blank: "Nodwch gyfeirnod Gyllid a Thollau EM"
             closure_years_under_enquiry:
-              blank: "Nodwch hyd yr ymholiad mewn blynyddoedd"
+              blank: "Rhowch y nifer o flynyddoedd sydd dan ymchwiliad (0-20)"
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
@@ -303,7 +303,6 @@ cy:
               send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost"
               send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost"
             phone_number:
-              different_taxpayer: "Nodwch yr un rhif ffôn cyswllt a roddoch ar gyfer manylion y trethdalwr. Ewch yn ôl a newid rhif ffôn cyswllt y trethdalwr os yw'n anghywir."
               different_representative: "Nodwch yr un rhif ffôn cyswllt a roddoch ar gyfer manylion y cynrychiolydd. Ewch yn ôl a newid rhif ffôn cyswllt y cynrychiolydd os yw'n anghywir."
               blank: *blank_phone_number
 
@@ -417,7 +416,7 @@ cy:
       continue: Parhau
       description_html: |-
         <p class="govuk-body">Mae'n bosib y gallwch apelio'n hwyr drwy roi rhesymau. Y barnwr fydd yn penderfynu a all eich apêl barhau.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">Mae'r tribiwnlys ar wahân i Gyllid a Thollau EM.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys yn annibynnol ar Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
             <li><strong>sgan neu lun</strong> o'r hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad</li>
@@ -694,6 +693,7 @@ cy:
     index:
       continue: Parhau
       description_html: |-
+        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys yn annibynnol ar Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>manylion yr ymholiad</strong> gan gynnwys cyfeirnod Cyllid a Thollau EM a hyd yr ymholiad mewn blynyddoedd</li>
@@ -703,6 +703,7 @@ cy:
       heading: "Gwneud cais i gau ymholiad"
       lead_text: "Gofyn i'r barnwr ddod ag ymholiad treth i ben gyda hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
       page_title: "Dechrau cais i gau ymholiad"
+      impartial_decision: "Tribiwnlys annibynnol fydd yn penderfynu ar eich cais"
   date:
     formats:
       compact: "%d/%m/%B"

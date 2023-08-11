@@ -47,3 +47,19 @@ end
 When ("I click 'start again'") do
   click_link(I18n.t('users.shared.case_saved.no_email_invalid_entry_link'))
 end
+
+When(/^I enter an invalid email address$/) do
+  save_appeal_page.content.email_input.set 'invalid@email'
+end
+
+Then(/^I will see an invalid email error message$/) do
+  expect(save_appeal_page).to have_text('Please enter an email address in the correct format, like name@example.com')
+end
+
+When(/^I click the 'Sign into an existing account' link$/) do
+  click_link('Sign into an existing account')
+end
+
+Then(/^I should see the sign in page$/) do
+  expect(page).to have_title('Sign in - Appeal to the tax tribunal - GOV.UK')
+end

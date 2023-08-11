@@ -11,13 +11,13 @@ class SendRepresentativeCopyPage < BasePage
     end
   end
 
-  def submit_email_and_a_valid_email
+  def submit_valid_email
     content.email_option.click
     content.email_field.set 'matching@email.com'
     continue_or_save_continue
   end
 
-  def submit_email_and_a_invalid_email
+  def submit_invalid_email
     content.email_option.click
     content.email_field.set 'non-matching@email.com'
     continue_or_save_continue

@@ -17,7 +17,6 @@ class InTimePage < BasePage
   end
 
   def submit_no
-
     content.no_option.click
     continue_or_save_continue
   end

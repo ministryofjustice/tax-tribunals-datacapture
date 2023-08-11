@@ -16,3 +16,11 @@ Feature: Start to end
     Then I should be told that the application has been successfully submitted
     And I click Finish
     Then I should be on the Smart Survey link
+
+  @smoke
+  Scenario: Timeout test - shouldn't trigger
+    Given I complete a valid appeal application
+    Then I should be told that the application has been successfully submitted
+    And I wait for 11 minutes
+    And I click Finish
+    Then I should be on the Smart Survey link

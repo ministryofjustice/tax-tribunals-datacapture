@@ -630,7 +630,7 @@ en:
             closure_hmrc_reference:
               blank: Please enter the HMRC reference number
             closure_years_under_enquiry:
-              blank: Please enter the years under enquiry
+              blank: Enter the years under enquiry (0 to 20)
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
@@ -696,7 +696,6 @@ en:
               different_representative: Enter the same email address you provided for the representative's details. Press back and change the representative's email address if this is incorrect.
               blank: *blank_email
             phone_number:
-              different_taxpayer: Enter the same phone number you provided for the taxpayer's details. Press back and change the taxpayer's phone number if this is incorrect.
               different_representative: Enter the same phone number you provided for the representative's details. Press back and change the representative's phone number if this is incorrect.
               blank: *blank_phone_number
 
@@ -1525,6 +1524,8 @@ en:
       email:
         special_characters: "Enter an email address in the correct format, like name@example.com. An email address cannot contain *()!&/;"
         too_long: "Email is too long (maximum is 256 characters)"
+      phone:
+        invalid_characters: "Enter a phone number in the correct format, like 07700 900 982. A phone number cannot contain *!&/;"
       name:
         too_long: "Name is too long (maximum is 256 characters)"
     error_summary:
@@ -1917,7 +1918,7 @@ en:
         date of the original notice or review conclusion letter.
       description_html: |
         <p class="govuk-body">You may be able to appeal late by giving reasons. The judge will decide if your appeal can go ahead.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">The tribunal are separate from HMRC.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal is separate from HMRC.</p>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>a scan or photo</strong> of the original notice or review conclusion letter</li>
@@ -1928,10 +1929,12 @@ en:
       page_title: Start an appeal
   closure_home:
     index:
+      impartial_decision: Your application will be decided by an independent tribunal
       continue: Continue
       heading: Apply to close an enquiry
       lead_text: Ask the judge to end a tax enquiry with a closure, counteraction or no-counteraction notice.
       description_html: |
+        <p class="govuk-body govuk-!-font-weight-bold">The tribunal is separate from HMRC.</p>
         <h2 class="govuk-heading-m">What you will need</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>details of the enquiry</strong> including the HMRC reference number and tax years under enquiry</li>
