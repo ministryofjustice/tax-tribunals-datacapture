@@ -310,7 +310,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
-    nokogiri (1.13.10)
+    nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
@@ -584,7 +584,7 @@ DEPENDENCIES
   mimemagic (~> 0.3.3)
   mutant-license (= 0.1.1.2.1739399027284447558325915053311580324856.4)!
   mutant-rspec (= 0.10.29)
-  nokogiri (~> 1.13.10)
+  nokogiri (~> 1.14.3)
   pg (= 1.2.3)
   phantomjs (= 2.1.1.0)
   poltergeist (~> 1.18, >= 1.18.1)
