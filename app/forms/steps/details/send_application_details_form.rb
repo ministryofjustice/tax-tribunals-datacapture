@@ -40,16 +40,15 @@ module Steps::Details
       return unless errors.blank?
       if saved_email != email_address
         key = "different_#{send_to}".to_sym
-        errors.add(:email_address, key, message: "#{send_to}'s email does not match entered email address")
+        errors.add(:email_address, key, message: "#{send_to.to_s.capitalize}'s email does not match entered email address")
       end
     end
 
     def phone_number_identical
       return unless errors.blank?
-      return if send_to == UserType::TAXPAYER
       if saved_phone_number != phone_number
         key = "different_#{send_to}".to_sym
-        errors.add(:phone_number, key, message: "#{send_to}'s phone number does not match entered phone number")
+        errors.add(:phone_number, key, message: "#{send_to.to_s.capitalize}'s phone number does not match entered phone number")
       end
     end
 
