@@ -110,3 +110,6 @@ Given("I click registration option and submit") do
   dispute_type_page.submit_registration_option
 end
 
+Given(/^I click HMRC claim you owe money option$/) do
+  dispute_type_page.submit_owe_option
+end

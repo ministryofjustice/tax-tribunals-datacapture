@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.7'
+ruby '2.7.8'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap',                        '1.7.3', require: false
@@ -20,8 +20,8 @@ gem 'rails',                           '~> 6.0.4.6'
 gem 'responders',                      '3.0.1'
 gem 'sanitize',                        '~> 6.0'                        
 gem 'sassc-rails',                     '~> 2.1.2'
-gem 'sentry-ruby',                     '~> 4.6'
-gem 'sentry-rails',                    '~> 4.6'
+gem 'sentry-ruby',                     '~> 5.8'
+gem 'sentry-rails',                    '~> 5.8'
 gem 'strong_password',                 '~> 0.0.8'
 gem 'uglifier',                        '4.2.0'
 gem 'virtus',                          '1.0.5'

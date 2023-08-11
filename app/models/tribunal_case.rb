@@ -109,11 +109,19 @@ class TribunalCase < ApplicationRecord
   end
 
   def send_taxpayer_copy?
-    send_taxpayer_copy.eql?(SendApplicationDetails::YES)
+    send_taxpayer_copy.in?([SendApplicationDetails::EMAIL, SendApplicationDetails::BOTH])
+  end
+
+  def send_taxpayer_text_copy?
+    send_taxpayer_copy.in?([SendApplicationDetails::TEXT, SendApplicationDetails::BOTH])
   end
 
   def send_representative_copy?
-    send_representative_copy.eql?(SendApplicationDetails::YES)
+    send_representative_copy.in?([SendApplicationDetails::EMAIL, SendApplicationDetails::BOTH])
+  end
+
+  def send_representative_text_copy?
+    send_representative_copy.in?([SendApplicationDetails::TEXT, SendApplicationDetails::BOTH])
   end
 
 

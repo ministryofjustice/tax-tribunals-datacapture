@@ -14,7 +14,7 @@ Then("I see the selection error message") do
 end
 
 Then("I see the grounds for appeal page") do
-expect(grounds_for_appeal_page.content).to have_header
+  expect(grounds_for_appeal_page.content).to have_header
 end
 
 Then("I see the representative professional status page") do
@@ -62,19 +62,19 @@ end
 When("I select nothing and see the error messages") do
   RSpec::Mocks.with_temporary_scope do
     stub_uploader
-continue_or_save_continue
-expect(send_representative_copy_page.content.error).to have_error_heading
+    continue_or_save_continue
+    expect(send_representative_copy_page.content.error).to have_error_heading
   end
-  end
+end
 
-When("I press yes and enter a invalid then valid email") do
+When("I press email and enter a invalid then valid email") do
   RSpec::Mocks.with_temporary_scope do
     stub_uploader
-  send_representative_copy_page.submit_yes_and_a_invalid_email
-  expect(send_representative_copy_page.content.error).to have_error_heading
-  send_representative_copy_page.submit_yes_and_a_valid_email
+    send_representative_copy_page.submit_email_and_a_invalid_email
+    expect(send_representative_copy_page.content.error).to have_error_heading
+    send_representative_copy_page.submit_email_and_a_valid_email
   end
-  end
+end
 
 When("I click the drop down information bar") do
   has_representative_page.representative_dropdown
@@ -151,4 +151,14 @@ end
 
 Then(/^I am taken to the representative details page \(other\)$/) do
   expect(representative_details_page.content).to have_header
+end
+
+When(/^I enter an invalid non matching email address$/) do
+  expect(send_representative_copy_page.content).to have_header
+  send_representative_copy_page.submit_invalid_email
+end
+
+When(/^I enter a valid matching email address$/) do
+  expect(send_representative_copy_page.content).to have_header
+  send_representative_copy_page.submit_valid_email
 end

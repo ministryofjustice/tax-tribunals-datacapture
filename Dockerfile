@@ -1,4 +1,4 @@
-FROM ruby:2.7.7-alpine3.15
+FROM ruby:2.7.8-alpine3.16
 
 # Adding argument support for ping.json
 ARG APP_VERSION=unknown
@@ -38,6 +38,7 @@ ENV  NOTIFY_CASE_LAST_REMINDER_TEMPLATE_ID            replace_this_at_build_time
 ENV  NOTIFY_REPORT_PROBLEM_TEMPLATE_ID                replace_this_at_build_time
 ENV  REPORT_PROBLEM_EMAIL_ADDRESS                     replace_this_at_build_time
 ENV  NOTIFY_SEND_APPLICATION_DETAIL_TEMPLATE_ID       replace_this_at_build_time
+ENV  NOTIFY_SEND_APPLICATION_DETAIL_TEXT_TEMPLATE_ID       replace_this_at_build_time
 ENV  NOTIFY_CASE_CONFIRMATION_CY_TEMPLATE_ID          replace_this_at_build_time
 ENV  NOTIFY_FTT_CASE_NOTIFICATION_CY_TEMPLATE_ID      replace_this_at_build_time
 ENV  NOTIFY_NEW_CASE_SAVED_CY_TEMPLATE_ID             replace_this_at_build_time
@@ -47,6 +48,7 @@ ENV  NOTIFY_CASE_FIRST_REMINDER_CY_TEMPLATE_ID        replace_this_at_build_time
 ENV  NOTIFY_CASE_LAST_REMINDER_CY_TEMPLATE_ID         replace_this_at_build_time
 ENV  NOTIFY_REPORT_PROBLEM_CY_TEMPLATE_ID             replace_this_at_build_time
 ENV  NOTIFY_SEND_APPLICATION_DETAIL_CY_TEMPLATE_ID    replace_this_at_build_time
+ENV  NOTIFY_SEND_APPLICATION_DETAIL_CY_TEXT_TEMPLATE_ID       replace_this_at_build_time
 
 # Chromium onwards is latest Chromium (100) package
 # for Puppeteer for Grover

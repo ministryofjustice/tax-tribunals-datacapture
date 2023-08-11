@@ -18,6 +18,13 @@ RSpec.describe Steps::Details::TaxpayerIndividualDetailsForm do
       :taxpayer_feedback_consent
   ]
 
+  it_behaves_like 'a validated phone number', entity_type: :taxpayer,
+    additional_fields: [
+      :taxpayer_individual_first_name,
+      :taxpayer_individual_last_name,
+      :taxpayer_feedback_consent
+    ]
+
   describe '#name_fields' do
     specify { expect(subject.name_fields).to eq([:taxpayer_individual_first_name, :taxpayer_individual_last_name]) }
   end

@@ -28,6 +28,7 @@ cy:
     invalid_email: &invalid_email "Rhowch gyfeiriad e-bost yn y fformat cywir, er enghraifft enw@enghraifft.com"
     tax_tribunal_independent: &tax_tribunal_independent "Mae'r tribiwnlys treth yn annibynnol ac nid oes ganddo fynediad at ffeiliau gan Gyllid a Thollau EM."
     blank_email: &blank_email "Rhowch eich cyfeiriad e-bost"
+    blank_phone_number: &blank_phone_number "Rhowch rif ffôn yn y fformat cywir, er enghraifft 07700 900 982"
     blank_password: &blank_password "Teipiwch gyfrinair"
 
     CASE_TYPE_QUESTION: &CASE_TYPE_QUESTION
@@ -45,16 +46,18 @@ cy:
       review_late_rejection: "Roedd fy nghais yn hwyr. Rwy'n gwneud cais am ganiatâd i ofyn am adolygiad hwyr"
 
     SEND_CASE_DETAILS_COPY: &SEND_CASE_DETAILS_COPY
+      heading: "Dewiswch fanylion cyswllt dewisol y ${entity} ar gyfer copi o fanylion yr achos"
+      lead_text: "Os byddwch yn dewis e-bost a/neu neges testun, byddwn yn anfon copi o fanylion yr achos at y %{entity} pan fyddwch yn cyflwyno’r achos. Argymhellir eich bod yn cadw copi ar gyfer eich cofnodion."
+      page_title: "Y ffordd orau i gyfathrebu"
       confirm_email_text: "I amddiffyn preifatrwydd, gofynnwn i chi gadarnhau'r cyfeiriad e-bost a roddoch yn flaenorol ar gyfer manylion y %{entity}."
-      heading: "A yw'r %{entity} eisiau copi o fanylion yr achos drwy e-bost? "
-      lead_text: "Os byddwch yn dewis Ydy, byddwn yn anfon copi o fanylion yr achos at y %{entity} pan fyddwch yn cyflwyno'r achos.  Argymhellir eich bod yn cadw copi ar gyfer eich cofnodion chi eich hun."
-      page_title: "Anfon copi o fanylion yr achos"
+      confirm_phone_text: "Rhowch y rhif ffôn cyswllt ar gyfer manylion y %{entity}."
+
     CYA_CONFIRMATION: &CYA_CONFIRMATION
       check_answers:
         resume:
           heading: "Parhau â'ch %{appeal_or_application}"
           page_title: "Parhau â'ch achos"
-          heading_appeal: Parhau â'ch apêl
+          heading_appeal: "Parhau â'ch apêl"
         show:
           heading: "Gwiriwch eich atebion"
           page_title: "Gwiriwch eich atebion"
@@ -98,6 +101,18 @@ cy:
     START_FINISH: &START_FINISH
       finish: Diwedd
       start_again: "Dechrau eto"
+
+    CONTACT_PREFERENCES: &CONTACT_PREFERENCES
+      'email': 'E-bost yn unig'
+      'text': 'Neges testun (SMS) yn unig'
+      'both': 'E-bost a neges testun (SMS)'
+      'none': 'Dim e-bost na neges testun (SMS)'
+
+    CONTACT_PREFERENCES_CYA: &CONTACT_PREFERENCES_CYA
+      'email': 'E-bost'
+      'text': 'Neges testun (SMS)'
+      'both': 'E-bost a neges testun (SMS)'
+      'none': 'Dim'
 
     TAXPAYER_ADDRESS: &TAXPAYER_ADDRESS
       taxpayer_contact_address: Cyfeiriad
@@ -175,7 +190,7 @@ cy:
             closure_hmrc_reference:
               blank: "Nodwch gyfeirnod Gyllid a Thollau EM"
             closure_years_under_enquiry:
-              blank: "Nodwch hyd yr ymholiad mewn blynyddoedd"
+              blank: "Rhowch y nifer o flynyddoedd sydd dan ymchwiliad (0-20)"
         steps/closure/support_documents_form:
           attributes:
             having_problems_uploading_explanation:
@@ -287,6 +302,10 @@ cy:
             send_application_details:
               send_representative_copy: "Dewiswch a ddylai'r cynrychiolydd gael copi o fanylion yr achos drwy e-bost"
               send_taxpayer_copy: "Dewiswch a ddylai'r trethdalwr gael copi o fanylion yr achos drwy e-bost"
+            phone_number:
+              different_representative: "Nodwch yr un rhif ffôn cyswllt a roddoch ar gyfer manylion y cynrychiolydd. Ewch yn ôl a newid rhif ffôn cyswllt y cynrychiolydd os yw'n anghywir."
+              blank: *blank_phone_number
+
         steps/hardship/disputed_tax_paid_form:
           attributes:
             disputed_tax_paid:
@@ -397,7 +416,7 @@ cy:
       continue: Parhau
       description_html: |-
         <p class="govuk-body">Mae'n bosib y gallwch apelio'n hwyr drwy roi rhesymau. Y barnwr fydd yn penderfynu a all eich apêl barhau.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">Mae'r tribiwnlys ar wahân i Gyllid a Thollau EM.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys yn annibynnol ar Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
             <li><strong>sgan neu lun</strong> o'r hysbysiad gwreiddiol neu'r llythyr canlyniad adolygiad</li>
@@ -613,6 +632,16 @@ cy:
       answers:
         no_representative: "Nid oes gennyf gynrychiolydd"
       question: "Manylion y cynrychiolydd"
+    send_taxpayer_copy:
+      question: "Dewiswch fanylion cyswllt dewisol y trethdalwr ar gyfer copi o fanylion yr achos"
+      accessible_change_text: "Dewiswch fanylion cyswllt dewisol y trethdalwr ar gyfer copi o fanylion yr achos"
+      answers:
+        <<: *CONTACT_PREFERENCES
+    send_representative_copy:
+      question: "Dewiswch fanylion cyswllt dewisol y cynrychiolydd ar gyfer copi o fanylion yr achos"
+      accessible_change_text: "Dewiswch fanylion cyswllt dewisol y cynrychiolydd ar gyfer copi o fanylion yr achos"
+      answers:
+        <<: *CONTACT_PREFERENCES
     representative_professional_status:
       accessible_change_text: "pwy yw eich cynrychiolydd"
       answers:
@@ -664,6 +693,7 @@ cy:
     index:
       continue: Parhau
       description_html: |-
+        <p class="govuk-body govuk-!-font-weight-bold">Mae’r tribiwnlys yn annibynnol ar Gyllid a Thollau EM.</p>
         <h2 class="govuk-heading-m">Byddwch angen</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li><strong>manylion yr ymholiad</strong> gan gynnwys cyfeirnod Cyllid a Thollau EM a hyd yr ymholiad mewn blynyddoedd</li>
@@ -673,6 +703,7 @@ cy:
       heading: "Gwneud cais i gau ymholiad"
       lead_text: "Gofyn i'r barnwr ddod ag ymholiad treth i ben gyda hysbysiad cau, hysbysiad gwrthweithio neu hysbysiad dim gwrthweithio. "
       page_title: "Dechrau cais i gau ymholiad"
+      impartial_decision: "Tribiwnlys annibynnol fydd yn penderfynu ar eich cais"
   date:
     formats:
       compact: "%d/%m/%B"

@@ -176,6 +176,13 @@ moj.Modules.addressLookup = {
     }
     else {
       dpa = entry['DPA'] || {};
+      const adrNames = ['SUB_BUILDING_NAME','BUILDING_NAME','BUILDING_NUMBER','DEPENDENT_THOROUGHFARE_NAME','THOROUGHFARE_NAME','DOUBLE_DEPENDENT_LOCALITY','DEPENDENT_LOCALITY', 'POST_TOWN']
+      for (const key in dpa) {
+        if (adrNames.includes(key)) {
+          dpa[key] = dpa[key].toLowerCase().replace(/\b[a-z]/g, function(letter) {
+            return letter.toUpperCase(); } );
+        }
+      }
     }
 
     const addressFormat = formatOptions.address;
@@ -192,7 +199,7 @@ moj.Modules.addressLookup = {
         ]),
       postcode: dpa.POSTCODE,
       city: dpa.POST_TOWN,
-      country: 'UNITED KINGDOM'
+      country: 'United Kingdom'
     };
   },
 
