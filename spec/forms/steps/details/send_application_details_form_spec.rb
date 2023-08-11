@@ -111,7 +111,8 @@ RSpec.describe Steps::Details::SendApplicationDetailsForm do
     context 'when send_application_details value is text, phone_number doesnt match and is taxpayer' do
       let(:user_type) { UserType::TAXPAYER }
 
-      specify { expect(subject).to be_valid }
+      specify { expect(subject).not_to be_valid }
+      specify { expect(subject.errors.details[:phone_number]).to eq([{error: "different_#{user_type}".to_sym}])}
     end
 
     context 'when send_application_details value is text, phone_number doesnt match and is representative' do
