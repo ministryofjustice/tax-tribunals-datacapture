@@ -38,7 +38,7 @@ Then(/^I am on the letter upload page and I see you the validity message$/) do
   expect(letter_upload_type_page.content).to have_text("You must upload a copy of the letter for your appeal to be valid.")
 end
 
-When(/^I successfully upload a document$/) do
+When(/^I successfully upload a document to the letter page$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(Uploader).to receive(:list_files).and_return([])
     allow(Uploader).to receive(:add_file).and_return(double(name: '123/foo/bar.png'))

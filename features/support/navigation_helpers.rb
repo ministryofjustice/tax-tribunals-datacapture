@@ -149,7 +149,7 @@ def complete_valid_appeal_application
     expect(taxpayer_details_page.content).to have_header
     taxpayer_details_page.submit_taxpayer_details
     expect(send_taxpayer_copy_page.content).to have_header
-    submit_no
+    submit_none
     expect(has_representative_page.content).to have_header
     submit_no
     expect(grounds_for_appeal_page.content).to have_header

@@ -244,6 +244,11 @@ def submit_no
   continue_or_save_continue
 end
 
+def submit_none
+  base_page.content.none_option.click
+  continue_or_save_continue
+end
+
 def submit_yes_welsh
   base_page.content.yes_option_welsh.click
   continue_or_save_continue

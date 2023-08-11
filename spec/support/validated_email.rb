@@ -16,7 +16,15 @@ RSpec.shared_examples 'a validated email' do |params|
 
   fields = default_fields + additional_fields + optional_fields
 
-  let(:fields_with_dummy_values) { fields.map {|k| [k, 'dummy_value'] }.to_h }
+  let(:fields_with_dummy_values) { fields.map {|k|
+      if k =~ /email/
+        [k, 'foo@email.com']
+      elsif k =~ /phone/
+        [k, '07772622355']
+      else
+        [k, 'dummy_value']
+      end
+  }.to_h }
   let(:arguments) { fields_with_dummy_values.merge({ tribunal_case: tribunal_case }) }
   let(:tribunal_case) { instance_double(TribunalCase).as_null_object }
 

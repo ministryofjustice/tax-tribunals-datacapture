@@ -10,16 +10,19 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
 
   context 'when send copy selected yes' do
     let(:email_address) { 'test@email.com' }
+    let(:phone_number) { '07777777777' }
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: SendApplicationDetails::YES,
-        representative_contact_email: email_address
+        send_representative_copy: SendApplicationDetails::BOTH,
+        representative_contact_email: email_address,
+        representative_contact_phone: phone_number
       )
     end
 
-    it 'shows email_address' do
+    it 'shows details' do
       expect(controller.send(:email_address)).to eq(email_address)
+      expect(controller.send(:phone_number)).to eq(phone_number)
     end
   end
 
@@ -27,11 +30,14 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
     let(:tribunal_case) do
       TribunalCase.new(
         representative_type: UserType::REPRESENTATIVE,
-        send_representative_copy: SendApplicationDetails::NO,
+        send_representative_copy: SendApplicationDetails::NONE,
       )
     end
 
     it 'email_address is blank' do
+      expect(controller.send(:email_address)).to be_blank
+    end
+    it 'phone_number is blank' do
       expect(controller.send(:email_address)).to be_blank
     end
   end
@@ -46,6 +52,9 @@ RSpec.describe Steps::Details::SendRepresentativeCopyController, type: :controll
 
     it 'email_address is blank' do
       expect(controller.send(:email_address)).to be_blank
+    end
+    it 'phone_number is blank' do
+      expect(controller.send(:phone_number)).to be_blank
     end
   end
 end

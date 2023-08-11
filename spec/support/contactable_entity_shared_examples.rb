@@ -22,6 +22,8 @@ RSpec.shared_examples 'a contactable entity form' do |params|
   let(:fields_with_dummy_values) { fields.map {|k|
       if k =~ /email/
         [k, 'foo@email.com']
+      elsif k =~ /phone/
+        [k, '07772622355']
       else
         [k, 'dummy_value']
       end

@@ -7,7 +7,17 @@ module Steps::Closure
     validates_presence_of :closure_hmrc_reference,
                           :closure_years_under_enquiry
 
+    validate :closure_years_in_range?
+
     private
+
+    def closure_years_in_range?
+      return if closure_years_under_enquiry.nil?
+      return if closure_years_under_enquiry.scan(/\D/).empty? && (0..20).include?(closure_years_under_enquiry.to_i)
+
+      errors.add(:closure_years_under_enquiry,
+                 I18n.t('activemodel.errors.models.steps/closure/enquiry_details_form.attributes.closure_years_under_enquiry.blank'))
+    end
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case

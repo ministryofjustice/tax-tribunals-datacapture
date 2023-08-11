@@ -8,6 +8,7 @@ class GroundsForAppealPage < BasePage
     element :textarea, '.govuk-textarea'
     section :error_summary, '.govuk-error-summary' do
       element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
+      element :virus_error_heading, '#error-summary-title', text: I18n.t('errors.messages.virus_detected')
     end
   end
 
