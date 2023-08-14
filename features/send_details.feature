@@ -23,8 +23,8 @@ Feature: Send details
     And I submit that I do not have a representative
     Then I should be on the enquiry details page
 
-  Scenario:
-    Given Given I navigate to the send taxpayer copy page as the taxpayer
+  Scenario: Provoking error
+    Given I navigate to the send taxpayer copy page as the taxpayer
     When I click the continue button
     Then I see the error
     When I submit no

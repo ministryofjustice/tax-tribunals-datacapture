@@ -19,6 +19,13 @@ Feature: Taxpayer details page
     When I re-submit a valid email
     Then I am taken to the send taxpayer copy page
 
+  Scenario: Submitting no phone number validation error check
+    When I submit a taxpayers details form with no phone number
+    And I am taken to the send taxpayer copy page
+    And I select both email and text message and fill in an email
+    Then I am shown a blank phone error
+    And I am on the send taxpayer copy page
+
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
     And I submit a blank taxpayers details form

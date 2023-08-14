@@ -6,9 +6,11 @@ class SendTaxpayerCopyPage < BasePage
     element :email_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.email')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
     element :no_contact_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.none')
+    element :both_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.both')
     section :error, '.govuk-error-summary' do
       element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
       element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_taxpayer')
+      # element :not_matching_phone_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.phone_number.different_taxpayer')
     end
   end
 
@@ -26,6 +28,12 @@ class SendTaxpayerCopyPage < BasePage
 
   def submit_no_contact
     content.no_contact_option.click
+    continue_or_save_continue
+  end
+
+  def submit_email
+    content.both_option.click
+    content.email_field.set 'non-matching@email.com'
     continue_or_save_continue
   end
 end
