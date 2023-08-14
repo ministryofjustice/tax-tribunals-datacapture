@@ -46,7 +46,8 @@ module Steps::Details
 
     def phone_number_identical
       return unless errors.blank?
-      if saved_phone_number != phone_number
+
+      if saved_phone_number.present? && (saved_phone_number != phone_number)
         key = "different_#{send_to}".to_sym
         errors.add(:phone_number, key, message: "#{send_to.to_s.capitalize}'s phone number does not match entered phone number")
       end
@@ -65,6 +66,14 @@ module Steps::Details
         tribunal_case.taxpayer_contact_phone
       else
         tribunal_case.representative_contact_phone
+      end
+    end
+
+    def entity_contact_phone
+      if send_to == UserType::TAXPAYER
+        :taxpayer_contact_phone
+      else
+        :representative_contact_phone
       end
     end
 
@@ -88,10 +97,15 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
       return true unless changed?
 
+      additional_attributes = {}
+      if send_text_copy? && saved_phone_number.blank?
+        additional_attributes[entity_contact_phone] = phone_number
+      end
+
       # or send_representative_copy: send_application_details_value
-      tribunal_case.update(
+      tribunal_case.update({
         tribunal_case_entity => send_application_details_value
-     )
+      }.merge(additional_attributes))
     end
   end
 end
