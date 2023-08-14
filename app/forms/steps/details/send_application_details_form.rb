@@ -46,7 +46,6 @@ module Steps::Details
 
     def phone_number_identical
       return unless errors.blank?
-
       if saved_phone_number.present? && (saved_phone_number != phone_number)
         key = "different_#{send_to}".to_sym
         errors.add(:phone_number, key, message: "#{send_to.to_s.capitalize}'s phone number does not match entered phone number")
