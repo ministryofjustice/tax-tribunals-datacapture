@@ -87,3 +87,11 @@ end
 And(/^I am on the send taxpayer copy page$/) do
   expect(send_taxpayer_copy_page.content).to have_header
 end
+
+And(/^I select text message and try and proceed with a blank number$/) do
+  send_taxpayer_copy_page.blank_phone_option
+end
+
+Then(/^I fill in a valid phone number$/) do
+  send_taxpayer_copy_page.submit_valid_phone
+end
