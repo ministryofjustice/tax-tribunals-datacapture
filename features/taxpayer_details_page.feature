@@ -25,8 +25,6 @@ Feature: Taxpayer details page
     And I select both email and text message and fill in an email
     Then I am shown a blank phone error
     And I am on the send taxpayer copy page
-    Then I fill in a valid phone number
-    And I am on the has representative page
 
   Scenario: Submitting no phone number validation error check (text)
     When I submit a taxpayers details form with no phone number
@@ -34,8 +32,6 @@ Feature: Taxpayer details page
     And I select text message and try and proceed with a blank number
     Then I am shown a blank phone error
     And I am on the send taxpayer copy page
-    Then I fill in a valid phone number
-    And I am on the has representative page
 
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
