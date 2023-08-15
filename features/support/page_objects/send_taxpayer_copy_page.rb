@@ -31,7 +31,7 @@ class SendTaxpayerCopyPage < BasePage
     continue_or_save_continue
   end
 
-  def submit_email
+  def submit_email_only
     content.both_option.click
     content.email_field.set 'non-matching@email.com'
     continue_or_save_continue

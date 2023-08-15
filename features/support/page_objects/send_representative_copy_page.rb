@@ -6,6 +6,7 @@ class SendRepresentativeCopyPage < BasePage
     element :email_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.email')
     element :email_field, "input[name='steps_details_send_application_details_form[email_address]']"
     element :not_matching_error_message, 'a', text: I18n.t('activemodel.errors.models.steps/details/send_application_details_form.attributes.email_address.different_representative')
+    element :both_option, 'label', text: I18n.t('dictionary.CONTACT_PREFERENCES.both')
     section :error, '.govuk-error-summary' do
       element :error_heading, '#error-summary-title', text: I18n.t('errors.error_summary.heading')
     end
@@ -19,6 +20,12 @@ class SendRepresentativeCopyPage < BasePage
 
   def submit_invalid_email
     content.email_option.click
+    content.email_field.set 'non-matching@email.com'
+    continue_or_save_continue
+  end
+
+  def submit_email_only
+    content.both_option.click
     content.email_field.set 'non-matching@email.com'
     continue_or_save_continue
   end
