@@ -33,6 +33,18 @@ Feature: Taxpayer details page
     Then I am shown a blank phone error
     And I am on the send taxpayer copy page
 
+  Scenario: Submitting phone number and triggering non matching phone number error (email and text)
+    When I successfully submit taxpayers details
+    And I am taken to the send taxpayer copy page
+    And I select both email and text message and fill in an email and a non matching phone number
+    Then I am shown a blank phone error
+
+  Scenario: Submitting phone number and triggering non matching phone number error (text)
+    When I successfully submit taxpayers details
+    And I am taken to the send taxpayer copy page
+    And I select text message and fill in an email and a non matching phone number
+    Then I am shown a blank phone error
+
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
     And I submit a blank taxpayers details form

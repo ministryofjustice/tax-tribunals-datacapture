@@ -41,4 +41,17 @@ class SendRepresentativeCopyPage < BasePage
     content.text_option.click
     continue_or_save_continue
   end
+
+  def submit_non_matching_phone
+    content.both_option.click
+    content.email_field.set 'matching@email.com'
+    content.phone_field.set '(00000000000)'
+    continue_or_save_continue
+  end
+
+  def submit_non_matching_phone_text
+    content.text_option.click
+    content.phone_field.set '(00000000000)'
+    continue_or_save_continue
+  end
 end
