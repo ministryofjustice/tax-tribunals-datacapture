@@ -73,3 +73,32 @@ And(/^I submit that I do not have a representative$/) do
   expect(has_representative_page.content).to have_header
   submit_no
 end
+
+And(/^I select both email and text message and fill in an email$/) do
+  send_taxpayer_copy_page.submit_email_only
+  send_representative_copy_page.submit_email_only
+end
+
+Then(/^I am shown a blank phone error$/) do
+  expect(send_taxpayer_copy_page.content.error).to have_error_heading
+  expect(send_representative_copy_page.content.error).to have_error_heading
+end
+
+And(/^I am on the send taxpayer copy page$/) do
+  expect(send_taxpayer_copy_page.content).to have_header
+end
+
+And(/^I select text message and try and proceed with a blank number$/) do
+  send_taxpayer_copy_page.blank_phone_option
+  send_representative_copy_page.blank_phone_option
+end
+
+And(/^I select both email and text message and fill in an email and a non matching phone number$/) do
+  send_taxpayer_copy_page.submit_non_matching_phone
+  send_representative_copy_page.submit_non_matching_phone
+end
+
+And(/^I select text message and fill in an email and a non matching phone number$/) do
+  send_taxpayer_copy_page.submit_non_matching_phone_text
+  send_representative_copy_page.submit_non_matching_phone_text
+end

@@ -50,4 +50,15 @@ class RepresentativeDetailsPage < BasePage
     representative_details_page.content.email_input.set 'matching@email.com'
     continue_or_save_continue
   end
+
+  def submit_representative_details_without_phone_number
+    representative_details_page.content.first_name_input.set 'John'
+    representative_details_page.content.last_name_input.set 'Smith'
+    representative_details_page.content.address_input.set '102 Petty France'
+    representative_details_page.content.city_input.set 'London'
+    representative_details_page.content.postcode_input.set 'SW1H 9AJ'
+    representative_details_page.content.country_input.set 'UK'
+    representative_details_page.content.email_input.set 'matching@email.com'
+    continue_or_save_continue
+  end
 end

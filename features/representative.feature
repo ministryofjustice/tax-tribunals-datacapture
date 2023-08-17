@@ -48,6 +48,46 @@ Feature: Representative Path
     And submit that my representation is other
     Then I am taken to the representative details page (other)
 
+  Scenario: Submitting no phone number validation error check (email and text)
+    When I select yes
+    Then I see the representative professional status page
+    And I select that the representative is a solicitor
+    And I select that the representative is an individual
+    Then I am taken to the representative details (individual) page
+    And I fill in the details without a phone number and progress to the representative copy page
+    Then I select both email and text message and fill in an email
+    And I am shown a blank phone error
+
+  Scenario: Submitting no phone number validation error check (text)
+    When I select yes
+    Then I see the representative professional status page
+    And I select that the representative is a solicitor
+    And I select that the representative is an individual
+    Then I am taken to the representative details (individual) page
+    And I fill in the details without a phone number and progress to the representative copy page
+    Then I select text message and try and proceed with a blank number
+    And I am shown a blank phone error
+
+  Scenario: Submitting phone number and triggering non matching phone number error (email and text)
+    When I select yes
+    Then I see the representative professional status page
+    And I select that the representative is a solicitor
+    And I select that the representative is an individual
+    Then I am taken to the representative details (individual) page
+    And I fill in the details and progress to the representative copy page
+    And I select both email and text message and fill in an email and a non matching phone number
+    Then I am shown a blank phone error
+
+  Scenario: Submitting phone number and triggering non matching phone number error (text)
+    When I select yes
+    Then I see the representative professional status page
+    And I select that the representative is a solicitor
+    And I select that the representative is an individual
+    Then I am taken to the representative details (individual) page
+    And I fill in the details and progress to the representative copy page
+    And I select text message and fill in an email and a non matching phone number
+    Then I am shown a blank phone error
+
   Scenario: Timeout test - should trigger
     When I wait for 11 minutes
     And I select yes
