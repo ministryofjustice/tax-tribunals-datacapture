@@ -30,12 +30,28 @@ moj.Modules.addressLookup = {
     const self = this;
 
     if($(self.selectors.btn).length) {
-      $(self.selectors.manualAddress).addClass('hide');
+      if(self.checkAddressFields()) {
+        $(self.selectors.manualAddress).addClass('hide');
+      }
       self.bindEvents();
     }
     else {
       $(self.selectors.addressSearch).hide();
     }
+  },
+
+  checkAddressFields: function() {
+    const self = this;
+    const $manualAddress = $(self.selectors.manualAddress);
+    let addressEmpty = true;
+    $.each(self.selectors.addressFields, function(index, fieldSelector) {
+      const $field = $manualAddress.find(fieldSelector);
+      if ($field.val() !== "") {
+        addressEmpty = false;
+        return false;
+      }
+    });
+    return addressEmpty;
   },
 
   bindEvents: function() {
