@@ -95,8 +95,9 @@ module ApplicationHelper
   end
 
   def address_lookup(record:, entity: , &block)
-    if address_lookup_access_token && \
-       !(show_details = address_lookup_details_filled?(record, entity))
+    show_details = address_lookup_details_filled?(record, entity)
+
+    if address_lookup_access_token
       content_for(:form, &block)
       render(
         partial: 'steps/shared/address_lookup',
