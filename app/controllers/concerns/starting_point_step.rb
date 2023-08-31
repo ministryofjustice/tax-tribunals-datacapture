@@ -10,7 +10,7 @@ module StartingPointStep
   def current_tribunal_case
     # Only the step including this concern should create a tribunal case
     # if there isn't one in the session - because it's the first
-    super || initialize_tribunal_case(intent: intent)
+    super || initialize_tribunal_case(intent:)
   end
 
   def update_navigation_stack

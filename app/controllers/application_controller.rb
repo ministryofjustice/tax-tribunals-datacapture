@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize_tribunal_case(attributes = {})
-    TribunalCase.create(attributes).tap do |tribunal_case|
+    TribunalCase.create(**attributes).tap do |tribunal_case|
       session[:tribunal_case_id] = tribunal_case.id
     end
   end

@@ -25,12 +25,12 @@ class Document
 
   def self.for_collection(collection_ref, document_key:)
     Uploader.list_files(
-      collection_ref: collection_ref,
-      document_key: document_key
+      collection_ref:,
+      document_key:
     ).map do |file|
       new(
         name: file.name,
-        collection_ref: collection_ref,
+        collection_ref:,
         last_modified: DateTime.parse(file.properties[:last_modified])
       )
     end.sort

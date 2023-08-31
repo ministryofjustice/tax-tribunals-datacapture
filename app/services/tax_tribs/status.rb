@@ -11,8 +11,8 @@ module TaxTribs
         service_status: service_status,
         version: version,
         dependencies: {
-          glimr_status: glimr_status,
-          database_status: database_status
+          glimr_status:,
+          database_status:
         }
       }
     end

@@ -43,7 +43,7 @@ module Steps::Appeal
       raise 'No TribunalCase given' unless tribunal_case
       tribunal_case.update(
         penalty_level: penalty_level_value,
-        penalty_amount: penalty_amount
+        penalty_amount:
       )
     end
 

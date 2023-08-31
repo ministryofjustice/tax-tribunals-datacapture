@@ -17,7 +17,7 @@ module TaxTribs
       # case_reference could be nil, if GLiMR call failed, but despite this,
       # we want to mark the tribunal case as `submitted`
       tribunal_case.update(
-        case_reference: case_reference,
+        case_reference:,
         case_status: CaseStatus::SUBMITTED
       )
     end

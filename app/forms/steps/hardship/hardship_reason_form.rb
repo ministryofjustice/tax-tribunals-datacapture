@@ -17,7 +17,7 @@ module Steps::Hardship
       raise 'No TribunalCase given' unless tribunal_case
 
       upload_document_if_present && tribunal_case.update(
-        hardship_reason: hardship_reason
+        hardship_reason:
       )
     end
   end

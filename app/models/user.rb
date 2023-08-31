@@ -39,7 +39,7 @@ class User < ApplicationRecord
     # Using `#created_at` as the secondary criteria because `#last_sign_in_at`
     # does not get set until after the first time they have actually signed in.
     # This does *not* automatically happen when they create their account.
-    where(["last_sign_in_at <= :date OR (created_at <= :date AND last_sign_in_at IS NULL)", date: date]).destroy_all
+    where(["last_sign_in_at <= :date OR (created_at <= :date AND last_sign_in_at IS NULL)", date:]).destroy_all
   end
 
   def authenticatable_salt

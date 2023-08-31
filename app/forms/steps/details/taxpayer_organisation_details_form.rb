@@ -22,8 +22,8 @@ module Steps::Details
 
     def persist!
       super(
-        taxpayer_organisation_name:                taxpayer_organisation_name,
-        taxpayer_organisation_fao:                 taxpayer_organisation_fao
+        taxpayer_organisation_name:,
+        taxpayer_organisation_fao:
       )
     end
   end

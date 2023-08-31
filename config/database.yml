@@ -1,8 +1,4 @@
- # This file is only present to fix a Jenkins
-# build error that started to occur after
-# adding devise, but which we could not
-# reproduce on our local machines
-default: &default
+default:
   adapter: postgresql
   database: <%= ENV["DB_NAME"] %>
   username: <%= ENV["DB_USERNAME"] %>
@@ -10,14 +6,30 @@ default: &default
   host: <%= ENV.fetch('DB_HOST', 'localhost') %>
 
 development:
-  <<: *default
+  adapter: postgresql
   database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_development') %>
-test: &test
-  <<: *default
+  username: <%= ENV["DB_USERNAME"] %>
+  password: '<%= ENV["DB_PASSWORD"] %>'
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
+
+test:
+  adapter: postgresql
   database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: '<%= ENV["DB_PASSWORD"] %>'
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
+
 production:
-  <<: *default
+  adapter: postgresql
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: '<%= ENV["DB_PASSWORD"] %>'
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
   sslmode: 'require'
 
 cucumber:
-  <<: *test
+  adapter: postgresql
+  database: <%= ENV.fetch('DB_NAME', 'tt-datacapture_test') %><%= ENV['TEST_ENV_NUMBER'] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: '<%= ENV["DB_PASSWORD"] %>'
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>

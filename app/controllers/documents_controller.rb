@@ -6,7 +6,7 @@ class DocumentsController < ApplicationController
   def create
     # document_key is always :supporting_documents for this action because only the multi-upload POSTs end up here
     # (the other places with upload functionality post to their own controllers)
-    uploader = DocumentUpload.new(document_param, document_key: :supporting_documents, collection_ref: collection_ref)
+    uploader = DocumentUpload.new(document_param, document_key: :supporting_documents, collection_ref:)
     uploader.upload! if uploader.valid?
 
     respond_with(uploader, location: current_step_path) do |format|
@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
 
   def destroy
     Uploader.delete_file(
-      collection_ref: collection_ref,
+      collection_ref:,
       document_key: document_key_param,
       filename: decoded_filename
     )

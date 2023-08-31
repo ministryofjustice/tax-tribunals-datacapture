@@ -18,7 +18,7 @@ class TaxTribs::SaveCaseForLater
   private
 
   def claim_case_ownership
-    tribunal_case.update(user: user)
+    tribunal_case.update(user:)
     NotifyMailer.new_case_saved_confirmation(tribunal_case).deliver_later
     @email_sent = true
   end

@@ -5,7 +5,7 @@ class ApplicationRecord < ActiveRecord::Base
     composed_of value_object,
       allow_nil:   true,
       mapping:     [[value_object.to_s, 'value']],
-      constructor: constructor,
-      class_name:  class_name
+      constructor:,
+      class_name:
   end
 end

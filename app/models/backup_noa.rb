@@ -2,10 +2,10 @@ class BackupNoa < ApplicationRecord
   def self.keep_noa(collection_ref:, folder:, filename:, data:)
     if is_noa?(filename)
       create(
-        collection_ref: collection_ref,
-        folder: folder,
-        filename: filename,
-        data: data
+        collection_ref:,
+        folder:,
+        filename:,
+        data:
       )
       Rails.logger.info("[BACKUP_NOA] - saving NOA file #{filename}")
     else

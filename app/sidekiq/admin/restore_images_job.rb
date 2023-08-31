@@ -25,7 +25,7 @@ class Admin::RestoreImagesJob
         document_key: folder,
         filename: "restored_#{filename}",
         content_type: MimeMagic.by_path(name).try(:type),
-        collection_ref: collection_ref
+        collection_ref:
       )
 
       uploader.upload! if uploader.valid?

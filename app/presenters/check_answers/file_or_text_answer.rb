@@ -3,7 +3,7 @@ module CheckAnswers
     attr_reader :file
 
     def initialize(question, value, file, change_path: nil)
-      super(question, value, change_path: change_path)
+      super(question, value, change_path:)
       @file = file
     end
 

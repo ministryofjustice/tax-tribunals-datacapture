@@ -23,9 +23,9 @@ module Steps::Details
 
     def persist!
       super(
-        taxpayer_individual_first_name: taxpayer_individual_first_name,
-        taxpayer_individual_last_name: taxpayer_individual_last_name,
-        taxpayer_feedback_consent: taxpayer_feedback_consent
+        taxpayer_individual_first_name:,
+        taxpayer_individual_last_name:,
+        taxpayer_feedback_consent:
       )
     end
   end
