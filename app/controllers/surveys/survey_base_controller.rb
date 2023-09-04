@@ -7,7 +7,7 @@ module Surveys
     end
 
     def create
-      @form_object = form_object_class.new(survey_params)
+      @form_object = form_object_class.new(**survey_params)
 
       if @form_object.save
         redirect_to action: :thanks

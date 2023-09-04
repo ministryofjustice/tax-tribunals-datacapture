@@ -44,7 +44,7 @@ class StepController < ApplicationController
 
     @next_step   = params[:next_step].presence
     @form_object = form_class.new(
-      hash.merge(tribunal_case: current_tribunal_case)
+      **hash.merge(tribunal_case: current_tribunal_case).symbolize_keys
     )
 
     if @form_object.save

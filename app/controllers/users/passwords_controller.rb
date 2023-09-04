@@ -8,7 +8,7 @@ module Users
     def create
       email = params[:user][:email]
       unless email.empty?
-        user = User.find_by(email: email)
+        user = User.find_by(email:)
         if (Time.zone.now.to_f - user&.reset_password_sent_at.to_f) < 3
           redirect_to users_password_reset_sent_path and return
         end

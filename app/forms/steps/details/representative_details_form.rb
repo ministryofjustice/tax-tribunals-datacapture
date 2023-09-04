@@ -60,12 +60,12 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update({
-        representative_contact_address:  representative_contact_address,
-        representative_contact_postcode: representative_contact_postcode,
-        representative_contact_city:     representative_contact_city,
-        representative_contact_country:  representative_contact_country,
-        representative_contact_email:    representative_contact_email,
-        representative_contact_phone:    representative_contact_phone
+        representative_contact_address:,
+        representative_contact_postcode:,
+        representative_contact_city:,
+        representative_contact_country:,
+        representative_contact_email:,
+        representative_contact_phone:
       }.merge(additional_attributes))
     end
   end

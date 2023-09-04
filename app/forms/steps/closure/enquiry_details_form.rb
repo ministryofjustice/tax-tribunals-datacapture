@@ -23,9 +23,9 @@ module Steps::Closure
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update(
-        closure_hmrc_reference: closure_hmrc_reference,
-        closure_hmrc_officer: closure_hmrc_officer,
-        closure_years_under_enquiry: closure_years_under_enquiry
+        closure_hmrc_reference:,
+        closure_hmrc_officer:,
+        closure_years_under_enquiry:
       )
     end
   end

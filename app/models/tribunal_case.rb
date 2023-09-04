@@ -50,7 +50,7 @@ class TribunalCase < ApplicationRecord
   end
 
   def self.latest_case(user)
-    where(user: user).order(created_at: :desc).first
+    where(user:).order(created_at: :desc).first
   end
 
   def documents(document_key)

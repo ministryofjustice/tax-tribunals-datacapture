@@ -4,8 +4,8 @@ module Steps::Details
       @form_object = SendApplicationDetailsForm.new(
         tribunal_case: current_tribunal_case,
         send_application_details: current_tribunal_case.send_representative_copy,
-        email_address: email_address,
-        phone_number: phone_number,
+        email_address:,
+        phone_number:,
         send_to: UserType::REPRESENTATIVE
       )
     end

@@ -63,12 +63,12 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update({
-        taxpayer_contact_address:  taxpayer_contact_address,
-        taxpayer_contact_postcode: taxpayer_contact_postcode,
-        taxpayer_contact_city:     taxpayer_contact_city,
-        taxpayer_contact_country:  taxpayer_contact_country,
-        taxpayer_contact_email:    taxpayer_contact_email,
-        taxpayer_contact_phone:    taxpayer_contact_phone
+        taxpayer_contact_address:,
+        taxpayer_contact_postcode:,
+        taxpayer_contact_city:,
+        taxpayer_contact_country:,
+        taxpayer_contact_email:,
+        taxpayer_contact_phone:
       }.merge(additional_attributes))
     end
   end

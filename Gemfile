@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.8'
+ruby '3.1.4'
 
 gem 'azure_env_secrets', github: 'ministryofjustice/azure_env_secrets', tag: 'v0.1.3'
 gem 'bootsnap',                        '1.7.3', require: false
@@ -12,9 +12,9 @@ gem 'govuk_design_system_formbuilder', '~> 2.5'
 gem 'govuk_notify_rails',              '~> 2.1'
 gem 'jquery-rails',                    '4.4.0'
 gem 'nokogiri',                        '~> 1.14.3'
-gem 'pg',                              '1.2.3'
-gem 'pry-rails',                       '0.3.9'
-gem 'puma',                            '~> 5.6'
+gem 'pg'                              
+gem 'pry-rails'
+gem 'puma',                            '~> 6.3'
 gem 'rack-attack',                     '~> 5.4.2'
 gem 'rails',                           '~> 6.0.4.6'
 gem 'responders',                      '3.0.1'
@@ -73,16 +73,16 @@ group :development, :test do
   gem 'faker',                         '2.20.0'
   gem 'launchy',                       '2.5.0'
   gem 'mutant-rspec',                  '0.10.29'
-  gem 'pry-byebug',                    '3.9.0'
+  gem 'pry-byebug'
   gem 'timecop', '0.9.4'
   gem 'rspec-rails', '5.0.1'
-  gem 'rubocop', '~> 1', '1.12.1', require: false
-  gem 'rubocop-performance', '1.10.2', require: false
-  gem 'rubocop-rspec', '2.2.0', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
-  gem 'brakeman', '5.0.4'
+  gem 'brakeman'
   gem 'apparition', '0.6.0'
   gem 'capybara', '3.35.3'
   gem 'capybara-screenshot' , '1.0.25'

@@ -10,7 +10,7 @@ module Steps::Shared
       raise 'No TribunalCase given' unless tribunal_case
 
       tribunal_case.update(
-        eu_exit: eu_exit
+        eu_exit:
       )
     end
   end

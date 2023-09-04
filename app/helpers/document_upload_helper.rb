@@ -8,10 +8,10 @@ module DocumentUploadHelper
     render(
       partial: 'steps/shared/document_upload/document_upload_field',
       locals: {
-        form:       form,
+        form:,
         field_name: document_field(document_key),
-        label_text: label_text,
-        paragraph_text: paragraph_text
+        label_text:,
+        paragraph_text:
       }
     )
   end
@@ -25,7 +25,7 @@ module DocumentUploadHelper
       partial: 'steps/shared/document_upload/current_document',
       locals: {
         current_document: uploaded_document(document_key),
-        document_key: document_key
+        document_key:
       }
     )
   end

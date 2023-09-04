@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Uploader::AddFile do
 
-  subject { described_class.new(params).call }
+  subject { described_class.new(**params).call }
 
   before do
     allow_any_instance_of(Azure::Storage::Blob::BlobService).

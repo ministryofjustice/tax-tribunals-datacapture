@@ -12,7 +12,7 @@ module Steps::Appeal
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      tribunal_case.update(tax_amount: tax_amount)
+      tribunal_case.update(tax_amount:)
     end
   end
 end

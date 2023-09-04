@@ -28,9 +28,9 @@ module Steps::Details
 
     def persist!
       super(
-        representative_individual_first_name: representative_individual_first_name,
-        representative_individual_last_name: representative_individual_last_name,
-        representative_feedback_consent: representative_feedback_consent
+        representative_individual_first_name:,
+        representative_individual_last_name:,
+        representative_feedback_consent:
       )
     end
   end

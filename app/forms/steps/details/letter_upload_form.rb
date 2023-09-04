@@ -29,7 +29,7 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
 
       upload_document_if_present && tribunal_case.update(
-        having_problems_uploading: having_problems_uploading,
+        having_problems_uploading:,
         having_problems_uploading_explanation: having_problems_uploading ? having_problems_uploading_explanation : nil
       )
     end

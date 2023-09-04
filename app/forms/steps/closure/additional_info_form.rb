@@ -15,7 +15,7 @@ module Steps::Closure
       raise 'No TribunalCase given' unless tribunal_case
 
       upload_document_if_present && tribunal_case.update(
-        closure_additional_info: closure_additional_info
+        closure_additional_info:
       )
     end
   end

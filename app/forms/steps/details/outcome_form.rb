@@ -8,7 +8,7 @@ module Steps::Details
 
     def persist!
       raise 'No TribunalCase given' unless tribunal_case
-      tribunal_case.update(outcome: outcome)
+      tribunal_case.update(outcome:)
     end
   end
 end

@@ -37,7 +37,7 @@ module DocumentAttachable
   def upload_document_if_present
     return true if document.nil?
 
-    document.upload!(document_key: document_key, collection_ref: tribunal_case.files_collection_ref)
+    document.upload!(document_key:, collection_ref: tribunal_case.files_collection_ref)
     retrieve_document_errors
 
     errors.empty?

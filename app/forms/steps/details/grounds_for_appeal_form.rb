@@ -17,7 +17,7 @@ module Steps::Details
       raise 'No TribunalCase given' unless tribunal_case
 
       upload_document_if_present && tribunal_case.update(
-        grounds_for_appeal: grounds_for_appeal
+        grounds_for_appeal:
       )
     end
   end

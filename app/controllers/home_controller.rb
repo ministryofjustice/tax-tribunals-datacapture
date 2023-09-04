@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
   def cookies
     @form_object = Cookie::SettingForm.new(
-      request: request
+      request:
     )
   end
 
@@ -27,8 +27,8 @@ class HomeController < ApplicationController
 
   def update
     Cookie::SettingForm.new(
-      cookie_setting: cookie_setting,
-      response: response
+      cookie_setting:,
+      response:
     ).save
     flash[:cookie_notification] = cookie_notification
     redirect_to request.referer

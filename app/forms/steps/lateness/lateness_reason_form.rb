@@ -21,7 +21,7 @@ module Steps::Lateness
       raise 'No TribunalCase given' unless tribunal_case
 
       upload_document_if_present && tribunal_case.update(
-        lateness_reason: lateness_reason
+        lateness_reason:
       )
     end
   end

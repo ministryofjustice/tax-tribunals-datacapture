@@ -23,9 +23,9 @@ module Steps::Details
 
     def persist!
       super(
-        representative_organisation_name:                representative_organisation_name,
-        representative_organisation_registration_number: representative_organisation_registration_number,
-        representative_organisation_fao:                 representative_organisation_fao
+        representative_organisation_name:,
+        representative_organisation_registration_number:,
+        representative_organisation_fao:
       )
     end
   end
