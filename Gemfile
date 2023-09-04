@@ -82,7 +82,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'brakeman', '5.0.4'
+  gem 'brakeman'
   gem 'apparition', '0.6.0'
   gem 'capybara', '3.35.3'
   gem 'capybara-screenshot' , '1.0.25'
