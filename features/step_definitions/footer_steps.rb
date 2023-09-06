@@ -35,7 +35,7 @@ Then("I am on the Cookies page") do
 end
 
 Then("I am on the Privacy policy page") do
-  expect(page).to have_selector('h1', text: I18n.t('privacy.header'))
+  expect(page).to have_selector('h1', text:I18n.t('privacy.header'))
 end
 
 Then("I am on the Accessibility statement page") do
