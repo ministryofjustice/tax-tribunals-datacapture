@@ -5,7 +5,7 @@
     <h1 class="govuk-heading-l"><%= t 'privacy.header' %></h1>
     <span><%= t('privacy.last_update').html_safe %></span>
     <p class="govuk-body"><%= t 'privacy.info_1' %></cite></p>
-    <p class="govuk-body"><%= t('privacy.info_2', { call_charges: call_charges_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.info_2').html_safe %></p>
 
     <ul class="govuk-list">
       <li><a href="#who_managing" class="govuk-link" title=""><%= t 'privacy.section_list.who_managing' %></a></li>
@@ -20,9 +20,9 @@
 
     <h1 id="who_managing" class="govuk-heading-l"><%= t 'privacy.who_managing.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.who_managing.line_1' %></p>
-    <p class="govuk-body"><%= t('privacy.who_managing.line_2', { moj_personal_character: moj_personal_character_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.who_managing.line_2').html_safe %></p>
     <p class="govuk-body"><%= t 'privacy.who_managing.line_3' %></p>
-    <p class="govuk-body"><%= t('privacy.who_managing.line_4', { terms_condition: terms_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.who_managing.line_4').html_safe %></p>
 
     <h1 id="why_collect" class="govuk-heading-l"><%= t 'privacy.why_collect.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.why_collect.line_1' %></p>
@@ -63,20 +63,20 @@
     <p class="govuk-body"><%= t 'privacy.personal_data.befor_you_submit.line_2' %></p>
 
     <strong><%= t 'privacy.personal_data.using_save_return.header' %></strong>
-    <p class="govuk-body"><%= t('privacy.personal_data.using_save_return.line_1', { how_we_use: how_we_use_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.personal_data.using_save_return.line_1').html_safe %></p>
 
     <strong><%= t 'privacy.personal_data.case_details_email.header' %></strong>
-    <p class="govuk-body"><%= t('privacy.personal_data.case_details_email.line_1', { how_we_use: how_we_use_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.personal_data.case_details_email.line_1').html_safe %></p>
 
     <strong><%= t 'privacy.personal_data.after_you_submit.header' %></strong>
     <p class="govuk-body"><%= t 'privacy.personal_data.after_you_submit.line_1' %></p>
     <p class="govuk-body"><%= t 'privacy.personal_data.after_you_submit.line_2' %></p>
-    <p class="govuk-body"><%= t('privacy.personal_data.after_you_submit.line_3', { call_charges: call_charges_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.personal_data.after_you_submit.line_3').html_safe %></p>
 
     <h1 id="how_we_use" class="govuk-heading-l"><%= t 'privacy.how_we_use.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.how_we_use.line_1' %></p>
-    <p class="govuk-body"><%= t('privacy.how_we_use.line_2', { govuk_notify: govuk_notify_link }).html_safe %></p>
-    <p class="govuk-body"><%= t('privacy.how_we_use.line_3', { use_cookies: use_cookies_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_use.line_2').html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_use.line_3').html_safe %></p>
 
     <ul class="standard-list">
       <li><%= t 'privacy.how_we_use.list_1' %></li>
@@ -86,11 +86,11 @@
 
     <h1 id="how_we_store" class="govuk-heading-l"><%= t 'privacy.how_we_store.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.how_we_store.line_1' %></p>
-    <p class="govuk-body"><%= t('privacy.how_we_store.line_2', { azure_terms: azure_terms_link}).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_store.line_2').html_safe %></p>
     <p class="govuk-body"><%= t 'privacy.how_we_store.line_3' %></p>
     <p class="govuk-body"><%= t 'privacy.how_we_store.line_4' %></p>
     <p class="govuk-body"><%= t 'privacy.how_we_store.line_5' %></p>
-    <p class="govuk-body"><%= t('privacy.how_we_store.line_6', { how_to_access: how_to_access_link }).html_safe  %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_store.line_6').html_safe  %></p>
     <strong><%= t 'privacy.how_we_store.storing_save_return.header' %></strong>
     <p class="govuk-body"><%= t 'privacy.how_we_store.storing_save_return.line_1' %></p>
     <p class="govuk-body"><%= t 'privacy.how_we_store.storing_save_return.line_2' %></p>
@@ -101,7 +101,7 @@
     <h1 id="how_we_share" class="govuk-heading-l"><%= t 'privacy.how_we_share.header' %></h1>
     <p class="govuk-body"><%= t 'privacy.how_we_share.line_1' %></p>
     <p class="govuk-body"><%= t 'privacy.how_we_share.line_2' %></p>
-    <p class="govuk-body"><%= t('privacy.how_we_share.line_3', { google_privacy: google_privacy_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_we_share.line_3').html_safe %></p>
 
     <h1 id="how_to_access" class="govuk-heading-l"><%= t 'privacy.how_to_access.header' %></h1>
     <strong><%= t 'privacy.how_to_access.your_rights.header' %></strong>
@@ -132,7 +132,7 @@
     </ul><br />
 
     <strong><%= t 'privacy.how_to_access.access.header' %></strong>
-    <p class="govuk-body"><%= t('privacy.how_to_access.access.line_1', { subject_access: subject_access_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_to_access.access.line_1').html_safe %></p>
     <ul>
       <li><%= t 'privacy.how_to_access.access.address.header' %></li>
       <li><%= t 'privacy.how_to_access.access.address.post_point' %></li>
@@ -142,8 +142,8 @@
     </ul><br/>
 
     <strong><%= t 'privacy.how_to_access.complaints.header' %></strong>
-    <p class="govuk-body"><%= t('privacy.how_to_access.complaints.line_1', { complaints_procedure: complaints_procedure_link }).html_safe %></p>
-    <p class="govuk-body"><%= t('privacy.how_to_access.complaints.line_2', { information_office: information_office_link }).html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_to_access.complaints.line_1').html_safe %></p>
+    <p class="govuk-body"><%= t('privacy.how_to_access.complaints.line_2').html_safe %></p>
     <ul>
       <li><%= t 'privacy.how_to_access.complaints.address.header' %></li>
       <li><%= t 'privacy.how_to_access.complaints.address.post_point' %></li>
@@ -161,7 +161,7 @@
     <p class="govuk-body"><%= t 'privacy.cookies.line_1' %></p>
     <p class="govuk-body"><%= t 'privacy.cookies.line_2' %></p>
     <p class="govuk-body"><%= t 'privacy.cookies.line_3' %></p>
-    <p class="govuk-body"><%= t('privacy.cookies.line_4', { cookies: cookies_page_link }).html_safe  %></p>
+    <p class="govuk-body"><%= t('privacy.cookies.line_4').html_safe  %></p>
   </div>
 </div>
 
