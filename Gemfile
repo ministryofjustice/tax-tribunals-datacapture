@@ -31,7 +31,7 @@ gem 'sprockets',                       '3.7.2'
 gem 'rest-client',                     '2.0.2'
 
 # Admin
-gem 'sidekiq',                         '6.4.1'
+gem 'sidekiq',                         '7.1.3'
 gem 'sidekiq-batch',                   '0.1.6'                   
 gem 'sidekiq_alive',                   '2.1.4'
 
